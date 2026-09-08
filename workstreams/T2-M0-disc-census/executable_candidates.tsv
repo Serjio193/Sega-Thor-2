@@ -1,0 +1,34 @@
+path	sha256	classification	confidence	candidate_load_start	candidate_load_end	evidence	next_verification
+0TH2.BIN	c1cc4117870bc567386410aa2d4f1b5f03fb98a601be71bb3ae2155de1853c64	PROBABLE_CODE	HIGH	0x06004000	0x06086BFF	Saturn header first_read_address is 0x06004000; file is first ISO9660 record and begins with dense SH-2-like code	dynamic execution trace from boot
+TH2.LOW	781396898191921b486be751163aea493ef9b1abcb55c0ab8698df9c69211224	PROBABLE_CODE	HIGH	0x002DA000	0x002FE7FF	0TH2.BIN static sequence loads R5=0x002DA000, R4=pointer to TH2.LOW string, R3=0x0600A0F8 then JSR @R3; mapped public Low-WRAM anchors fall inside file and contain SH-2-like code	dynamic write/load provenance plus execution trace
+ARELE.BIN	7bdd82ae2290af28f82cadc5db1c3d1ce49b7ddb80a7e9239c75411df0d090f8	UNKNOWN	UNKNOWN			No executable provenance established	trace loader/consumer if needed
+BAW.BIN	5fe0d8afec78951e24088c1251bdd699c3f60df2a2ed94e17fecdba4b22e2f3c	UNKNOWN	UNKNOWN			No executable provenance established	trace loader/consumer if needed
+BGM.BIN	c1d11d5386eaffbd4ca6443c3de615312a71cc678ba4d76c2c9d6035acf9a8f6	UNKNOWN	UNKNOWN			No executable provenance established	trace loader/consumer if needed
+BRAS.BIN	7bb24b3b569e362bd7c5edc9df67bdc6edda5b88dfd7e6947a777f62275c00f3	UNKNOWN	UNKNOWN			No executable provenance established	trace loader/consumer if needed
+CDDA1.	e5a00aa9991ac8a5ee3109844d84a55583bd20572ad3ffcd42792f3c36b183ad	UNKNOWN	UNKNOWN			No executable provenance established	trace loader/consumer if needed
+CHR.BIN	92155dad4736528828804b6e1235e5ce84f2a3d4465c871f04233d61df378149	UNKNOWN	UNKNOWN			No executable provenance established	trace loader/consumer if needed
+CPK0.BIN	654653235c08b4cb8bc8afe962940e4473c080818a06247ce8a9da0cb686b821	UNKNOWN	UNKNOWN			No executable provenance established	trace loader/consumer if needed
+CPK1.BIN	ca17ceacbfee43f3e295a23aa03cd69cfa6224b7e192509b1235e9d314a3aa49	UNKNOWN	UNKNOWN			No executable provenance established	trace loader/consumer if needed
+CPK2.BIN	65b57c5809e79b43057fcff95d2502bda6c9a68da69be5ad5ad636d76ae32923	UNKNOWN	UNKNOWN			No executable provenance established	trace loader/consumer if needed
+DIT.BIN	d553e31b2c76fc9f00fe72f422d401e04cdd34d2d85146ed6f08dc0432c16ab3	UNKNOWN	UNKNOWN			No executable provenance established	trace loader/consumer if needed
+ED.BIN	a7d986f09f923d28cb4ae699235377ea5d23ce244b69a65c99e4595920276a47	UNKNOWN	UNKNOWN			No executable provenance established	trace loader/consumer if needed
+EFREET.BIN	caa4bba0d2cf6192bde4fbc16a371e0b0fb7a65b8f923d85df1dba56a4cc3dc0	UNKNOWN	UNKNOWN			No executable provenance established	trace loader/consumer if needed
+MAP.BIN	88648a0830fb60ca752238d8dad422edbde40c1d91239e4d01aad28b32e64850	UNKNOWN	UNKNOWN			No executable provenance established	trace loader/consumer if needed
+MONS.BIN	b26e6bd4ab537bd5fbb6986b60faffa5f89f643b9d9a82897bb110a4f4ecb156	UNKNOWN	UNKNOWN			No executable provenance established	trace loader/consumer if needed
+P0.BIN	5b0d456a4efa8ffac398ca0744a8eadff98dccef8d0769d0c031d7029e3872b6	UNKNOWN	UNKNOWN			No executable provenance established	trace loader/consumer if needed
+P1.BIN	8a8640811ac3a64274972af7068068874c11ed031d258cbae6ee5fac053e46cc	UNKNOWN	UNKNOWN			No executable provenance established	trace loader/consumer if needed
+P2.BIN	e034f9c08bf2107d33908c4239f06b4338a1add835801b39d96114bcd5a2f233	UNKNOWN	UNKNOWN			No executable provenance established	trace loader/consumer if needed
+P3.BIN	bd579e3141ee493248887a7ff1b9c5408f67c813320fd15eedbfb17fa14aa371	UNKNOWN	UNKNOWN			No executable provenance established	trace loader/consumer if needed
+P4.BIN	64c8986742e955d285a0fcb3751e632492a6518e2f48d5fab9f672cbfc21d677	UNKNOWN	UNKNOWN			No executable provenance established	trace loader/consumer if needed
+SET00.BIN	54c1605370794d9ef84f24f3c3f9d8eccd9b547c912e5904dd4e5f19227893e0	UNKNOWN	UNKNOWN			No executable provenance established	trace loader/consumer if needed
+SET01.BIN	33a5781afeac396459be438a6766da3b10c8185b955fce16cb74e1f012f457a2	UNKNOWN	UNKNOWN			No executable provenance established	trace loader/consumer if needed
+SET02.BIN	314fc995a17bd2dfdd04362e76ced75a638f7565b8e4434770ea4e0216fdea4e	UNKNOWN	UNKNOWN			No executable provenance established	trace loader/consumer if needed
+SET03.BIN	7564f43a460f136196b14e53dd09bb9aa44ffad5cefb9d7ed72983e3c3ebb08a	UNKNOWN	UNKNOWN			No executable provenance established	trace loader/consumer if needed
+SET04.BIN	6b9603174268e5979f9eddf402fa66001bc257fab621066b23b508c3f7b83c68	UNKNOWN	UNKNOWN			No executable provenance established	trace loader/consumer if needed
+SET05.BIN	e005468400cdc3b32311d1ee75cc1fb57202197dd1f656a8951b14bb97d95d5c	UNKNOWN	UNKNOWN			No executable provenance established	trace loader/consumer if needed
+SET06.BIN	0bd204ce1619be980cc77055b18d1ed186fabe3c05365f63643229ae1e723328	UNKNOWN	UNKNOWN			No executable provenance established	trace loader/consumer if needed
+SET07.BIN	bb6072222e19f8cb68934cbdb94e7d187c67680bb9e167524f85579ee6bc0af6	UNKNOWN	UNKNOWN			No executable provenance established	trace loader/consumer if needed
+SHADE.BIN	7e7e6249e9e228acc302cfe5280815ebfbe7ae60c25fef9948b02bfce8485e3a	UNKNOWN	UNKNOWN			No executable provenance established	trace loader/consumer if needed
+TH2_ABST.TXT	c29fb93301e1c99d1c1023894f322f8a1dcab655706b8f30d1e6269e43ead611	PROBABLE_DATA	HIGH			Tiny ISO text file; not an executable candidate	no action unless referenced by runtime
+TH2_BIBL.TXT	04a9ca64c6b8b9e05c5e25d55083035ca0a811c211ba3a08ff0067d7cec9dbff	PROBABLE_DATA	HIGH			Tiny ISO text file; not an executable candidate	no action unless referenced by runtime
+TH2_CPYR.TXT	31040ef5c937ed3bfc5a3d10c01d8f26156d9cca071d8d5ebd029ab20d62b74b	PROBABLE_DATA	HIGH			Tiny ISO text file; not an executable candidate	no action unless referenced by runtime

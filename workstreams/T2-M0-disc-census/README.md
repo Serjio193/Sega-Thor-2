@@ -1,64 +1,81 @@
 # T2-M0 — Canonical Disc + Executable/Module Census
 
-Status: **ACTIVE**
-
-## Why
-
-Every later address, disassembly, trace, module hypothesis, and recompilation test must be tied to a reproducible binary revision. The currently supplied image is visibly patched for NTSC, so external PAL/US/JP addresses cannot be imported blindly.
+Status: **DONE**
 
 ## Hypothesis
 
 We can deterministically derive a legal-safe identity/manifest layer from the private disc image and use it as bedrock for later reverse engineering.
 
-## Inputs
+## Result
 
-Private, outside GitHub:
+**PASS.**
 
-- Thor 2 CUE/BIN image supplied by the project owner;
-- current logical laboratory location: `Thor2/RE_Work` on connected Google Drive.
+Two independent census executions produced identical manifest and summary outputs.
 
-## Tasks
+Confirmed revision: `thor2_ntsc_patched_fe11d2fb`.
 
-1. Record CUE/track geometry.
-2. Parse Saturn boot header.
-3. Enumerate ISO9660 files with LBA/size.
-4. Extract files privately.
-5. Compute SHA-256 for disc image components and extracted files.
-6. Classify executable candidates without assuming every `.BIN` is code.
-7. Record candidate expected load addresses when evidence exists.
-8. Search extracted files for direct correspondence to known runtime code only as a revision-mapping experiment.
-9. Produce legal-safe manifest/config in `config/revisions/`.
-10. Store commercial extracted bytes only in private workspace.
+## Method
+
+Rather than persist extracted retail files, the final M0 method hashes logical ISO9660 extents directly from the private raw `MODE1/2352` image. This provides the same stable per-file identity while reducing duplicated commercial data.
+
+Tool: `tools/disc/census_saturn_cd.py`.
+
+Tests: `tests/test_census_saturn_cd.py`.
+
+## Public/legal-safe outputs
+
+- `config/revisions/thor2_ntsc_patched_fe11d2fb.yaml`
+- `disc_manifest.tsv`
+- `executable_candidates.tsv`
+- `static_load_evidence.md`
+- updates to `docs/PROJECT_STATE.md` and `docs/REVERSE_ENGINEERING.md`
+
+## Key findings
+
+### Disc
+
+- image SHA-256: `fe11d2fbda58d63300ef2265c555ce05bddf14d69fb7b73fc409e25c0ef6c0a8`
+- CUE SHA-256: `afc0b101bbb493adbd43fd44ffd76959484d67cf0b566137dd145f1c68d411e0`
+- 52,224 raw sectors
+- 33 ISO9660 files
+- manifest SHA-256: `19b56fd0fefa42c23edac055cd5e817a7a4834b7d7b423cef15a27de4bc80f49`
+
+### Main executable candidate
+
+`0TH2.BIN`:
+
+- size `0x82C00`
+- SHA-256 `c1cc4117870bc567386410aa2d4f1b5f03fb98a601be71bb3ae2155de1853c64`
+- candidate base `0x06004000`
+- status `PROBABLE_CODE / HIGH`
+
+### Low Work RAM candidate
+
+`TH2.LOW`:
+
+- size `0x24800`
+- SHA-256 `781396898191921b486be751163aea493ef9b1abcb55c0ab8698df9c69211224`
+- candidate base `0x002DA000`
+- candidate end `0x002FE7FF`
+- status `PROBABLE_CODE / HIGH`
+
+Static call-site evidence is documented separately. Runtime load/execution remains deliberately unconfirmed.
 
 ## Acceptance criteria
 
-- A second clean extraction produces the same file list and hashes.
-- Boot metadata is reproducible.
-- Every committed executable candidate references a file hash, not just a filename.
-- Claims distinguish observed facts from hypotheses.
-- No commercial bytes are committed.
-- The exact next experiment is identified after the census.
+- [x] reproducible disc identity
+- [x] reproducible boot metadata
+- [x] complete legal-safe file manifest
+- [x] SHA-256 for every ISO9660 file
+- [x] second independent census produced identical output
+- [x] executable candidates are confidence-scored rather than inferred from extension
+- [x] load addresses recorded only where evidence exists
+- [x] legal-safe revision config produced
+- [x] no retail file content committed
+- [x] exact next experiment stated
 
-## Expected outputs
+## Next experiment
 
-Public/legal-safe:
+`T2-M1 — SaturnAutoRE dynamic-oracle validation`.
 
-```text
-config/revisions/<revision>.yaml
-workstreams/T2-M0-disc-census/disc_manifest.tsv
-workstreams/T2-M0-disc-census/executable_candidates.tsv
-docs/REVERSE_ENGINEERING.md updates
-```
-
-Private:
-
-```text
-extracted disc files
-IP/boot raw bytes
-raw hash inventories if they contain private paths
-binary comparison artifacts
-```
-
-## Current preliminary facts
-
-See `docs/PROJECT_STATE.md`. They remain preliminary until this workstream passes.
+The first dynamic target should verify one deterministic runtime claim, preferably the `TH2.LOW` write/load provenance or another bounded known Thor 2 anchor.

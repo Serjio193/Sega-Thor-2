@@ -1,0 +1,42 @@
+id: thor2_ntsc_patched_fe11d2fb
+status: confirmed_substrate
+
+source:
+  note: "Private project-owner disc image; commercial bytes are not stored in GitHub."
+  image_sha256: fe11d2fbda58d63300ef2265c555ce05bddf14d69fb7b73fc409e25c0ef6c0a8
+  image_size: 122830848
+  cue_sha256: afc0b101bbb493adbd43fd44ffd76959484d67cf0b566137dd145f1c68d411e0
+  sector_format: MODE1/2352
+  sector_count: 52224
+
+iso9660:
+  volume_id: "THE STORY OF THOR 2"
+  file_count: 33
+  manifest: "../../workstreams/T2-M0-disc-census/disc_manifest.tsv"
+  manifest_sha256: 19b56fd0fefa42c23edac055cd5e817a7a4834b7d7b423cef15a27de4bc80f49
+
+saturn_header:
+  hardware_id: "SEGA SEGASATURN"
+  maker_id: "SEGA ENTERPRISES"
+  product_code: "MK-81302"
+  version: "V1.000"
+  date: "19960618"
+  disc_info: "CD-1/1"
+  regions: "JTU"
+  peripherals: "J"
+  title: "THE STORY OF      THOR 2 (patched for NTSC)"
+  ip_size: 0x00001000
+  master_stack: 0x06001000
+  slave_stack: 0x06002000
+  first_read_address: 0x06004000
+  first_read_size: 0x00000000
+
+reproducibility:
+  independent_census_runs: 2
+  manifest_outputs_identical: true
+  summary_outputs_identical: true
+  census_tool: "tools/disc/census_saturn_cd.py"
+
+notes:
+  - "Revision identity is confirmed by hashes; semantic labels such as language/patch lineage are not inferred beyond header/filename evidence."
+  - "Executable load/behavior claims remain separately confidence-scored."

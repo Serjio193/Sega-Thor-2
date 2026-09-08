@@ -2,24 +2,24 @@
 
 ## M0 — Canonical substrate
 
-Status: **ACTIVE**
+Status: **COMPLETE**
 
-Deliverables:
+Evidence:
 
-- reproducible disc identity;
-- file manifest and hashes;
-- boot metadata;
-- executable-candidate census;
-- first load/provenance hypotheses;
-- legal-safe metadata committed to GitHub.
-
-Exit gate: repeated extraction produces identical manifest/hashes and all claims are revision-scoped.
+- revision `thor2_ntsc_patched_fe11d2fb` confirmed by hashes;
+- 33-file ISO9660 manifest reproduced identically twice;
+- executable candidates and static load evidence recorded;
+- census tool and synthetic tests committed.
 
 ## M1 — Dynamic oracle experiment
 
-Status: `PROPOSED`
+Status: `PROPOSED — NEXT`
 
-Evaluate SaturnAutoRE/Mednafen on one deterministic Thor 2 observation.
+Evaluate `AJBats/SaturnAutoRE`/instrumented Mednafen on exactly one deterministic Thor 2 runtime claim.
+
+First preferred claim: observe `TH2.LOW` provenance into the `0x002DA000..0x002FE7FF` candidate range and later instruction fetch from that range.
+
+No SaturnAutoRE component is adopted until this bounded experiment passes.
 
 ## M2 — Module/provenance experiment
 
