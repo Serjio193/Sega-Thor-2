@@ -1,0 +1,50 @@
+# Commercial inputs and local/private laboratory data
+*.bin
+*.BIN
+*.cue
+*.CUE
+*.iso
+*.ISO
+*.chd
+*.CHD
+*.mdf
+*.mds
+*.ccd
+*.img
+*.sub
+
+# Save states / emulator state
+*.state
+*.sav
+*.mcr
+*.mc0
+*.mc1
+*.bkr
+
+# Raw dumps and traces
+*.dmp
+*.dump
+*.trace
+*.pcap
+*.raw
+
+# Local laboratory directories
+local-roms/
+disc/
+extracted/
+dumps/
+traces/raw/
+ghidra-projects/
+private/
+RE_Work/
+
+# Build/editor noise
+build/
+out/
+.cache/
+__pycache__/
+*.pyc
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
