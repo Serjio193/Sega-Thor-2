@@ -4,7 +4,10 @@ Current repository topology and ownership.
 
 ```text
 README.md                         project entry point
-AGENTS.md                         mandatory working rules
+AGENTS.md                         mandatory top-level project rules
+AI_DEVELOPMENT_CONTRACT.md        mandatory AI/task confidence and stop-state contract
+TASK.md                           current/next bounded task and session checkpoint
+CONTRIBUTING.md                   contributor entry rules
 .gitignore                        blocks commercial/private artifacts
 
 docs/
@@ -17,6 +20,9 @@ docs/
   REVERSE_ENGINEERING.md          evidence index and RE anchors
   FILE_MAP.md                     this file
   PIPELINE_VALIDATION_PLAN.md     authoritative method experiment queue
+  DEVELOPMENT_RULES.md            source/C++/testing/PR/scope discipline
+  RE_TOOLCHAIN_GUIDE.md           historical Saturn SDK/toolchain evidence rules
+  RULES_TRANSFER_AUDIT.md         Sega-Thor -> Sega-Thor-2 governance parity audit
 
 config/
   revisions/
@@ -45,3 +51,5 @@ external/
 ## Rule
 
 Directories are created only when they gain a real tracked artifact. Do not add empty placeholder trees merely to make the repository look complete.
+
+Governance documents are not optional decoration: when their owned state changes, update the corresponding file in the same conceptual task/commit whenever practical.

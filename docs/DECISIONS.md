@@ -35,3 +35,13 @@ Function boundaries are not required for correctness. They remain evidence-backe
 **Status:** ACCEPTED
 
 External Saturn runtime components, including SaturnRecomp, are evaluated component-by-component against Thor 2 requirements and oracle evidence.
+
+## D-007 — Transfer Sega-Thor governance, adapt platform-specific scope
+
+**Status:** ACCEPTED
+
+The transferable development/RE discipline proven in `Serjio193/Sega-Thor` is mandatory for Sega-Thor-2: confidence gating, evidence-first lifecycle, task/stop/checkpoint discipline, hard source-size limits, local validation, evidence-integrity rules, historical-toolchain boundaries, focused scope/commits, and synchronized project documentation.
+
+Mega Drive/Beyond Oasis-specific roadmap instructions, addresses, milestone IDs, and platform-specific implementation facts are not copied. Their general governing principle is adapted to Saturn only when applicable.
+
+The canonical transfer record is `docs/RULES_TRANSFER_AUDIT.md`. Future material governance changes in Sega-Thor require a new explicit audit rather than assumed automatic inheritance.

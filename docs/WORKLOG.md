@@ -1,5 +1,69 @@
 # Worklog
 
+## 2026-09-09 — Sega-Thor rules-transfer audit
+
+### Task
+
+Re-audit the first project's governance and ensure every transferable development/RE rule is present in Sega-Thor-2.
+
+### Sources audited
+
+- `Serjio193/Sega-Thor/AGENTS.md`
+- `Serjio193/Sega-Thor/AI_DEVELOPMENT_CONTRACT.md`
+- `Serjio193/Sega-Thor/docs/DEVELOPMENT_RULES.md`
+- `Serjio193/Sega-Thor/docs/RE_TOOLCHAIN_GUIDE.md`
+- `Serjio193/Sega-Thor/docs/EVIDENCE_INTEGRITY_AUDIT.md`
+- `Serjio193/Sega-Thor/CONTRIBUTING.md`
+- first-project `TASK.md` task/checkpoint discipline
+
+### Finding
+
+The initial Thor 2 bootstrap transferred the core RE philosophy well but was incomplete as an operational development contract.
+
+Missing/weaker items included:
+
+- hard 500-line source/build/test/tool limit;
+- mandatory task header;
+- blocker proof and explicit stop states;
+- session checkpoint;
+- before/during/after task workflow;
+- local CI-equivalent pre-push gate;
+- detailed C++20/ownership/portability rules;
+- regression-test rule for discovered behavioral bugs;
+- PR description contract;
+- Saturn-adapted historical SDK/toolchain evidence boundary;
+- explicit separation of exact round-trip/static/executed/behavior-verified trust;
+- prohibition on weak caller chains bootstrapping confidence;
+- explicit correction record when a prior claim/implementation is wrong;
+- contributor/task governance files.
+
+### Changes
+
+- strengthened `AGENTS.md`;
+- added `AI_DEVELOPMENT_CONTRACT.md`;
+- added `docs/DEVELOPMENT_RULES.md`;
+- added `docs/RE_TOOLCHAIN_GUIDE.md`;
+- added `docs/RULES_TRANSFER_AUDIT.md`;
+- added `TASK.md`;
+- added `CONTRIBUTING.md`;
+- updated `docs/FILE_MAP.md`.
+
+Mega Drive-specific active direction, addresses, milestone IDs, and the old prohibition on Thor 2 work were intentionally not copied. Their governing concepts were adapted to Saturn where applicable.
+
+### Verification
+
+Manual rule-by-rule cross-audit against the first-project governance sources. No production code/build target changed in this task, so Debug/Release build validation is not applicable. Repository contents remain legal-safe documentation/metadata/source only.
+
+### Result
+
+`COMPLETE FOR TRANSFERABLE GOVERNANCE RULES`.
+
+### Exact next action
+
+Start only the queued `T2-M1 — SaturnAutoRE Dynamic-Oracle Validation` bounded experiment. Do not combine recompilation, SaturnRecomp adoption, or another unproven method into T2-M1.
+
+---
+
 ## 2026-09-08/09 — Project bootstrap and T2-M0
 
 ### Repository foundation
