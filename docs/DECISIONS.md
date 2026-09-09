@@ -45,3 +45,13 @@ The transferable development/RE discipline proven in `Serjio193/Sega-Thor` is ma
 Mega Drive/Beyond Oasis-specific roadmap instructions, addresses, milestone IDs, and platform-specific implementation facts are not copied. Their general governing principle is adapted to Saturn only when applicable.
 
 The canonical transfer record is `docs/RULES_TRANSFER_AUDIT.md`. Future material governance changes in Sega-Thor require a new explicit audit rather than assumed automatic inheritance.
+
+## D-008 — Dual-track planning and decoupled method validation
+
+**Status:** ACCEPTED
+
+The project planning model is rebuilt into two synchronized tracks:
+1. **Development Track** (`docs/DEVELOPMENT_PLAN.md`): defines capabilities D0–D18 in dependency order, specifying what the project builds regardless of candidate tool choice.
+2. **Verification Track** (`docs/PIPELINE_VALIDATION_PLAN.md`): defines bounded experiments V-01–V-14, specifying what evidence an external method must produce before adoption into the build path.
+
+A candidate external method's failure (e.g. SaturnAutoRE in V-01) does not invalidate the development capability (D1 deterministic dynamic oracle); the project retains the requirement and tests alternative candidate tools. Planning documents distinguish `PROPOSED`, `VALIDATED`, `ADOPTED`, `SUPERSEDED`, `REJECTED`, and `DEFERRED`.

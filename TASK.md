@@ -1,58 +1,54 @@
 # Current task
 
-TASK: T2-M1 SaturnAutoRE Dynamic-Oracle Validation
-WHY: prove or reject SaturnAutoRE/Mednafen as a reproducible dynamic observation/oracle layer for this exact Thor 2 revision before adopting any of its workflow or runtime assumptions.
-CURRENT MILESTONE: T2-M1 method validation
-TASK STATUS: QUEUED / PROPOSED — not yet adopted
-MILESTONE UNDERSTANDING CONFIDENCE: 70%
-CURRENT SLICE UNDERSTANDING CONFIDENCE: 85%
-SLICE CONFIDENCE EVIDENCE: T2-M0 proved canonical revision/file hashes and produced a strong static `TH2.LOW -> 0x002DA000` candidate mapping, but actual dynamic load/write/fetch behavior is not yet observed.
+TASK: T2-P0 Dual-Track Development / Verification Plan Hardening
+WHY: decouple development capabilities (what we build) from external verification experiments (what evidence candidate tools must produce), ensuring external tool failure never invalidates project goals.
+CURRENT MILESTONE: T2-P0 planning checkpoint
+TASK STATUS: DONE
+MILESTONE UNDERSTANDING CONFIDENCE: 95%
+CURRENT SLICE UNDERSTANDING CONFIDENCE: 95%
+SLICE CONFIDENCE EVIDENCE: Full review of existing governance, T2-M0 evidence, and method proposals; clean separation established in DEVELOPMENT_PLAN.md (D0–D18) and PIPELINE_VALIDATION_PLAN.md (V-01–V-14); ADR D-008 accepted.
 ACCEPTANCE CRITERIA:
-- reproduce one deterministic Thor 2 dynamic observation from a fixed starting state;
-- observation records emulator build/version, CPU, PC, and relevant memory effect/provenance;
-- repeat the observation at least twice with matching bounded result;
-- specifically attempt to confirm or falsify the `TH2.LOW` candidate mapping with runtime load/write and later instruction fetch evidence;
-- store raw/private trace material outside GitHub and commit only legal-safe evidence summaries;
-- decide `ADOPT`, `ADOPT_PARTIAL`, `REJECT`, or `DEFER` for SaturnAutoRE as a dynamic-oracle method.
+- [x] audit current planning model and identify conflations of capabilities and candidate tools;
+- [x] build capability-oriented Development Track (D0–D18) independent of external vendor choice;
+- [x] rebuild Verification/Adoption Track (V-01–V-14) with smallest falsifiable experiments;
+- [x] establish explicit development/verification coupling matrix;
+- [x] challenge next step (evaluate M1 / V-01 readiness and prerequisites);
+- [x] produce risk/proof map for all major Saturn technical uncertainties;
+- [x] define planning status vocabulary (PROPOSED, VALIDATED, ADOPTED, SUPERSEDED, REJECTED, DEFERRED);
+- [x] update project records (DEVELOPMENT_PLAN.md, PIPELINE_VALIDATION_PLAN.md, ROADMAP.md, PROJECT_STATE.md, DECISIONS.md, FILE_MAP.md, WORKLOG.md, TASK.md).
 EVIDENCE AVAILABLE:
-- confirmed revision `thor2_ntsc_patched_fe11d2fb`;
-- `workstreams/T2-M0-disc-census/disc_manifest.tsv`;
-- `workstreams/T2-M0-disc-census/executable_candidates.tsv`;
-- `workstreams/T2-M0-disc-census/static_load_evidence.md`;
-- public SaturnAutoRE repository/method description previously reviewed.
+- T2-M0 confirmed substrate `thor2_ntsc_patched_fe11d2fb`;
+- `disc_manifest.tsv`, `executable_candidates.tsv`, `static_load_evidence.md`;
+- proven rules transfer from `Serjio193/Sega-Thor` (`RULES_TRANSFER_AUDIT.md`);
+- candidate method proposals (SaturnAutoRE, Daytona, Splat, Ghidra, Catherine, SaturnRecomp, Azel, Baroque).
 KNOWN UNKNOWNS:
-- whether the current SaturnAutoRE/Mednafen automation works unchanged with this image/revision;
-- exact semantics of the `0x0600A0F8` callee;
-- whether `TH2.LOW` is copied directly, transformed, relocated, or otherwise processed before execution;
-- whether the chosen observation requires Master SH-2 only or additional CPU/device context.
+- exact Mednafen build / automation reliability for this revision (deferred to V-01);
+- whether `TH2.LOW` is direct-loaded or transformed (deferred to D2 / V-10);
+- Slave SH-2 involvement in game logic (deferred to D1 observation).
 ALLOWED SCOPE:
-- bounded SaturnAutoRE setup/inspection;
-- one deterministic dynamic observation;
-- private save-state/trace artifacts outside GitHub;
-- legal-safe configs/tools/evidence summaries needed for the experiment.
+- planning and governance hardening only;
+- creating and updating Markdown documentation, roadmap, and ADR records.
 OUT OF SCOPE:
-- mechanical SH-2 -> C++ recompilation;
-- broad function discovery;
-- native renderer/audio/runtime work;
-- importing SaturnRecomp components;
-- assuming `TH2.LOW` semantics before dynamic proof;
-- combining another unproven external method into the same experiment.
+- running Mednafen / SaturnAutoRE;
+- implementing SH-2 recompiler or runtime code;
+- importing external codebases;
+- modifying confirmed T2-M0 evidence.
 
 ## Last verified result
 
-T2-M0 is complete at commit `5a0de2f33ddfb8423ce41214c4b3be65afdb64f9`.
+T2-P0 dual-track planning model established (decision D-008).
 
 ## Session checkpoint
 
-CURRENT MILESTONE: T2-M1 queued
-CURRENT TASK: SaturnAutoRE Dynamic-Oracle Validation
-TASK STATUS: QUEUED / PROPOSED
-MILESTONE UNDERSTANDING CONFIDENCE: 70%
-CURRENT SLICE UNDERSTANDING CONFIDENCE: 85%
-LAST VERIFIED RESULT: T2-M0 canonical substrate + executable census PASS
-FILES CHANGED: governance/rules transfer only in the current audit task
-TESTS RUN: documentation/rules cross-audit; no production build target exists yet
-NEW KNOWLEDGE: initial Thor 2 rules transfer was incomplete; missing operational contracts were identified and repaired
-OPEN QUESTIONS: can SaturnAutoRE deterministically confirm/falsify `TH2.LOW` runtime provenance?
-BLOCKERS: none established yet
-EXACT NEXT ACTION: start only the bounded T2-M1 SaturnAutoRE experiment; do not begin recompilation or other method adoption in parallel.
+CURRENT MILESTONE: T2-P0 completed; D1 / V-01 queued
+CURRENT TASK: T2-P0 Dual-Track Development / Verification Plan Hardening
+TASK STATUS: DONE
+MILESTONE UNDERSTANDING CONFIDENCE: 95%
+CURRENT SLICE UNDERSTANDING CONFIDENCE: 95%
+LAST VERIFIED RESULT: D0–D18 Development Track and V-01–V-14 Verification Track established; D-008 recorded
+FILES CHANGED: docs/DEVELOPMENT_PLAN.md, docs/PIPELINE_VALIDATION_PLAN.md, docs/ROADMAP.md, docs/PROJECT_STATE.md, docs/DECISIONS.md, docs/FILE_MAP.md, docs/WORKLOG.md, TASK.md
+TESTS RUN: documentation cross-consistency check; git status check; source line limit check
+NEW KNOWLEDGE: confirmed that M1 was conflating capability (dynamic oracle) with technology (SaturnAutoRE); established that V-01 can adopt Mednafen even if SaturnAutoRE automation fails; mapped all 13 critical technical risks to non-blocking milestones
+OPEN QUESTIONS: which exact Mednafen version/commit produces deterministic save-state execution on this host?
+BLOCKERS: none
+EXACT NEXT ACTION: prepare bounded V-01 experiment (pin Mednafen version, define minimal boot observation, test reproducibility without broad instrumentation).

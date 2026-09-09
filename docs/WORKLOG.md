@@ -1,5 +1,47 @@
 # Worklog
 
+## 2026-09-09 — T2-P0 Dual-Track Development / Verification Plan Hardening
+
+### Task
+
+Harden the project planning model into two explicit, synchronized tracks:
+1. Development Track: capability-oriented milestones D0–D18 in dependency order.
+2. Verification / Adoption Track: method/component experiments V-01–V-14 with smallest falsifiable gates.
+
+### Finding
+
+The prior planning model:
+- conflated required project capabilities with specific external tools (e.g. M1 named after SaturnAutoRE);
+- bundled 8 independent Saturn hardware subsystems into a single phase (SaturnRecomp);
+- lacked fallback routes for when an external tool is rejected;
+- lacked an explicit risk/proof map showing when Saturn uncertainties become blocking.
+
+### Changes
+
+- added `docs/DEVELOPMENT_PLAN.md` with capability milestones D0–D18, critical-path dependency graph, risk/proof map for 13 Saturn risks, coupling matrix, and failure scenario analysis;
+- rewrote `docs/PIPELINE_VALIDATION_PLAN.md` with structured experiment specifications V-01–V-14 (falsifiable hypotheses, minimum experiments, pass/fail criteria, divergence classifications);
+- rewrote `docs/ROADMAP.md` as a concise indexed roadmap connecting D0–D18 with V-01–V-14;
+- updated `docs/PROJECT_STATE.md` with the dual-track status;
+- accepted ADR `D-008` in `docs/DECISIONS.md`;
+- updated `docs/FILE_MAP.md`;
+- updated `TASK.md` checkpoint.
+
+### Evaluation of M1 / V-01
+
+Evaluated SaturnAutoRE dynamic-oracle validation:
+- conclusion: `M1_READY_WITH_SMALLER_SCOPE`.
+- SaturnAutoRE automation is decoupled from Mednafen oracle viability: if SaturnAutoRE Python scripts fail on this image, Mednafen itself can still be evaluated as the dynamic oracle (`ADOPT_PARTIAL`).
+- First target claim remains observing boot execution in `0TH2.BIN` and attempting `TH2.LOW` provenance confirmation.
+
+### Result
+
+`DUAL_TRACK_PLAN_ESTABLISHED`.
+`M1_READY_WITH_SMALLER_SCOPE`.
+
+### Exact next action
+
+Prepare the bounded V-01 experiment: pin Mednafen version, define minimal boot observation, and test reproducibility.
+
 ## 2026-09-09 — Sega-Thor rules-transfer audit
 
 ### Task

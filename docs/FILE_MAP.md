@@ -19,7 +19,8 @@ docs/
   DECISIONS.md                    accepted/working project decisions
   REVERSE_ENGINEERING.md          evidence index and RE anchors
   FILE_MAP.md                     this file
-  PIPELINE_VALIDATION_PLAN.md     authoritative method experiment queue
+  DEVELOPMENT_PLAN.md             capability-oriented development sequence (D0–D18)
+  PIPELINE_VALIDATION_PLAN.md     method/component experiment and adoption gates (V-01–V-14)
   DEVELOPMENT_RULES.md            source/C++/testing/PR/scope discipline
   RE_TOOLCHAIN_GUIDE.md           historical Saturn SDK/toolchain evidence rules
   RULES_TRANSFER_AUDIT.md         Sega-Thor -> Sega-Thor-2 governance parity audit

@@ -2,9 +2,11 @@
 
 ## Status
 
-`T2-M0 — Canonical Disc + Executable/Module Census`: **COMPLETE**.
+- **D0 / T2-M0 — Canonical Revision Identity**: **COMPLETE**.
+- **T2-P0 — Dual-Track Planning Hardening**: **COMPLETE** (decision D-008; established `DEVELOPMENT_PLAN.md` and `PIPELINE_VALIDATION_PLAN.md`).
 
-Next queued experiment: **T2-M1 — SaturnAutoRE dynamic-oracle validation** (`PROPOSED`, not yet adopted).
+Active next development capability: **D1 — Deterministic Dynamic Oracle** (`PROPOSED`).
+Active next verification experiment: **V-01 — Dynamic Oracle via Instrumented Emulator (SaturnAutoRE / Mednafen)** (`PROPOSED`, not yet adopted).
 
 No decompiler/recompiler architecture is considered final. External methods enter the pipeline only after bounded Thor 2 validation.
 
