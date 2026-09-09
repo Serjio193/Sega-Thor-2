@@ -1,5 +1,41 @@
 # Worklog
 
+## 2026-09-09 — V-01-core preflight and blocker proof
+
+### Task
+
+Begin the bounded D1 / V-01-core emulator observation without starting SaturnAutoRE automation or `TH2.LOW` provenance work.
+
+### Preflight performed
+
+- Rehashed the mounted canonical Thor 2 BIN/CUE and confirmed exact T2-M0 identities:
+  - image SHA-256 `fe11d2fbda58d63300ef2265c555ce05bddf14d69fb7b73fc409e25c0ef6c0a8`;
+  - CUE SHA-256 `afc0b101bbb493adbd43fd44ffd76959484d67cf0b566137dd145f1c68d411e0`.
+- Pinned `AJBats/SaturnAutoRE` at `4662aad69f95222fe37c5e6b98f2285b1a7e4653`.
+- Pinned its Mednafen debug submodule `AJBats/mednafen-saturn-debug` at `155426661b7ac3152e2c93a98da60ac33002b908`.
+- Confirmed that the pinned debug fork documents Master/Slave register dumps, stepping/breakpoints, cache-aware memory reads, write watchpoints, and cycle/event metadata suitable for the planned bounded observation.
+- Checked the mounted private paths and connected Drive for the common Mednafen Saturn BIOS filenames and Saturn-BIOS/Mednafen candidates.
+
+### Blocker
+
+Mednafen's Saturn core requires a Saturn BIOS. No user-owned Saturn BIOS is available in the private workspace checked, and no Mednafen executable is installed in the current execution environment. The source candidate is pinned, but a runnable binary hash/build configuration cannot be completed before the runtime environment is prepared.
+
+The project will not source proprietary Saturn BIOS bytes from public download sites.
+
+This is an objective input blocker, not a Mednafen failure. V-01-core has not executed and no `ADOPT`, `ADOPT_PARTIAL`, or `REJECT` decision is justified.
+
+### Result
+
+`V01_CORE_PRE_EXECUTION_BLOCKED_BIOS`
+
+D1 remains `READY_FOR_BOUNDED_TEST`; current task stop state is `BLOCKED`.
+
+Evidence/config is recorded in `workstreams/T2-V01-dynamic-oracle/`.
+
+### Exact next action
+
+Provide a legally owned Saturn BIOS privately; hash it and pin effective region/BIOS/build configuration, then resume V-01-core with two independently initialized cold-boot observations.
+
 ## 2026-09-09 — T2-P0.1 Dual-Track Proof-Contract Repair
 
 ### Task
