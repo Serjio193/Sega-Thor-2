@@ -45,6 +45,7 @@ include/
     recomp/
       block_identity.hpp          fail-closed executable identity guard declaration
       block_compiler.hpp          mechanical basic-block C++20 compiler declaration
+      shadow_checker.hpp          reusable shadow comparison framework declaration
 
 src/
   sh2/
@@ -54,6 +55,7 @@ src/
   recomp/
     block_identity.cpp            executable identity verification logic
     block_compiler.cpp            mechanical basic-block C++20 code generator
+    shadow_checker.cpp            shadow comparison and differential outcome verification logic
 
 tools/
   disc/
@@ -75,6 +77,9 @@ tests/
     test_sh2_block_compiler.cpp   mechanical block compiler determinism and fail-closed tests
     test_generated_link_isolation.cpp link-time isolation proof with zero interpreter dependencies
     test_v07a_transition.cpp      differential transition proof (synthetic + Thor 2 vectors + negative controls)
+    test_shadow_positive.cpp      multi-vector positive shadow comparison test suite
+    test_shadow_negative.cpp      24-fault negative control test suite (100% detection rate)
+    test_shadow_isolation.cpp     pre-state storage isolation and anti-aliasing proof test suite
 
 workstreams/
   T2-M0-disc-census/
@@ -107,6 +112,9 @@ workstreams/
     README.md                     D6/V-07A mechanical transition proof summary
     identity_guard_evidence.md    fail-closed identity specification and negative control matrix
     transition_proof_evidence.md  differential transition proof and link isolation evidence
+  T2-D7-V07B-shadow/
+    README.md                     D7/V-07B shadow checker validation summary
+    shadow_validation_evidence.md complete differential results, negative fault matrix, and isolation proofs
 
 external/
   README.md                       rules for private user-supplied inputs

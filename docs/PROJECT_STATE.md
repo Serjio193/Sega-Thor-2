@@ -13,13 +13,13 @@
 - **PRE_D8_EXECUTABLE_IDENTITY_GUARD**: **PASS for bb_06004000 only** (reusable fail-closed eligibility guard binding execution to revision, module, provenance, CPU, range, content bytes, and validity state; negative controls verified; zero memory log contamination).
 - **PRE_D8_MINIMUM_EVENT_SAFETY**: **PASS for bb_06004000 bounded execution only** (two independent cold boots in Mednafen oracle proved atomic 18-cycle window with 0 MMIO, 0 IRQ, 0 SCU DMA, and inactive Slave SH-2).
 - **D6 / T2-D6.1 / V-07A — Mechanical Explicit-State C++**: **BOUNDED_PROOF for bb_06004000 / V-07A: PASS** (mechanical C++20 compiler generated standalone block `bb_06004000` with 0 runtime interpreter dependencies verified via link-isolation target; V-07A transition proof verified against interpreter and Mednafen oracle across 3 synthetic vectors and real Thor 2 startup with 0 CPU divergences and 0 memory log divergences; negative controls verified).
-- **D7 (Shadow comparison)**: **PROPOSED**.
-- **D8 (First native promotion proof)**: **PROPOSED**.
+- **D7 / T2-D7.1 / V-07B — Shadow Recompilation Framework**: **BOUNDED_PROOF for bb_06004000 / V-07B: PASS** (decision D-013; reusable `ShadowChecker` framework implemented; 4 positive vectors passed with 0 divergences vs Mednafen oracle; 24/24 negative controls detected [100%]; pre-state storage isolation and anti-aliasing proven).
+- **D8 (First native promotion proof)**: **PROPOSED** (Do NOT start or claim authoritative native promotion without verified zero-divergence contract and fail-closed fallback).
 
-Active next verification step: **D7 / V-07B shadow checker with negative controls**.
-Active next development capability: **D7 shadow execution comparison harness**.
+Active next verification step: **D8 / V-07C first native promotion proof with bounded fail-closed fallback**.
+Active next development capability: **D8 native promotion integration**.
 
-Note: Basic block `bb_06004000` (`0x06004000..0x0600400A`) has complete decode, L0 semantic, code ownership, CFG, identity guard, minimum event safety, and mechanical C++ transition proof. D3, D4, D5, and D6 remain at `BOUNDED_PROOF` until broader corpus/module coverage is achieved. D7 and D8 remain `PROPOSED`.
+Note: Basic block `bb_06004000` (`0x06004000..0x0600400A`) has complete decode, L0 semantic, code ownership, CFG, identity guard, minimum event safety, mechanical C++ transition proof, and shadow checker validation. D3, D4, D5, D6, and D7 remain at `BOUNDED_PROOF` until broader corpus/module coverage is achieved. D8 remains `PROPOSED`.
 
 No decompiler/recompiler architecture is considered final. External methods enter the pipeline only after bounded Thor 2 validation.
 

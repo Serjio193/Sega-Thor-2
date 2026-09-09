@@ -20,6 +20,7 @@ add_library(thor_sh2 STATIC
 add_library(thor_recomp STATIC
     src/recomp/block_identity.cpp
     src/recomp/block_compiler.cpp
+    src/recomp/shadow_checker.cpp
 )
 target_link_libraries(thor_recomp PUBLIC thor_sh2)
 
@@ -87,3 +88,20 @@ add_executable(test_v07a_transition tests/recomp/test_v07a_transition.cpp)
 target_link_libraries(test_v07a_transition PRIVATE thor_generated_bb_06004000 thor_recomp thor_sh2)
 target_include_directories(test_v07a_transition PRIVATE "${GENERATED_DIR}")
 add_test(NAME test_v07a_transition COMMAND test_v07a_transition)
+
+# V-07B positive shadow comparison test suite
+add_executable(test_shadow_positive tests/recomp/test_shadow_positive.cpp)
+target_link_libraries(test_shadow_positive PRIVATE thor_generated_bb_06004000 thor_recomp thor_sh2)
+target_include_directories(test_shadow_positive PRIVATE "${GENERATED_DIR}")
+add_test(NAME test_shadow_positive COMMAND test_shadow_positive)
+
+# V-07B negative controls test suite (100% fault classes detected)
+add_executable(test_shadow_negative tests/recomp/test_shadow_negative.cpp)
+target_link_libraries(test_shadow_negative PRIVATE thor_recomp thor_sh2)
+add_test(NAME test_shadow_negative COMMAND test_shadow_negative)
+
+# Pre-state isolation and anti-aliasing proof test suite
+add_executable(test_shadow_isolation tests/recomp/test_shadow_isolation.cpp)
+target_link_libraries(test_shadow_isolation PRIVATE thor_generated_bb_06004000 thor_recomp thor_sh2)
+target_include_directories(test_shadow_isolation PRIVATE "${GENERATED_DIR}")
+add_test(NAME test_shadow_isolation COMMAND test_shadow_isolation)

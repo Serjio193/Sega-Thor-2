@@ -122,3 +122,24 @@ Post-D8 advancement rule:
 - only after this checkpoint is satisfied may the project resume normal post-D8 progression.
 
 The purpose is to avoid losing practically useful techniques merely because they appear weaker than the project's proof layer. The proof layer remains authoritative; the second pass determines which additional techniques can safely accelerate the work beneath that layer.
+
+## D-013 — Adopt Reusable Shadow Execution Framework (Capability D7 / Gate V-07B)
+
+**Status:** ACCEPTED (V-07B PASSED; D7 BOUNDED_PROOF for bb_06004000)
+
+1. The shadow execution comparison framework `ShadowChecker` (`include/thor/recomp/shadow_checker.hpp`, `src/recomp/shadow_checker.cpp`) is adopted as the reusable differential verification harness for mechanical recompilation.
+2. The framework enforces strict pre-state storage isolation, pointer anti-aliasing between candidate and oracle mutable contexts, and fail-closed block eligibility checking before candidate invocation.
+3. The framework includes an exhaustive outcome comparator checking:
+   - registers R0..R15;
+   - program counter PC;
+   - status register SR;
+   - control registers PR, GBR, VBR, MACH, MACL;
+   - ordered memory access log (kind, address, value, width, access sequence);
+   - bounded event safety metadata (MMIO, IRQ, DMA, Slave SH-2, delay slot atomicity).
+
+Evidence:
+- Zero positive divergences across 4 independent test vectors (`test_shadow_positive`), including real Thor 2 startup capture matching accepted Mednafen oracle constants.
+- 100% negative fault detection rate across 24 injection controls (`test_shadow_negative`) with zero false passes.
+- Pre-state storage isolation and non-aliasing proven (`test_shadow_isolation`).
+
+Scope limitation: D7 is advanced to `BOUNDED_PROOF for bb_06004000`. D8 / V-07C (authoritative native promotion) remains strictly `PROPOSED` until explicit zero-divergence fallback architecture is proven.

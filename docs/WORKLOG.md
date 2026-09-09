@@ -1,5 +1,60 @@
 # Worklog
 
+## 2026-09-09 — T2-D7.1/V-07B Shadow Checker Validation
+
+### Task
+
+Deliver production reusable D7 shadow-comparison framework (`ShadowChecker`), prove that it detects every required divergence class without contaminating oracle state, verify zero divergences on positive vectors, detect 100% of negative fault controls, and prove pre-state storage isolation.
+
+### Method & Discoveries
+
+1. **Reusable Production Shadow Comparison Framework (`ShadowChecker`)**:
+   - Implemented `include/thor/recomp/shadow_checker.hpp` and `src/recomp/shadow_checker.cpp`.
+   - Built comprehensive outcome comparator covering:
+     - General registers `R0` through `R15`;
+     - Program counter `PC`;
+     - Status register `SR`;
+     - Special/control registers `PR`, `GBR`, `VBR`, `MACH`, `MACL`;
+     - Ordered memory access log: access count, access kind (`READ`/`WRITE`), target address, access width (`size_bytes`), access value, and exact sequence order;
+     - Bounded event safety metadata: `mmio_accessed`, `irq_accepted`, `scu_dma_crossing`, `slave_sh2_active`, `delay_slot_atomic`.
+   - Integrated fail-closed eligibility guard `check_block_eligibility` to reject unproven or modified code blocks before candidate invocation.
+   - Enforced anti-aliasing on mutable execution context (`&oracle_mem != &candidate_mem`, `&oracle_cpu != &candidate_cpu`, etc.).
+
+2. **Positive Shadow Validation (Gate V-07B / 4 Vectors)**:
+   - Evaluated in `tests/recomp/test_shadow_positive.cpp`:
+     - Vector A (Arbitrary non-zero pattern): 0 divergences.
+     - Vector B (Sign-extension boundary): 0 divergences (`R6=0xFFFF8001`).
+     - Vector C (Zero boundary & clean SR): 0 divergences.
+     - Real Thor 2 cold-boot capture: matched accepted Mednafen oracle constants with 0 CPU divergences, 0 memory divergences (exactly 3 ordered reads, 0 writes).
+
+3. **Negative Fault Injection Controls (100% Detection Rate)**:
+   - Evaluated 24 distinct fault classes in `tests/recomp/test_shadow_negative.cpp`:
+     - Register corruptions: R0, R4, R6, R15, PC, SR, PR, GBR, MACH, MACL (10/10 detected).
+     - Memory write divergences: omitted write, extra write, wrong address, wrong width, corrupted value (5/5 detected).
+     - Memory order divergence: swapped write order (1/1 detected).
+     - Event safety violations: MMIO accessed, IRQ accepted, SCU DMA crossing, Slave SH-2 active, non-atomic delay slot (5/5 detected).
+     - Eligibility guard violations: module mismatch, unproven provenance, mutated runtime byte (3/3 detected).
+   - Total: 24/24 faults detected (100.0%), 0 false passes.
+
+4. **Pre-State Storage Isolation Proof**:
+   - Implemented in `tests/recomp/test_shadow_isolation.cpp`:
+     - Proved aggressive candidate cannot mutate oracle post-state or the original captured pre-state (`pre_state.cpu_state` preserved, `pre_state.memory` unchanged, `pre_state.memory.log()` strictly empty).
+     - Proved oracle execution does not contaminate candidate pre-state.
+     - Proved candidate and oracle operate on strictly non-aliased memory and CPU instances.
+
+5. **Multi-Platform Verification**:
+   - Windows MinGW GCC 15.2.0: Debug (11/11 passed), Release (11/11 passed).
+   - Linux Ubuntu GCC 13.3.0 in WSL: Debug (11/11 passed), Release (11/11 passed).
+   - Python unit tests: 3/3 passed.
+   - 100% compliance with 500-line source code limit across all repository files.
+
+### Status After Pass
+
+- `D7`: **BOUNDED_PROOF for bb_06004000**
+- `V-07B`: **PASS**
+- `D8` / `V-07C`: **PROPOSED** (Do NOT claim DONE or start authoritative native promotion)
+- Next gate: `D8 / V-07C first native promotion proof with bounded fail-closed fallback`
+
 ## 2026-09-09 — T2-PRE-D8.1/D6.1/V-07A First Mechanical C++ Transition Proof
 
 ### Task

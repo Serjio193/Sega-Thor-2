@@ -94,17 +94,41 @@ Target claims proven:
 - Fallthrough exit identified as null (`std::nullopt`, unconditional branch);
 - No function boundaries or speculative semantic names asserted.
 
+### D6 — Mechanical Explicit-State C++ (bb_06004000)
+
+Status: **BOUNDED_PROOF for bb_06004000**
+
+Capability: mechanically generated standalone C++20 translation from validated basic blocks with zero runtime interpreter dependencies.
+Verified gate: **Pre-D8 identity/event safety gate (PASSED) + V-07A transition proof (PASSED)**.
+Target claims proven:
+- `bb_06004000` recompiled to explicit-state C++20 without interpreter wrappers;
+- Link-time symbol isolation proven (test `test_generated_link_isolation` links exclusively to generated library);
+- Differential transition proof against interpreter and Mednafen oracle confirmed 0 state divergences and 0 memory log divergences across 3 synthetic vectors and real Thor 2 startup;
+- Negative controls verified (injected register/PC/memory corruptions detected).
+
+### D7 — Shadow Recompilation Framework (bb_06004000)
+
+Status: **BOUNDED_PROOF for bb_06004000** (decision D-013)
+
+Capability: reusable shadow execution comparison framework with fail-closed eligibility checking, anti-aliasing enforcement, and negative fault controls.
+Verified gate: **V-07B — Shadow Comparison Validation (PASSED)**.
+Target claims proven:
+- Reusable framework `ShadowChecker` implemented (`include/thor/recomp/shadow_checker.hpp`, `src/recomp/shadow_checker.cpp`);
+- Outcome comparator validates R0..R15, PC, SR, PR/GBR/VBR/MACH/MACL, ordered memory log (kind, address, value, width, sequence), and event safety metadata;
+- 4 positive test vectors verified with 0 divergences vs Mednafen oracle (`test_shadow_positive`);
+- 100% detection rate across 24 negative fault controls with 0 false passes (`test_shadow_negative`);
+- Complete pre-state storage isolation and anti-aliasing proven (`test_shadow_isolation`);
+- Native promotion status remains strictly `PROPOSED` (D8 / V-07C unstarted).
+
 ## Next
 
-### Pre-D8 Safety Gate & Capability D6: Mechanical Explicit-State C++ Translation (V-07A)
+### D8 — First Native Promotion Proof (V-07C)
 
-### D6 — Mechanical Explicit-State C++
+Status: `PROPOSED`
 
-Status: `BOUNDED_PROOF for bb_06004000`
-
-- Gate: pre-D8 identity/event safety gate (PASSED) + V-07A transition proof (PASSED).
-- Result: mechanically generated standalone C++20 translation for proven basic block `bb_06004000` with zero runtime interpreter dependencies (enforced by link-time isolation), verified with zero CPU and memory divergences across synthetic vectors and Mednafen oracle replay.
-- Next gate: D7 / V-07B shadow checker with negative controls.
+- Gate: V-07C native override proof with zero-divergence contract and fail-closed fallback to interpreter.
+- Result: first authorized execution of mechanically generated block as production path with runtime fallback on divergence or invalidation.
+- Constraint: do NOT start D8 without explicit fail-closed fallback architecture and zero-divergence contract.
 
 ### Mandatory post-D8 checkpoint — External Method Second Pass
 
@@ -127,7 +151,7 @@ The second pass evaluates both **evidence strength** and **workflow utility**. A
 | D4 | Code/data/unknown ownership | V-03 (bounded batch), V-04 (schema) | BOUNDED_PROOF (block 0 only) |
 | D5 | Basic-block CFG | V-03 (bounded block CFG) | BOUNDED_PROOF (block 0 only) |
 | D6 | Mechanical explicit-state C++ | V-07A + pre-D8 identity/event guards | BOUNDED_PROOF (bb_06004000) |
-| D7 | Shadow comparison | V-07B (negative-control validation) | PROPOSED |
+| D7 | Shadow comparison | V-07B (negative-control validation) | BOUNDED_PROOF (bb_06004000) |
 | D8 | **First native promotion proof** | **V-07C (native override proof)** | PROPOSED |
 | POST-D8 | **Mandatory external-method second pass** | D-012 + new second-pass experiment plan | PLANNED / BLOCKING AFTER D8 |
 | D9 | Indirect control-flow handling | — | PROPOSED |

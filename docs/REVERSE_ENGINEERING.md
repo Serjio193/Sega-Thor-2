@@ -103,9 +103,9 @@ CONTROL FLOW: Straight-line 0x06004000..0x06004006; terminator BRA 0x06004012 at
 HARDWARE INTERACTION: Zero MMIO or peripheral access in this block; pure CPU/WRAM execution
 HYPOTHESIS: Standard Sega Saturn CD application startup bootstrap block
 CONFIDENCE: CONFIRMED (100%)
-VERIFICATION: 0 decode disagreements (Hitachi manual / Mednafen / Catherine); 0 semantic divergences; 0 oracle state divergences; V-07A transition divergences = 0 across 3 synthetic vectors and real Thor 2 startup; link-isolated 0 interpreter dependencies
+VERIFICATION: 0 decode disagreements (Hitachi manual / Mednafen / Catherine); 0 semantic divergences; 0 oracle state divergences; V-07A transition divergences = 0 across 3 synthetic vectors and real Thor 2 startup; link-isolated 0 interpreter dependencies; V-07B shadow validation PASS (0 divergences across 4 positive vectors, 100% negative control detection across 24 injection cases, complete pre-state storage isolation proven)
 NEGATIVE EVIDENCE: None
-NEXT ACTION: Shadow execution harness (D7 / V-07B) under declared zero-divergence contract
+NEXT ACTION: First native promotion proof with bounded fail-closed fallback (D8 / V-07C) under declared zero-divergence contract
 ```
 
 ## Public-research address anchors queued for revision validation
