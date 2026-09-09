@@ -7,11 +7,12 @@
 - **T2-P0.1 — Dual-Track Proof-Contract Repair**: **COMPLETE** (formalized capability scope states, split V-01 into V-01-core and V-01-automation, removed TH2.LOW from V-01 gate, established pre-D8 guards).
 - **D1 / T2-V01 / T2-V01.2 — Deterministic Dynamic Oracle**: **BOUNDED_PROOF** (decisions D-009, D-010; V-01-core verified; V-01-automation adopted as `ADOPT_PARTIAL` for `LOW_LEVEL_CONTROL_LAYER_PROVEN`).
 - **D2 / T2-V02a / T2-V02b — Executable Module Provenance**: **BOUNDED_PROOF for 0TH2.BIN and TH2.LOW** (decision D-011; direct runtime byte mapping proven across both executable modules; 0TH2.BIN at `0x06004000..0x06086BFF` via BIOS copy loop; TH2.LOW at `0x002DA000..0x002FE7FF` via Master SH-2 copy loop; entry executions confirmed).
+- **D3 / T2-D3.1 — Exact SH-2 Decode / L0 Semantics**: **BOUNDED_PROOF for target startup subset** (4 target opcodes `0x6611`, `0x6F03`, `0xD417`, `0x6442` decoded with fail-closed C++20 implementation; V-06 cross-check against Hitachi manual, pinned Mednafen, and Catherine confirmed 0 decode disagreements; synthetic L0 suite and real Thor 2 startup vector confirmed 0 semantic divergences).
 
-Active next verification step: **Review V-02b evidence before starting D3 exact SH-2 decode / L0 semantics**.
-Active next development capability: **D3 — Exact SH-2 Decode / L0 Semantics**.
+Active next verification step: **Review T2-D3.1 evidence before expanding D3 opcode corpus or advancing to D4**.
+Active next development capability: **D3 — Exact SH-2 Decode / L0 Semantics (corpus expansion)**.
 
-Note: Both primary executable modules (`0TH2.BIN` and `TH2.LOW`) now have verified runtime provenance. Next milestone is exact SH-2 decode.
+Note: Target startup opcode subset (`0x6611`, `0x6F03`, `0xD417`, `0x6442`) has complete decode and L0 semantic proof. D3 remains at `BOUNDED_PROOF` until agreed corpus is covered.
 
 No decompiler/recompiler architecture is considered final. External methods enter the pipeline only after bounded Thor 2 validation.
 

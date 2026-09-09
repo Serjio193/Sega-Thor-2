@@ -68,7 +68,18 @@ Evidence:
 - **Dynamic transfer & mapping proof (V-02b)**: CD Block trace `cdb.log` recorded 73-sector read (`CMD Play; Start=0x80cc31, End=0x800049`) across FAD `0x00CC31..0x00CC79`. Memory trace `mem.log` recorded 37,376 32-bit writes ($37376 \times 4 = 149,504$ bytes) into `0x002DA000..0x002FE7FF` by Master SH-2 at PC `0x0607DF08`. SCU DMA trace recorded zero DMA to Low Work RAM. Live RAM snapshot post-transfer matches disc file byte-for-byte (`FULL_EXACT_MATCH`, 0 differing bytes).
 - **Dynamic execution proof (V-02b)**: Called from `0x060042E0` (`PR=0x060042E4`), Master SH-2 executed instruction at `0x002E9910` (offset `0xF910`, cycle `387459915`), retiring `MOV.L R14, @-R15` (`0x2FE6`) and advancing PC to `0x002E9914`.
 
-Next proof: D3 exact SH-2 decode / L0 semantics.
+Next proof: D3 opcode corpus expansion / D4 code/data ownership.
+
+## Executed startup opcode slice (`0x06004000..0x06004008`)
+
+Slice status: `DECODE_VERIFIED` / `INSTRUCTION_SEMANTICS_VERIFIED` / `MEMORY_SEMANTICS_VERIFIED` (T2-D3.1).
+Decoder: `thor::sh2::decode_sh2` (fail-closed C++20 implementation; V-06 cross-check passed with 0 disagreements).
+Executor: `thor::sh2::execute_sh2_instruction` / `thor::sh2::step_sh2` (L0 semantic test suite and real Thor 2 startup vector passed with 0 divergences).
+
+- `0x06004000`: `0x6611` — `MOV.W @R1, R6` (reads 16-bit word from `R1=0x06004000`, sign-extends to 32 bits into `R6=0x00006611`, advances PC to `0x06004002`).
+- `0x06004002`: `0x6F03` — `MOV R0, R15` (copies stack pointer `R0=0x06002EDC` into `R15`, advances PC to `0x06004004`).
+- `0x06004004`: `0xD417` — `MOV.L @(0x5C, PC), R4` (reads 32-bit word from `((PC & ~3) + 4) + 0x5C = 0x06004064` containing `0x06081C10` into `R4`, advances PC to `0x06004006`).
+- `0x06004006`: `0x6442` — `MOV.L @R4, R4` (reads 32-bit word from `R4=0x06081C10` containing `0x060917DC` before writeback to `R4`, advances PC to `0x06004008`).
 
 ## Public-research address anchors queued for revision validation
 

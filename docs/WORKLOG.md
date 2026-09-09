@@ -1,5 +1,51 @@
 # Worklog
 
+## 2026-09-09 — T2-D3.1 First Exact SH-2 Decode and L0 Semantic Proof
+
+### Task
+
+Deliver a complete production-quality C++20 SH-2 decoder and L0 semantic execution harness for the verified 4-instruction startup sequence in `0TH2.BIN` (`0x06004000..0x06004008`), including synthetic L0 tests, independent cross-checks, and real Thor 2 oracle vector validation.
+
+### Method
+
+1. Implemented reusable production-grade C++20 SH-2 decoder architecture (`include/thor/sh2/sh2_types.hpp`, `include/thor/sh2/sh2_decoder.hpp`, `src/sh2/sh2_decoder.cpp`).
+   - Modeled target opcode forms: `0x6nm1` (`MOV.W @Rm, Rn`), `0x6nm3` (`MOV Rm, Rn`), `0xDndd` (`MOV.L @(disp, PC), Rn`), `0x6nm2` (`MOV.L @Rm, Rn`).
+   - Implemented fail-closed discipline: all unmodeled or invalid opcodes fail closed as `OpcodeId::UNKNOWN` with `ControlFlowType::ILLEGAL`.
+   - Modeled architectural PC-relative effective address calculation: `((PC & ~3) + 4) + (disp * 4)`.
+2. Conducted Gate V-06 independent decode cross-checks across 4 reference authorities:
+   - Hitachi SH7604 Hardware Manual / SH-1/SH-2 Programming Manual (authoritative standard);
+   - Pinned Mednafen SH-2 debug core (`sh7095_ops.inc` at commit `155426661b7ac3152e2c93a98da60ac33002b908`);
+   - Independent open reference `hazzaclark/catherine` (`instruction.c`, `instruction_decode.c`, `instruction.h`);
+   - Verified 0 unexplained decode disagreements across all target opcodes (`0x6611`, `0x6F03`, `0xD417`, `0x6442`).
+3. Implemented explicit L0 architectural CPU state and memory harness (`include/thor/sh2/sh2_state.hpp`, `include/thor/sh2/sh2_memory.hpp`, `include/thor/sh2/sh2_executor.hpp`, `src/sh2/sh2_executor.cpp`):
+   - Explicit register state for `R0..R15`, `PC`, `PR`, `SR/T`, `GBR`, `VBR`, `MACH`, `MACL`.
+   - Explicit big-endian byte-order memory interface (`read8`, `read16`, `read32`, `write8`, `write16`, `write32`) with complete access logging.
+   - Handled same-register writeback order: for `MOV.L @Rm, Rn` with `Rm == Rn` (`0x6442`), memory address is captured prior to destination writeback.
+4. Created synthetic L0 semantic test suite (`tests/sh2/test_sh2_l0_semantics.cpp`):
+   - Signed 16-bit sign-extension: positive values, negative values (`0x8000 -> 0xFFFF8000`, `0xFFFF -> 0xFFFFFFFF`), big-endian bytes.
+   - Register moves: zero, all-ones, arbitrary values, source register preservation.
+   - PC-relative load: aligned base, unaligned base masking (`PC & ~3`), multiple displacements, big-endian 32-bit words.
+   - Register isolation: verified all non-target registers remain strictly untouched.
+   - Ordered memory effects: verified access log order and attributes.
+5. Created real Thor 2 startup oracle vector validation (`tests/sh2/test_sh2_oracle_vector.cpp`):
+   - Replayed exact Thor 2 entry register state and memory bytes recorded in `workstreams/T2-V01-dynamic-oracle/bounded_observation.md`.
+   - Verified step-by-step register retirements and memory read interception with 0 divergences against the Mednafen oracle.
+6. Self-repair loop during implementation:
+   - Fixed unused return value warning on `[[nodiscard]] execute_sh2_instruction`.
+   - Identified and fixed `assert` elimination under Release mode (`-DNDEBUG`) by introducing standard `THOR_ASSERT` macro in `tests/sh2/test_framework.hpp`, ensuring test assertions run unconditionally in both Debug and Release.
+   - Verified 100% test pass on Windows (MinGW GCC 15.2.0) and Linux (Ubuntu GCC 13.3.0 in WSL) in both Debug and Release configurations.
+
+### Result
+
+- Target startup subset (`0x6611`, `0x6F03`, `0xD417`, `0x6442`) fully decoded and verified at L0 semantic level.
+- V-06 decode cross-check: 0 disagreements.
+- L0 semantic tests: 100% pass (0 divergences).
+- D3 capability state: `BOUNDED_PROOF for target startup subset`.
+
+### Exact next action
+
+Review T2-D3.1 evidence before expanding D3 opcode corpus or advancing to D4 code/data ownership boundary analysis.
+
 ## 2026-09-09 — T2-V02b TH2.LOW Executable Provenance Proof
 
 ### Task

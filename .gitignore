@@ -43,7 +43,7 @@ private/
 RE_Work/
 
 # Build/editor noise
-build/
+build*/
 out/
 .cache/
 __pycache__/

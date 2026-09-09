@@ -1,0 +1,75 @@
+#pragma once
+
+#include <cstdint>
+#include <string>
+
+namespace thor::sh2 {
+
+/// Supported opcode categories for the bounded target subset.
+enum class OpcodeId : uint16_t {
+    UNKNOWN = 0,
+    MOV_W_READ_MEM,  // MOV.W @Rm, Rn (0110 nnnn mmmm 0001)
+    MOV_REG,         // MOV Rm, Rn    (0110 nnnn mmmm 0011)
+    MOV_L_PC_REL,    // MOV.L @(disp, PC), Rn (1101 nnnn dddddddd)
+    MOV_L_READ_MEM   // MOV.L @Rm, Rn (0110 nnnn mmmm 0010)
+};
+
+/// Control flow behavior.
+enum class ControlFlowType : uint8_t {
+    SEQUENTIAL = 0,
+    BRANCH,
+    BRANCH_CONDITIONAL,
+    JUMP,
+    RETURN,
+    ILLEGAL
+};
+
+/// Memory access width/sign for memory operations.
+enum class MemoryAccessType : uint8_t {
+    NONE = 0,
+    READ_U8,
+    READ_S8,
+    READ_U16,
+    READ_S16,
+    READ_U32,
+    WRITE_U8,
+    WRITE_U16,
+    WRITE_U32
+};
+
+/// Decoded representation of a 16-bit SH-2 instruction.
+struct Sh2Instruction {
+    uint16_t raw_opcode = 0;
+    uint32_t pc = 0;
+    OpcodeId id = OpcodeId::UNKNOWN;
+    uint8_t rn = 0;          // Destination / target register (0..15)
+    uint8_t rm = 0;          // Source register (0..15)
+    uint32_t disp = 0;       // Displacement / immediate value
+    uint8_t length = 2;      // Length in bytes (always 2 on SH-2)
+    ControlFlowType flow = ControlFlowType::SEQUENTIAL;
+    bool has_delay_slot = false;
+    MemoryAccessType mem_access = MemoryAccessType::NONE;
+
+    [[nodiscard]] constexpr bool is_valid() const noexcept {
+        return id != OpcodeId::UNKNOWN;
+    }
+
+    /// Computes the effective memory address for load/store instructions.
+    /// For PC-relative instructions, implements the SH-2 architectural PC-base rule:
+    /// ((PC & ~3) + 4) + (disp * 4).
+    [[nodiscard]] uint32_t compute_effective_address(uint32_t base_reg_val = 0) const noexcept {
+        switch (id) {
+            case OpcodeId::MOV_L_PC_REL:
+                return ((pc & ~3u) + 4u) + (disp * 4u);
+            case OpcodeId::MOV_W_READ_MEM:
+            case OpcodeId::MOV_L_READ_MEM:
+                return base_reg_val;
+            default:
+                return 0;
+        }
+    }
+
+    [[nodiscard]] std::string mnemonic() const;
+};
+
+} // namespace thor::sh2

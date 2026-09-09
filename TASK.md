@@ -1,55 +1,60 @@
 # Current task
 
-TASK: D2 / V-02b — TH2.LOW Executable Provenance
-WHY: prove or falsify the runtime provenance hypothesis for TH2.LOW (disc extent -> 0x002DA000 destination -> byte match -> execution).
-CURRENT MILESTONE: D2 / V-02b
-TASK STATUS: PASS (D2 at BOUNDED_PROOF for 0TH2.BIN and TH2.LOW)
-MILESTONE UNDERSTANDING CONFIDENCE: 95%
-CURRENT SLICE UNDERSTANDING CONFIDENCE: 95%
-SLICE CONFIDENCE EVIDENCE: Two independent cold boots proved 100% byte match (SHA-256 `78139689...`) between disc `TH2.LOW` and live RAM at `0x002DA000..0x002FE7FF`; CD Block FAD trace proved 73-sector read (`0x00CC31..0x00CC79`); memory trace proved transfer via Master SH-2 copy loop at PC `0x0607DF08` (`DIRECT_CPU_COPY_OBSERVED`); Master SH-2 executed instructions within mapped extent at `0x002E9910..0x002E9914`.
+TASK: D3 / T2-D3.1 — Exact SH-2 Decode + L0 Semantics (Target Startup Subset)
+WHY: Deliver first verified production C++20 SH-2 decoder and L0 semantic execution slice targeting the 4 executed startup instructions in 0TH2.BIN (0x06004000..0x06004008).
+CURRENT MILESTONE: D3 (Target Startup Subset)
+TASK STATUS: PASS (D3 at BOUNDED_PROOF for target startup subset)
+MILESTONE UNDERSTANDING CONFIDENCE: 85%
+CURRENT SLICE UNDERSTANDING CONFIDENCE: 100%
+SLICE CONFIDENCE EVIDENCE: Complete agreement across Hitachi SH-2 hardware manual, pinned Mednafen debug core (sh7095_ops.inc), and hazzaclark/catherine; 100% pass across synthetic unit tests, big-endian memory harness tests, and real Thor 2 startup oracle vector replay; 0 decode disagreements, 0 semantic divergences; Debug & Release pass on Windows GCC and Linux GCC.
 ACCEPTANCE CRITERIA:
-- [x] verify canonical input hashes and static ISO file extent (`TH2.LOW`: LBA 52123, 73 sectors, 149,504 bytes, SHA-256 `78139689...`);
-- [x] verify call-site arguments in `0TH2.BIN` (`0x06004280..0x06004286`: `R4 -> "TH2.LOW"`, `R5 = 0x002DA000`, `R3 = 0x0600A0F8`);
-- [x] execute two independent deterministic cold boots (Run A and Run B);
-- [x] dump pre-load and post-load live RAM at candidate range `0x002DA000..0x002FE7FF`;
-- [x] prove byte identity via SHA-256 comparison against disc file (`FULL_EXACT_MATCH`);
-- [x] analyze CD Block trace and memory/DMA traces to prove transfer mechanism (`DIRECT_CPU_COPY_OBSERVED`);
-- [x] confirm execution within mapped extent (`0x002E9910..0x002E9914`);
-- [x] separate module-level status and byte-level classification (`CONFIRMED_CODE / EXECUTED` strictly for observed instructions);
+- [x] production-grade C++20 fail-closed decoder implementation for target opcode forms (0x6nm1 MOV.W @Rm,Rn; 0x6nm3 MOV Rm,Rn; 0xDndd MOV.L @(disp,PC),Rn; 0x6nm2 MOV.L @Rm,Rn);
+- [x] explicit architectural CPU state (R0..R15, PC, PR, SR/T, GBR, VBR, MACH, MACL) and big-endian memory harness with effect logging;
+- [x] synthetic L0 tests for arithmetic sign extension, big-endian byte order, PC-relative aligned base computation ((PC & ~3) + 4) + (disp * 4), same-register writeback order, register isolation;
+- [x] independent decode cross-check against Hitachi manual, pinned Mednafen, and hazzaclark/catherine (0 decode disagreements);
+- [x] validation against real Thor 2 startup oracle vector from V-01-core (0 semantic divergences);
+- [x] 100% pass on both Debug and Release in Windows (MinGW GCC 15.2.0) and GNU/Linux (Ubuntu GCC 13.3.0 in WSL);
+- [x] D3 scope state: BOUNDED_PROOF for target startup subset;
+- [x] all source/test/build files <= 500 lines;
 - [x] update project governance / worklog / roadmap / file map / RE records.
 EVIDENCE AVAILABLE:
-- canonical revision `thor2_ntsc_patched_fe11d2fb`;
-- disc BIN SHA-256 `fe11d2fb...`, CUE SHA-256 `afc0b101...`, BIOS `mpr-17933.bin` SHA-256 `96e106f7...`;
-- disc file `TH2.LOW` SHA-256 `78139689...`, LBA 52123, size 149,504 bytes;
-- `workstreams/T2-V02b-th2-low-provenance/README.md`;
-- `workstreams/T2-V02b-th2-low-provenance/provenance_evidence.md`.
+- Hitachi SH-1/SH-2 Programming Manual (Rev 4.0, Sept 2004) Section 5;
+- Pinned Mednafen source commit `155426661b7ac3152e2c93a98da60ac33002b908` (`src/saturn/sh7095_ops.inc`);
+- Reference SH-2 recompiler `hazzaclark/catherine` (`sh2_decoder.cpp`);
+- Pinned Mednafen execution trace from V-01-core at startup entry (`0x06004000..0x06004008`);
+- `workstreams/T2-D3-sh2-decode/README.md`;
+- `workstreams/T2-D3-sh2-decode/decode_crosscheck_evidence.md`.
 KNOWN UNKNOWNS:
-- full SH-2 instruction set decoder and semantics (queued under D3);
-- complete code/data/unknown ownership across modules (queued under D4).
+- unmodeled SH-2 instructions outside the target startup subset (fail-closed);
+- branch delay-slot and pipelining semantics for control transfer instructions (queued under next D3 slices);
+- peripheral / SCU DMA / hardware register side-effects (L3 verification).
 ALLOWED SCOPE:
-- `TH2.LOW` provenance proof and documentation;
-- private runtime artifacts outside GitHub;
-- legal-safe evidence summaries in GitHub.
+- target startup opcode forms (`0x6nm1`, `0x6nm3`, `0xDndd`, `0x6nm2`);
+- explicit architectural CPU state and big-endian flat memory model;
+- unit tests, cross-check evidence, and oracle replay;
+- C++20 CMake build configuration.
 OUT OF SCOPE:
-- SH-2 decoder/recompiler implementation (`D3`);
-- code/data boundary classification (`D4`);
+- whole SH-2 ISA decoding;
+- D4 code/data classification;
+- D5 basic block translation;
+- D6 native recompiler generation;
 - autonomous RE cycles (`auto_re.py`).
 
 ## Last verified result
 
-`V02B_DIRECT_PROVENANCE_PROVEN`: disc file `TH2.LOW` is loaded directly into Low Work RAM at `0x002DA000..0x002FE7FF` without transformation via Master SH-2 CPU copy loop (`PC=0x0607DF08`, zero SCU DMA to Low Work RAM) and executed by Master SH-2 at `0x002E9910..0x002E9914`. D2 state advanced to `BOUNDED_PROOF for 0TH2.BIN and TH2.LOW`.
+`D3_TARGET_STARTUP_SUBSET_PROVEN`: exact C++20 SH-2 decoder and explicit L0 architectural executor verified with zero disagreements against Hitachi manual, pinned Mednafen, and hazzaclark/catherine, and zero divergence against Thor 2 startup oracle vector (`0x06004000..0x06004008`). D3 status recorded as `BOUNDED_PROOF for target startup subset`.
 
 ## Session checkpoint
 
-CURRENT MILESTONE: D2 (V-02a and V-02b completed; BOUNDED_PROOF for 0TH2.BIN and TH2.LOW)
-CURRENT TASK: D2 / V-02b — TH2.LOW Executable Provenance
-TASK STATUS: PASS (D2 at BOUNDED_PROOF for 0TH2.BIN and TH2.LOW)
-MILESTONE UNDERSTANDING CONFIDENCE: 95%
-CURRENT SLICE UNDERSTANDING CONFIDENCE: 95%
-LAST VERIFIED RESULT: V-02b executable provenance proof complete; TH2.LOW module status recorded as EXECUTABLE_MODULE / RUNTIME_MAPPING_EXACT / FULL_EXACT_MATCH (DIRECT_PROVENANCE_PROVEN); byte classification scoped strictly to CONFIRMED_CODE / EXECUTED for dynamically observed instructions 0x002E9910..0x002E9914 with unexecuted remainder retaining PROBABLE_CODE / HIGH; D2 BOUNDED_PROOF for 0TH2.BIN and TH2.LOW
-FILES CHANGED: docs/FILE_MAP.md, docs/PROJECT_STATE.md, docs/ROADMAP.md, docs/REVERSE_ENGINEERING.md, docs/WORKLOG.md, workstreams/T2-V02b-th2-low-provenance/README.md, workstreams/T2-V02b-th2-low-provenance/provenance_evidence.md, TASK.md
-TESTS RUN: git diff --check; source line limit check; unittest suite
-NEW KNOWLEDGE: TH2.LOW (149,504 bytes, LBA 52123..52195, FAD 0x00CC31..0x00CC79) loaded directly to 0x002DA000..0x002FE7FF via Master SH-2 CPU loop (PC=0x0607DF08), exact byte match across 149,504 bytes, execution confirmed at 0x002E9910
-OPEN QUESTIONS: none for module provenance; ready for D3 exact SH-2 decode / L0 semantics
+CURRENT MILESTONE: D3 (Target Startup Subset)
+CURRENT TASK: D3 / T2-D3.1 — Exact SH-2 Decode + L0 Semantics (Target Startup Subset)
+TASK STATUS: PASS (D3 at BOUNDED_PROOF for target startup subset)
+MILESTONE UNDERSTANDING CONFIDENCE: 85%
+CURRENT SLICE UNDERSTANDING CONFIDENCE: 100%
+LAST VERIFIED RESULT: D3 target startup subset (0x6611 MOV.W @R1,R6; 0x6F03 MOV R0,R15; 0xD417 MOV.L @(disp,PC),R4; 0x6442 MOV.L @R4,R4) verified at L0 against independent authorities and real Thor 2 startup trace; 100% pass in Debug & Release on Windows MinGW and Ubuntu WSL; D3 at BOUNDED_PROOF for target startup subset
+FILES CHANGED: CMakeLists.txt, include/thor/sh2/sh2_types.hpp, include/thor/sh2/sh2_decoder.hpp, include/thor/sh2/sh2_state.hpp, include/thor/sh2/sh2_memory.hpp, include/thor/sh2/sh2_executor.hpp, src/sh2/sh2_decoder.cpp, src/sh2/sh2_executor.cpp, tests/sh2/test_framework.hpp, tests/sh2/test_sh2_decoder.cpp, tests/sh2/test_sh2_l0_semantics.cpp, tests/sh2/test_sh2_oracle_vector.cpp, workstreams/T2-D3-sh2-decode/README.md, workstreams/T2-D3-sh2-decode/decode_crosscheck_evidence.md, docs/FILE_MAP.md, docs/PROJECT_STATE.md, docs/ROADMAP.md, docs/REVERSE_ENGINEERING.md, docs/WORKLOG.md, TASK.md, .gitignore
+TESTS RUN: test_sh2_decoder (Debug/Release, Windows/WSL), test_sh2_l0_semantics (Debug/Release, Windows/WSL), test_sh2_oracle_vector (Debug/Release, Windows/WSL), python test_v01_v02_artifacts.py (3/3 pass), git diff --check, source line limits (all <= 221 lines)
+NEW KNOWLEDGE: SH-2 PC-relative displacement formula ((PC & ~3) + 4) + (disp * 4) verified; same-register writeback ordering in load instructions confirmed; exact 4-instruction startup trace 0x06004000..0x06004008 matches Mednafen CPU state with zero divergence
+OPEN QUESTIONS: none for target startup subset; full SH-2 instruction catalog expansion follows in D3
 BLOCKERS: none
-EXACT NEXT ACTION: Review V-02b evidence before starting D3 exact SH-2 decode / L0 semantics.
+EXACT NEXT ACTION: Expand D3 opcode coverage for remaining executed startup instructions in 0TH2.BIN or begin D4 code/data classification for 0TH2.BIN extent.
