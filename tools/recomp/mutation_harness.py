@@ -25,13 +25,21 @@ class LiveGuestMutationHarness:
         self.auth_start = auth_start
         self.auth_size = auth_size
 
+    def validate_spec(self, addr, expected_orig, replacement_bytes):
+        if not expected_orig or not replacement_bytes:
+            raise ValueError("Mutation spec expected_original and replacement_bytes must be non-empty")
+        if len(expected_orig) != len(replacement_bytes):
+            raise ValueError(f"Mismatched vector lengths: orig={len(expected_orig)}, repl={len(replacement_bytes)}")
+        end_addr = addr + len(replacement_bytes)
+        if end_addr > 0xFFFFFFFF:
+            raise ValueError("Address arithmetic overflow")
+        if addr < self.auth_start or end_addr > (self.auth_start + self.auth_size):
+            raise ValueError(f"Target address range [0x{addr:08x}, 0x{end_addr:08x}) outside authorized range [0x{self.auth_start:08x}, 0x{self.auth_start + self.auth_size:08x})")
+
     def read_bytes(self, addr, count):
         ack = self.bot.send_and_wait(f'dump_mem {addr:08x} {count}', 'mem ')
         if not ack:
             raise RuntimeError(f"No response from dump_mem {addr:08x}")
-        # Format:
-        # mem 06004000
-        # 66 11 
         lines = ack.strip().splitlines()
         hex_tokens = []
         for line in lines[1:]:
@@ -39,9 +47,7 @@ class LiveGuestMutationHarness:
         return [int(h, 16) for h in hex_tokens[:count]]
 
     def apply_mutation(self, addr, expected_orig, replacement_bytes, desc=""):
-        end_addr = addr + len(replacement_bytes)
-        if addr < self.auth_start or end_addr > (self.auth_start + self.auth_size):
-            raise ValueError(f"Target address 0x{addr:08x} outside authorized range [0x{self.auth_start:08x}, 0x{self.auth_start + self.auth_size:08x})")
+        self.validate_spec(addr, expected_orig, replacement_bytes)
 
         # Verify pre-mutation original bytes
         current = self.read_bytes(addr, len(expected_orig))
@@ -65,7 +71,18 @@ class LiveGuestMutationHarness:
             "applied_verified": True
         }
 
-    def restore_mutation(self, addr, expected_orig):
+    def restore_mutation(self, addr, expected_orig, replacement_bytes=None):
+        if replacement_bytes is None:
+            # Default to NOP if 2 bytes
+            replacement_bytes = [0x00, 0x09] if len(expected_orig) == 2 else [expected_orig[0] ^ 0x01]
+        self.validate_spec(addr, expected_orig, replacement_bytes)
+
+        # Precondition check: verify current bytes match expected mutation replacement
+        current = self.read_bytes(addr, len(replacement_bytes))
+        if current != list(replacement_bytes):
+            raise RuntimeError(f"Restore precondition failed at 0x{addr:08x}: expected {replacement_bytes}, got {current}")
+
+        # Restore original bytes
         byte_args = " ".join(f"{b:02x}" for b in expected_orig)
         self.bot.send_and_wait(f"poke {addr:08x} {byte_args}", "ok poke")
 

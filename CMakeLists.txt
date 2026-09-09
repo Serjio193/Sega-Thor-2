@@ -134,3 +134,9 @@ add_executable(test_mutation_harness tests/recomp/test_mutation_harness.cpp)
 target_link_libraries(test_mutation_harness PRIVATE thor_native thor_recomp thor_sh2)
 target_include_directories(test_mutation_harness PRIVATE "${GENERATED_DIR}")
 add_test(NAME test_mutation_harness COMMAND test_mutation_harness)
+
+# M-07 SaturnRecomp reference corpus and negative controls test suite
+find_package(Python3 COMPONENTS Interpreter)
+if (Python3_Interpreter_FOUND)
+    add_test(NAME test_m07_reference COMMAND Python3::Interpreter "${CMAKE_CURRENT_SOURCE_DIR}/tests/recomp/test_m07_reference.py")
+endif()

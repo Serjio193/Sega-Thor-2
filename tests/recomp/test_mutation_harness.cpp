@@ -117,7 +117,122 @@ static void test_harness_negative_controls() {
     empty_restore_spec.address = 0x06004000u;
     empty_restore_spec.replacement_bytes = {0x00};
     auto res_empty = harness.restore_and_verify(mem, empty_restore_spec);
-    THOR_ASSERT(res_empty.status == thor::recomp::MutationStatus::RESTORE_VERIFY_FAILED);
+    THOR_ASSERT(res_empty.status == thor::recomp::MutationStatus::SPEC_INVALID);
+}
+
+static void test_m02_fail_closed_range_safety_regressions() {
+    SimulatedSaturnRam mem;
+    mem.setup_canonical_startup();
+
+    thor::recomp::GuestMutationHarness harness(0x06004000u, 12u);
+
+    // Snapshot memory across surrounding interval 0x06003FF0..0x06004020
+    std::vector<uint8_t> baseline_snapshot(0x30);
+    for (uint32_t i = 0; i < 0x30; ++i) {
+        baseline_snapshot[i] = mem.read8(0x06003FF0u + i);
+    }
+    auto verify_zero_writes = [&]() {
+        for (uint32_t i = 0; i < 0x30; ++i) {
+            THOR_ASSERT(mem.read8(0x06003FF0u + i) == baseline_snapshot[i]);
+        }
+    };
+
+    // Regression 1: Mismatched vector lengths
+    {
+        thor::recomp::MutationSpec spec;
+        spec.address = 0x06004000u;
+        spec.expected_original = {0x66, 0x11};
+        spec.replacement_bytes = {0x00};
+        auto res_apply = harness.apply_and_verify(mem, spec);
+        THOR_ASSERT(res_apply.status == thor::recomp::MutationStatus::SPEC_INVALID);
+        THOR_ASSERT(!res_apply.mutation_applied);
+        verify_zero_writes();
+
+        auto res_restore = harness.restore_and_verify(mem, spec);
+        THOR_ASSERT(res_restore.status == thor::recomp::MutationStatus::SPEC_INVALID);
+        THOR_ASSERT(!res_restore.restoration_verified);
+        verify_zero_writes();
+    }
+
+    // Regression 2: Replacement in range but expected_original would extend past range
+    {
+        thor::recomp::MutationSpec spec;
+        spec.address = 0x0600400Bu;
+        spec.expected_original = {0x09, 0xFF};
+        spec.replacement_bytes = {0x00};
+        auto res_apply = harness.apply_and_verify(mem, spec);
+        THOR_ASSERT(res_apply.status == thor::recomp::MutationStatus::SPEC_INVALID);
+        verify_zero_writes();
+
+        auto res_restore = harness.restore_and_verify(mem, spec);
+        THOR_ASSERT(res_restore.status == thor::recomp::MutationStatus::SPEC_INVALID);
+        verify_zero_writes();
+    }
+
+    // Regression 3: Restore below authorized range
+    {
+        thor::recomp::MutationSpec spec;
+        spec.address = 0x06003FFEu;
+        spec.expected_original = {0x12, 0x34};
+        spec.replacement_bytes = {0x56, 0x78};
+        auto res_restore = harness.restore_and_verify(mem, spec);
+        THOR_ASSERT(res_restore.status == thor::recomp::MutationStatus::RANGE_UNAUTHORIZED);
+        THOR_ASSERT(!res_restore.restoration_verified);
+        verify_zero_writes();
+    }
+
+    // Regression 4: Restore above authorized range
+    {
+        thor::recomp::MutationSpec spec;
+        spec.address = 0x0600400Cu;
+        spec.expected_original = {0x12, 0x34};
+        spec.replacement_bytes = {0x56, 0x78};
+        auto res_restore = harness.restore_and_verify(mem, spec);
+        THOR_ASSERT(res_restore.status == thor::recomp::MutationStatus::RANGE_UNAUTHORIZED);
+        THOR_ASSERT(!res_restore.restoration_verified);
+        verify_zero_writes();
+    }
+
+    // Regression 5: Address arithmetic overflow
+    {
+        thor::recomp::MutationSpec spec;
+        spec.address = 0xFFFFFFFFu;
+        spec.expected_original = {0x12, 0x34};
+        spec.replacement_bytes = {0x56, 0x78};
+        auto res_apply = harness.apply_and_verify(mem, spec);
+        THOR_ASSERT(res_apply.status == thor::recomp::MutationStatus::RANGE_UNAUTHORIZED);
+        THOR_ASSERT(!res_apply.mutation_applied);
+        verify_zero_writes();
+
+        auto res_restore = harness.restore_and_verify(mem, spec);
+        THOR_ASSERT(res_restore.status == thor::recomp::MutationStatus::RANGE_UNAUTHORIZED);
+        THOR_ASSERT(!res_restore.restoration_verified);
+        verify_zero_writes();
+    }
+
+    // Regression 6: Changed mutation bytes before restoration -> RESTORE_PRECONDITION_FAILED & zero writes
+    {
+        thor::recomp::MutationSpec spec;
+        spec.address = 0x06004000u;
+        spec.expected_original = {0x66, 0x11};
+        spec.replacement_bytes = {0x00, 0x09};
+        auto res_apply = harness.apply_and_verify(mem, spec);
+        THOR_ASSERT(res_apply.status == thor::recomp::MutationStatus::SUCCESS);
+        THOR_ASSERT(mem.read8(0x06004000u) == 0x00u);
+        THOR_ASSERT(mem.read8(0x06004001u) == 0x09u);
+
+        // Perturb memory while mutation is applied
+        mem.write8(0x06004000u, 0xAAu);
+
+        // Attempt restore: precondition MUST detect that current bytes != replacement_bytes
+        auto res_restore = harness.restore_and_verify(mem, spec);
+        THOR_ASSERT(res_restore.status == thor::recomp::MutationStatus::RESTORE_PRECONDITION_FAILED);
+        THOR_ASSERT(!res_restore.restoration_verified);
+
+        // Regression 7: Prove failed restore performs zero writes (memory remains 0xAA, 0x09)
+        THOR_ASSERT(mem.read8(0x06004000u) == 0xAAu);
+        THOR_ASSERT(mem.read8(0x06004001u) == 0x09u);
+    }
 }
 
 static void test_twelve_byte_mutation_matrix() {
@@ -250,6 +365,9 @@ int main() {
 
     test_harness_negative_controls();
     std::cout << "  PASS: test_harness_negative_controls (range, mismatch, restore failure checks)\n";
+
+    test_m02_fail_closed_range_safety_regressions();
+    std::cout << "  PASS: test_m02_fail_closed_range_safety_regressions (mismatched sizes, overflow, changed bytes precondition, zero writes)\n";
 
     test_twelve_byte_mutation_matrix();
     std::cout << "  PASS: test_twelve_byte_mutation_matrix (12/12 byte positions detected & rejected)\n";

@@ -16,22 +16,24 @@ enum class MutationKind {
 
 enum class MutationStatus {
     SUCCESS,
+    SPEC_INVALID,
     ORIGINAL_MISMATCH,
     RANGE_UNAUTHORIZED,
     APPLY_VERIFY_FAILED,
+    RESTORE_PRECONDITION_FAILED,
     RESTORE_VERIFY_FAILED
 };
 
 struct MutationSpec {
-    uint32_t address;
+    uint32_t address = 0;
     std::vector<uint8_t> expected_original;
     std::vector<uint8_t> replacement_bytes;
-    MutationKind kind;
+    MutationKind kind = MutationKind::ARBITRARY_BYTES;
     std::string description;
 };
 
 struct MutationResult {
-    MutationStatus status;
+    MutationStatus status = MutationStatus::SPEC_INVALID;
     bool mutation_applied = false;
     bool restoration_verified = false;
     std::string detail;
@@ -40,6 +42,11 @@ struct MutationResult {
 class GuestMutationHarness {
 public:
     GuestMutationHarness(uint32_t auth_start, uint32_t auth_size);
+
+    MutationStatus validate_spec(
+        const MutationSpec& spec,
+        std::string& out_detail
+    ) const;
 
     MutationResult apply_and_verify(
         thor::sh2::ISh2Memory& memory,

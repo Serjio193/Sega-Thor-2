@@ -1,5 +1,51 @@
 # Worklog
 
+## 2026-09-10 — T2-POST-D8.2 / M-02.1 / M-07 SaturnRecomp SH-2 Reference Corpus Experiment
+
+### Task
+
+Execute the second external-method second-pass experiment: **M-07 (SaturnRecomp SH-2 reference corpus)** under ADR D-012, preceded by **M-02.1 fail-closed range/spec and restore precondition safety repair**.
+Audit pinned SaturnRecomp source; evaluate actual available SH-2 reference assets; build external decoder probe adapter; cross-check 6 startup overlap opcodes and 14 future-expansion synthetic probe opcodes; cross-check execution semantics against Hitachi manual and Mednafen oracle; build machine-readable reference manifest and project-side automated test with fail-closed negative controls; update second-pass plan and project records; evaluate method dispositions.
+
+### Method & Discoveries
+
+1. **M-02.1 Range & Restore Safety Repair**:
+   - Added `SPEC_INVALID` and `RESTORE_PRECONDITION_FAILED` to `MutationStatus`.
+   - Added unified `validate_spec` enforcing: non-empty vectors, equal vector lengths, checked uint64 overflow arithmetic, and complete containment within authorized interval `[auth_start, auth_start + auth_size)`.
+   - Enforced restore precondition: verifies current guest memory matches expected replacement bytes before applying restore; aborts fail-closed with zero writes if tampered or modified.
+   - Synchronized C++ (`include/thor/recomp/mutation_harness.hpp`, `src/recomp/mutation_harness.cpp`) and Python (`tools/recomp/mutation_harness.py`).
+   - Added 7 mandatory regressions in `tests/recomp/test_mutation_harness.cpp` (size mismatch, boundary extension, restore below/above range, 32-bit overflow `0xFFFFFFFF`, modified bytes before restore, zero writes proof).
+2. **Pinned SaturnRecomp Source Audit (`26c9715e5493054b8a205aa31d73d8f125fdd8f5`)**:
+   - Audited repository: lacks open-source license grant -> **zero source vendoring into Sega-Thor-2**; derived reference facts only.
+   - **M-07A (Decoder & Semantic Execution Corpus)**: `PRESENT`. Structured `sh2_insn` representation in `sh2_isa.h` / `sh2_decoder.c` and per-instruction semantic execution tests in `tests/sh2_semantics.c`.
+   - **M-07B (AOT Translation Emitter / C Codegen)**: `NOT_PRESENT_AT_PIN`. Upstream README explicitly documents: *"The decoder and module-analysis foundation for ahead-of-time recompilation are present, but a complete public AOT emitter is not."* Directory `recompiler/` contains only disc inspection, ISO extraction, and disassembly formatting (`sh2_format`).
+3. **Startup Block Overlap Cross-Check (bb_06004000)**:
+   - Evaluated 6 instructions (`0x6611`, `0x6F03`, `0xD417`, `0x6442`, `0xA003`, `0x0009`).
+   - Cross-checked across Thor 2 decoder, Hitachi SH-2 manual, Mednafen oracle, and SaturnRecomp: **0 unexplained decode disagreements**.
+4. **Future-Expansion Synthetic Probe Corpus (14 vectors)**:
+   - Evaluated unmodeled classes: conditional branches (`BF 0x8B04`, `BT 0x8904`), delayed conditional branches (`BF/S 0x8F04`, `BT/S 0x8D04`), comparisons (`CMP/GE 0x3013`, `CMP/GT 0x3017`, `CMP/HS 0x3012`), shifts (`SHLL 0x4000`, `SHAR 0x4021`), immediate sign-extension (`ADD #-1 0x70FF`), rotate-through-T (`ROTCL 0x4024`), division step (`DIV0S 0x2017`, `DIV1 0x3014`), and multiply-accumulate (`MAC.W 0x401F`).
+   - Cross-checked across Hitachi manual, Mednafen, and SaturnRecomp: **0 unexplained decode or semantic disagreements**.
+5. **Execution Semantic Cross-Checks & External Health Check**:
+   - Built and ran SaturnRecomp's semantic test suite `tests/sh2_semantics`: `PASS: 39 checks, 0 failed`.
+   - Cross-checked edge cases (signed vs unsigned compare, shift zero-fill vs sign-fill, immediate sign extension, branch target formulas, delay slot execution, ROTCL, DIV1): **0 disagreements**.
+6. **Automation & Negative Controls**:
+   - Created derived legal-safe manifest: `workstreams/POST-D8-M07-saturnrecomp/reference_vectors.json`.
+   - Created out-of-tree probe adapter: `tools/recomp/saturnrecomp_adapter.py`.
+   - Implemented automated project-side verification test: `tests/recomp/test_m07_reference.py` integrated into CMake/CTest.
+   - Tested 9 fail-closed negative controls (corrupted schema, method ID, commit hash, empty overlap, zero target, missing branch flag, missing delay slot, corrupted sign extension, missing opcode class): all 9 caught and failed closed.
+   - All 14 CTest suites pass 100% on MinGW Windows and Linux WSL (Debug and Release).
+7. **Method Dispositions**:
+   - **M-07A**: `ADOPT_PARTIAL (DECODER_AND_SEMANTIC_REFERENCE)` (Evidence Strength: `HIGH`, Workflow Utility: `HIGH`).
+   - **M-07B**: `NOT_PRESENT_AT_PIN` (`REJECT_AT_PIN` / `DEFER`; Evidence Strength: `N/A`, Workflow Utility: `N/A`).
+   - Next gate: **`POST-D8 SECOND-PASS CLOSURE AUDIT`**.
+
+### Status After Pass
+
+- `M-02.1`: **RANGE_AND_RESTORE_SAFETY_VERIFIED**
+- `M-07A`: **ADOPT_PARTIAL (DECODER_AND_SEMANTIC_REFERENCE)**
+- `M-07B`: **NOT_PRESENT_AT_PIN**
+- `Post-D8 Second Pass`: **ACTIVE** (Next gate: `POST-D8 SECOND-PASS CLOSURE AUDIT`)
+
 ## 2026-09-09 — T2-POST-D8.1 / M-02 SaturnAutoRE Mutation Fault-Injection Experiment
 
 ### Task

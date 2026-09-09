@@ -69,6 +69,7 @@ tools/
   recomp/
     generate_sh2_block.cpp        build-time mechanical C++20 block generator CLI
     mutation_harness.py           live Mednafen IPC mutation and non-contamination harness
+    saturnrecomp_adapter.py       external SaturnRecomp decoder probe adapter
 
 tests/
   test_census_saturn_cd.py        synthetic tests for census parser
@@ -89,6 +90,7 @@ tests/
     test_shadow_isolation.cpp     pre-state storage isolation and anti-aliasing proof test suite
     test_native_dispatcher.cpp    authoritative native dispatcher and negative fallback test suite
     test_mutation_harness.cpp     12/12 single-byte and 6/6 NOP mutation unit tests
+    test_m07_reference.py         SaturnRecomp reference manifest validation & negative control tests
 
 workstreams/
   T2-M0-disc-census/
@@ -130,6 +132,10 @@ workstreams/
   POST-D8-M02-mutation/
     README.md                     M-02 mutation fault-injection experiment summary
     experiment_evidence.md        pinned audit, synthetic C++ matrix, live IPC matrix, and disposition
+  POST-D8-M07-saturnrecomp/
+    README.md                     M-07 SaturnRecomp reference corpus experiment summary
+    experiment_evidence.md        decode and semantic cross-check results (0 disagreements)
+    reference_vectors.json        derived legal-safe reference vectors (6 overlap + 14 probes)
 
 external/
   README.md                       rules for private user-supplied inputs
