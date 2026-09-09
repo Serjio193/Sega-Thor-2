@@ -72,6 +72,7 @@ Tracing SCU DMA (`dma_trace`) and memory write operations (`mem_profile 06004000
   - Step 2: PC `0x06004006` (retires `0x6611` at `0x06004000`)
   - Step 3: PC `0x06004008` (retires `0x6F03` at `0x06004002`)
 - **Range Status:** `0x06004000..0x06004008` **EXECUTED**; remainder of `0x06004000..0x06086BFF` **MAPPED (BYTE_EXACT)**.
+- **Byte Classification Scope:** Only dynamically retired instructions at `0x06004000..0x06004008` are classified as `CONFIRMED_CODE / EXECUTED`. The unexecuted remainder of the mapped extent (`0x06004008..0x06086BFF`) retains its prior `PROBABLE_CODE / HIGH` classification; complete code/data/unknown ownership remains queued for future capability D4.
 
 ---
 

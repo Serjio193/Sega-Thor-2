@@ -50,7 +50,8 @@ Two independent census runs produced identical manifest and summary output.
 
 - SHA-256: `c1cc4117870bc567386410aa2d4f1b5f03fb98a601be71bb3ae2155de1853c64`
 - size: `0x82C00`
-- classification: `CONFIRMED_CODE` (entire extent `0x06004000..0x06086BFF` proven identical to disc file bytes; entry and startup instructions dynamically executed)
+- module status: `EXECUTABLE_MODULE / RUNTIME_MAPPING_EXACT / FULL_EXACT_MATCH` (`DIRECT_PROVENANCE_PROVEN`)
+- byte classification: `CONFIRMED_CODE / EXECUTED` for dynamically observed instructions at `0x06004000..0x06004008`; unexecuted remainder `0x06004008..0x06086BFF` remains `PROBABLE_CODE / HIGH` (ownership queued for D4)
 - dynamic evidence: V-02a proven direct byte-exact mapping (`FULL_EXACT_MATCH`), BIOS Master SH-2 CPU transfer loop (`PC=0x00002368`) from CD Block buffer (FAD `0x0000AE..0x0001B3`), and entry execution.
 - next gate: complete D2 via TH2.LOW provenance (V-02b).
 

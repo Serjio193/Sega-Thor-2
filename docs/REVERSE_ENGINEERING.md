@@ -26,7 +26,8 @@ Full per-file identity is in `workstreams/T2-M0-disc-census/disc_manifest.tsv`.
 
 ## Executable module `0TH2.BIN`
 
-Status: `CONFIRMED_CODE / BYTE_OR_ASM_ROUNDTRIP_EXACT / EXECUTED` (V-02a proven direct runtime mapping; ADR D-011).
+Module status: `EXECUTABLE_MODULE / RUNTIME_MAPPING_EXACT / FULL_EXACT_MATCH / DIRECT_PROVENANCE_PROVEN` (V-02a proven direct runtime mapping; ADR D-011).
+Byte classification: `CONFIRMED_CODE / EXECUTED` for dynamically observed instructions at `0x06004000..0x06004008`; unexecuted remainder `0x06004008..0x06086BFF` remains `PROBABLE_CODE / HIGH` (mapped byte-exact to disc; complete code/data/unknown ownership queued for D4).
 
 - SHA-256: `c1cc4117870bc567386410aa2d4f1b5f03fb98a601be71bb3ae2155de1853c64`
 - Disc extent: ISO9660 LBA 24..285 (262 sectors, 535,552 bytes / `0x82C00`)

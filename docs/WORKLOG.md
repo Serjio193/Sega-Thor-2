@@ -1,5 +1,35 @@
 # Worklog
 
+## 2026-09-09 — T2-V02a.1 0TH2.BIN Evidence Classification Repair
+
+### Task
+
+Correct an evidence-classification overclaim introduced during T2-V02a without weakening proven facts, rerunning the emulator, or advancing milestones.
+
+### Prior Claim & Correction
+
+- **Wrong Prior Classification**: In the initial `T2-V02a` reverse engineering and project state updates, the status of `0TH2.BIN` was recorded as `CONFIRMED_CODE / BYTE_OR_ASM_ROUNDTRIP_EXACT / EXECUTED` across the entire `0x82C00`-byte module extent (`0x06004000..0x06086BFF`).
+- **Correction / Reason**: Per Rule 19, this overclaim is explicitly acknowledged and retracted. While V-02a proved 100% byte parity (`FULL_EXACT_MATCH`) between the disc file and High Work RAM across all 535,552 bytes, direct CPU transfer via BIOS copy loop, and Master SH-2 execution, it did not prove that every byte in the module is code, that every byte executes, or complete code/data ownership.
+- **Corrected Status**:
+  - Module level: `EXECUTABLE_MODULE / RUNTIME_MAPPING_EXACT / FULL_EXACT_MATCH` (`DIRECT_PROVENANCE_PROVEN`; ADR D-011).
+  - Byte-level code classification: Only dynamically observed instructions with explicit retirement evidence (`0x06004000..0x06004008`) are classified as `CONFIRMED_CODE / EXECUTED`. The unexecuted remainder of the mapped extent (`0x06004008..0x06086BFF`) retains its prior `PROBABLE_CODE / HIGH` classification; complete code/data/unknown ownership remains queued for D4.
+- **Preserved Facts**:
+  - Disc extent: ISO9660 LBA 24..285 (262 sectors, 535,552 bytes, SHA-256 `c1cc4117870bc567386410aa2d4f1b5f03fb98a601be71bb3ae2155de1853c64`).
+  - Runtime mapping: `0x06004000..0x06086BFF` (`FULL_EXACT_MATCH`, 0 differing bytes).
+  - Transfer: `DIRECT_CPU_COPY_OBSERVED` via BIOS Master SH-2 copy loop (`PC=0x00002368`).
+  - Execution: Master SH-2 entry breakpoint hit at cycle `305462360` and startup instructions executed.
+  - Provenance verdict: `V02A_DIRECT_PROVENANCE_PROVEN`.
+  - Capability state: `D2 — BOUNDED_PROOF for 0TH2.BIN only`.
+  - ADR D-011 (`ADOPT_PARTIAL`) retained.
+
+### Result
+
+Classification repaired across `docs/REVERSE_ENGINEERING.md`, `docs/PROJECT_STATE.md`, and `workstreams/T2-V02a-0th2-provenance/provenance_evidence.md`. Overclaim eliminated.
+
+### Exact next action
+
+Review V-02a evidence before authorizing V-02b TH2.LOW provenance.
+
 ## 2026-09-09 — T2-V02a 0TH2.BIN Executable Provenance Proof
 
 ### Task

@@ -1,9 +1,7 @@
 # Current task
 
-# Current task
-
-TASK: D2 — Executable Module Provenance (T2-V02a 0TH2.BIN Provenance Proof)
-WHY: prove or falsify the exact runtime provenance of disc file `0TH2.BIN` on Sega Saturn.
+TASK: D2 — Executable Module Provenance (T2-V02a.1 Classification Repair)
+WHY: correct evidence-classification overclaim in V-02a records while preserving proven provenance facts.
 CURRENT MILESTONE: D2 / V-02a
 TASK STATUS: BOUNDED_PROOF (for 0TH2.BIN only)
 MILESTONE UNDERSTANDING CONFIDENCE: 95%
@@ -45,14 +43,14 @@ OUT OF SCOPE:
 ## Session checkpoint
 
 CURRENT MILESTONE: D2 (V-02a completed; BOUNDED_PROOF for 0TH2.BIN only)
-CURRENT TASK: D2 — Executable Module Provenance (T2-V02a 0TH2.BIN Provenance Proof)
+CURRENT TASK: D2 — Executable Module Provenance (T2-V02a.1 Classification Repair)
 TASK STATUS: BOUNDED_PROOF (for 0TH2.BIN only)
 MILESTONE UNDERSTANDING CONFIDENCE: 95%
 CURRENT SLICE UNDERSTANDING CONFIDENCE: 95%
-LAST VERIFIED RESULT: T2-V02a provenance experiment passed; 0TH2.BIN runtime extent 0x06004000..0x06086BFF proved identical to disc file across all 535,552 bytes in Run A and Run B; transfer mechanism DIRECT_CPU_COPY_OBSERVED; entry execution confirmed; ADR D-011 accepted as ADOPT_PARTIAL (Daytona provenance methodology)
-FILES CHANGED: workstreams/T2-V02a-0th2-provenance/README.md, workstreams/T2-V02a-0th2-provenance/provenance_evidence.md, docs/DECISIONS.md, docs/FILE_MAP.md, docs/PROJECT_STATE.md, docs/ROADMAP.md, docs/REVERSE_ENGINEERING.md, docs/WORKLOG.md, TASK.md
-TESTS RUN: git diff --check; source line limit check; unittest suite; dual provenance cold-boot comparison; byte-by-byte disc comparison; trace analysis
-NEW KNOWLEDGE: Saturn BIOS loads 0TH2.BIN via Master SH-2 CPU byte copy loop at PC 0x00002368 directly from CD Block buffer into High Work RAM with zero SCU DMA; 0TH2.BIN is 100% byte-exact in RAM; FAD range 0x0000AE..0x0001B3
+LAST VERIFIED RESULT: T2-V02a.1 evidence classification repair complete; 0TH2.BIN module status recorded as EXECUTABLE_MODULE / RUNTIME_MAPPING_EXACT / FULL_EXACT_MATCH (DIRECT_PROVENANCE_PROVEN); byte classification scoped strictly to CONFIRMED_CODE / EXECUTED for dynamically observed instructions 0x06004000..0x06004008 with unexecuted remainder retaining PROBABLE_CODE / HIGH; ADR D-011 and D2 BOUNDED_PROOF for 0TH2.BIN only preserved
+FILES CHANGED: docs/REVERSE_ENGINEERING.md, docs/PROJECT_STATE.md, docs/WORKLOG.md, workstreams/T2-V02a-0th2-provenance/provenance_evidence.md, TASK.md
+TESTS RUN: git diff --check; source line limit check; unittest suite
+NEW KNOWLEDGE: Dynamic execution proves code only for observed instructions (0x06004000..0x06004008); full-extent byte match proves mapping exactness, not whole-module code ownership; unexecuted bytes retain PROBABLE_CODE until D4
 OPEN QUESTIONS: none for 0TH2.BIN; ready for TH2.LOW provenance (V-02b)
 BLOCKERS: none
 EXACT NEXT ACTION: Review V-02a evidence before authorizing V-02b TH2.LOW provenance.
