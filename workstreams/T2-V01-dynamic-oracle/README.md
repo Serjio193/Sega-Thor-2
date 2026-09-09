@@ -63,6 +63,21 @@ Detailed comparison tables and raw traces are documented in `bounded_observation
 
 ---
 
-## 5. Next Action
+## 5. Automation Validation Results (V-01-automation)
 
-Review repaired V-01-core and authorize V-01-automation.
+The low-level IPC control harness `MednafenBot` (`AJBats/SaturnAutoRE/mednafen/mednafen_bot.py`) was evaluated against the accepted `V-01-core` bounded observation.
+
+Results:
+1. **Reproducibility**: Two independent automation runs (`RUN_A` and `RUN_B`) achieved 100% parity across all commands, registers, cycles, steps, and watchpoints.
+2. **Oracle Baseline Match**: 100% identical match against accepted `V-01-core` baseline.
+3. **Launch Delta Audit**: Stock `MednafenBot.start()` unconditionally injects `-cd.image_memcache 1`; controlled comparison proved this delta neutral.
+4. **Negative Control**: 5 deliberate baseline corruptions were tested; comparator flagged all 5 divergences without false negatives.
+5. **Decision**: `ADOPT_PARTIAL` (ADR D-010) for `LOW_LEVEL_CONTROL_LAYER_PROVEN`. Higher-level autonomous RE workflows (`auto_re.py`) remain unverified.
+
+Detailed logs and tables are documented in `automation_validation.md`.
+
+---
+
+## 6. Next Action
+
+Proceed to capability **D2 — Executable Module Provenance** via verification experiment **V-02a — 0TH2.BIN Executable Provenance**.

@@ -1,5 +1,34 @@
 # Worklog
 
+## 2026-09-09 — T2-V01.2 SaturnAutoRE Automation / Control-Layer Validation
+
+### Task
+
+Test whether the pinned SaturnAutoRE automation/control layer (`MednafenBot`) can reproduce the accepted V-01-core bounded observation without silently changing configuration or execution semantics.
+
+### Method
+
+1. Verified all external pins (`SaturnAutoRE` commit `4662aad69f95222fe37c5e6b98f2285b1a7e4653`, `mednafen` submodule commit `155426661b7ac3152e2c93a98da60ac33002b908`, binary SHA-256 `861f03f36882ac2cff9334e3bdb54c8a29991f711ff81cb1132183ade9828c49`).
+2. Audited launch configuration deltas in `MednafenBot`: identified `-cd.image_memcache 1` injection on command line and isolated environment handling (`MEDNAFEN_HOME`, `MEDNAFEN_CRASH_DUMP_DIR`, `WSLENV`).
+3. Re-verified canonical inputs from disc/firmware hashes against `environment_pin.yaml` (BIN `fe11d2fb...`, CUE `afc0b101...`, BIOS `mpr-17933.bin` `96e106f7...`).
+4. Designed a minimal Python probe using `MednafenBot` directly from the pinned submodule to drive clean cold boot execution in isolated scratch directories (`/tmp/t2_v01_auto_run_a`, `/tmp/t2_v01_auto_run_b`).
+5. Resolved action/ack command semantics: free execution via `run`, breakpoint hit via `break pc=`, register capture via `dump_regs`, stepping via `step 1` -> `done step`, watchpoint interception via `hit read_watchpoint`.
+6. Executed two independent runs (`RUN_A` and `RUN_B`) with zero shared or prior mutable state.
+7. Compared Run A vs Run B (100% parity), Run A vs V-01-core baseline (100% parity), and Run B vs V-01-core baseline (100% parity).
+8. Executed negative control test by injecting 5 deliberate corruptions into comparator expectations; verified that all 5 divergences were detected without false negatives.
+9. Proved that `-cd.image_memcache 1` is neutral for this bounded observation window (`CONFIG_DELTA_PROVEN_NEUTRAL`).
+
+### Result
+
+`V01_AUTOMATION_ADOPT_PARTIAL` (ADR D-010).
+Adopted scope: `LOW_LEVEL_CONTROL_LAYER_PROVEN`.
+Unverified scope: Higher SaturnAutoRE autonomous workflows (`auto_re.py`) remain unverified and unadopted.
+D1 capability remains at `BOUNDED_PROOF`.
+
+### Exact next action
+
+Prepare V-02a 0TH2.BIN executable provenance experiment.
+
 ## 2026-09-09 — T2-V01.1 Oracle Event-Semantics Repair
 
 ### Task

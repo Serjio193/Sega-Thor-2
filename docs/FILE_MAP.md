@@ -45,13 +45,10 @@ workstreams/
     executable_candidates.tsv     confidence-scored executable census
     static_load_evidence.md       TH2.LOW static mapping evidence
   T2-V01-dynamic-oracle/
-    README.md                     completed V-01-core oracle proof
+    README.md                     V-01-core and V-01-automation proof records
     environment_pin.yaml          19-parameter pinned boot recipe
     bounded_observation.md        Run A/B identical observation evidence
-
-  T2-V01-dynamic-oracle/
-    README.md                     V-01-core preflight, source pins, blocker proof, re-entry condition
-    environment_pin.yaml          legal-safe oracle/input/config pin record; unresolved private firmware fields remain null
+    automation_validation.md      MednafenBot low-level control layer validation evidence
 
 external/
   README.md                       rules for private user-supplied inputs

@@ -34,22 +34,25 @@ Adversarial repair of proof contracts:
 - split V-07 into `V-07A`, `V-07B`, and `V-07C`;
 - relaxed D14 static round-trip prerequisite.
 
-### D1 — Deterministic Dynamic Oracle (V-01-core)
+### D1 — Deterministic Dynamic Oracle (V-01-core / V-01-automation)
 
-Status: **BOUNDED_PROOF** (decision D-009)
+Status: **BOUNDED_PROOF** (decisions D-009, D-010)
 
-Capability: reproducible dynamic observation of Thor 2 execution under a pinned configuration.
-Verified gate: **V-01-core** (bounded emulator observation under pinned Mednafen debug fork; Run A/B identical match).
-First target claim proven: Master SH-2 candidate boot entry at `0x06004000` (hook pc `0x06004002` via pc-2 fallback), step transitions/retirements (`0x06004000` `MOV.W @R1, R6`; `0x06004002` `MOV R0, R15`; `0x06004004` `MOV.L @(0x5C, PC), R4`), deterministic cycle counter, and dynamic memory read watchpoint (`0x06081C10` = `0x060917DC` via `MOV.L @R4, R4` at `0x06004006`).
+Capability: reproducible dynamic observation of Thor 2 execution under a pinned configuration and scripted IPC harness.
+Verified gates:
+- **V-01-core**: bounded emulator observation under pinned Mednafen debug fork; Run A/B identical match (ADR D-009 `ADOPT`).
+- **V-01-automation**: low-level scripted IPC control via `MednafenBot`; Run A/B identical match, negative control verified (ADR D-010 `ADOPT_PARTIAL` for `LOW_LEVEL_CONTROL_LAYER_PROVEN`).
+
+Target claims proven: Master SH-2 candidate boot entry at `0x06004000` (hook pc `0x06004002` via pc-2 fallback), step transitions/retirements (`0x06004000` `MOV.W @R1, R6`; `0x06004002` `MOV R0, R15`; `0x06004004` `MOV.L @(0x5C, PC), R4`), deterministic cycle counter, dynamic memory read watchpoint (`0x06081C10` = `0x060917DC` via `MOV.L @R4, R4` at `0x06004006`), and automated programmatic reproducibility via `MednafenBot`.
 
 ## Next
 
-### Verification: V-01-automation / Development: D2 — Executable Module Provenance
+### Development: D2 — Executable Module Provenance / Verification: V-02a — 0TH2.BIN Executable Provenance
 
 Status: `PROPOSED`
 
-- Review repaired V-01-core and authorize V-01-automation.
-- Next capability: **D2 — Executable Module Provenance** via `V-02a` (`0TH2.BIN`) and `V-02b` (`TH2.LOW`).
+- Next verification experiment: **V-02a — 0TH2.BIN Executable Provenance**.
+- Next development capability: **D2 — Executable Module Provenance** via `V-02a` (`0TH2.BIN`) and `V-02b` (`TH2.LOW`).
 
 ## Queued development milestones
 

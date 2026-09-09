@@ -70,3 +70,15 @@ The pinned Mednafen debug fork (`AJBats/mednafen-saturn-debug` commit `155426661
 Evidence: Two independent cold-boot runs (`RUN_A` and `RUN_B`) with debugger `deterministic` mode enabled produced 100% identical results across CPU identity (`MASTER_SH2`), frame (680), cycle (305462360), entry candidate PC (`0x06004000` with hook PC `0x06004002` via pc-2 fallback), all 23 register states, step transitions (Steps 1–6 with confirmed opcode retirements), and dynamic memory read watchpoint hit (`0x06081C10` = `0x060917DC` via `MOV.L @R4, R4` at `0x06004006`, cycle `305462372`).
 
 Scope limitation: This decision adopts Mednafen for bounded execution observation only. It does not adopt autonomous RE pipeline scripting (`V-01-automation`), whole-game determinism, or hardware-perfect timing across unobserved systems. D1 capability remains at `BOUNDED_PROOF`.
+
+## D-010 — Adopt SaturnAutoRE MednafenBot Control Layer as ADOPT_PARTIAL
+
+**Status:** ACCEPTED (ADOPT_PARTIAL for V-01-automation)
+
+The low-level IPC control harness `MednafenBot` from `AJBats/SaturnAutoRE` (commit `4662aad69f95222fe37c5e6b98f2285b1a7e4653`) is adopted as `ADOPT_PARTIAL` for scripted execution control and observation capture.
+
+Evidence: Two independent automation runs (`RUN_A` and `RUN_B`) drove the pinned Mednafen debug oracle and reproduced the accepted `V-01-core` bounded observation with 100% parity across all 23 CPU registers, deterministic cycles (entry cycle 305462360, watchpoint cycle 305462372), step transitions (Steps 1–6), and dynamic read watchpoint hit (`0x06081C10` = `0x060917DC`). A negative control test with 5 deliberate corruptions was correctly flagged as `FAIL`.
+
+Configuration delta: `MednafenBot.start()` unconditionally injects `-cd.image_memcache 1`. Controlled comparison proved this delta neutral for the bounded observation window.
+
+Scope limitation: Adoption is strictly limited to `LOW_LEVEL_CONTROL_LAYER_PROVEN` (scripted IPC driver). Higher-level SaturnAutoRE autonomous workflows (`auto_re.py`, function discovery heuristics, NOP experiments, claim generation, and graduation logic) remain unverified and unadopted. D1 capability remains at `BOUNDED_PROOF`.

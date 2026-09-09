@@ -5,10 +5,11 @@
 - **D0 / T2-M0 — Canonical Revision Identity**: **COMPLETE**.
 - **T2-P0 — Dual-Track Planning Hardening**: **COMPLETE** (decision D-008; established `DEVELOPMENT_PLAN.md` and `PIPELINE_VALIDATION_PLAN.md`).
 - **T2-P0.1 — Dual-Track Proof-Contract Repair**: **COMPLETE** (formalized capability scope states, split V-01 into V-01-core and V-01-automation, removed TH2.LOW from V-01 gate, established pre-D8 guards).
-- **D1 / T2-V01 — Deterministic Dynamic Oracle (V-01-core)**: **BOUNDED_PROOF** (decision D-009; 19-parameter pinned recipe; verified identical execution across independent cold boot runs A and B).
+- **D1 / T2-V01 / T2-V01.2 — Deterministic Dynamic Oracle**: **BOUNDED_PROOF** (decisions D-009, D-010; V-01-core verified; V-01-automation adopted as `ADOPT_PARTIAL` for `LOW_LEVEL_CONTROL_LAYER_PROVEN`).
+- **D2 — Executable Module Provenance**: `PROPOSED`.
 
-Active next verification step: **Review repaired V-01-core and authorize V-01-automation**.
-Active next development capability: **D2 — Executable Module Provenance** (`PROPOSED`).
+Active next verification step: **V-02a — 0TH2.BIN Executable Provenance**.
+Active next development capability: **D2 — Executable Module Provenance**.
 
 Note: `TH2.LOW` provenance is queued under D2 / V-02b.
 
