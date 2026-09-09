@@ -27,7 +27,7 @@ Full per-file identity is in `workstreams/T2-M0-disc-census/disc_manifest.tsv`.
 ## Executable module `0TH2.BIN`
 
 Module status: `EXECUTABLE_MODULE / RUNTIME_MAPPING_EXACT / FULL_EXACT_MATCH / DIRECT_PROVENANCE_PROVEN` (V-02a proven direct runtime mapping; ADR D-011).
-Byte classification: `CONFIRMED_CODE / EXECUTED` for dynamically observed instructions at `0x06004000..0x06004008`; unexecuted remainder `0x06004008..0x06086BFF` remains `PROBABLE_CODE / HIGH` (mapped byte-exact to disc; complete code/data/unknown ownership queued for D4).
+Byte classification: `CONFIRMED_CODE / EXECUTED` for dynamically observed instructions at `0x06004000..0x0600400B` (Basic Block 0, 12 bytes); unexecuted remainder `0x0600400C..0x06086BFF` remains `PROBABLE_CODE / HIGH` (mapped byte-exact to disc; complete code/data/unknown ownership queued for D4).
 
 - SHA-256: `c1cc4117870bc567386410aa2d4f1b5f03fb98a601be71bb3ae2155de1853c64`
 - Disc extent: ISO9660 LBA 24..285 (262 sectors, 535,552 bytes / `0x82C00`)
@@ -80,6 +80,31 @@ Executor: `thor::sh2::execute_sh2_instruction` / `thor::sh2::step_sh2` (L0 seman
 - `0x06004002`: `0x6F03` — `MOV R0, R15` (copies stack pointer `R0=0x06002EDC` into `R15`, advances PC to `0x06004004`).
 - `0x06004004`: `0xD417` — `MOV.L @(0x5C, PC), R4` (reads 32-bit word from `((PC & ~3) + 4) + 0x5C = 0x06004064` containing `0x06081C10` into `R4`, advances PC to `0x06004006`).
 - `0x06004006`: `0x6442` — `MOV.L @R4, R4` (reads 32-bit word from `R4=0x06081C10` containing `0x060917DC` before writeback to `R4`, advances PC to `0x06004008`).
+- `0x06004008`: `0xA003` — `BRA 0x06004012` (unconditional delayed branch to `PC + 4 + (3 * 2) = 0x06004012`; advances PC to delay slot `0x0600400A`).
+- `0x0600400A`: `0x0009` — `NOP` (delay slot instruction, no architectural side-effects, completes block retirement with target jump to `0x06004012`).
+
+## Basic Block `bb_06004000` Record
+
+```text
+ID: bb_06004000
+STATUS: CONFIRMED_CODE / EXECUTED / BEHAVIOR_VERIFIED
+REVISION/HASH: thor2_ntsc_patched_fe11d2fb
+DISC FILE: 0TH2.BIN
+FILE RANGE: 0x00000000..0x0000000B (12 bytes)
+RUNTIME RANGE: 0x06004000..0x0600400B (12 bytes, 6 instructions)
+CPU: MASTER_SH2
+MODULE/GENERATION: 0TH2.BIN (High Work RAM initial execution)
+STATIC EVIDENCE: ISO9660 root directory extent LBA 24..285, first-read entry 0x06004000
+DYNAMIC EVIDENCE: V-01-core breakpoint trigger, multi-step retirement, V-02a byte-exact live RAM match, block replay vs Mednafen oracle
+READS/WRITES: Read 16-bit at 0x06004000 (0x6611); read 32-bit at 0x06004064 (0x06081C10); read 32-bit at 0x06081C10 (0x060917DC)
+CONTROL FLOW: Straight-line 0x06004000..0x06004006; terminator BRA 0x06004012 at 0x06004008; delay slot NOP at 0x0600400A; direct taken exit 0x06004012; fallthrough nullopt
+HARDWARE INTERACTION: Zero MMIO or peripheral access in this block; pure CPU/WRAM execution
+HYPOTHESIS: Standard Sega Saturn CD application startup bootstrap block
+CONFIDENCE: CONFIRMED (100%)
+VERIFICATION: 0 decode disagreements (Hitachi manual / Mednafen / Catherine); 0 semantic divergences; 0 oracle state divergences
+NEGATIVE EVIDENCE: None
+NEXT ACTION: Mechanical C++ translation (D6) under declared zero-divergence contract
+```
 
 ## Public-research address anchors queued for revision validation
 

@@ -1,5 +1,61 @@
 # Worklog
 
+## 2026-09-09 — T2-D3.2/D4.1/D5.1 First Complete Thor 2 Basic Block Proof
+
+### Task
+
+Take the verified Master SH-2 startup entry at `0x06004000` and deliver one complete basic-block readiness result:
+dynamic block discovery -> exact decode -> L0 semantics -> independent cross-check -> code ownership -> CFG/exits -> tests -> repair -> evidence -> remote verification.
+
+### Method
+
+1. **Dynamic Block Discovery (Mednafen Oracle)**:
+   - Traced step execution in pinned Mednafen debug fork from entry `0x06004000` until first architectural control-flow terminator and its delay slot.
+   - Discovered complete straight-line block sequence:
+     - `0x06004000`: `0x6611` (`MOV.W @R1, R6`)
+     - `0x06004002`: `0x6F03` (`MOV R0, R15`)
+     - `0x06004004`: `0xD417` (`MOV.L @(0x5C, PC), R4`)
+     - `0x06004006`: `0x6442` (`MOV.L @R4, R4`)
+     - `0x06004008`: `0xA003` (`BRA 0x06004012`, terminator with delay slot)
+     - `0x0600400A`: `0x0009` (`NOP`, delay slot)
+   - Inclusive instruction range: `0x06004000..0x0600400A` (6 instructions, 12 bytes).
+2. **Decoder & L0 Executor Expansion**:
+   - Implemented `0xAddd` (`BRA label`) with 12-bit signed displacement and delay-slot semantics.
+   - Implemented `0x0009` (`NOP`) with delay-slot safe sequencing.
+   - Added architectural `delayed_pc` pipeline tracking in `Sh2CpuState`.
+   - Added `ExecutionResult::ILLEGAL_SLOT_INSTRUCTION` exception guard for branch instructions placed in an active delay slot.
+3. **Independent Multi-Reference Decode Manifest (Gate V-06)**:
+   - Created legal-safe machine-readable reference manifest `reference_decode_manifest.json` and typed test header `reference_decode_manifest.hpp`.
+   - Reconciled all 6 opcodes across Hitachi SH-1/SH-2 manual (authoritative), pinned Mednafen (`sh7095_opdefs.inc` / `sh7095_ops.inc`), and `hazzaclark/catherine` (`sh2_decoder.cpp`).
+   - Verified 0 unexplained decode disagreements.
+4. **Basic-Block CFG Recovery (Capability D5)**:
+   - Created `Sh2BasicBlock` abstraction and `discover_basic_block` / `execute_basic_block` in `include/thor/sh2/sh2_block.hpp` and `src/sh2/sh2_block.cpp`.
+   - Verified terminator `BRA 0x06004012`, delay slot `NOP`, direct exit `0x06004012`, fallthrough `std::nullopt`, dynamic taken exit `0x06004012`.
+   - Created evidence record `workstreams/T2-D4-D5-block0/block_06004000.md`.
+5. **Code Ownership Promotion (Capability D4)**:
+   - Promoted dynamically retired 12-byte extent `0x06004000..0x0600400B` to `CONFIRMED_CODE / EXECUTED`.
+   - Unexecuted remainder `0x0600400C..0x06086BFF` retains conservative `PROBABLE_CODE / HIGH`.
+6. **Full Block Oracle Replay**:
+   - Replayed complete 6-instruction block from captured cold-boot pre-state.
+   - Compared against Mednafen post-state: 0 divergences across `R0..R15`, `PC=0x06004012`, `SR/T`, `PR`, `GBR`, `VBR`, `MACH`, `MACL`, and memory access order.
+7. **Self-Repair Loop & Validation**:
+   - Fixed `-Werror=unused-result` on `step_sh2` in tests.
+   - All 4 test targets passed 100% in Debug and Release on Windows (MinGW GCC 15.2.0) and Linux (Ubuntu GCC 13.3.0 in WSL).
+   - Python test suite passed 100% (3/3).
+   - All source and test files satisfy <= 500 lines gate (max 224 lines).
+
+### Result
+
+- First complete Thor 2 basic block `bb_06004000` fully proven and verified.
+- D3 capability state: `BOUNDED_PROOF expanded to first complete startup block`.
+- D4 capability state: `BOUNDED_PROOF for basic block 0 only`.
+- D5 capability state: `BOUNDED_PROOF for basic block 0 only`.
+- Decode disagreements: 0; semantic divergences: 0; oracle divergences: 0.
+
+### Exact next action
+
+Pre-D8 identity/event safety gate + D6/V-07A preparation for mechanical C++ block translation.
+
 ## 2026-09-09 — T2-D3.1 First Exact SH-2 Decode and L0 Semantic Proof
 
 ### Task

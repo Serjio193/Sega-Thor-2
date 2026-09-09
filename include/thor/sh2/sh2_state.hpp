@@ -15,6 +15,11 @@ struct Sh2CpuState {
     uint32_t vbr = 0;             // Vector base register
     uint32_t mach = 0;            // Multiply-accumulate high
     uint32_t macl = 0;            // Multiply-accumulate low
+    uint32_t delayed_pc = 0;       // Target PC for pending delayed branch (0 = none)
+
+    [[nodiscard]] constexpr bool has_delayed_branch() const noexcept {
+        return delayed_pc != 0;
+    }
 
     [[nodiscard]] constexpr bool get_t() const noexcept {
         return (sr & 1u) != 0;

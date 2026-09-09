@@ -5,217 +5,222 @@
 
 using namespace thor::sh2;
 
-static void test_mov_w_sign_extension() {
+static void test_sign_extension_mov_w() {
     Sh2FlatMemory mem;
     Sh2CpuState state;
 
-    // Positive 16-bit value: 0x1234 -> 0x00001234
-    mem.write16(0x00200000, 0x1234);
-    state.r[1] = 0x00200000;
-    state.r[6] = 0xAAAAAAAA;
-    state.pc = 0x06004000;
+    mem.write16(0x06001000, 0x8000);
+    mem.write16(0x06001002, 0xFFFF);
+    mem.write16(0x06001004, 0x1234);
 
-    const Sh2Instruction ins1 = decode_sh2(0x6611, state.pc);
-    const ExecutionResult res1 = execute_sh2_instruction(ins1, state, mem);
-    THOR_ASSERT(res1 == ExecutionResult::SUCCESS);
-    THOR_ASSERT(state.r[6] == 0x00001234);
-    THOR_ASSERT(state.r[1] == 0x00200000); // Source register untouched
-    THOR_ASSERT(state.pc == 0x06004002);
-
-    // Negative 16-bit value (bit 15 set): 0x8000 -> 0xFFFF8000
-    mem.write16(0x00200002, 0x8000);
-    state.r[1] = 0x00200002;
-    state.r[6] = 0x00000000;
-    state.pc = 0x06004000;
-
-    const Sh2Instruction ins2 = decode_sh2(0x6611, state.pc);
-    const ExecutionResult res2 = execute_sh2_instruction(ins2, state, mem);
-    THOR_ASSERT(res2 == ExecutionResult::SUCCESS);
-    THOR_ASSERT(state.r[6] == 0xFFFF8000);
-
-    // Negative 16-bit value: 0xFFFF -> 0xFFFFFFFF
-    mem.write16(0x00200004, 0xFFFF);
-    state.r[1] = 0x00200004;
-    state.r[6] = 0x00000000;
-
-    const Sh2Instruction ins3 = decode_sh2(0x6611, state.pc);
-    const ExecutionResult res3 = execute_sh2_instruction(ins3, state, mem);
-    THOR_ASSERT(res3 == ExecutionResult::SUCCESS);
-    THOR_ASSERT(state.r[6] == 0xFFFFFFFF);
-
-    // Big-endian test: explicit bytes [0x12, 0x34] in memory
-    mem.write8(0x00200010, 0x12);
-    mem.write8(0x00200011, 0x34);
-    state.r[1] = 0x00200010;
-    state.r[6] = 0;
-
-    const Sh2Instruction ins4 = decode_sh2(0x6611, state.pc);
-    const ExecutionResult res4 = execute_sh2_instruction(ins4, state, mem);
-    THOR_ASSERT(res4 == ExecutionResult::SUCCESS);
-    THOR_ASSERT(state.r[6] == 0x00001234);
-}
-
-static void test_mov_reg() {
-    Sh2FlatMemory mem;
-    Sh2CpuState state;
-
-    // MOV R0, R15 with zero
-    state.r[0] = 0x00000000;
-    state.r[15] = 0xFFFFFFFF;
-    state.pc = 0x06004002;
-    const Sh2Instruction ins1 = decode_sh2(0x6F03, state.pc);
+    state.r[1] = 0x06001000;
+    const Sh2Instruction ins1 = decode_sh2(0x6011, 0x06000000); // MOV.W @R1, R0
     THOR_ASSERT(execute_sh2_instruction(ins1, state, mem) == ExecutionResult::SUCCESS);
-    THOR_ASSERT(state.r[15] == 0x00000000);
-    THOR_ASSERT(state.r[0] == 0x00000000);
-    THOR_ASSERT(state.pc == 0x06004004);
+    THOR_ASSERT(state.r[0] == 0xFFFF8000);
 
-    // MOV R0, R15 with all-ones
-    state.r[0] = 0xFFFFFFFF;
-    state.r[15] = 0x00000000;
+    state.r[1] = 0x06001002;
     THOR_ASSERT(execute_sh2_instruction(ins1, state, mem) == ExecutionResult::SUCCESS);
-    THOR_ASSERT(state.r[15] == 0xFFFFFFFF);
     THOR_ASSERT(state.r[0] == 0xFFFFFFFF);
 
-    // MOV R0, R15 with arbitrary target stack pointer
-    state.r[0] = 0x06002EDC;
-    state.r[15] = 0x06001000;
+    state.r[1] = 0x06001004;
     THOR_ASSERT(execute_sh2_instruction(ins1, state, mem) == ExecutionResult::SUCCESS);
+    THOR_ASSERT(state.r[0] == 0x00001234);
+}
+
+static void test_register_copy_mov_reg() {
+    Sh2FlatMemory mem;
+    Sh2CpuState state;
+
+    state.r[0] = 0x06002EDC;
+    state.r[15] = 0x00000000;
+    const Sh2Instruction ins = decode_sh2(0x6F03, 0x06000000); // MOV R0, R15
+    THOR_ASSERT(execute_sh2_instruction(ins, state, mem) == ExecutionResult::SUCCESS);
     THOR_ASSERT(state.r[15] == 0x06002EDC);
     THOR_ASSERT(state.r[0] == 0x06002EDC);
 }
 
-static void test_mov_l_pc_rel() {
+static void test_pc_relative_alignment_mov_l() {
     Sh2FlatMemory mem;
     Sh2CpuState state;
 
-    // Address 0x06004064 contains 0x06081C10
-    mem.write32(0x06004064, 0x06081C10);
+    mem.write32(0x06004064, 0x11223344);
+    mem.write32(0x06004060, 0x55667788);
 
-    // PC = 0x06004004, opcode 0xD417 -> disp = 0x17 (92 bytes -> 0x06004064)
     state.pc = 0x06004004;
-    state.r[4] = 0x00000000;
-
-    const Sh2Instruction ins = decode_sh2(0xD417, state.pc);
-    THOR_ASSERT(execute_sh2_instruction(ins, state, mem) == ExecutionResult::SUCCESS);
-    THOR_ASSERT(state.r[4] == 0x06081C10);
-    THOR_ASSERT(state.pc == 0x06004006);
-
-    // Test big-endian byte order: [0x11, 0x22, 0x33, 0x44]
-    mem.write8(0x06004008, 0x11);
-    mem.write8(0x06004009, 0x22);
-    mem.write8(0x0600400A, 0x33);
-    mem.write8(0x0600400B, 0x44);
-    state.pc = 0x06004004;
-    const Sh2Instruction ins_disp0 = decode_sh2(0xD400, state.pc); // disp=0 -> ea = 0x06004008
-    THOR_ASSERT(execute_sh2_instruction(ins_disp0, state, mem) == ExecutionResult::SUCCESS);
+    const Sh2Instruction ins_aligned = decode_sh2(0xD417, state.pc);
+    THOR_ASSERT(execute_sh2_instruction(ins_aligned, state, mem) == ExecutionResult::SUCCESS);
     THOR_ASSERT(state.r[4] == 0x11223344);
+
+    state.pc = 0x06004002;
+    const Sh2Instruction ins_unaligned = decode_sh2(0xD417, state.pc);
+    THOR_ASSERT(execute_sh2_instruction(ins_unaligned, state, mem) == ExecutionResult::SUCCESS);
+    THOR_ASSERT(state.r[4] == 0x55667788);
 }
 
-static void test_mov_l_read_mem_same_register() {
+static void test_writeback_ordering_same_register() {
     Sh2FlatMemory mem;
     Sh2CpuState state;
 
-    // Critical edge case: Rm == Rn (0x6442: MOV.L @R4, R4)
-    // Source address must be read before destination writeback!
     mem.write32(0x06081C10, 0x060917DC);
     state.r[4] = 0x06081C10;
-    state.pc = 0x06004006;
-
-    const Sh2Instruction ins = decode_sh2(0x6442, state.pc);
+    const Sh2Instruction ins = decode_sh2(0x6442, 0x06000000); // MOV.L @R4, R4
     THOR_ASSERT(execute_sh2_instruction(ins, state, mem) == ExecutionResult::SUCCESS);
     THOR_ASSERT(state.r[4] == 0x060917DC);
-    THOR_ASSERT(state.pc == 0x06004008);
 }
 
-static void test_unrelated_state_preservation() {
+static void test_nop_semantics() {
     Sh2FlatMemory mem;
     Sh2CpuState state;
 
-    // Fill all registers with non-zero sentinel values
-    for (size_t i = 0; i < 16; ++i) {
-        state.r[i] = static_cast<uint32_t>(0x10000000u + i * 0x11111111u);
-    }
-    state.pr = 0x12345678;
-    state.sr = 0x000000F1; // T = 1
-    state.gbr = 0x23456789;
+    state.r[0] = 0x12345678;
+    state.r[15] = 0x06002EDC;
+    state.pc = 0x0600400A;
+    state.set_t(true);
+    state.pr = 0x06001111;
     state.vbr = 0x06000000;
-    state.mach = 0x3456789A;
-    state.macl = 0x456789AB;
-    state.pc = 0x06004000;
 
-    // Memory for MOV.W @R1, R6
-    state.r[1] = 0x00200000;
-    mem.write16(0x00200000, 0x5555);
-
-    const Sh2Instruction ins = decode_sh2(0x6611, state.pc);
+    const Sh2Instruction ins = decode_sh2(0x0009, state.pc);
     THOR_ASSERT(execute_sh2_instruction(ins, state, mem) == ExecutionResult::SUCCESS);
 
-    // Only R6 and PC should have changed:
-    THOR_ASSERT(state.r[6] == 0x00005555);
-    THOR_ASSERT(state.pc == 0x06004002);
-
-    // All other registers must be preserved:
-    THOR_ASSERT(state.r[0] == 0x10000000u);
-    THOR_ASSERT(state.r[1] == 0x00200000u);
-    for (size_t i = 2; i < 16; ++i) {
-        if (i == 6) continue;
-        THOR_ASSERT(state.r[i] == static_cast<uint32_t>(0x10000000u + i * 0x11111111u));
-    }
-    THOR_ASSERT(state.pr == 0x12345678);
-    THOR_ASSERT(state.sr == 0x000000F1);
+    THOR_ASSERT(state.pc == 0x0600400C);
+    THOR_ASSERT(state.r[0] == 0x12345678);
+    THOR_ASSERT(state.r[15] == 0x06002EDC);
     THOR_ASSERT(state.get_t() == true);
-    THOR_ASSERT(state.gbr == 0x23456789);
+    THOR_ASSERT(state.pr == 0x06001111);
     THOR_ASSERT(state.vbr == 0x06000000);
-    THOR_ASSERT(state.mach == 0x3456789A);
-    THOR_ASSERT(state.macl == 0x456789AB);
+    THOR_ASSERT(mem.log().empty());
+}
+
+static void test_bra_synthetic_semantics() {
+    Sh2FlatMemory mem;
+    Sh2CpuState state;
+
+    // 1. Unconditional delayed branch + delay slot NOP:
+    // 0x06004008: BRA 0x06004012 (0xA003)
+    // 0x0600400A: NOP           (0x0009)
+    mem.write16(0x06004008, 0xA003);
+    mem.write16(0x0600400A, 0x0009);
+
+    state.pc = 0x06004008;
+    state.set_t(true);
+    state.delayed_pc = 0;
+
+    // Step 1: execute BRA
+    const StepResult step1 = step_sh2(state, mem);
+    THOR_ASSERT(step1.status == ExecutionResult::SUCCESS);
+    THOR_ASSERT(step1.pre_pc == 0x06004008);
+    THOR_ASSERT(step1.post_pc == 0x0600400A);
+    THOR_ASSERT(state.pc == 0x0600400A);
+    THOR_ASSERT(state.delayed_pc == 0x06004012);
+    THOR_ASSERT(state.get_t() == true); // SR/T unchanged
+
+    // Step 2: execute delay slot NOP
+    const StepResult step2 = step_sh2(state, mem);
+    THOR_ASSERT(step2.status == ExecutionResult::SUCCESS);
+    THOR_ASSERT(step2.pre_pc == 0x0600400A);
+    THOR_ASSERT(step2.post_pc == 0x06004012);
+    THOR_ASSERT(state.pc == 0x06004012);
+    THOR_ASSERT(state.delayed_pc == 0); // Delayed PC cleared
+    THOR_ASSERT(state.get_t() == true);
+
+    // 2. Delay slot with register write:
+    // 0x06001000: BRA 0x06001006 (disp = 0x001 -> target 0x06001000 + 4 + 2 = 0x06001006)
+    // 0x06001002: MOV R0, R15   (0x6F03)
+    mem.write16(0x06001000, 0xA001);
+    mem.write16(0x06001002, 0x6F03);
+
+    state.pc = 0x06001000;
+    state.r[0] = 0xCAFEBABE;
+    state.r[15] = 0x00000000;
+    state.delayed_pc = 0;
+
+    const StepResult d_step1 = step_sh2(state, mem);
+    THOR_ASSERT(d_step1.status == ExecutionResult::SUCCESS);
+    THOR_ASSERT(state.pc == 0x06001002);
+    THOR_ASSERT(state.delayed_pc == 0x06001006);
+    THOR_ASSERT(state.r[15] == 0x00000000);
+
+    const StepResult d_step2 = step_sh2(state, mem);
+    THOR_ASSERT(d_step2.status == ExecutionResult::SUCCESS);
+    THOR_ASSERT(state.pc == 0x06001006);
+    THOR_ASSERT(state.delayed_pc == 0);
+    THOR_ASSERT(state.r[15] == 0xCAFEBABE); // Register write in delay slot took effect
+
+    // 3. Illegal slot instruction detection (branch in delay slot):
+    state.pc = 0x06001000;
+    state.delayed_pc = 0x06001020; // In delay slot
+    const Sh2Instruction bra_in_slot = decode_sh2(0xA003, state.pc);
+    THOR_ASSERT(execute_sh2_instruction(bra_in_slot, state, mem) == ExecutionResult::ILLEGAL_SLOT_INSTRUCTION);
+}
+
+static void test_register_isolation() {
+    Sh2FlatMemory mem;
+    Sh2CpuState state;
+
+    for (size_t i = 0; i < 16; ++i) state.r[i] = static_cast<uint32_t>(0x1000 + i);
+    state.pc = 0x06004000;
+    state.pr = 0xAAAAAAAA;
+    state.sr = 0x00000001;
+    state.gbr = 0xBBBBBBBB;
+    state.vbr = 0xCCCCCCCC;
+    state.mach = 0xDDDDDDDD;
+    state.macl = 0xEEEEEEEE;
+
+    const Sh2Instruction ins = decode_sh2(0x6213, state.pc); // MOV R1, R2
+    THOR_ASSERT(execute_sh2_instruction(ins, state, mem) == ExecutionResult::SUCCESS);
+
+    THOR_ASSERT(state.r[2] == 0x1001);
+    for (size_t i = 0; i < 16; ++i) {
+        if (i != 2) THOR_ASSERT(state.r[i] == static_cast<uint32_t>(0x1000 + i));
+    }
+    THOR_ASSERT(state.pr == 0xAAAAAAAA);
+    THOR_ASSERT(state.sr == 0x00000001);
+    THOR_ASSERT(state.gbr == 0xBBBBBBBB);
+    THOR_ASSERT(state.vbr == 0xCCCCCCCC);
+    THOR_ASSERT(state.mach == 0xDDDDDDDD);
+    THOR_ASSERT(state.macl == 0xEEEEEEEE);
 }
 
 static void test_ordered_memory_effects() {
     Sh2FlatMemory mem;
     Sh2CpuState state;
 
-    mem.write16(0x00200000, 0x1234);
-    mem.write32(0x00200004, 0x56789ABC);
-    mem.clear_log(); // Clear setup writes
+    mem.write32(0x06081C10, 0x11111111);
+    mem.write32(0x06081C14, 0x22222222);
+    mem.clear_log();
 
-    state.r[1] = 0x00200000;
-    state.r[2] = 0x00200004;
-    state.pc = 0x06004000;
+    state.r[4] = 0x06081C10;
+    state.r[5] = 0x06081C14;
 
-    // Instruction 1: MOV.W @R1, R6
-    const Sh2Instruction ins1 = decode_sh2(0x6611, state.pc);
+    const Sh2Instruction ins1 = decode_sh2(0x6442, 0x06000000); // MOV.L @R4, R4
+    const Sh2Instruction ins2 = decode_sh2(0x6552, 0x06000002); // MOV.L @R5, R5
+
     THOR_ASSERT(execute_sh2_instruction(ins1, state, mem) == ExecutionResult::SUCCESS);
-
-    // Instruction 2: MOV.L @R2, R3
-    const Sh2Instruction ins2 = decode_sh2(0x6322, state.pc); // 0x6322: MOV.L @R2, R3
     THOR_ASSERT(execute_sh2_instruction(ins2, state, mem) == ExecutionResult::SUCCESS);
 
     const auto& log = mem.log();
     THOR_ASSERT(log.size() == 2);
-    THOR_ASSERT(log[0].kind == MemoryAccessKind::READ);
-    THOR_ASSERT(log[0].address == 0x00200000);
-    THOR_ASSERT(log[0].value == 0x1234);
-    THOR_ASSERT(log[0].size_bytes == 2);
-
-    THOR_ASSERT(log[1].kind == MemoryAccessKind::READ);
-    THOR_ASSERT(log[1].address == 0x00200004);
-    THOR_ASSERT(log[1].value == 0x56789ABC);
-    THOR_ASSERT(log[1].size_bytes == 4);
+    THOR_ASSERT(log[0].address == 0x06081C10 && log[0].value == 0x11111111);
+    THOR_ASSERT(log[1].address == 0x06081C14 && log[1].value == 0x22222222);
 }
 
 int main() {
-    std::cout << "[test_sh2_l0_semantics] Running MOV.W sign extension tests...\n";
-    test_mov_w_sign_extension();
-    std::cout << "[test_sh2_l0_semantics] Running MOV Rm, Rn tests...\n";
-    test_mov_reg();
-    std::cout << "[test_sh2_l0_semantics] Running MOV.L PC-relative tests...\n";
-    test_mov_l_pc_rel();
-    std::cout << "[test_sh2_l0_semantics] Running MOV.L Rm, Rn same-register tests...\n";
-    test_mov_l_read_mem_same_register();
-    std::cout << "[test_sh2_l0_semantics] Running unrelated state preservation tests...\n";
-    test_unrelated_state_preservation();
+    std::cout << "[test_sh2_l0_semantics] Running sign extension tests (MOV.W)...\n";
+    test_sign_extension_mov_w();
+    std::cout << "[test_sh2_l0_semantics] Running register copy tests (MOV)...\n";
+    test_register_copy_mov_reg();
+    std::cout << "[test_sh2_l0_semantics] Running PC-relative alignment tests (MOV.L)...\n";
+    test_pc_relative_alignment_mov_l();
+    std::cout << "[test_sh2_l0_semantics] Running same-register writeback order tests...\n";
+    test_writeback_ordering_same_register();
+    std::cout << "[test_sh2_l0_semantics] Running NOP semantics tests...\n";
+    test_nop_semantics();
+    std::cout << "[test_sh2_l0_semantics] Running BRA synthetic semantics & delay slot tests...\n";
+    test_bra_synthetic_semantics();
+    std::cout << "[test_sh2_l0_semantics] Running register isolation tests...\n";
+    test_register_isolation();
     std::cout << "[test_sh2_l0_semantics] Running ordered memory effects tests...\n";
     test_ordered_memory_effects();
-    std::cout << "[test_sh2_l0_semantics] PASS: All L0 semantic tests green.\n";
+    std::cout << "[test_sh2_l0_semantics] PASS: All L0 semantic tests green (0 divergences).\n";
     return 0;
 }

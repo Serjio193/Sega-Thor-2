@@ -1,0 +1,130 @@
+{
+  "schema_version": "1.0",
+  "target_slice": "0TH2.BIN Basic Block 0 (0x06004000..0x0600400A)",
+  "reference_projects": {
+    "hardware_manual": {
+      "name": "Hitachi SH7604 Hardware Manual / SH-1/SH-2 Programming Manual",
+      "revision": "Rev. 4.0, Sept 2004",
+      "role": "AUTHORITATIVE"
+    },
+    "mednafen": {
+      "name": "AJBats/mednafen-saturn-debug",
+      "pinned_commit": "155426661b7ac3152e2c93a98da60ac33002b908",
+      "role": "DYNAMIC_ORACLE"
+    },
+    "catherine": {
+      "name": "hazzaclark/catherine",
+      "pinned_commit": "462f483c6563604f32997da6eb6d3d49f1db7eb9",
+      "role": "INDEPENDENT_STATIC_RECOMPILER"
+    }
+  },
+  "vectors": [
+    {
+      "opcode": "0x6611",
+      "pc": "0x06004000",
+      "mnemonic": "mov.w @r1, r6",
+      "format": "0x6nm1",
+      "rn": 6,
+      "rm": 1,
+      "disp": 0,
+      "flow": "SEQUENTIAL",
+      "has_delay_slot": false,
+      "mem_access": "READ_S16",
+      "effective_address": "0x06004000",
+      "references": {
+        "hardware_manual": "Section 5.25 MOV.W @Rm, Rn",
+        "mednafen": "src/ss/sh7095_opdefs.inc:31, src/ss/sh7095_ops.inc:133-140 OP_MOV_W_REGINDIR_REG",
+        "catherine": "src/sh2_decoder.cpp:154 MOVWL"
+      }
+    },
+    {
+      "opcode": "0x6F03",
+      "pc": "0x06004002",
+      "mnemonic": "mov r0, r15",
+      "format": "0x6nm3",
+      "rn": 15,
+      "rm": 0,
+      "disp": 0,
+      "flow": "SEQUENTIAL",
+      "has_delay_slot": false,
+      "mem_access": "NONE",
+      "effective_address": null,
+      "references": {
+        "hardware_manual": "Section 5.23 MOV Rm, Rn",
+        "mednafen": "src/ss/sh7095_opdefs.inc:26, src/ss/sh7095_ops.inc:64-70 OP_MOV_REG_REG",
+        "catherine": "src/sh2_decoder.cpp:158 MOV"
+      }
+    },
+    {
+      "opcode": "0xD417",
+      "pc": "0x06004004",
+      "mnemonic": "mov.l @(0x5c, pc), r4",
+      "format": "0xDndd",
+      "rn": 4,
+      "rm": 0,
+      "disp": 23,
+      "flow": "SEQUENTIAL",
+      "has_delay_slot": false,
+      "mem_access": "READ_U32",
+      "effective_address": "0x06004064",
+      "references": {
+        "hardware_manual": "Section 5.22 MOV.L @(disp, PC), Rn",
+        "mednafen": "src/ss/sh7095_opdefs.inc:25, src/ss/sh7095_ops.inc:54-60 OP_MOV_L_PCREL_REG",
+        "catherine": "src/sh2_decoder.cpp:218 MOVLL4"
+      }
+    },
+    {
+      "opcode": "0x6442",
+      "pc": "0x06004006",
+      "mnemonic": "mov.l @r4, r4",
+      "format": "0x6nm2",
+      "rn": 4,
+      "rm": 4,
+      "disp": 0,
+      "flow": "SEQUENTIAL",
+      "has_delay_slot": false,
+      "mem_access": "READ_U32",
+      "effective_address": "0x06081C10",
+      "references": {
+        "hardware_manual": "Section 5.26 MOV.L @Rm, Rn",
+        "mednafen": "src/ss/sh7095_opdefs.inc:32, src/ss/sh7095_ops.inc:143-150 OP_MOV_L_REGINDIR_REG",
+        "catherine": "src/sh2_decoder.cpp:156 MOVLL"
+      }
+    },
+    {
+      "opcode": "0xA003",
+      "pc": "0x06004008",
+      "mnemonic": "bra 0x06004012",
+      "format": "0xAddd",
+      "rn": 0,
+      "rm": 0,
+      "disp": 3,
+      "flow": "BRANCH",
+      "has_delay_slot": true,
+      "mem_access": "NONE",
+      "branch_target": "0x06004012",
+      "references": {
+        "hardware_manual": "Section 5.10 BRA label",
+        "mednafen": "src/ss/sh7095_opdefs.inc:126, src/ss/sh7095_ops.inc:1482-1484 OP_BRA",
+        "catherine": "src/sh2_decoder.cpp:180 BRA"
+      }
+    },
+    {
+      "opcode": "0x0009",
+      "pc": "0x0600400A",
+      "mnemonic": "nop",
+      "format": "0x0009",
+      "rn": 0,
+      "rm": 0,
+      "disp": 0,
+      "flow": "SEQUENTIAL",
+      "has_delay_slot": false,
+      "mem_access": "NONE",
+      "references": {
+        "hardware_manual": "Section 5.34 NOP",
+        "mednafen": "src/ss/sh7095_opdefs.inc:139, src/ss/sh7095_ops.inc:1670-1671 OP_NOP",
+        "catherine": "src/sh2_decoder.cpp:108 NOP"
+      }
+    }
+  ]
+}

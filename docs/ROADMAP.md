@@ -58,35 +58,59 @@ Target claims proven:
 - `0TH2.BIN` (LBA 24..285, 535,552 bytes, SHA-256 `c1cc4117...`): read via CD Block FAD `0x0000AE..0x0001B3`, transferred directly into High Work RAM at `0x06004000..0x06086BFF` via BIOS Master SH-2 CPU copy loop (`PC=0x00002368`), confirmed byte-exact (`FULL_EXACT_MATCH`), and executed by Master SH-2.
 - `TH2.LOW` (LBA 52123..52195, 149,504 bytes, SHA-256 `78139689...`): read via CD Block FAD `0x00CC31..0x00CC79`, transferred directly into Low Work RAM at `0x002DA000..0x002FE7FF` via Master SH-2 CPU copy loop (`PC=0x0607DF08`, zero SCU DMA), confirmed byte-exact (`FULL_EXACT_MATCH`), and executed by Master SH-2 at `0x002E9910..0x002E9914` (offset `0xF910`, cycle `387459915`).
 
-### D3 — Exact SH-2 Decode / L0 Semantics (Target Startup Subset)
+### D3 — Exact SH-2 Decode / L0 Semantics (Startup Basic Block)
 
-Status: **BOUNDED_PROOF for target startup subset**
+Status: **BOUNDED_PROOF expanded to first complete startup block**
 
 Capability: correct fail-closed decoding and instruction/memory L0 semantics for SH-2 opcodes in Thor 2.
 Verified gate: **V-06 — Independent SH-2 Decoder Cross-Check** + L0 semantic test suite.
 Target claims proven:
-- 4 target opcodes (`0x6611`, `0x6F03`, `0xD417`, `0x6442`) decoded into structured representation;
-- V-06 cross-check against Hitachi hardware manual, pinned Mednafen `sh7095_ops.inc`, and `hazzaclark/catherine` confirmed 0 decode disagreements;
-- Synthetic L0 semantic suite validated 16-bit sign-extension, big-endian bus access, aligned PC-relative EA computation `((PC & ~3) + 4) + (disp * 4)`, same-register writeback order (`Rm == Rn`), and architectural register isolation;
-- Real Thor 2 startup oracle vector matched pinned Mednafen debug oracle with 0 divergences across all 4 steps.
+- 6 block opcodes (`0x6611`, `0x6F03`, `0xD417`, `0x6442`, `0xA003`, `0x0009`) decoded into structured representation;
+- V-06 cross-check against Hitachi hardware manual, pinned Mednafen `sh7095_ops.inc`, and `hazzaclark/catherine` confirmed 0 decode disagreements (machine-readable manifest `reference_decode_manifest.json`);
+- Synthetic L0 semantic suite validated 16-bit sign-extension, big-endian bus access, aligned PC-relative EA computation `((PC & ~3) + 4) + (disp * 4)`, same-register writeback order (`Rm == Rn`), NOP preservation, BRA delayed branch target calculation `PC + 4 + (disp * 2)`, delay slot execution, illegal slot exception, and register isolation;
+- Real Thor 2 block oracle replay matched pinned Mednafen debug oracle with 0 divergences across all 6 steps.
+
+### D4 — Code/Data/Unknown Ownership (Block 0)
+
+Status: **BOUNDED_PROOF for basic block 0 only**
+
+Capability: byte-level classification of executable modules into confirmed code, probable code, data, and unknown.
+Verified gate: **V-03 / V-04 — Bounded Code Ownership Validation**.
+Target claims proven:
+- Exactly 12 dynamically retired instruction bytes at `0x06004000..0x0600400B` promoted to `CONFIRMED_CODE / EXECUTED`;
+- Unexecuted remainder of `0TH2.BIN` (`0x0600400C..0x06086BFF`) retains conservative `PROBABLE_CODE / HIGH` (no unexecuted bytes classified as data merely due to lack of observation).
+
+### D5 — Basic-Block CFG Recovery (Block 0)
+
+Status: **BOUNDED_PROOF for basic block 0 only**
+
+Capability: discovery and evidence-backed representation of basic blocks, terminators, delay slots, and control-flow exits.
+Verified gate: **V-03 — Bounded Block CFG Validation**.
+Target claims proven:
+- Basic block record `bb_06004000` created in `workstreams/T2-D4-D5-block0/block_06004000.md`;
+- Bounded interval `0x06004000..0x0600400A` (6 instructions, 12 bytes);
+- Terminator identified as `0xA003` (`BRA 0x06004012`) with delay slot `0x0009` (`NOP`);
+- Direct taken exit identified as `0x06004012`;
+- Fallthrough exit identified as null (`std::nullopt`, unconditional branch);
+- No function boundaries or speculative semantic names asserted.
 
 ## Next
 
-### Development: D3 — Exact SH-2 Decode / L0 Semantics (corpus expansion) / D4 — Code/Data/Unknown Ownership
+### Pre-D8 Safety Gate & Capability D6: Mechanical Explicit-State C++ Translation (V-07A)
 
 Status: `PROPOSED`
 
-- Review T2-D3.1 evidence before expanding D3 opcode corpus or authorizing D4 batch classification.
-- Next capability slice: expand SH-2 decoder/executor coverage or perform code/data ownership boundary analysis on executed blocks (D4 / V-03).
+- Gate: pre-D8 identity/event safety gate + D6/V-07A preparation.
+- Target: mechanically generate machine-equivalent C++ translation for proven basic block `bb_06004000` under declared zero-divergence differential contract.
 
 ## Queued development milestones
 
 | ID | Capability | Key verification gate | Scope state |
 |---|---|---|---|
 | D2 | Executable module provenance | V-02a (0TH2.BIN), V-02b (TH2.LOW) | BOUNDED_PROOF (0TH2.BIN + TH2.LOW) |
-| D3 | Exact SH-2 decode + L0 semantics | V-06 cross-check + L0 semantic test suite | BOUNDED_PROOF (startup subset) |
-| D4 | Code/data/unknown ownership | V-03 (bounded batch), V-04 (schema) | PROPOSED |
-| D5 | Basic-block CFG | V-03 (bounded block CFG) | PROPOSED |
+| D3 | Exact SH-2 decode + L0 semantics | V-06 cross-check + L0 semantic test suite | BOUNDED_PROOF (block 0) |
+| D4 | Code/data/unknown ownership | V-03 (bounded batch), V-04 (schema) | BOUNDED_PROOF (block 0 only) |
+| D5 | Basic-block CFG | V-03 (bounded block CFG) | BOUNDED_PROOF (block 0 only) |
 | D6 | Mechanical explicit-state C++ | V-07A + pre-D8 identity/event guards | PROPOSED |
 | D7 | Shadow comparison | V-07B (negative-control validation) | PROPOSED |
 | D8 | **First native promotion proof** | **V-07C (native override proof)** | PROPOSED |

@@ -2,6 +2,20 @@
 
 namespace thor::sh2 {
 
+namespace {
+
+/// Advances PC to next sequential instruction (+2) or to pending delayed branch target.
+inline void advance_pc(Sh2CpuState& state) noexcept {
+    if (state.delayed_pc != 0) {
+        state.pc = state.delayed_pc;
+        state.delayed_pc = 0;
+    } else {
+        state.pc += 2;
+    }
+}
+
+} // namespace
+
 ExecutionResult execute_sh2_instruction(
     const Sh2Instruction& instr,
     Sh2CpuState& state,
@@ -18,13 +32,13 @@ ExecutionResult execute_sh2_instruction(
             // Sign-extend 16-bit to 32-bit:
             const int16_t s16 = static_cast<int16_t>(raw_val);
             state.r[instr.rn] = static_cast<uint32_t>(static_cast<int32_t>(s16));
-            state.pc += 2;
+            advance_pc(state);
             return ExecutionResult::SUCCESS;
         }
 
         case OpcodeId::MOV_REG: {
             state.r[instr.rn] = state.r[instr.rm];
-            state.pc += 2;
+            advance_pc(state);
             return ExecutionResult::SUCCESS;
         }
 
@@ -33,7 +47,7 @@ ExecutionResult execute_sh2_instruction(
             const uint32_t ea = ((instr.pc & ~3u) + 4u) + (instr.disp * 4u);
             const uint32_t val32 = mem.read32(ea);
             state.r[instr.rn] = val32;
-            state.pc += 2;
+            advance_pc(state);
             return ExecutionResult::SUCCESS;
         }
 
@@ -42,7 +56,23 @@ ExecutionResult execute_sh2_instruction(
             const uint32_t addr = state.r[instr.rm];
             const uint32_t val32 = mem.read32(addr);
             state.r[instr.rn] = val32;
-            state.pc += 2;
+            advance_pc(state);
+            return ExecutionResult::SUCCESS;
+        }
+
+        case OpcodeId::BRA: {
+            // Hitachi SH-2: branch instructions in a delay slot trigger an illegal slot instruction exception
+            if (state.has_delayed_branch()) {
+                return ExecutionResult::ILLEGAL_SLOT_INSTRUCTION;
+            }
+            const uint32_t target = instr.compute_branch_target();
+            state.delayed_pc = target;
+            state.pc += 2; // Advance to delay slot instruction
+            return ExecutionResult::SUCCESS;
+        }
+
+        case OpcodeId::NOP: {
+            advance_pc(state);
             return ExecutionResult::SUCCESS;
         }
 

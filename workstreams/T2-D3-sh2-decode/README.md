@@ -1,41 +1,37 @@
-# T2-D3 — SH-2 Exact Decode & L0 Semantics
+# T2-D3 — Exact SH-2 Decode and L0 Semantics
 
-Status: **BOUNDED_PROOF (Target Startup Subset)**
-Capability: **D3 — Exact SH-2 Decode / L0 Semantics**
-Gate: **V-06 (Independent SH-2 Decoder Cross-Check) + L0 Semantic Verification**
+Status: **PASS (BOUNDED_PROOF for startup basic block)**
+Capability: **D3 — Exact SH-2 Instruction Decoding & L0 Semantics**
+Target Scope: All instruction forms executed in `0TH2.BIN` Basic Block 0 (`0x06004000..0x0600400A`)
 
-## 1. Overview
+## 1. Supported Instruction Set Architecture
 
-This workstream establishes the first verified exact SH-2 decoder and L0 semantic execution slice for Thor 2, targeting the verified 4-instruction startup sequence in `0TH2.BIN`:
+Fail-closed structured decoder in `src/sh2/sh2_decoder.cpp` and L0 executor in `src/sh2/sh2_executor.cpp`:
 
-- `0x06004000`: `0x6611` — `MOV.W @R1, R6`
-- `0x06004002`: `0x6F03` — `MOV R0, R15`
-- `0x06004004`: `0xD417` — `MOV.L @(0x5C, PC), R4`
-- `0x06004006`: `0x6442` — `MOV.L @R4, R4`
+| Form | Opcode Mask | Mnemonic | Flow Type | Delay Slot | Memory Width | Architectural Role |
+|---|---|---|---|---|---|---|
+| `0x6nm1` | `0110nnnnmmmm0001` | `MOV.W @Rm, Rn` | SEQUENTIAL | No | READ_S16 | Sign-extended 16-bit word load |
+| `0x6nm2` | `0110nnnnmmmm0010` | `MOV.L @Rm, Rn` | SEQUENTIAL | No | READ_U32 | 32-bit longword load (read before writeback) |
+| `0x6nm3` | `0110nnnnmmmm0011` | `MOV Rm, Rn` | SEQUENTIAL | No | NONE | General register copy |
+| `0xDndd` | `1101nnnndddddddd` | `MOV.L @(disp, PC), Rn` | SEQUENTIAL | No | READ_U32 | PC-relative longword load with `((PC & ~3) + 4) + (disp * 4)` base |
+| `0xAddd` | `1010dddddddddddd` | `BRA label` | BRANCH | Yes | NONE | Unconditional delayed branch with 12-bit signed displacement |
+| `0x0009` | `0000000000001001` | `NOP` | SEQUENTIAL | No | NONE | No-operation, delay-slot safe |
 
-## 2. Methodology & Evidence Separation
+All unmodeled opcodes fail closed returning `OpcodeId::UNKNOWN` and `ControlFlowType::ILLEGAL`.
 
-Per the project evidence model:
-- **`DECODE_VERIFIED`** (Gate V-06): The decoder structure was cross-checked against three independent authorities:
-  1. Hitachi SH7604 Hardware Manual (authoritative standard);
-  2. Pinned Mednafen SH-2 core (`sh7095_ops.inc`);
-  3. Independent reference decoder (`hazzaclark/catherine`).
-  Result: **0 unexplained decode disagreements**.
-- **`INSTRUCTION_SEMANTICS_VERIFIED` & `MEMORY_SEMANTICS_VERIFIED`** (L0 Gate):
-  1. Synthetic tests covering signed 16-bit extension, big-endian bus ordering, aligned PC-relative effective address computation `((PC & ~3) + 4) + (disp * 4)`, same-register writeback order (`Rm == Rn`), and architectural register isolation.
-  2. Real Thor 2 startup vector replay against the pinned Mednafen debug oracle.
-  Result: **0 semantic divergences**.
+## 2. Independent Cross-Check (Gate V-06)
 
-## 3. Workstream Deliverables
+Complete decode agreement across:
+1. **Hitachi SH7604 Hardware Manual / SH-1/SH-2 Programming Manual** (authoritative hardware specification);
+2. **AJBats/mednafen-saturn-debug** (pinned commit `155426661b7ac3152e2c93a98da60ac33002b908`);
+3. **hazzaclark/catherine** (pinned commit `462f483c6563604f32997da6eb6d3d49f1db7eb9`).
 
-- `include/thor/sh2/sh2_types.hpp`: structured instruction representations and opcode categories;
-- `include/thor/sh2/sh2_decoder.hpp`, `src/sh2/sh2_decoder.cpp`: fail-closed production C++20 decoder;
-- `include/thor/sh2/sh2_state.hpp`: explicit architectural CPU register state (`R0..R15`, `PC`, `PR`, `SR/T`, `GBR`, `VBR`, `MACH`, `MACL`);
-- `include/thor/sh2/sh2_memory.hpp`: big-endian memory interface with access logging;
-- `include/thor/sh2/sh2_executor.hpp`, `src/sh2/sh2_executor.cpp`: L0 instruction execution harness;
-- `tests/sh2/`: unit tests (`test_sh2_decoder`, `test_sh2_l0_semantics`, `test_sh2_oracle_vector`);
-- `decode_crosscheck_evidence.md`: detailed multi-reference cross-check matrix.
+Machine-readable manifest: `reference_decode_manifest.json`.
+Disagreements: **0**.
 
-## 4. Next Action
+## 3. Test Suites
 
-Review T2-D3.1 evidence before expanding D3 opcode corpus or proceeding to **D4 — Code/Data/Unknown Ownership**.
+- `tests/sh2/test_sh2_decoder.cpp`: validates decode against manifest vectors, PC-relative EA alignment, BRA displacement edge cases, and fail-closed unmodeled opcodes.
+- `tests/sh2/test_sh2_l0_semantics.cpp`: synthetic edge-case tests (sign extension, writeback order, NOP preservation, BRA delayed branches, illegal slot exceptions).
+- `tests/sh2/test_sh2_block.cpp`: block discovery, CFG verification, and full-block replay against Mednafen oracle.
+- `tests/sh2/test_sh2_oracle_vector.cpp`: 4-step startup trace verification.

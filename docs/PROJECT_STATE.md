@@ -7,12 +7,14 @@
 - **T2-P0.1 — Dual-Track Proof-Contract Repair**: **COMPLETE** (formalized capability scope states, split V-01 into V-01-core and V-01-automation, removed TH2.LOW from V-01 gate, established pre-D8 guards).
 - **D1 / T2-V01 / T2-V01.2 — Deterministic Dynamic Oracle**: **BOUNDED_PROOF** (decisions D-009, D-010; V-01-core verified; V-01-automation adopted as `ADOPT_PARTIAL` for `LOW_LEVEL_CONTROL_LAYER_PROVEN`).
 - **D2 / T2-V02a / T2-V02b — Executable Module Provenance**: **BOUNDED_PROOF for 0TH2.BIN and TH2.LOW** (decision D-011; direct runtime byte mapping proven across both executable modules; 0TH2.BIN at `0x06004000..0x06086BFF` via BIOS copy loop; TH2.LOW at `0x002DA000..0x002FE7FF` via Master SH-2 copy loop; entry executions confirmed).
-- **D3 / T2-D3.1 — Exact SH-2 Decode / L0 Semantics**: **BOUNDED_PROOF for target startup subset** (4 target opcodes `0x6611`, `0x6F03`, `0xD417`, `0x6442` decoded with fail-closed C++20 implementation; V-06 cross-check against Hitachi manual, pinned Mednafen, and Catherine confirmed 0 decode disagreements; synthetic L0 suite and real Thor 2 startup vector confirmed 0 semantic divergences).
+- **D3 / T2-D3.2 — Exact SH-2 Decode / L0 Semantics**: **BOUNDED_PROOF expanded to first complete startup block** (6 block opcodes `0x6611`, `0x6F03`, `0xD417`, `0x6442`, `0xA003`, `0x0009` decoded with fail-closed C++20 implementation; V-06 cross-check against Hitachi manual, pinned Mednafen, and Catherine confirmed 0 decode disagreements; synthetic L0 suite and block oracle vector confirmed 0 semantic divergences).
+- **D4 / T2-D4.1 — Code/Data Ownership**: **BOUNDED_PROOF for this block only** (exact byte interval `0x06004000..0x0600400B` [12 bytes] promoted to `CONFIRMED_CODE / EXECUTED`; unexecuted remainder `0x0600400C..0x06086BFF` retains `PROBABLE_CODE / HIGH`).
+- **D5 / T2-D5.1 — Basic-Block CFG Recovery**: **BOUNDED_PROOF for this block only** (first evidence-backed block record `bb_06004000` created in `workstreams/T2-D4-D5-block0/block_06004000.md`: range `0x06004000..0x0600400A`, 6 instructions, terminator `BRA 0x06004012`, delay slot `NOP`, direct taken exit `0x06004012`, fallthrough nullopt).
 
-Active next verification step: **Review T2-D3.1 evidence before expanding D3 opcode corpus or advancing to D4**.
-Active next development capability: **D3 — Exact SH-2 Decode / L0 Semantics (corpus expansion)**.
+Active next verification step: **pre-D8 identity/event safety gate + D6/V-07A preparation**.
+Active next development capability: **D3 opcode expansion / D6 native block translation**.
 
-Note: Target startup opcode subset (`0x6611`, `0x6F03`, `0xD417`, `0x6442`) has complete decode and L0 semantic proof. D3 remains at `BOUNDED_PROOF` until agreed corpus is covered.
+Note: Startup basic block (`0x06004000..0x0600400A`) has complete decode, L0 semantic, code ownership, and CFG proof. D3, D4, and D5 remain at `BOUNDED_PROOF` until broader corpus/module coverage is achieved.
 
 No decompiler/recompiler architecture is considered final. External methods enter the pipeline only after bounded Thor 2 validation.
 
@@ -52,9 +54,9 @@ Two independent census runs produced identical manifest and summary output.
 - SHA-256: `c1cc4117870bc567386410aa2d4f1b5f03fb98a601be71bb3ae2155de1853c64`
 - size: `0x82C00`
 - module status: `EXECUTABLE_MODULE / RUNTIME_MAPPING_EXACT / FULL_EXACT_MATCH` (`DIRECT_PROVENANCE_PROVEN`)
-- byte classification: `CONFIRMED_CODE / EXECUTED` for dynamically observed instructions at `0x06004000..0x06004008`; unexecuted remainder `0x06004008..0x06086BFF` remains `PROBABLE_CODE / HIGH` (ownership queued for D4)
+- byte classification: `CONFIRMED_CODE / EXECUTED` for dynamically observed instructions at `0x06004000..0x0600400B` (Basic Block 0, 12 bytes); unexecuted remainder `0x0600400C..0x06086BFF` remains `PROBABLE_CODE / HIGH`
 - dynamic evidence: V-02a proven direct byte-exact mapping (`FULL_EXACT_MATCH`), BIOS Master SH-2 CPU transfer loop (`PC=0x00002368`) from CD Block buffer (FAD `0x0000AE..0x0001B3`), and entry execution.
-- next gate: D3 exact SH-2 decode / L0 semantics.
+- next gate: pre-D8 identity/event safety gate + D6/V-07A native block translation.
 
 ### `TH2.LOW`
 

@@ -36,16 +36,18 @@ CMakeLists.txt                    portable C++20 build and test definition
 include/
   thor/
     sh2/
-      sh2_types.hpp               instruction types, opcode categories, effective address
+      sh2_types.hpp               instruction types, opcode categories, effective address, branch target
       sh2_decoder.hpp             fail-closed SH-2 instruction decoder declaration
-      sh2_state.hpp               architectural CPU state (R0..R15, PC, PR, SR/T, etc.)
+      sh2_state.hpp               architectural CPU state (R0..R15, PC, PR, SR/T, delayed_pc)
       sh2_memory.hpp              big-endian memory interface and test harness
       sh2_executor.hpp            L0 instruction execution harness declaration
+      sh2_block.hpp               evidence-backed basic block representation & discovery
 
 src/
   sh2/
     sh2_decoder.cpp               target opcode decoding logic
     sh2_executor.cpp              target opcode execution semantics
+    sh2_block.cpp                 basic block discovery and block execution
 
 tools/
   disc/
@@ -55,9 +57,11 @@ tests/
   test_census_saturn_cd.py        synthetic tests for census parser
   sh2/
     test_framework.hpp            THOR_ASSERT macro
+    reference_decode_manifest.hpp multi-reference decode vector manifest
     test_sh2_decoder.cpp          structured decode & Catherine/Mednafen cross-check
     test_sh2_l0_semantics.cpp     synthetic L0 semantic test suite
     test_sh2_oracle_vector.cpp    Thor 2 startup oracle vector validation
+    test_sh2_block.cpp            first complete basic block discovery & oracle replay
 
 workstreams/
   T2-M0-disc-census/
@@ -77,8 +81,12 @@ workstreams/
     README.md                     TH2.LOW direct provenance proof summary
     provenance_evidence.md        callsite proof, RAM snapshots, transfer and execution evidence
   T2-D3-sh2-decode/
-    README.md                     D3 target-subset decode & L0 summary
+    README.md                     D3 startup block decode & L0 summary
+    reference_decode_manifest.json machine-readable multi-reference manifest
     decode_crosscheck_evidence.md multi-reference cross-check matrix and oracle parity
+  T2-D4-D5-block0/
+    README.md                     D4/D5 basic block 0 proof summary
+    block_06004000.md             evidence-backed basic block CFG record (0x06004000..0x0600400A)
 
 external/
   README.md                       rules for private user-supplied inputs

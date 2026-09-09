@@ -9,7 +9,8 @@ namespace thor::sh2 {
 enum class ExecutionResult : uint8_t {
     SUCCESS = 0,
     UNSUPPORTED_INSTRUCTION,
-    ILLEGAL_ADDRESS
+    ILLEGAL_ADDRESS,
+    ILLEGAL_SLOT_INSTRUCTION
 };
 
 struct StepResult {

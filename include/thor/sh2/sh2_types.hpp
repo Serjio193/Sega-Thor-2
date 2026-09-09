@@ -11,7 +11,9 @@ enum class OpcodeId : uint16_t {
     MOV_W_READ_MEM,  // MOV.W @Rm, Rn (0110 nnnn mmmm 0001)
     MOV_REG,         // MOV Rm, Rn    (0110 nnnn mmmm 0011)
     MOV_L_PC_REL,    // MOV.L @(disp, PC), Rn (1101 nnnn dddddddd)
-    MOV_L_READ_MEM   // MOV.L @Rm, Rn (0110 nnnn mmmm 0010)
+    MOV_L_READ_MEM,  // MOV.L @Rm, Rn (0110 nnnn mmmm 0010)
+    BRA,             // BRA label     (1010 dddddddddddd)
+    NOP              // NOP           (0000 0000 0000 1001)
 };
 
 /// Control flow behavior.
@@ -67,6 +69,18 @@ struct Sh2Instruction {
             default:
                 return 0;
         }
+    }
+
+    /// Computes the branch destination address for control transfer instructions.
+    /// For BRA: PC + 4 + (sign_extend_12(disp) * 2).
+    [[nodiscard]] uint32_t compute_branch_target() const noexcept {
+        if (id == OpcodeId::BRA) {
+            const int32_t s_disp = (disp & 0x800u)
+                ? static_cast<int32_t>(disp | 0xFFFFF000u)
+                : static_cast<int32_t>(disp);
+            return static_cast<uint32_t>(static_cast<int64_t>(pc) + 4 + (static_cast<int64_t>(s_disp) * 2));
+        }
+        return 0;
     }
 
     [[nodiscard]] std::string mnemonic() const;

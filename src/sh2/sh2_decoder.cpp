@@ -55,6 +55,25 @@ Sh2Instruction decode_sh2(uint16_t opcode, uint32_t pc) noexcept {
         return instr;
     }
 
+    // 0xAddd: BRA label (12-bit signed displacement)
+    if (hi == 0xAu) {
+        instr.id = OpcodeId::BRA;
+        instr.disp = static_cast<uint32_t>(opcode & 0x0FFFu);
+        instr.flow = ControlFlowType::BRANCH;
+        instr.has_delay_slot = true;
+        instr.mem_access = MemoryAccessType::NONE;
+        return instr;
+    }
+
+    // 0x0009: NOP
+    if (opcode == 0x0009u) {
+        instr.id = OpcodeId::NOP;
+        instr.flow = ControlFlowType::SEQUENTIAL;
+        instr.has_delay_slot = false;
+        instr.mem_access = MemoryAccessType::NONE;
+        return instr;
+    }
+
     // Fail closed for any unmodeled opcode
     instr.id = OpcodeId::UNKNOWN;
     instr.flow = ControlFlowType::ILLEGAL;
@@ -78,6 +97,11 @@ std::string Sh2Instruction::mnemonic() const {
         case OpcodeId::MOV_L_READ_MEM:
             ss << "mov.l @r" << static_cast<int>(rm) << ", r" << static_cast<int>(rn);
             return ss.str();
+        case OpcodeId::BRA:
+            ss << "bra 0x" << std::hex << compute_branch_target();
+            return ss.str();
+        case OpcodeId::NOP:
+            return "nop";
         default:
             ss << ".word 0x" << std::hex << std::setw(4) << std::setfill('0') << raw_opcode;
             return ss.str();
