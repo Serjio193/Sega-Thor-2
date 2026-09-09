@@ -12,6 +12,10 @@
 *.ccd
 *.img
 *.sub
+*.ic1
+*.IC1
+*.rom
+*.ROM
 
 # Save states / emulator state
 *.state

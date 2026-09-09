@@ -44,6 +44,10 @@ workstreams/
     disc_manifest.tsv             all 33 ISO logical files: LBA/size/SHA-256
     executable_candidates.tsv     confidence-scored executable census
     static_load_evidence.md       TH2.LOW static mapping evidence
+  T2-V01-dynamic-oracle/
+    README.md                     completed V-01-core oracle proof
+    environment_pin.yaml          19-parameter pinned boot recipe
+    bounded_observation.md        Run A/B identical observation evidence
 
   T2-V01-dynamic-oracle/
     README.md                     V-01-core preflight, source pins, blocker proof, re-entry condition

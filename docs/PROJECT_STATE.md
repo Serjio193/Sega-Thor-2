@@ -4,21 +4,13 @@
 
 - **D0 / T2-M0 — Canonical Revision Identity**: **COMPLETE**.
 - **T2-P0 — Dual-Track Planning Hardening**: **COMPLETE** (decision D-008; established `DEVELOPMENT_PLAN.md` and `PIPELINE_VALIDATION_PLAN.md`).
-- **T2-P0.1 — Dual-Track Proof-Contract Repair**: **COMPLETE**.
+- **T2-P0.1 — Dual-Track Proof-Contract Repair**: **COMPLETE** (formalized capability scope states, split V-01 into V-01-core and V-01-automation, removed TH2.LOW from V-01 gate, established pre-D8 guards).
+- **D1 / T2-V01 — Deterministic Dynamic Oracle (V-01-core)**: **BOUNDED_PROOF** (decision D-009; 19-parameter pinned recipe; verified identical execution across independent cold boot runs A and B).
 
-Active development capability: **D1 — Deterministic Dynamic Oracle** (`READY_FOR_BOUNDED_TEST`).
-Active verification experiment: **V-01-core — Bounded Emulator Observation** (`BLOCKED` before execution).
+Active next verification step: **Review V-01-core evidence before authorizing V-01-automation**.
+Active next development capability: **D2 — Executable Module Provenance** (`PROPOSED`).
 
-Current blocker: the pinned Mednafen Saturn candidate requires a Saturn BIOS, and no user-owned Saturn BIOS is available in the mounted private workspace or connected Drive locations checked. No emulator observation has executed; therefore no Mednafen/SaturnAutoRE adoption or rejection decision is permitted yet.
-
-V-01-core preflight source pins:
-
-- `AJBats/SaturnAutoRE`: `4662aad69f95222fe37c5e6b98f2285b1a7e4653`
-- `AJBats/mednafen-saturn-debug`: `155426661b7ac3152e2c93a98da60ac33002b908`
-
-The canonical BIN/CUE hashes were reverified during preflight and still match T2-M0.
-
-`TH2.LOW` provenance remains outside V-01-core and queued under D2 / V-02b.
+Note: `TH2.LOW` provenance is queued under D2 / V-02b.
 
 No decompiler/recompiler architecture is considered final. External methods enter the pipeline only after bounded Thor 2 validation.
 
@@ -57,9 +49,10 @@ Two independent census runs produced identical manifest and summary output.
 
 - SHA-256: `c1cc4117870bc567386410aa2d4f1b5f03fb98a601be71bb3ae2155de1853c64`
 - size: `0x82C00`
-- classification: `PROBABLE_CODE / HIGH`
+- classification: `CONFIRMED_CODE` (entry `0x06004000` dynamically executed; remainder `PROBABLE_CODE / HIGH`)
 - candidate mapped range: `0x06004000..0x06086BFF`
-- next gate: dynamic execution provenance after V-01-core.
+- dynamic evidence: entry transition from BIOS at frame 680 observed and verified in V-01-core.
+- next gate: full module provenance (D2 / V-02a).
 
 ### `TH2.LOW`
 

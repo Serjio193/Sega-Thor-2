@@ -114,7 +114,7 @@ FAIL CRITERIA:         Non-deterministic results from same state, or inability t
 WHAT PASS WOULD PROVE: Bounded D1 oracle capability for this specific build/configuration/window.
 WHAT PASS WOULD NOT PROVE: Hardware accuracy of Mednafen; complete trace correctness; all device-event visibility; deterministic entire-game execution; save-state correctness; SaturnAutoRE automation correctness.
 WHAT FAIL WOULD MEAN:  Try another emulator or build. Oracle capability still required by D1.
-PIPELINE DECISION:     ADOPT / ADOPT_PARTIAL / REJECT / DEFER
+PIPELINE DECISION:     ADOPT (bounded Mednafen execution observation for Thor 2 boot sequence; workstream T2-V01-dynamic-oracle; decision D-009)
 RE-ENTRY CONDITION IF DEFERRED: Re-test when emulator/tooling improves or alternative oracle candidate appears.
 ```
 

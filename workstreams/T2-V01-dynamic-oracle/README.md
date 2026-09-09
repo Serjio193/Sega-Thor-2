@@ -1,66 +1,62 @@
-# V-01-core — Bounded Emulator Observation
 
-Status: **BLOCKED — REQUIRED PRIVATE BIOS INPUT MISSING**
+# T2-V01 — SaturnAutoRE / Mednafen Setup + V-01-core Execution
 
-Baseline project commit: `229bfb6449a4e37b71d506b32f8454318209e699`
+Status: **DONE (V01_CORE_BOUNDED_PROOF)**
+Target: Establish deterministic dynamic oracle capability via pinned Mednafen debug fork
+Baseline commit: `229bfb6449a4e37b71d506b32f8454318209e699`
 
-## Objective
+## 1. Overview
 
-Establish the first bounded D1 dynamic-oracle proof using a pinned Mednafen Saturn debug build and the canonical Thor 2 revision. This workstream is intentionally limited to the V-01-core observation contract. SaturnAutoRE automation, `TH2.LOW` provenance, decoding, and recompilation remain out of scope.
+This workstream established the local pinned Mednafen debug oracle environment and executed the first `V-01-core` bounded emulator observation on canonical Thor 2 media (`fe11d2fb...`).
 
-## Canonical input re-check
+Per project rules:
+- SaturnAutoRE is used solely as the reproducible source/container for the pinned debug Mednafen fork.
+- Autonomous RE automation (`auto_re.py status`, `pick`, `explore`, `verify`, `graduate`, NOP tests) was NOT run and remains deferred to later verification stages (`V-01-automation`).
+- Commercial and private firmware (`sega_101.bin`, `mpr-17933.bin`) and disc images remain strictly untracked and protected outside git.
+- The external tool repositories (`SaturnAutoRE`, `mednafen`) are kept external as sibling directories, never vendored into `Sega-Thor-2`.
 
-The mounted private inputs were re-hashed immediately before the attempted experiment:
+---
 
-- disc image SHA-256: `fe11d2fbda58d63300ef2265c555ce05bddf14d69fb7b73fc409e25c0ef6c0a8`
-- CUE SHA-256: `afc0b101bbb493adbd43fd44ffd76959484d67cf0b566137dd145f1c68d411e0`
+## 2. Environment Pin
 
-They match revision `thor2_ntsc_patched_fe11d2fb` from T2-M0.
+Exact pinned metadata is documented in `environment_pin.yaml`:
+- **SaturnAutoRE commit**: `4662aad69f95222fe37c5e6b98f2285b1a7e4653`
+- **Mednafen debug submodule commit**: `155426661b7ac3152e2c93a98da60ac33002b908`
+- **Mednafen binary SHA-256**: `861f03f36882ac2cff9334e3bdb54c8a29991f711ff81cb1132183ade9828c49` (size: 22,723,160 bytes)
+- **Host OS**: `Linux 6.18.33.2-microsoft-standard-WSL2 x86_64 (Ubuntu 24.04.1 LTS)`
+- **Toolchain**: `gcc / g++ 13.3.0`
+- **Build Method**: Supported Native Linux automation build documented in `mednafen/BUILD_WINDOWS.md` line 84. Zero C++ source modifications.
+- **Active Firmware**: `mpr-17933.bin` (SHA-256: `96e106f740ab448cf89f0dd49dfbac7fe5391cb6bd6e14ad5e3061c13330266f`) selected automatically by Mednafen's built-in disc header detection for region `0x4` (`SMPC_AREA_NA`).
 
-## Candidate oracle source pins
+---
 
-SaturnAutoRE is not adopted by this result. It is used only to identify the exact debug-emulator source candidate for V-01-core.
+## 3. Bounded Observation Results (V-01-core)
 
-- `AJBats/SaturnAutoRE` source pin: `4662aad69f95222fe37c5e6b98f2285b1a7e4653`
-- pinned `mednafen` submodule repository: `AJBats/mednafen-saturn-debug`
-- pinned debug Mednafen source commit: `155426661b7ac3152e2c93a98da60ac33002b908`
+Two independent cold-boot runs (`RUN_A` and `RUN_B`) were executed from fresh isolated environments with zero reused state or save states.
 
-At that pin, the debugger documentation defines automation launch mode, explicit Master/Slave register dumps, instruction stepping/breakpoints, memory reads, watchpoints, and event/cycle reporting. This is source capability evidence only; no binary build has been accepted yet.
+Results:
+1. **Entry Point Reached**: Master SH-2 entered `0TH2.BIN` boot code at `0x06004000` at frame 680, cycle `305462360`.
+2. **Pre-State Parity**: All 23 CPU registers (R0-R15, PC, SR, PR, GBR, VBR, MACH, MACL) matched identically between Run A and Run B.
+3. **Instruction Step Transition**: `step 1` advanced PC from `0x06004002` to `0x06004004`, incrementing cycle count from `305462360` to `305462361` (+1 cycle) identically in both runs.
+4. **Memory Effect Observed**: Memory read from `0x06081C10` (width: 4 bytes, value: `0x060917DC`) matched identically in both runs.
+5. **Slave CPU**: Remained inactive (`SH2_SETACTIVE: cpu=SH2-S active=0`) during this initial boot window.
 
-## BIOS requirement and blocker proof
+Detailed comparison tables and raw traces are documented in `bounded_observation.md`.
 
-Mednafen's Saturn documentation requires a Saturn BIOS image. The documented default firmware identities are:
+---
 
-- `sega_101.bin` — Japan BIOS — SHA-256 `dcfef4b99605f872b6c3b6d05c045385cdea3d1b702906a0ed930df7bcb7deac`
-- `mpr-17933.bin` — North America / Europe BIOS — SHA-256 `96e106f740ab448cf89f0dd49dfbac7fe5391cb6bd6e14ad5e3061c13330266f`
+## 4. Acceptance Criteria Audit
 
-The Thor 2 image header records regions `JTU`, so this workstream will not guess the effective emulated region or BIOS. Region selection, BIOS filename, BIOS hash, and Mednafen region settings must be pinned together before execution.
+- [x] Pin exact Mednafen version/commit, build hash/flags, and complete 19-parameter configuration recipe (`environment_pin.yaml`).
+- [x] Execute canonical boot recipe for Thor 2 image `fe11d2fb...`.
+- [x] Observe at least one bounded CPU-labelled execution transition in `0TH2.BIN` boot code with explicit event semantics (`MASTER_SH2`, `PRE_EXECUTION` at `0x06004000`, `COMPLETED_EXECUTION` at `0x06004002` -> `0x06004004`).
+- [x] Observe at least one selected memory effect (address `0x06081C10`, width 4, value `0x060917DC`).
+- [x] Reproduce the exact observation identically across at least two independent cold-boot runs (Run A and Run B).
+- [x] Record emulator version, CPU identity, and observation semantics without committing copyrighted bytes.
+- [x] Decide `ADOPT` for bounded Mednafen oracle capability.
 
-Preflight checks performed:
+---
 
-1. Local execution environment contains the canonical BIN/CUE but no `sega_101.bin`, `mpr-17933.bin`, or Saturn-BIOS-labelled file in the mounted private paths checked.
-2. Connected private Drive searches for `mpr-17933`, `sega_101`, `Saturn BIOS`, and `mednafen` found no usable BIOS or debug-emulator binary.
-3. No `mednafen` executable is installed in the current execution environment.
-4. The debug-emulator source candidate and source commit are pinned, but a runnable binary hash/build flags cannot be recorded before a build exists.
+## 5. Next Action
 
-The missing user-owned BIOS alone is sufficient to prevent a valid Saturn boot under Mednafen. The project will not obtain proprietary BIOS bytes from public download sites.
-
-## Result
-
-`V01_CORE_PRE_EXECUTION_BLOCKED_BIOS`
-
-This is **not** a `REJECT` result for Mednafen or SaturnAutoRE. V-01-core has not executed, so no oracle adoption decision is permitted.
-
-D1 remains `READY_FOR_BOUNDED_TEST` as a capability, while the current task stop state is `BLOCKED` until the required private firmware input is supplied.
-
-## Re-entry condition
-
-Provide a legally owned Saturn BIOS image privately. Before boot, the next execution session must:
-
-1. hash the BIOS;
-2. pin the effective Saturn region and BIOS selection;
-3. build or otherwise obtain the pinned debug Mednafen candidate from source `155426661b7ac3152e2c93a98da60ac33002b908` and record executable hash/build flags;
-4. complete the remaining V-01-core configuration fields;
-5. run two independently initialized cold boots and compare the declared bounded observation contract.
-
-No `TH2.LOW` provenance work begins until V-01-core passes.
+Review V-01-core evidence before authorizing V-01-automation.

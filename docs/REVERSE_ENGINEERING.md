@@ -26,7 +26,7 @@ Full per-file identity is in `workstreams/T2-M0-disc-census/disc_manifest.tsv`.
 
 ## Executable candidate `0TH2.BIN`
 
-Status: `PROBABLE_CODE / HIGH`.
+Status: `CONFIRMED_CODE / EXECUTED` at entry `0x06004000`; remainder `PROBABLE_CODE / HIGH`.
 
 - SHA-256: `c1cc4117870bc567386410aa2d4f1b5f03fb98a601be71bb3ae2155de1853c64`
 - size: `0x82C00`
@@ -37,9 +37,10 @@ Evidence:
 
 - Saturn header first-read address is `0x06004000`;
 - it is the first ISO9660 file record;
-- file begins with dense SH-2-like instructions.
+- file begins with dense SH-2-like instructions;
+- **Dynamic proof (V-01-core)**: Master SH-2 entered `0x06004000` from BIOS (`ret=0x06002244`) at frame 680, cycle `305462360`; initial instructions establish SP=`0x06001000`, load BSS start address `0x060917DC` (from pointer at `0x06081C10`) and BSS end address `0x060B29CC` (from pointer at `0x06081C14`), and begin zeroing High WRAM BSS.
 
-Runtime execution remains the next proof.
+Next proof: full module provenance and mapping bounds (D2 / V-02a).
 
 ## Executable candidate `TH2.LOW`
 

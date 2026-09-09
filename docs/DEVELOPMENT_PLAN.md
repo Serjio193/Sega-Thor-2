@@ -152,7 +152,7 @@ WHAT MUST BE TRUE BEFORE START: D0 DONE; pinned emulator candidate and boot reci
 WHAT THIS MILESTONE DOES NOT ATTEMPT: Translation, boundary discovery, subsystem implementation, broad coverage, or TH2.LOW provenance.
 REQUIRED VERIFICATION GATE: V-01-core (bounded emulator observation). V-01-automation is an optional later sub-gate.
 FALLBACK / ALTERNATIVE ROUTE: If SaturnAutoRE automation fails, use Mednafen core directly (ADOPT_PARTIAL). If Mednafen fails, test raw BizHawk or another instrumented emulator.
-STATUS:          READY_FOR_BOUNDED_TEST
+STATUS:          BOUNDED_PROOF (V-01-core passed; decision D-009)
 ```
 
 ### D2 — Executable Module Provenance

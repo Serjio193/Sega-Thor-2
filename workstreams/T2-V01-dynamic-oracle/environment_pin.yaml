@@ -1,59 +1,74 @@
-schema_version: 1
-workstream: T2-V01-dynamic-oracle
-experiment: V-01-core
-status: BLOCKED
-blocker: REQUIRED_PRIVATE_SATURN_BIOS_MISSING
+schema_version: "1.0"
+experiment: "V-01-core"
+task: "D1 - Deterministic Dynamic Oracle"
+target_revision: "thor2_ntsc_patched_fe11d2fb"
 
-project:
-  baseline_commit: 229bfb6449a4e37b71d506b32f8454318209e699
-  revision_id: thor2_ntsc_patched_fe11d2fb
-
-game_input:
-  image_sha256: fe11d2fbda58d63300ef2265c555ce05bddf14d69fb7b73fc409e25c0ef6c0a8
-  cue_sha256: afc0b101bbb493adbd43fd44ffd76959484d67cf0b566137dd145f1c68d411e0
-  header_regions: JTU
-
-oracle_candidate:
-  saturn_autore_repository: AJBats/SaturnAutoRE
-  saturn_autore_commit: 4662aad69f95222fe37c5e6b98f2285b1a7e4653
-  mednafen_repository: AJBats/mednafen-saturn-debug
-  mednafen_source_commit: 155426661b7ac3152e2c93a98da60ac33002b908
-  binary_sha256: null
-  build_flags: null
-  build_status: NOT_PINNED_YET
+disc:
+  image_filename: "The_Story_of_Thor_2_[RUS]_(NTSC).bin"
+  image_sha256: "fe11d2fbda58d63300ef2265c555ce05bddf14d69fb7b73fc409e25c0ef6c0a8"
+  cue_filename: "The_Story_of_Thor_2_[RUS]_(NTSC).cue"
+  cue_sha256: "afc0b101bbb493adbd43fd44ffd76959484d67cf0b566137dd145f1c68d411e0"
+  sectors: 52224
+  track_type: "MODE1/2352"
 
 firmware:
-  selected_region: null
-  selected_bios_filename: null
-  selected_bios_sha256: null
-  status: MISSING_PRIVATE_INPUT
-  documented_reference_identities:
-    japan:
-      filename: sega_101.bin
-      sha256: dcfef4b99605f872b6c3b6d05c045385cdea3d1b702906a0ed930df7bcb7deac
-    north_america_europe:
-      filename: mpr-17933.bin
-      sha256: 96e106f740ab448cf89f0dd49dfbac7fe5391cb6bd6e14ad5e3061c13330266f
+  selected_bios_filename: "mpr-17933.bin"
+  selected_bios_sha256: "96e106f740ab448cf89f0dd49dfbac7fe5391cb6bd6e14ad5e3061c13330266f"
+  selected_bios_role: "North America / Europe Retail BIOS (ss.bios_na_eu)"
+  staged_alternative_bios_filename: "sega_101.bin"
+  staged_alternative_bios_sha256: "dcfef4b99605f872b6c3b6d05c045385cdea3d1b702906a0ed930df7bcb7deac"
+  staged_alternative_bios_role: "Japan v1.01 Retail BIOS (ss.bios_jp)"
 
-v01_core_configuration:
-  rtc_policy: UNRESOLVED
-  nvram_initial_state: UNRESOLVED
-  cartridge: UNRESOLVED
-  peripheral_topology: UNRESOLVED
-  disc_tray_state: UNRESOLVED
-  controller_type: UNRESOLVED
-  input_stream: UNRESOLVED
-  cache_emulation: UNRESOLVED
-  region_autodetect: UNRESOLVED
-  region_default: UNRESOLVED
-  sound: 0
-  start_condition: COLD_BOOT_PLANNED
-  observation_trigger: UNRESOLVED
-  occurrence_number: UNRESOLVED
-  stop_condition: UNRESOLVED
-  event_semantics: UNRESOLVED
+toolchain:
+  saturnautore_repo: "https://github.com/AJBats/SaturnAutoRE.git"
+  saturnautore_commit: "4662aad69f95222fe37c5e6b98f2285b1a7e4653"
+  mednafen_submodule_repo: "https://github.com/AJBats/mednafen-saturn-debug.git"
+  mednafen_source_commit: "155426661b7ac3152e2c93a98da60ac33002b908"
+  mednafen_binary_sha256: "861f03f36882ac2cff9334e3bdb54c8a29991f711ff81cb1132183ade9828c49"
+  mednafen_binary_size_bytes: 22723160
+  host_os: "Linux 6.18.33.2-microsoft-standard-WSL2 x86_64 (Ubuntu 24.04.1 LTS)"
+  compiler: "gcc / g++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0"
+  build_path: "Native Linux build per mednafen/BUILD_WINDOWS.md line 84"
+  build_flags: "-O2 -DFLAC__NO_DLL -D_LFS64_LARGEFILE=1 --disable-nls --disable-sdltest"
 
-reentry_condition: >-
-  Supply a legally owned Saturn BIOS privately, verify its SHA-256, then pin
-  region/BIOS/build configuration and execute two independently initialized
-  cold-boot observations under the declared V-01-core contract.
+configuration_recipe:
+  effective_saturn_region: "0x4 (SMPC_AREA_NA / North America NTSC)"
+  region_autodetect: true
+  region_default: "jp"
+  video_driver: "OpenGL (Mesa llvmpipe LLVM 20.1.2, 256 bits, Mesa 25.2.8)"
+  video_display_mode: "3440 x 1440 x 24 bpp @ 60Hz (Window: 906 x 720)"
+  displayed_scanlines: "[0, 239]"
+  correct_aspect_ratio: true
+  show_h_overscan: true
+  h_blend: false
+  cpu_cache_emulation_mode: "Data only (CPUCACHE_EMUMODE_DATA)"
+  cartridge_type: "CART_BACKUP_MEM (Backup Memory)"
+  peripheral_port1: "Standard 3/6-button digital pad"
+  peripheral_port2: "Disconnected"
+  multitap_port1: false
+  multitap_port2: false
+  input_state: "0x0000 (neutral / no buttons pressed)"
+  backup_ram_initial_state: "BRAM_Init_Data in first 64 bytes, 0x00 remainder (clean init)"
+  nvram_initial_state: "Clean unpopulated"
+  rtc_initialization: "Virtual hardware clock"
+  disc_tray_state: "Closed"
+  sound_setting: "Disabled (--sound 0)"
+  automation_setting: "Enabled (--automation <ipc_dir>)"
+
+observation_contract:
+  target_cpu: "MASTER_SH2"
+  entry_symbol: "0TH2.BIN candidate entry"
+  entry_address: "0x06004000"
+  occurrence: 1
+  trigger_event_semantics: "PRE_EXECUTION at entry breakpoint"
+  trigger_frame: 680
+  trigger_cycle: 305462360
+  step_transition_semantics: "COMPLETED_EXECUTION of instruction at 0x06004002"
+  step_target_pc: "0x06004004"
+  step_cycle: 305462361
+  selected_memory_effect:
+    address: "0x06081C10"
+    access_type: "MEMORY_READ"
+    width_bytes: 4
+    value_hex: "0x060917DC"
+    instruction_pc: "0x06004006"

@@ -34,28 +34,22 @@ Adversarial repair of proof contracts:
 - split V-07 into `V-07A`, `V-07B`, and `V-07C`;
 - relaxed D14 static round-trip prerequisite.
 
-## Active
+### D1 — Deterministic Dynamic Oracle (V-01-core)
 
-### D1 — Deterministic Dynamic Oracle
+Status: **BOUNDED_PROOF** (decision D-009)
 
-Capability state: `READY_FOR_BOUNDED_TEST`
+Capability: reproducible dynamic observation of Thor 2 execution under a pinned configuration.
+Verified gate: **V-01-core** (bounded emulator observation under pinned Mednafen debug fork; Run A/B identical match).
+First target claim proven: Master SH-2 boot entry at `0x06004000`, step transition (`0x06004002` -> `0x06004004`), cycle counter, and memory read effect (`0x06081C10` = `0x060917DC`).
 
-Immediate verification gate: **V-01-core — Bounded Emulator Observation**.
+## Next
 
-Current execution status: **BLOCKED BEFORE BOOT**.
+### Verification: V-01-automation / Development: D2 — Executable Module Provenance
 
-Preflight completed:
+Status: `PROPOSED`
 
-- canonical BIN/CUE SHA-256 reverified;
-- SaturnAutoRE source pinned at `4662aad69f95222fe37c5e6b98f2285b1a7e4653`;
-- debug Mednafen source pinned at `155426661b7ac3152e2c93a98da60ac33002b908`;
-- no user-owned Saturn BIOS was found in the available private workspace.
-
-The blocker is not evidence against Mednafen. V-01-core has not executed and no adoption decision is permitted.
-
-Re-entry condition: provide a legally owned Saturn BIOS privately, hash it, pin effective region/BIOS/build configuration, then run two independently initialized cold boots under the V-01-core observation contract.
-
-`TH2.LOW` provenance remains queued for D2 / V-02b after V-01-core succeeds.
+- Review V-01-core evidence before authorizing V-01-automation.
+- Next capability: **D2 — Executable Module Provenance** via `V-02a` (`0TH2.BIN`) and `V-02b` (`TH2.LOW`).
 
 ## Queued development milestones
 

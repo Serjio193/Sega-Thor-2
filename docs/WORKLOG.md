@@ -1,5 +1,36 @@
 # Worklog
 
+## 2026-09-09 — T2-V01 SaturnAutoRE / Mednafen Setup + V-01-core Execution
+
+### Task
+
+Establish the local pinned SaturnAutoRE / Mednafen debug environment and execute the first `V-01-core` bounded emulator observation on canonical Thor 2 media (`fe11d2fb...`).
+
+### Method
+
+1. Cloned `AJBats/SaturnAutoRE` (commit `4662aad69f95222fe37c5e6b98f2285b1a7e4653`) and verified `mednafen` submodule (commit `155426661b7ac3152e2c93a98da60ac33002b908`) into external sibling directory `e:\Github\SaturnAutoRE`.
+2. Inspected build instructions: native Linux build per `BUILD_WINDOWS.md` line 84 executed without source code modification using system GCC 13.3.0 in WSL Ubuntu 24.04.
+3. Verified retail firmware candidates in local environment: `mpr-17933.bin` (SHA-256: `96e106f740ab448cf89f0dd49dfbac7fe5391cb6bd6e14ad5e3061c13330266f`, NA/EU v1.00) and `sega_101.bin` (SHA-256: `dcfef4b99605f872b6c3b6d05c045385cdea3d1b702906a0ed930df7bcb7deac`, JP v1.01). Verified untracked status.
+4. Inspected Mednafen region logic: canonical disc header contains `JTU` and security strings for JP, Asia, and NA; Mednafen autodetects region `0x4` (`SMPC_AREA_NA`) by preference order and selects `mpr-17933.bin`.
+5. Pinned 19-parameter configuration recipe in `workstreams/T2-V01-dynamic-oracle/environment_pin.yaml`.
+6. Executed two independent cold-boot runs (`RUN_A` and `RUN_B`) in isolated environments (`/tmp/t2_v01_run_a`, `/tmp/t2_v01_run_b`) with zero reused state.
+
+### Results
+
+- **PASS (`V01_CORE_BOUNDED_PROOF`)**: 100% identical match across all declared comparison fields between Run A and Run B.
+- **Entry Point**: Master SH-2 entered `0TH2.BIN` boot entry `0x06004000` at frame 680, cycle `305462360` (breakpoint hit: `break pc=0x06004002 addr=0x06004000`).
+- **Architectural State**: All 23 CPU registers matched identically across runs (SP: `0x06001000`, SR: `0x00000001`, VBR: `0x06000000`).
+- **Instruction Transition**: `step 1` advanced PC to `0x06004004` and cycle count to `305462361` (+1 cycle) identically across runs.
+- **Memory Effect**: Instruction at `0x06004006` (`mov.l @r4, r4`) performed a 32-bit `MEMORY_READ` from `0x06081C10`, reading value `0x060917DC` identically across runs.
+- **Cheap Census**: Master SH-2 active; Slave SH-2 inactive (`active=0`, PC=0); sound disabled via `--sound 0`.
+- **Classification Promotion**: `0TH2.BIN` entry at `0x06004000` promoted to `CONFIRMED_CODE / EXECUTED`.
+- **Decision D-009**: `ADOPT` bounded Mednafen oracle capability for Thor 2.
+- Autonomous RE pipeline (`V-01-automation`) remains deferred.
+
+### Exact next action
+
+Review V-01-core evidence before authorizing V-01-automation.
+
 ## 2026-09-09 — V-01-core preflight and blocker proof
 
 ### Task

@@ -60,3 +60,13 @@ Under T2-P0.1, capability evidence scope is further formalized:
 - Verification decisions: `PROPOSED`, `TESTING`, `VALIDATED`, `ADOPT`, `ADOPT_PARTIAL`, `SUPERSEDED`, `REJECT`, `DEFER`.
 - Capability scope states: `PROPOSED`, `READY_FOR_BOUNDED_TEST`, `BOUNDED_PROOF`, `EXPANDED_PROOF`, `DONE`.
 - Non-conflation invariant: `V-xx PASS` proves a declared bounded observation/experiment contract only and does not imply whole-capability completion (`Dxx DONE`).
+
+## D-009 — Adopt bounded Mednafen debug fork as initial dynamic oracle
+
+**Status:** ACCEPTED (ADOPT for V-01-core)
+
+The pinned Mednafen debug fork (`AJBats/mednafen-saturn-debug` commit `155426661b7ac3152e2c93a98da60ac33002b908`) built natively under WSL (GCC 13.3.0) is adopted as the deterministic dynamic oracle for bounded Thor 2 boot observation (`V-01-core`).
+
+Evidence: Two independent cold-boot runs (`RUN_A` and `RUN_B`) produced 100% identical results across CPU identity (`MASTER_SH2`), frame (680), cycle (305462360), entry PC (`0x06004000`), register states (all 23 registers), step transitions, and memory read effects (`0x06081C10` = `0x060917DC`).
+
+Scope limitation: This decision adopts Mednafen for bounded execution observation only. It does not adopt autonomous RE pipeline scripting (`V-01-automation`), whole-game determinism, or hardware-perfect timing across unobserved systems.
