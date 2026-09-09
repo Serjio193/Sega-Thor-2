@@ -52,6 +52,9 @@ workstreams/
   T2-V02a-0th2-provenance/
     README.md                     0TH2.BIN direct provenance proof summary
     provenance_evidence.md        pre-entry RAM snapshots, CD trace, transfer analysis
+  T2-V02b-th2-low-provenance/
+    README.md                     TH2.LOW direct provenance proof summary
+    provenance_evidence.md        callsite proof, RAM snapshots, transfer and execution evidence
 
 external/
   README.md                       rules for private user-supplied inputs

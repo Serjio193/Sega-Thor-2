@@ -1,5 +1,38 @@
 # Worklog
 
+## 2026-09-09 — T2-V02b TH2.LOW Executable Provenance Proof
+
+### Task
+
+Prove or falsify the runtime executable provenance hypothesis for Thor 2's secondary disc binary `TH2.LOW` on the Sega Saturn architecture without broadening scope into decoding or recompilation.
+
+### Method
+
+1. Re-verified canonical input hashes against `workstreams/T2-V01-dynamic-oracle/environment_pin.yaml` (disc BIN `fe11d2fb...`, CUE `afc0b101...`, BIOS `mpr-17933.bin` `96e106f7...`, extracted `TH2.LOW` `78139689...`).
+2. Derived Saturn CD Block FAD addressing for `TH2.LOW`: ISO9660 LBA 52123..52195 (73 sectors, 149,504 bytes) maps to FAD `0x00CC31..0x00CC79` ($\text{FAD} = \text{LBA} + 150 = 52123 + 150 = 52273 = \text{0x00CC31}$).
+3. Verified call-site in `0TH2.BIN` at `0x06004280..0x06004286`: dynamic breakpoint before indirect call confirmed `R3 = 0x0600A0F8`, `R4 = 0x06081C20` (memory read dynamically confirmed NUL-terminated ASCII `"TH2.LOW"`), `R5 = 0x002DA000`, `PR = 0x0600428A`.
+4. Executed two independent cold-boot runs (`RUN_A` and `RUN_B`) with isolated scratch environments and zero shared state.
+5. In each run, dumped pre-load live RAM at `0x002DA000..0x002FE7FF` (`0x24800` bytes): verified clean/unpopulated initial state (SHA-256 `71ba98cb...`, differing from disc file).
+6. Enabled CD Block, DMA, and memory write tracing during transfer.
+7. Post-load dumped live RAM at `0x002DA000..0x002FE7FF` upon return to `0x0600428A`: confirmed SHA-256 `781396898191921b486be751163aea493ef9b1abcb55c0ab8698df9c69211224` (100% exact match across all 149,504 bytes, 0 differing bytes, `FULL_EXACT_MATCH`) across both Run A and Run B.
+8. Analyzed CD Block trace `cdb.log`: confirmed 73-sector read (`CMD Play; Start=0x80cc31, End=0x800049`) across FAD `0x00CC31..0x00CC79`.
+9. Analyzed SCU DMA trace `dma.log`: confirmed 0 SCU DMA transfers to Low Work RAM.
+10. Analyzed memory trace `mem.log`: confirmed 37,376 32-bit writes ($37376 \times 4 = 149,504$ bytes) into `0x002DA000..0x002FE7FF` executed by Master SH-2 CPU at PC `0x0607DF08` (`DIRECT_CPU_COPY_OBSERVED`).
+11. Set execution breakpoint at `0x002E9910` (module offset `0xF910`); confirmed breakpoint hit at cycle `387459915` (identical across Run A and Run B), called from `0x060042E0` (`PR=0x060042E4`), executing `0x2FE6` (`MOV.L R14, @-R15`) and advancing PC to `0x002E9914`.
+12. Scoped byte-level code classification strictly to `CONFIRMED_CODE / EXECUTED` for observed instructions `0x002E9910..0x002E9914`; unexecuted remainder retains `PROBABLE_CODE / HIGH` pending D4 ownership.
+
+### Result
+
+`V02B_DIRECT_PROVENANCE_PROVEN` (CASE A fully satisfied).
+- Complete byte parity: 100% exact match across all 149,504 bytes between disc `TH2.LOW` and live RAM at `0x002DA000..0x002FE7FF`.
+- Transfer mechanism: direct CPU copy by Master SH-2 from CD Block buffer.
+- Dynamic execution inside module extent confirmed.
+- D2 capability advanced to `BOUNDED_PROOF for 0TH2.BIN and TH2.LOW`.
+
+### Exact next action
+
+Review V-02b evidence before starting D3 exact SH-2 decode / L0 semantics.
+
 ## 2026-09-09 — T2-V02a.1 0TH2.BIN Evidence Classification Repair
 
 ### Task

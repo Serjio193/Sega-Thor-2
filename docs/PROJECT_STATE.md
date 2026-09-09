@@ -6,12 +6,12 @@
 - **T2-P0 — Dual-Track Planning Hardening**: **COMPLETE** (decision D-008; established `DEVELOPMENT_PLAN.md` and `PIPELINE_VALIDATION_PLAN.md`).
 - **T2-P0.1 — Dual-Track Proof-Contract Repair**: **COMPLETE** (formalized capability scope states, split V-01 into V-01-core and V-01-automation, removed TH2.LOW from V-01 gate, established pre-D8 guards).
 - **D1 / T2-V01 / T2-V01.2 — Deterministic Dynamic Oracle**: **BOUNDED_PROOF** (decisions D-009, D-010; V-01-core verified; V-01-automation adopted as `ADOPT_PARTIAL` for `LOW_LEVEL_CONTROL_LAYER_PROVEN`).
-- **D2 / T2-V02a — Executable Module Provenance**: **BOUNDED_PROOF for 0TH2.BIN only** (decision D-011; direct runtime byte mapping proven across all 535,552 bytes to `0x06004000..0x06086BFF`; transfer mechanism `DIRECT_CPU_COPY_OBSERVED`; entry execution confirmed).
+- **D2 / T2-V02a / T2-V02b — Executable Module Provenance**: **BOUNDED_PROOF for 0TH2.BIN and TH2.LOW** (decision D-011; direct runtime byte mapping proven across both executable modules; 0TH2.BIN at `0x06004000..0x06086BFF` via BIOS copy loop; TH2.LOW at `0x002DA000..0x002FE7FF` via Master SH-2 copy loop; entry executions confirmed).
 
-Active next verification step: **Review V-02a evidence before authorizing V-02b TH2.LOW provenance**.
-Active next development capability: **D2 — Executable Module Provenance (TH2.LOW path)**.
+Active next verification step: **Review V-02b evidence before starting D3 exact SH-2 decode / L0 semantics**.
+Active next development capability: **D3 — Exact SH-2 Decode / L0 Semantics**.
 
-Note: `TH2.LOW` provenance is queued under D2 / V-02b.
+Note: Both primary executable modules (`0TH2.BIN` and `TH2.LOW`) now have verified runtime provenance. Next milestone is exact SH-2 decode.
 
 No decompiler/recompiler architecture is considered final. External methods enter the pipeline only after bounded Thor 2 validation.
 
@@ -53,16 +53,16 @@ Two independent census runs produced identical manifest and summary output.
 - module status: `EXECUTABLE_MODULE / RUNTIME_MAPPING_EXACT / FULL_EXACT_MATCH` (`DIRECT_PROVENANCE_PROVEN`)
 - byte classification: `CONFIRMED_CODE / EXECUTED` for dynamically observed instructions at `0x06004000..0x06004008`; unexecuted remainder `0x06004008..0x06086BFF` remains `PROBABLE_CODE / HIGH` (ownership queued for D4)
 - dynamic evidence: V-02a proven direct byte-exact mapping (`FULL_EXACT_MATCH`), BIOS Master SH-2 CPU transfer loop (`PC=0x00002368`) from CD Block buffer (FAD `0x0000AE..0x0001B3`), and entry execution.
-- next gate: complete D2 via TH2.LOW provenance (V-02b).
+- next gate: D3 exact SH-2 decode / L0 semantics.
 
 ### `TH2.LOW`
 
 - SHA-256: `781396898191921b486be751163aea493ef9b1abcb55c0ab8698df9c69211224`
 - size: `0x24800`
-- classification: `PROBABLE_CODE / HIGH`
-- candidate mapped range: `0x002DA000..0x002FE7FF`
-- static evidence: `0TH2.BIN` prepares a call with a pointer to `TH2.LOW` and `R5 = 0x002DA000`.
-- next gate: D2 / V-02b dynamic provenance after V-01-core.
+- module status: `EXECUTABLE_MODULE / RUNTIME_MAPPING_EXACT / FULL_EXACT_MATCH` (`DIRECT_PROVENANCE_PROVEN`)
+- byte classification: `CONFIRMED_CODE / EXECUTED` for dynamically observed instructions at `0x002E9910..0x002E9914`; unexecuted remainder `0x002DA000..0x002FE7FF` remains `PROBABLE_CODE / HIGH` (mapped byte-exact to disc; complete code/data/unknown ownership queued for D4)
+- dynamic evidence: V-02b proven direct byte-exact mapping (`FULL_EXACT_MATCH`), Master SH-2 CPU transfer loop (`PC=0x0607DF08`) from CD Block buffer (FAD `0x00CC31..0x00CC79`), and execution at `0x002E9910` (offset `0xF910`, cycle `387459915`).
+- next gate: D3 exact SH-2 decode / L0 semantics.
 
 All other disc files remain `UNKNOWN` unless there is evidence to classify them. File extension alone is not code/data proof.
 

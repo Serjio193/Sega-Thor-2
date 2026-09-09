@@ -45,28 +45,33 @@ Verified gates:
 
 Target claims proven: Master SH-2 candidate boot entry at `0x06004000` (hook pc `0x06004002` via pc-2 fallback), step transitions/retirements (`0x06004000` `MOV.W @R1, R6`; `0x06004002` `MOV R0, R15`; `0x06004004` `MOV.L @(0x5C, PC), R4`), deterministic cycle counter, dynamic memory read watchpoint (`0x06081C10` = `0x060917DC` via `MOV.L @R4, R4` at `0x06004006`), and automated programmatic reproducibility via `MednafenBot`.
 
-### D2 — Executable Module Provenance (0TH2.BIN path)
+### D2 — Executable Module Provenance (0TH2.BIN and TH2.LOW paths)
 
-Status: **BOUNDED_PROOF for 0TH2.BIN only** (decision D-011)
+Status: **BOUNDED_PROOF for 0TH2.BIN and TH2.LOW** (decision D-011)
 
 Capability: exact runtime mapping, disc provenance, and execution confirmation for executable modules.
-Verified gate: **V-02a — 0TH2.BIN Executable Provenance** (ADR D-011; Daytona provenance methodology adopted as `ADOPT_PARTIAL`).
-Target claims proven: Disc file `0TH2.BIN` (LBA 24..285, 535,552 bytes, SHA-256 `c1cc4117...`) is read via CD Block FAD `0x0000AE..0x0001B3`, transferred directly into High Work RAM at `0x06004000..0x06086BFF` via BIOS Master SH-2 CPU copy loop (`PC=0x00002368`), confirmed byte-exact (`FULL_EXACT_MATCH`), and executed by Master SH-2.
+Verified gates:
+- **V-02a — 0TH2.BIN Executable Provenance** (ADR D-011; Daytona provenance methodology adopted as `ADOPT_PARTIAL`).
+- **V-02b — TH2.LOW Executable Provenance** (`PASS / V02B_DIRECT_PROVENANCE_PROVEN`).
+
+Target claims proven:
+- `0TH2.BIN` (LBA 24..285, 535,552 bytes, SHA-256 `c1cc4117...`): read via CD Block FAD `0x0000AE..0x0001B3`, transferred directly into High Work RAM at `0x06004000..0x06086BFF` via BIOS Master SH-2 CPU copy loop (`PC=0x00002368`), confirmed byte-exact (`FULL_EXACT_MATCH`), and executed by Master SH-2.
+- `TH2.LOW` (LBA 52123..52195, 149,504 bytes, SHA-256 `78139689...`): read via CD Block FAD `0x00CC31..0x00CC79`, transferred directly into Low Work RAM at `0x002DA000..0x002FE7FF` via Master SH-2 CPU copy loop (`PC=0x0607DF08`, zero SCU DMA), confirmed byte-exact (`FULL_EXACT_MATCH`), and executed by Master SH-2 at `0x002E9910..0x002E9914` (offset `0xF910`, cycle `387459915`).
 
 ## Next
 
-### Development: D2 — Executable Module Provenance (TH2.LOW path) / Verification: V-02b — TH2.LOW Executable Provenance
+### Development: D3 — Exact SH-2 Decode / L0 Semantics / Verification: V-06 — Disassembly / Decoding Cross-Check
 
 Status: `PROPOSED`
 
-- Review V-02a evidence before authorizing **V-02b — TH2.LOW Executable Provenance**.
-- Next capability slice: prove or falsify `TH2.LOW` runtime mapping at `0x002DA000..0x002FE7FF` and determine loader mechanism.
+- Review V-02b evidence before authorizing **D3 — Exact SH-2 Decode / L0 Semantics**.
+- Next capability slice: implement exact SH-2 instruction decoder and semantics with differential verification against dynamic oracle and independent disassemblers (V-06).
 
 ## Queued development milestones
 
 | ID | Capability | Key verification gate | Scope state |
 |---|---|---|---|
-| D2 | Executable module provenance | V-02a (0TH2.BIN), V-02b (TH2.LOW) | BOUNDED_PROOF (0TH2.BIN) |
+| D2 | Executable module provenance | V-02a (0TH2.BIN), V-02b (TH2.LOW) | BOUNDED_PROOF (0TH2.BIN + TH2.LOW) |
 | D3 | Exact SH-2 decode + L0 semantics | V-06 cross-check + L0 semantic test suite | PROPOSED |
 | D4 | Code/data/unknown ownership | V-03 (bounded batch), V-04 (schema) | PROPOSED |
 | D5 | Basic-block CFG | V-03 (bounded block CFG) | PROPOSED |
