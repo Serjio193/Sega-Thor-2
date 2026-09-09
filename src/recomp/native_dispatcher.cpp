@@ -75,7 +75,15 @@ NativeDispatcher::NativeDispatcher() {
     bb0.proven_identity = make_bb_06004000_descriptor();
 
     bb0.target_pc = 0x06004012u;
-    bb0.cycle_cost = 27u; // Advancing from 305462361 to 305462388
+    // Cycle cost breakdown (27 cycles total for bb_06004000: 305462360..305462387):
+    // - 0x06004000 MOV.W @R1, R6: 1 cycle (305462360 -> 305462361)
+    // - 0x06004002 MOV R0, R15: 1 cycle (305462361 -> 305462362)
+    // - 0x06004004 MOV.L @(disp,PC), R4: 1 cycle (305462362 -> 305462363)
+    // - 0x06004006 MOV.L @R4, R4: 8 cycles (305462363 -> 305462371, SDRAM bus wait)
+    // - 0x06004008 BRA 0x06004012: 1 cycle (305462371 -> 305462372)
+    // - 0x0600400A NOP (delay slot): 15 cycles (305462372 -> 305462387, target fetch & pipeline refill)
+    // Entry at exit target 0x06004012 occurs at cycle 305462387. Cycle 305462388 is post-completion of 0x06004012.
+    bb0.cycle_cost = 27u;
     bb0.expected_event_meta = BoundedEventMetadata{
         .mmio_accessed = false,
         .irq_accepted = false,

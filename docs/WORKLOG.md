@@ -1,5 +1,55 @@
 # Worklog
 
+## 2026-09-09 — T2-D8.1.1 Native Scheduler/Timing Parity Repair
+
+### Task
+
+Close the remaining V-07C timing parity gap: eliminate the +14 cycle drift at continuation checkpoint `0x06004280` (`307090599` native vs `307090585` interpreter); reconcile `NativeDispatcher` cycle cost (27 vs 28 cycles); reconcile interval retirement accounting (5 vs 6 instructions); achieve cycle-exact parity (`delta = 0`) at both exit `0x06004012` and continuation checkpoint `0x06004280`.
+
+### Method & Discoveries
+
+1. **Exact Mednafen SH-2 Accounting & Cycle Derivation**:
+   - Architectural entry at `0x06004000`: `timestamp = 305462360` (local frame ts `19307`).
+   - Instruction 0 (`0x06004000: MOV.W @R1, R6`): +1 cycle -> `305462361` (ts `19308`).
+   - Instruction 1 (`0x06004002: MOV R0, R15`): +1 cycle -> `305462362` (ts `19309`).
+   - Instruction 2 (`0x06004004: MOV.L @(disp,PC), R4`): +1 cycle -> `305462363` (ts `19317`, literal read from `0x06004064`).
+   - Instruction 3 (`0x06004006: MOV.L @R4, R4`): +8 cycles -> `305462371` (ts `19318`, SDRAM 32-bit bus wait from `0x06081C10`).
+   - Instruction 4 (`0x06004008: BRA 0x06004012`): +1 cycle -> `305462372` (ts `19333`).
+   - Instruction 5 (`0x0600400A: NOP` delay slot): +15 cycles -> `305462387` (ts `19334`, branch target fetch + pipeline refill).
+   - Architectural block exit at `0x06004012`: `timestamp = 305462387` (ts `19334`).
+   - Duration of basic block `bb_06004000`: `305462387 - 305462360 = 27 cycles`.
+   - Explanation of 27 vs 28: 27 cycles is the exact architectural duration of `bb_06004000`. Cycle `305462388` (ts `19335`) was measured after the completion of instruction 6 (`0x06004012: MOV.L @(disp,PC), R3`), which belongs to the subsequent basic block.
+
+2. **Root Cause Analysis of the +14 Cycle Drift**:
+   - Trace analysis through the BSS clear loop (`0x0600400C..0x0600401A`) revealed the entire +14 cycle delta occurred during the very first iteration:
+     - In Mode 0, `ts` advanced from 19334 to 19342 (+8 cycles).
+     - In Mode 2, `ts` advanced from 19334 to 19356 (+22 cycles, difference = +14 cycles).
+     - Across all subsequent 135,664 loop iterations to `0x06004280`, the delta remained constant at +14.
+   - Physical mechanism:
+     - In Mode 0, instruction 2 (`0x06004004`) read literal `0x06004064`, warming cache line `0x06004060..0x0600406F` into `CPU[0].Cache`.
+     - In Mode 0, instruction 3 (`0x06004006`) read `0x06081C10`, warming cache line `0x06081C10..0x06081C1F` into `CPU[0].Cache`.
+     - In Mode 2, native memory callbacks previously used `Automation_ReadMem8` which bypassed `CPU[0].Cache`.
+     - Consequently, the first loop iteration in Mode 2 suffered two external bus cache misses: 7 cycles at `0x06004012` (reading `0x06004068`) and 7 cycles at `0x06004014` (reading `0x06081C14`), totaling +14 cycles penalty.
+
+3. **Architectural Parity Repair**:
+   - Replaced raw backing store reads/writes in `mednafen/src/ss/ss.cpp` with `CPU[0].MRFP8/16/32` and `CPU[0].MWFP8/16/32` function pointers.
+   - Synchronized `SH7095_mem_timestamp = std::max(SH7095_mem_timestamp, target_ts)` and clamped `MA_until`/`WB_until` on native commit.
+   - Repaired interval retirement counter in Mednafen to track delay slot execution despite branch target PC advance (`retirements_in_interval = 6` for interpreter, `0` for native override).
+
+4. **Verification Results**:
+   - Mode 0 (Interpreter) cycle at `0x06004280`: `307090585`.
+   - Mode 2 (Native Run A) cycle at `0x06004280`: `307090585`.
+   - Mode 2 (Native Run B) cycle at `0x06004280`: `307090585`.
+   - Timing Delta: **EXACTLY 0 CYCLES** across 1,628,225 cycles!
+   - Mode 2 Negative Control (Run E): Ineligible=1, Fallback=1, Executed=0, Retirements=6, zero partial native commits.
+   - 12/12 unit test suites passing across MinGW and Linux WSL (Debug and Release).
+
+### Status After Pass
+
+- `D8`: **BOUNDED_PROOF for bb_06004000** (Cycle-exact timing parity confirmed)
+- `V-07C`: **PASS** (Zero cycle drift, zero register divergence, zero interval retirements)
+- Next step: Post-D8 Second-Pass Method Execution (`docs/POST_D8_SECOND_PASS_PLAN.md` / ADR D-012)
+
 ## 2026-09-09 — T2-D8.1/V-07C First Authoritative Native Override Proof
 
 ### Task
