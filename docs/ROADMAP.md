@@ -98,10 +98,13 @@ Target claims proven:
 
 ### Pre-D8 Safety Gate & Capability D6: Mechanical Explicit-State C++ Translation (V-07A)
 
-Status: `PROPOSED`
+### D6 — Mechanical Explicit-State C++
 
-- Gate: pre-D8 identity/event safety gate + D6/V-07A preparation.
-- Target: mechanically generate machine-equivalent C++ translation for proven basic block `bb_06004000` under declared zero-divergence differential contract.
+Status: `BOUNDED_PROOF for bb_06004000`
+
+- Gate: pre-D8 identity/event safety gate (PASSED) + V-07A transition proof (PASSED).
+- Result: mechanically generated standalone C++20 translation for proven basic block `bb_06004000` with zero runtime interpreter dependencies (enforced by link-time isolation), verified with zero CPU and memory divergences across synthetic vectors and Mednafen oracle replay.
+- Next gate: D7 / V-07B shadow checker with negative controls.
 
 ### Mandatory post-D8 checkpoint — External Method Second Pass
 
@@ -123,7 +126,7 @@ The second pass evaluates both **evidence strength** and **workflow utility**. A
 | D3 | Exact SH-2 decode + L0 semantics | V-06 cross-check + L0 semantic test suite | BOUNDED_PROOF (block 0) |
 | D4 | Code/data/unknown ownership | V-03 (bounded batch), V-04 (schema) | BOUNDED_PROOF (block 0 only) |
 | D5 | Basic-block CFG | V-03 (bounded block CFG) | BOUNDED_PROOF (block 0 only) |
-| D6 | Mechanical explicit-state C++ | V-07A + pre-D8 identity/event guards | PROPOSED |
+| D6 | Mechanical explicit-state C++ | V-07A + pre-D8 identity/event guards | BOUNDED_PROOF (bb_06004000) |
 | D7 | Shadow comparison | V-07B (negative-control validation) | PROPOSED |
 | D8 | **First native promotion proof** | **V-07C (native override proof)** | PROPOSED |
 | POST-D8 | **Mandatory external-method second pass** | D-012 + new second-pass experiment plan | PLANNED / BLOCKING AFTER D8 |

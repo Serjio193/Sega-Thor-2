@@ -10,11 +10,16 @@
 - **D3 / T2-D3.2 — Exact SH-2 Decode / L0 Semantics**: **BOUNDED_PROOF expanded to first complete startup block** (6 block opcodes `0x6611`, `0x6F03`, `0xD417`, `0x6442`, `0xA003`, `0x0009` decoded with fail-closed C++20 implementation; V-06 cross-check against Hitachi manual, pinned Mednafen, and Catherine confirmed 0 decode disagreements; synthetic L0 suite and block oracle vector confirmed 0 semantic divergences).
 - **D4 / T2-D4.1 — Code/Data Ownership**: **BOUNDED_PROOF for this block only** (exact byte interval `0x06004000..0x0600400B` [12 bytes] promoted to `CONFIRMED_CODE / EXECUTED`; unexecuted remainder `0x0600400C..0x06086BFF` retains `PROBABLE_CODE / HIGH`).
 - **D5 / T2-D5.1 — Basic-Block CFG Recovery**: **BOUNDED_PROOF for this block only** (first evidence-backed block record `bb_06004000` created in `workstreams/T2-D4-D5-block0/block_06004000.md`: range `0x06004000..0x0600400A`, 6 instructions, terminator `BRA 0x06004012`, delay slot `NOP`, direct taken exit `0x06004012`, fallthrough nullopt).
+- **PRE_D8_EXECUTABLE_IDENTITY_GUARD**: **PASS for bb_06004000 only** (reusable fail-closed eligibility guard binding execution to revision, module, provenance, CPU, range, content bytes, and validity state; negative controls verified; zero memory log contamination).
+- **PRE_D8_MINIMUM_EVENT_SAFETY**: **PASS for bb_06004000 bounded execution only** (two independent cold boots in Mednafen oracle proved atomic 18-cycle window with 0 MMIO, 0 IRQ, 0 SCU DMA, and inactive Slave SH-2).
+- **D6 / T2-D6.1 / V-07A — Mechanical Explicit-State C++**: **BOUNDED_PROOF for bb_06004000 / V-07A: PASS** (mechanical C++20 compiler generated standalone block `bb_06004000` with 0 runtime interpreter dependencies verified via link-isolation target; V-07A transition proof verified against interpreter and Mednafen oracle across 3 synthetic vectors and real Thor 2 startup with 0 CPU divergences and 0 memory log divergences; negative controls verified).
+- **D7 (Shadow comparison)**: **PROPOSED**.
+- **D8 (First native promotion proof)**: **PROPOSED**.
 
-Active next verification step: **pre-D8 identity/event safety gate + D6/V-07A preparation**.
-Active next development capability: **D3 opcode expansion / D6 native block translation**.
+Active next verification step: **D7 / V-07B shadow checker with negative controls**.
+Active next development capability: **D7 shadow execution comparison harness**.
 
-Note: Startup basic block (`0x06004000..0x0600400A`) has complete decode, L0 semantic, code ownership, and CFG proof. D3, D4, and D5 remain at `BOUNDED_PROOF` until broader corpus/module coverage is achieved.
+Note: Basic block `bb_06004000` (`0x06004000..0x0600400A`) has complete decode, L0 semantic, code ownership, CFG, identity guard, minimum event safety, and mechanical C++ transition proof. D3, D4, D5, and D6 remain at `BOUNDED_PROOF` until broader corpus/module coverage is achieved. D7 and D8 remain `PROPOSED`.
 
 No decompiler/recompiler architecture is considered final. External methods enter the pipeline only after bounded Thor 2 validation.
 

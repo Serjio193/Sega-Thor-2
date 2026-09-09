@@ -29,6 +29,9 @@ public:
     virtual uint16_t read16(uint32_t addr) = 0;
     virtual uint32_t read32(uint32_t addr) = 0;
 
+    /// Non-architectural host inspection that does not record to the guest access log.
+    [[nodiscard]] virtual uint8_t peek8(uint32_t addr) const = 0;
+
     virtual void write8(uint32_t addr, uint8_t val) = 0;
     virtual void write16(uint32_t addr, uint16_t val) = 0;
     virtual void write32(uint32_t addr, uint32_t val) = 0;
@@ -37,8 +40,13 @@ public:
 /// Sparse test memory harness with explicit big-endian order and access logging.
 class Sh2FlatMemory : public ISh2Memory {
 public:
+    [[nodiscard]] uint8_t peek8(uint32_t addr) const override {
+        const auto it = data_.find(addr);
+        return (it != data_.end()) ? it->second : 0u;
+    }
+
     uint8_t read8(uint32_t addr) override {
-        const uint8_t val = data_.contains(addr) ? data_[addr] : 0u;
+        const uint8_t val = data_.contains(addr) ? data_.at(addr) : 0u;
         log_.push_back({MemoryAccessKind::READ, addr, val, 1});
         return val;
     }

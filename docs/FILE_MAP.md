@@ -39,19 +39,27 @@ include/
       sh2_types.hpp               instruction types, opcode categories, effective address, branch target
       sh2_decoder.hpp             fail-closed SH-2 instruction decoder declaration
       sh2_state.hpp               architectural CPU state (R0..R15, PC, PR, SR/T, delayed_pc)
-      sh2_memory.hpp              big-endian memory interface and test harness
+      sh2_memory.hpp              big-endian memory interface and test harness (with non-contaminating peek8)
       sh2_executor.hpp            L0 instruction execution harness declaration
       sh2_block.hpp               evidence-backed basic block representation & discovery
+    recomp/
+      block_identity.hpp          fail-closed executable identity guard declaration
+      block_compiler.hpp          mechanical basic-block C++20 compiler declaration
 
 src/
   sh2/
     sh2_decoder.cpp               target opcode decoding logic
     sh2_executor.cpp              target opcode execution semantics
     sh2_block.cpp                 basic block discovery and block execution
+  recomp/
+    block_identity.cpp            executable identity verification logic
+    block_compiler.cpp            mechanical basic-block C++20 code generator
 
 tools/
   disc/
     census_saturn_cd.py           CUE/raw-sector/Saturn-header/ISO9660 census
+  recomp/
+    generate_sh2_block.cpp        build-time mechanical C++20 block generator CLI
 
 tests/
   test_census_saturn_cd.py        synthetic tests for census parser
@@ -62,6 +70,11 @@ tests/
     test_sh2_l0_semantics.cpp     synthetic L0 semantic test suite
     test_sh2_oracle_vector.cpp    Thor 2 startup oracle vector validation
     test_sh2_block.cpp            first complete basic block discovery & oracle replay
+  recomp/
+    test_executable_identity.cpp  fail-closed identity guard test suite with negative controls
+    test_sh2_block_compiler.cpp   mechanical block compiler determinism and fail-closed tests
+    test_generated_link_isolation.cpp link-time isolation proof with zero interpreter dependencies
+    test_v07a_transition.cpp      differential transition proof (synthetic + Thor 2 vectors + negative controls)
 
 workstreams/
   T2-M0-disc-census/
@@ -87,6 +100,13 @@ workstreams/
   T2-D4-D5-block0/
     README.md                     D4/D5 basic block 0 proof summary
     block_06004000.md             evidence-backed basic block CFG record (0x06004000..0x0600400A)
+  T2-PRE-D8-event-safety/
+    README.md                     Pre-D8 minimum event safety proof summary
+    event_safety_evidence.md      two-run cold boot event audit (MMIO, IRQ, DMA, Slave SH-2)
+  T2-D6-V07A-transition/
+    README.md                     D6/V-07A mechanical transition proof summary
+    identity_guard_evidence.md    fail-closed identity specification and negative control matrix
+    transition_proof_evidence.md  differential transition proof and link isolation evidence
 
 external/
   README.md                       rules for private user-supplied inputs

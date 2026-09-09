@@ -1,5 +1,53 @@
 # Worklog
 
+## 2026-09-09 — T2-PRE-D8.1/D6.1/V-07A First Mechanical C++ Transition Proof
+
+### Task
+
+Deliver PRE_D8_EXECUTABLE_IDENTITY_GUARD, PRE_D8_MINIMUM_EVENT_SAFETY, D6 mechanical explicit-state C++ generation, and V-07A transition proof for Thor 2 startup basic block `bb_06004000`.
+
+### Method & Discoveries
+
+1. **Executable Identity Guard (`PRE_D8_EXECUTABLE_IDENTITY_GUARD`)**:
+   - Implemented reusable fail-closed guard `check_block_eligibility` binding block execution to: canonical revision ID (`thor2_ntsc_patched_fe11d2fb`), module (`0TH2.BIN`), proven direct provenance (V-02a), CPU (`MASTER_SH2`), address range (`0x06004000..0x0600400A`), 12 content bytes, and validity state (`VALID`).
+   - Implemented host-side non-architectural inspection `ISh2Memory::peek8` ensuring zero guest memory-effect log contamination.
+   - Evaluated 10 negative control cases in `tests/recomp/test_executable_identity.cpp`: wrong revision, wrong module, unproven provenance, wrong CPU, wrong range, single-byte mutation across all 12 bytes, and invalid validity state. All failed closed as required.
+2. **Minimum Event Safety (`PRE_D8_MINIMUM_EVENT_SAFETY`)**:
+   - Audited the natural execution window of `bb_06004000` across two independent cold boots in the pinned Mednafen oracle (`check_event_safety.py`).
+   - Proved:
+     - Zero MMIO accesses (all reads strictly High Work RAM `0x06000000..0x060FFFFF`).
+     - Zero accepted IRQ boundaries (SR interrupt mask unaffected, zero interrupt vectors fetched, SH-2 architectural prohibition of interrupts in delay slots).
+     - Zero SCU DMA events in execution window (`cycle=305462360..305462388` has 0 DMA transfers; last pre-entry DMA completed at cycle `153570917`).
+     - Zero Slave SH-2 activity (`active=0`, `last_PC=00000000`).
+     - Both runs matched 100% identically across all 7 retirement steps and exit registers.
+     - Verdict: `PRE_D8_MINIMUM_EVENT_SAFETY_PASS` (bounded execution only).
+3. **Mechanical Basic-Block C++20 Compiler (Capability D6)**:
+   - Implemented standalone translator `compile_block_to_cpp` consuming validated `Sh2BasicBlock` and emitting deterministic explicit-state C++20.
+   - Generated block does NOT call interpreter routines (`decode_sh2`, `execute_sh2_instruction`, `step_sh2`, `execute_basic_block`).
+   - Does not hardcode input register values or memory read outputs; specializes instruction addresses, register indices, literal pool EA, and branch target.
+   - Build-time code generation integrated in CMake via `generate_sh2_block` tool producing `bb_06004000.hpp` and `bb_06004000.cpp`.
+   - Enforced link-time isolation: library `thor_generated_bb_06004000` has zero linker dependency on `thor_sh2`. Verified by dedicated link-isolation binary `test_generated_link_isolation`.
+4. **Differential Transition Proof (Gate V-07A)**:
+   - Evaluated generated block `bb_06004000` against verified interpreter across 3 synthetic vectors (arbitrary non-zero pattern, negative 16-bit sign extension, boundary zero state) and real Thor 2 startup capture.
+   - Compared complete post-states: R0..R15, PC, SR, PR, GBR, VBR, MACH, MACL, ordered memory reads, ordered memory writes.
+   - Verified 0 state divergences and 0 memory log divergences.
+   - Replay against accepted Mednafen oracle confirmed 100% exact match across all CPU registers and ordered memory reads.
+   - Verified negative controls: injecting CPU register corruption, PC corruption, or memory log corruption triggers divergence detection.
+5. **Multi-Platform Verification**:
+   - Windows MinGW GCC 15.2.0: Debug (8/8 passed), Release (8/8 passed).
+   - Linux Ubuntu GCC 13.3.0 in WSL: Debug (8/8 passed), Release (8/8 passed).
+   - Python test suite: 3/3 passed.
+   - 100% compliance with 500-line source code policy (longest human-maintained file: 270 lines).
+
+### Status After Pass
+
+- `PRE_D8_EXECUTABLE_IDENTITY_GUARD`: **PASS for bb_06004000 only**
+- `PRE_D8_MINIMUM_EVENT_SAFETY`: **PASS for bb_06004000 bounded execution only**
+- `D6`: **BOUNDED_PROOF for bb_06004000**
+- `V-07A`: **PASS**
+- `D7` / `D8`: **PROPOSED**
+- Next gate: `D7 / V-07B shadow checker with negative controls`
+
 ## 2026-09-09 — T2-D3.2/D4.1/D5.1 First Complete Thor 2 Basic Block Proof
 
 ### Task

@@ -9,13 +9,45 @@ if (CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang")
     add_compile_options(-Wall -Wextra -Wpedantic -Werror)
 endif()
 
-include_directories(include)
+include_directories(include .)
 
 add_library(thor_sh2 STATIC
     src/sh2/sh2_decoder.cpp
     src/sh2/sh2_executor.cpp
     src/sh2/sh2_block.cpp
 )
+
+add_library(thor_recomp STATIC
+    src/recomp/block_identity.cpp
+    src/recomp/block_compiler.cpp
+)
+target_link_libraries(thor_recomp PUBLIC thor_sh2)
+
+# Tool to mechanically compile a basic block to C++20
+add_executable(generate_sh2_block tools/recomp/generate_sh2_block.cpp)
+target_link_libraries(generate_sh2_block PRIVATE thor_recomp thor_sh2)
+
+# Build-time mechanical C++20 generation for bb_06004000
+set(GENERATED_DIR "${CMAKE_CURRENT_BINARY_DIR}/generated")
+file(MAKE_DIRECTORY "${GENERATED_DIR}")
+set(GEN_BB0_HEADER "${GENERATED_DIR}/bb_06004000.hpp")
+set(GEN_BB0_SOURCE "${GENERATED_DIR}/bb_06004000.cpp")
+
+add_custom_command(
+    OUTPUT "${GEN_BB0_HEADER}" "${GEN_BB0_SOURCE}"
+    COMMAND generate_sh2_block "bb_06004000" "${GEN_BB0_HEADER}" "${GEN_BB0_SOURCE}"
+    DEPENDS generate_sh2_block
+    COMMENT "Mechanically generating C++20 for bb_06004000"
+    VERBATIM
+)
+
+# Generated native candidate library - STRICT LINK-TIME ISOLATION:
+# Does NOT link against thor_sh2 (decoder/executor/interpreter).
+add_library(thor_generated_bb_06004000 STATIC
+    "${GEN_BB0_SOURCE}"
+    "${GEN_BB0_HEADER}"
+)
+target_include_directories(thor_generated_bb_06004000 PUBLIC include "${GENERATED_DIR}")
 
 enable_testing()
 
@@ -34,3 +66,24 @@ add_test(NAME test_sh2_oracle_vector COMMAND test_sh2_oracle_vector)
 add_executable(test_sh2_block tests/sh2/test_sh2_block.cpp)
 target_link_libraries(test_sh2_block PRIVATE thor_sh2)
 add_test(NAME test_sh2_block COMMAND test_sh2_block)
+
+# Executable identity guard test suite
+add_executable(test_executable_identity tests/recomp/test_executable_identity.cpp)
+target_link_libraries(test_executable_identity PRIVATE thor_recomp)
+add_test(NAME test_executable_identity COMMAND test_executable_identity)
+
+# Mechanical block compiler test suite
+add_executable(test_sh2_block_compiler tests/recomp/test_sh2_block_compiler.cpp)
+target_link_libraries(test_sh2_block_compiler PRIVATE thor_recomp thor_sh2)
+add_test(NAME test_sh2_block_compiler COMMAND test_sh2_block_compiler)
+
+# Link isolation verification: links ONLY against generated library
+add_executable(test_generated_link_isolation tests/recomp/test_generated_link_isolation.cpp)
+target_link_libraries(test_generated_link_isolation PRIVATE thor_generated_bb_06004000)
+add_test(NAME test_generated_link_isolation COMMAND test_generated_link_isolation)
+
+# V-07A transition proof test suite
+add_executable(test_v07a_transition tests/recomp/test_v07a_transition.cpp)
+target_link_libraries(test_v07a_transition PRIVATE thor_generated_bb_06004000 thor_recomp thor_sh2)
+target_include_directories(test_v07a_transition PRIVATE "${GENERATED_DIR}")
+add_test(NAME test_v07a_transition COMMAND test_v07a_transition)
