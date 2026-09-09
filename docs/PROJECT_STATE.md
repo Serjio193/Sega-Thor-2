@@ -4,9 +4,12 @@
 
 - **D0 / T2-M0 — Canonical Revision Identity**: **COMPLETE**.
 - **T2-P0 — Dual-Track Planning Hardening**: **COMPLETE** (decision D-008; established `DEVELOPMENT_PLAN.md` and `PIPELINE_VALIDATION_PLAN.md`).
+- **T2-P0.1 — Dual-Track Proof-Contract Repair**: **COMPLETE** (introduced capability scope states, split V-01 into V-01-core and V-01-automation, removed TH2.LOW from V-01 gate to D2/V-02b, established explicit L0 semantic and pre-D8 guards, split V-07 into V-07A/B/C, relaxed D14 static round-trip).
 
-Active next development capability: **D1 — Deterministic Dynamic Oracle** (`PROPOSED`).
-Active next verification experiment: **V-01 — Dynamic Oracle via Instrumented Emulator (SaturnAutoRE / Mednafen)** (`PROPOSED`, not yet adopted).
+Active next development capability: **D1 — Deterministic Dynamic Oracle** (`READY_FOR_BOUNDED_TEST`).
+Active next verification experiment: **V-01-core — Bounded Emulator Observation** (`PROPOSED`, ready for bounded execution).
+
+Note: `TH2.LOW` provenance is removed from V-01-core PASS criteria and queued under D2 / V-02b.
 
 No decompiler/recompiler architecture is considered final. External methods enter the pipeline only after bounded Thor 2 validation.
 

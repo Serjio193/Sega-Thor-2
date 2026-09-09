@@ -55,3 +55,8 @@ The project planning model is rebuilt into two synchronized tracks:
 2. **Verification Track** (`docs/PIPELINE_VALIDATION_PLAN.md`): defines bounded experiments V-01–V-14, specifying what evidence an external method must produce before adoption into the build path.
 
 A candidate external method's failure (e.g. SaturnAutoRE in V-01) does not invalidate the development capability (D1 deterministic dynamic oracle); the project retains the requirement and tests alternative candidate tools. Planning documents distinguish `PROPOSED`, `VALIDATED`, `ADOPTED`, `SUPERSEDED`, `REJECTED`, and `DEFERRED`.
+
+Under T2-P0.1, capability evidence scope is further formalized:
+- Verification decisions: `PROPOSED`, `TESTING`, `VALIDATED`, `ADOPT`, `ADOPT_PARTIAL`, `SUPERSEDED`, `REJECT`, `DEFER`.
+- Capability scope states: `PROPOSED`, `READY_FOR_BOUNDED_TEST`, `BOUNDED_PROOF`, `EXPANDED_PROOF`, `DONE`.
+- Non-conflation invariant: `V-xx PASS` proves a declared bounded observation/experiment contract only and does not imply whole-capability completion (`Dxx DONE`).

@@ -23,16 +23,28 @@ This dual-track model separates development capabilities from verification exper
 
 ## Plan status classification
 
-Planning documents and their elements use these states:
-
+### Method / Decision States (Verification Track)
+Used when evaluating an external technique, tool, or component:
 - `PROPOSED` — initial idea, not yet tested or adopted.
+- `TESTING` — bounded experiment is actively executing.
 - `VALIDATED` — experiment has demonstrated the concept on a Thor 2 slice.
-- `ADOPTED` — project decision to include in the pipeline.
+- `ADOPT` — project decision to include in the production pipeline.
+- `ADOPT_PARTIAL` — only the proven, bounded part enters.
 - `SUPERSEDED` — replaced by a newer plan or approach.
-- `REJECTED` — tested and found unsuitable for Thor 2.
-- `DEFERRED` — potentially useful but intentionally postponed.
+- `REJECT` — tested and found unsuitable for Thor 2.
+- `DEFER` — potentially useful but intentionally postponed.
 
-`VALIDATED` describes evidence. `ADOPTED` describes a project decision. They are separate.
+`VALIDATED` describes evidence. `ADOPT` describes a project decision. They are separate.
+
+### Capability Scope States (Development Track)
+Used to track how much of a development capability has been proven:
+- `PROPOSED` — capability defined, no verification started.
+- `READY_FOR_BOUNDED_TEST` — preconditions and slice bounded, ready to test.
+- `BOUNDED_PROOF` — verified on at least one specific slice/path/range.
+- `EXPANDED_PROOF` — verified across multiple modules/subsystems.
+- `DONE` — verified across the agreed required Thor 2 workload.
+
+**Core Rule:** `V-xx PASS` does NOT automatically imply `Dxx DONE`. An experiment pass establishes evidence only for its exact revision, CPU, module/range, workload/window, configuration, and observation contract.
 
 A development capability may be `ADOPTED` as necessary even when the proposed method for achieving it is `REJECTED`.
 
@@ -60,7 +72,8 @@ graph TD
     D2 --> D11
     D8 --> D12["D12: Structural Recovery"]
     D12 --> D13["D13: Guest-Address/Type Provenance"]
-    D1 --> D14["D14: Resource Decode/Reencode"]
+    D0 --> D14["D14: Resource Decode/Reencode"]
+    D1 -.-> D14
     D10 --> D15["D15: HW-Subsystem Contracts"]
     D15 --> D16["D16: Native Subsystem Replacement"]
     D16 --> D17["D17: Progressive Standalone Runtime"]
@@ -78,7 +91,7 @@ D9 (indirect flow), D10 (timing boundaries), D11 (overlays)
 **Recovery** (after D8):
 D12 (structural), D13 (type provenance)
 
-**Resource track** (parallel, after D1):
+**Resource track** (parallel, from D0; D1 needed for runtime loading/semantics):
 D14 (resource decode/reencode)
 
 **Hardware track** (after D1 + D10):
@@ -93,14 +106,16 @@ Note: D11 (overlay detection) may need to move earlier if D2 discovers runtime c
 
 For a single basic-block proof, not all milestones need full completion:
 
-1. D0 provides the bytes and candidate load addresses. (DONE)
-2. D1 provides a reproducible oracle and confirms execution. (one observation sufficient)
-3. D2 is partially satisfied by M0 static evidence for `0TH2.BIN` at `0x06004000`; D1 confirms dynamically.
-4. D3 needs only the opcodes in the target block, not full decoder coverage.
-5. D4/D5 are satisfied for one block by dynamic execution evidence.
-6. D6 generates C++ for that single block.
-7. D7 compares against oracle.
-8. D8 is the proof.
+1. **D0 (Substrate):** Provides canonical bytes and candidate load addresses. (`DONE`)
+2. **D1 (Dynamic Oracle):** Bounded oracle capability via `V-01-core`. At least one reproducible observation under pinned configuration. (`BOUNDED_PROOF`)
+3. **D2 (Module Provenance):** Bounded provenance via `V-02a` for `0TH2.BIN` at `0x06004000`. (`BOUNDED_PROOF`)
+4. **D3 (SH-2 Decode & L0 Semantics):** Target-subset readiness: exact decode for the target block plus verified L0 instruction/memory semantics. (`BOUNDED_PROOF`)
+5. **D4 / D5 (Ownership & CFG):** Completed instruction bytes in the target block are `CONFIRMED_CODE`; CFG bounded for the block. (`BOUNDED_PROOF`)
+6. **Pre-D8 Executable Identity Guard:** Eligibility bound to revision, CPU, address range, content identity, and validity scope. Any RAM change invalidates native dispatch.
+7. **Pre-D8 Minimum Event Safety (`PRE_D8_MINIMUM_EVENT_SAFETY`):** Verified absence of observable machine event boundaries (IRQ, DMA, dual-CPU, delay-slot edge cases) for the selected block.
+8. **D6 (Mechanical C++ Generation):** Generates explicit-state C++ for the target block (`V-07A`).
+9. **D7 (Shadow Comparison):** Shadow comparison infrastructure verified with negative controls (`V-07B`).
+10. **D8 (Native Promotion Proof):** Zero-divergence shadow execution followed by authoritative native override (`V-07C`).
 
 The first proof targets a RAM-only Master SH-2 block from `0TH2.BIN` without MMIO, DMA, or interrupt boundary crossings.
 
@@ -132,12 +147,12 @@ CAPABILITY:      Reproducible dynamic observation of Thor 2 execution: CPU state
 WHY REQUIRED:    All behavioral claims require dynamic proof. No translation can be verified without an authoritative execution path.
 PREREQUISITES:   D0.
 INPUTS:          Canonical disc image, emulator/instrumentation.
-DELIVERABLE:     Environment producing deterministic execution traces; at least one reproducible observation.
-WHAT MUST BE TRUE BEFORE START: D0 DONE; emulator candidate identified.
-WHAT THIS MILESTONE DOES NOT ATTEMPT: Translation, boundary discovery, subsystem implementation, broad coverage.
-REQUIRED VERIFICATION GATE: V-01 (or alternative oracle experiment).
-FALLBACK / ALTERNATIVE ROUTE: If SaturnAutoRE fails, try raw Mednafen debugging, BizHawk, or another instrumented emulator.
-STATUS:          PROPOSED
+DELIVERABLE:     Environment producing deterministic execution traces; at least one reproducible observation contract.
+WHAT MUST BE TRUE BEFORE START: D0 DONE; pinned emulator candidate and boot recipe identified.
+WHAT THIS MILESTONE DOES NOT ATTEMPT: Translation, boundary discovery, subsystem implementation, broad coverage, or TH2.LOW provenance.
+REQUIRED VERIFICATION GATE: V-01-core (bounded emulator observation). V-01-automation is an optional later sub-gate.
+FALLBACK / ALTERNATIVE ROUTE: If SaturnAutoRE automation fails, use Mednafen core directly (ADOPT_PARTIAL). If Mednafen fails, test raw BizHawk or another instrumented emulator.
+STATUS:          READY_FOR_BOUNDED_TEST
 ```
 
 ### D2 — Executable Module Provenance
@@ -146,12 +161,13 @@ STATUS:          PROPOSED
 ID:              D2
 CAPABILITY:      Confirmed mapping: disc file → load address → runtime execution range.
 WHY REQUIRED:    Must know what code is at what address before translating it. Without provenance, we cannot bind disc bytes to runtime behavior.
-PREREQUISITES:   D0, D1 (dynamic confirmation).
+PREREQUISITES:   D0, D1 (bounded dynamic oracle).
 INPUTS:          Disc manifest (D0), dynamic oracle traces (D1).
-DELIVERABLE:     Provenance records for at least 0TH2.BIN and TH2.LOW; detection of any transformation/relocation.
-WHAT MUST BE TRUE BEFORE START: D1 provides at least one dynamic observation confirming or falsifying a candidate mapping.
+DELIVERABLE:     Provenance records per executable path; detection of transformation/relocation. Provenance progresses in stages: V-02a (0TH2.BIN), V-02b (TH2.LOW).
+WHAT MUST BE TRUE BEFORE START: D1 provides working oracle.
 WHAT THIS MILESTONE DOES NOT ATTEMPT: Full overlay system implementation, resource decoding, code translation.
-REQUIRED VERIFICATION GATE: V-02 (or alternative provenance method). V-10 contributes if transformation is detected.
+REQUIRED VERIFICATION GATE: V-02a (0TH2.BIN provenance), V-02b (TH2.LOW provenance). V-10 contributes if transformation is detected.
+COMPLETION RULE: One provenance path PASS equals D2 BOUNDED_PROOF for that path, not all provenance DONE. Falsified mapping is a valid evidence result.
 FALLBACK / ALTERNATIVE ROUTE: Manual Mednafen tracing if Daytona-style model does not fit.
 STATUS:          PROPOSED
 ```
@@ -160,14 +176,19 @@ STATUS:          PROPOSED
 
 ```
 ID:              D3
-CAPABILITY:      Correct decoding of all SH-2 instructions in the executed Thor 2 corpus.
-WHY REQUIRED:    Translation requires correct instruction decode. Wrong decode = wrong translation.
-PREREQUISITES:   D0 (bytes), D2 (confirmed code ranges with load addresses).
-INPUTS:          Confirmed code ranges, SH-2 ISA documentation.
-DELIVERABLE:     Decoder implementation tested against Thor 2 executed instruction corpus.
+CAPABILITY:      Correct decoding and instruction/memory semantics for SH-2 opcodes in Thor 2.
+WHY REQUIRED:    Translation requires correct instruction decode and execution semantics.
+PREREQUISITES:   D0 (bytes), D2 (confirmed code ranges with load addresses, transitively providing D1 dynamic evidence).
+INPUTS:          Confirmed code ranges, SH-2 ISA documentation, executed opcode corpus.
+DELIVERABLE:     Decoder implementation and L0 semantic test suite. Staged capability:
+                 - D3 target-subset readiness: exact decode for one bounded translated block
+                 - D3 BOUNDED_PROOF: verified decode for executed target corpus
+                 - D3 EXPANDED_PROOF: larger executed-opcode corpus
+                 - D3 DONE: agreed required executed Thor 2 opcode corpus covered
 WHAT MUST BE TRUE BEFORE START: At least one confirmed code range with known load address.
 WHAT THIS MILESTONE DOES NOT ATTEMPT: Translation to C++, semantic naming, function discovery.
-REQUIRED VERIFICATION GATE: V-06 (cross-check with Catherine and/or other independent decoder).
+REQUIRED VERIFICATION GATE: V-06 (independent decoder cross-check) + explicit L0 semantic test suite.
+L0 SEMANTIC GATE: Decode correctness is strictly separate from instruction execution semantics and memory access semantics. Target instruction subset requires independent synthetic edge-case tests (arithmetic flags, T bit, sign/zero extension, narrow registers, PC-relative, GBR, PR, MACH/MACL, delay slots, big-endian loads/stores, alignment, ordered memory effects, MMIO classification).
 FALLBACK / ALTERNATIVE ROUTE: Multiple independent reference decoders exist (Catherine, Mednafen internals, SH7604 manual).
 STATUS:          PROPOSED
 ```
@@ -180,11 +201,11 @@ CAPABILITY:      Per-byte classification of module contents as CONFIRMED_CODE, P
 WHY REQUIRED:    Must distinguish code from data before translation. Translating data as code produces nonsense; skipping code produces gaps.
 PREREQUISITES:   D3 (decoder), D1 (executed-range evidence).
 INPUTS:          Decoded instruction streams, dynamic execution traces.
-DELIVERABLE:     Classified ownership map for at least one module range.
-WHAT MUST BE TRUE BEFORE START: Decoder working on the target range; at least one execution trace showing which PCs were fetched.
-WHAT THIS MILESTONE DOES NOT ATTEMPT: Function boundary assignment, semantic naming, complete module coverage.
-REQUIRED VERIFICATION GATE: V-03 (boundary discovery) and/or V-04 (segmentation schema).
-FALLBACK / ALTERNATIVE ROUTE: Manual classification for small ranges; dynamic execution evidence alone classifies executed bytes as CONFIRMED_CODE.
+DELIVERABLE:     Classified ownership map for bounded module ranges. Dynamic execution establishes CONFIRMED_CODE for completed instruction bytes in bounded context without prematurely classifying surrounding bytes as data.
+WHAT MUST BE TRUE BEFORE START: Decoder working on target range; at least one execution trace showing completed instruction fetches.
+WHAT THIS MILESTONE DOES NOT ATTEMPT: Whole-module classification upfront, function boundary assignment, semantic naming.
+REQUIRED VERIFICATION GATE: V-03 (bounded candidate batch) and/or V-04 (segmentation schema).
+FALLBACK / ALTERNATIVE ROUTE: Dynamic execution evidence alone classifies executed bytes as CONFIRMED_CODE for bounded translation.
 STATUS:          PROPOSED
 ```
 
@@ -196,8 +217,8 @@ CAPABILITY:      Control flow graph at basic-block granularity for confirmed cod
 WHY REQUIRED:    Translation unit is the basic block. Block boundaries must be known to generate correct C++.
 PREREQUISITES:   D3 (decoded instructions), D4 (code ranges identified).
 INPUTS:          Decoded code with ownership classification.
-DELIVERABLE:     CFG for at least one bounded confirmed-code range.
-WHAT MUST BE TRUE BEFORE START: Code ranges classified; decoder produces correct branch/jump targets.
+DELIVERABLE:     CFG for bounded confirmed-code ranges. Bounded block CFG construction does not require whole-module completion.
+WHAT MUST BE TRUE BEFORE START: Code ranges classified; decoder produces correct branch/jump targets for target block.
 WHAT THIS MILESTONE DOES NOT ATTEMPT: Function grouping, full indirect target resolution, semantic naming.
 REQUIRED VERIFICATION GATE: Dynamic execution must agree with static CFG for observed paths.
 FALLBACK / ALTERNATIVE ROUTE: Manual CFG construction for small ranges.
@@ -210,12 +231,14 @@ STATUS:          PROPOSED
 ID:              D6
 CAPABILITY:      Generate C++ that preserves all SH-2 architectural state for basic blocks.
 WHY REQUIRED:    Core capability — transform executed SH-2 code into verifiable native code.
-PREREQUISITES:   D3 (decode), D5 (CFG/block boundaries).
-INPUTS:          Decoded basic blocks with confirmed boundaries.
-DELIVERABLE:     C++ source for at least one block preserving R0-R15, PC, SR, PR, GBR, VBR, MACH, MACL, and ordered memory effects.
-WHAT MUST BE TRUE BEFORE START: At least one confirmed basic block with complete decode and known boundaries.
+PREREQUISITES:   D3 (decode + L0 semantics), D5 (CFG/block boundaries), PRE_D8_EXECUTABLE_IDENTITY_GUARD, PRE_D8_MINIMUM_EVENT_SAFETY.
+INPUTS:          Decoded basic blocks with confirmed boundaries and verified L0 semantics.
+DELIVERABLE:     C++ source for at least one block preserving R0-R15, PC, SR, PR, GBR, VBR, MACH, MACL, and ordered memory effects under L0 semantic contract.
+PRE-D8 GUARDS:   - Executable identity guard: eligibility bound to revision, CPU, address range, content identity, and validity scope. Any RAM change invalidates native dispatch; no silent guest cache alteration.
+                 - Minimum event safety: verified absence of observable machine event boundaries (IRQ, DMA, dual-CPU, delay-slot edge cases) for the selected candidate.
+WHAT MUST BE TRUE BEFORE START: Target block decode and L0 semantics proven; pre-D8 guards satisfied.
 WHAT THIS MILESTONE DOES NOT ATTEMPT: Semantic naming, native type introduction, optimization, function-level grouping.
-REQUIRED VERIFICATION GATE: V-07 (mechanical block promotion proof).
+REQUIRED VERIFICATION GATE: V-07A (generated transition proof).
 FALLBACK / ALTERNATIVE ROUTE: If code generation approach fails for a candidate, interpreter-only path remains authoritative.
 STATUS:          PROPOSED
 ```
@@ -228,10 +251,10 @@ CAPABILITY:      Run generated C++ alongside oracle and compare CPU/memory state
 WHY REQUIRED:    Verification requires automated comparison — manual state checking does not scale.
 PREREQUISITES:   D1 (oracle), D6 (generated C++).
 INPUTS:          Generated C++ blocks, oracle execution path.
-DELIVERABLE:     Infrastructure that detects any divergence in CPU state or memory effects.
-WHAT MUST BE TRUE BEFORE START: At least one generated block and working oracle.
+DELIVERABLE:     Infrastructure with verified negative controls that detects any divergence in CPU state or memory effects. Oracle path and candidate path start from isolated equivalent pre-states rather than sharing mutable post-state.
+WHAT MUST BE TRUE BEFORE START: At least one generated block and working oracle; negative controls proven.
 WHAT THIS MILESTONE DOES NOT ATTEMPT: Automatic divergence repair, broad coverage, optimization.
-REQUIRED VERIFICATION GATE: Part of V-07.
+REQUIRED VERIFICATION GATE: V-07B (shadow checker validation with negative controls).
 FALLBACK / ALTERNATIVE ROUTE: Manual state comparison for very small initial proofs if infrastructure is blocked.
 STATUS:          PROPOSED
 ```
@@ -242,12 +265,13 @@ STATUS:          PROPOSED
 ID:              D8
 CAPABILITY:      One basic block executing natively with zero divergence from oracle.
 WHY REQUIRED:    Central proof that the project methodology works. Without this, everything downstream is speculative.
-PREREQUISITES:   D6 (generated C++), D7 (shadow comparison).
+PREREQUISITES:   D6 (generated C++ with pre-D8 guards), D7 (shadow comparison with verified checker).
 INPUTS:          Shadow-verified block with zero divergence.
-DELIVERABLE:     Proof that native execution produces identical state to oracle for one block.
-WHAT MUST BE TRUE BEFORE START: Shadow comparison shows zero divergence for the candidate block.
+DELIVERABLE:     Proof that native execution produces identical state to oracle for one block, with real native dispatch and execution continuation.
+WHAT MUST BE TRUE BEFORE START: Shadow comparison shows zero divergence for candidate block; checker negative controls pass.
 WHAT THIS MILESTONE DOES NOT ATTEMPT: Broad coverage, optimization, semantic recovery, multi-block chaining.
-REQUIRED VERIFICATION GATE: V-07 (this IS the proof).
+REQUIRED VERIFICATION GATE: V-07C (real native override proof).
+COMPLETION RULE: D8 BOUNDED_PROOF applies strictly to the tested candidate block under its declared contract; does not imply all blocks are safe.
 FALLBACK / ALTERNATIVE ROUTE: If the first block candidate fails, try a simpler block. If ALL blocks fail, re-examine decode/generation/oracle correctness.
 STATUS:          PROPOSED
 ```
@@ -340,17 +364,17 @@ STATUS:          PROPOSED
 ID:              D14
 CAPABILITY:      Understand and byte-accurately round-trip game resources (graphics, audio, maps, scripts, text).
 WHY REQUIRED:    A standalone native implementation must load and use game resources without the Saturn CD subsystem.
-PREREQUISITES:   D0 (disc files), D1 (runtime observation of resource loading).
-INPUTS:          Disc files, runtime resource-loading traces.
-DELIVERABLE:     Byte-accurate decode/reencode for at least one resource type.
-WHAT MUST BE TRUE BEFORE START: Can observe resource loading at runtime.
+PREREQUISITES:   D0 (disc files). D1 is NOT an unconditional prerequisite for pure structural resource round-trip when static evidence is sufficient. D1 is required only for runtime loading, consumer behavior, transformation, and semantic meaning.
+INPUTS:          Disc files, and optionally runtime resource-loading traces.
+DELIVERABLE:     Byte-accurate decode/reencode for at least one resource type. BYTE_ROUNDTRIP_EXACT requires zero byte differences; lossy or normalized re-encoding cannot claim exact status. Decoded semantic fields must be distinguished from opaque byte preservation.
+WHAT MUST BE TRUE BEFORE START: Static resource format candidate identified or D1 loading observed.
 WHAT THIS MILESTONE DOES NOT ATTEMPT: Resource modification, enhancement, or format replacement.
 REQUIRED VERIFICATION GATE: V-11 (round-trip proof); V-12 (patch differential mining for locating resources).
 FALLBACK / ALTERNATIVE ROUTE: Keep resources as opaque binary blobs passed to emulated subsystems.
 STATUS:          PROPOSED
 ```
 
-Note: D14 can proceed on a parallel track after D1, independent of the core translation chain.
+Note: D14 can proceed on a parallel track from D0 for static round-trip, with D1 added when analyzing runtime loading and consumer semantics.
 
 ### D15 — Hardware-Subsystem Contract Discovery
 
@@ -393,6 +417,12 @@ WHY REQUIRED:    The project goal is a native implementation, not permanent emul
 PREREQUISITES:   Sufficient verified block coverage (D8+), at least one native subsystem (D16).
 INPUTS:          Verified native blocks and subsystems.
 DELIVERABLE:     Game execution path with reduced oracle dependency, quantified coverage.
+                 Scope distinguishes:
+                 1. Isolated extraction proof (subsystem compiles/links standalone);
+                 2. Integrated bounded runtime proof (subsystem runs within game loop);
+                 3. Measured dependency reduction (quantified decrease in emulated cycles/subsystems);
+                 4. Final agreed dependency/coverage completion.
+                 No isolated subsystem experiment implies standalone-game completion.
 WHAT MUST BE TRUE BEFORE START: Critical mass of verified blocks and at least one native subsystem.
 WHAT THIS MILESTONE DOES NOT ATTEMPT: Complete emulator removal; areas not yet proven safe remain on fallback.
 REQUIRED VERIFICATION GATE: V-14 (progressive standalone extraction).
@@ -406,7 +436,7 @@ STATUS:          PROPOSED
 ID:              D18
 CAPABILITY:      Native game implementation without guest CPU/hardware emulation where proven safe.
 WHY REQUIRED:    Final project goal.
-PREREQUISITES:   D17 with sufficient proven coverage.
+PREREQUISITES:   D17 with sufficient proven coverage and documented safety.
 INPUTS:          Proven standalone runtime with quantified remaining dependencies.
 DELIVERABLE:     Game running natively where proven safe; remaining dependencies documented.
 WHAT MUST BE TRUE BEFORE START: Coverage and verification sufficient for safe removal in each area.
@@ -487,8 +517,8 @@ WHAT CAN SAFELY PROCEED BEFORE IT IS RESOLVED: Most work proceeds with documente
 ```
 RISK:            Incorrect instruction decode produces incorrect translation.
 WHY IT MATTERS:  Foundation of all mechanical work.
-EARLIEST POINT WE MUST RESOLVE IT: D3 + V-06.
-WHAT EVIDENCE RESOLVES IT: Multiple independent decoders agree on the executed Thor 2 opcode corpus.
+EARLIEST POINT WE MUST RESOLVE IT: D3 + V-06 + L0 semantic test suite.
+WHAT EVIDENCE RESOLVES IT: Multiple independent decoders agree on executed Thor 2 opcode corpus AND independent synthetic edge-case tests pass for execution/memory semantics.
 WHAT CAN SAFELY PROCEED BEFORE IT IS RESOLVED: Nothing involving translation.
 ```
 
@@ -497,9 +527,9 @@ WHAT CAN SAFELY PROCEED BEFORE IT IS RESOLVED: Nothing involving translation.
 ```
 RISK:            A block assumed atomic might be interrupted mid-execution by Saturn IRQ or VBlank.
 WHY IT MATTERS:  If a translated block modifies state that an ISR expects to see partially updated, behavioral divergence occurs.
-EARLIEST POINT WE MUST RESOLVE IT: D10 (after first proof on safe blocks).
-WHAT EVIDENCE RESOLVES IT: Dynamic traces showing ISR entry points, frequencies, and which code ranges are interrupted.
-WHAT CAN SAFELY PROCEED BEFORE IT IS RESOLVED: First proof on blocks that are part of main-loop game logic (unlikely to be interrupted mid-block).
+EARLIEST POINT WE MUST RESOLVE IT: PRE_D8_MINIMUM_EVENT_SAFETY (for candidate block) and D10 (general scaling).
+WHAT EVIDENCE RESOLVES IT: Dynamic traces showing ISR entry points, frequencies, and which code ranges are interrupted; verified absence of event boundaries for candidate block.
+WHAT CAN SAFELY PROCEED BEFORE IT IS RESOLVED: Target blocks verified under PRE_D8_MINIMUM_EVENT_SAFETY.
 ```
 
 ### SCU DMA interaction
@@ -547,9 +577,9 @@ WHAT CAN SAFELY PROCEED BEFORE IT IS RESOLVED: All non-CD code; CD can remain em
 ```
 RISK:            Accidentally committing copyrighted material to GitHub.
 WHY IT MATTERS:  Legal compliance is priority 1. Repository purge would be disruptive.
-EARLIEST POINT WE MUST RESOLVE IT: Already resolved (D-001, .gitignore).
-WHAT EVIDENCE RESOLVES IT: .gitignore covers binary extensions; external/README.md documents rules; every commit reviewed.
-WHAT CAN SAFELY PROCEED BEFORE IT IS RESOLVED: Always safe with existing controls.
+EARLIEST POINT WE MUST RESOLVE IT: Ongoing publication gate.
+WHAT EVIDENCE RESOLVES IT: .gitignore covers binary extensions; external/README.md documents rules; however, .gitignore alone is not permanent proof. Future traces, generated C++, JSON/YAML exports, debugger dumps, and logs may contain copyrighted material even under allowed extensions. Every artifact must pass content-level review prior to commit.
+WHAT CAN SAFELY PROCEED BEFORE IT IS RESOLVED: Always safe with mandatory pre-commit content review.
 ```
 
 ---
@@ -560,20 +590,21 @@ Every development capability that relies on an unproven method points to a verif
 
 ```
 D0  Canonical Revision Identity     → no external method needed (DONE)
-D1  Deterministic Dynamic Oracle    → V-01 (SaturnAutoRE/Mednafen)
+D1  Deterministic Dynamic Oracle    → V-01-core (bounded emulator observation)
+                                      V-01-automation (optional later sub-gate)
                                       if V-01 fails: capability persists; test another emulator
-D2  Executable Module Provenance    → V-02 (Daytona-style provenance) + V-10 (transformation)
+D2  Executable Module Provenance    → V-02a (0TH2.BIN) + V-02b (TH2.LOW) + V-10 (transformation)
                                       if V-02 fails: manual tracing; provenance still needed
-D3  Exact SH-2 Decode               → V-06 (Catherine cross-check)
+D3  Exact SH-2 Decode               → V-06 (Catherine cross-check) + L0 semantic test suite
                                       if V-06 fails: use other references; decode still needed
-D4  Code/Data/Unknown Ownership     → V-03 (boundary discovery) + V-04 (segmentation schema)
+D4  Code/Data/Unknown Ownership     → V-03 (bounded candidate batch) + V-04 (segmentation schema)
                                       if both fail: manual classification; ownership still needed
 D5  Basic-Block CFG                  → V-03 (contributes)
                                       if V-03 fails: manual CFG for small ranges
-D6  Mechanical C++ Generation        → V-07 (mechanical block promotion)
-                                      if V-07 fails: re-examine approach; generation still needed
-D7  Shadow Comparison                → V-07 (same proof)
-D8  First Native Promotion Proof     → V-07 (this IS the proof)
+D6  Mechanical C++ Generation        → V-07A (transition proof) + PRE_D8 identity/event guards
+                                      if V-07A fails: re-examine approach; generation still needed
+D7  Shadow Comparison                → V-07B (shadow checker validation with negative controls)
+D8  First Native Promotion Proof     → V-07C (real native override proof)
 D9  Indirect Control-Flow            → no specific external experiment; extends D8
 D10 Timing/IRQ/DMA Boundaries        → no specific external experiment; extends D1
 D11 Overlay/Generation Identity      → V-10 (Baroque overlay lessons)
@@ -582,9 +613,9 @@ D12 Structural Recovery              → V-05 (Ghidra/signatures) + V-13 (AI rec
                                       if both fail: manual analysis
 D13 Guest-Address/Type Provenance    → V-09 (Azel model)
                                       if V-09 fails: stay on flat addresses
-D14 Resource Decode/Reencode         → V-11 (round-trip) + V-12 (patch mining)
-                                      if both fail: resources remain opaque
-D15 HW-Subsystem Contracts           → V-08 (SaturnRecomp components) for cross-reference
+D14 Resource Decode/Reencode         → V-11 (exact round-trip) + V-12 (patch mining)
+                                      D0 sufficient for static; D1 for runtime semantics
+D15 HW-Subsystem Contracts           → V-08 (SaturnRecomp components a-h) for cross-reference
                                       if V-08 fails: document contracts from own traces
 D16 Native Subsystem Replacement     → V-08 (components that pass)
                                       if V-08 fails: build from scratch using D15 contracts

@@ -1,5 +1,42 @@
 # Worklog
 
+## 2026-09-09 — T2-P0.1 Dual-Track Proof-Contract Repair
+
+### Task
+
+Apply adversarial review corrections to proof contracts and gates in `docs/DEVELOPMENT_PLAN.md`, `docs/PIPELINE_VALIDATION_PLAN.md`, `docs/ROADMAP.md`, `docs/PROJECT_STATE.md`, `docs/DECISIONS.md`, and `TASK.md`.
+
+### Finding
+
+The T2-P0 dual-track model correctly separated capabilities from candidate methods, but had remaining proof-contract ambiguities:
+- conflated running a bounded experiment with whole-capability completion (`V-xx PASS` vs `Dxx DONE`);
+- bundled Mednafen observation with SaturnAutoRE automation and `TH2.LOW` provenance in V-01;
+- lacked explicit separation between SH-2 decode correctness, instruction execution semantics, and memory access semantics (L0);
+- lacked pre-D8 executable identity invalidation guards and machine event safety (`PRE_D8_MINIMUM_EVENT_SAFETY`);
+- lacked negative-control validation for the shadow comparison checker (V-07B);
+- placed an unnecessary unconditional D1 dependency on static resource round-trips.
+
+### Changes
+
+- **Capability scope states:** Formalized `PROPOSED`, `READY_FOR_BOUNDED_TEST`, `BOUNDED_PROOF`, `EXPANDED_PROOF`, and `DONE` in `DEVELOPMENT_PLAN.md`, `PIPELINE_VALIDATION_PLAN.md`, and ADR `D-008`.
+- **V-01 split:** Separated into `V-01-core` (19-parameter pinned boot observation) and `V-01-automation` (SaturnAutoRE scripting). Explicitly removed `TH2.LOW` provenance from V-01 PASS criteria (queued under D2 / `V-02b`).
+- **D2 / V-02 scoping:** Split into `V-02a` (`0TH2.BIN`) and `V-02b` (`TH2.LOW`); one path pass = one path proven (`D2 BOUNDED_PROOF`), not whole capability DONE.
+- **L0 Semantic Gate:** Mandated independent synthetic edge-case tests separating decode correctness from instruction and memory execution semantics.
+- **Pre-D8 Guards:** Added executable identity invalidation guard (backing RAM changes invalidate translation; no silent cache patching) and `PRE_D8_MINIMUM_EVENT_SAFETY` (verified absence of observable machine event boundaries).
+- **V-07 split:** Split into `V-07A` (transition proof), `V-07B` (shadow checker validation with 5 negative controls and pre-state isolation), and `V-07C` (real native override proof with metrics).
+- **D14 / V-11 relaxed:** Pure structural resource round-trip permitted from D0 static evidence; `BYTE_ROUNDTRIP_EXACT` requires zero byte differences.
+- **Publication gate:** Clarified that repository hygiene is an ongoing publication gate, not permanently solved by `.gitignore`.
+- **TASK.md:** Completed T2-P0.1 and queued `D1` / `V-01-core` as exact next task.
+
+### Result
+
+`DUAL_TRACK_MODEL_REPAIRED`.
+`V01_CORE_READY`.
+
+### Exact next action
+
+Execute V-01-core bounded emulator observation.
+
 ## 2026-09-09 — T2-P0 Dual-Track Development / Verification Plan Hardening
 
 ### Task
