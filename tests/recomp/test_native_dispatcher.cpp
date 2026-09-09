@@ -7,8 +7,18 @@
 #include "thor/recomp/native_dispatcher.hpp"
 #include "tests/sh2/test_framework.hpp"
 
-// Timing assertion required by T2-D8.1 timing reconciliation
-static_assert(305462388u - 305462360u == 28u, "Timing discrepancy: block window must be 28 cycles");
+// Timing contracts distinguishing block duration vs subsequent instruction boundary
+constexpr uint32_t BB_06004000_ENTRY_CYCLE = 305462360u;
+constexpr uint32_t BB_06004000_EXIT_CYCLE = 305462387u;
+constexpr uint32_t BB_06004000_NEXT_INSTR_COMPLETION_CYCLE = 305462388u;
+
+constexpr uint32_t BLOCK_DURATION = BB_06004000_EXIT_CYCLE - BB_06004000_ENTRY_CYCLE;
+constexpr uint32_t NEXT_INSTRUCTION_COMPLETION_BOUNDARY_DELTA =
+    BB_06004000_NEXT_INSTR_COMPLETION_CYCLE - BB_06004000_ENTRY_CYCLE;
+
+static_assert(BLOCK_DURATION == 27u, "Block duration must be 27 cycles");
+static_assert(NEXT_INSTRUCTION_COMPLETION_BOUNDARY_DELTA == 28u,
+    "Next instruction completion boundary must be delta 28");
 
 struct TestSaturnHardware {
     std::vector<uint8_t> ram = std::vector<uint8_t>(0x00100000, 0); // 1MB HWR simulation

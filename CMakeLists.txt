@@ -22,6 +22,7 @@ add_library(thor_recomp STATIC
     src/recomp/block_identity.cpp
     src/recomp/block_compiler.cpp
     src/recomp/shadow_checker.cpp
+    src/recomp/mutation_harness.cpp
 )
 target_link_libraries(thor_recomp PUBLIC thor_sh2)
 
@@ -127,3 +128,9 @@ add_executable(test_native_dispatcher tests/recomp/test_native_dispatcher.cpp)
 target_link_libraries(test_native_dispatcher PRIVATE thor_native)
 target_include_directories(test_native_dispatcher PRIVATE "${GENERATED_DIR}")
 add_test(NAME test_native_dispatcher COMMAND test_native_dispatcher)
+
+# M-02 guest mutation harness and fault injection test suite
+add_executable(test_mutation_harness tests/recomp/test_mutation_harness.cpp)
+target_link_libraries(test_mutation_harness PRIVATE thor_native thor_recomp thor_sh2)
+target_include_directories(test_mutation_harness PRIVATE "${GENERATED_DIR}")
+add_test(NAME test_mutation_harness COMMAND test_mutation_harness)

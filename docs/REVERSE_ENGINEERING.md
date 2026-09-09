@@ -96,7 +96,7 @@ CPU: MASTER_SH2
 MODULE/GENERATION: 0TH2.BIN (High Work RAM initial execution)
 STATIC EVIDENCE: ISO9660 root directory extent LBA 24..285, first-read entry 0x06004000
 DYNAMIC EVIDENCE: V-01-core breakpoint trigger, multi-step retirement, V-02a byte-exact live RAM match, block replay vs Mednafen oracle, minimum event safety audit
-EVENT SAFETY: PRE_D8_MINIMUM_EVENT_SAFETY_PASS (atomic 28-cycle window [305462360..305462388; earlier '18-cycle' was an arithmetic/typographical error for 28], 0 MMIO, 0 IRQ, 0 SCU DMA, Slave SH-2 inactive)
+EVENT SAFETY: PRE_D8_MINIMUM_EVENT_SAFETY_PASS (atomic 27-cycle block duration [305462360..305462387, observation window through next instruction boundary 305462388 delta 28; earlier '18-cycle' was an arithmetic/typographical error for 28], 0 MMIO, 0 IRQ, 0 SCU DMA, Slave SH-2 inactive)
 IDENTITY GUARD: PRE_D8_EXECUTABLE_IDENTITY_GUARD_PASS (bound to revision, module, provenance, CPU, address range, byte identity, validity state; negative controls verified; non-contaminating peek8)
 READS/WRITES: Read 16-bit at 0x06004000 (0x6611); read 32-bit at 0x06004064 (0x06081C10); read 32-bit at 0x06081C10 (0x060917DC)
 CONTROL FLOW: Straight-line 0x06004000..0x06004006; terminator BRA 0x06004012 at 0x06004008; delay slot NOP at 0x0600400A; direct taken exit 0x06004012; fallthrough nullopt

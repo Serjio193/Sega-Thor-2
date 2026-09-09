@@ -78,6 +78,6 @@ Test Suite `test_native_dispatcher`:
 - `test_negative_shadow_divergence`: PASS (Shadow divergence -> Fallback)
 - `test_negative_unregistered_pc`: PASS (Fallback)
 - `test_c_abi_bridge`: PASS
-- `test_timing_constants`: PASS (`305462388 - 305462360 == 28`)
+- `test_timing_constants`: PASS (`BLOCK_DURATION == 27`, `NEXT_INSTRUCTION_COMPLETION_BOUNDARY_DELTA == 28`)
 
 Result: 12/12 test suites passing on Windows MinGW and Linux WSL (Debug and Release).

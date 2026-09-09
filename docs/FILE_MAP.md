@@ -49,6 +49,7 @@ include/
       shadow_checker.hpp          reusable shadow comparison framework declaration
       native_bridge.h             pure C ABI native dispatcher plugin interface
       native_dispatcher.hpp       reusable native dispatcher with shadow qualification
+      mutation_harness.hpp        reusable mutation fault-injection harness declaration
 
 src/
   sh2/
@@ -60,12 +61,14 @@ src/
     block_compiler.cpp            mechanical basic-block C++20 code generator
     shadow_checker.cpp            shadow comparison and differential outcome verification logic
     native_dispatcher.cpp         authoritative native dispatcher and C ABI export definitions
+    mutation_harness.cpp          bounded mutation testing and restoration logic
 
 tools/
   disc/
     census_saturn_cd.py           CUE/raw-sector/Saturn-header/ISO9660 census
   recomp/
     generate_sh2_block.cpp        build-time mechanical C++20 block generator CLI
+    mutation_harness.py           live Mednafen IPC mutation and non-contamination harness
 
 tests/
   test_census_saturn_cd.py        synthetic tests for census parser
@@ -85,6 +88,7 @@ tests/
     test_shadow_negative.cpp      24-fault negative control test suite (100% detection rate)
     test_shadow_isolation.cpp     pre-state storage isolation and anti-aliasing proof test suite
     test_native_dispatcher.cpp    authoritative native dispatcher and negative fallback test suite
+    test_mutation_harness.cpp     12/12 single-byte and 6/6 NOP mutation unit tests
 
 workstreams/
   T2-M0-disc-census/
@@ -123,6 +127,9 @@ workstreams/
   T2-D8-V07C-native/
     README.md                     D8/V-07C authoritative native override proof summary
     native_override_evidence.md   complete dynamic verification matrix and fallback proofs
+  POST-D8-M02-mutation/
+    README.md                     M-02 mutation fault-injection experiment summary
+    experiment_evidence.md        pinned audit, synthetic C++ matrix, live IPC matrix, and disposition
 
 external/
   README.md                       rules for private user-supplied inputs

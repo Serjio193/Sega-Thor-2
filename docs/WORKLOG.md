@@ -1,5 +1,43 @@
 # Worklog
 
+## 2026-09-09 — T2-POST-D8.1 / M-02 SaturnAutoRE Mutation Fault-Injection Experiment
+
+### Task
+
+Execute the first external-method second-pass experiment: **M-02 (SaturnAutoRE NOP / byte-mutation fault injection)** under ADR D-012.
+Clean up residual D8 timing consistency (`BLOCK_DURATION = 27` vs `NEXT_INSTRUCTION_COMPLETION_BOUNDARY_DELTA = 28`); align second-pass plan gates with canonical milestone labels; audit pinned SaturnAutoRE method (`auto_re.py` / `automation.cpp`); implement reusable C++ mutation test harness; validate 12/12 byte mutation matrix and 6/6 NOP matrix; execute live Mednafen IPC mutation and restoration matrix; evaluate method on Evidence Strength vs Workflow Utility; assign disposition.
+
+### Method & Discoveries
+
+1. **Residual Timing & Gate Cleanup**:
+   - Explicitly decoupled `BLOCK_DURATION = 27` (internal execution interval `305462360..305462387`) from `NEXT_INSTRUCTION_COMPLETION_BOUNDARY_DELTA = 28` (observation boundary `305462388` after instruction 6 completes) across `test_native_dispatcher.cpp`, `PROJECT_STATE.md`, `WORKLOG.md`, and workstream evidence records.
+   - Aligned gate labels in `docs/POST_D8_SECOND_PASS_PLAN.md` with canonical `DEVELOPMENT_PLAN.md` roadmap (D9 Indirect Control-Flow, D10 Timing/IRQ/DMA Boundaries, D11 Overlay/Generation, D12 Structural Recovery, D13 Guest-Address/Type Provenance, D15 HW-Subsystem Contracts).
+2. **Pinned SaturnAutoRE Audit (`4662aad6`, Mednafen `15542666`)**:
+   - Inspected `auto_re.py` (`_test_patch`, `_revert_patch`, `_mutation_loop`) and `automation.cpp` (`poke <addr> <bytes>`).
+   - Mutation mechanism: replaces candidate instructions with `0x0009` (NOP) or perturbed immediate bytes over IPC socket.
+   - Identified critical methodological gaps: conflates perturbation with positive equivalence proof; relies on heuristic frame timeouts and screenshots rather than cycle/state trace differentials; lacks fail-closed verification against corruption.
+3. **C++ Reusable Mutation Test Harness (`thor::recomp::MutationHarness`)**:
+   - Implemented bounded mutation harness with original byte capture, authorized range enforcement (`0x06004000..0x0600400B`), single-byte mutation, instruction-level NOP mutation, and strict post-restoration byte equality check.
+   - Synthetic C++ test suite (`tests/recomp/test_mutation_harness.cpp`):
+     - 12/12 single-byte mutations: 100% rejected fail-closed (`is_eligible` false, 0 native executions, 0 register side-effects), exact bytes restored, clean native dispatch resumed.
+     - 6/6 instruction NOP mutations: 100% rejected fail-closed, exact bytes restored, clean dispatch resumed.
+     - Out-of-bounds and mismatched original byte guards verified.
+4. **Live Mednafen IPC Test Matrix (`tools/recomp/mutation_harness.py`)**:
+   - Case 1 (Inst 0 NOP `0x6611 -> 0x0009`): rejected fail-closed (`attempts=1, executed=0, fallback=1, ineligible=1, retirements=1`).
+   - Case 2 (Inst 3 Opcode `0x6442 -> 0x0009`): rejected fail-closed (`attempts=1, executed=0, fallback=1, ineligible=1, retirements=1`).
+   - Case 3 (Inst 4 Branch `0xA003 -> 0x0009`): rejected fail-closed (`attempts=1, executed=0, fallback=1, ineligible=1, retirements=1`).
+   - Case 4 (Transient Mutation + Exact Restoration + Clean Baseline Run): mutation applied, original bytes restored and verified; continuation checkpoint `0x06004280` reached cleanly at cycle `307090585` with 0 register divergences across all 23 registers (`delta = 0`). Non-contamination verified.
+5. **Method Disposition**:
+   - **Evidence Strength**: `LOW` (Non-authoritative for positive equivalence; perturbation does not prove semantic correctness).
+   - **Workflow Utility**: `HIGH` (Falsification harness, regression testing, fail-closed negative control generation).
+   - **Disposition**: `ADOPT_PARTIAL`.
+   - **Assigned Pipeline Role**: `NEGATIVE_CONTROL_HARNESS` / `FAULT_INJECTION_TESTING` (never positive proof).
+
+### Status After Pass
+
+- `M-02`: **ADOPT_PARTIAL (NEGATIVE_CONTROL_HARNESS)**
+- `Post-D8 Second Pass`: **ACTIVE** (Next experiment: `M-07` — SaturnAutoRE SH-2 instruction semantic corpus / opcode coverage audit)
+
 ## 2026-09-09 — T2-D8.1.1 Native Scheduler/Timing Parity Repair
 
 ### Task
@@ -59,8 +97,8 @@ Reconcile historical timing discrepancy ("18-cycle" vs actual 28-cycle window 30
 ### Method & Discoveries
 
 1. **Timing Reconciliation**:
-   - Reconciled "18-cycle" typographical error in documentation to the true 28-cycle retirement window (`305462388 - 305462360 = 28 cycles`).
-   - Added compile-time check in unit test suite: `static_assert(305462388u - 305462360u == 28u);`.
+   - Reconciled "18-cycle" typographical error in documentation to the true 27-cycle block duration (`305462387 - 305462360 = 27 cycles`) with subsequent instruction completion boundary at cycle `305462388` (observation delta 28 cycles).
+   - Added compile-time check in unit test suite distinguishing `BLOCK_DURATION == 27u` and `NEXT_INSTRUCTION_COMPLETION_BOUNDARY_DELTA == 28u`.
 
 2. **Native Recompiler Dispatcher (`NativeDispatcher`) & Plugin Bridge**:
    - Implemented `include/thor/recomp/native_dispatcher.hpp`, `src/recomp/native_dispatcher.cpp`, and C ABI header `include/thor/recomp/native_bridge.h`.
