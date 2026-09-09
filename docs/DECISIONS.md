@@ -143,3 +143,17 @@ Evidence:
 - Pre-state storage isolation and non-aliasing proven (`test_shadow_isolation`).
 
 Scope limitation: D7 is advanced to `BOUNDED_PROOF for bb_06004000`. D8 / V-07C (authoritative native promotion) remains strictly `PROPOSED` until explicit zero-divergence fallback architecture is proven.
+
+## D-014 — Adopt Authoritative Native Override and Fail-Closed Fallback Architecture (Capability D8 / Gate V-07C)
+
+**Status:** ACCEPTED (V-07C PASSED; D8 BOUNDED_PROOF for bb_06004000)
+
+1. The authoritative native dispatcher `NativeDispatcher` (`include/thor/recomp/native_dispatcher.hpp`, `src/recomp/native_dispatcher.cpp`) and C ABI plugin interface (`include/thor/recomp/native_bridge.h`, target `thor_native_plugin`) are adopted for runtime block execution override.
+2. Production native override enforces mandatory shadow qualification before live hardware state mutation: candidate compiled code runs in isolated shadow scratchpad first; live registers/memory are updated only upon exact zero-divergence match.
+3. Fail-closed fallback is guaranteed across all negative conditions (unregistered block, content hash mismatch, active DMA/Slave SH-2, pending IRQ, shadow divergence) without contaminating live machine state.
+4. Pinned Mednafen debug oracle integration proves:
+   - Live interpreter retires 0 instructions in replaced block (`retirements_in_interval = 0`).
+   - Downstream execution cleanly continues to `0x06004280` through BSS clearing and data copy loops.
+   - Exact 100% bit parity across all 23 CPU registers against baseline pure interpreter execution.
+
+Scope limitation: D8 capability is advanced to `BOUNDED_PROOF for bb_06004000 only`. Multi-block scaling remains gated by post-D8 second-pass plan (ADR D-012) and D9.

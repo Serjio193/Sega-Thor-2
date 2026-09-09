@@ -22,6 +22,7 @@ docs/
   DEVELOPMENT_PLAN.md             capability-oriented development sequence (D0–D18)
   PIPELINE_VALIDATION_PLAN.md     method/component experiment and adoption gates (V-01–V-14)
   DEVELOPMENT_RULES.md            source/C++/testing/PR/scope discipline
+  POST_D8_SECOND_PASS_PLAN.md     mandatory external method second-pass plan (ADR D-012)
   RE_TOOLCHAIN_GUIDE.md           historical Saturn SDK/toolchain evidence rules
   RULES_TRANSFER_AUDIT.md         Sega-Thor -> Sega-Thor-2 governance parity audit
 
@@ -46,6 +47,8 @@ include/
       block_identity.hpp          fail-closed executable identity guard declaration
       block_compiler.hpp          mechanical basic-block C++20 compiler declaration
       shadow_checker.hpp          reusable shadow comparison framework declaration
+      native_bridge.h             pure C ABI native dispatcher plugin interface
+      native_dispatcher.hpp       reusable native dispatcher with shadow qualification
 
 src/
   sh2/
@@ -56,6 +59,7 @@ src/
     block_identity.cpp            executable identity verification logic
     block_compiler.cpp            mechanical basic-block C++20 code generator
     shadow_checker.cpp            shadow comparison and differential outcome verification logic
+    native_dispatcher.cpp         authoritative native dispatcher and C ABI export definitions
 
 tools/
   disc/
@@ -80,6 +84,7 @@ tests/
     test_shadow_positive.cpp      multi-vector positive shadow comparison test suite
     test_shadow_negative.cpp      24-fault negative control test suite (100% detection rate)
     test_shadow_isolation.cpp     pre-state storage isolation and anti-aliasing proof test suite
+    test_native_dispatcher.cpp    authoritative native dispatcher and negative fallback test suite
 
 workstreams/
   T2-M0-disc-census/
@@ -115,6 +120,9 @@ workstreams/
   T2-D7-V07B-shadow/
     README.md                     D7/V-07B shadow checker validation summary
     shadow_validation_evidence.md complete differential results, negative fault matrix, and isolation proofs
+  T2-D8-V07C-native/
+    README.md                     D8/V-07C authoritative native override proof summary
+    native_override_evidence.md   complete dynamic verification matrix and fallback proofs
 
 external/
   README.md                       rules for private user-supplied inputs

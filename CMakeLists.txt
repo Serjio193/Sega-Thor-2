@@ -4,6 +4,7 @@ project(thor_sh2 CXX)
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
+set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 
 if (CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang")
     add_compile_options(-Wall -Wextra -Wpedantic -Werror)
@@ -105,3 +106,24 @@ add_executable(test_shadow_isolation tests/recomp/test_shadow_isolation.cpp)
 target_link_libraries(test_shadow_isolation PRIVATE thor_generated_bb_06004000 thor_recomp thor_sh2)
 target_include_directories(test_shadow_isolation PRIVATE "${GENERATED_DIR}")
 add_test(NAME test_shadow_isolation COMMAND test_shadow_isolation)
+
+# Authoritative native execution & dispatch library
+add_library(thor_native STATIC
+    src/recomp/native_dispatcher.cpp
+)
+target_link_libraries(thor_native PUBLIC thor_recomp thor_generated_bb_06004000)
+target_include_directories(thor_native PUBLIC include "${GENERATED_DIR}")
+
+# Shared plugin for emulator oracle dynamic integration
+add_library(thor_native_plugin SHARED
+    src/recomp/native_dispatcher.cpp
+)
+target_link_libraries(thor_native_plugin PUBLIC thor_recomp thor_generated_bb_06004000)
+target_include_directories(thor_native_plugin PUBLIC include "${GENERATED_DIR}")
+set_target_properties(thor_native_plugin PROPERTIES OUTPUT_NAME "thor_native")
+
+# V-07C native dispatcher and fail-closed fallback test suite
+add_executable(test_native_dispatcher tests/recomp/test_native_dispatcher.cpp)
+target_link_libraries(test_native_dispatcher PRIVATE thor_native)
+target_include_directories(test_native_dispatcher PRIVATE "${GENERATED_DIR}")
+add_test(NAME test_native_dispatcher COMMAND test_native_dispatcher)

@@ -46,6 +46,7 @@ RE_Work/
 build*/
 out/
 .cache/
+scratch/
 __pycache__/
 *.pyc
 .vscode/

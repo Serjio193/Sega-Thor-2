@@ -87,7 +87,7 @@ Executor: `thor::sh2::execute_sh2_instruction` / `thor::sh2::step_sh2` (L0 seman
 
 ```text
 ID: bb_06004000
-STATUS: CONFIRMED_CODE / EXECUTED / BEHAVIOR_VERIFIED / TRANSITION_PROVEN
+STATUS: CONFIRMED_CODE / EXECUTED / BEHAVIOR_VERIFIED / NATIVE_OVERRIDE_PROVEN
 REVISION/HASH: thor2_ntsc_patched_fe11d2fb
 DISC FILE: 0TH2.BIN
 FILE RANGE: 0x00000000..0x0000000B (12 bytes)
@@ -96,16 +96,16 @@ CPU: MASTER_SH2
 MODULE/GENERATION: 0TH2.BIN (High Work RAM initial execution)
 STATIC EVIDENCE: ISO9660 root directory extent LBA 24..285, first-read entry 0x06004000
 DYNAMIC EVIDENCE: V-01-core breakpoint trigger, multi-step retirement, V-02a byte-exact live RAM match, block replay vs Mednafen oracle, minimum event safety audit
-EVENT SAFETY: PRE_D8_MINIMUM_EVENT_SAFETY_PASS (atomic 18-cycle window, 0 MMIO, 0 IRQ, 0 SCU DMA, Slave SH-2 inactive)
+EVENT SAFETY: PRE_D8_MINIMUM_EVENT_SAFETY_PASS (atomic 28-cycle window [305462360..305462388; earlier '18-cycle' was an arithmetic/typographical error for 28], 0 MMIO, 0 IRQ, 0 SCU DMA, Slave SH-2 inactive)
 IDENTITY GUARD: PRE_D8_EXECUTABLE_IDENTITY_GUARD_PASS (bound to revision, module, provenance, CPU, address range, byte identity, validity state; negative controls verified; non-contaminating peek8)
 READS/WRITES: Read 16-bit at 0x06004000 (0x6611); read 32-bit at 0x06004064 (0x06081C10); read 32-bit at 0x06081C10 (0x060917DC)
 CONTROL FLOW: Straight-line 0x06004000..0x06004006; terminator BRA 0x06004012 at 0x06004008; delay slot NOP at 0x0600400A; direct taken exit 0x06004012; fallthrough nullopt
 HARDWARE INTERACTION: Zero MMIO or peripheral access in this block; pure CPU/WRAM execution
 HYPOTHESIS: Standard Sega Saturn CD application startup bootstrap block
 CONFIDENCE: CONFIRMED (100%)
-VERIFICATION: 0 decode disagreements (Hitachi manual / Mednafen / Catherine); 0 semantic divergences; 0 oracle state divergences; V-07A transition divergences = 0 across 3 synthetic vectors and real Thor 2 startup; link-isolated 0 interpreter dependencies; V-07B shadow validation PASS (0 divergences across 4 positive vectors, 100% negative control detection across 24 injection cases, complete pre-state storage isolation proven)
+VERIFICATION: 0 decode disagreements (Hitachi manual / Mednafen / Catherine); 0 semantic divergences; 0 oracle state divergences; V-07A transition divergences = 0 across 3 synthetic vectors and real Thor 2 startup; link-isolated 0 interpreter dependencies; V-07B shadow validation PASS (0 divergences across 4 positive vectors, 100% negative control detection across 24 injection cases, complete pre-state storage isolation proven); V-07C authoritative native override PASS (retirements_in_interval = 0, bit-identical cold-boot reproduction, 0 register divergences vs baseline interpreter at continuation checkpoint 0x06004280, 100% fail-closed fallback under memory corruption).
 NEGATIVE EVIDENCE: None
-NEXT ACTION: First native promotion proof with bounded fail-closed fallback (D8 / V-07C) under declared zero-divergence contract
+NEXT ACTION: Post-D8 second-pass method execution (ADR D-012 / docs/POST_D8_SECOND_PASS_PLAN.md) and D9 multi-block recompilation scaling.
 ```
 
 ## Public-research address anchors queued for revision validation

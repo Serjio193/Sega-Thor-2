@@ -118,29 +118,30 @@ Target claims proven:
 - 4 positive test vectors verified with 0 divergences vs Mednafen oracle (`test_shadow_positive`);
 - 100% detection rate across 24 negative fault controls with 0 false passes (`test_shadow_negative`);
 - Complete pre-state storage isolation and anti-aliasing proven (`test_shadow_isolation`);
-- Native promotion status remains strictly `PROPOSED` (D8 / V-07C unstarted).
-
-## Next
+- D7 status advanced to `BOUNDED_PROOF (bb_06004000)`.
 
 ### D8 — First Native Promotion Proof (V-07C)
 
-Status: `PROPOSED`
+Status: `BOUNDED_PROOF (bb_06004000) / V-07C: PASS` (ADR D-014)
 
-- Gate: V-07C native override proof with zero-divergence contract and fail-closed fallback to interpreter.
-- Result: first authorized execution of mechanically generated block as production path with runtime fallback on divergence or invalidation.
-- Constraint: do NOT start D8 without explicit fail-closed fallback architecture and zero-divergence contract.
+Target claims proven:
+- Reusable `NativeDispatcher` with pre-execution eligibility guard, shadow qualification, and C ABI bridge implemented (`include/thor/recomp/native_dispatcher.hpp`, `src/recomp/native_dispatcher.cpp`, `include/thor/recomp/native_bridge.h`);
+- Integrated with pinned Mednafen debug oracle via dynamic plugin (`libthor_native.so`);
+- Live cold-boot authoritative native override executed (`Run A`) and bit-identical cold-boot reproduction verified (`Run B`);
+- Live interpreter retired 0 instructions in replaced block (`retirements_in_interval = 0`);
+- Continuation to `0x06004280` verified through BSS clearing and data copy with zero register divergences across all 23 CPU registers against baseline interpreter (`Run C`);
+- 100% fail-closed fallback proven under memory byte corruption without partial native commit (`Run E`);
+- Mandatory post-D8 second-pass plan established (`docs/POST_D8_SECOND_PASS_PLAN.md`, ADR D-012).
+
+## Next
 
 ### Mandatory post-D8 checkpoint — External Method Second Pass
 
-Status: `PLANNED / BLOCKING AFTER D8` (decision D-012)
+Status: `ACTIVE / BLOCKING BEFORE D9` (decision D-012; plan in `docs/POST_D8_SECOND_PASS_PLAN.md`)
 
-Trigger: immediately after `D8 — First Native Promotion Proof` reaches bounded proof.
+Trigger: reached immediately upon D8 achieving bounded proof.
 
-Before ordinary D9+ scaling/recovery work begins, the project must create a new synchronized experiment plan covering external-project methods that were not fully tested during the first pass. This includes untested, deferred, partially tested, reference-only, heuristic, accelerator, and methods previously considered weak or low-priority.
-
-No method may be skipped solely because ChatGPT, Opus, Astra, another AI reviewer, or a human reviewer considers it weak or unlikely to become a proof mechanism. Every method that is meaningfully testable with the capabilities available at D8 receives a bounded Thor 2 experiment. Methods requiring a genuinely unavailable later prerequisite are explicitly marked `PREREQUISITE_BLOCKED`, assigned to the exact downstream gate where they must be tested, and may not be silently dropped.
-
-The second pass evaluates both **evidence strength** and **workflow utility**. A weak proof method may still be retained as a discovery method, heuristic, accelerator, or reference if independent verification makes it useful. The normal post-D8 roadmap resumes only after this mandatory checkpoint is satisfied.
+Before ordinary D9+ scaling/recovery work begins, execute the second-pass plan covering external-project methods and tools that were deferred, partially tested, or retained as heuristics/references.
 
 ## Queued development milestones
 
@@ -152,8 +153,8 @@ The second pass evaluates both **evidence strength** and **workflow utility**. A
 | D5 | Basic-block CFG | V-03 (bounded block CFG) | BOUNDED_PROOF (block 0 only) |
 | D6 | Mechanical explicit-state C++ | V-07A + pre-D8 identity/event guards | BOUNDED_PROOF (bb_06004000) |
 | D7 | Shadow comparison | V-07B (negative-control validation) | BOUNDED_PROOF (bb_06004000) |
-| D8 | **First native promotion proof** | **V-07C (native override proof)** | PROPOSED |
-| POST-D8 | **Mandatory external-method second pass** | D-012 + new second-pass experiment plan | PLANNED / BLOCKING AFTER D8 |
+| D8 | **First native promotion proof** | **V-07C (native override proof)** | BOUNDED_PROOF (bb_06004000) |
+| POST-D8 | **Mandatory external-method second pass** | D-012 + docs/POST_D8_SECOND_PASS_PLAN.md | ACTIVE / BLOCKING BEFORE D9 |
 | D9 | Indirect control-flow handling | — | PROPOSED |
 | D10 | Timing/IRQ/DMA boundaries | — (general scaling) | PROPOSED |
 | D11 | Overlay/generation identity | V-10 (transformation/overlay discovery) | PROPOSED |

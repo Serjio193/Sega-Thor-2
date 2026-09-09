@@ -1,5 +1,53 @@
 # Worklog
 
+## 2026-09-09 — T2-D8.1/V-07C First Authoritative Native Override Proof
+
+### Task
+
+Reconcile historical timing discrepancy ("18-cycle" vs actual 28-cycle window 305462360..305462388); implement reusable production native dispatcher (`NativeDispatcher`) with pre-execution eligibility guarding, shadow verification qualification (`ShadowChecker`), and C ABI bridge (`thor_native_plugin`); integrate with pinned Mednafen debug oracle; execute authoritative native override on cold boot (`Run A`), verify bit-identical cold-boot reproduction (`Run B`), baseline interpreter (`Run C`), shadow verify mode (`Run D`), and byte corruption fallback negative control (`Run E`); prove original live interpreter retired 0 instructions in replaced block; prove continuation through BSS clear and data copy to `0x06004280` matching interpreter baseline across all 23 registers with 0 divergences; create mandatory post-D8 second-pass plan (ADR D-012).
+
+### Method & Discoveries
+
+1. **Timing Reconciliation**:
+   - Reconciled "18-cycle" typographical error in documentation to the true 28-cycle retirement window (`305462388 - 305462360 = 28 cycles`).
+   - Added compile-time check in unit test suite: `static_assert(305462388u - 305462360u == 28u);`.
+
+2. **Native Recompiler Dispatcher (`NativeDispatcher`) & Plugin Bridge**:
+   - Implemented `include/thor/recomp/native_dispatcher.hpp`, `src/recomp/native_dispatcher.cpp`, and C ABI header `include/thor/recomp/native_bridge.h`.
+   - Created static library `thor_native` and shared library `thor_native_plugin` (`libthor_native.so` / `thor_native_plugin.dll`).
+   - Integrated fail-closed eligibility check: verify revision, module, CPU, range, content bytes, and event safety (Slave SH-2 inactive, SCU DMA inactive, IRQ inactive).
+   - Enforced shadow qualification: run candidate block in isolated shadow scratchpad first; commit state to live hardware only on exact zero-divergence match.
+
+3. **Pinned Mednafen Debug Oracle Dynamic Integration**:
+   - Added C ABI plugin loader in `mednafen/src/ss/ss.cpp` (`InitNativePluginIfNeeded` dynamically loading `libthor_native.so` via `dlopen`).
+   - Added `NativeBranch` in `mednafen/src/ss/sh7095.h` and `sh7095.inc` to update PC, discard stale pipeline buffers, and maintain SH-2 2-stage pipeline invariants (`PC += 2`).
+   - Hooked `RunLoop_INLINE` at `0x06004000`: execute native override, commit registers and timing, and branch to exit `0x06004012`.
+   - Added automation IPC commands: `native_mode <0|1|2>`, `native_stats`, `native_reset_stats`.
+
+4. **Dynamic Verification Matrix under Mednafen Oracle**:
+   - Evaluated 5 full cold-boot runs via automated Python IPC harness (`run_v07c_experiment.py`):
+     - **Run A (Native Override, mode 2)**: `attempts=1 executed=1 fallback=0 shadow_match=1 shadow_div=0 ineligible=0 retirements_in_interval=0`. Hit continuation checkpoint `0x06004280` at frame 683, cycle `307090599`.
+     - **Run B (Cold-Boot Reproduction, mode 2)**: 100% bit-identical match across all 23 registers, stats, and frame 683.
+     - **Run C (Baseline Interpreter, mode 0)**: `retirements_in_interval=5`. Hit continuation checkpoint `0x06004280` at frame 683, cycle `307090585`.
+     - **Differential Parity Proof**: ZERO divergences between Native Run A and Interpreter Run C across all 23 CPU registers (`R0..R15`, `PC`, `SR`, `PR`, `GBR`, `VBR`, `MACH`, `MACL`). Timing delta is only 14 cycles over 1.628M cycles (0.00086%).
+     - **Run D (Shadow Verify Mode, mode 1)**: `shadow_match=1 fallback=1 executed=0 retirements_in_interval=5`. All 23 registers identical to interpreter baseline.
+     - **Run E (Byte Corruption Negative Control, mode 2)**: Poked `0x00` at `0x06004000`. Triggered `ineligible=1 fallback=1 executed=0 retirements_in_interval=5`. Gracefully executed corrupted byte in interpreter (`R6=0x00000011`) with zero partial native commit.
+
+5. **Mandatory Post-D8 Second-Pass Plan (ADR D-012)**:
+   - Established `docs/POST_D8_SECOND_PASS_PLAN.md` inventorying external methods M-01 through M-10 across evidence strength and workflow utility axes.
+
+6. **Multi-Platform Verification**:
+   - Windows MinGW GCC 15.2.0: Debug (12/12 passed), Release (12/12 passed).
+   - Linux Ubuntu GCC 13.3.0 in WSL: Debug (12/12 passed), Release (12/12 passed).
+   - Python unit tests: 3/3 passed.
+   - 100% compliance with 500-line source code limit across all repository files.
+
+### Status After Pass
+
+- `D8`: **BOUNDED_PROOF for bb_06004000**
+- `V-07C`: **PASS**
+- Next step: Post-D8 Second-Pass Method Execution (`docs/POST_D8_SECOND_PASS_PLAN.md` / ADR D-012) and D9 multi-block scaling
+
 ## 2026-09-09 — T2-D7.1/V-07B Shadow Checker Validation
 
 ### Task

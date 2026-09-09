@@ -25,6 +25,6 @@ Before any mechanical or native block translation can be treated as an atomic st
 2. **Interrupt Invariance**: SR interrupt mask remains `I3..I0 = 0`, zero interrupt handlers or vector table fetches occur, and SH-2 architectural rules forbid interrupt acceptance in delay slots.
 3. **SCU DMA Absence**: DMA tracing confirms zero DMA transfers during the entire startup execution window (`cycle=305462360..305462388`).
 4. **Slave SH-2 Inactivity**: Slave SH-2 is observed disabled (`active=0`, `last_PC=00000000`).
-5. **Cycle Window**: Bounded execution window spans exactly 18 master cycles (`305,462,360` to `305,462,388`), retiring atomically to exit `0x06004012`.
+5. **Cycle Window**: Bounded execution window spans exactly 28 master cycles (`305,462,360` to `305,462,388`; arithmetic correction: 305,462,388 - 305,462,360 = 28 cycles; earlier mention of 18 was an arithmetic/typographical error), retiring atomically to exit `0x06004012`.
 
 Detailed trace tables and logs are recorded in [event_safety_evidence.md](event_safety_evidence.md).

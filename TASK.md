@@ -1,55 +1,60 @@
 # Current task
 
-TASK: D7 / V-07B — T2-D7.1 / V-07B Shadow Checker Validation
-WHY: Deliver production reusable D7 shadow-comparison framework (ShadowChecker), prove that it detects every required divergence class without contaminating oracle state, verify zero divergences on positive vectors, detect 100% of negative fault controls, and prove pre-state storage isolation.
-CURRENT MILESTONE: D7 / V-07B (bb_06004000 Shadow Execution Validation)
-TASK STATUS: PASS (D7: BOUNDED_PROOF for bb_06004000; V-07B: PASS; D8: PROPOSED)
+TASK: D8 / V-07C — T2-D8.1 / V-07C First Authoritative Native Override Proof
+WHY: Deliver production native dispatcher with fail-closed fallback and shadow qualification; integrate with pinned Mednafen debug oracle; execute authoritative native override on live cold boot; prove original interpreter retired 0 instructions in replaced block; prove continuation to 0x06004280 matching interpreter baseline with 0 register divergences; create mandatory post-D8 second-pass plan (ADR D-012).
+CURRENT MILESTONE: D8 / V-07C (bb_06004000 Authoritative Native Override)
+TASK STATUS: PASS (D8: BOUNDED_PROOF for bb_06004000; V-07C: PASS; POST_D8: ACTIVE)
 MILESTONE UNDERSTANDING CONFIDENCE: 95%
 CURRENT SLICE UNDERSTANDING CONFIDENCE: 100%
-SLICE CONFIDENCE EVIDENCE: Reusable ShadowChecker framework implemented with fail-closed eligibility check, strict anti-aliasing enforcement, and comprehensive outcome comparator across R0..R15, PC, SR, PR/GBR/VBR/MACH/MACL, ordered memory read/write logs, and event safety metadata; evaluated on 4 positive vectors (Synthetic A, Sign-Extension B, Zero Boundary C, real Thor 2 cold-boot capture) with 0 divergences vs Mednafen oracle; 24/24 negative control faults detected (100%); pre-state storage isolation proven (candidate mutations cannot pollute oracle or pre-state; memory logs pristine; distinct physical addresses); 11/11 tests passed in Debug & Release on both Windows MinGW GCC 15.2.0 and Linux Ubuntu GCC 13.3.0 in WSL.
+SLICE CONFIDENCE EVIDENCE: Reconciled 28-cycle timing window (305462360..305462388); implemented reusable NativeDispatcher with shadow qualification and C ABI bridge (libthor_native.so); executed live cold-boot override in pinned Mednafen debug oracle (Run A); proved original interpreter retired 0 instructions in replaced interval (retirements_in_interval = 0); verified bit-identical cold-boot reproduction (Run B); proved downstream execution continues to 0x06004280 with ZERO register divergences across all 23 CPU registers against baseline interpreter (Run C); verified shadow verify mode (Run D); verified 100% fail-closed fallback under memory corruption without partial native commit (Run E); established mandatory Post-D8 Second-Pass Plan (ADR D-012 / docs/POST_D8_SECOND_PASS_PLAN.md); 12/12 unit test suites passed in Debug and Release on Windows MinGW and Linux WSL.
 ACCEPTANCE CRITERIA:
-- [x] implement reusable C++20 ShadowChecker framework (include/thor/recomp/shadow_checker.hpp, src/recomp/shadow_checker.cpp);
-- [x] comprehensive outcome comparator (R0..R15, PC, SR, control registers, ordered memory logs, event metadata);
-- [x] integrate fail-closed block eligibility guard;
-- [x] enforce anti-aliasing on mutable execution context;
-- [x] positive shadow verification across 4 vectors with 0 divergences (test_shadow_positive);
-- [x] negative control suite detecting 100% of faults (24/24) with 0 false passes (test_shadow_negative);
-- [x] pre-state storage isolation and non-contamination proof (test_shadow_isolation);
-- [x] 100% pass across all 11 test suites in Debug and Release on Windows and Linux WSL;
-- [x] all source/test/build files <= 500 lines;
+- [x] reconcile timing discrepancy (corrected to exact 28-cycle window 305462360..305462388);
+- [x] implement reusable NativeDispatcher with pre-execution eligibility guarding (include/thor/recomp/native_dispatcher.hpp, src/recomp/native_dispatcher.cpp);
+- [x] pure C ABI bridge header and dynamic plugin target (include/thor/recomp/native_bridge.h, thor_native_plugin);
+- [x] integrate native override with pinned Mednafen debug oracle hook at 0x06004000;
+- [x] enforce shadow qualification prior to live hardware state commit;
+- [x] live cold boot override executed (Run A: retirements_in_interval = 0, executed = 1);
+- [x] bit-identical cold boot reproduction verified (Run B);
+- [x] continuation proof to 0x06004280 with 0 register divergences vs baseline interpreter (Run C);
+- [x] shadow verify mode verified (Run D);
+- [x] fail-closed fallback under byte corruption verified without partial native commit (Run E);
+- [x] create mandatory post-D8 second-pass plan (docs/POST_D8_SECOND_PASS_PLAN.md, ADR D-012);
+- [x] 12/12 unit test suites passed across 4 configurations (Windows/Linux Debug/Release);
+- [x] all human-maintained source/test/build files <= 500 lines;
 - [x] update project governance / worklog / roadmap / file map / RE records;
-- [x] D8 / V-07C native promotion remains strictly PROPOSED.
+- [x] status remains BOUNDED_PROOF for bb_06004000 (never claim DONE).
 EVIDENCE AVAILABLE:
-- Workstream record workstreams/T2-D7-V07B-shadow/README.md;
-- Workstream record workstreams/T2-D7-V07B-shadow/shadow_validation_evidence.md;
-- Test targets test_shadow_positive, test_shadow_negative, test_shadow_isolation.
+- Workstream record workstreams/T2-D8-V07C-native/README.md;
+- Workstream record workstreams/T2-D8-V07C-native/native_override_evidence.md;
+- Post-D8 plan docs/POST_D8_SECOND_PASS_PLAN.md;
+- Test target test_native_dispatcher and scratch/v07c_results.json.
 KNOWN UNKNOWNS:
-- Authoritative native dispatch and fail-closed fallback mechanics for D8 / V-07C;
-- Recompilation and shadow checking of downstream blocks starting at exit 0x06004012;
-- Peripheral interactions in later game loops.
+- Multi-block recompilation chaining and dynamic branch dispatcher scaling for D9;
+- Secondary executable TH2.LOW native block promotion;
+- Peripheral and SCU interrupt handling in late gameplay loops.
 ALLOWED SCOPE:
-- Bounded shadow validation for bb_06004000 only;
-- Reusable framework for block comparison;
-- Pre-state isolation proof.
+- Bounded native override for bb_06004000 only;
+- Reusable NativeDispatcher framework;
+- Oracle plugin integration and continuation proof to 0x06004280.
 OUT OF SCOPE:
-- D8 / V-07C authoritative native promotion;
-- Modifying production runtime dispatch before D8 proof;
-- Multi-block chain execution.
+- D9 multi-block recompilation;
+- Unbounded native execution past verified blocks;
+- Claiming D8 whole-recompiler completion.
 
 ## Last verified result
 
-`T2-D7.1/V-07B_SHADOW_CHECKER_VALIDATED`: Production reusable D7 shadow execution comparison framework (ShadowChecker) implemented and proven on bb_06004000; zero positive divergences observed across 4 vectors (including real Thor 2 startup vs Mednafen oracle); 100% negative fault detection rate achieved across 24 injection controls (registers, memory count, address, size, value, order, event safety, and block eligibility); complete pre-state storage isolation and anti-aliasing proven; 11/11 tests passed in Debug & Release on Windows MinGW and Linux WSL.
+`T2-D8.1/V-07C_NATIVE_OVERRIDE_PROVEN`: Authoritative native override proven for `bb_06004000` under pinned Mednafen debug oracle on cold boot; original interpreter retired exactly 0 instructions in replaced block; continuation to `0x06004280` verified through BSS clear and data copy with ZERO register divergences across all 23 CPU registers against baseline interpreter; bit-identical cold-boot reproduction confirmed; fail-closed fallback proven under byte corruption without partial native commit; mandatory post-D8 second-pass plan established (ADR D-012 / `docs/POST_D8_SECOND_PASS_PLAN.md`); 12/12 tests passed in Debug & Release on Windows MinGW and Linux WSL.
 
 ## Session checkpoint
 
-CURRENT MILESTONE: D7 / V-07B (bb_06004000 Shadow Execution Validation)
-CURRENT TASK: D7 / V-07B — T2-D7.1 / V-07B Shadow Checker Validation
-TASK STATUS: PASS (D7: BOUNDED_PROOF for bb_06004000; V-07B: PASS; D8: PROPOSED)
+CURRENT MILESTONE: D8 / V-07C (bb_06004000 Authoritative Native Override)
+CURRENT TASK: D8 / V-07C — T2-D8.1 / V-07C First Authoritative Native Override Proof
+TASK STATUS: PASS (D8: BOUNDED_PROOF for bb_06004000; V-07C: PASS; POST_D8: ACTIVE)
 MILESTONE UNDERSTANDING CONFIDENCE: 95%
 CURRENT SLICE UNDERSTANDING CONFIDENCE: 100%
-LAST VERIFIED RESULT: Production reusable ShadowChecker validated with 0 positive divergences across 4 vectors, 100% negative control detection (24/24), pre-state storage isolation proven, 11/11 tests passed on Windows MinGW & Linux WSL
-FILES CHANGED: include/thor/recomp/shadow_checker.hpp, src/recomp/shadow_checker.cpp, tests/recomp/test_shadow_positive.cpp, tests/recomp/test_shadow_negative.cpp, tests/recomp/test_shadow_isolation.cpp, CMakeLists.txt, workstreams/T2-D7-V07B-shadow/README.md, workstreams/T2-D7-V07B-shadow/shadow_validation_evidence.md, docs/FILE_MAP.md, docs/PROJECT_STATE.md, docs/ROADMAP.md, docs/WORKLOG.md, docs/REVERSE_ENGINEERING.md, docs/DECISIONS.md, TASK.md
-TESTS RUN: test_sh2_decoder, test_sh2_l0_semantics, test_sh2_oracle_vector, test_sh2_block, test_executable_identity, test_sh2_block_compiler, test_generated_link_isolation, test_v07a_transition, test_shadow_positive, test_shadow_negative, test_shadow_isolation (all 11 passed in MinGW Debug/Release and Linux WSL Debug/Release), Python unittest suite (3/3 pass), git diff --check, source line limits (all <= 275 lines)
-NEW KNOWLEDGE: Candidate block execution in shadow mode produces zero divergences against Mednafen oracle while maintaining strictly non-aliased memory and CPU contexts; 24 distinct fault classes reliably caught by ShadowChecker; pre-state memory log remains pristine (0 unrecorded writes/reads)
-OPEN QUESTIONS: Fail-closed fallback recovery mechanism for D8 / V-07C native promotion
-EXACT NEXT ACTION: D8 / V-07C first native promotion proof with bounded fail-closed fallback.
+LAST VERIFIED RESULT: Authoritative native override proven for bb_06004000 under Mednafen oracle; 0 retirements in interval; 0 register divergences vs interpreter at continuation 0x06004280; bit-identical cold-boot reproduction; 100% fail-closed fallback; post-D8 plan created; 12/12 tests passed on Windows MinGW & Linux WSL
+FILES CHANGED: include/thor/recomp/native_bridge.h, include/thor/recomp/native_dispatcher.hpp, src/recomp/native_dispatcher.cpp, tests/recomp/test_native_dispatcher.cpp, CMakeLists.txt, docs/POST_D8_SECOND_PASS_PLAN.md, workstreams/T2-D8-V07C-native/README.md, workstreams/T2-D8-V07C-native/native_override_evidence.md, docs/FILE_MAP.md, docs/PROJECT_STATE.md, docs/ROADMAP.md, docs/WORKLOG.md, docs/REVERSE_ENGINEERING.md, docs/DECISIONS.md, TASK.md
+TESTS RUN: test_sh2_decoder, test_sh2_l0_semantics, test_sh2_oracle_vector, test_sh2_block, test_executable_identity, test_sh2_block_compiler, test_generated_link_isolation, test_v07a_transition, test_shadow_positive, test_shadow_negative, test_shadow_isolation, test_native_dispatcher (all 12 passed in MinGW Debug/Release and Linux WSL Debug/Release), Python unittest suite (3/3 pass), V-07C verification matrix (5/5 pass), git diff --check, source line limits (all <= 279 lines)
+NEW KNOWLEDGE: Authoritative native override executes with zero live interpreter retirements and perfect continuation parity (0 register divergences) across 1.62M cycles; Mednafen SH-2 pipeline requires trailing PC += 2 in NativeBranch to preserve delay-branch pipeline alignment for downstream literal pool indexing; byte corruption triggers fail-closed fallback without partial native commits
+OPEN QUESTIONS: Execution schedule for second-pass external methods (M-01..M-10) before D9 batch scaling
+EXACT NEXT ACTION: Execute post-D8 second-pass method experiments (docs/POST_D8_SECOND_PASS_PLAN.md / ADR D-012).

@@ -50,7 +50,7 @@ Zero accesses occur in Saturn MMIO spaces (`0x20000000..0x25FFFFFF` or `0xFFFFFE
 ### 2.3 SCU DMA Audit
 - `dma_trace` log recorded all DMA channel activity from emulator startup through completion of step 7.
 - The last pre-entry DMA transfer occurred at cycle `153,570,917` (BIOS CD buffer setup).
-- Between entry at cycle `305,462,360` and exit at cycle `305,462,388`, zero SCU DMA transfers were scheduled or active.
+- Between entry at cycle `305,462,360` and exit at cycle `305,462,388` (spanning exactly 28 master cycles: 305,462,388 - 305,462,360 = 28), zero SCU DMA transfers were scheduled or active.
 
 ### 2.4 Multiprocessor Interaction Audit
 - The slave SH-2 CPU was inspected via emulator hooks and stderr monitoring:
