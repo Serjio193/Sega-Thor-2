@@ -49,6 +49,9 @@ workstreams/
     environment_pin.yaml          19-parameter pinned boot recipe
     bounded_observation.md        Run A/B identical observation evidence
     automation_validation.md      MednafenBot low-level control layer validation evidence
+  T2-V02a-0th2-provenance/
+    README.md                     0TH2.BIN direct provenance proof summary
+    provenance_evidence.md        pre-entry RAM snapshots, CD trace, transfer analysis
 
 external/
   README.md                       rules for private user-supplied inputs

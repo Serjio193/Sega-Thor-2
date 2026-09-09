@@ -24,22 +24,27 @@ Two independent executions of `tools/disc/census_saturn_cd.py` produced identica
 
 Full per-file identity is in `workstreams/T2-M0-disc-census/disc_manifest.tsv`.
 
-## Executable candidate `0TH2.BIN`
+## Executable module `0TH2.BIN`
 
-Status: `CONFIRMED_CODE / EXECUTED` at entry `0x06004000`; remainder `PROBABLE_CODE / HIGH`.
+Status: `CONFIRMED_CODE / BYTE_OR_ASM_ROUNDTRIP_EXACT / EXECUTED` (V-02a proven direct runtime mapping; ADR D-011).
 
 - SHA-256: `c1cc4117870bc567386410aa2d4f1b5f03fb98a601be71bb3ae2155de1853c64`
-- size: `0x82C00`
-- candidate load base: `0x06004000`
-- candidate end: `0x06086BFF`
+- Disc extent: ISO9660 LBA 24..285 (262 sectors, 535,552 bytes / `0x82C00`)
+- CD Block FAD: `0x0000AE` .. `0x0001B3` (LBA + 150)
+- Runtime load base: `0x06004000`
+- Runtime load end: `0x06086BFF`
+- Transfer mechanism: `DIRECT_CPU_COPY_OBSERVED` (BIOS Master SH-2 copy loop at PC `0x00002368`, zero SCU DMA to High Work RAM)
+- Pre-entry live RAM hash: `c1cc4117870bc567386410aa2d4f1b5f03fb98a601be71bb3ae2155de1853c64` (0 differing bytes vs disc, `FULL_EXACT_MATCH` across Run A and Run B)
+- Execution: Master SH-2 entry breakpoint hit at cycle `305462360`; initial instructions executed at `0x06004000..0x06004008`
 
 Evidence:
 
 - Saturn header first-read address is `0x06004000`;
 - it is the first ISO9660 file record;
-- **Dynamic proof (V-01-core)**: Master SH-2 hit breakpoint on candidate entry `0x06004000` from BIOS (`ret=0x06002244`) at frame 680, cycle `305462360` (debugger hook PC `0x06004002` via `pc - 2` fallback). Startup sequence: Step 2 retires `0x6611` (`MOV.W @R1, R6`, setting R6=`0x6611`); Step 3 retires `0x6F03` (`MOV R0, R15`, switching SP from header default `0x06001000` to target `0x06002EDC`); Step 4 retires `0xD417` (`MOV.L @(0x5C, PC), R4`, loading pointer `0x06081C10`); Step 5 executes `0x6442` (`MOV.L @R4, R4`), dynamically triggering `read_watchpoint 06081C10` with value `0x060917DC` (BSS start pointer); Step 6 completes R4 writeback to `0x060917DC`. Full disc-file extent provenance of `0TH2.BIN` remains scoped under D2 / V-02a.
+- **Dynamic proof (V-01-core / V-01-automation)**: Master SH-2 hit breakpoint on candidate entry `0x06004000` from BIOS (`ret=0x06002244`) at frame 680, cycle `305462360` (debugger hook PC `0x06004002` via `pc - 2` fallback). Startup sequence: Step 2 retires `0x6611` (`MOV.W @R1, R6`, setting R6=`0x6611`); Step 3 retires `0x6F03` (`MOV R0, R15`, switching SP from header default `0x06001000` to target `0x06002EDC`); Step 4 retires `0xD417` (`MOV.L @(0x5C, PC), R4`, loading pointer `0x06081C10`); Step 5 executes `0x6442` (`MOV.L @R4, R4`), dynamically triggering `read_watchpoint 06081C10` with value `0x060917DC` (BSS start pointer); Step 6 completes R4 writeback to `0x060917DC`.
+- **Dynamic provenance proof (V-02a)**: Proved direct byte identity between disc file and live pre-execution RAM at `0x06004000..0x06086BFF` across two independent cold boots (`FULL_EXACT_MATCH`). CD Block trace `cdb.log` proved 262-sector transfer (`Get and Delete Sector Data`) across FAD `0x0000AE..0x0001B3` terminating with `End Data Transfer`. Traces `dma.log` and `mem.log` proved zero SCU DMA to High Work RAM and transfer via BIOS Master SH-2 CPU copy loop at PC `0x00002368` (`MOV.B @R0, R1` / `MOV.B R1, @R7`).
 
-Next proof: full module provenance and mapping bounds (D2 / V-02a).
+Next proof: `TH2.LOW` executable provenance (D2 / V-02b).
 
 ## Executable candidate `TH2.LOW`
 

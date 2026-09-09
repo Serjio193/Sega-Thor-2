@@ -82,3 +82,19 @@ Evidence: Two independent automation runs (`RUN_A` and `RUN_B`) drove the pinned
 Configuration delta: `MednafenBot.start()` unconditionally injects `-cd.image_memcache 1`. Controlled comparison proved this delta neutral for the bounded observation window.
 
 Scope limitation: Adoption is strictly limited to `LOW_LEVEL_CONTROL_LAYER_PROVEN` (scripted IPC driver). Higher-level SaturnAutoRE autonomous workflows (`auto_re.py`, function discovery heuristics, NOP experiments, claim generation, and graduation logic) remain unverified and unadopted. D1 capability remains at `BOUNDED_PROOF`.
+
+## D-011 — Adopt Daytona Module Provenance Methodology as ADOPT_PARTIAL and Confirm 0TH2.BIN Direct Runtime Mapping
+
+**Status:** ACCEPTED (ADOPT_PARTIAL for Daytona provenance methodology; V-02a PASSED)
+
+1. The Daytona module provenance methodology (`AJBats/saturn-daytona-cce-re` inspected at commit `bf2ea285e0dc699b659c4d2cdd0a59d07f92d276`) is adopted as `ADOPT_PARTIAL` for the concept of explicit module mapping verification via pre-execution live RAM snapshotting and full-file SHA-256 byte comparison.
+2. The runtime executable provenance of Thor 2's primary boot binary `0TH2.BIN` is confirmed as `V02A_DIRECT_PROVENANCE_PROVEN`.
+
+Evidence:
+- Disc extent: ISO9660 LBA 24..285 (262 sectors, 535,552 bytes, SHA-256 `c1cc4117870bc567386410aa2d4f1b5f03fb98a601be71bb3ae2155de1853c64`).
+- CD Block transfer: `cdb.log` confirms sector read sequence via `Get and Delete Sector Data` from FAD `0x0000AE` (LBA 24) through FAD `0x0001B3` (LBA 285).
+- Transfer mechanism: `mem.log` confirms Master SH-2 BIOS ROM copy loop at PC `0x00002368` transferring bytes from CD Block data register directly into High Work RAM `0x06004000..0x06086BFF` (`DIRECT_CPU_COPY_OBSERVED`).
+- Byte identity: Two independent pre-execution live RAM dumps at base `0x06004000` (535,552 bytes) yielded SHA-256 `c1cc4117870bc567386410aa2d4f1b5f03fb98a601be71bb3ae2155de1853c64` (`FULL_EXACT_MATCH`, 0 differing bytes).
+- Execution: Master SH-2 hit breakpoint at `0x06004000` and executed instructions inside the mapped range.
+
+Scope limitation: D2 capability is advanced to `BOUNDED_PROOF for 0TH2.BIN only`. `TH2.LOW` provenance remains unproven and is queued under `V-02b`. Daytona-specific build/link pipelines remain unadopted.

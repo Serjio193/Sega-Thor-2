@@ -1,5 +1,37 @@
 # Worklog
 
+## 2026-09-09 — T2-V02a 0TH2.BIN Executable Provenance Proof
+
+### Task
+
+Prove or falsify the exact runtime provenance of Thor 2's primary disc binary `0TH2.BIN` on the Sega Saturn architecture without broadening scope into `TH2.LOW` provenance or recompilation.
+
+### Method
+
+1. Re-verified canonical input hashes against `workstreams/T2-V01-dynamic-oracle/environment_pin.yaml` (disc BIN `fe11d2fb...`, CUE `afc0b101...`, BIOS `mpr-17933.bin` `96e106f7...`).
+2. Inspected Daytona CCE provenance methodology (`AJBats/saturn-daytona-cce-re` at pinned commit `bf2ea285e0dc699b659c4d2cdd0a59d07f92d276`) and adopted explicit module mapping verification via pre-execution live RAM dump and full-file SHA-256 byte comparison (`ADOPT_PARTIAL`, ADR D-011).
+3. Audited source-level semantics of Mednafen oracle commands (`dump_mem_bin`, `mem_profile`, `dma_trace`, `cdb_trace`).
+4. Executed two independent cold-boot runs (`RUN_A` and `RUN_B`) with isolated scratch environments and zero shared state.
+5. In each run, enabled deterministic mode, set entry breakpoint at `0x06004000`, and enabled CD Block, DMA, and memory write tracing.
+6. Upon entry breakpoint hit (master cycle `305462360`), dumped pre-execution live RAM at candidate range `0x06004000..0x06086BFF` (`0x82C00` / 535,552 bytes) before the first game instruction retired.
+7. Compared dumped RAM bytes vs disc file `0TH2.BIN` (SHA-256 `c1cc4117870bc567386410aa2d4f1b5f03fb98a601be71bb3ae2155de1853c64`): confirmed 0 differing bytes (`FULL_EXACT_MATCH`) in both Run A and Run B.
+8. Analyzed CD Block trace `cdb.log`: proved 262-sector transfer (`Get and Delete Sector Data`) across FAD `0x0000AE` (LBA 24) through `0x0001B3` (LBA 285) terminating with `CMD End Data Transfer` at cycle `157276`.
+9. Analyzed SCU DMA trace `dma.log`: 241 DMA Level 0 transfers targeting VDP2 VRAM (`0x05C00000..0x05C2FFFF`); zero DMA to High Work RAM.
+10. Analyzed memory trace `mem.log`: confirmed High Work RAM writes were executed by Master SH-2 BIOS ROM copy loop at PC `0x00002368` (`MOV.B @R0, R1` / `MOV.B R1, @R7`) directly from the CD Block data register into `0x06004000..0x06086BFF` (`DIRECT_CPU_COPY_OBSERVED`).
+11. Confirmed Master SH-2 execution inside mapped range (`0x06004000..0x06004008`).
+
+### Result
+
+`V02A_DIRECT_PROVENANCE_PROVEN` (CASE A fully satisfied; ADR D-011).
+- Complete byte parity: 100% exact match across all 535,552 bytes between disc `0TH2.BIN` and live pre-execution RAM at `0x06004000..0x06086BFF`.
+- Transfer mechanism: direct CPU copy by BIOS loader from CD Block buffer.
+- D2 capability advanced to `BOUNDED_PROOF for 0TH2.BIN only`.
+- `TH2.LOW` provenance remains queued under V-02b.
+
+### Exact next action
+
+Review V-02a evidence before authorizing V-02b TH2.LOW provenance.
+
 ## 2026-09-09 — T2-V01.2 SaturnAutoRE Automation / Control-Layer Validation
 
 ### Task

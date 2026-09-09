@@ -45,20 +45,28 @@ Verified gates:
 
 Target claims proven: Master SH-2 candidate boot entry at `0x06004000` (hook pc `0x06004002` via pc-2 fallback), step transitions/retirements (`0x06004000` `MOV.W @R1, R6`; `0x06004002` `MOV R0, R15`; `0x06004004` `MOV.L @(0x5C, PC), R4`), deterministic cycle counter, dynamic memory read watchpoint (`0x06081C10` = `0x060917DC` via `MOV.L @R4, R4` at `0x06004006`), and automated programmatic reproducibility via `MednafenBot`.
 
+### D2 — Executable Module Provenance (0TH2.BIN path)
+
+Status: **BOUNDED_PROOF for 0TH2.BIN only** (decision D-011)
+
+Capability: exact runtime mapping, disc provenance, and execution confirmation for executable modules.
+Verified gate: **V-02a — 0TH2.BIN Executable Provenance** (ADR D-011; Daytona provenance methodology adopted as `ADOPT_PARTIAL`).
+Target claims proven: Disc file `0TH2.BIN` (LBA 24..285, 535,552 bytes, SHA-256 `c1cc4117...`) is read via CD Block FAD `0x0000AE..0x0001B3`, transferred directly into High Work RAM at `0x06004000..0x06086BFF` via BIOS Master SH-2 CPU copy loop (`PC=0x00002368`), confirmed byte-exact (`FULL_EXACT_MATCH`), and executed by Master SH-2.
+
 ## Next
 
-### Development: D2 — Executable Module Provenance / Verification: V-02a — 0TH2.BIN Executable Provenance
+### Development: D2 — Executable Module Provenance (TH2.LOW path) / Verification: V-02b — TH2.LOW Executable Provenance
 
 Status: `PROPOSED`
 
-- Next verification experiment: **V-02a — 0TH2.BIN Executable Provenance**.
-- Next development capability: **D2 — Executable Module Provenance** via `V-02a` (`0TH2.BIN`) and `V-02b` (`TH2.LOW`).
+- Review V-02a evidence before authorizing **V-02b — TH2.LOW Executable Provenance**.
+- Next capability slice: prove or falsify `TH2.LOW` runtime mapping at `0x002DA000..0x002FE7FF` and determine loader mechanism.
 
 ## Queued development milestones
 
 | ID | Capability | Key verification gate | Scope state |
 |---|---|---|---|
-| D2 | Executable module provenance | V-02a (0TH2.BIN), V-02b (TH2.LOW) | PROPOSED |
+| D2 | Executable module provenance | V-02a (0TH2.BIN), V-02b (TH2.LOW) | BOUNDED_PROOF (0TH2.BIN) |
 | D3 | Exact SH-2 decode + L0 semantics | V-06 cross-check + L0 semantic test suite | PROPOSED |
 | D4 | Code/data/unknown ownership | V-03 (bounded batch), V-04 (schema) | PROPOSED |
 | D5 | Basic-block CFG | V-03 (bounded block CFG) | PROPOSED |

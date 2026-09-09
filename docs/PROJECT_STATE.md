@@ -6,10 +6,10 @@
 - **T2-P0 — Dual-Track Planning Hardening**: **COMPLETE** (decision D-008; established `DEVELOPMENT_PLAN.md` and `PIPELINE_VALIDATION_PLAN.md`).
 - **T2-P0.1 — Dual-Track Proof-Contract Repair**: **COMPLETE** (formalized capability scope states, split V-01 into V-01-core and V-01-automation, removed TH2.LOW from V-01 gate, established pre-D8 guards).
 - **D1 / T2-V01 / T2-V01.2 — Deterministic Dynamic Oracle**: **BOUNDED_PROOF** (decisions D-009, D-010; V-01-core verified; V-01-automation adopted as `ADOPT_PARTIAL` for `LOW_LEVEL_CONTROL_LAYER_PROVEN`).
-- **D2 — Executable Module Provenance**: `PROPOSED`.
+- **D2 / T2-V02a — Executable Module Provenance**: **BOUNDED_PROOF for 0TH2.BIN only** (decision D-011; direct runtime byte mapping proven across all 535,552 bytes to `0x06004000..0x06086BFF`; transfer mechanism `DIRECT_CPU_COPY_OBSERVED`; entry execution confirmed).
 
-Active next verification step: **V-02a — 0TH2.BIN Executable Provenance**.
-Active next development capability: **D2 — Executable Module Provenance**.
+Active next verification step: **Review V-02a evidence before authorizing V-02b TH2.LOW provenance**.
+Active next development capability: **D2 — Executable Module Provenance (TH2.LOW path)**.
 
 Note: `TH2.LOW` provenance is queued under D2 / V-02b.
 
@@ -50,9 +50,9 @@ Two independent census runs produced identical manifest and summary output.
 
 - SHA-256: `c1cc4117870bc567386410aa2d4f1b5f03fb98a601be71bb3ae2155de1853c64`
 - size: `0x82C00`
-- classification: `CONFIRMED_CODE` (entry `0x06004000` dynamically executed; remainder `PROBABLE_CODE / HIGH`)
-- dynamic evidence: entry transition from BIOS at frame 680 with pc-2 fallback, startup step progression, and dynamic memory read watchpoint hit at 0x06081C10 verified in repaired V-01-core.
-- next gate: full module provenance (D2 / V-02a).
+- classification: `CONFIRMED_CODE` (entire extent `0x06004000..0x06086BFF` proven identical to disc file bytes; entry and startup instructions dynamically executed)
+- dynamic evidence: V-02a proven direct byte-exact mapping (`FULL_EXACT_MATCH`), BIOS Master SH-2 CPU transfer loop (`PC=0x00002368`) from CD Block buffer (FAD `0x0000AE..0x0001B3`), and entry execution.
+- next gate: complete D2 via TH2.LOW provenance (V-02b).
 
 ### `TH2.LOW`
 
