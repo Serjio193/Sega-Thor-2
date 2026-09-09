@@ -4,12 +4,21 @@
 
 - **D0 / T2-M0 — Canonical Revision Identity**: **COMPLETE**.
 - **T2-P0 — Dual-Track Planning Hardening**: **COMPLETE** (decision D-008; established `DEVELOPMENT_PLAN.md` and `PIPELINE_VALIDATION_PLAN.md`).
-- **T2-P0.1 — Dual-Track Proof-Contract Repair**: **COMPLETE** (introduced capability scope states, split V-01 into V-01-core and V-01-automation, removed TH2.LOW from V-01 gate to D2/V-02b, established explicit L0 semantic and pre-D8 guards, split V-07 into V-07A/B/C, relaxed D14 static round-trip).
+- **T2-P0.1 — Dual-Track Proof-Contract Repair**: **COMPLETE**.
 
-Active next development capability: **D1 — Deterministic Dynamic Oracle** (`READY_FOR_BOUNDED_TEST`).
-Active next verification experiment: **V-01-core — Bounded Emulator Observation** (`PROPOSED`, ready for bounded execution).
+Active development capability: **D1 — Deterministic Dynamic Oracle** (`READY_FOR_BOUNDED_TEST`).
+Active verification experiment: **V-01-core — Bounded Emulator Observation** (`BLOCKED` before execution).
 
-Note: `TH2.LOW` provenance is removed from V-01-core PASS criteria and queued under D2 / V-02b.
+Current blocker: the pinned Mednafen Saturn candidate requires a Saturn BIOS, and no user-owned Saturn BIOS is available in the mounted private workspace or connected Drive locations checked. No emulator observation has executed; therefore no Mednafen/SaturnAutoRE adoption or rejection decision is permitted yet.
+
+V-01-core preflight source pins:
+
+- `AJBats/SaturnAutoRE`: `4662aad69f95222fe37c5e6b98f2285b1a7e4653`
+- `AJBats/mednafen-saturn-debug`: `155426661b7ac3152e2c93a98da60ac33002b908`
+
+The canonical BIN/CUE hashes were reverified during preflight and still match T2-M0.
+
+`TH2.LOW` provenance remains outside V-01-core and queued under D2 / V-02b.
 
 No decompiler/recompiler architecture is considered final. External methods enter the pipeline only after bounded Thor 2 validation.
 
@@ -50,7 +59,7 @@ Two independent census runs produced identical manifest and summary output.
 - size: `0x82C00`
 - classification: `PROBABLE_CODE / HIGH`
 - candidate mapped range: `0x06004000..0x06086BFF`
-- next gate: dynamic execution provenance.
+- next gate: dynamic execution provenance after V-01-core.
 
 ### `TH2.LOW`
 
@@ -59,10 +68,10 @@ Two independent census runs produced identical manifest and summary output.
 - classification: `PROBABLE_CODE / HIGH`
 - candidate mapped range: `0x002DA000..0x002FE7FF`
 - static evidence: `0TH2.BIN` prepares a call with a pointer to `TH2.LOW` and `R5 = 0x002DA000`.
-- next gate: dynamic write/load provenance plus instruction fetch.
+- next gate: D2 / V-02b dynamic provenance after V-01-core.
 
 All other disc files remain `UNKNOWN` unless there is evidence to classify them. File extension alone is not code/data proof.
 
 ## Storage split
 
-GitHub contains legal-safe source, tooling, hashes/manifests, evidence summaries, tests, configs, and documentation. Original image and raw/private binary artifacts remain outside GitHub in the project owner's private Drive workspace.
+GitHub contains legal-safe source, tooling, hashes/manifests, evidence summaries, tests, configs, and documentation. Original image, BIOS, save states, raw traces, and other private binary artifacts remain outside GitHub in the project owner's private workspace.

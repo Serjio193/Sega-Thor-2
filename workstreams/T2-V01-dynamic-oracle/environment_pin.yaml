@@ -1,0 +1,59 @@
+schema_version: 1
+workstream: T2-V01-dynamic-oracle
+experiment: V-01-core
+status: BLOCKED
+blocker: REQUIRED_PRIVATE_SATURN_BIOS_MISSING
+
+project:
+  baseline_commit: 229bfb6449a4e37b71d506b32f8454318209e699
+  revision_id: thor2_ntsc_patched_fe11d2fb
+
+game_input:
+  image_sha256: fe11d2fbda58d63300ef2265c555ce05bddf14d69fb7b73fc409e25c0ef6c0a8
+  cue_sha256: afc0b101bbb493adbd43fd44ffd76959484d67cf0b566137dd145f1c68d411e0
+  header_regions: JTU
+
+oracle_candidate:
+  saturn_autore_repository: AJBats/SaturnAutoRE
+  saturn_autore_commit: 4662aad69f95222fe37c5e6b98f2285b1a7e4653
+  mednafen_repository: AJBats/mednafen-saturn-debug
+  mednafen_source_commit: 155426661b7ac3152e2c93a98da60ac33002b908
+  binary_sha256: null
+  build_flags: null
+  build_status: NOT_PINNED_YET
+
+firmware:
+  selected_region: null
+  selected_bios_filename: null
+  selected_bios_sha256: null
+  status: MISSING_PRIVATE_INPUT
+  documented_reference_identities:
+    japan:
+      filename: sega_101.bin
+      sha256: dcfef4b99605f872b6c3b6d05c045385cdea3d1b702906a0ed930df7bcb7deac
+    north_america_europe:
+      filename: mpr-17933.bin
+      sha256: 96e106f740ab448cf89f0dd49dfbac7fe5391cb6bd6e14ad5e3061c13330266f
+
+v01_core_configuration:
+  rtc_policy: UNRESOLVED
+  nvram_initial_state: UNRESOLVED
+  cartridge: UNRESOLVED
+  peripheral_topology: UNRESOLVED
+  disc_tray_state: UNRESOLVED
+  controller_type: UNRESOLVED
+  input_stream: UNRESOLVED
+  cache_emulation: UNRESOLVED
+  region_autodetect: UNRESOLVED
+  region_default: UNRESOLVED
+  sound: 0
+  start_condition: COLD_BOOT_PLANNED
+  observation_trigger: UNRESOLVED
+  occurrence_number: UNRESOLVED
+  stop_condition: UNRESOLVED
+  event_semantics: UNRESOLVED
+
+reentry_condition: >-
+  Supply a legally owned Saturn BIOS privately, verify its SHA-256, then pin
+  region/BIOS/build configuration and execute two independently initialized
+  cold-boot observations under the declared V-01-core contract.

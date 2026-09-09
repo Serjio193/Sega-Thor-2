@@ -45,6 +45,10 @@ workstreams/
     executable_candidates.tsv     confidence-scored executable census
     static_load_evidence.md       TH2.LOW static mapping evidence
 
+  T2-V01-dynamic-oracle/
+    README.md                     V-01-core preflight, source pins, blocker proof, re-entry condition
+    environment_pin.yaml          legal-safe oracle/input/config pin record; unresolved private firmware fields remain null
+
 external/
   README.md                       rules for private user-supplied inputs
 ```
