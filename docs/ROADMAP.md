@@ -28,27 +28,34 @@ Status: **DONE**
 
 Adversarial repair of proof contracts:
 - introduced capability scope states (`PROPOSED`, `READY_FOR_BOUNDED_TEST`, `BOUNDED_PROOF`, `EXPANDED_PROOF`, `DONE`);
-- split V-01 into `V-01-core` (19-item pinned observation) and `V-01-automation`;
+- split V-01 into `V-01-core` and `V-01-automation`;
 - removed `TH2.LOW` from V-01 (queued under D2 / `V-02b`);
 - established explicit L0 semantic gate and pre-D8 identity/event safety guards;
-- split V-07 into `V-07A` (transition), `V-07B` (checker validation with negative controls), and `V-07C` (native override);
+- split V-07 into `V-07A`, `V-07B`, and `V-07C`;
 - relaxed D14 static round-trip prerequisite.
 
-## Next
+## Active
 
 ### D1 — Deterministic Dynamic Oracle
 
-Status: `READY_FOR_BOUNDED_TEST`
+Capability state: `READY_FOR_BOUNDED_TEST`
 
-Capability: reproducible dynamic observation of Thor 2 execution under a pinned configuration.
+Immediate verification gate: **V-01-core — Bounded Emulator Observation**.
 
-Immediate verification gate: **V-01-core** (bounded emulator observation).
+Current execution status: **BLOCKED BEFORE BOOT**.
 
-Optional subsequent gate: **V-01-automation** (SaturnAutoRE scripting layer).
+Preflight completed:
 
-If SaturnAutoRE automation fails, Mednafen core can still be adopted (`ADOPT_PARTIAL`).
+- canonical BIN/CUE SHA-256 reverified;
+- SaturnAutoRE source pinned at `4662aad69f95222fe37c5e6b98f2285b1a7e4653`;
+- debug Mednafen source pinned at `155426661b7ac3152e2c93a98da60ac33002b908`;
+- no user-owned Saturn BIOS was found in the available private workspace.
 
-First target claim: observe one bounded CPU-labelled execution transition and selected memory effect in `0TH2.BIN` boot code.
+The blocker is not evidence against Mednafen. V-01-core has not executed and no adoption decision is permitted.
+
+Re-entry condition: provide a legally owned Saturn BIOS privately, hash it, pin effective region/BIOS/build configuration, then run two independently initialized cold boots under the V-01-core observation contract.
+
+`TH2.LOW` provenance remains queued for D2 / V-02b after V-01-core succeeds.
 
 ## Queued development milestones
 
@@ -77,3 +84,4 @@ First target claim: observe one bounded CPU-labelled execution transition and se
 - `docs/DEVELOPMENT_PLAN.md` — full development track with milestones, dependencies, risk map.
 - `docs/PIPELINE_VALIDATION_PLAN.md` — verification/adoption experiments.
 - `docs/PROJECT_STATE.md` — current verified state.
+- `workstreams/T2-V01-dynamic-oracle/` — V-01-core preflight, environment pin, and blocker evidence.
