@@ -7,7 +7,7 @@
 - **T2-P0.1 — Dual-Track Proof-Contract Repair**: **COMPLETE** (formalized capability scope states, split V-01 into V-01-core and V-01-automation, removed TH2.LOW from V-01 gate, established pre-D8 guards).
 - **D1 / T2-V01 — Deterministic Dynamic Oracle (V-01-core)**: **BOUNDED_PROOF** (decision D-009; 19-parameter pinned recipe; verified identical execution across independent cold boot runs A and B).
 
-Active next verification step: **Review V-01-core evidence before authorizing V-01-automation**.
+Active next verification step: **Review repaired V-01-core and authorize V-01-automation**.
 Active next development capability: **D2 — Executable Module Provenance** (`PROPOSED`).
 
 Note: `TH2.LOW` provenance is queued under D2 / V-02b.
@@ -50,8 +50,7 @@ Two independent census runs produced identical manifest and summary output.
 - SHA-256: `c1cc4117870bc567386410aa2d4f1b5f03fb98a601be71bb3ae2155de1853c64`
 - size: `0x82C00`
 - classification: `CONFIRMED_CODE` (entry `0x06004000` dynamically executed; remainder `PROBABLE_CODE / HIGH`)
-- candidate mapped range: `0x06004000..0x06086BFF`
-- dynamic evidence: entry transition from BIOS at frame 680 observed and verified in V-01-core.
+- dynamic evidence: entry transition from BIOS at frame 680 with pc-2 fallback, startup step progression, and dynamic memory read watchpoint hit at 0x06081C10 verified in repaired V-01-core.
 - next gate: full module provenance (D2 / V-02a).
 
 ### `TH2.LOW`

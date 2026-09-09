@@ -1,7 +1,6 @@
-
 # T2-V01 — SaturnAutoRE / Mednafen Setup + V-01-core Execution
 
-Status: **DONE (V01_CORE_BOUNDED_PROOF)**
+Status: **DONE (V01_CORE_REPAIR_PASS / BOUNDED_PROOF)**
 Target: Establish deterministic dynamic oracle capability via pinned Mednafen debug fork
 Baseline commit: `229bfb6449a4e37b71d506b32f8454318209e699`
 
@@ -30,15 +29,21 @@ Exact pinned metadata is documented in `environment_pin.yaml`:
 
 ---
 
-## 3. Bounded Observation Results (V-01-core)
+## 3. Bounded Observation Results (V-01-core Repaired)
 
 Two independent cold-boot runs (`RUN_A` and `RUN_B`) were executed from fresh isolated environments with zero reused state or save states.
 
 Results:
-1. **Entry Point Reached**: Master SH-2 entered `0TH2.BIN` boot code at `0x06004000` at frame 680, cycle `305462360`.
-2. **Pre-State Parity**: All 23 CPU registers (R0-R15, PC, SR, PR, GBR, VBR, MACH, MACL) matched identically between Run A and Run B.
-3. **Instruction Step Transition**: `step 1` advanced PC from `0x06004002` to `0x06004004`, incrementing cycle count from `305462360` to `305462361` (+1 cycle) identically in both runs.
-4. **Memory Effect Observed**: Memory read from `0x06081C10` (width: 4 bytes, value: `0x060917DC`) matched identically in both runs.
+1. **Deterministic Mode Ack**: `deterministic` command sent before free execution acknowledged identically (`ok deterministic cycle=433495`).
+2. **Entry Point Reached**: Master SH-2 hit breakpoint on requested `0x06004000` at frame 680, cycle `305462360`. Pipeline hook PC reported `0x06004002` due to `pc - 2` fallback after delayed branch from BIOS `0x06003FFE`.
+3. **Pre-State Parity**: All 23 CPU registers matched identically between Run A and Run B (initial SP: `0x06001000`).
+4. **Step Transitions & Opcode Retirements**:
+   - Step 1 (`pc=0x06004004`, cycle 305462361): Pipeline fill advance.
+   - Step 2 (`pc=0x06004006`, cycle 305462362): Opcode `0x6611` (`MOV.W @R1, R6`) retires, setting `R6 = 0x00006611`.
+   - Step 3 (`pc=0x06004008`, cycle 305462363): Opcode `0x6F03` (`MOV R0, R15`) retires, setting `R15 = 0x06002EDC`.
+   - Step 4 (`pc=0x0600400A`, cycle 305462371): Opcode `0xD417` (`MOV.L @(0x5C, PC), R4`) retires, setting `R4 = 0x06081C10`.
+   - Step 5 (`pc=0x0600400A`, cycle 305462372): Opcode `0x6442` (`MOV.L @R4, R4`) reads memory, dynamically triggering `read_watchpoint 06081C10` with value `0x060917DC`.
+   - Step 6 (`pc=0x0600400C`, cycle 305462372): Writeback completes, setting `R4 = 0x060917DC`.
 5. **Slave CPU**: Remained inactive (`SH2_SETACTIVE: cpu=SH2-S active=0`) during this initial boot window.
 
 Detailed comparison tables and raw traces are documented in `bounded_observation.md`.
@@ -47,10 +52,11 @@ Detailed comparison tables and raw traces are documented in `bounded_observation
 
 ## 4. Acceptance Criteria Audit
 
-- [x] Pin exact Mednafen version/commit, build hash/flags, and complete 19-parameter configuration recipe (`environment_pin.yaml`).
+- [x] Pin exact Mednafen version/commit, build hash/flags, and complete configuration recipe (`environment_pin.yaml`).
+- [x] Enable debugger `deterministic` mode and verify ack before free execution.
 - [x] Execute canonical boot recipe for Thor 2 image `fe11d2fb...`.
-- [x] Observe at least one bounded CPU-labelled execution transition in `0TH2.BIN` boot code with explicit event semantics (`MASTER_SH2`, `PRE_EXECUTION` at `0x06004000`, `COMPLETED_EXECUTION` at `0x06004002` -> `0x06004004`).
-- [x] Observe at least one selected memory effect (address `0x06081C10`, width 4, value `0x060917DC`).
+- [x] Observe runtime execution transition at candidate entry `0x06004000` with explicit pipeline/pc-2 event semantics.
+- [x] Directly prove selected memory read via dynamic `read_watchpoint 06081C10` hit (PC `0x06004006`, width 4, value `0x060917DC`, cycle `305462372`).
 - [x] Reproduce the exact observation identically across at least two independent cold-boot runs (Run A and Run B).
 - [x] Record emulator version, CPU identity, and observation semantics without committing copyrighted bytes.
 - [x] Decide `ADOPT` for bounded Mednafen oracle capability.
@@ -59,4 +65,4 @@ Detailed comparison tables and raw traces are documented in `bounded_observation
 
 ## 5. Next Action
 
-Review V-01-core evidence before authorizing V-01-automation.
+Review repaired V-01-core and authorize V-01-automation.

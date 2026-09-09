@@ -1,5 +1,36 @@
 # Worklog
 
+## 2026-09-09 — T2-V01.1 Oracle Event-Semantics Repair
+
+### Task
+
+Repair the evidence semantics of V-01-core without broadening scope into V-01-automation, `TH2.LOW` provenance, decoding, or recompilation.
+
+### Method
+
+1. Integrated debugger `deterministic` mode into the pinned startup sequence before free execution (`ok deterministic cycle=433495`).
+2. Executed two new independent cold-boot runs (`RUN_A` and `RUN_B`) with isolated HOME/IPC environments and zero shared state.
+3. Resolved entry pipeline semantics: breakpoint at `0x06004000` arrives at hook PC `0x06004002` via `pc - 2` fallback due to delayed branch pipeline advance from BIOS `0x06003FFE` (`prev_pc=0x06004004,0x06004002,0x06004000,0x06003FFE`).
+4. Cross-checked instruction retirements against canonical binary opcodes:
+   - Step 1 (`pc=0x06004004`, cycle `305462361`): Pipeline fill advance, no register delta.
+   - Step 2 (`pc=0x06004006`, cycle `305462362`): Opcode `0x6611` (`MOV.W @R1, R6`) retires, updating `R6` to `0x00006611`.
+   - Step 3 (`pc=0x06004008`, cycle `305462363`): Opcode `0x6F03` (`MOV R0, R15`) retires, updating `R15` (SP) from `0x06001000` to `0x06002EDC`.
+   - Step 4 (`pc=0x0600400A`, cycle `305462371`): Opcode `0xD417` (`MOV.L @(0x5C, PC), R4`) retires, loading pointer `0x06081C10` into `R4`.
+   - Step 5 (`pc=0x0600400A`, cycle `305462372`): Opcode `0x6442` (`MOV.L @R4, R4`) executes memory read from `0x06081C10`, dynamically triggering `read_watchpoint 06081C10` (value `0x060917DC`).
+   - Step 6 (`pc=0x0600400C`, cycle `305462372`): Writeback completes, updating `R4` to `0x060917DC`.
+5. Directly proved memory read dynamically via `read_watchpoint 06081C10` hit rather than static `dump_mem`.
+6. Corrected documentation overclaims: replaced unsupported "L0/L1/L2 dynamic equivalence" wording with "bounded D1 oracle reproducibility"; described Mednafen as cycle-stamped/cycle-repeatable emulator baseline; distinguished candidate runtime execution at `0x06004000` from `0TH2.BIN` disc file provenance (deferred to V-02a).
+7. Verified 100% field parity across all registers, steps, and events between Run A and Run B.
+
+### Result
+
+`V01_CORE_REPAIR_PASS`.
+D1 remains at `BOUNDED_PROOF`. ADR D-009 retained.
+
+### Exact next action
+
+Review repaired V-01-core and authorize V-01-automation.
+
 ## 2026-09-09 — T2-V01 SaturnAutoRE / Mednafen Setup + V-01-core Execution
 
 ### Task

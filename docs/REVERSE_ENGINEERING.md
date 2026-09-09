@@ -37,8 +37,7 @@ Evidence:
 
 - Saturn header first-read address is `0x06004000`;
 - it is the first ISO9660 file record;
-- file begins with dense SH-2-like instructions;
-- **Dynamic proof (V-01-core)**: Master SH-2 entered `0x06004000` from BIOS (`ret=0x06002244`) at frame 680, cycle `305462360`; initial instructions establish SP=`0x06001000`, load BSS start address `0x060917DC` (from pointer at `0x06081C10`) and BSS end address `0x060B29CC` (from pointer at `0x06081C14`), and begin zeroing High WRAM BSS.
+- **Dynamic proof (V-01-core)**: Master SH-2 hit breakpoint on candidate entry `0x06004000` from BIOS (`ret=0x06002244`) at frame 680, cycle `305462360` (debugger hook PC `0x06004002` via `pc - 2` fallback). Startup sequence: Step 2 retires `0x6611` (`MOV.W @R1, R6`, setting R6=`0x6611`); Step 3 retires `0x6F03` (`MOV R0, R15`, switching SP from header default `0x06001000` to target `0x06002EDC`); Step 4 retires `0xD417` (`MOV.L @(0x5C, PC), R4`, loading pointer `0x06081C10`); Step 5 executes `0x6442` (`MOV.L @R4, R4`), dynamically triggering `read_watchpoint 06081C10` with value `0x060917DC` (BSS start pointer); Step 6 completes R4 writeback to `0x060917DC`. Full disc-file extent provenance of `0TH2.BIN` remains scoped under D2 / V-02a.
 
 Next proof: full module provenance and mapping bounds (D2 / V-02a).
 

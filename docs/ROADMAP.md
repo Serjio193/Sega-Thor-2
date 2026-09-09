@@ -40,7 +40,7 @@ Status: **BOUNDED_PROOF** (decision D-009)
 
 Capability: reproducible dynamic observation of Thor 2 execution under a pinned configuration.
 Verified gate: **V-01-core** (bounded emulator observation under pinned Mednafen debug fork; Run A/B identical match).
-First target claim proven: Master SH-2 boot entry at `0x06004000`, step transition (`0x06004002` -> `0x06004004`), cycle counter, and memory read effect (`0x06081C10` = `0x060917DC`).
+First target claim proven: Master SH-2 candidate boot entry at `0x06004000` (hook pc `0x06004002` via pc-2 fallback), step transitions/retirements (`0x06004000` `MOV.W @R1, R6`; `0x06004002` `MOV R0, R15`; `0x06004004` `MOV.L @(0x5C, PC), R4`), deterministic cycle counter, and dynamic memory read watchpoint (`0x06081C10` = `0x060917DC` via `MOV.L @R4, R4` at `0x06004006`).
 
 ## Next
 
@@ -48,7 +48,7 @@ First target claim proven: Master SH-2 boot entry at `0x06004000`, step transiti
 
 Status: `PROPOSED`
 
-- Review V-01-core evidence before authorizing V-01-automation.
+- Review repaired V-01-core and authorize V-01-automation.
 - Next capability: **D2 — Executable Module Provenance** via `V-02a` (`0TH2.BIN`) and `V-02b` (`TH2.LOW`).
 
 ## Queued development milestones

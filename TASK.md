@@ -1,22 +1,24 @@
 # Current task
 
-TASK: D1 — Deterministic Dynamic Oracle (V-01-core Bounded Emulator Observation)
+TASK: D1 — Deterministic Dynamic Oracle (T2-V01.1 Oracle Event-Semantics Repair)
 WHY: establish reproducible dynamic execution observation of Thor 2 from a fixed canonical start recipe before attempting executable provenance, decode, or code translation.
 CURRENT MILESTONE: D1 / V-01-core
 TASK STATUS: BOUNDED_PROOF
 MILESTONE UNDERSTANDING CONFIDENCE: 95%
 CURRENT SLICE UNDERSTANDING CONFIDENCE: 95%
-SLICE CONFIDENCE EVIDENCE: V-01-core passed identically across two independent cold-boot runs under pinned Mednafen debug fork with exact CPU, PC, register, cycle, and memory read parity.
+SLICE CONFIDENCE EVIDENCE: V-01-core event semantics repaired and verified across two independent cold-boot runs with deterministic mode, exact entry pipeline resolution (pc-2 fallback, MOV.W @R1,R6 retirement at step 2, MOV R0,R15 retirement at step 3), and direct dynamic read_watchpoint proof at 0x06081C10.
 ACCEPTANCE CRITERIA:
 - [x] reverify canonical BIN/CUE SHA-256 against T2-M0;
 - [x] pin SaturnAutoRE source commit used to identify the oracle candidate;
 - [x] pin the SaturnAutoRE Mednafen debug-fork source commit;
 - [x] pin runnable Mednafen binary SHA-256 and build flags;
 - [x] pin BIOS SHA-256, effective Saturn region, and remaining V-01-core configuration;
+- [x] enable debugger `deterministic` mode and verify ack before free execution;
 - [x] execute canonical cold-boot recipe;
-- [x] observe at least one bounded CPU-labelled completed execution transition in `0TH2.BIN` with explicit event semantics;
-- [x] observe at least one selected memory effect (address, width, value, actor/event semantics);
+- [x] observe runtime execution at candidate entry `0x06004000` with explicit pipeline / pc-2 event semantics;
+- [x] directly prove selected memory read via dynamic `read_watchpoint 06081C10` hit (`0x060917DC`);
 - [x] reproduce the declared observation identically across at least two independently initialized cold boots;
+- [x] correct documentation overclaims (cycle-repeatable baseline; no unsupported L0/L1/L2 claims);
 - [x] decide `ADOPT`, `ADOPT_PARTIAL`, `REJECT`, or `DEFER` for the bounded Mednafen oracle capability.
 EVIDENCE AVAILABLE:
 - canonical revision `thor2_ntsc_patched_fe11d2fb`;
@@ -48,19 +50,19 @@ The initial preflight was blocked pending user-supplied Saturn BIOS. The user su
 
 ## Last verified result
 
-V-01-core bounded emulator observation passed identically across two independent cold-boot runs (Run A and Run B).
+V-01-core event semantics repaired: identical execution verified across Run A and Run B with deterministic mode, pc-2 pipeline resolution, and dynamic read watchpoint hit at `0x06081C10`.
 
 ## Session checkpoint
 
-CURRENT MILESTONE: D1 (V-01-core completed; BOUNDED_PROOF achieved)
-CURRENT TASK: D1 — Deterministic Dynamic Oracle
+CURRENT MILESTONE: D1 (V-01-core repaired; BOUNDED_PROOF maintained)
+CURRENT TASK: D1 — Deterministic Dynamic Oracle (T2-V01.1 Repair)
 TASK STATUS: BOUNDED_PROOF
 MILESTONE UNDERSTANDING CONFIDENCE: 95%
 CURRENT SLICE UNDERSTANDING CONFIDENCE: 95%
-LAST VERIFIED RESULT: V-01-core passed identically on Run A and Run B; 19-parameter configuration pinned; CPU (Master SH-2), entry transition (0x06004000 -> 0x06004002 -> 0x06004004), cycle (305462360 -> 305462361), and memory read effect (0x06081C10 = 0x060917DC) confirmed
-FILES CHANGED: workstreams/T2-V01-dynamic-oracle/README.md, workstreams/T2-V01-dynamic-oracle/environment_pin.yaml, workstreams/T2-V01-dynamic-oracle/bounded_observation.md, docs/PROJECT_STATE.md, docs/ROADMAP.md, docs/WORKLOG.md, docs/REVERSE_ENGINEERING.md, docs/DECISIONS.md, docs/FILE_MAP.md, TASK.md
-TESTS RUN: git diff --check; source line limit check; dual cold-boot test comparison (RUN_A vs RUN_B)
-NEW KNOWLEDGE: confirmed Master SH-2 boot entry into 0TH2.BIN at 0x06004000 from BIOS at frame 680, cycle 305462360; autodetected region 0x4 (NA) with mpr-17933.bin; initial BSS zeroing loop clears High WRAM 0x060917DC..0x060B29CC; Mednafen debug fork provides cycle-accurate deterministic baseline for Thor 2
+LAST VERIFIED RESULT: T2-V01.1 repair passed identically on Run A and Run B; deterministic mode ack verified; entry breakpoint pc-2 fallback documented; exact opcode retirements (Steps 1-6) cross-checked; dynamic read_watchpoint 06081C10 hit verified (0x060917DC at cycle 305462372)
+FILES CHANGED: workstreams/T2-V01-dynamic-oracle/README.md, workstreams/T2-V01-dynamic-oracle/environment_pin.yaml, workstreams/T2-V01-dynamic-oracle/bounded_observation.md, docs/PROJECT_STATE.md, docs/ROADMAP.md, docs/WORKLOG.md, docs/REVERSE_ENGINEERING.md, docs/DECISIONS.md, TASK.md
+TESTS RUN: git diff --check; source line limit check; unittest suite; dual cold-boot test comparison (RUN_A vs RUN_B)
+NEW KNOWLEDGE: Mednafen Automation_DebugHook pc-2 fallback catches delayed branches where PC advances to target+2; opcode 0x6611 (MOV.W @R1,R6) retires at step 2 loading R6=0x6611; opcode 0x6F03 (MOV R0,R15) retires at step 3 loading R15=0x06002EDC; read_watchpoint 06081C10 dynamically traps the 32-bit load by MOV.L @R4,R4 at 0x06004006; deterministic mode pins cycle repeatable baseline
 OPEN QUESTIONS: none for V-01-core; authorization needed before proceeding to V-01-automation
 BLOCKERS: none
-EXACT NEXT ACTION: Review V-01-core evidence before authorizing V-01-automation.
+EXACT NEXT ACTION: Review repaired V-01-core and authorize V-01-automation.

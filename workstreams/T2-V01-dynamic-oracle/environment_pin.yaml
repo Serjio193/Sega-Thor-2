@@ -54,21 +54,28 @@ configuration_recipe:
   disc_tray_state: "Closed"
   sound_setting: "Disabled (--sound 0)"
   automation_setting: "Enabled (--automation <ipc_dir>)"
+  deterministic_mode: true
+  deterministic_ack: "ok deterministic cycle=433495"
 
 observation_contract:
   target_cpu: "MASTER_SH2"
   entry_symbol: "0TH2.BIN candidate entry"
   entry_address: "0x06004000"
   occurrence: 1
-  trigger_event_semantics: "PRE_EXECUTION at entry breakpoint"
+  trigger_event_semantics: "Breakpoint hit on requested 0x06004000 (arrived at hook pc=0x06004002 via pc-2 fallback after delayed branch from BIOS 0x06003FFE)"
   trigger_frame: 680
   trigger_cycle: 305462360
-  step_transition_semantics: "COMPLETED_EXECUTION of instruction at 0x06004002"
+  step_transition_semantics: "Step 1 advances pipeline to 0x06004004 (cycle 305462361); Step 2 retires 0x06004000 (MOV.W @R1, R6 -> R6=0x6611, PC=0x06004006); Step 3 retires 0x06004002 (MOV R0, R15 -> R15=0x06002EDC, PC=0x06004008); Step 4 retires 0x06004004 (MOV.L @(0x5C, PC), R4 -> R4=0x06081C10, PC=0x0600400A); Step 5 triggers read_watchpoint 06081C10 on 0x06004006 (MOV.L @R4, R4); Step 6 completes R4 writeback (R4=0x060917DC, PC=0x0600400C)"
   step_target_pc: "0x06004004"
   step_cycle: 305462361
   selected_memory_effect:
     address: "0x06081C10"
-    access_type: "MEMORY_READ"
+    access_type: "MEMORY_READ (dynamically proven via read_watchpoint hit)"
     width_bytes: 4
     value_hex: "0x060917DC"
     instruction_pc: "0x06004006"
+    load_opcode: "0x6442 (MOV.L @R4, R4)"
+    watchpoint_event_pc: "0x0600400A"
+    pre_r4: "0x06081C10"
+    post_r4: "0x060917DC"
+    event_cycle: 305462372

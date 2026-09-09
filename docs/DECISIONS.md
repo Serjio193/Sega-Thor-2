@@ -67,6 +67,6 @@ Under T2-P0.1, capability evidence scope is further formalized:
 
 The pinned Mednafen debug fork (`AJBats/mednafen-saturn-debug` commit `155426661b7ac3152e2c93a98da60ac33002b908`) built natively under WSL (GCC 13.3.0) is adopted as the deterministic dynamic oracle for bounded Thor 2 boot observation (`V-01-core`).
 
-Evidence: Two independent cold-boot runs (`RUN_A` and `RUN_B`) produced 100% identical results across CPU identity (`MASTER_SH2`), frame (680), cycle (305462360), entry PC (`0x06004000`), register states (all 23 registers), step transitions, and memory read effects (`0x06081C10` = `0x060917DC`).
+Evidence: Two independent cold-boot runs (`RUN_A` and `RUN_B`) with debugger `deterministic` mode enabled produced 100% identical results across CPU identity (`MASTER_SH2`), frame (680), cycle (305462360), entry candidate PC (`0x06004000` with hook PC `0x06004002` via pc-2 fallback), all 23 register states, step transitions (Steps 1–6 with confirmed opcode retirements), and dynamic memory read watchpoint hit (`0x06081C10` = `0x060917DC` via `MOV.L @R4, R4` at `0x06004006`, cycle `305462372`).
 
-Scope limitation: This decision adopts Mednafen for bounded execution observation only. It does not adopt autonomous RE pipeline scripting (`V-01-automation`), whole-game determinism, or hardware-perfect timing across unobserved systems.
+Scope limitation: This decision adopts Mednafen for bounded execution observation only. It does not adopt autonomous RE pipeline scripting (`V-01-automation`), whole-game determinism, or hardware-perfect timing across unobserved systems. D1 capability remains at `BOUNDED_PROOF`.
