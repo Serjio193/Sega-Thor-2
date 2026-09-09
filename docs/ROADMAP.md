@@ -103,6 +103,18 @@ Status: `PROPOSED`
 - Gate: pre-D8 identity/event safety gate + D6/V-07A preparation.
 - Target: mechanically generate machine-equivalent C++ translation for proven basic block `bb_06004000` under declared zero-divergence differential contract.
 
+### Mandatory post-D8 checkpoint — External Method Second Pass
+
+Status: `PLANNED / BLOCKING AFTER D8` (decision D-012)
+
+Trigger: immediately after `D8 — First Native Promotion Proof` reaches bounded proof.
+
+Before ordinary D9+ scaling/recovery work begins, the project must create a new synchronized experiment plan covering external-project methods that were not fully tested during the first pass. This includes untested, deferred, partially tested, reference-only, heuristic, accelerator, and methods previously considered weak or low-priority.
+
+No method may be skipped solely because ChatGPT, Opus, Astra, another AI reviewer, or a human reviewer considers it weak or unlikely to become a proof mechanism. Every method that is meaningfully testable with the capabilities available at D8 receives a bounded Thor 2 experiment. Methods requiring a genuinely unavailable later prerequisite are explicitly marked `PREREQUISITE_BLOCKED`, assigned to the exact downstream gate where they must be tested, and may not be silently dropped.
+
+The second pass evaluates both **evidence strength** and **workflow utility**. A weak proof method may still be retained as a discovery method, heuristic, accelerator, or reference if independent verification makes it useful. The normal post-D8 roadmap resumes only after this mandatory checkpoint is satisfied.
+
 ## Queued development milestones
 
 | ID | Capability | Key verification gate | Scope state |
@@ -114,6 +126,7 @@ Status: `PROPOSED`
 | D6 | Mechanical explicit-state C++ | V-07A + pre-D8 identity/event guards | PROPOSED |
 | D7 | Shadow comparison | V-07B (negative-control validation) | PROPOSED |
 | D8 | **First native promotion proof** | **V-07C (native override proof)** | PROPOSED |
+| POST-D8 | **Mandatory external-method second pass** | D-012 + new second-pass experiment plan | PLANNED / BLOCKING AFTER D8 |
 | D9 | Indirect control-flow handling | — | PROPOSED |
 | D10 | Timing/IRQ/DMA boundaries | — (general scaling) | PROPOSED |
 | D11 | Overlay/generation identity | V-10 (transformation/overlay discovery) | PROPOSED |

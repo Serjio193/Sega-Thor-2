@@ -98,3 +98,27 @@ Evidence:
 - Execution: Master SH-2 hit breakpoint at `0x06004000` and executed instructions inside the mapped range.
 
 Scope limitation: D2 capability is advanced to `BOUNDED_PROOF for 0TH2.BIN only`. `TH2.LOW` provenance remains unproven and is queued under `V-02b`. Daytona-specific build/link pipelines remain unadopted.
+
+## D-012 — Mandatory post-D8 second pass over external methods
+
+**Status:** ACCEPTED
+
+Reaching `D8 — First Native Promotion Proof` is a mandatory planning checkpoint, not permission to permanently discard external ideas that were skipped, deferred, considered weak, or not yet testable during the first pass.
+
+After D8 reaches its bounded native-promotion proof, the project MUST create a new synchronized second-pass plan for the external projects and methods inventoried by the project. The second pass must re-enumerate methods that are untested, partially tested, deferred, rejected only on preliminary judgment, or retained only as references/heuristics.
+
+A method MUST NOT be skipped merely because ChatGPT, Opus, Astra, another AI reviewer, or a human reviewer considers the idea weak, inelegant, heuristic, low-confidence, or unlikely to become a proof mechanism. If the method is technically testable on Thor 2, it receives a bounded experiment before the project moves past the post-D8 checkpoint.
+
+Second-pass evaluation uses two independent axes:
+1. **Evidence strength** — whether the method can support a proof claim.
+2. **Workflow utility** — whether it materially accelerates discovery, candidate generation, classification, automation, implementation, or review when followed by independent verification.
+
+Therefore a method may be retained as a `DISCOVERY_METHOD`, `HEURISTIC`, `ACCELERATOR`, or `REFERENCE` even when it is insufficient for proof. Failing a proof threshold alone is not grounds for rejection.
+
+Post-D8 advancement rule:
+- before ordinary D9+ scaling/recovery work begins, create the second-pass experiment plan and execute every remaining method that is meaningfully testable with capabilities available at D8;
+- methods blocked by a genuinely missing later prerequisite are recorded explicitly as `PREREQUISITE_BLOCKED`, with the exact downstream gate where they MUST be tested; they may not be silently dropped or rejected without experiment;
+- every second-pass method ends with an evidence record and explicit disposition (`ADOPT`, `ADOPT_PARTIAL`, `REJECT`, `DEFER`, or retained heuristic/reference role);
+- only after this checkpoint is satisfied may the project resume normal post-D8 progression.
+
+The purpose is to avoid losing practically useful techniques merely because they appear weaker than the project's proof layer. The proof layer remains authoritative; the second pass determines which additional techniques can safely accelerate the work beneath that layer.
