@@ -26,6 +26,7 @@ enum class EligibilityResult : uint8_t {
     CPU_MISMATCH,
     ADDRESS_RANGE_MISMATCH,
     CONTENT_BYTE_MISMATCH,
+    GENERATION_MISMATCH,
     INVALID_STATE
 };
 
@@ -36,6 +37,7 @@ struct BlockIdentityDescriptor {
     std::string module_name;
     bool module_provenance_proven = false;
     CpuTarget cpu = CpuTarget::MASTER_SH2;
+    uint32_t generation = 0;
     uint32_t start_pc = 0;
     uint32_t end_pc = 0;
     std::vector<uint8_t> expected_bytes;
@@ -54,5 +56,8 @@ struct BlockIdentityDescriptor {
 
 /// Constructs the proven canonical descriptor for Thor 2 indirect candidate block bb_06004280.
 [[nodiscard]] BlockIdentityDescriptor make_bb_06004280_descriptor();
+
+/// Constructs the proven canonical descriptor for Thor 2 stage overlay block bb_060D8000 (SET07.BIN).
+[[nodiscard]] BlockIdentityDescriptor make_bb_060D8000_set07_descriptor();
 
 } // namespace thor::recomp

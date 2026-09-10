@@ -1,5 +1,46 @@
 # Worklog
 
+## 2026-09-10 — D10 Timing/Interrupt/DMA Boundaries & D11 Overlay/Generation Identity Passed
+
+### Task
+
+Advance into the Progressive Native Recovery Track (D10..D18 post-FULL_ASM_GAME_GATE):
+1. Execute D10 (Timing/Interrupt/DMA Execution Boundaries): define formal boundary taxonomy (`ATOMIC_COMPUTATION`, `MMIO_SYNCHRONOUS`, `INTERRUPT_WINDOW`, `DMA_ASYNCHRONOUS`); implement Saturn MMIO address recognition (`is_saturn_mmio_address`); implement block timing classification engine (`classify_block_timing(...)`); establish dedicated test suite (`test_block_timing`).
+2. Execute D11 (Overlay/Generation Identity): formalize multi-generation executable identity per AGENTS.md (`revision + CPU + module/overlay generation + guest address`); extend `BlockIdentityDescriptor` with generation tracking; implement fail-closed `GENERATION_MISMATCH` detection in `check_block_eligibility`; verify generation isolation between base modules and stage overlays (SET07.BIN generation 7).
+3. Validate dual-platform green CTests (28/28 passing across Windows MinGW and Linux WSL).
+
+### Method & Discoveries
+
+1. **D10 Execution Boundary Taxonomy**:
+   - Created `include/thor/recomp/block_timing.hpp` (39 lines) and `src/recomp/block_timing.cpp` (105 lines).
+   - Classified execution blocks into 4 formal categories:
+     - `ATOMIC_COMPUTATION`: pure ALU/stack computation, no MMIO or external events, fully eligible for uninterrupted native execution.
+     - `MMIO_SYNCHRONOUS`: accesses Saturn MMIO registers (VDP1/VDP2, SCU, SCSP, or SH-2 on-chip peripherals `0xFFFFFE00..0xFFFFFFFF`). Requires immediate synchronous hardware callback dispatch; cannot be deferred or reordered.
+     - `INTERRUPT_WINDOW`: window where an interrupt is accepted/pending; requires barrier check and state save before interrupt handling.
+     - `DMA_ASYNCHRONOUS`: concurrent SCU/SH-2 DMA memory transfer; requires memory synchronization barrier and fallback protection.
+   - Implemented `classify_block_timing(...)` which inspects basic block structure, declarative memory dependency contracts, and live bounded event metadata.
+   - Verified in `tests/recomp/test_block_timing.cpp` (119 lines, registered as CTest #19).
+
+2. **D11 Multi-Generation Executable Identity**:
+   - Extended `BlockIdentityDescriptor` with `uint32_t generation = 0` (0 for base executables, 1..N for dynamic stage overlays).
+   - Added `EligibilityResult::GENERATION_MISMATCH` to fail-closed qualification.
+   - Implemented `make_bb_060D8000_set07_descriptor()` with `generation = 7` (SET07.BIN stage overlay at `0x060D8000`).
+   - Verified that blocks at `0x060D8000` succeed when queried with matching generation 7, and fail closed with `GENERATION_MISMATCH` when queried against generation 0 or generation 6.
+   - Verified in `tests/recomp/test_executable_identity.cpp`.
+
+3. **Dual-Platform CTest Suite (28/28 Tests)**:
+   - 28 / 28 CTests pass on Windows MinGW and Linux WSL.
+   - All human-maintained source files audited and confirmed <= 500 lines (74/74 clean).
+
+### Status After Pass
+
+- `D10`: **BOUNDED_PROOF / PASS**
+- `D11`: **BOUNDED_PROOF / PASS**
+- `FULL_ASM_GAME_GATE`: **PASS**
+- `ASM_90_GATE`: **PASS** (96.59%)
+- CTests: 28 / 28 PASSING across Windows MinGW and Linux WSL
+- Exact next action: `D12 / T2-NAT-02 — Structural Recovery & Subsystem Function Boundary Demarcation`
+
 ## 2026-09-10 — FULL_ASM_GAME_GATE Full Saturn Disc Game Boot & Gameplay Verification Passed
 
 ### Task

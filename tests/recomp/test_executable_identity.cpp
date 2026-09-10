@@ -173,6 +173,28 @@ static void test_candidate_06004280_eligibility_and_negative_controls() {
     }
 }
 
+static void test_overlay_generation_identity() {
+    Sh2FlatMemory mem;
+    const auto proven_overlay = make_bb_060D8000_set07_descriptor();
+    for (size_t i = 0; i < proven_overlay.expected_bytes.size(); ++i) {
+        mem.write8(proven_overlay.start_pc + static_cast<uint32_t>(i), proven_overlay.expected_bytes[i]);
+    }
+    mem.clear_log();
+
+    // Exact query with matching generation = 7
+    const auto query_exact = make_bb_060D8000_set07_descriptor();
+    THOR_ASSERT(check_block_eligibility(proven_overlay, query_exact, mem) == EligibilityResult::ELIGIBLE);
+    THOR_ASSERT(mem.log().empty());
+
+    // Mismatched generation (e.g. query has generation 0 or 1 instead of 7)
+    auto query_wrong_gen = query_exact;
+    query_wrong_gen.generation = 0;
+    THOR_ASSERT(check_block_eligibility(proven_overlay, query_wrong_gen, mem) == EligibilityResult::GENERATION_MISMATCH);
+
+    query_wrong_gen.generation = 6;
+    THOR_ASSERT(check_block_eligibility(proven_overlay, query_wrong_gen, mem) == EligibilityResult::GENERATION_MISMATCH);
+}
+
 int main() {
     std::cout << "Running test_executable_identity...\n";
     test_positive_eligibility();
@@ -184,6 +206,7 @@ int main() {
     test_negative_content_byte_mutation();
     test_negative_invalid_validity_state();
     test_candidate_06004280_eligibility_and_negative_controls();
+    test_overlay_generation_identity();
     std::cout << "All test_executable_identity cases passed!\n";
     return 0;
 }

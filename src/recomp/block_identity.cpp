@@ -18,6 +18,8 @@ const char* eligibility_result_to_string(EligibilityResult result) noexcept {
         return "ADDRESS_RANGE_MISMATCH";
     case EligibilityResult::CONTENT_BYTE_MISMATCH:
         return "CONTENT_BYTE_MISMATCH";
+    case EligibilityResult::GENERATION_MISMATCH:
+        return "GENERATION_MISMATCH";
     case EligibilityResult::INVALID_STATE:
         return "INVALID_STATE";
     default:
@@ -48,6 +50,10 @@ EligibilityResult check_block_eligibility(
 
     if (query_desc.cpu != proven_desc.cpu) {
         return EligibilityResult::CPU_MISMATCH;
+    }
+
+    if (query_desc.generation != proven_desc.generation) {
+        return EligibilityResult::GENERATION_MISMATCH;
     }
 
     if (query_desc.start_pc != proven_desc.start_pc || query_desc.end_pc != proven_desc.end_pc) {
@@ -105,6 +111,27 @@ BlockIdentityDescriptor make_bb_06004280_descriptor() {
             0xD3, 0x37, // 0x06004284: MOV.L @(0xDC, PC), R3
             0x43, 0x0B, // 0x06004286: JSR @R3
             0x00, 0x09  // 0x06004288: NOP (delay slot)
+        },
+        .validity = BlockValidity::VALID
+    };
+}
+
+BlockIdentityDescriptor make_bb_060D8000_set07_descriptor() {
+    return BlockIdentityDescriptor{
+        .revision_id = "thor2_ntsc_patched_fe11d2fb",
+        .module_name = "SET07.BIN",
+        .module_provenance_proven = true,
+        .cpu = CpuTarget::MASTER_SH2,
+        .generation = 7,
+        .start_pc = 0x060D8000u,
+        .end_pc = 0x060D800Au,
+        .expected_bytes = {
+            0xD0, 0x11, // 0x060D8000: MOV.L @(0x44, PC), R0
+            0x6F, 0x03, // 0x060D8002: MOV R0, R15
+            0xD4, 0x17, // 0x060D8004: MOV.L @(0x5C, PC), R4
+            0x64, 0x42, // 0x060D8006: MOV.L @R4, R4
+            0xA0, 0x03, // 0x060D8008: BRA 0x060D8012
+            0x00, 0x09  // 0x060D800A: NOP (delay slot)
         },
         .validity = BlockValidity::VALID
     };

@@ -56,6 +56,7 @@ include/
       native_bridge.h             pure C ABI native dispatcher plugin interface
       native_dispatcher.hpp       reusable native dispatcher with shadow qualification
       mutation_harness.hpp        reusable mutation fault-injection harness declaration
+      block_timing.hpp            D10 timing, interrupt, and DMA boundary classification declaration
 
 src/
   sh2/
@@ -73,6 +74,7 @@ src/
     shadow_checker.cpp            shadow comparison and differential outcome verification logic
     native_dispatcher.cpp         authoritative native dispatcher and C ABI export definitions
     mutation_harness.cpp          bounded mutation testing and restoration logic
+    block_timing.cpp              D10 execution boundary and timing classification logic
 
 asm/
   schema/
@@ -130,6 +132,7 @@ tests/
     test_mutation_harness.cpp     12/12 single-byte and 6/6 NOP mutation unit tests
     test_block_exit.cpp           static exit descriptor & runtime resolution unit tests
     test_block_memory.cpp         declarative memory dependency contract unit tests
+    test_block_timing.cpp         D10 execution boundary and timing classification unit tests
     test_m07_reference.py         SaturnRecomp reference manifest validation & negative control tests
     test_post_d8_closure.py       canonical POST-D8 closure audit validator with 9 negative controls
     test_d9_plan.py               D9 indirect plan and artifact validator with 19 negative controls

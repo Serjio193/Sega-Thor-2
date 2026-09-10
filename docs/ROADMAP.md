@@ -255,9 +255,31 @@ Capabilities proven:
 - All 27 CTests pass on Windows MinGW and Linux WSL;
 - ADR D-015 requirement for broad C++ native module replacement unblocked.
 
-### Active Next Technical Milestone: D10 / T2-NAT-01 — Native Subsystem Recovery Architecture & Stage Dispatcher Bridges
+### D10 — Timing/Interrupt/DMA Execution Boundaries
 
-Purpose: Progressively replace individual game engine subsystems (VDP1 sprite rendering, VDP2 tilemaps, SCSP audio command bridge, CD block I/O) with native C++20 implementations while maintaining differential bit-level parity against the verified full ASM game oracle.
+Status: **BOUNDED_PROOF / PASS**
+
+Capabilities proven:
+- Formalized execution boundary taxonomy in `include/thor/recomp/block_timing.hpp` and `src/recomp/block_timing.cpp`: `ATOMIC_COMPUTATION`, `MMIO_SYNCHRONOUS`, `INTERRUPT_WINDOW`, `DMA_ASYNCHRONOUS`;
+- Implemented Saturn MMIO region recognition across SH-2 on-chip peripherals `0xFFFFFE00..0xFFFFFFFF` and B-Bus/VDP/SCU/SCSP mirrors `0x05800000..0x05FFFFFF` / `0x25800000..0x25FFFFFF`;
+- Implemented `classify_block_timing(...)` detecting hardware boundary crossings and enforcing synchronization barriers or interpreter fallbacks;
+- Verified with dedicated CTest suite `test_block_timing` across synthetic vectors, memory contracts, and bounded event metadata;
+- 28/28 CTests pass across MinGW and Linux WSL.
+
+### D11 — Overlay/Generation Identity
+
+Status: **BOUNDED_PROOF / PASS**
+
+Capabilities proven:
+- Formalized multi-generation executable identity per AGENTS.md: `revision + CPU + module/overlay generation + guest address`;
+- Added generation tracking to `BlockIdentityDescriptor` and `GENERATION_MISMATCH` fail-closed rejection to `check_block_eligibility`;
+- Proved generation isolation between base modules (generation 0) and stage overlays (generation 7: `make_bb_060D8000_set07_descriptor()` at `0x060D8000`);
+- Verified positive qualification (matching generation) and negative fault injection (mismatched generations 0, 6 fail closed with `GENERATION_MISMATCH`);
+- Verified with `test_executable_identity`.
+
+### Active Next Technical Milestone: D12 / T2-NAT-02 — Structural Recovery & Subsystem Function Boundary Demarcation
+
+Purpose: Progressively recover function boundaries, call graphs, and subsystem bridges across verified assembly containers and native translation units.
 
 ## Queued development milestones
 
@@ -278,10 +300,10 @@ Purpose: Progressively replace individual game engine subsystems (VDP1 sprite re
 | **T2-ASM-04** | **Disc executable inventory & secondary modules** | **Census, multi-processor lifetimes, SET07.BIN container** | **BOUNDED_PROOF (SET07.BIN)** |
 | **T2-ASM-05** | **Bulk PC harvesting & CFG recovery to ASM_90_GATE** | **Coverage >= 90%, runtime parity** | **PASS (96.59% COVERAGE)** |
 | **GATE** | **FULL_ASM_GAME_GATE** | **Rebuilt Saturn game boots & plays in Mednafen** | **PASS (VERIFIED 0 DIVERGENCE)** |
-| D10 | Timing/IRQ/DMA boundaries | — (general scaling) | PROPOSED (Post-ASM-Gate) |
-| D11 | Overlay/generation identity | V-10 (transformation/overlay discovery) | PROPOSED (Active for ASM reconstruction) |
-| D12 | Structural recovery | V-05, V-13 | PROPOSED (Post-ASM-Gate) |
-| D13 | Guest-address/type provenance | V-09 | PROPOSED (Post-ASM-Gate) |
+| **D10** | **Timing/IRQ/DMA boundaries** | **Classification & barrier model** | **BOUNDED_PROOF / PASS** |
+| **D11** | **Overlay/generation identity** | **Multi-generation descriptor & isolation** | **BOUNDED_PROOF / PASS** |
+| D12 | Structural recovery | V-05, V-13 | PROPOSED (Active next) |
+| D13 | Guest-address/type provenance | V-09 | PROPOSED |
 | D14 | Resource decode/reencode | V-11 (exact round-trip), V-12 (diff locator) | PROPOSED |
 | D15 | HW-subsystem contracts | V-08 (SaturnRecomp component tests a–h) | PROPOSED |
 | D16 | Native subsystem replacement | V-08 (components passing differential test) | PROPOSED |
