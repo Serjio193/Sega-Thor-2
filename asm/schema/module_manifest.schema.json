@@ -1,0 +1,118 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Thor2 Module Manifest Schema",
+  "description": "Formal schema for Thor 2 assembly recovery module manifests.",
+  "type": "object",
+  "required": [
+    "module",
+    "revision",
+    "module_runtime_base",
+    "module_size",
+    "confirmed_code_bytes",
+    "raw_unknown_bytes",
+    "ranges",
+    "expected_output_sha256",
+    "assembler_tool_identity",
+    "linker_tool_identity",
+    "provenance_identity"
+  ],
+  "properties": {
+    "module": {
+      "type": "string",
+      "description": "Module filename (e.g. 0TH2.BIN, TH2.LOW)"
+    },
+    "revision": {
+      "type": "string",
+      "description": "Binary revision and canonical disc provenance"
+    },
+    "module_runtime_base": {
+      "type": "string",
+      "pattern": "^0x[0-9A-Fa-f]{8}$",
+      "description": "Load VMA of module in Saturn memory space"
+    },
+    "module_size": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "Exact byte size of the binary module"
+    },
+    "confirmed_code_bytes": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Total bytes classified as CONFIRMED_CODE"
+    },
+    "raw_unknown_bytes": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Total bytes classified as UNKNOWN / RAW_UNKNOWN"
+    },
+    "iso_sector_start": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Starting LBA sector on Saturn CD-ROM"
+    },
+    "iso_sector_count": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "Number of 2048-byte CD-ROM sectors occupied"
+    },
+    "ranges": {
+      "type": "array",
+      "description": "Exhaustive partition of module into contiguous non-overlapping ranges",
+      "items": {
+        "type": "object",
+        "required": [
+          "offset_start",
+          "offset_end_exclusive",
+          "runtime_start",
+          "runtime_end_exclusive",
+          "byte_length",
+          "evidence_classification",
+          "assembly_representation"
+        ],
+        "properties": {
+          "offset_start": { "type": "integer", "minimum": 0 },
+          "offset_end_exclusive": { "type": "integer", "minimum": 1 },
+          "runtime_start": { "type": "string", "pattern": "^0x[0-9A-Fa-f]{8}$" },
+          "runtime_end_exclusive": { "type": "string", "pattern": "^0x[0-9A-Fa-f]{8}$" },
+          "byte_length": { "type": "integer", "minimum": 1 },
+          "evidence_classification": {
+            "type": "string",
+            "enum": ["CONFIRMED_CODE", "PROBABLE_CODE", "DATA", "UNKNOWN"]
+          },
+          "assembly_representation": {
+            "type": "string",
+            "enum": ["MNEMONIC_PROVEN", "RAW_CODE_PENDING_DECODE", "RAW_DATA", "RAW_UNKNOWN"]
+          },
+          "block_id": { "type": "string" },
+          "instruction_count": { "type": "integer", "minimum": 0 }
+        }
+      }
+    },
+    "code_blocks": {
+      "type": "array",
+      "description": "Optional list of code block metadata records"
+    },
+    "labels": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Symbolic labels defined or referenced within module"
+    },
+    "expected_output_sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$",
+      "description": "Canonical SHA-256 hash of assembled raw binary"
+    },
+    "assembler_tool_identity": {
+      "type": "string",
+      "description": "Pinned assembler identification string"
+    },
+    "linker_tool_identity": {
+      "type": "string",
+      "description": "Pinned linker identification string"
+    },
+    "provenance_identity": {
+      "type": "string",
+      "description": "Task milestone identity defining this manifest"
+    }
+  }
+}

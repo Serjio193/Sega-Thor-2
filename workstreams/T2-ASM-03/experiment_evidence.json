@@ -1,0 +1,113 @@
+{
+  "task": "T2-ASM-03",
+  "authority": "ADR D-015 (ASM_FIRST_RECOVERY)",
+  "status": "PASS",
+  "module": "TH2.LOW",
+  "module_size": 149504,
+  "module_vma_base": "0x002DA000",
+  "module_vma_end": "0x002FE800",
+  "iso_sector_start": 52123,
+  "iso_sector_count": 73,
+  "confirmed_code_bytes": 2,
+  "raw_unknown_bytes": 149502,
+  "canonical_module_sha256": "781396898191921b486be751163aea493ef9b1abcb55c0ab8698df9c69211224",
+  "canonical_disc_sha256": "fe11d2fbda58d63300ef2265c555ce05bddf14d69fb7b73fc409e25c0ef6c0a8",
+  "pinned_hashes": {
+    "saturnautore_commit": "4662aad69f95222fe37c5e6b98f2285b1a7e4653",
+    "mednafen_commit": "155426661b7ac3152e2c93a98da60ac33002b908",
+    "mednafen_bin_sha256": "4d877df4a36b9e29a77e00c51f33ca45178d0756a57cb8ec976c8e26928d04c6",
+    "bios_sha256": "96e106f740ab448cf89f0dd49dfbac7fe5391cb6bd6e14ad5e3061c13330266f"
+  },
+  "ranges": [
+    {
+      "offset_start": 0,
+      "offset_end_exclusive": 63760,
+      "runtime_start": "0x002DA000",
+      "runtime_end_exclusive": "0x002E9910",
+      "byte_length": 63760,
+      "classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 63760,
+      "offset_end_exclusive": 63762,
+      "runtime_start": "0x002E9910",
+      "runtime_end_exclusive": "0x002E9912",
+      "byte_length": 2,
+      "classification": "CONFIRMED_CODE",
+      "assembly_representation": "RAW_CODE_PENDING_DECODE",
+      "opcode": "0x2FE6",
+      "mnemonic_target": "MOV.L R14, @-R15"
+    },
+    {
+      "offset_start": 63762,
+      "offset_end_exclusive": 149504,
+      "runtime_start": "0x002E9912",
+      "runtime_end_exclusive": "0x002FE800",
+      "byte_length": 85742,
+      "classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    }
+  ],
+  "checkpoints": [
+    {
+      "label": "entry_06004000",
+      "address": "0x06004000",
+      "occurrence": 0,
+      "cycle": 305462360,
+      "cycle_divergence": 0,
+      "reg_divergence": 0
+    },
+    {
+      "label": "branch_target_06004012",
+      "address": "0x06004012",
+      "occurrence": 0,
+      "cycle": 305462387,
+      "cycle_divergence": 0,
+      "reg_divergence": 0
+    },
+    {
+      "label": "checkpoint_06004280_occ0",
+      "address": "0x06004280",
+      "occurrence": 0,
+      "cycle": 307090585,
+      "cycle_divergence": 0,
+      "reg_divergence": 0
+    },
+    {
+      "label": "checkpoint_06004280_occ1",
+      "address": "0x06004280",
+      "occurrence": 1,
+      "cycle": 316309168,
+      "cycle_divergence": 0,
+      "reg_divergence": 0
+    },
+    {
+      "label": "checkpoint_0600A0F8_load_th2_low",
+      "address": "0x0600A0F8",
+      "occurrence": 2,
+      "pr": "0x0600428A",
+      "cycle": 316309189,
+      "cycle_divergence": 0,
+      "reg_divergence": 0
+    },
+    {
+      "label": "checkpoint_002E9910_th2_low_exec",
+      "address": "0x002E9910",
+      "occurrence": 0,
+      "pr": "0x060042E4",
+      "cycle": 387459915,
+      "cycle_divergence": 0,
+      "reg_divergence": 0
+    }
+  ],
+  "roundtrip_results": {
+    "extracted_bytes": 149504,
+    "byte_exact_parity": true,
+    "dual_build_deterministic": true,
+    "unresolved_relocations": 0,
+    "private_disc_spliced_sha256_match": true,
+    "negative_controls_passed": 10,
+    "negative_controls_total": 10
+  }
+}

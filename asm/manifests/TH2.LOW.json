@@ -1,0 +1,47 @@
+{
+  "module": "TH2.LOW",
+  "revision": "thor2_ntsc_patched_fe11d2fb",
+  "module_runtime_base": "0x002DA000",
+  "module_size": 149504,
+  "confirmed_code_bytes": 2,
+  "raw_unknown_bytes": 149502,
+  "iso_sector_start": 52123,
+  "iso_sector_count": 73,
+  "ranges": [
+    {
+      "offset_start": 0,
+      "offset_end_exclusive": 63760,
+      "runtime_start": "0x002DA000",
+      "runtime_end_exclusive": "0x002E9910",
+      "byte_length": 63760,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 63760,
+      "offset_end_exclusive": 63762,
+      "runtime_start": "0x002E9910",
+      "runtime_end_exclusive": "0x002E9912",
+      "byte_length": 2,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "RAW_CODE_PENDING_DECODE",
+      "instruction_count": 1
+    },
+    {
+      "offset_start": 63762,
+      "offset_end_exclusive": 149504,
+      "runtime_start": "0x002E9912",
+      "runtime_end_exclusive": "0x002FE800",
+      "byte_length": 85742,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    }
+  ],
+  "labels": [
+    "entry_002E9910"
+  ],
+  "expected_output_sha256": "781396898191921b486be751163aea493ef9b1abcb55c0ab8698df9c69211224",
+  "assembler_tool_identity": "GNU assembler (binutils-sh-elf 2.40+2) 2.40",
+  "linker_tool_identity": "GNU ld (binutils-sh-elf 2.40+2) 2.40",
+  "provenance_identity": "T2-ASM-03"
+}

@@ -5,6 +5,50 @@
   "module_size": 535552,
   "confirmed_code_bytes": 22,
   "raw_unknown_bytes": 535530,
+  "iso_sector_start": 24,
+  "iso_sector_count": 262,
+  "ranges": [
+    {
+      "offset_start": 0,
+      "offset_end_exclusive": 12,
+      "runtime_start": "0x06004000",
+      "runtime_end_exclusive": "0x0600400C",
+      "byte_length": 12,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_06004000",
+      "instruction_count": 6
+    },
+    {
+      "offset_start": 12,
+      "offset_end_exclusive": 640,
+      "runtime_start": "0x0600400C",
+      "runtime_end_exclusive": "0x06004280",
+      "byte_length": 628,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 640,
+      "offset_end_exclusive": 650,
+      "runtime_start": "0x06004280",
+      "runtime_end_exclusive": "0x0600428A",
+      "byte_length": 10,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_06004280",
+      "instruction_count": 5
+    },
+    {
+      "offset_start": 650,
+      "offset_end_exclusive": 535552,
+      "runtime_start": "0x0600428A",
+      "runtime_end_exclusive": "0x06086B80",
+      "byte_length": 534902,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    }
+  ],
   "code_blocks": [
     {
       "block_id": "bb_06004000",
@@ -31,5 +75,5 @@
   "expected_output_sha256": "c1cc4117870bc567386410aa2d4f1b5f03fb98a601be71bb3ae2155de1853c64",
   "assembler_tool_identity": "GNU assembler (binutils-sh-elf 2.40+2) 2.40",
   "linker_tool_identity": "GNU ld (binutils-sh-elf 2.40+2) 2.40",
-  "provenance_identity": "T2-ASM-02"
+  "provenance_identity": "T2-ASM-03"
 }

@@ -82,9 +82,10 @@ tools/
     verify_roundtrip.py           comprehensive round-trip verification & 12 negative controls
     runtime_substitution_proof.py Mednafen dual cold-boot runtime substitution proof
     export_sh2_asm_ir.cpp         generic Thor-decoder-backed SH-2 Assembly IR exporter CLI
-    generate_full_module_asm.py   lossless full 0TH2.BIN assembly container generator
-    build_full_module.py          full 0TH2.BIN assembly build and dual-build determinism pipeline
-    verify_full_module.py         comprehensive full module verification & 28 negative controls suite
+    verify_sh2_rebuilt.cpp        authoritative C++ instruction verification linking thor_sh2
+    generate_full_module_asm.py   manifest-driven lossless module assembly container generator
+    build_full_module.py          manifest-driven full module assembly build and determinism pipeline
+    verify_full_module.py         manifest-driven full module verification & negative controls suite
 
 tests/
   test_census_saturn_cd.py        synthetic tests for census parser
@@ -113,6 +114,8 @@ tests/
   asm/
     test_asm_roundtrip.py         CTest integration test for SH-2 ASM round-trip verification
     test_full_module_asm.py       CTest integration test for full 0TH2.BIN module round-trip
+    test_th2_low_asm.py           CTest integration test for full TH2.LOW module round-trip
+    test_manifest_schema.py       CTest integration test for module manifest schema & partition invariants
 
 workstreams/
   T2-M0-disc-census/
@@ -175,17 +178,24 @@ workstreams/
     README.md                     T2-ASM-02 workstream record and full module proof summary
     experiment_evidence.md        detailed toolchain, full module assembly, and runtime proof
     experiment_evidence.json      machine-readable round-trip, runtime, and 28 negative controls evidence
+  T2-ASM-03/
+    README.md                     T2-ASM-03 workstream record and TH2.LOW proof summary
+    experiment_evidence.md        detailed toolchain, TH2.LOW assembly, and runtime proof
+    experiment_evidence.json      machine-readable round-trip, occurrence runtime, and negative controls evidence
 
 asm/                              assembly reconstruction layout (ADR D-015)
+  schema/
+    module_manifest.schema.json   formal schema for assembly recovery module manifests
   generated/
     bb_06004000.s                 mechanically emitted SH-2 assembly specimen
   linker/
     bb_06004000.ld                linker script for bb_06004000 at VMA 0x06004000
     0TH2.ld                       linker script for full 0TH2.BIN module at VMA 0x06004000
+    TH2_LOW.ld                    linker script for full TH2.LOW module at VMA 0x002DA000
   manifests/
     bb_06004000.json              provenance manifest for bb_06004000 slice
     0TH2.BIN.json                 provenance manifest for 0TH2.BIN module container
-
+    TH2.LOW.json                  provenance manifest for TH2.LOW module container
 
 external/
   README.md                       rules for private user-supplied inputs

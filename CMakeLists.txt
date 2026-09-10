@@ -36,6 +36,10 @@ target_link_libraries(generate_sh2_block PRIVATE thor_recomp thor_sh2)
 add_executable(export_sh2_asm_ir tools/asm/export_sh2_asm_ir.cpp)
 target_link_libraries(export_sh2_asm_ir PRIVATE thor_sh2)
 
+# Tool to verify rebuilt binary instructions using thor_sh2 decoder
+add_executable(verify_sh2_rebuilt tools/asm/verify_sh2_rebuilt.cpp)
+target_link_libraries(verify_sh2_rebuilt PRIVATE thor_sh2)
+
 # Build-time mechanical C++20 generation for bb_06004000
 set(GENERATED_DIR "${CMAKE_CURRENT_BINARY_DIR}/generated")
 file(MAKE_DIRECTORY "${GENERATED_DIR}")
@@ -184,4 +188,6 @@ if (Python3_Interpreter_FOUND)
     add_test(NAME test_d9_plan COMMAND Python3::Interpreter "${CMAKE_CURRENT_SOURCE_DIR}/tests/recomp/test_d9_plan.py")
     add_test(NAME test_asm_roundtrip COMMAND Python3::Interpreter "${CMAKE_CURRENT_SOURCE_DIR}/tests/asm/test_asm_roundtrip.py")
     add_test(NAME test_full_module_asm COMMAND Python3::Interpreter "${CMAKE_CURRENT_SOURCE_DIR}/tests/asm/test_full_module_asm.py")
+    add_test(NAME test_th2_low_asm COMMAND Python3::Interpreter "${CMAKE_CURRENT_SOURCE_DIR}/tests/asm/test_th2_low_asm.py")
+    add_test(NAME test_manifest_schema COMMAND Python3::Interpreter "${CMAKE_CURRENT_SOURCE_DIR}/tests/asm/test_manifest_schema.py")
 endif()

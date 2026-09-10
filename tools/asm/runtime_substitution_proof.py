@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Bounded Runtime Substitution Proof.
+"""Occurrence-Aware Bounded Runtime Substitution Proof.
 
 Runs clean Mednafen oracle (commit 155426661b7ac3152e2c93a98da60ac33002b908)
 in pure interpreter mode (native_mode 0) comparing ORIGINAL cold boot vs
@@ -7,6 +7,8 @@ ASM_REBUILT substituted cold boot at architectural checkpoints.
 """
 
 from typing import Any, Dict, List, Optional, Tuple
+import argparse
+import hashlib
 import json
 import os
 import shutil
@@ -14,21 +16,28 @@ import subprocess
 import sys
 import time
 
-CUE_ORIGINAL = "The_Story_of_Thor_2_[RUS]_(NTSC).cue"
-BIN_ORIGINAL = "The_Story_of_Thor_2_[RUS]_(NTSC).bin"
-BIOS_PATH = "mpr-17933.bin"
+PINNED_SATURNAUTORE_COMMIT = "4662aad69f95222fe37c5e6b98f2285b1a7e4653"
+PINNED_MEDNAFEN_COMMIT = "155426661b7ac3152e2c93a98da60ac33002b908"
+PINNED_MEDNAFEN_BIN_SHA256 = "4d877df4a36b9e29a77e00c51f33ca45178d0756a57cb8ec976c8e26928d04c6"
+VALID_MEDNAFEN_BIN_HASHES = {
+    PINNED_MEDNAFEN_BIN_SHA256,
+    "861f03f36882ac2cff9334e3bdb54c8a29991f711ff81cb1132183ade9828c49",
+}
+CANONICAL_DISC_SHA = "fe11d2fbda58d63300ef2265c555ce05bddf14d69fb7b73fc409e25c0ef6c0a8"
+CANONICAL_BIOS_SHA = "96e106f740ab448cf89f0dd49dfbac7fe5391cb6bd6e14ad5e3061c13330266f"
 
-CHECKPOINTS = [
-    ("06004000", "entry_06004000"),
-    ("06004012", "branch_target_06004012"),
-    ("06004280", "checkpoint_06004280"),
-    ("0600A0F8", "checkpoint_0600A0F8"),
-    ("002E9910", "checkpoint_002E9910"),
+DEFAULT_CUE = "The_Story_of_Thor_2_[RUS]_(NTSC).cue"
+DEFAULT_BIN = "The_Story_of_Thor_2_[RUS]_(NTSC).bin"
+DEFAULT_BIOS = "mpr-17933.bin"
+
+CHECKPOINTS_SPEC = [
+    ("06004000", "entry_06004000", 0, 305462360, None),
+    ("06004012", "branch_target_06004012", 0, 305462387, None),
+    ("06004280", "checkpoint_06004280_occ0", 0, 307090585, None),
+    ("06004280", "checkpoint_06004280_occ1", 1, 316309168, None),
+    ("0600A0F8", "checkpoint_0600A0F8_load_th2_low", 2, 316309189, "0600428A"),
+    ("002E9910", "checkpoint_002E9910_th2_low_exec", 0, 387459915, "060042E4"),
 ]
-
-EXPECTED_ENTRY_CYCLE = 305462360
-EXPECTED_TARGET_CYCLE = 305462387
-EXPECTED_DURATION = 27
 
 REG_NAMES = [
     "R0", "R1", "R2", "R3", "R4", "R5", "R6", "R7",
@@ -45,39 +54,71 @@ def to_wsl_path(win_path: str) -> str:
     return p
 
 
+def verify_environment_integrity(repo_root: str) -> None:
+    """Verify git commits and binary hashes of emulator and assets."""
+    saturn_dir = os.environ.get("THOR_SATURNAUTORE_DIR", os.path.join(repo_root, "..", "SaturnAutoRE"))
+    mednafen_dir = os.environ.get("THOR_MEDNAFEN_DIR", os.path.join(saturn_dir, "mednafen"))
+    disc_bin = os.environ.get("THOR_DISC_IMAGE", os.path.join(repo_root, DEFAULT_BIN))
+    bios_path = os.environ.get("THOR_BIOS_IMAGE", os.path.join(repo_root, DEFAULT_BIOS))
+
+    # 1. Disc hash
+    with open(disc_bin, "rb") as f:
+        disc_sha = hashlib.sha256(f.read()).hexdigest()
+    assert disc_sha == CANONICAL_DISC_SHA, f"Disc SHA mismatch: {disc_sha} != {CANONICAL_DISC_SHA}"
+
+    # 2. BIOS hash
+    with open(bios_path, "rb") as f:
+        bios_sha = hashlib.sha256(f.read()).hexdigest()
+    assert bios_sha == CANONICAL_BIOS_SHA, f"BIOS SHA mismatch: {bios_sha} != {CANONICAL_BIOS_SHA}"
+
+    # 3. SaturnAutoRE commit
+    res_sat = subprocess.run(["git", "rev-parse", "HEAD"], cwd=saturn_dir, capture_output=True, text=True)
+    assert res_sat.returncode == 0 and res_sat.stdout.strip() == PINNED_SATURNAUTORE_COMMIT, \
+        f"SaturnAutoRE commit mismatch: {res_sat.stdout.strip()}"
+
+    # 4. Mednafen commit
+    res_med = subprocess.run(["git", "rev-parse", "HEAD"], cwd=mednafen_dir, capture_output=True, text=True)
+    assert res_med.returncode == 0 and res_med.stdout.strip() == PINNED_MEDNAFEN_COMMIT, \
+        f"Mednafen commit mismatch: {res_med.stdout.strip()}"
+
+    # 5. Mednafen binary hash
+    med_bin = os.path.join(mednafen_dir, "src", "mednafen.exe")
+    if not os.path.exists(med_bin):
+        med_bin = os.path.join(mednafen_dir, "src", "mednafen")
+    with open(med_bin, "rb") as f:
+        med_sha = hashlib.sha256(f.read()).hexdigest()
+    assert med_sha in VALID_MEDNAFEN_BIN_HASHES, f"Mednafen binary SHA mismatch: {med_sha}"
+
+
 def create_substituted_disc(
     repo_root: str,
     scratch_dir: str,
+    manifest: Dict[str, Any],
     reassembled_bytes: bytes,
 ) -> Tuple[str, str]:
-    """Create a temporary private disc image with reassembled bytes spliced at LBA 24."""
+    """Create temporary private disc image with reassembled module spliced."""
     os.makedirs(scratch_dir, exist_ok=True)
-    orig_bin_path = os.path.join(repo_root, BIN_ORIGINAL)
+    orig_bin_path = os.environ.get("THOR_DISC_IMAGE", os.path.join(repo_root, DEFAULT_BIN))
     rebuilt_bin_path = os.path.join(scratch_dir, "thor2_rebuilt.bin")
     rebuilt_cue_path = os.path.join(scratch_dir, "thor2_rebuilt.cue")
 
-    print(f"Creating private substituted disc image in {scratch_dir}...")
     shutil.copyfile(orig_bin_path, rebuilt_bin_path)
 
-    with open(rebuilt_bin_path, "r+b") as f:
-        if len(reassembled_bytes) > 2048:
-            lba = 24
-            num_sectors = (len(reassembled_bytes) + 2047) // 2048
-            for sec_idx in range(num_sectors):
-                chunk = reassembled_bytes[sec_idx * 2048 : (sec_idx + 1) * 2048]
-                sec_offset = (lba + sec_idx) * 2352 + 16
-                f.seek(sec_offset)
-                f.write(chunk)
-        else:
-            splice_offset = 24 * 2352 + 16
-            f.seek(splice_offset)
-            f.write(reassembled_bytes)
+    iso_lba = manifest["iso_sector_start"]
+    expected_size = manifest["module_size"]
+    num_sectors = (expected_size + 2047) // 2048
 
-    # Create matching CUE pointing to rebuilt bin
+    with open(rebuilt_bin_path, "r+b") as f:
+        for sec_idx in range(num_sectors):
+            chunk = reassembled_bytes[sec_idx * 2048 : (sec_idx + 1) * 2048]
+            sec_offset = (iso_lba + sec_idx) * 2352 + 16
+            f.seek(sec_offset)
+            f.write(chunk)
+
     cue_content = (
-        f'FILE "thor2_rebuilt.bin" BINARY\n'
-        f'  TRACK 01 MODE1/2352\n'
-        f'    INDEX 01 00:00:00\n'
+        'FILE "thor2_rebuilt.bin" BINARY\n'
+        '  TRACK 01 MODE1/2352\n'
+        '    INDEX 01 00:00:00\n'
     )
     with open(rebuilt_cue_path, "w", encoding="utf-8", newline="\n") as f:
         f.write(cue_content)
@@ -86,19 +127,19 @@ def create_substituted_disc(
 
 
 def run_mednafen_session(
+    repo_root: str,
     cue_path: str,
     work_dir: str,
     label: str,
 ) -> Dict[str, Any]:
-    """Run an automated cold-boot session in Mednafen via WSL python bot."""
+    """Run automated cold-boot session in Mednafen via WSL python bot."""
     os.makedirs(work_dir, exist_ok=True)
     home_dir = os.path.join(work_dir, "home")
     ipc_dir = os.path.join(work_dir, "ipc")
     os.makedirs(os.path.join(home_dir, "firmware"), exist_ok=True)
     os.makedirs(ipc_dir, exist_ok=True)
 
-    repo_root = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
-    bios_src = os.path.join(repo_root, BIOS_PATH)
+    bios_src = os.environ.get("THOR_BIOS_IMAGE", os.path.join(repo_root, DEFAULT_BIOS))
     shutil.copy2(bios_src, os.path.join(home_dir, "firmware", "mpr-17933.bin"))
     shutil.copy2(bios_src, os.path.join(home_dir, "mpr-17933.bin"))
 
@@ -116,10 +157,12 @@ def run_mednafen_session(
     ipc_wsl = to_wsl_path(ipc_dir)
     out_json_wsl = f"{ipc_wsl}/results.json"
 
-    # Inline runner script executed under WSL
+    saturn_dir = os.environ.get("THOR_SATURNAUTORE_DIR", os.path.join(repo_root, "..", "SaturnAutoRE"))
+    saturn_med_wsl = to_wsl_path(os.path.join(saturn_dir, "mednafen"))
+
     wsl_script = f"""
 import sys, os, json
-sys.path.insert(0, '/mnt/e/Github/SaturnAutoRE/mednafen')
+sys.path.insert(0, '{saturn_med_wsl}')
 from mednafen_bot import MednafenBot
 
 bot = MednafenBot(ipc_dir='{ipc_wsl}', cue_path='{cue_wsl}', show=False, sound=False, home_dir='{home_wsl}')
@@ -131,17 +174,16 @@ bot.send_and_wait("deterministic", "ok deterministic", timeout=10)
 bot.send_and_wait("native_mode 0", "ok native_mode", timeout=10)
 bot.send_and_wait("native_mask 0x00000000", "ok native_mask", timeout=10)
 
-checkpoints = {CHECKPOINTS!r}
+sequence = {CHECKPOINTS_SPEC!r}
 events = {{}}
 
-for addr, cp_label in checkpoints:
+for addr, cp_label, occ, exp_cycle, exp_pr in sequence:
     bot.send_and_wait(f"breakpoint {{addr}} once", "ok breakpoint", timeout=10)
     bot.send("run")
     ack = bot.wait_ack(["break pc=", "break"], timeout=60)
     bot.send("dump_regs")
     regs_ack = bot.wait_ack("R0=", timeout=10)
     
-    # parse registers
     regs = {{}}
     tokens = regs_ack.replace("regs", "").split()
     for tok in tokens:
@@ -151,10 +193,13 @@ for addr, cp_label in checkpoints:
             
     cycle = int(regs.get("cycle", "0"))
     pc = regs.get("PC", "")
+    pr = regs.get("PR", "")
     events[cp_label] = {{
         "checkpoint": cp_label,
         "address": f"0x{{addr}}",
+        "occurrence": occ,
         "pc": f"0x{{pc}}",
+        "pr": f"0x{{pr}}",
         "cycle": cycle,
         "regs": regs
     }}
@@ -181,39 +226,43 @@ with open('{out_json_wsl}', 'w') as f:
 
 def execute_runtime_parity_proof(
     repo_root: str,
+    manifest: Dict[str, Any],
     reassembled_bytes: bytes,
 ) -> Dict[str, Any]:
-    """Execute both cold boot runs and verify complete parity."""
+    """Execute cold boot runs and verify occurrence-aware parity."""
     scratch_root = os.path.join(repo_root, "scratch", "runtime_proof")
-    if os.path.exists(scratch_root):
-        shutil.rmtree(scratch_root, ignore_errors=True)
+    shutil.rmtree(scratch_root, ignore_errors=True)
     os.makedirs(scratch_root, exist_ok=True)
 
     try:
-        # 1. Run ORIGINAL
+        # Pre-run verification
+        print("Verifying environment and asset integrity...")
+        verify_environment_integrity(repo_root)
+        print("  SaturnAutoRE commit, Mednafen binary, BIOS, Disc: [ALL VERIFIED]")
+
+        # Run ORIGINAL
         print("\n--- Running Mednafen Cold Boot A: ORIGINAL (clean disc) ---")
-        orig_cue = os.path.join(repo_root, CUE_ORIGINAL)
+        orig_cue = os.environ.get("THOR_DISC_CUE", os.path.join(repo_root, DEFAULT_CUE))
         dir_a = os.path.join(scratch_root, "run_a_original")
-        results_a = run_mednafen_session(orig_cue, dir_a, "ORIGINAL")
+        results_a = run_mednafen_session(repo_root, orig_cue, dir_a, "ORIGINAL")
 
-        # 2. Run ASM_REBUILT
-        print("\n--- Running Mednafen Cold Boot B: ASM_REBUILT (substituted slice) ---")
-        rebuilt_cue, rebuilt_bin = create_substituted_disc(repo_root, scratch_root, reassembled_bytes)
+        # Run ASM_REBUILT
+        print("\n--- Running Mednafen Cold Boot B: ASM_REBUILT (substituted module) ---")
+        rebuilt_cue, _ = create_substituted_disc(repo_root, scratch_root, manifest, reassembled_bytes)
         dir_b = os.path.join(scratch_root, "run_b_rebuilt")
-        results_b = run_mednafen_session(rebuilt_cue, dir_b, "ASM_REBUILT")
+        results_b = run_mednafen_session(repo_root, rebuilt_cue, dir_b, "ASM_REBUILT")
 
-        # 3. Compare Parity
-        print("\n--- Analyzing Runtime Parity ---")
+        print("\n--- Analyzing Occurrence-Aware Runtime Parity ---")
         comparison = {}
         all_match = True
 
-        for _, label in CHECKPOINTS:
+        for _, label, occ, exp_c, exp_pr in CHECKPOINTS_SPEC:
             ev_a = results_a[label]
             ev_b = results_b[label]
             
             cycle_a = ev_a["cycle"]
             cycle_b = ev_b["cycle"]
-            cycle_match = (cycle_a == cycle_b)
+            cycle_match = (cycle_a == cycle_b == exp_c)
             
             regs_diff = {}
             for r in REG_NAMES:
@@ -228,6 +277,7 @@ def execute_runtime_parity_proof(
 
             comparison[label] = {
                 "address": ev_a["address"],
+                "occurrence": occ,
                 "cycle_original": cycle_a,
                 "cycle_rebuilt": cycle_b,
                 "cycle_match": cycle_match,
@@ -235,70 +285,53 @@ def execute_runtime_parity_proof(
                 "differing_regs": regs_diff,
                 "regs": ev_b["regs"],
             }
-            print(f"  [{label}] Cycle A: {cycle_a} | Cycle B: {cycle_b} | Regs Match: {reg_match}")
+            print(f"  [{label} | occ={occ}] Cycle: {cycle_a} (exp: {exp_c}) | Regs Match: {reg_match}")
 
-        # Check timing invariants
-        c_entry = results_b["entry_06004000"]["cycle"]
-        c_target = results_b["branch_target_06004012"]["cycle"]
-        duration = c_target - c_entry
-        print(f"\nBounded Timing Verification:")
-        print(f"  Entry 0x06004000 cycle: {c_entry} (expected: {EXPECTED_ENTRY_CYCLE})")
-        print(f"  Target 0x06004012 cycle: {c_target} (expected: {EXPECTED_TARGET_CYCLE})")
-        print(f"  Block Duration:          {duration} (expected: {EXPECTED_DURATION})")
-
-        timing_ok = (c_entry == EXPECTED_ENTRY_CYCLE and c_target == EXPECTED_TARGET_CYCLE and duration == EXPECTED_DURATION)
-
+        timing_ok = all_match
         return {
             "all_match": all_match,
             "timing_ok": timing_ok,
-            "entry_cycle": c_entry,
-            "target_cycle": c_target,
-            "duration": duration,
             "comparison": comparison,
             "results_original": results_a,
             "results_rebuilt": results_b,
         }
 
     finally:
-        # Legal hygiene: wipe private substituted binary
-        if os.path.exists(scratch_root):
-            shutil.rmtree(scratch_root, ignore_errors=True)
-            print("Private substituted disc image cleaned up.")
+        shutil.rmtree(scratch_root, ignore_errors=True)
+        print("Private substituted disc image cleaned up.")
 
 
 def main() -> int:
-    repo_root = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
-    bin_path = None
-    if len(sys.argv) > 1:
-        bin_path = sys.argv[1]
-    else:
-        candidates = [
-            os.path.join(repo_root, "out", "asm_module_build_1", "block.bin"),
-            os.path.join(repo_root, "out", "asm_build_1", "block.bin"),
-        ]
-        for c in candidates:
-            if os.path.exists(c):
-                bin_path = c
-                break
+    parser = argparse.ArgumentParser(description="Occurrence-aware runtime substitution proof")
+    parser.add_argument("--manifest", default=None, help="Path to module manifest")
+    parser.add_argument("--repo-root", default=None, help="Root repository directory")
+    args = parser.parse_args()
 
-    if not bin_path or not os.path.exists(bin_path):
-        print("ERROR: Assembled binary not found. Run build_full_module.py first.")
-        return 1
+    repo_root = args.repo_root or os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
+    manifest_path = args.manifest or os.path.join(repo_root, "asm", "manifests", "0TH2.BIN.json")
 
-    print(f"Running runtime substitution proof with binary: {bin_path}")
+    with open(manifest_path, "r", encoding="utf-8") as f:
+        manifest = json.load(f)
+
+    module_name = manifest["module"]
+    stem = "0TH2" if module_name == "0TH2.BIN" else module_name.replace(".", "_")
+
+    bin_path = os.path.join(repo_root, "out", f"asm_{stem}_build_1", "block.bin")
+    if not os.path.exists(bin_path):
+        build_script = os.path.join(repo_root, "tools", "asm", "build_full_module.py")
+        subprocess.run([sys.executable, build_script, "--manifest", manifest_path], check=True, cwd=repo_root)
+
+    print(f"Running occurrence-aware runtime proof for {module_name} using: {bin_path}")
     with open(bin_path, "rb") as f:
         rebuilt_bytes = f.read()
 
-    proof_data = execute_runtime_parity_proof(repo_root, rebuilt_bytes)
+    proof_data = execute_runtime_parity_proof(repo_root, manifest, rebuilt_bytes)
 
     if not proof_data["all_match"]:
         print("ERROR: Runtime register/cycle divergence detected!")
         return 1
-    if not proof_data["timing_ok"]:
-        print("ERROR: Runtime timing invariant violation!")
-        return 1
 
-    print("\n=== BOUNDED RUNTIME SUBSTITUTION PROOF: PASS ===")
+    print(f"\n=== OCCURRENCE-AWARE RUNTIME SUBSTITUTION PROOF: PASS ({module_name}) ===")
     return 0
 
 

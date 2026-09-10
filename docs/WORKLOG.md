@@ -1,5 +1,61 @@
 # Worklog
 
+## 2026-09-10 — T2-ASM-03 TH2.LOW Lossless ASM Container & Shared ASM Recovery Infrastructure
+
+### Task
+
+Execute the third bounded experiment of ADR D-015 (ASM_FIRST_RECOVERY): harden shared ASM recovery infrastructure left by ASM-02; establish formal manifest schema (`asm/schema/module_manifest.schema.json`) with exhaustive non-overlapping range partitioning (`CONFIRMED_CODE`, `PROBABLE_CODE`, `DATA`, `UNKNOWN`); replace Python SH-2 decoders with C++ `verify_sh2_rebuilt` tool linked against `thor_sh2`; support environment variables and enforce pre-run integrity validation; repair occurrence-aware runtime verification in Mednafen oracle; create a private lossless assembly container for secondary Saturn binary `TH2.LOW` (149,504 bytes, VMA `0x002DA000..0x002FE7FF`); reassemble `TH2.LOW` byte-exact (SHA-256 `781396898191921b486be751163aea493ef9b1abcb55c0ab8698df9c69211224`); prove dual-build determinism; splice into private disc image at LBA 52123 across 73 sectors (clean disc SHA-256 `fe11d2fb...`); prove real `TH2.LOW` execution occurrence in pure interpreter Mednafen (cycle 387459915 at `0x002E9910`); run negative controls; record evidence.
+
+### Method & Discoveries
+
+1. **Shared ASM Recovery Infrastructure Hardened**:
+   - Formalized manifest schema (`asm/schema/module_manifest.schema.json`) requiring exhaustive range partition: start offset, end offset exclusive, runtime VMA, byte length, evidence classification, and assembly representation.
+   - Upgraded `0TH2.BIN.json` to full 4-range partition (`0..12`, `12..640`, `640..650`, `650..535552`).
+   - Created `TH2.LOW.json` with exact 3-range partition (`0..63760` UNKNOWN, `63760..63762` CONFIRMED_CODE / RAW_CODE_PENDING_DECODE, `63762..149504` UNKNOWN).
+   - Created C++ tool `tools/asm/verify_sh2_rebuilt.cpp` linking authoritative `thor_sh2` (`thor::sh2::decode_sh2`). Eliminated all Python opcode decoders.
+   - Upgraded `generate_full_module_asm.py`, `build_full_module.py`, and `verify_full_module.py` to be manifest-driven.
+   - Added `THOR_*` environment variables with strict pre-run verification of SaturnAutoRE commit (`4662aad...`), Mednafen commit (`1554266...`), Mednafen binary, BIOS (`96e106f...`), and Disc (`fe11d2f...`).
+2. **Private Lossless Assembly Container for TH2.LOW**:
+   - Extracted canonical 149,504-byte `TH2.LOW` directly from retail disc at CD-ROM LBA 52123 across 73 sectors.
+   - Generated private assembly container `.private/asm/TH2_LOW/TH2_LOW.s` (9,365 lines):
+     - Executed opcode at `0x002E9910` (`0x2FE6` MOV.L R14, @-R15) preserved safely as `RAW_CODE_PENDING_DECODE` via `.byte 0x2F, 0xE6` without speculative mnemonic invention.
+     - Remaining 149,502 bytes emitted losslessly as `.byte` directives.
+     - Symbolic label `entry_002E9910` placed at real byte offset `+0xF910`.
+   - Generated linker script `asm/linker/TH2_LOW.ld` asserting `ADDR(.text) == 0x002DA000`, `SIZEOF(.text) == 149504`, and `entry_002E9910 == 0x002E9910`.
+3. **Assembly, Link & Dual-Build Determinism**:
+   - Assembled with pinned `sh-elf-as` and linked with `sh-elf-ld` at Saturn VMA `0x002DA000`.
+   - Relocations remaining: 0 (`NONE (Clean)`).
+   - Extracted 149,504 bytes: bit-identical to canonical `TH2.LOW` (SHA-256 `781396898191921b486be751163aea493ef9b1abcb55c0ab8698df9c69211224`).
+   - Dual-build determinism verified: 0 differing bytes between independent runs.
+4. **Sector-by-Sector Disc Splice**:
+   - Spliced 149,504 rebuilt bytes across sectors 52123..52195 of retail disc.
+   - Spliced disc SHA-256 matches canonical retail disc `fe11d2fb...` bit-for-bit.
+5. **Occurrence-Aware Runtime Verification in Clean Mednafen**:
+   - Replaced fragile sequential loops with explicit occurrence-aware checkpoint specifications.
+   - Traced full execution sequence:
+     - `0x06004000` (occ 0): cycle `305462360`, entry from BIOS.
+     - `0x06004012` (occ 0): cycle `305462387`, branch target of `bb_06004000`.
+     - `0x06004280` (occ 0): cycle `307090585`, candidate entry pass.
+     - `0x06004280` (occ 1): cycle `316309168`, candidate entry pass before TH2.LOW load.
+     - `0x0600A0F8` (occ 2): cycle `316309189`, called from `0x06004286` with `PR=0x0600428A`, `R4="TH2.LOW"`, `R5=0x002DA000`, `R3=0x0600A0F8` (true loader call for TH2.LOW).
+     - `0x002E9910` (occ 0): cycle `387459915`, executed within `TH2.LOW` with `PR=0x060042E4`, advancing to subsequent instructions (`0x002E9914` cycle 387459916, `0x002E9916` cycle 387459917, `0x002E9918` cycle 387459918, `0x002E991A` cycle 387459921).
+   - Differential comparison (ORIGINAL vs substituted `TH2.LOW`): 0 divergent cycles, 23/23 matching registers across all 6 checkpoints.
+6. **Negative Controls Suite & CTest Automation**:
+   - 10/10 TH2.LOW negative controls pass fail-closed (`tools/asm/verify_full_module.py`).
+   - 20/20 0TH2.BIN negative controls pass fail-closed (`tools/asm/verify_full_module.py`).
+   - 9/9 manifest schema and partition negative controls pass fail-closed (`tests/asm/test_manifest_schema.py`).
+   - 23/23 CTest test suites pass on Windows MinGW and Linux WSL.
+   - Publication hygiene verified: zero commercial bytes tracked.
+
+### Status After Pass
+
+- `T2-ASM-03`: **PASS**
+- `TH2.LOW`: `MODULE_CONTAINER_ESTABLISHED = PASS`, `ASM_BYTE_EXACT = PASS`, `ASM_RUNTIME_VERIFIED = PASS`
+- `0TH2.BIN`: `ASM_BYTE_EXACT = PASS`, `ASM_RUNTIME_VERIFIED = PASS`
+- Broad C++ Translation: **FROZEN** (ADR D-015)
+- `FULL_ASM_GAME_GATE`: **IN_PROGRESS**
+- Exact next action: `T2-ASM-04 — Secondary Module Skeletons & Systematic Module Enumeration`.
+
 ## 2026-09-10 — T2-ASM-02 Full 0TH2.BIN Lossless Assembly Container & Byte-Exact Module Round-Trip
 
 ### Task
