@@ -2,9 +2,12 @@
 
 - **Experiment Date**: 2026-09-10
 - **Upstream Git Pin**: `26c9715e5493054b8a205aa31d73d8f125fdd8f5`
+- **Pinned Git Blobs**:
+  - `external/sh2-recomp-core/common/sh2_decoder.c`: `6a5f7e06606c2dab20e84b5c014c014647be70e4`
+  - `external/sh2-recomp-core/common/sh2_isa.h`: `709f92437990a2a0fe6b69d34565cea9d432a844`
 - **Authority Standard**: Hitachi SH-1/SH-2 Programming Manual Rev. 4.0 (Sept 2004)
 - **Dynamic Oracle**: AJBats/mednafen-saturn-debug (`155426661b7ac3152e2c93a98da60ac33002b908`)
-- **Status**: **PASS (0 unexplained decode or semantic disagreements)**
+- **Status**: **PASS (0 unexplained decode or semantic disagreements across 20 decode vectors and 8 live semantic cases)**
 
 ---
 
@@ -84,16 +87,26 @@ Representative edge cases evaluated against Hitachi manual, Mednafen, and Saturn
 
 - **SaturnRecomp Health Check**: Built and ran `tests/sh2_semantics` against pinned commit `26c9715`: `PASS: 39 checks, 0 failed`.
 - **Project-Side Automated Test**: `tests/recomp/test_m07_reference.py` integrated into CMake / CTest.
-- **Fail-Closed Negative Controls**: 9 distinct corruption scenarios tested:
+- **Strict External Reproduction**: Verified with `python tests/recomp/test_m07_reference.py --require-external` across Windows MinGW and Linux WSL against clean checkouts of the external repository.
+- **Fail-Closed Negative Controls**: 18 distinct corruption scenarios tested:
   1. Corrupted schema version -> Caught and rejected.
   2. Corrupted method ID -> Caught and rejected.
   3. Missing pinned commit metadata -> Caught and rejected.
-  4. Truncated overlap vector list -> Caught and rejected.
-  5. Zero branch target on conditional branch -> Caught and rejected.
-  6. Missing branch flag on `BF` -> Caught and rejected.
-  7. Missing delay slot flag on `BF/S` -> Caught and rejected.
-  8. Corrupted sign extension on `ADD #-1` -> Caught and rejected.
-  9. Missing required opcode class (`DIV1`) -> Caught and rejected.
+  4. Missing decoder blob metadata -> Caught and rejected.
+  5. Missing ISA blob metadata -> Caught and rejected.
+  6. Truncated overlap vector list -> Caught and rejected.
+  7. Zero branch target on conditional branch -> Caught and rejected.
+  8. Missing branch flag on `BF` -> Caught and rejected.
+  9. Missing delay slot flag on `BF/S` -> Caught and rejected.
+  10. Corrupted immediate value on `ADD #-1` -> Caught and rejected.
+  11. Invalid access size (3 bytes) on memory read -> Caught and rejected.
+  12. Missing load flag on memory read (`mov.w@ld`) -> Caught and rejected.
+  13. Spurious store flag on memory read (`mov.w@ld`) -> Caught and rejected.
+  14. Missing conditional flag on `BF` -> Caught and rejected.
+  15. Missing displacement flag on `BRA` -> Caught and rejected.
+  16. Missing required opcode class (`DIV1`) -> Caught and rejected.
+  17. Empty semantic vector list -> Caught and rejected.
+  18. Missing expected output in semantic vector -> Caught and rejected.
 
 All 14 CTest test suites pass 100% on MinGW Windows and Linux WSL (Debug and Release).
 
@@ -102,8 +115,8 @@ All 14 CTest test suites pass 100% on MinGW Windows and Linux WSL (Debug and Rel
 ## 5. Method Disposition
 
 1. **M-07A (SH-2 Decoder & Semantic Reference Corpus)**:
-   - **Evidence Strength**: HIGH
-   - **Workflow Utility**: HIGH
+   - **Evidence Strength**: MEDIUM (Clean-room third-party implementation; authoritative reference remains Hitachi manual and Mednafen oracle)
+   - **Workflow Utility**: HIGH (Rapid decoding cross-check and semantic disambiguation)
    - **Disposition**: **ADOPT_PARTIAL (DECODER_AND_SEMANTIC_REFERENCE)**
    - Used as an independent static cross-check accelerator for future instruction expansion.
 2. **M-07B (AOT Translation Emitter / C Codegen)**:

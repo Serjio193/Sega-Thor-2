@@ -22,12 +22,14 @@ MutationStatus GuestMutationHarness::validate_spec(
         return MutationStatus::SPEC_INVALID;
     }
 
+    constexpr uint64_t MAX_ADDRESS_EXCLUSIVE = 0x100000000ULL;
     uint64_t len = spec.replacement_bytes.size();
-    uint64_t end_addr = static_cast<uint64_t>(spec.address) + len;
-    if (end_addr > 0xFFFFFFFFull) {
-        out_detail = "Address arithmetic overflow";
+    if (static_cast<uint64_t>(spec.address) >= MAX_ADDRESS_EXCLUSIVE ||
+        len > (MAX_ADDRESS_EXCLUSIVE - static_cast<uint64_t>(spec.address))) {
+        out_detail = "32-bit address-space overflow / exclusive-end range overflow";
         return MutationStatus::RANGE_UNAUTHORIZED;
     }
+    uint64_t end_addr = static_cast<uint64_t>(spec.address) + len;
 
     uint64_t auth_end = static_cast<uint64_t>(m_auth_start) + m_auth_size;
     if (spec.address < m_auth_start || end_addr > auth_end) {

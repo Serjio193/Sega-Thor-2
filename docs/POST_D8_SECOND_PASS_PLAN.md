@@ -24,8 +24,8 @@ A method is never rejected solely because it cannot serve as a proof mechanism; 
 | **M-04** | `AJBats/SaturnAutoRE` | Automated function boundary heuristics | `DEFERRED` | `CANDIDATE_BOUNDARY_PROPOSAL` | Gated by multi-block call/ret CFG and D12 (Structural Recovery) |
 | **M-05** | `saturn-daytona-cce-re` | Module RAM mapping verification via SHA-256 | `ADOPT_PARTIAL` (ADR D-011) | `ACTIVE_INFRASTRUCTURE` (Proof) | Operational (D2/V-02a) |
 | **M-06** | `saturn-daytona-cce-re` | Linker script / relocatable section reconstruction | `DEFERRED` | `BINARY_TOPOLOGY_REFERENCE` | Gated by D12 (Structural Recovery) & D13 (Guest-Address/Type Provenance) |
-| **M-07A** | `SaturnRecomp` | SH-2 decoder & execution-semantic reference corpus | `ADOPT_PARTIAL` | `DECODER_AND_SEMANTIC_REFERENCE` | Evaluated & Adopted (T2-POST-D8.2) |
-| **M-07B** | `SaturnRecomp` | Public AOT translation emitter / C codegen | `NOT_PRESENT_AT_PIN` | `NONE` (No public AOT emitter at commit 26c9715) | Evaluated (T2-POST-D8.2) |
+| **M-07A** | `SaturnRecomp` | SH-2 decoder & execution-semantic reference corpus | `ADOPT_PARTIAL` | `DECODER_AND_SEMANTIC_REFERENCE` (Evidence Strength: `MEDIUM`, Utility: `HIGH`) | Evaluated & Adopted (T2-POST-D8.2/3) |
+| **M-07B** | `SaturnRecomp` | Public AOT translation emitter / C codegen | `NOT_PRESENT_AT_PIN` | `NONE` (No public AOT emitter at commit 26c9715) | Evaluated (T2-POST-D8.2/3) |
 | **M-08** | `SaturnRecomp` | Wholesale Saturn system runtime / emulator fallback | `REJECT` (ADR D-006) | `REJECT_MAINTAINED` (No wholesale emulator) | Architectural constraint |
 | **M-09** | Sega Saturn SDK / SGI | Official Sega header structures & peripheral MMIO layouts | `REFERENCE_ONLY` | `SEMANTIC_TYPE_CANDIDATES` | Gated by D15 (HW-Subsystem Contracts) |
 | **M-10** | Historical Toolchains | Compiler fingerprinting / optimization matching (GCC 2.7 / Cygnus) | `HEURISTIC` | `CFG_RECONSTRUCTION_ACCELERATOR` | Gated by D12 (Structural Recovery) |
@@ -35,20 +35,19 @@ A method is never rejected solely because it cannot serve as a proof mechanism; 
 ## 3. Second-Pass Experiment Schedule
 
 ### Phase 2A — Pre-D9 Method Experiments (Current Horizon)
-- **M-02 / M-02.1 (Mutation / Fault Injection)**: Evaluated under `T2-POST-D8.1` and `T2-POST-D8.2`. Implemented fail-closed spec validation, boundary bounds checking, and restore precondition verification. Disposition: `ADOPT_PARTIAL` as `NEGATIVE_CONTROL_HARNESS` / `FAULT_INJECTION_TESTING` (not positive equivalence proof). Status: `COMPLETE`.
-- **M-07 (SaturnRecomp SH-2 Reference Corpus)**: Evaluated under `T2-POST-D8.2`.
-  - **M-07A (Decoder/Semantic Corpus)**: Disposition: `ADOPT_PARTIAL` as `DECODER_AND_SEMANTIC_REFERENCE`. Evaluated across 6 `bb_06004000` overlap vectors and 14 future-expansion synthetic probe vectors; 0 unexplained decode/semantic disagreements. Status: `COMPLETE`.
+- **M-02 / M-02.1 (Mutation / Fault Injection)**: Evaluated under `T2-POST-D8.1` and `T2-POST-D8.2`. Implemented fail-closed spec validation, checked 64-bit bounds arithmetic against address-space overflow, and restore precondition verification. Disposition: `ADOPT_PARTIAL` as `NEGATIVE_CONTROL_HARNESS` / `FAULT_INJECTION_TESTING` (not positive equivalence proof). Status: `COMPLETE`.
+- **M-07 (SaturnRecomp SH-2 Reference Corpus)**: Evaluated under `T2-POST-D8.2` and `T2-POST-D8.3`.
+  - **M-07A (Decoder/Semantic Corpus)**: Disposition: `ADOPT_PARTIAL` as `DECODER_AND_SEMANTIC_REFERENCE`. Evaluated across 20 decoded vectors and 8 live semantic cases; 0 unexplained decode/semantic disagreements. Status: `COMPLETE`.
   - **M-07B (AOT Emitter / C Codegen)**: Disposition: `NOT_PRESENT_AT_PIN` (`REJECT_AT_PIN` / `DEFER`). Upstream repo contains no public AOT emitter or C generator at commit `26c9715e5493054b8a205aa31d73d8f125fdd8f5`. Status: `COMPLETE`.
 
-### Phase 2E — Post-D8 Second-Pass Closure Audit (Next Gate)
-Following M-07 completion, POST-D8 remains `ACTIVE`. The exact next gate is:
-**`POST-D8 SECOND-PASS CLOSURE AUDIT`**.
-This gate will verify:
-1. Operational evidence for M-01 and M-05.
-2. Completed evidence and regression coverage for M-02 (including M-02.1 harness safety) and M-07 (M-07A adoption, M-07B absence).
-3. Architectural rejection record of M-08.
-4. Explicit prerequisite-blocked tracking for M-03, M-04, M-06, M-09, M-10.
-Only that closure gate may decide whether D9 planning can begin.
+### Phase 2E — Post-D8 Second-Pass Closure Audit (Completed)
+Following M-07 completion, the second-pass audit was conducted under `T2-POST-D8.3` and recorded in [docs/POST_D8_SECOND_PASS_CLOSURE.md](POST_D8_SECOND_PASS_CLOSURE.md).
+Findings:
+1. Operational evidence confirmed for M-01 and M-05.
+2. Completed evidence and regression coverage verified for M-02 (including M-02.1 harness safety) and M-07 (M-07A adoption, M-07B absence).
+3. Architectural rejection maintained for M-08 (ADR D-006).
+4. Explicit prerequisite-blocked tracking established for M-03 (D9), M-04 (D12), M-06 (D12/D13), M-09 (D15), M-10 (D12).
+Status: **COMPLETE / SATISFIED / CLOSED**. D9 is **UNBLOCKED_FOR_PLANNING**.
 
 ### Phase 2B — D9 Indirect Control-Flow Horizon (`PREREQUISITE_BLOCKED` until D9)
 - **M-03 (SaturnAutoRE Autonomous Batch Scanning)**:

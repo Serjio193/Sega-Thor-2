@@ -23,6 +23,7 @@ docs/
   PIPELINE_VALIDATION_PLAN.md     method/component experiment and adoption gates (V-01–V-14)
   DEVELOPMENT_RULES.md            source/C++/testing/PR/scope discipline
   POST_D8_SECOND_PASS_PLAN.md     mandatory external method second-pass plan (ADR D-012)
+  POST_D8_SECOND_PASS_CLOSURE.md  canonical closure audit of external methods M-01..M-10
   RE_TOOLCHAIN_GUIDE.md           historical Saturn SDK/toolchain evidence rules
   RULES_TRANSFER_AUDIT.md         Sega-Thor -> Sega-Thor-2 governance parity audit
 

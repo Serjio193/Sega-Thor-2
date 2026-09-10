@@ -30,9 +30,11 @@ class LiveGuestMutationHarness:
             raise ValueError("Mutation spec expected_original and replacement_bytes must be non-empty")
         if len(expected_orig) != len(replacement_bytes):
             raise ValueError(f"Mismatched vector lengths: orig={len(expected_orig)}, repl={len(replacement_bytes)}")
-        end_addr = addr + len(replacement_bytes)
-        if end_addr > 0xFFFFFFFF:
-            raise ValueError("Address arithmetic overflow")
+        MAX_ADDRESS_EXCLUSIVE = 0x100000000
+        length = len(replacement_bytes)
+        if addr >= MAX_ADDRESS_EXCLUSIVE or length > (MAX_ADDRESS_EXCLUSIVE - addr):
+            raise ValueError("32-bit address-space overflow / exclusive-end range overflow")
+        end_addr = addr + length
         if addr < self.auth_start or end_addr > (self.auth_start + self.auth_size):
             raise ValueError(f"Target address range [0x{addr:08x}, 0x{end_addr:08x}) outside authorized range [0x{self.auth_start:08x}, 0x{self.auth_start + self.auth_size:08x})")
 

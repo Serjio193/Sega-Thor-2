@@ -10,8 +10,12 @@ The primary objective is to evaluate whether SaturnRecomp's SH-2 decoder, execut
 
 - **Repository**: `https://github.com/sonsegajp/SaturnRecomp.git`
 - **Pinned Commit**: `26c9715e5493054b8a205aa31d73d8f125fdd8f5`
+- **Pinned Git Blobs**:
+  - `external/sh2-recomp-core/common/sh2_decoder.c`: `6a5f7e06606c2dab20e84b5c014c014647be70e4`
+  - `external/sh2-recomp-core/common/sh2_isa.h`: `709f92437990a2a0fe6b69d34565cea9d432a844`
 - **Audit Date**: 2026-09-10
 - **Licensing Constraint**: The upstream repository does not contain an open-source license grant. Consequently, **zero foreign source files are vendored or checked into Sega-Thor-2**. Only derived, legal-safe facts (opcode patterns, operand shapes, and behavioral contracts) are recorded in `reference_vectors.json`.
+- **Classification**: Evidence Strength: `MEDIUM` (non-authoritative clean-room reference); Workflow Utility: `HIGH` (accelerates instruction decoding and edge-case disambiguation).
 
 ## 3. Structural Audit: M-07A vs M-07B
 
@@ -21,6 +25,7 @@ An audit of the pinned commit reveals a distinct split in capabilities:
    - Core decoder located at `external/sh2-recomp-core/common/sh2_isa.h` and `sh2_decoder.c`.
    - Structured `sh2_insn` representation covers opcode identification, branch/delay flags, register operand shapes, memory load/store attributes, displacement, and immediate scaling.
    - Comprehensive execution semantic tests in `tests/sh2_semantics.c` (39/39 passing).
+   - Live dynamic runner tested against 8 semantic edge-case execution vectors with 0 disagreements.
 2. **M-07B (Public Ahead-of-Time Recompilation / C Code Generator)**: **NOT_PRESENT_AT_PIN**
    - `README.md` explicitly documents: *"The decoder and module-analysis foundation for ahead-of-time recompilation are present, but a complete public AOT emitter is not."*
    - Directory `recompiler/` contains disc header parsing, ISO extraction, and disassembly text formatting (`sh2_format`). No C code generation backend exists at this commit.

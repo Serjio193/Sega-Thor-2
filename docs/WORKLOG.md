@@ -1,5 +1,53 @@
 # Worklog
 
+## 2026-09-10 — T2-POST-D8.3 ADR D-012 Second-Pass Closure Audit
+
+### Task
+
+Execute and close the mandatory **ADR D-012 Post-D8 Second-Pass Audit**.
+Repair residual M-07 reproducibility and classification issues; harden external source identity to pinned Git blobs; implement strict external reproduction mode; expand normalized full-field decode comparisons (20 vectors) and live semantic execution checks (8 cases); expand fail-closed negative controls to 18 corruption checks; clarify M-02 overflow wording and checked arithmetic; conduct an exhaustive audit across all inventoried external methods M-01 through M-10; author the canonical closure record `docs/POST_D8_SECOND_PASS_CLOSURE.md`; close the POST-D8 second pass; unblock D9 for planning.
+
+### Method & Discoveries
+
+1. **M-02 Overflow Terminology and Arithmetic Hardening**:
+   - Clarified overflow error message to "32-bit address-space overflow / exclusive-end range overflow" across C++ (`src/recomp/mutation_harness.cpp`) and Python (`tools/recomp/mutation_harness.py`).
+   - Verified 64-bit checked arithmetic boundary (`MAX_ADDRESS_EXCLUSIVE = 0x100000000ULL`) preventing overflow beyond 4GB address space (`len > (MAX_ADDRESS_EXCLUSIVE - start)`).
+2. **M-07 Hardened Source Identity & Blob Pinning**:
+   - Verified exact Git blob IDs for SaturnRecomp pinned commit `26c9715e5493054b8a205aa31d73d8f125fdd8f5`:
+     - `external/sh2-recomp-core/common/sh2_decoder.c`: `6a5f7e06606c2dab20e84b5c014c014647be70e4`
+     - `external/sh2-recomp-core/common/sh2_isa.h`: `709f92437990a2a0fe6b69d34565cea9d432a844`
+   - Hardened `tools/recomp/saturnrecomp_adapter.py` to extract exact pinned blobs via `git show <PIN>:<path>` into hash-keyed cache directories, completely eliminating stale `/tmp` caching.
+3. **Full-Field Normalized Decode Comparison & Live Semantic Execution**:
+   - Expanded decode comparison across 20 vectors (6 startup overlap + 14 future-expansion synthetic probes) evaluating 16 distinct fields: valid, raw, addr, class, Rn, Rm, size, branch, cond, delay, indirect, load, store, imm, disp, target.
+   - Formalized normalization rule: `uses_rn` and `uses_rm` in `sh2_insn.flags` define whether Rn and Rm are architectural operands; raw register bits in unused positions are normalized.
+   - Built live dynamic C runner invoking compiled SaturnRecomp interpreter against 8 semantic edge-case execution vectors (`cmp_ge_signed`, `cmp_hs_unsigned`, `shlr_logical`, `shar_arithmetic`, `add_imm_sign_ext`, `bf_delayed_exec`, `rotcl_semantics`, `div0s_div1`): 0 disagreements observed.
+4. **Strict External Mode & 18 Negative Controls**:
+   - Implemented `--require-external` in `tests/recomp/test_m07_reference.py`, verified on Windows MinGW and Linux WSL against external repo checkout.
+   - Expanded negative controls from 9 to 18 fail-closed corruption checks: 18/18 detected and rejected (100%).
+   - Re-evaluated M-07A Evidence Strength to `MEDIUM` (Workflow Utility: `HIGH`) per D-012, recognizing SaturnRecomp as clean-room third-party reference code rather than primary silicon authority.
+5. **Exhaustive Method Audit (M-01 through M-10)**:
+   - Authored canonical closure record `docs/POST_D8_SECOND_PASS_CLOSURE.md` detailing every method under the mandatory schema.
+   - Reconciled all 10 methods:
+     - `M-01`: `ADOPT_PARTIAL / ACTIVE_INFRASTRUCTURE` (Low-level IPC harness, operational).
+     - `M-02`: `ADOPT_PARTIAL / NEGATIVE_CONTROL_HARNESS` (Mutation fault injection, operational).
+     - `M-03`: `DEFER / PREREQUISITE_BLOCKED_AT_D9` (Autonomous loop / scanner, blocked at D9 multi-block CFG).
+     - `M-04`: `DEFER / PREREQUISITE_BLOCKED_AT_D12` (Function boundary heuristics, blocked at D12 structural recovery).
+     - `M-05`: `ADOPT_PARTIAL / ACTIVE_INFRASTRUCTURE` (RAM mapping and Ghidra data types, operational).
+     - `M-06`: `DEFER / PREREQUISITE_BLOCKED_AT_D12_D13` (Linker script reconstruction, blocked at D12/D13).
+     - `M-07A`: `ADOPT_PARTIAL / DECODER_AND_SEMANTIC_REFERENCE` (SaturnRecomp decoder/semantic corpus, operational).
+     - `M-07B`: `NOT_PRESENT_AT_PIN` (Public AOT translation emitter absent upstream).
+     - `M-08`: `REJECT_MAINTAINED / ARCHITECTURAL_CONSTRAINT` (Wholesale emulator production runtime rejected).
+     - `M-09`: `DEFER / PREREQUISITE_BLOCKED_AT_D15` (SDK headers / peripheral layouts, blocked at D15 HW subsystems).
+     - `M-10`: `DEFER / PREREQUISITE_BLOCKED_AT_D12` (Historical compiler fingerprinting, blocked at D12).
+   - Confirmed zero remaining untested methods testable with current D8 capabilities.
+
+### Status After Pass
+
+- `POST_D8_SECOND_PASS`: **SATISFIED / CLOSED**
+- `ADR D-012`: **PASS**
+- `D9`: **UNBLOCKED_FOR_PLANNING**
+- Next action: D9 planning and multi-block expansion architecture design.
+
 ## 2026-09-10 — T2-POST-D8.2 / M-02.1 / M-07 SaturnRecomp SH-2 Reference Corpus Experiment
 
 ### Task
