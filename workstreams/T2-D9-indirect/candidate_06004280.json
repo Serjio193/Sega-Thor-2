@@ -1,0 +1,23 @@
+{
+  "schema_version": "1.0",
+  "revision": "thor2_ntsc_patched_fe11d2fb",
+  "cpu": "MASTER_SH2",
+  "module": "0TH2.BIN",
+  "block_start": "0x06004280",
+  "block_end": "0x06004288",
+  "byte_length": 10,
+  "instruction_count": 5,
+  "sha256": "8879cbe14f58a5fbc4eb9545e1cc41b3593e306cab114769a94f814a18bcb770",
+  "terminator_pc": "0x06004286",
+  "exit_kind": "INDIRECT_CALL",
+  "delay_slot_pc": "0x06004288",
+  "observed_target": "0x0600A0F8",
+  "observed_pr": "0x0600428A",
+  "source_entry_cycle": 316309168,
+  "delay_slot_entry_cycle": 316309187,
+  "target_entry_cycle": 316309189,
+  "delay_slot_entry_delta": 19,
+  "block_duration": 21,
+  "debugger_reported_frame": 701,
+  "ownership_state": "CONFIRMED_CODE / EXECUTED"
+}

@@ -23,6 +23,8 @@ add_library(thor_recomp STATIC
     src/recomp/block_compiler.cpp
     src/recomp/shadow_checker.cpp
     src/recomp/mutation_harness.cpp
+    src/recomp/block_exit.cpp
+    src/recomp/block_memory.cpp
 )
 target_link_libraries(thor_recomp PUBLIC thor_sh2)
 
@@ -134,6 +136,16 @@ add_executable(test_mutation_harness tests/recomp/test_mutation_harness.cpp)
 target_link_libraries(test_mutation_harness PRIVATE thor_native thor_recomp thor_sh2)
 target_include_directories(test_mutation_harness PRIVATE "${GENERATED_DIR}")
 add_test(NAME test_mutation_harness COMMAND test_mutation_harness)
+
+# D9.2 block exit descriptor and runtime exit resolution test suite
+add_executable(test_block_exit tests/recomp/test_block_exit.cpp)
+target_link_libraries(test_block_exit PRIVATE thor_recomp thor_sh2)
+add_test(NAME test_block_exit COMMAND test_block_exit)
+
+# D9.2 declarative memory dependency contract test suite
+add_executable(test_block_memory tests/recomp/test_block_memory.cpp)
+target_link_libraries(test_block_memory PRIVATE thor_recomp thor_sh2)
+add_test(NAME test_block_memory COMMAND test_block_memory)
 
 # M-07 SaturnRecomp reference corpus and negative controls test suite
 find_package(Python3 COMPONENTS Interpreter)

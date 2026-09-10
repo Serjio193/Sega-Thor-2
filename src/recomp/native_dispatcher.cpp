@@ -74,7 +74,23 @@ NativeDispatcher::NativeDispatcher() {
     RegisteredNativeBlock bb0{};
     bb0.proven_identity = make_bb_06004000_descriptor();
 
-    bb0.target_pc = 0x06004012u;
+    // Construct oracle basic block representation
+    thor::sh2::Sh2FlatMemory dummy_mem;
+    for (size_t i = 0; i < bb0.proven_identity.expected_bytes.size(); ++i) {
+        dummy_mem.write8(0x06004000u + static_cast<uint32_t>(i), bb0.proven_identity.expected_bytes[i]);
+    }
+    bb0.oracle_block = thor::sh2::discover_basic_block(0x06004000u, dummy_mem);
+    bb0.candidate_fn = thor::generated::bb_06004000;
+
+    auto exit_desc = derive_block_exit_descriptor(bb0.oracle_block);
+    if (exit_desc.has_value()) {
+        bb0.exit_descriptor = *exit_desc;
+    }
+    auto mem_contract = derive_block_memory_contract(bb0.oracle_block);
+    if (mem_contract.has_value()) {
+        bb0.memory_contract = *mem_contract;
+    }
+
     // Cycle cost breakdown (27 cycles total for bb_06004000: 305462360..305462387):
     // - 0x06004000 MOV.W @R1, R6: 1 cycle (305462360 -> 305462361)
     // - 0x06004002 MOV R0, R15: 1 cycle (305462361 -> 305462362)
@@ -91,14 +107,6 @@ NativeDispatcher::NativeDispatcher() {
         .slave_sh2_active = false,
         .delay_slot_atomic = true
     };
-
-    // Construct oracle basic block representation
-    thor::sh2::Sh2FlatMemory dummy_mem;
-    for (size_t i = 0; i < bb0.proven_identity.expected_bytes.size(); ++i) {
-        dummy_mem.write8(0x06004000u + static_cast<uint32_t>(i), bb0.proven_identity.expected_bytes[i]);
-    }
-    bb0.oracle_block = thor::sh2::discover_basic_block(0x06004000u, dummy_mem);
-    bb0.candidate_fn = thor::generated::bb_06004000;
 
     register_block(std::move(bb0));
 }
@@ -215,6 +223,13 @@ bool NativeDispatcher::dispatch_step(
     thor::sh2::Sh2CpuState live_cpu = pre_state.cpu_state;
     cand_fn(live_cpu, live_mem);
 
+    // Resolve exit target dynamically from executed live_cpu post-state
+    auto resolved_exit = resolve_block_exit(block.exit_descriptor, live_cpu);
+    if (!resolved_exit.has_value()) {
+        m_stats.fallback_count++;
+        return false;
+    }
+
     for (size_t i = 0; i < 16; ++i) live_regs.r[i] = live_cpu.r[i];
     live_regs.pc = live_cpu.pc;
     live_regs.sr = live_cpu.sr;
@@ -224,7 +239,7 @@ bool NativeDispatcher::dispatch_step(
     live_regs.mach = live_cpu.mach;
     live_regs.macl = live_cpu.macl;
 
-    out_target_pc = block.target_pc;
+    out_target_pc = resolved_exit->target_pc;
     out_cycles_advanced = block.cycle_cost;
     m_stats.native_executed_count++;
     return true;

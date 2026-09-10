@@ -33,7 +33,7 @@ Canonical definition per `docs/DEVELOPMENT_PLAN.md`:
 - **SHA-256 (Candidate Bytes Only):** `8879cbe14f58a5fbc4eb9545e1cc41b3593e306cab114769a94f814a18bcb770`
 - **Observed Cold-Boot Target:** `0x0600A0F8`
 - **Observed Return Address (`PR`):** `0x0600428A`
-- **Execution Evidence:** Cold boot Hit 2 at frame `702`, cycle `316309168` in Mednafen debug oracle; target `0x0600A0F8` reached at cycle `316309189` (21 cycles duration).
+- **Execution Evidence:** Cold boot Hit 2 at frame 701 (debugger 0-indexed count, 702nd presentation frame), cycle `316309168` in Mednafen debug oracle; target `0x0600A0F8` reached at cycle `316309189` (21 cycles duration; 19 cycles to delay-slot entry).
 
 ---
 

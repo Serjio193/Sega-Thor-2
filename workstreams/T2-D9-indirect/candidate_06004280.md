@@ -37,8 +37,9 @@ Target CPU: `MASTER_SH2`
 Verified via pinned Mednafen debug oracle (`AJBats/mednafen-saturn-debug` commit `155426661b7ac3152e2c93a98da60ac33002b908`):
 
 ### 3.1 Entry State (`0x06004280`)
-- **Arrival Condition:** Cold boot Hit 2 at frame `701`, master cycle `316309168`.  
+- **Arrival Condition:** Cold boot Hit 2 at frame 701 (debugger 0-indexed frame count, corresponding to 702nd presentation frame), master cycle `316309168`.
   *(Note: Hit 1 at frame 682, cycle 307090585, is return-address setup from `0x0600427C` (`BSR 0x0600447C`); Hit 2 is actual execution entry following `RTS` return from `0x0600447C`).*
+  *(Frame Note: Frame numbering is a presentation counting convention and is not part of the deterministic architectural contract; deterministic equivalence is proven by cycle count `316309168`, PC, register state, and memory).*
 - **Entry Registers:**
   ```text
   R0=00000023 R1=06093B14 R2=00000028 R3=06094F28 R4=00000000 R5=06094B68
@@ -101,7 +102,7 @@ Verified via pinned Mednafen debug oracle (`AJBats/mednafen-saturn-debug` commit
 Per `AGENTS.md` and ADR D-011 / D-012 rules:
 - **Provenance:** `0TH2.BIN` is proven byte-for-byte in RAM under ADR D-011 (`V-02a`).
 - **Static Candidate:** `bb_06004280` is statically bounded as 5 instructions ending in `JSR @R3` + delay slot.
-- **Dynamic Observation:** Stepping trace proves 100% of the candidate block executes at cold boot Hit 2 (frame 702).
+- **Dynamic Observation:** Stepping trace proves 100% of the candidate block executes at cold boot Hit 2 (debugger reported frame 701, corresponding to 702nd presentation frame; master cycle 316309168).
 - **Classification Status:**
   - **D3 (Instruction Semantics):** `BOUNDED_PROOF` — all 5 instructions (`MOV.L`, `JSR @Rn`, `NOP`) have full verified L0 semantics and 0 oracle disagreements.
   - **D4 (Static Disassembly):** `BOUNDED_PROOF` — address range `0x06004280..0x06004289` (10 bytes) is promoted to `CONFIRMED_CODE / EXECUTED`.

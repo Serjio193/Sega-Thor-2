@@ -1,21 +1,25 @@
 {
   "schema_version": "1.0",
-  "target_slice": "0TH2.BIN Basic Block 0 (0x06004000..0x0600400A)",
+  "target_slice": "Startup proven opcode corpus spanning bb_06004000 (0x06004000..0x0600400A) and bb_06004280 (0x06004280..0x06004288)",
   "reference_projects": {
     "hardware_manual": {
       "name": "Hitachi SH7604 Hardware Manual / SH-1/SH-2 Programming Manual",
       "revision": "Rev. 4.0, Sept 2004",
-      "role": "AUTHORITATIVE"
+      "role": "ARCHITECTURE_AUTHORITY"
     },
     "mednafen": {
       "name": "AJBats/mednafen-saturn-debug",
       "pinned_commit": "155426661b7ac3152e2c93a98da60ac33002b908",
-      "role": "DYNAMIC_ORACLE"
+      "role": "BEHAVIORAL_DYNAMIC_ORACLE"
     },
     "catherine": {
       "name": "hazzaclark/catherine",
       "pinned_commit": "462f483c6563604f32997da6eb6d3d49f1db7eb9",
-      "role": "INDEPENDENT_STATIC_RECOMPILER"
+      "role": "INDEPENDENT_STATIC_DECODER_CROSS_CHECK"
+    },
+    "saturn_recomp": {
+      "name": "SaturnRecomp",
+      "role": "ADDITIONAL_REFERENCE_ONLY"
     }
   },
   "vectors": [

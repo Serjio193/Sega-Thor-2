@@ -8,7 +8,9 @@
 #include <unordered_map>
 #include <vector>
 
+#include "thor/recomp/block_exit.hpp"
 #include "thor/recomp/block_identity.hpp"
+#include "thor/recomp/block_memory.hpp"
 #include "thor/recomp/native_bridge.h"
 #include "thor/recomp/shadow_checker.hpp"
 #include "thor/sh2/sh2_block.hpp"
@@ -50,7 +52,8 @@ struct RegisteredNativeBlock {
     BlockIdentityDescriptor proven_identity{};
     thor::sh2::Sh2BasicBlock oracle_block{};
     CandidateBlockFn candidate_fn{};
-    uint32_t target_pc = 0;
+    BlockExitDescriptor exit_descriptor{};
+    BlockMemoryContract memory_contract{};
     uint32_t cycle_cost = 0;
     BoundedEventMetadata expected_event_meta{};
 };

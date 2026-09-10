@@ -303,6 +303,38 @@ static void test_negative_controls() {
     }
 }
 
+static void test_dynamic_target_resolution_regression() {
+    auto& dispatcher = thor::recomp::NativeDispatcher::instance();
+    dispatcher.set_mode(THOR_NATIVE_MODE_NATIVE_OVERRIDE);
+    dispatcher.reset_stats();
+
+    TestSaturnHardware hw;
+    hw.setup_canonical_startup_memory();
+    ThorHardwareCallbacks cb = hw.make_callbacks();
+    ThorCpuRegs regs = make_canonical_entry_regs();
+    uint32_t target_pc = 0, cycles = 0;
+
+    bool handled = dispatcher.dispatch_step(0x06004000u, regs, target_pc, cycles, cb);
+    THOR_ASSERT(handled);
+    // Verified that out_target_pc matches live_cpu.pc (0x06004012) resolved through exit descriptor
+    THOR_ASSERT(target_pc == 0x06004012u);
+    THOR_ASSERT(regs.pc == 0x06004012u);
+    THOR_ASSERT(cycles == 27u);
+
+    // Negative: Forced divergence mutating PC must fail closed with zero partial commit
+    dispatcher.reset_stats();
+    dispatcher.inject_forced_divergence(true);
+    ThorCpuRegs orig = regs;
+    target_pc = 0;
+    cycles = 0;
+    handled = dispatcher.dispatch_step(0x06004000u, regs, target_pc, cycles, cb);
+    THOR_ASSERT(!handled);
+    THOR_ASSERT(dispatcher.get_stats().shadow_divergence_count == 1);
+    THOR_ASSERT(dispatcher.get_stats().fallback_count == 1);
+    THOR_ASSERT(std::memcmp(&regs, &orig, sizeof(ThorCpuRegs)) == 0);
+    dispatcher.inject_forced_divergence(false);
+}
+
 int main() {
     std::cout << "Running NativeDispatcher and Fail-Closed Verification Tests...\n";
 
@@ -317,6 +349,9 @@ int main() {
 
     test_negative_controls();
     std::cout << "  PASS: test_negative_controls (7 negative scenarios)\n";
+
+    test_dynamic_target_resolution_regression();
+    std::cout << "  PASS: test_dynamic_target_resolution_regression\n";
 
     std::cout << "All NativeDispatcher tests passed successfully.\n";
     return 0;

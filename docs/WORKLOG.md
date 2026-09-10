@@ -1,5 +1,56 @@
 # Worklog
 
+## 2026-09-10 — T2-D9.2 Generic Dynamic Exit & Declarative Memory Contract
+
+### Task
+
+Repair remaining D9.1 evidence drift (timing breakdown, schema fields, frame counting notes); implement reusable static and runtime block-exit representation (`BlockExitDescriptor` and `ResolvedBlockExit`); generalize `NativeDispatcher` target handling to eliminate single-block hardcoded `target_pc` constant while preserving D8 behavior; implement declarative memory dependency contract (`BlockMemoryContract`, `MemoryDependencyDescriptor`) distinguishing `STATIC_ADDRESS` and `REGISTER_AT_EXECUTION`; prove descriptors on `bb_06004000` and `bb_06004280`; establish canonical machine-readable candidate metadata record `candidate_06004280.json`; harden `test_d9_plan.py` with 19 negative controls; verify regressions green across MinGW and Linux WSL (Debug + Release).
+
+### Method & Discoveries
+
+1. **D9.1 Evidence Drift & Frame Reconciliation**:
+   - Reconciled frame counting: Mednafen debug oracle reports `frame=701` (0-indexed internal frame counter, corresponding to the 702nd presented frame). Removed frame equality from proof claims; deterministic equivalence is governed strictly by cycle `316309168`, PC (`0x06004280`), CPU registers, and memory state.
+   - Fixed all remaining stale 19-cycle statements in `docs/D9_INDIRECT_CONTROL_FLOW_PLAN.md` (`out_cycles_advanced = 21`, total block duration = 21 cycles, labeled `DELAY_SLOT_ENTRY_DELTA = 19`).
+   - Updated observation database schema to distinguish `source_entry_cycle`, `delay_slot_entry_cycle`, and `target_entry_cycle`.
+   - Updated candidate ownership state in D9 plan to `CONFIRMED_CODE / EXECUTED` (matching D9.1 promotion).
+2. **D3 Reference Manifest Scope & Authority Roles**:
+   - Updated `reference_decode_manifest.json` `target_slice` to describe the actual startup proven opcode corpus spanning `bb_06004000` and `bb_06004280`.
+   - Explicitly separated authority roles: Hitachi (`ARCHITECTURE_AUTHORITY`), Mednafen (`BEHAVIORAL_DYNAMIC_ORACLE`), Catherine (`INDEPENDENT_STATIC_DECODER_CROSS_CHECK`), and SaturnRecomp (`ADDITIONAL_REFERENCE_ONLY`).
+3. **Reusable Exit Model (`BlockExitDescriptor` & `ResolvedBlockExit`)**:
+   - Created `include/thor/recomp/block_exit.hpp` and `src/recomp/block_exit.cpp`.
+   - Strictly separated static CFG properties (`BlockExitDescriptor`: `kind`, `terminator_pc`, `has_delay_slot`, `static_target_pc`, `fallthrough_pc`, `writes_pr`) from runtime execution results (`ResolvedBlockExit`: `kind`, `target_pc`, `pr_value`, `delay_slot_completed`).
+   - Implemented `derive_block_exit_descriptor`: proves `DIRECT` for `bb_06004000` (`static_target_pc = 0x06004012`, `writes_pr = false`) and `INDIRECT_CALL` for `bb_06004280` (`static_target_pc = nullopt`, `writes_pr = true`). Fails closed on malformed metadata or illegal static target on JSR.
+   - Implemented `resolve_block_exit`: for indirect call, resolves `target_pc` strictly from `post_state.pc` and `pr_value` from `post_state.pr`. For direct branch, verifies `post_state.pc` matches `static_target_pc` and fails closed on mismatch.
+   - Tested across synthetic controls (normal target `0x0600A0F8`, alternate `0x0600BEEF`, zero `0x00000000`, hardcoded detector, direct post-PC mismatch fail-closed).
+4. **Generalization of `NativeDispatcher` Target Handling**:
+   - Replaced `uint32_t target_pc` in `RegisteredNativeBlock` with `BlockExitDescriptor exit_descriptor` and `BlockMemoryContract memory_contract`.
+   - Updated `dispatch_step` to resolve `out_target_pc` dynamically from executed `live_cpu.pc` via `resolve_block_exit`.
+   - Preserved exact D8 native override behavior: `bb_06004000` reaches `0x06004012`, cycles advanced = 27, zero partial commit on divergence.
+5. **Declarative Memory Dependency Model (`BlockMemoryContract`)**:
+   - Created `include/thor/recomp/block_memory.hpp` and `src/recomp/block_memory.cpp`.
+   - Distinct from executable identity: records `instruction_pc`, `access_kind`, `width`, `address_source` (`STATIC_ADDRESS` vs `REGISTER_AT_EXECUTION`), `static_address`, `source_register`, and `region_class`.
+   - Proved exactly 3 dependencies for `bb_06004280` (all `READ_U32 STATIC_ADDRESS` into High Work RAM literal pool: `0x0600435C`, `0x06004360`, `0x06004364`; JSR and NOP add zero data dependencies).
+   - Proved exactly 3 dependencies for `bb_06004000` (`READ_S16 REGISTER_AT_EXECUTION R1`, `READ_U32 STATIC_ADDRESS 0x06004064`, `READ_U32 REGISTER_AT_EXECUTION R4`).
+   - Fail-closed validation: unrepresentable instructions or static accesses pointing into MMIO return `nullopt`.
+6. **Machine-Readable Metadata & Validator Hardening**:
+   - Created `workstreams/T2-D9-indirect/candidate_06004280.json`.
+   - Extended `test_d9_plan.py` to validate `candidate_06004280.json`, detect stale 19-cycle claims, verify frame annotations, check decode manifest scope, and enforce 19 negative controls.
+7. **Regression Suite**:
+   - 18/18 CTest suites passing across MinGW Debug, MinGW Release, Linux WSL Debug, and Linux WSL Release.
+   - Strict M-07 reference validation (`--require-external`) passing on Windows and Linux.
+   - All human-maintained code files strictly $\le 500$ lines. Clean `git diff --check`.
+
+### Status After Pass
+
+- `D3`: **BOUNDED_PROOF** (unchanged)
+- `D4`: **BOUNDED_PROOF** (unchanged)
+- `D5`: **BOUNDED_PROOF** (unchanged)
+- `D8`: **BOUNDED_PROOF** (for `bb_06004000`, target hardcode removed cleanly)
+- `D9.1`: **PASS**
+- `D9.2`: **PASS**
+- `D9`: **READY_FOR_BOUNDED_TEST** (not marked `BOUNDED_PROOF`)
+- Next action: D9.3 — Mechanical JSR Block Generation + Isolated Shadow Qualification for `bb_06004280`.
+
 ## 2026-09-10 — T2-D9.1 JSR @Rn L0 Semantics & bb_06004280 Block Qualification
 
 ### Task

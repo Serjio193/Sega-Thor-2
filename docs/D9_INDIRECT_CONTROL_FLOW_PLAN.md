@@ -61,7 +61,8 @@ An audit of the D8 production implementation (`include/thor/recomp/native_dispat
    Delay slot instruction. Executes atomically before control transfers to `0x0600A0F8`.
 
 ### 3.3 Dynamic Oracle Trace (Mednafen Debug Fork `155426661b7ac3152e2c93a98da60ac33002b908`)
-- **Cold Boot Arrival:** Hit 2 at frame `702`, master cycle `316309168` (following `RTS` return from previous initialization subroutine `0x0600447C`).
+- **Cold Boot Arrival:** Hit 2 at frame 701 (debugger 0-indexed frame count, corresponding to 702nd presentation frame), master cycle `316309168` (following `RTS` return from previous initialization subroutine `0x0600447C`).
+  *(Frame Note: Frame numbering [701 vs 702] reflects debugger presentation counting and is not part of the deterministic architectural contract. Frame equality is not used as a proof claim; deterministic equivalence is proven strictly by cycle count `316309168`, PC, register state, and memory).*
 - **Retirement Progression:**
   - `0x06004280`: `R5 = 0x002DA000`, cycle `316309169` (+1 cycle)
   - `0x06004282`: `R4 = 0x06081C20`, cycle `316309171` (+2 cycles)
@@ -70,10 +71,10 @@ An audit of the D8 production implementation (`include/thor/recomp/native_dispat
   - `0x06004288`: Delay slot `NOP` completes, target `0x0600A0F8` enters at cycle `316309189` (+2 cycles)
 - **Timing Reconciliation:**
   - `BLOCK_ENTRY_CYCLE = 316309168` (master cycle at initial instruction fetch `0x06004280`)
-  - `DELAY_SLOT_ENTRY_CYCLE = 316309187` (+19 cycles relative to entry; delay slot `0x06004288` entered following branch pipeline refill)
+  - `DELAY_SLOT_ENTRY_CYCLE = 316309187` (+19 cycles relative to entry; delay slot `0x06004288` entered following branch pipeline refill; `DELAY_SLOT_ENTRY_DELTA = 19`)
   - `BLOCK_EXIT_TARGET_ENTRY_CYCLE = 316309189` (+21 cycles relative to entry; execution begins at target `0x0600A0F8`)
   - `BLOCK_DURATION = 21 cycles` (`316309189 - 316309168 = 21`)
-  - *Accounting Note:* The 19-cycle timestamp (`316309187`) was solely entry into the delay slot instruction. Full block completion and architectural target entry occurs after the 2-cycle delay slot retires at cycle `316309189`, giving an exact total duration of 21 cycles.
+  - *Accounting Note:* The 19-cycle timestamp (`316309187`) was solely entry into the delay slot instruction (`DELAY_SLOT_ENTRY_DELTA = 19`). Full block completion and architectural target entry occurs after the 2-cycle delay slot retires at cycle `316309189`, giving an exact total duration of 21 cycles.
 - **Exit State:** `PC = 0x0600A0F8`, `PR = 0x0600428A`, total block duration = 21 cycles (`316309189 - 316309168 = 21`).
 
 ---
@@ -84,7 +85,7 @@ Per `AGENTS.md` and ADR D-011 / D-012, code ownership must not bootstrap itself:
 - **Module Provenance:** Disc file `0TH2.BIN` is proven byte-for-byte in RAM (`0x06004000..0x06086BFF`) via ADR D-011.
 - **Static Candidate:** `bb_06004280` is statically bounded as 5 instructions ending in `JSR @R3` + delay slot.
 - **Dynamic Evidence:** 100% of candidate instructions were observed executing during cold boot.
-- **Ownership State:** Address range `0x06004280..0x06004288` is classified as **`QUALIFIED_CANDIDATE`**. It is **not** promoted to `CONFIRMED_CODE` or `BOUNDED_PROOF` until its own L0, shadow, and native gates pass.
+- **Ownership State:** Address range `0x06004280..0x06004289` (10 bytes) is promoted to **`CONFIRMED_CODE / EXECUTED`** under milestone D4 following dynamic cold-boot execution trace and verified byte-exact provenance. Milestone D9 remains `READY_FOR_BOUNDED_TEST` until generic dispatch, shadow proof, and native override gates complete.
 
 ---
 
@@ -139,17 +140,25 @@ enum class BlockExitKind : uint8_t {
 };
 ```
 
-### 6.2 Exit Representation (`BlockExitDescriptor`)
+### 6.2 Exit Representation (`BlockExitDescriptor` & `ResolvedBlockExit`)
+Strict separation of static structural properties from dynamic execution outcomes:
 ```cpp
+// Static descriptor derived from Sh2BasicBlock
 struct BlockExitDescriptor {
-    BlockExitKind exit_kind = BlockExitKind::DIRECT;
-    uint32_t target_pc = 0;                     // Computed from architectural post-state
-    std::optional<uint32_t> fallthrough_pc;     // For conditional branches
-    std::optional<uint32_t> pr_value;           // Procedure register value on exit
+    BlockExitKind kind = BlockExitKind::FALLBACK_UNSUPPORTED;
+    uint32_t terminator_pc = 0;
     bool has_delay_slot = false;
+    std::optional<uint32_t> static_target_pc = std::nullopt;
+    std::optional<uint32_t> fallthrough_pc = std::nullopt;
+    bool writes_pr = false;
+};
+
+// Dynamic exit resolved from verified architectural post-state
+struct ResolvedBlockExit {
+    BlockExitKind kind = BlockExitKind::FALLBACK_UNSUPPORTED;
+    uint32_t target_pc = 0;
+    std::optional<uint32_t> pr_value = std::nullopt;
     bool delay_slot_completed = false;
-    uint32_t cycle_cost = 0;
-    BoundedEventMetadata event_safety{};
 };
 ```
 
@@ -178,7 +187,7 @@ The minimal defensible D9 architecture decouples source block translation from t
            │            - R3 = 0x0600A0F8
            │            - PR = 0x0600428A
            │            - out_target_pc = live_cpu.pc (0x0600A0F8)
-           │            - out_cycles_advanced = 19
+           │            - out_cycles_advanced = 21
            │
            ▼
 [Return true to Mednafen Native Bridge]
@@ -231,8 +240,10 @@ Current D8 hardcoding of literal `0x06004064` and `live_regs.r[1]` in `NativeDis
 - **Option C (Lazy Instrumented Snapshot):** Page-level memory protection.
 
 ### 10.2 Recommended Architecture
-**Hybrid of Option A and Option B:**
-- Static literals (e.g. `MOV.L @(disp,PC)`) are declared in the `BlockIdentityDescriptor::memory_dependencies`.
+**Declarative Memory Contract (`BlockMemoryContract`):**
+- Memory dependencies are execution contract metadata, distinct from executable identity (`BlockIdentityDescriptor`).
+- Captured declaratively via `BlockMemoryContract` containing per-instruction `MemoryDependencyDescriptor` entries.
+- Distinguishes address source explicitly: `STATIC_ADDRESS` (e.g. PC-relative literals) vs `REGISTER_AT_EXECUTION` (e.g. register-indirect reads).
 - Dynamic register-indirect reads are captured via a read-only hardware callback wrapper into `pre_state.memory` before candidate execution.
 - *Isolation Invariant:* The candidate function executes strictly against an independently cloned `Sh2FlatMemory` buffer. Zero reads observe post-oracle mutations. MMIO addresses are prohibited and fail closed.
 
@@ -245,7 +256,7 @@ The D8 timing reconciliation proved that register equality is insufficient:
 2. **Pipeline Refill Cost:** Indirect calls require pipeline refill cycles (+15 cycles in Mednafen).
 3. **Cycle Accounting:**
    $$\text{Total Block Cycles} = \sum \text{Instruction Execution Cycles} + \text{Bus Wait Cycles} + \text{Branch Refill Cycles}$$
-   For `bb_06004280`: $1 + 2 + 1 + 15 = 19\text{ cycles}$.
+   For `bb_06004280`: $\text{DELAY\_SLOT\_ENTRY\_DELTA} = 19\text{ cycles}$ ($1 + 2 + 1 + 15$); total block duration to target entry is $21\text{ cycles}$ ($19 + 2\text{ NOP delay slot cycles} = 21$).
 4. **Verification Requirement:** Schedular timestamp comparisons must show **zero cycle drift** at:
    - source block entry (`0x06004280`);
    - source block exit / target entry (`0x0600A0F8`);
@@ -268,7 +279,11 @@ To track dynamic targets without assuming exhaustive knowledge:
       "target_pc": "0x0600A0F8",
       "workload": "cold_boot",
       "hit_count": 1,
-      "last_observed_cycle": 316309187
+      "source_entry_cycle": 316309168,
+      "delay_slot_entry_cycle": 316309187,
+      "target_entry_cycle": 316309189,
+      "delay_slot_entry_delta": 19,
+      "block_duration": 21
     }
   ]
 }
@@ -345,7 +360,7 @@ For promotion of `bb_06004280` under sub-gate `D9.4`:
 
 Because the first indirect-flow candidate block `bb_06004280`:
 - has exact bounded bytes and SHA-256 (`8879cbe14f58a5fbc4eb9545e1cc41b3593e306cab114769a94f814a18bcb770`);
-- has verified dynamic cold-boot execution trace and exact timing (19 cycles);
+- has verified dynamic cold-boot execution trace and exact timing (21 cycles duration; 19 cycles to delay slot entry);
 - has exact identified basic block boundaries (5 instructions, 10 bytes);
 - has an explicit prerequisite chain (`JSR @Rn` L0 semantics identified for D9.1);
 - has a fully specified dynamic exit and continuation architecture;

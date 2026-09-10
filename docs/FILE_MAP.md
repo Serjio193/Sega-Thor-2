@@ -48,6 +48,8 @@ include/
     recomp/
       block_identity.hpp          fail-closed executable identity guard declaration
       block_compiler.hpp          mechanical basic-block C++20 compiler declaration
+      block_exit.hpp              static exit descriptor & runtime resolution declaration
+      block_memory.hpp            declarative memory dependency contract declaration
       shadow_checker.hpp          reusable shadow comparison framework declaration
       native_bridge.h             pure C ABI native dispatcher plugin interface
       native_dispatcher.hpp       reusable native dispatcher with shadow qualification
@@ -61,6 +63,8 @@ src/
   recomp/
     block_identity.cpp            executable identity verification logic
     block_compiler.cpp            mechanical basic-block C++20 code generator
+    block_exit.cpp                block exit derivation and runtime resolution logic
+    block_memory.cpp              declarative memory dependency derivation logic
     shadow_checker.cpp            shadow comparison and differential outcome verification logic
     native_dispatcher.cpp         authoritative native dispatcher and C ABI export definitions
     mutation_harness.cpp          bounded mutation testing and restoration logic
@@ -92,9 +96,11 @@ tests/
     test_shadow_isolation.cpp     pre-state storage isolation and anti-aliasing proof test suite
     test_native_dispatcher.cpp    authoritative native dispatcher and negative fallback test suite
     test_mutation_harness.cpp     12/12 single-byte and 6/6 NOP mutation unit tests
+    test_block_exit.cpp           static exit descriptor & runtime resolution unit tests
+    test_block_memory.cpp         declarative memory dependency contract unit tests
     test_m07_reference.py         SaturnRecomp reference manifest validation & negative control tests
     test_post_d8_closure.py       canonical POST-D8 closure audit validator with 9 negative controls
-    test_d9_plan.py               D9 indirect control-flow plan validator with 8 negative controls
+    test_d9_plan.py               D9 indirect plan and artifact validator with 19 negative controls
 
 workstreams/
   T2-M0-disc-census/
@@ -143,6 +149,7 @@ workstreams/
   T2-D9-indirect/
     README.md                     D9 indirect control-flow workstream summary
     candidate_06004280.md         first candidate qualification record (bb_06004280)
+    candidate_06004280.json       canonical machine-readable metadata record for bb_06004280
 
 external/
   README.md                       rules for private user-supplied inputs

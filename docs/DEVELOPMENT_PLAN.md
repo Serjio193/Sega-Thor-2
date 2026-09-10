@@ -289,7 +289,7 @@ WHAT MUST BE TRUE BEFORE START: Basic promotion proof exists for direct-flow blo
 WHAT THIS MILESTONE DOES NOT ATTEMPT: Complete target-set resolution (UNKNOWN targets stay on interpreter/fallback).
 REQUIRED VERIFICATION GATE: At least one indirect-flow block handled correctly in shadow comparison.
 FALLBACK / ALTERNATIVE ROUTE: Interpreter fallback for all indirect flow until evidence is sufficient.
-STATUS:          READY_FOR_BOUNDED_TEST (D9.1 PASS: JSR @Rn semantics & bb_06004280 qualified; docs/D9_INDIRECT_CONTROL_FLOW_PLAN.md)
+STATUS:          READY_FOR_BOUNDED_TEST (D9.1 PASS: JSR @Rn semantics & bb_06004280 qualified; D9.2 PASS: generic exit & memory contract proven; docs/D9_INDIRECT_CONTROL_FLOW_PLAN.md)
 ```
 
 ### D10 — Timing/Interrupt/DMA Execution Boundaries
