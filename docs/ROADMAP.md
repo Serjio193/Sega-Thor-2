@@ -133,33 +133,69 @@ Target claims proven:
 - 100% fail-closed fallback proven under memory byte corruption without partial native commit (`Run E`);
 - Mandatory post-D8 second-pass plan established (`docs/POST_D8_SECOND_PASS_PLAN.md`, ADR D-012).
 
+### D9 — Indirect Control-Flow Handling (bb_06004280)
+
+Status: `BOUNDED_PROOF (bb_06004280) / D9.4.1: PASS` (ADR D-015)
+
+Target claims proven:
+- Exact decode and L0 execution semantics implemented for `JSR @Rn` (opcode `0x430B`);
+- First indirect candidate block `bb_06004280` (`0x06004280..0x06004288`, 10 bytes, 5 instructions) qualified and verified;
+- Generic `BlockExitDescriptor` and `BlockMemoryContract` implemented with `RUNTIME_CLASSIFICATION_REQUIRED` dynamic validation;
+- Link-isolated build target `thor_generated_bb_06004280` compiled without interpreter dependencies;
+- Isolated shadow qualification proven with 100% negative fault detection;
+- Live authoritative native indirect override executed in pinned Mednafen debug oracle across 5 cold-boot runs;
+- 100% register parity (23/23 SH-2 registers) verified at dynamically computed target `0x0600A0F8` (cycle `316309189`, delta = 0 cycles);
+- Return site `0x0600428A` (cycle `337109623`, delta = 0 cycles) and downstream continuation `0x060042E0` (cycle `387459912`, delta = 0 cycles) verified with zero drift;
+- Retained as a **bounded technology/proof specimen** per ADR D-015; broad C++ translation frozen.
+
+### POST-D8 — External Method Second Pass (ADR D-012)
+
+Status: `COMPLETE / SATISFIED / CLOSED` (canonical record in `docs/POST_D8_SECOND_PASS_CLOSURE.md`)
+
+Audited all external methods M-01..M-10; verified reference corpus pins; evaluated Evidence Strength and Workflow Utility.
+
 ## Next
 
-### Mandatory post-D8 checkpoint — External Method Second Pass
+### T2-ARCH / ADR D-015 — Freeze Broad C++ Translation & Establish ASM-First Recovery Strategy
 
-Status: `ACTIVE / BLOCKING BEFORE D9` (decision D-012; plan in `docs/POST_D8_SECOND_PASS_PLAN.md`)
+Status: `ACCEPTED` (ADR D-015 in `docs/DECISIONS.md`)
 
-Trigger: reached immediately upon D8 achieving bounded proof.
+The project enforces an **ASM-FIRST recovery strategy**:
+1. All executable binaries and overlays must be completely mapped and classified (`CODE / DATA / UNKNOWN`).
+2. Exact SH-2 assembly must be mechanically reconstructed into an assemblable project tree (`asm/`).
+3. Reconstructed modules must assemble deterministically and boot in clean Mednafen, reaching title screen and gameplay with runtime parity (`FULL_ASM_GAME_GATE`).
+4. Only after passing `FULL_ASM_GAME_GATE` will broad systematic translation from ASM to native C++ begin.
+5. Existing C++ blocks `bb_06004000` (D8) and `bb_06004280` (D9) are retained strictly as bounded technology specimens.
+6. M-03 technical capability is `READY_FOR_BOUNDED_TEST`, with execution `DEFERRED_BY_ASM_FIRST_ARCHITECTURE` until `FULL_ASM_GAME_GATE` passes.
 
-Before ordinary D9+ scaling/recovery work begins, execute the second-pass plan covering external-project methods and tools that were deferred, partially tested, or retained as heuristics/references.
+### Active Next Technical Task: T2-ASM-01 — First Bounded ASM Round-Trip Experiment
+
+Purpose: Prove candidate assembler/linker toolchain feasibility on an already-proven small region (`bb_06004000` / `bb_06004280`):
+- emit generated SH-2 `.s` assembly with mechanical directives and provenance tags;
+- assemble using candidate open toolchain;
+- compare reassembled bytes and layout against original retail bytes;
+- substitute rebuilt bytes into live memory / module;
+- verify execution in clean Mednafen oracle with zero divergence.
 
 ## Queued development milestones
 
 | ID | Capability | Key verification gate | Scope state |
 |---|---|---|---|
 | D2 | Executable module provenance | V-02a (0TH2.BIN), V-02b (TH2.LOW) | BOUNDED_PROOF (0TH2.BIN + TH2.LOW) |
-| D3 | Exact SH-2 decode + L0 semantics | V-06 cross-check + L0 semantic test suite | BOUNDED_PROOF (block 0) |
-| D4 | Code/data/unknown ownership | V-03 (bounded batch), V-04 (schema) | BOUNDED_PROOF (block 0 only) |
-| D5 | Basic-block CFG | V-03 (bounded block CFG) | BOUNDED_PROOF (block 0 only) |
-| D6 | Mechanical explicit-state C++ | V-07A + pre-D8 identity/event guards | BOUNDED_PROOF (bb_06004000) |
-| D7 | Shadow comparison | V-07B (negative-control validation) | BOUNDED_PROOF (bb_06004000) |
-| D8 | **First native promotion proof** | **V-07C (native override proof)** | BOUNDED_PROOF (bb_06004000) |
-| POST-D8 | **Mandatory external-method second pass** | D-012 + docs/POST_D8_SECOND_PASS_PLAN.md | ACTIVE / BLOCKING BEFORE D9 |
-| D9 | Indirect control-flow handling | — | PROPOSED |
-| D10 | Timing/IRQ/DMA boundaries | — (general scaling) | PROPOSED |
-| D11 | Overlay/generation identity | V-10 (transformation/overlay discovery) | PROPOSED |
-| D12 | Structural recovery | V-05, V-13 | PROPOSED |
-| D13 | Guest-address/type provenance | V-09 | PROPOSED |
+| D3 | Exact SH-2 decode + L0 semantics | V-06 cross-check + L0 semantic test suite | BOUNDED_PROOF (block 0 + JSR @Rn) |
+| D4 | Code/data/unknown ownership | V-03 (bounded batch), V-04 (schema) | BOUNDED_PROOF (block 0 + bb_06004280) |
+| D5 | Basic-block CFG | V-03 (bounded block CFG) | BOUNDED_PROOF (block 0 + bb_06004280) |
+| D6 | Mechanical explicit-state C++ | V-07A + pre-D8 identity/event guards | BOUNDED_PROOF (specimens bb_06004000, bb_06004280) |
+| D7 | Shadow comparison | V-07B (negative-control validation) | BOUNDED_PROOF (specimens bb_06004000, bb_06004280) |
+| D8 | First native promotion proof | V-07C (native override proof) | BOUNDED_PROOF (specimen bb_06004000) |
+| D9 | Indirect control-flow handling | Bounded native JSR override | BOUNDED_PROOF (specimen bb_06004280) |
+| **M-03** | **Candidate harvester re-evaluation** | **Post-D9.4 re-entry gate** | **READY_FOR_BOUNDED_TEST (DEFERRED_BY_ASM_FIRST_ARCHITECTURE)** |
+| **T2-ASM-01** | **First bounded ASM round-trip** | **Candidate toolchain assembly & substitution** | **ACTIVE NEXT TASK** |
+| **GATE** | **FULL_ASM_GAME_GATE** | **Rebuilt Saturn game boots & plays in Mednafen** | **MANDATORY PREREQUISITE FOR BROAD C++ TRANSLATION** |
+| D10 | Timing/IRQ/DMA boundaries | — (general scaling) | PROPOSED (Post-ASM-Gate) |
+| D11 | Overlay/generation identity | V-10 (transformation/overlay discovery) | PROPOSED (Active for ASM reconstruction) |
+| D12 | Structural recovery | V-05, V-13 | PROPOSED (Post-ASM-Gate) |
+| D13 | Guest-address/type provenance | V-09 | PROPOSED (Post-ASM-Gate) |
 | D14 | Resource decode/reencode | V-11 (exact round-trip), V-12 (diff locator) | PROPOSED |
 | D15 | HW-subsystem contracts | V-08 (SaturnRecomp component tests a–h) | PROPOSED |
 | D16 | Native subsystem replacement | V-08 (components passing differential test) | PROPOSED |
@@ -171,4 +207,4 @@ Before ordinary D9+ scaling/recovery work begins, execute the second-pass plan c
 - `docs/DEVELOPMENT_PLAN.md` — full development track with milestones, dependencies, risk map.
 - `docs/PIPELINE_VALIDATION_PLAN.md` — verification/adoption experiments.
 - `docs/PROJECT_STATE.md` — current verified state.
-- `workstreams/T2-V01-dynamic-oracle/` — V-01-core preflight, environment pin, and blocker evidence.
+- `docs/DECISIONS.md` — architectural decisions (ADR D-001..D-015).

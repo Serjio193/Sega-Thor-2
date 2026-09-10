@@ -7,33 +7,39 @@ The architecture is intentionally **not locked**. It evolves only through experi
 The currently favored target shape is:
 
 ```text
-Thor 2 disc revision
+Thor 2 disc revision & canonical extraction + hashes
         |
-canonical extraction + hashes
+executable module/provenance database (0TH2.BIN, TH2.LOW, overlays)
         |
-module/provenance database
+static discovery + dynamic oracle observation
         |
-static discovery + dynamic oracle
+exact SH-2 decode + L0 instruction/memory semantics
         |
-exact SH-2 decode
+complete CODE/DATA/UNKNOWN ownership classification
         |
-code/data/unknown ownership DB
+complete exact SH-2 assembly reconstruction (asm/ project tree)
         |
-mechanical explicit-state C++ blocks
-        |                 \
-        |                  interpreter/oracle fallback
-        +------ shadow differential ------+
+deterministic reassembly of all modules via validated toolchain
         |
-verified native blocks
+rebuilt Saturn game replaces disc files & boots in clean Mednafen
         |
-structural recovery
+FULL_ASM_GAME_GATE (verified title, gameplay, & runtime parity)
         |
-semantic recovery
+broad systematic ASM → C++ mechanical translation
+        |
+structural & semantic recovery with guest provenance
         |
 proof-gated native subsystem replacements
         |
-progressive standalone runtime
+progressive standalone native runtime
 ```
+
+### ASM-First Architecture Rule (ADR D-015)
+
+Per ADR D-015, the project enforces an **ASM-FIRST recovery strategy**:
+1. Broad C++ mechanical recompilation is **FROZEN** until the entire game binary is completely reconstructed into reassemblable assembly and passes the `FULL_ASM_GAME_GATE`.
+2. Existing C++ blocks (`bb_06004000` and `bb_06004280`) are retained strictly as **bounded technology/proof specimens** verifying decoder, codegen, shadow verification, and native override capabilities.
+3. No further broad C++ translation or unsupervised candidate harvesting (M-03) may occur until rebuilt Saturn binaries demonstrate cold boot and gameplay parity in Mednafen.
 
 ## Design principles
 

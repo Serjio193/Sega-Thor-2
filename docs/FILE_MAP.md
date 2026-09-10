@@ -156,6 +156,14 @@ workstreams/
     patches/
       mednafen_dut_integration.patch  isolated Mednafen DUT automation adapter patch
 
+asm/                              planned assembly reconstruction layout (ADR D-015)
+  modules/                        main reconstructed executable modules (0TH2.BIN, TH2.LOW)
+  overlays/                       reconstructed dynamic overlay assembly sources
+  include/                        shared assembly headers, macros, hardware equates
+  generated/                      mechanically emitted assembly slices with provenance tags
+  linker/                         linker scripts, memory maps, and layout definitions
+  manifests/                      reconstruction manifests, section maps, and byte hashes
+
 external/
   README.md                       rules for private user-supplied inputs
 ```

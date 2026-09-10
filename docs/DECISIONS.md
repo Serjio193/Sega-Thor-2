@@ -157,3 +157,126 @@ Scope limitation: D7 is advanced to `BOUNDED_PROOF for bb_06004000`. D8 / V-07C 
    - Exact 100% bit parity across all 23 CPU registers against baseline pure interpreter execution.
 
 Scope limitation: D8 capability is advanced to `BOUNDED_PROOF for bb_06004000 only`. Multi-block scaling remains gated by post-D8 second-pass plan (ADR D-012) and D9.
+
+## D-015 — Freeze Broad C++ Translation and Establish ASM-First Recovery Strategy (FULL_ASM_GAME_GATE)
+
+**Status:** ACCEPTED
+
+### Context
+
+The project has proven bounded mechanical explicit-state C++ recompilation and live native override for two basic blocks:
+1. `bb_06004000` (D8 / V-07C): direct unconditional branch, BSS clear, and data copy loop;
+2. `bb_06004280` (D9 / T2-D9.4.1): indirect control transfer (`JSR @R3`), dynamic target resolution (`0x0600A0F8`), and dynamic return/continuation.
+
+Both specimens demonstrated zero CPU state divergence, 0 interpreter retirements during native execution, and exact timing parity in the pinned Mednafen debug oracle.
+
+However, attempting to scale directly from two bounded basic blocks to broad, whole-game C++ recompilation introduces critical architectural risks:
+- Thor 2 consists of multiple executable binaries and overlays (`0TH2.BIN`, `TH2.LOW`, dynamic overlays, M68K sound driver) whose runtime boundaries, entrypoints, and generation lifetimes are not yet fully mapped;
+- Code, literal pools, jump tables, and embedded data are tightly interleaved in Saturn binaries; broad mechanical translation without complete assembly recovery risks translating data as code, dropping literal pools, or misidentifying indirect dispatch targets;
+- Without an end-to-end reassemblable baseline, bugs or divergences in translated C++ cannot be differentials against a rebuilt, native Saturn executable.
+
+### Decision: ASM-First Recovery Strategy
+
+The project adopts a mandatory **ASM-FIRST recovery strategy**.
+
+The canonical recovery sequence is:
+```text
+original Saturn binaries
+→ complete executable/module provenance
+→ complete CODE/DATA/UNKNOWN recovery
+→ complete exact SH-2 assembly reconstruction
+→ reassemblable game
+→ rebuilt Saturn game boots and runs in Mednafen (FULL_ASM_GAME_GATE)
+→ only then broad systematic ASM → C++ translation.
+```
+
+### Distinction Between Bounded Proofs and Broad Translation
+
+1. **Bounded C++ Technology Proofs (Retained):**
+   - Basic blocks `bb_06004000` and `bb_06004280` are retained in the codebase exclusively as **bounded technology/proof specimens**.
+   - They prove that the SH-2 instruction decoder, explicit-state mechanical code generator, shadow comparator, and authoritative native dispatcher work correctly under real Saturn hardware execution.
+   - They will NOT be deleted.
+2. **Broad Production C++ Translation (Frozen):**
+   - Broad mechanical C++ translation of game code is **FROZEN / BLOCKED** until the `FULL_ASM_GAME_GATE` passes.
+   - Do NOT broaden native C++ translation now.
+   - Do NOT start M-03 implementation (SaturnAutoRE harvester) now.
+
+### Mandatory Gate: FULL_ASM_GAME_GATE
+
+Advancement to broad systematic C++ translation requires passing the `FULL_ASM_GAME_GATE`.
+
+Required evidence:
+1. **All Executable Modules Known or Explicitly UNKNOWN:** Complete inventory of executable files and overlays (`0TH2.BIN`, `TH2.LOW`, overlays).
+2. **Runtime Provenance:** Proven disc-to-memory loading path and execution range for each module and overlay generation.
+3. **Complete CODE/DATA/UNKNOWN Classification:** Every byte in executable regions classified with explicit evidence; no gaps.
+4. **Exact SH-2 Decoding:** Every confirmed instruction decoded bit-exact with proven semantics.
+5. **Assembly Reconstruction:** Labels, CFG, branches, calls, and returns recovered sufficiently to emit assemblable `.s` source files.
+6. **Data & Literal Pool Preservation:** Literal pools, jump tables, and embedded data preserved without displacement or corruption.
+7. **No Guessed Instructions:** UNKNOWN bytes are emitted strictly as raw data directives (`.byte`), NEVER as speculative instructions.
+8. **Deterministic Reassembly:** Every reconstructed module can be assembled deterministically by candidate toolchain.
+9. **Rebuilt Module Layout Validation:** Section layout, load addresses, and file structures match original binary specifications.
+10. **Game Substitution:** Original game disc files can be replaced by rebuilt equivalents.
+11. **Cold-Boot Execution:** Rebuilt Saturn game boots from cold boot in clean pinned Mednafen debug oracle.
+12. **Title & Gameplay:** Rebuilt game reaches title screen and playable gameplay.
+13. **Runtime Parity:** Bounded runtime checkpoints match original un-rebuilt execution.
+14. **Overlay Proof:** Overlays and dynamic modules are included in the reassembly and boot verification.
+
+### Round-Trip Evidence Hierarchy
+
+The project defines the following formal evidence classes for assembly reconstruction:
+- `ASM_BYTE_EXACT`: Reassembled binary reproduces original retail bytes bit-for-bit (0 byte differences).
+- `ASM_LAYOUT_EXACT`: Reassembled binary reproduces identical section layout, memory mapping, symbol alignments, and file sizes, even if padding or build artifacts differ deterministically.
+- `ASM_RUNTIME_VERIFIED`: Replaced binary runs in runtime oracle and matches all architectural state, register, and memory checkpoints.
+- `ASM_GAME_BOOT_VERIFIED`: Rebuilt disc/game successfully completes Saturn boot sequence in clean Mednafen without hangs or assertion failures.
+- `ASM_GAMEPLAY_VERIFIED`: Rebuilt game reaches title screen and controllable gameplay with full functional parity.
+
+*Rule:* Semantic equivalence must NEVER be called byte-exact.
+
+### Generated Assembly Project Layout
+
+The planned assembly project structure is:
+```text
+asm/
+  modules/       # Main executable modules (e.g. 0TH2.BIN, TH2.LOW)
+  overlays/      # Dynamic overlays and staged execution overlays
+  include/       # Shared assembly headers, macros, hardware equates
+  generated/     # Tool-generated assembly slices with provenance tags
+  linker/        # Linker scripts, memory maps, layout definitions
+  manifests/     # Module hashes, section offset maps, provenance manifests
+```
+
+### Mechanical Assembly Generation Rules
+
+Assembly generation must be strictly mechanical:
+- **Confirmed Instructions:** Emit exact SH-2 instruction representation (e.g., `mov.l @(h'0008, PC), r5`).
+- **Data:** Emit exact bytes/words/longs or appropriate lossless directives (`.byte`, `.word`, `.long`, `.ascii`, `.incbin`).
+- **UNKNOWN:** Emit lossless raw data directives (`.byte 0x..`), NEVER guessed instructions.
+- **Provenance Tags:** Every emitted range must retain provenance metadata:
+  `module`, `runtime address`, `source offset`, `generation/overlay identity`, `original bytes/hash`.
+
+### Toolchain Selection Rules
+
+- Assembler and linker tooling must be selected ONLY after a bounded reproducibility experiment.
+- Do NOT assume GNU `as` or any other tool can reproduce the original layout out of the box.
+- Test candidate tooling against already-proven small regions first (e.g. `bb_06004000` / `bb_06004280`).
+- Required process: assemble → compare bytes/layout → diagnose differences.
+- **Strict Legal Hygiene:** Never commit or download proprietary/leaked Sega SDK binaries or copyrighted assemblers.
+
+### First ASM-First Bounded Experiment
+
+The immediate next technical task is defined as the first bounded ASM round-trip experiment:
+- Select an already-proven small region/module slice (e.g. `bb_06004000` or `bb_06004280`);
+- Emit generated SH-2 `.s` assembly with mechanical directives and provenance tags;
+- Assemble using candidate open toolchain;
+- Perform byte and layout comparison;
+- Substitute rebuilt bytes into live memory / module;
+- Execute in clean Mednafen oracle;
+- Verify runtime parity against baseline execution.
+
+This experiment proves toolchain feasibility and establishes the ASM round-trip workflow without broadening C++ translation.
+
+### Status of M-03
+
+- **Technical capability:** `READY_FOR_BOUNDED_TEST` (technically unblocked by D9.4 proof).
+- **Execution status:** `DEFERRED_BY_ASM_FIRST_ARCHITECTURE` until `FULL_ASM_GAME_GATE` passes.
+- M-03 is NOT technically disproven, but its execution is postponed in accordance with the ASM-first sequencing rule.

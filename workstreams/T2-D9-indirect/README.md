@@ -46,6 +46,8 @@ Canonical definition per `docs/DEVELOPMENT_PLAN.md`:
 2. **`D9.1` — Candidate Opcode L0 Semantics & Block Qualification** [DONE / PASS]
 3. **`D9.2` — Generic Dynamic-Exit & Memory-Descriptor Representation** [DONE / PASS]
 4. **`D9.3` — Isolated Shadow Proof for `bb_06004280`** [DONE / PASS]
-5. **`D9.4` — Authoritative Native Indirect Override & Dynamic Continuation** [DONE / PASS]
-6. **`M-03` — Bounded SaturnAutoRE Candidate Harvester Re-Entry** [NEXT: READY_FOR_BOUNDED_TEST]
-7. **`D9.5` — Multi-Target / Secondary Indirect Expansion**
+5. **`D9.4` — Authoritative Native Indirect Override & Dynamic Continuation** [DONE / PASS (repaired under T2-D9.4.1)]
+6. **`M-03` — Bounded SaturnAutoRE Candidate Harvester Re-Entry** [READY_FOR_BOUNDED_TEST / DEFERRED_BY_ASM_FIRST_ARCHITECTURE]
+7. **`D9.5` — Multi-Target / Secondary Indirect Expansion** [FROZEN / DEFERRED_UNTIL_FULL_ASM_GAME_GATE]
+
+*Architectural Note (ADR D-015):* D9 has reached bounded proof for specimen `bb_06004280`. Per ADR D-015, broad C++ mechanical recompilation is frozen until the entire game passes `FULL_ASM_GAME_GATE`. Bounded specimens are retained; broad expansion is deferred.

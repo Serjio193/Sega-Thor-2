@@ -1,5 +1,38 @@
 # Worklog
 
+## 2026-09-10 — T2-ARCH Freeze Broad C++ Translation and Establish ASM-First Recovery Gate
+
+### Task
+
+Audit current development plan, roadmap, decisions, and project state; create ADR D-015 establishing a mandatory ASM-FIRST recovery strategy; explicitly distinguish bounded C++ technology specimens (`bb_06004000` and `bb_06004280`, which are retained) from broad production C++ translation (which is frozen); define the mandatory `FULL_ASM_GAME_GATE` with 14 concrete evidence criteria; define the 5-tier round-trip evidence hierarchy (`ASM_BYTE_EXACT`, `ASM_LAYOUT_EXACT`, `ASM_RUNTIME_VERIFIED`, `ASM_GAME_BOOT_VERIFIED`, `ASM_GAMEPLAY_VERIFIED`); specify the planned `asm/` directory layout and mechanical assembly emission rules; establish toolchain selection rules (bounded reproducibility experiment first, zero proprietary/leaked SDK material); define the first bounded ASM round-trip experiment (`T2-ASM-01`); update M-03 status to `READY_FOR_BOUNDED_TEST (DEFERRED_BY_ASM_FIRST_ARCHITECTURE)`; update all canonical project documents.
+
+### Method & Discoveries
+
+1. **Architectural Decision ADR D-015**:
+   - Codified in `docs/DECISIONS.md` as accepted decision D-015.
+   - Enforces the sequence: original Saturn binaries → complete provenance → complete CODE/DATA/UNKNOWN recovery → complete exact SH-2 assembly reconstruction → reassemblable game → rebuilt game boots & plays in Mednafen (`FULL_ASM_GAME_GATE`) → only then broad systematic ASM → C++ translation.
+2. **Preservation of Bounded C++ Proof Specimens**:
+   - `bb_06004000` (D8 / direct branch / BSS clear / data copy) and `bb_06004280` (D9 / indirect call JSR / dynamic return) are preserved in the codebase as verified technology/proof specimens.
+   - Broad mechanical C++ translation of game code is frozen until the entire game passes `FULL_ASM_GAME_GATE`.
+3. **Mandatory Gate & Evidence Hierarchy**:
+   - `FULL_ASM_GAME_GATE` requires 14 concrete evidence items across all executable modules (`0TH2.BIN`, `TH2.LOW`, overlays).
+   - 5 formal round-trip classes defined: `ASM_BYTE_EXACT`, `ASM_LAYOUT_EXACT`, `ASM_RUNTIME_VERIFIED`, `ASM_GAME_BOOT_VERIFIED`, `ASM_GAMEPLAY_VERIFIED`. Semantic equivalence must never be termed byte-exact.
+4. **Toolchain Discipline & M-03 Status**:
+   - Toolchains must be evaluated via bounded experiments without downloading proprietary Sega SDK material.
+   - M-03 is not disproven; technical capability is `READY_FOR_BOUNDED_TEST`, while live execution is `DEFERRED_BY_ASM_FIRST_ARCHITECTURE` until `FULL_ASM_GAME_GATE` passes.
+5. **Synchronization & Next Action**:
+   - Exactly one next technical task defined: `T2-ASM-01 — First Bounded ASM Round-Trip Experiment` (defined, not executed).
+   - All canonical documents synchronized (`DEVELOPMENT_PLAN.md`, `ARCHITECTURE.md`, `ROADMAP.md`, `PROJECT_STATE.md`, `FILE_MAP.md`, `TASK.md`, `README.md`).
+
+### Status After Pass
+
+- `T2-ARCH`: **PASS**
+- `ADR D-015`: **ACCEPTED**
+- Broad C++ Translation: **FROZEN / DEFERRED_UNTIL_FULL_ASM_GAME_GATE**
+- `FULL_ASM_GAME_GATE`: **ESTABLISHED**
+- `M-03`: **READY_FOR_BOUNDED_TEST (DEFERRED_BY_ASM_FIRST_ARCHITECTURE)**
+- Active next action: `T2-ASM-01 — First Bounded ASM Round-Trip Experiment`.
+
 ## 2026-09-10 — T2-D9.4.1 Native Indirect Proof Integrity Repair
 
 ### Task
