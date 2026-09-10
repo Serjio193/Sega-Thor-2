@@ -3,9 +3,9 @@
   "title": "Thor 2 ASM Recovery Scorecard",
   "timestamp": "2026-09-10T21:30:00Z",
   "baseline_commit": "62002bad52a40005978f11ac7d0f6b9320b8245c",
-  "active_milestone": "ASM-First Recovery Track (docs/DEVELOPMENT_PLAN.md, ADR D-015, ADR D-016)",
-  "overall_status": "IN_PROGRESS",
-  "active_task": "T2-ASM-05",
+  "active_milestone": "Progressive Native Recovery Track (D10..D18 post-FULL_ASM_GAME_GATE)",
+  "overall_status": "COMPLETE",
+  "active_task": "D18_STANDALONE_NATIVE_TARGET",
   "gates": {
     "ASM_90_GATE": {
       "status": "PASS",
@@ -19,8 +19,9 @@
       "details": "All 3 SH-2 executable modules (0TH2.BIN, TH2.LOW, SET07.BIN) reassembled byte-exact and spliced into rebuilt disc. 6/6 cold-boot and runtime checkpoints verified bit-identical in Mednafen oracle with 0 cycle / register divergence across independent executions."
     },
     "STANDALONE_NATIVE_GATE": {
-      "status": "NOT_MET",
-      "requirement": "D18 standalone C++20 game parity reached without Saturn emulator"
+      "status": "PASS",
+      "requirement": "D18 standalone C++20 game parity reached without Saturn emulator",
+      "details": "Standalone native game executable target thor2_native built and verified with zero emulator dependencies; L5 observable video and audio equivalence verified bit-identical across independent runs."
     }
   },
   "metrics": {
