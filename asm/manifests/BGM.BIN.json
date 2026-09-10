@@ -43,5 +43,6 @@
   "expected_output_sha256": "c1d11d5386eaffbd4ca6443c3de615312a71cc678ba4d76c2c9d6035acf9a8f6",
   "assembler_tool_identity": "Motorola 68000 / SCSP Driver Toolchain",
   "linker_tool_identity": "Motorola 68000 Linker",
-  "provenance_identity": "T2-ASM-04"
+  "provenance_identity": "T2-ASM-04",
+  "proven_mnemonic_bytes": 0
 }

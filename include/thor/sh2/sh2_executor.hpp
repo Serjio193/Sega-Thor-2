@@ -26,6 +26,12 @@ struct StepResult {
     Sh2CpuState& state,
     ISh2Memory& mem) noexcept;
 
+/// Executes extended SH-2 arithmetic, logical, and indexed instructions.
+[[nodiscard]] ExecutionResult execute_sh2_instruction_ext(
+    const Sh2Instruction& instr,
+    Sh2CpuState& state,
+    ISh2Memory& mem) noexcept;
+
 /// Fetches, decodes, and executes the instruction at state.pc.
 [[nodiscard]] StepResult step_sh2(
     Sh2CpuState& state,

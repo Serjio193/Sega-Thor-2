@@ -1,5 +1,77 @@
 # Worklog
 
+## 2026-09-10 — T2-ASM-05 Bulk PC Harvesting, Opcode Expansion & ASM_90_GATE Passed
+
+### Task
+
+Execute the fifth bounded experiment of ADR D-015 (ASM_FIRST_RECOVERY): expand the `thor_sh2` opcode decoder and executor across the high-frequency instruction profile observed in gameplay CDL traces; modularize SH-2 emulation units to maintain strict file size policy (human-maintained files <= 500 lines); partition the primary executable `0TH2.BIN` and secondary executable `TH2.LOW` into exhaustive confirmed code blocks and raw unknown ranges; reassemble both binaries byte-exact with pinned GNU `binutils-sh-elf 2.40+2`; execute occurrence-aware runtime substitution proofs in clean Mednafen oracle; prove fail-closed negative controls; advance Proven Mnemonic Coverage beyond 90.00% across all confirmed code to satisfy and pass **`ASM_90_GATE`**.
+
+### Method & Discoveries
+
+1. **Decoder & Semantics Modularization (<= 500 lines policy)**:
+   - Evaluated SH-2 decoder/executor codebase against project line limit constraints.
+   - Refactored decoder into `src/sh2/sh2_decoder.cpp` (382 lines) and `src/sh2/sh2_decoder_ext.cpp` (265 lines).
+   - Refactored executor into `src/sh2/sh2_executor.cpp` (347 lines) and `src/sh2/sh2_executor_ext.cpp` (244 lines).
+   - Extracted disassembler into `src/sh2/sh2_disasm.cpp` (230 lines).
+   - Updated headers `include/thor/sh2/sh2_types.hpp` (190 lines), `include/thor/sh2/sh2_decoder.hpp` (22 lines), `include/thor/sh2/sh2_executor.hpp` (40 lines).
+   - Registered all modular units cleanly in `CMakeLists.txt` (205 lines).
+
+2. **Opcode Expansion to 63 Opcodes**:
+   - Modeled 17 new SH-2 instructions across decoder, executor, disassembler, and IR exporter:
+     - `ROTCL` (`0x4n24`), `AND_IMM` (`0xC9ii`), `TST_IMM` (`0xC8ii`), `MOV_B_DISP_READ` (`0x84md`), `MOV_B_DISP_WRITE` (`0x80nd`), `MOV_W_R0_READ` (`0x0nmD`), `MOV_L_R0_READ` (`0x0nmE`), `MOV_B_R0_READ` (`0x0nmC`), `MOV_L_R0_WRITE` (`0x0nm6`), `MOV_W_R0_WRITE` (`0x0nm5`), `MOV_B_R0_WRITE` (`0x0nm4`), `SHLL8` (`0x4n18`), `SHLL16` (`0x4n28`), `SHLR8` (`0x4n19`), `SHLR16` (`0x4n29`), `DT` (`0x4n10`), `MOVT` (`0x0n29`).
+   - Fixed opcode decoding ambiguity between `0x8100` (`MOV_W_DISP_WRITE`) and `0x8500` (`MOV_W_DISP_READ`).
+   - Added unit test suites `tests/sh2/test_sh2_decoder_extended.cpp` (257 lines) and `tests/sh2/test_sh2_l0_extended.cpp` (266 lines).
+   - 26 / 26 CTests verified passing 100% on both Windows MinGW and Linux WSL.
+
+3. **Multi-Block Assembly & Response File Tooling**:
+   - In `tools/asm/export_sh2_asm_ir.cpp` (419 lines), added response file (`@response_file`) support to avoid Windows command line character limits (32,767 char limit) when passing thousands of block specifications.
+   - In `tools/asm/generate_full_module_asm.py` (341 lines), added per-instruction label emission inside multi-instruction blocks and inside `RAW_CODE_PENDING_DECODE` ranges, ensuring internal branch targets (`loc_...`) and literal pool references (`lit_...`) are defined at exact instruction boundaries.
+   - Restricted `.global` symbol exports strictly to manifest symbols and `_start`, preventing GNU as relocation/overflow errors on local short branches.
+
+4. **Exhaustive Module Partitioning & Reassembly**:
+   - `TH2.LOW` (`asm/manifests/TH2.LOW.json`):
+     - Partitioned into 353 ranges (176 proven code blocks).
+     - Confirmed code bytes: 3,266 bytes (100% of CDL dynamic execution + entry point `0x002E9910`).
+     - Proven mnemonic bytes: 3,250 bytes = **99.51% proven coverage**.
+     - Raw pending code bytes: only 16 bytes (8 instructions).
+     - Reassembled `TH2.LOW.s` (11,572 lines): 149,504 / 149,504 bytes byte-exact (SHA-256 `781396898191921b486be751163aea493ef9b1abcb55c0ab8698df9c69211224`).
+     - 10 / 10 negative controls passed.
+   - `0TH2.BIN` (`asm/manifests/0TH2.BIN.json`):
+     - Partitioned into 6,353 ranges (3,126 proven code blocks).
+     - Confirmed code bytes: 53,958 bytes.
+     - Proven mnemonic bytes: 52,050 bytes = **96.46% proven coverage**.
+     - Raw pending code bytes: 1,908 bytes.
+     - Reassembled `0TH2.s` (69,064 lines): 535,552 / 535,552 bytes byte-exact (SHA-256 `c1cc4117870bc567386410aa2d4f1b5f03fb98a601be71bb3ae2155de1853c64`).
+     - 20 / 20 negative controls passed.
+
+5. **Occurrence-Aware Mednafen Runtime Parity Proofs**:
+   - Both `0TH2.BIN` and `TH2.LOW` reassembled modules verified in clean Mednafen oracle in pure interpreter mode (`native_mode 0`).
+   - Spliced disc images booted and ran across all 6 cold-boot checkpoints:
+     - `entry_06004000` (cycle 305462360): 0 cycle / register divergence.
+     - `branch_target_06004012` (cycle 305462387): 0 cycle / register divergence.
+     - `checkpoint_06004280_occ0` (cycle 307090585): 0 cycle / register divergence.
+     - `checkpoint_06004280_occ1` (cycle 316309168): 0 cycle / register divergence.
+     - `checkpoint_0600A0F8_load_th2_low` (cycle 316309189): 0 cycle / register divergence.
+     - `checkpoint_002E9910_th2_low_exec` (cycle 387459915): 0 cycle / register divergence.
+
+6. **ASM_90_GATE Passed**:
+   - Overall proven mnemonic bytes: 55,312 bytes.
+   - Overall confirmed code bytes: 57,264 bytes.
+   - **Proven Mnemonic Coverage: 96.59%** across all modules (96.64% across SH-2 modules).
+   - Gate status: **PASS** (requirement >= 90.00%).
+   - Scorecard updated: `workstreams/ASM_RECOVERY_SCORECARD.json`.
+
+### Status After Pass
+
+- `T2-ASM-05`: **PASS**
+- `ASM_90_GATE`: **PASS** (96.59% >= 90.00%)
+- `0TH2.BIN`: `ASM_BYTE_EXACT = PASS`, `ASM_RUNTIME_VERIFIED = PASS`, `PROVEN_COVERAGE = 96.46%`
+- `TH2.LOW`: `ASM_BYTE_EXACT = PASS`, `ASM_RUNTIME_VERIFIED = PASS`, `PROVEN_COVERAGE = 99.51%`
+- `SET07.BIN`: `ASM_BYTE_EXACT = PASS`, `PROVEN_COVERAGE = 100.00%`
+- `BGM.BIN`: `SOUND_PROGRAM_MANIFEST = PASS`
+- CTests: 26 / 26 PASSING on Windows MinGW and Linux WSL.
+- Exact next action: `FULL_ASM_GAME_GATE — Full Saturn Disc Game Boot & Gameplay Verification`.
+
 ## 2026-09-10 — T2-ASM-04 Disc Executable Inventory & Secondary Module ASM Skeletons
 
 ### Task

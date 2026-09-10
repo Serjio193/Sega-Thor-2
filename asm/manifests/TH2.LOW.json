@@ -3,57 +3,4781 @@
   "revision": "thor2_ntsc_patched_fe11d2fb",
   "module_runtime_base": "0x002DA000",
   "module_size": 149504,
-  "confirmed_code_bytes": 2,
-  "raw_unknown_bytes": 149502,
+  "confirmed_code_bytes": 3266,
+  "proven_mnemonic_bytes": 3250,
+  "raw_unknown_bytes": 146238,
   "iso_sector_start": 52123,
   "iso_sector_count": 73,
   "ranges": [
     {
       "offset_start": 0,
-      "offset_end_exclusive": 63760,
+      "offset_end_exclusive": 45070,
       "runtime_start": "0x002DA000",
+      "runtime_end_exclusive": "0x002E500E",
+      "byte_length": 45070,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 45070,
+      "offset_end_exclusive": 45076,
+      "runtime_start": "0x002E500E",
+      "runtime_end_exclusive": "0x002E5014",
+      "byte_length": 6,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E500E",
+      "instruction_count": 3
+    },
+    {
+      "offset_start": 45076,
+      "offset_end_exclusive": 45078,
+      "runtime_start": "0x002E5014",
+      "runtime_end_exclusive": "0x002E5016",
+      "byte_length": 2,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 45078,
+      "offset_end_exclusive": 45082,
+      "runtime_start": "0x002E5016",
+      "runtime_end_exclusive": "0x002E501A",
+      "byte_length": 4,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E5016",
+      "instruction_count": 2
+    },
+    {
+      "offset_start": 45082,
+      "offset_end_exclusive": 45084,
+      "runtime_start": "0x002E501A",
+      "runtime_end_exclusive": "0x002E501C",
+      "byte_length": 2,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 45084,
+      "offset_end_exclusive": 45088,
+      "runtime_start": "0x002E501C",
+      "runtime_end_exclusive": "0x002E5020",
+      "byte_length": 4,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E501C",
+      "instruction_count": 2
+    },
+    {
+      "offset_start": 45088,
+      "offset_end_exclusive": 45090,
+      "runtime_start": "0x002E5020",
+      "runtime_end_exclusive": "0x002E5022",
+      "byte_length": 2,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 45090,
+      "offset_end_exclusive": 45094,
+      "runtime_start": "0x002E5022",
+      "runtime_end_exclusive": "0x002E5026",
+      "byte_length": 4,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E5022",
+      "instruction_count": 2
+    },
+    {
+      "offset_start": 45094,
+      "offset_end_exclusive": 45096,
+      "runtime_start": "0x002E5026",
+      "runtime_end_exclusive": "0x002E5028",
+      "byte_length": 2,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 45096,
+      "offset_end_exclusive": 45100,
+      "runtime_start": "0x002E5028",
+      "runtime_end_exclusive": "0x002E502C",
+      "byte_length": 4,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E5028",
+      "instruction_count": 2
+    },
+    {
+      "offset_start": 45100,
+      "offset_end_exclusive": 45102,
+      "runtime_start": "0x002E502C",
+      "runtime_end_exclusive": "0x002E502E",
+      "byte_length": 2,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 45102,
+      "offset_end_exclusive": 45112,
+      "runtime_start": "0x002E502E",
+      "runtime_end_exclusive": "0x002E5038",
+      "byte_length": 10,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E502E",
+      "instruction_count": 5
+    },
+    {
+      "offset_start": 45112,
+      "offset_end_exclusive": 45114,
+      "runtime_start": "0x002E5038",
+      "runtime_end_exclusive": "0x002E503A",
+      "byte_length": 2,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 45114,
+      "offset_end_exclusive": 45118,
+      "runtime_start": "0x002E503A",
+      "runtime_end_exclusive": "0x002E503E",
+      "byte_length": 4,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E503A",
+      "instruction_count": 2
+    },
+    {
+      "offset_start": 45118,
+      "offset_end_exclusive": 45120,
+      "runtime_start": "0x002E503E",
+      "runtime_end_exclusive": "0x002E5040",
+      "byte_length": 2,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 45120,
+      "offset_end_exclusive": 45124,
+      "runtime_start": "0x002E5040",
+      "runtime_end_exclusive": "0x002E5044",
+      "byte_length": 4,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E5040",
+      "instruction_count": 2
+    },
+    {
+      "offset_start": 45124,
+      "offset_end_exclusive": 45126,
+      "runtime_start": "0x002E5044",
+      "runtime_end_exclusive": "0x002E5046",
+      "byte_length": 2,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 45126,
+      "offset_end_exclusive": 45142,
+      "runtime_start": "0x002E5046",
+      "runtime_end_exclusive": "0x002E5056",
+      "byte_length": 16,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E5046",
+      "instruction_count": 8
+    },
+    {
+      "offset_start": 45142,
+      "offset_end_exclusive": 46422,
+      "runtime_start": "0x002E5056",
+      "runtime_end_exclusive": "0x002E5556",
+      "byte_length": 1280,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 46422,
+      "offset_end_exclusive": 46472,
+      "runtime_start": "0x002E5556",
+      "runtime_end_exclusive": "0x002E5588",
+      "byte_length": 50,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E5556",
+      "instruction_count": 25
+    },
+    {
+      "offset_start": 46472,
+      "offset_end_exclusive": 46474,
+      "runtime_start": "0x002E5588",
+      "runtime_end_exclusive": "0x002E558A",
+      "byte_length": 2,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 46474,
+      "offset_end_exclusive": 46492,
+      "runtime_start": "0x002E558A",
+      "runtime_end_exclusive": "0x002E559C",
+      "byte_length": 18,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E558A",
+      "instruction_count": 9
+    },
+    {
+      "offset_start": 46492,
+      "offset_end_exclusive": 54270,
+      "runtime_start": "0x002E559C",
+      "runtime_end_exclusive": "0x002E73FE",
+      "byte_length": 7778,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 54270,
+      "offset_end_exclusive": 54312,
+      "runtime_start": "0x002E73FE",
+      "runtime_end_exclusive": "0x002E7428",
+      "byte_length": 42,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E73FE",
+      "instruction_count": 21
+    },
+    {
+      "offset_start": 54312,
+      "offset_end_exclusive": 54314,
+      "runtime_start": "0x002E7428",
+      "runtime_end_exclusive": "0x002E742A",
+      "byte_length": 2,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 54314,
+      "offset_end_exclusive": 54328,
+      "runtime_start": "0x002E742A",
+      "runtime_end_exclusive": "0x002E7438",
+      "byte_length": 14,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E742A",
+      "instruction_count": 7
+    },
+    {
+      "offset_start": 54328,
+      "offset_end_exclusive": 54330,
+      "runtime_start": "0x002E7438",
+      "runtime_end_exclusive": "0x002E743A",
+      "byte_length": 2,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 54330,
+      "offset_end_exclusive": 54346,
+      "runtime_start": "0x002E743A",
+      "runtime_end_exclusive": "0x002E744A",
+      "byte_length": 16,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E743A",
+      "instruction_count": 8
+    },
+    {
+      "offset_start": 54346,
+      "offset_end_exclusive": 54348,
+      "runtime_start": "0x002E744A",
+      "runtime_end_exclusive": "0x002E744C",
+      "byte_length": 2,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 54348,
+      "offset_end_exclusive": 54372,
+      "runtime_start": "0x002E744C",
+      "runtime_end_exclusive": "0x002E7464",
+      "byte_length": 24,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E744C",
+      "instruction_count": 12
+    },
+    {
+      "offset_start": 54372,
+      "offset_end_exclusive": 55106,
+      "runtime_start": "0x002E7464",
+      "runtime_end_exclusive": "0x002E7742",
+      "byte_length": 734,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 55106,
+      "offset_end_exclusive": 55118,
+      "runtime_start": "0x002E7742",
+      "runtime_end_exclusive": "0x002E774E",
+      "byte_length": 12,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E7742",
+      "instruction_count": 6
+    },
+    {
+      "offset_start": 55118,
+      "offset_end_exclusive": 55120,
+      "runtime_start": "0x002E774E",
+      "runtime_end_exclusive": "0x002E7750",
+      "byte_length": 2,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 55120,
+      "offset_end_exclusive": 55128,
+      "runtime_start": "0x002E7750",
+      "runtime_end_exclusive": "0x002E7758",
+      "byte_length": 8,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E7750",
+      "instruction_count": 4
+    },
+    {
+      "offset_start": 55128,
+      "offset_end_exclusive": 55150,
+      "runtime_start": "0x002E7758",
+      "runtime_end_exclusive": "0x002E776E",
+      "byte_length": 22,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 55150,
+      "offset_end_exclusive": 55206,
+      "runtime_start": "0x002E776E",
+      "runtime_end_exclusive": "0x002E77A6",
+      "byte_length": 56,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E776E",
+      "instruction_count": 28
+    },
+    {
+      "offset_start": 55206,
+      "offset_end_exclusive": 55208,
+      "runtime_start": "0x002E77A6",
+      "runtime_end_exclusive": "0x002E77A8",
+      "byte_length": 2,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 55208,
+      "offset_end_exclusive": 55236,
+      "runtime_start": "0x002E77A8",
+      "runtime_end_exclusive": "0x002E77C4",
+      "byte_length": 28,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E77A8",
+      "instruction_count": 14
+    },
+    {
+      "offset_start": 55236,
+      "offset_end_exclusive": 55238,
+      "runtime_start": "0x002E77C4",
+      "runtime_end_exclusive": "0x002E77C6",
+      "byte_length": 2,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 55238,
+      "offset_end_exclusive": 55266,
+      "runtime_start": "0x002E77C6",
+      "runtime_end_exclusive": "0x002E77E2",
+      "byte_length": 28,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E77C6",
+      "instruction_count": 14
+    },
+    {
+      "offset_start": 55266,
+      "offset_end_exclusive": 55268,
+      "runtime_start": "0x002E77E2",
+      "runtime_end_exclusive": "0x002E77E4",
+      "byte_length": 2,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 55268,
+      "offset_end_exclusive": 55296,
+      "runtime_start": "0x002E77E4",
+      "runtime_end_exclusive": "0x002E7800",
+      "byte_length": 28,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E77E4",
+      "instruction_count": 14
+    },
+    {
+      "offset_start": 55296,
+      "offset_end_exclusive": 55298,
+      "runtime_start": "0x002E7800",
+      "runtime_end_exclusive": "0x002E7802",
+      "byte_length": 2,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 55298,
+      "offset_end_exclusive": 55334,
+      "runtime_start": "0x002E7802",
+      "runtime_end_exclusive": "0x002E7826",
+      "byte_length": 36,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E7802",
+      "instruction_count": 18
+    },
+    {
+      "offset_start": 55334,
+      "offset_end_exclusive": 57078,
+      "runtime_start": "0x002E7826",
+      "runtime_end_exclusive": "0x002E7EF6",
+      "byte_length": 1744,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 57078,
+      "offset_end_exclusive": 57100,
+      "runtime_start": "0x002E7EF6",
+      "runtime_end_exclusive": "0x002E7F0C",
+      "byte_length": 22,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E7EF6",
+      "instruction_count": 11
+    },
+    {
+      "offset_start": 57100,
+      "offset_end_exclusive": 57102,
+      "runtime_start": "0x002E7F0C",
+      "runtime_end_exclusive": "0x002E7F0E",
+      "byte_length": 2,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 57102,
+      "offset_end_exclusive": 57106,
+      "runtime_start": "0x002E7F0E",
+      "runtime_end_exclusive": "0x002E7F12",
+      "byte_length": 4,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E7F0E",
+      "instruction_count": 2
+    },
+    {
+      "offset_start": 57106,
+      "offset_end_exclusive": 57108,
+      "runtime_start": "0x002E7F12",
+      "runtime_end_exclusive": "0x002E7F14",
+      "byte_length": 2,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 57108,
+      "offset_end_exclusive": 57112,
+      "runtime_start": "0x002E7F14",
+      "runtime_end_exclusive": "0x002E7F18",
+      "byte_length": 4,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E7F14",
+      "instruction_count": 2
+    },
+    {
+      "offset_start": 57112,
+      "offset_end_exclusive": 57114,
+      "runtime_start": "0x002E7F18",
+      "runtime_end_exclusive": "0x002E7F1A",
+      "byte_length": 2,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 57114,
+      "offset_end_exclusive": 57118,
+      "runtime_start": "0x002E7F1A",
+      "runtime_end_exclusive": "0x002E7F1E",
+      "byte_length": 4,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E7F1A",
+      "instruction_count": 2
+    },
+    {
+      "offset_start": 57118,
+      "offset_end_exclusive": 57120,
+      "runtime_start": "0x002E7F1E",
+      "runtime_end_exclusive": "0x002E7F20",
+      "byte_length": 2,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 57120,
+      "offset_end_exclusive": 57124,
+      "runtime_start": "0x002E7F20",
+      "runtime_end_exclusive": "0x002E7F24",
+      "byte_length": 4,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E7F20",
+      "instruction_count": 2
+    },
+    {
+      "offset_start": 57124,
+      "offset_end_exclusive": 57126,
+      "runtime_start": "0x002E7F24",
+      "runtime_end_exclusive": "0x002E7F26",
+      "byte_length": 2,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 57126,
+      "offset_end_exclusive": 57130,
+      "runtime_start": "0x002E7F26",
+      "runtime_end_exclusive": "0x002E7F2A",
+      "byte_length": 4,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E7F26",
+      "instruction_count": 2
+    },
+    {
+      "offset_start": 57130,
+      "offset_end_exclusive": 57132,
+      "runtime_start": "0x002E7F2A",
+      "runtime_end_exclusive": "0x002E7F2C",
+      "byte_length": 2,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 57132,
+      "offset_end_exclusive": 57144,
+      "runtime_start": "0x002E7F2C",
+      "runtime_end_exclusive": "0x002E7F38",
+      "byte_length": 12,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E7F2C",
+      "instruction_count": 6
+    },
+    {
+      "offset_start": 57144,
+      "offset_end_exclusive": 57146,
+      "runtime_start": "0x002E7F38",
+      "runtime_end_exclusive": "0x002E7F3A",
+      "byte_length": 2,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 57146,
+      "offset_end_exclusive": 57148,
+      "runtime_start": "0x002E7F3A",
+      "runtime_end_exclusive": "0x002E7F3C",
+      "byte_length": 2,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E7F3A",
+      "instruction_count": 1
+    },
+    {
+      "offset_start": 57148,
+      "offset_end_exclusive": 57156,
+      "runtime_start": "0x002E7F3C",
+      "runtime_end_exclusive": "0x002E7F44",
+      "byte_length": 8,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 57156,
+      "offset_end_exclusive": 57178,
+      "runtime_start": "0x002E7F44",
+      "runtime_end_exclusive": "0x002E7F5A",
+      "byte_length": 22,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E7F44",
+      "instruction_count": 11
+    },
+    {
+      "offset_start": 57178,
+      "offset_end_exclusive": 57182,
+      "runtime_start": "0x002E7F5A",
+      "runtime_end_exclusive": "0x002E7F5E",
+      "byte_length": 4,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 57182,
+      "offset_end_exclusive": 57192,
+      "runtime_start": "0x002E7F5E",
+      "runtime_end_exclusive": "0x002E7F68",
+      "byte_length": 10,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E7F5E",
+      "instruction_count": 5
+    },
+    {
+      "offset_start": 57192,
+      "offset_end_exclusive": 57194,
+      "runtime_start": "0x002E7F68",
+      "runtime_end_exclusive": "0x002E7F6A",
+      "byte_length": 2,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 57194,
+      "offset_end_exclusive": 57196,
+      "runtime_start": "0x002E7F6A",
+      "runtime_end_exclusive": "0x002E7F6C",
+      "byte_length": 2,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E7F6A",
+      "instruction_count": 1
+    },
+    {
+      "offset_start": 57196,
+      "offset_end_exclusive": 57198,
+      "runtime_start": "0x002E7F6C",
+      "runtime_end_exclusive": "0x002E7F6E",
+      "byte_length": 2,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 57198,
+      "offset_end_exclusive": 57204,
+      "runtime_start": "0x002E7F6E",
+      "runtime_end_exclusive": "0x002E7F74",
+      "byte_length": 6,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E7F6E",
+      "instruction_count": 3
+    },
+    {
+      "offset_start": 57204,
+      "offset_end_exclusive": 57206,
+      "runtime_start": "0x002E7F74",
+      "runtime_end_exclusive": "0x002E7F76",
+      "byte_length": 2,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 57206,
+      "offset_end_exclusive": 57228,
+      "runtime_start": "0x002E7F76",
+      "runtime_end_exclusive": "0x002E7F8C",
+      "byte_length": 22,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E7F76",
+      "instruction_count": 11
+    },
+    {
+      "offset_start": 57228,
+      "offset_end_exclusive": 57230,
+      "runtime_start": "0x002E7F8C",
+      "runtime_end_exclusive": "0x002E7F8E",
+      "byte_length": 2,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 57230,
+      "offset_end_exclusive": 57242,
+      "runtime_start": "0x002E7F8E",
+      "runtime_end_exclusive": "0x002E7F9A",
+      "byte_length": 12,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E7F8E",
+      "instruction_count": 6
+    },
+    {
+      "offset_start": 57242,
+      "offset_end_exclusive": 57244,
+      "runtime_start": "0x002E7F9A",
+      "runtime_end_exclusive": "0x002E7F9C",
+      "byte_length": 2,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 57244,
+      "offset_end_exclusive": 57260,
+      "runtime_start": "0x002E7F9C",
+      "runtime_end_exclusive": "0x002E7FAC",
+      "byte_length": 16,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E7F9C",
+      "instruction_count": 8
+    },
+    {
+      "offset_start": 57260,
+      "offset_end_exclusive": 57262,
+      "runtime_start": "0x002E7FAC",
+      "runtime_end_exclusive": "0x002E7FAE",
+      "byte_length": 2,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 57262,
+      "offset_end_exclusive": 57296,
+      "runtime_start": "0x002E7FAE",
+      "runtime_end_exclusive": "0x002E7FD0",
+      "byte_length": 34,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E7FAE",
+      "instruction_count": 17
+    },
+    {
+      "offset_start": 57296,
+      "offset_end_exclusive": 57298,
+      "runtime_start": "0x002E7FD0",
+      "runtime_end_exclusive": "0x002E7FD2",
+      "byte_length": 2,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 57298,
+      "offset_end_exclusive": 57310,
+      "runtime_start": "0x002E7FD2",
+      "runtime_end_exclusive": "0x002E7FDE",
+      "byte_length": 12,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E7FD2",
+      "instruction_count": 6
+    },
+    {
+      "offset_start": 57310,
+      "offset_end_exclusive": 57312,
+      "runtime_start": "0x002E7FDE",
+      "runtime_end_exclusive": "0x002E7FE0",
+      "byte_length": 2,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 57312,
+      "offset_end_exclusive": 57320,
+      "runtime_start": "0x002E7FE0",
+      "runtime_end_exclusive": "0x002E7FE8",
+      "byte_length": 8,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E7FE0",
+      "instruction_count": 4
+    },
+    {
+      "offset_start": 57320,
+      "offset_end_exclusive": 57322,
+      "runtime_start": "0x002E7FE8",
+      "runtime_end_exclusive": "0x002E7FEA",
+      "byte_length": 2,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 57322,
+      "offset_end_exclusive": 57330,
+      "runtime_start": "0x002E7FEA",
+      "runtime_end_exclusive": "0x002E7FF2",
+      "byte_length": 8,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E7FEA",
+      "instruction_count": 4
+    },
+    {
+      "offset_start": 57330,
+      "offset_end_exclusive": 57332,
+      "runtime_start": "0x002E7FF2",
+      "runtime_end_exclusive": "0x002E7FF4",
+      "byte_length": 2,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "RAW_CODE_PENDING_DECODE"
+    },
+    {
+      "offset_start": 57332,
+      "offset_end_exclusive": 57338,
+      "runtime_start": "0x002E7FF4",
+      "runtime_end_exclusive": "0x002E7FFA",
+      "byte_length": 6,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E7FF4",
+      "instruction_count": 3
+    },
+    {
+      "offset_start": 57338,
+      "offset_end_exclusive": 57450,
+      "runtime_start": "0x002E7FFA",
+      "runtime_end_exclusive": "0x002E806A",
+      "byte_length": 112,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 57450,
+      "offset_end_exclusive": 57460,
+      "runtime_start": "0x002E806A",
+      "runtime_end_exclusive": "0x002E8074",
+      "byte_length": 10,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E806A",
+      "instruction_count": 5
+    },
+    {
+      "offset_start": 57460,
+      "offset_end_exclusive": 57480,
+      "runtime_start": "0x002E8074",
+      "runtime_end_exclusive": "0x002E8088",
+      "byte_length": 20,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 57480,
+      "offset_end_exclusive": 57492,
+      "runtime_start": "0x002E8088",
+      "runtime_end_exclusive": "0x002E8094",
+      "byte_length": 12,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E8088",
+      "instruction_count": 6
+    },
+    {
+      "offset_start": 57492,
+      "offset_end_exclusive": 57494,
+      "runtime_start": "0x002E8094",
+      "runtime_end_exclusive": "0x002E8096",
+      "byte_length": 2,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 57494,
+      "offset_end_exclusive": 57504,
+      "runtime_start": "0x002E8096",
+      "runtime_end_exclusive": "0x002E80A0",
+      "byte_length": 10,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E8096",
+      "instruction_count": 5
+    },
+    {
+      "offset_start": 57504,
+      "offset_end_exclusive": 57506,
+      "runtime_start": "0x002E80A0",
+      "runtime_end_exclusive": "0x002E80A2",
+      "byte_length": 2,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 57506,
+      "offset_end_exclusive": 57520,
+      "runtime_start": "0x002E80A2",
+      "runtime_end_exclusive": "0x002E80B0",
+      "byte_length": 14,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E80A2",
+      "instruction_count": 7
+    },
+    {
+      "offset_start": 57520,
+      "offset_end_exclusive": 57524,
+      "runtime_start": "0x002E80B0",
+      "runtime_end_exclusive": "0x002E80B4",
+      "byte_length": 4,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 57524,
+      "offset_end_exclusive": 57530,
+      "runtime_start": "0x002E80B4",
+      "runtime_end_exclusive": "0x002E80BA",
+      "byte_length": 6,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E80B4",
+      "instruction_count": 3
+    },
+    {
+      "offset_start": 57530,
+      "offset_end_exclusive": 57532,
+      "runtime_start": "0x002E80BA",
+      "runtime_end_exclusive": "0x002E80BC",
+      "byte_length": 2,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 57532,
+      "offset_end_exclusive": 57548,
+      "runtime_start": "0x002E80BC",
+      "runtime_end_exclusive": "0x002E80CC",
+      "byte_length": 16,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E80BC",
+      "instruction_count": 8
+    },
+    {
+      "offset_start": 57548,
+      "offset_end_exclusive": 57550,
+      "runtime_start": "0x002E80CC",
+      "runtime_end_exclusive": "0x002E80CE",
+      "byte_length": 2,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 57550,
+      "offset_end_exclusive": 57560,
+      "runtime_start": "0x002E80CE",
+      "runtime_end_exclusive": "0x002E80D8",
+      "byte_length": 10,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E80CE",
+      "instruction_count": 5
+    },
+    {
+      "offset_start": 57560,
+      "offset_end_exclusive": 57562,
+      "runtime_start": "0x002E80D8",
+      "runtime_end_exclusive": "0x002E80DA",
+      "byte_length": 2,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 57562,
+      "offset_end_exclusive": 57578,
+      "runtime_start": "0x002E80DA",
+      "runtime_end_exclusive": "0x002E80EA",
+      "byte_length": 16,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E80DA",
+      "instruction_count": 8
+    },
+    {
+      "offset_start": 57578,
+      "offset_end_exclusive": 57580,
+      "runtime_start": "0x002E80EA",
+      "runtime_end_exclusive": "0x002E80EC",
+      "byte_length": 2,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 57580,
+      "offset_end_exclusive": 57614,
+      "runtime_start": "0x002E80EC",
+      "runtime_end_exclusive": "0x002E810E",
+      "byte_length": 34,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E80EC",
+      "instruction_count": 17
+    },
+    {
+      "offset_start": 57614,
+      "offset_end_exclusive": 57616,
+      "runtime_start": "0x002E810E",
+      "runtime_end_exclusive": "0x002E8110",
+      "byte_length": 2,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 57616,
+      "offset_end_exclusive": 57630,
+      "runtime_start": "0x002E8110",
+      "runtime_end_exclusive": "0x002E811E",
+      "byte_length": 14,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E8110",
+      "instruction_count": 7
+    },
+    {
+      "offset_start": 57630,
+      "offset_end_exclusive": 57632,
+      "runtime_start": "0x002E811E",
+      "runtime_end_exclusive": "0x002E8120",
+      "byte_length": 2,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 57632,
+      "offset_end_exclusive": 57684,
+      "runtime_start": "0x002E8120",
+      "runtime_end_exclusive": "0x002E8154",
+      "byte_length": 52,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E8120",
+      "instruction_count": 26
+    },
+    {
+      "offset_start": 57684,
+      "offset_end_exclusive": 57686,
+      "runtime_start": "0x002E8154",
+      "runtime_end_exclusive": "0x002E8156",
+      "byte_length": 2,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 57686,
+      "offset_end_exclusive": 57698,
+      "runtime_start": "0x002E8156",
+      "runtime_end_exclusive": "0x002E8162",
+      "byte_length": 12,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E8156",
+      "instruction_count": 6
+    },
+    {
+      "offset_start": 57698,
+      "offset_end_exclusive": 57700,
+      "runtime_start": "0x002E8162",
+      "runtime_end_exclusive": "0x002E8164",
+      "byte_length": 2,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 57700,
+      "offset_end_exclusive": 57708,
+      "runtime_start": "0x002E8164",
+      "runtime_end_exclusive": "0x002E816C",
+      "byte_length": 8,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E8164",
+      "instruction_count": 4
+    },
+    {
+      "offset_start": 57708,
+      "offset_end_exclusive": 57794,
+      "runtime_start": "0x002E816C",
+      "runtime_end_exclusive": "0x002E81C2",
+      "byte_length": 86,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 57794,
+      "offset_end_exclusive": 57806,
+      "runtime_start": "0x002E81C2",
+      "runtime_end_exclusive": "0x002E81CE",
+      "byte_length": 12,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E81C2",
+      "instruction_count": 6
+    },
+    {
+      "offset_start": 57806,
+      "offset_end_exclusive": 57808,
+      "runtime_start": "0x002E81CE",
+      "runtime_end_exclusive": "0x002E81D0",
+      "byte_length": 2,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 57808,
+      "offset_end_exclusive": 57812,
+      "runtime_start": "0x002E81D0",
+      "runtime_end_exclusive": "0x002E81D4",
+      "byte_length": 4,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E81D0",
+      "instruction_count": 2
+    },
+    {
+      "offset_start": 57812,
+      "offset_end_exclusive": 57814,
+      "runtime_start": "0x002E81D4",
+      "runtime_end_exclusive": "0x002E81D6",
+      "byte_length": 2,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 57814,
+      "offset_end_exclusive": 57818,
+      "runtime_start": "0x002E81D6",
+      "runtime_end_exclusive": "0x002E81DA",
+      "byte_length": 4,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E81D6",
+      "instruction_count": 2
+    },
+    {
+      "offset_start": 57818,
+      "offset_end_exclusive": 57820,
+      "runtime_start": "0x002E81DA",
+      "runtime_end_exclusive": "0x002E81DC",
+      "byte_length": 2,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 57820,
+      "offset_end_exclusive": 57826,
+      "runtime_start": "0x002E81DC",
+      "runtime_end_exclusive": "0x002E81E2",
+      "byte_length": 6,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E81DC",
+      "instruction_count": 3
+    },
+    {
+      "offset_start": 57826,
+      "offset_end_exclusive": 57828,
+      "runtime_start": "0x002E81E2",
+      "runtime_end_exclusive": "0x002E81E4",
+      "byte_length": 2,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 57828,
+      "offset_end_exclusive": 57832,
+      "runtime_start": "0x002E81E4",
+      "runtime_end_exclusive": "0x002E81E8",
+      "byte_length": 4,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E81E4",
+      "instruction_count": 2
+    },
+    {
+      "offset_start": 57832,
+      "offset_end_exclusive": 57834,
+      "runtime_start": "0x002E81E8",
+      "runtime_end_exclusive": "0x002E81EA",
+      "byte_length": 2,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 57834,
+      "offset_end_exclusive": 57840,
+      "runtime_start": "0x002E81EA",
+      "runtime_end_exclusive": "0x002E81F0",
+      "byte_length": 6,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E81EA",
+      "instruction_count": 3
+    },
+    {
+      "offset_start": 57840,
+      "offset_end_exclusive": 57842,
+      "runtime_start": "0x002E81F0",
+      "runtime_end_exclusive": "0x002E81F2",
+      "byte_length": 2,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 57842,
+      "offset_end_exclusive": 57846,
+      "runtime_start": "0x002E81F2",
+      "runtime_end_exclusive": "0x002E81F6",
+      "byte_length": 4,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E81F2",
+      "instruction_count": 2
+    },
+    {
+      "offset_start": 57846,
+      "offset_end_exclusive": 57848,
+      "runtime_start": "0x002E81F6",
+      "runtime_end_exclusive": "0x002E81F8",
+      "byte_length": 2,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 57848,
+      "offset_end_exclusive": 57854,
+      "runtime_start": "0x002E81F8",
+      "runtime_end_exclusive": "0x002E81FE",
+      "byte_length": 6,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E81F8",
+      "instruction_count": 3
+    },
+    {
+      "offset_start": 57854,
+      "offset_end_exclusive": 57856,
+      "runtime_start": "0x002E81FE",
+      "runtime_end_exclusive": "0x002E8200",
+      "byte_length": 2,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 57856,
+      "offset_end_exclusive": 57860,
+      "runtime_start": "0x002E8200",
+      "runtime_end_exclusive": "0x002E8204",
+      "byte_length": 4,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E8200",
+      "instruction_count": 2
+    },
+    {
+      "offset_start": 57860,
+      "offset_end_exclusive": 57862,
+      "runtime_start": "0x002E8204",
+      "runtime_end_exclusive": "0x002E8206",
+      "byte_length": 2,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 57862,
+      "offset_end_exclusive": 57868,
+      "runtime_start": "0x002E8206",
+      "runtime_end_exclusive": "0x002E820C",
+      "byte_length": 6,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E8206",
+      "instruction_count": 3
+    },
+    {
+      "offset_start": 57868,
+      "offset_end_exclusive": 57870,
+      "runtime_start": "0x002E820C",
+      "runtime_end_exclusive": "0x002E820E",
+      "byte_length": 2,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 57870,
+      "offset_end_exclusive": 57886,
+      "runtime_start": "0x002E820E",
+      "runtime_end_exclusive": "0x002E821E",
+      "byte_length": 16,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E820E",
+      "instruction_count": 8
+    },
+    {
+      "offset_start": 57886,
+      "offset_end_exclusive": 57888,
+      "runtime_start": "0x002E821E",
+      "runtime_end_exclusive": "0x002E8220",
+      "byte_length": 2,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 57888,
+      "offset_end_exclusive": 57894,
+      "runtime_start": "0x002E8220",
+      "runtime_end_exclusive": "0x002E8226",
+      "byte_length": 6,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E8220",
+      "instruction_count": 3
+    },
+    {
+      "offset_start": 57894,
+      "offset_end_exclusive": 57896,
+      "runtime_start": "0x002E8226",
+      "runtime_end_exclusive": "0x002E8228",
+      "byte_length": 2,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 57896,
+      "offset_end_exclusive": 57910,
+      "runtime_start": "0x002E8228",
+      "runtime_end_exclusive": "0x002E8236",
+      "byte_length": 14,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E8228",
+      "instruction_count": 7
+    },
+    {
+      "offset_start": 57910,
+      "offset_end_exclusive": 57942,
+      "runtime_start": "0x002E8236",
+      "runtime_end_exclusive": "0x002E8256",
+      "byte_length": 32,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 57942,
+      "offset_end_exclusive": 57952,
+      "runtime_start": "0x002E8256",
+      "runtime_end_exclusive": "0x002E8260",
+      "byte_length": 10,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E8256",
+      "instruction_count": 5
+    },
+    {
+      "offset_start": 57952,
+      "offset_end_exclusive": 57954,
+      "runtime_start": "0x002E8260",
+      "runtime_end_exclusive": "0x002E8262",
+      "byte_length": 2,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 57954,
+      "offset_end_exclusive": 57984,
+      "runtime_start": "0x002E8262",
+      "runtime_end_exclusive": "0x002E8280",
+      "byte_length": 30,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E8262",
+      "instruction_count": 15
+    },
+    {
+      "offset_start": 57984,
+      "offset_end_exclusive": 57988,
+      "runtime_start": "0x002E8280",
+      "runtime_end_exclusive": "0x002E8284",
+      "byte_length": 4,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 57988,
+      "offset_end_exclusive": 58006,
+      "runtime_start": "0x002E8284",
+      "runtime_end_exclusive": "0x002E8296",
+      "byte_length": 18,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E8284",
+      "instruction_count": 9
+    },
+    {
+      "offset_start": 58006,
+      "offset_end_exclusive": 58008,
+      "runtime_start": "0x002E8296",
+      "runtime_end_exclusive": "0x002E8298",
+      "byte_length": 2,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 58008,
+      "offset_end_exclusive": 58018,
+      "runtime_start": "0x002E8298",
+      "runtime_end_exclusive": "0x002E82A2",
+      "byte_length": 10,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E8298",
+      "instruction_count": 5
+    },
+    {
+      "offset_start": 58018,
+      "offset_end_exclusive": 58062,
+      "runtime_start": "0x002E82A2",
+      "runtime_end_exclusive": "0x002E82CE",
+      "byte_length": 44,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 58062,
+      "offset_end_exclusive": 58072,
+      "runtime_start": "0x002E82CE",
+      "runtime_end_exclusive": "0x002E82D8",
+      "byte_length": 10,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E82CE",
+      "instruction_count": 5
+    },
+    {
+      "offset_start": 58072,
+      "offset_end_exclusive": 58074,
+      "runtime_start": "0x002E82D8",
+      "runtime_end_exclusive": "0x002E82DA",
+      "byte_length": 2,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 58074,
+      "offset_end_exclusive": 58078,
+      "runtime_start": "0x002E82DA",
+      "runtime_end_exclusive": "0x002E82DE",
+      "byte_length": 4,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E82DA",
+      "instruction_count": 2
+    },
+    {
+      "offset_start": 58078,
+      "offset_end_exclusive": 58080,
+      "runtime_start": "0x002E82DE",
+      "runtime_end_exclusive": "0x002E82E0",
+      "byte_length": 2,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 58080,
+      "offset_end_exclusive": 58084,
+      "runtime_start": "0x002E82E0",
+      "runtime_end_exclusive": "0x002E82E4",
+      "byte_length": 4,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E82E0",
+      "instruction_count": 2
+    },
+    {
+      "offset_start": 58084,
+      "offset_end_exclusive": 58150,
+      "runtime_start": "0x002E82E4",
+      "runtime_end_exclusive": "0x002E8326",
+      "byte_length": 66,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 58150,
+      "offset_end_exclusive": 58160,
+      "runtime_start": "0x002E8326",
+      "runtime_end_exclusive": "0x002E8330",
+      "byte_length": 10,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E8326",
+      "instruction_count": 5
+    },
+    {
+      "offset_start": 58160,
+      "offset_end_exclusive": 58162,
+      "runtime_start": "0x002E8330",
+      "runtime_end_exclusive": "0x002E8332",
+      "byte_length": 2,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 58162,
+      "offset_end_exclusive": 58166,
+      "runtime_start": "0x002E8332",
+      "runtime_end_exclusive": "0x002E8336",
+      "byte_length": 4,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E8332",
+      "instruction_count": 2
+    },
+    {
+      "offset_start": 58166,
+      "offset_end_exclusive": 58168,
+      "runtime_start": "0x002E8336",
+      "runtime_end_exclusive": "0x002E8338",
+      "byte_length": 2,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 58168,
+      "offset_end_exclusive": 58170,
+      "runtime_start": "0x002E8338",
+      "runtime_end_exclusive": "0x002E833A",
+      "byte_length": 2,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E8338",
+      "instruction_count": 1
+    },
+    {
+      "offset_start": 58170,
+      "offset_end_exclusive": 58172,
+      "runtime_start": "0x002E833A",
+      "runtime_end_exclusive": "0x002E833C",
+      "byte_length": 2,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 58172,
+      "offset_end_exclusive": 58182,
+      "runtime_start": "0x002E833C",
+      "runtime_end_exclusive": "0x002E8346",
+      "byte_length": 10,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E833C",
+      "instruction_count": 5
+    },
+    {
+      "offset_start": 58182,
+      "offset_end_exclusive": 58184,
+      "runtime_start": "0x002E8346",
+      "runtime_end_exclusive": "0x002E8348",
+      "byte_length": 2,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 58184,
+      "offset_end_exclusive": 58222,
+      "runtime_start": "0x002E8348",
+      "runtime_end_exclusive": "0x002E836E",
+      "byte_length": 38,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E8348",
+      "instruction_count": 19
+    },
+    {
+      "offset_start": 58222,
+      "offset_end_exclusive": 58224,
+      "runtime_start": "0x002E836E",
+      "runtime_end_exclusive": "0x002E8370",
+      "byte_length": 2,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 58224,
+      "offset_end_exclusive": 58238,
+      "runtime_start": "0x002E8370",
+      "runtime_end_exclusive": "0x002E837E",
+      "byte_length": 14,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E8370",
+      "instruction_count": 7
+    },
+    {
+      "offset_start": 58238,
+      "offset_end_exclusive": 58240,
+      "runtime_start": "0x002E837E",
+      "runtime_end_exclusive": "0x002E8380",
+      "byte_length": 2,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 58240,
+      "offset_end_exclusive": 58260,
+      "runtime_start": "0x002E8380",
+      "runtime_end_exclusive": "0x002E8394",
+      "byte_length": 20,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E8380",
+      "instruction_count": 10
+    },
+    {
+      "offset_start": 58260,
+      "offset_end_exclusive": 58262,
+      "runtime_start": "0x002E8394",
+      "runtime_end_exclusive": "0x002E8396",
+      "byte_length": 2,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 58262,
+      "offset_end_exclusive": 58264,
+      "runtime_start": "0x002E8396",
+      "runtime_end_exclusive": "0x002E8398",
+      "byte_length": 2,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E8396",
+      "instruction_count": 1
+    },
+    {
+      "offset_start": 58264,
+      "offset_end_exclusive": 58324,
+      "runtime_start": "0x002E8398",
+      "runtime_end_exclusive": "0x002E83D4",
+      "byte_length": 60,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 58324,
+      "offset_end_exclusive": 58338,
+      "runtime_start": "0x002E83D4",
+      "runtime_end_exclusive": "0x002E83E2",
+      "byte_length": 14,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E83D4",
+      "instruction_count": 7
+    },
+    {
+      "offset_start": 58338,
+      "offset_end_exclusive": 58340,
+      "runtime_start": "0x002E83E2",
+      "runtime_end_exclusive": "0x002E83E4",
+      "byte_length": 2,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 58340,
+      "offset_end_exclusive": 58386,
+      "runtime_start": "0x002E83E4",
+      "runtime_end_exclusive": "0x002E8412",
+      "byte_length": 46,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E83E4",
+      "instruction_count": 23
+    },
+    {
+      "offset_start": 58386,
+      "offset_end_exclusive": 58390,
+      "runtime_start": "0x002E8412",
+      "runtime_end_exclusive": "0x002E8416",
+      "byte_length": 4,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 58390,
+      "offset_end_exclusive": 58392,
+      "runtime_start": "0x002E8416",
+      "runtime_end_exclusive": "0x002E8418",
+      "byte_length": 2,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E8416",
+      "instruction_count": 1
+    },
+    {
+      "offset_start": 58392,
+      "offset_end_exclusive": 58394,
+      "runtime_start": "0x002E8418",
+      "runtime_end_exclusive": "0x002E841A",
+      "byte_length": 2,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 58394,
+      "offset_end_exclusive": 58416,
+      "runtime_start": "0x002E841A",
+      "runtime_end_exclusive": "0x002E8430",
+      "byte_length": 22,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E841A",
+      "instruction_count": 11
+    },
+    {
+      "offset_start": 58416,
+      "offset_end_exclusive": 58466,
+      "runtime_start": "0x002E8430",
+      "runtime_end_exclusive": "0x002E8462",
+      "byte_length": 50,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 58466,
+      "offset_end_exclusive": 58476,
+      "runtime_start": "0x002E8462",
+      "runtime_end_exclusive": "0x002E846C",
+      "byte_length": 10,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E8462",
+      "instruction_count": 5
+    },
+    {
+      "offset_start": 58476,
+      "offset_end_exclusive": 58478,
+      "runtime_start": "0x002E846C",
+      "runtime_end_exclusive": "0x002E846E",
+      "byte_length": 2,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 58478,
+      "offset_end_exclusive": 58482,
+      "runtime_start": "0x002E846E",
+      "runtime_end_exclusive": "0x002E8472",
+      "byte_length": 4,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E846E",
+      "instruction_count": 2
+    },
+    {
+      "offset_start": 58482,
+      "offset_end_exclusive": 58484,
+      "runtime_start": "0x002E8472",
+      "runtime_end_exclusive": "0x002E8474",
+      "byte_length": 2,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 58484,
+      "offset_end_exclusive": 58488,
+      "runtime_start": "0x002E8474",
+      "runtime_end_exclusive": "0x002E8478",
+      "byte_length": 4,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E8474",
+      "instruction_count": 2
+    },
+    {
+      "offset_start": 58488,
+      "offset_end_exclusive": 58490,
+      "runtime_start": "0x002E8478",
+      "runtime_end_exclusive": "0x002E847A",
+      "byte_length": 2,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 58490,
+      "offset_end_exclusive": 58498,
+      "runtime_start": "0x002E847A",
+      "runtime_end_exclusive": "0x002E8482",
+      "byte_length": 8,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E847A",
+      "instruction_count": 4
+    },
+    {
+      "offset_start": 58498,
+      "offset_end_exclusive": 58500,
+      "runtime_start": "0x002E8482",
+      "runtime_end_exclusive": "0x002E8484",
+      "byte_length": 2,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 58500,
+      "offset_end_exclusive": 58504,
+      "runtime_start": "0x002E8484",
+      "runtime_end_exclusive": "0x002E8488",
+      "byte_length": 4,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E8484",
+      "instruction_count": 2
+    },
+    {
+      "offset_start": 58504,
+      "offset_end_exclusive": 58506,
+      "runtime_start": "0x002E8488",
+      "runtime_end_exclusive": "0x002E848A",
+      "byte_length": 2,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 58506,
+      "offset_end_exclusive": 58508,
+      "runtime_start": "0x002E848A",
+      "runtime_end_exclusive": "0x002E848C",
+      "byte_length": 2,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E848A",
+      "instruction_count": 1
+    },
+    {
+      "offset_start": 58508,
+      "offset_end_exclusive": 58582,
+      "runtime_start": "0x002E848C",
+      "runtime_end_exclusive": "0x002E84D6",
+      "byte_length": 74,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 58582,
+      "offset_end_exclusive": 58592,
+      "runtime_start": "0x002E84D6",
+      "runtime_end_exclusive": "0x002E84E0",
+      "byte_length": 10,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E84D6",
+      "instruction_count": 5
+    },
+    {
+      "offset_start": 58592,
+      "offset_end_exclusive": 58596,
+      "runtime_start": "0x002E84E0",
+      "runtime_end_exclusive": "0x002E84E4",
+      "byte_length": 4,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 58596,
+      "offset_end_exclusive": 58608,
+      "runtime_start": "0x002E84E4",
+      "runtime_end_exclusive": "0x002E84F0",
+      "byte_length": 12,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E84E4",
+      "instruction_count": 6
+    },
+    {
+      "offset_start": 58608,
+      "offset_end_exclusive": 58610,
+      "runtime_start": "0x002E84F0",
+      "runtime_end_exclusive": "0x002E84F2",
+      "byte_length": 2,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 58610,
+      "offset_end_exclusive": 58630,
+      "runtime_start": "0x002E84F2",
+      "runtime_end_exclusive": "0x002E8506",
+      "byte_length": 20,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E84F2",
+      "instruction_count": 10
+    },
+    {
+      "offset_start": 58630,
+      "offset_end_exclusive": 58776,
+      "runtime_start": "0x002E8506",
+      "runtime_end_exclusive": "0x002E8598",
+      "byte_length": 146,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 58776,
+      "offset_end_exclusive": 58812,
+      "runtime_start": "0x002E8598",
+      "runtime_end_exclusive": "0x002E85BC",
+      "byte_length": 36,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E8598",
+      "instruction_count": 18
+    },
+    {
+      "offset_start": 58812,
+      "offset_end_exclusive": 58834,
+      "runtime_start": "0x002E85BC",
+      "runtime_end_exclusive": "0x002E85D2",
+      "byte_length": 22,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 58834,
+      "offset_end_exclusive": 58854,
+      "runtime_start": "0x002E85D2",
+      "runtime_end_exclusive": "0x002E85E6",
+      "byte_length": 20,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E85D2",
+      "instruction_count": 10
+    },
+    {
+      "offset_start": 58854,
+      "offset_end_exclusive": 58856,
+      "runtime_start": "0x002E85E6",
+      "runtime_end_exclusive": "0x002E85E8",
+      "byte_length": 2,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 58856,
+      "offset_end_exclusive": 58972,
+      "runtime_start": "0x002E85E8",
+      "runtime_end_exclusive": "0x002E865C",
+      "byte_length": 116,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E85E8",
+      "instruction_count": 58
+    },
+    {
+      "offset_start": 58972,
+      "offset_end_exclusive": 59086,
+      "runtime_start": "0x002E865C",
+      "runtime_end_exclusive": "0x002E86CE",
+      "byte_length": 114,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 59086,
+      "offset_end_exclusive": 59182,
+      "runtime_start": "0x002E86CE",
+      "runtime_end_exclusive": "0x002E872E",
+      "byte_length": 96,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E86CE",
+      "instruction_count": 48
+    },
+    {
+      "offset_start": 59182,
+      "offset_end_exclusive": 59264,
+      "runtime_start": "0x002E872E",
+      "runtime_end_exclusive": "0x002E8780",
+      "byte_length": 82,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 59264,
+      "offset_end_exclusive": 59360,
+      "runtime_start": "0x002E8780",
+      "runtime_end_exclusive": "0x002E87E0",
+      "byte_length": 96,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E8780",
+      "instruction_count": 48
+    },
+    {
+      "offset_start": 59360,
+      "offset_end_exclusive": 59442,
+      "runtime_start": "0x002E87E0",
+      "runtime_end_exclusive": "0x002E8832",
+      "byte_length": 82,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 59442,
+      "offset_end_exclusive": 59538,
+      "runtime_start": "0x002E8832",
+      "runtime_end_exclusive": "0x002E8892",
+      "byte_length": 96,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E8832",
+      "instruction_count": 48
+    },
+    {
+      "offset_start": 59538,
+      "offset_end_exclusive": 59620,
+      "runtime_start": "0x002E8892",
+      "runtime_end_exclusive": "0x002E88E4",
+      "byte_length": 82,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 59620,
+      "offset_end_exclusive": 59630,
+      "runtime_start": "0x002E88E4",
+      "runtime_end_exclusive": "0x002E88EE",
+      "byte_length": 10,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E88E4",
+      "instruction_count": 5
+    },
+    {
+      "offset_start": 59630,
+      "offset_end_exclusive": 59632,
+      "runtime_start": "0x002E88EE",
+      "runtime_end_exclusive": "0x002E88F0",
+      "byte_length": 2,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 59632,
+      "offset_end_exclusive": 59650,
+      "runtime_start": "0x002E88F0",
+      "runtime_end_exclusive": "0x002E8902",
+      "byte_length": 18,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E88F0",
+      "instruction_count": 9
+    },
+    {
+      "offset_start": 59650,
+      "offset_end_exclusive": 59662,
+      "runtime_start": "0x002E8902",
+      "runtime_end_exclusive": "0x002E890E",
+      "byte_length": 12,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 59662,
+      "offset_end_exclusive": 59686,
+      "runtime_start": "0x002E890E",
+      "runtime_end_exclusive": "0x002E8926",
+      "byte_length": 24,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E890E",
+      "instruction_count": 12
+    },
+    {
+      "offset_start": 59686,
+      "offset_end_exclusive": 59688,
+      "runtime_start": "0x002E8926",
+      "runtime_end_exclusive": "0x002E8928",
+      "byte_length": 2,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 59688,
+      "offset_end_exclusive": 59690,
+      "runtime_start": "0x002E8928",
+      "runtime_end_exclusive": "0x002E892A",
+      "byte_length": 2,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E8928",
+      "instruction_count": 1
+    },
+    {
+      "offset_start": 59690,
+      "offset_end_exclusive": 59692,
+      "runtime_start": "0x002E892A",
+      "runtime_end_exclusive": "0x002E892C",
+      "byte_length": 2,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 59692,
+      "offset_end_exclusive": 59760,
+      "runtime_start": "0x002E892C",
+      "runtime_end_exclusive": "0x002E8970",
+      "byte_length": 68,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E892C",
+      "instruction_count": 34
+    },
+    {
+      "offset_start": 59760,
+      "offset_end_exclusive": 59954,
+      "runtime_start": "0x002E8970",
+      "runtime_end_exclusive": "0x002E8A32",
+      "byte_length": 194,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 59954,
+      "offset_end_exclusive": 59994,
+      "runtime_start": "0x002E8A32",
+      "runtime_end_exclusive": "0x002E8A5A",
+      "byte_length": 40,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E8A32",
+      "instruction_count": 20
+    },
+    {
+      "offset_start": 59994,
+      "offset_end_exclusive": 60066,
+      "runtime_start": "0x002E8A5A",
+      "runtime_end_exclusive": "0x002E8AA2",
+      "byte_length": 72,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 60066,
+      "offset_end_exclusive": 60074,
+      "runtime_start": "0x002E8AA2",
+      "runtime_end_exclusive": "0x002E8AAA",
+      "byte_length": 8,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E8AA2",
+      "instruction_count": 4
+    },
+    {
+      "offset_start": 60074,
+      "offset_end_exclusive": 60086,
+      "runtime_start": "0x002E8AAA",
+      "runtime_end_exclusive": "0x002E8AB6",
+      "byte_length": 12,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 60086,
+      "offset_end_exclusive": 60090,
+      "runtime_start": "0x002E8AB6",
+      "runtime_end_exclusive": "0x002E8ABA",
+      "byte_length": 4,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E8AB6",
+      "instruction_count": 2
+    },
+    {
+      "offset_start": 60090,
+      "offset_end_exclusive": 60150,
+      "runtime_start": "0x002E8ABA",
+      "runtime_end_exclusive": "0x002E8AF6",
+      "byte_length": 60,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 60150,
+      "offset_end_exclusive": 60170,
+      "runtime_start": "0x002E8AF6",
+      "runtime_end_exclusive": "0x002E8B0A",
+      "byte_length": 20,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E8AF6",
+      "instruction_count": 10
+    },
+    {
+      "offset_start": 60170,
+      "offset_end_exclusive": 60172,
+      "runtime_start": "0x002E8B0A",
+      "runtime_end_exclusive": "0x002E8B0C",
+      "byte_length": 2,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 60172,
+      "offset_end_exclusive": 60192,
+      "runtime_start": "0x002E8B0C",
+      "runtime_end_exclusive": "0x002E8B20",
+      "byte_length": 20,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E8B0C",
+      "instruction_count": 10
+    },
+    {
+      "offset_start": 60192,
+      "offset_end_exclusive": 60202,
+      "runtime_start": "0x002E8B20",
+      "runtime_end_exclusive": "0x002E8B2A",
+      "byte_length": 10,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 60202,
+      "offset_end_exclusive": 60204,
+      "runtime_start": "0x002E8B2A",
+      "runtime_end_exclusive": "0x002E8B2C",
+      "byte_length": 2,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E8B2A",
+      "instruction_count": 1
+    },
+    {
+      "offset_start": 60204,
+      "offset_end_exclusive": 60206,
+      "runtime_start": "0x002E8B2C",
+      "runtime_end_exclusive": "0x002E8B2E",
+      "byte_length": 2,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 60206,
+      "offset_end_exclusive": 60208,
+      "runtime_start": "0x002E8B2E",
+      "runtime_end_exclusive": "0x002E8B30",
+      "byte_length": 2,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E8B2E",
+      "instruction_count": 1
+    },
+    {
+      "offset_start": 60208,
+      "offset_end_exclusive": 60266,
+      "runtime_start": "0x002E8B30",
+      "runtime_end_exclusive": "0x002E8B6A",
+      "byte_length": 58,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 60266,
+      "offset_end_exclusive": 60268,
+      "runtime_start": "0x002E8B6A",
+      "runtime_end_exclusive": "0x002E8B6C",
+      "byte_length": 2,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E8B6A",
+      "instruction_count": 1
+    },
+    {
+      "offset_start": 60268,
+      "offset_end_exclusive": 60270,
+      "runtime_start": "0x002E8B6C",
+      "runtime_end_exclusive": "0x002E8B6E",
+      "byte_length": 2,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 60270,
+      "offset_end_exclusive": 60286,
+      "runtime_start": "0x002E8B6E",
+      "runtime_end_exclusive": "0x002E8B7E",
+      "byte_length": 16,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E8B6E",
+      "instruction_count": 8
+    },
+    {
+      "offset_start": 60286,
+      "offset_end_exclusive": 60350,
+      "runtime_start": "0x002E8B7E",
+      "runtime_end_exclusive": "0x002E8BBE",
+      "byte_length": 64,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 60350,
+      "offset_end_exclusive": 60358,
+      "runtime_start": "0x002E8BBE",
+      "runtime_end_exclusive": "0x002E8BC6",
+      "byte_length": 8,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E8BBE",
+      "instruction_count": 4
+    },
+    {
+      "offset_start": 60358,
+      "offset_end_exclusive": 60390,
+      "runtime_start": "0x002E8BC6",
+      "runtime_end_exclusive": "0x002E8BE6",
+      "byte_length": 32,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 60390,
+      "offset_end_exclusive": 60418,
+      "runtime_start": "0x002E8BE6",
+      "runtime_end_exclusive": "0x002E8C02",
+      "byte_length": 28,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E8BE6",
+      "instruction_count": 14
+    },
+    {
+      "offset_start": 60418,
+      "offset_end_exclusive": 62040,
+      "runtime_start": "0x002E8C02",
+      "runtime_end_exclusive": "0x002E9258",
+      "byte_length": 1622,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 62040,
+      "offset_end_exclusive": 62052,
+      "runtime_start": "0x002E9258",
+      "runtime_end_exclusive": "0x002E9264",
+      "byte_length": 12,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E9258",
+      "instruction_count": 6
+    },
+    {
+      "offset_start": 62052,
+      "offset_end_exclusive": 62054,
+      "runtime_start": "0x002E9264",
+      "runtime_end_exclusive": "0x002E9266",
+      "byte_length": 2,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 62054,
+      "offset_end_exclusive": 62058,
+      "runtime_start": "0x002E9266",
+      "runtime_end_exclusive": "0x002E926A",
+      "byte_length": 4,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E9266",
+      "instruction_count": 2
+    },
+    {
+      "offset_start": 62058,
+      "offset_end_exclusive": 62060,
+      "runtime_start": "0x002E926A",
+      "runtime_end_exclusive": "0x002E926C",
+      "byte_length": 2,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 62060,
+      "offset_end_exclusive": 62064,
+      "runtime_start": "0x002E926C",
+      "runtime_end_exclusive": "0x002E9270",
+      "byte_length": 4,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E926C",
+      "instruction_count": 2
+    },
+    {
+      "offset_start": 62064,
+      "offset_end_exclusive": 62066,
+      "runtime_start": "0x002E9270",
+      "runtime_end_exclusive": "0x002E9272",
+      "byte_length": 2,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 62066,
+      "offset_end_exclusive": 62108,
+      "runtime_start": "0x002E9272",
+      "runtime_end_exclusive": "0x002E929C",
+      "byte_length": 42,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E9272",
+      "instruction_count": 21
+    },
+    {
+      "offset_start": 62108,
+      "offset_end_exclusive": 63760,
+      "runtime_start": "0x002E929C",
       "runtime_end_exclusive": "0x002E9910",
-      "byte_length": 63760,
+      "byte_length": 1652,
       "evidence_classification": "UNKNOWN",
       "assembly_representation": "RAW_UNKNOWN"
     },
     {
       "offset_start": 63760,
-      "offset_end_exclusive": 63762,
+      "offset_end_exclusive": 63784,
       "runtime_start": "0x002E9910",
-      "runtime_end_exclusive": "0x002E9912",
-      "byte_length": 2,
+      "runtime_end_exclusive": "0x002E9928",
+      "byte_length": 24,
       "evidence_classification": "CONFIRMED_CODE",
       "assembly_representation": "MNEMONIC_PROVEN",
       "block_id": "bb_002E9910",
+      "instruction_count": 12
+    },
+    {
+      "offset_start": 63784,
+      "offset_end_exclusive": 63786,
+      "runtime_start": "0x002E9928",
+      "runtime_end_exclusive": "0x002E992A",
+      "byte_length": 2,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 63786,
+      "offset_end_exclusive": 63794,
+      "runtime_start": "0x002E992A",
+      "runtime_end_exclusive": "0x002E9932",
+      "byte_length": 8,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E992A",
+      "instruction_count": 4
+    },
+    {
+      "offset_start": 63794,
+      "offset_end_exclusive": 64578,
+      "runtime_start": "0x002E9932",
+      "runtime_end_exclusive": "0x002E9C42",
+      "byte_length": 784,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 64578,
+      "offset_end_exclusive": 64596,
+      "runtime_start": "0x002E9C42",
+      "runtime_end_exclusive": "0x002E9C54",
+      "byte_length": 18,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E9C42",
+      "instruction_count": 9
+    },
+    {
+      "offset_start": 64596,
+      "offset_end_exclusive": 64598,
+      "runtime_start": "0x002E9C54",
+      "runtime_end_exclusive": "0x002E9C56",
+      "byte_length": 2,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 64598,
+      "offset_end_exclusive": 64726,
+      "runtime_start": "0x002E9C56",
+      "runtime_end_exclusive": "0x002E9CD6",
+      "byte_length": 128,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E9C56",
+      "instruction_count": 64
+    },
+    {
+      "offset_start": 64726,
+      "offset_end_exclusive": 65886,
+      "runtime_start": "0x002E9CD6",
+      "runtime_end_exclusive": "0x002EA15E",
+      "byte_length": 1160,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 65886,
+      "offset_end_exclusive": 65936,
+      "runtime_start": "0x002EA15E",
+      "runtime_end_exclusive": "0x002EA190",
+      "byte_length": 50,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002EA15E",
+      "instruction_count": 25
+    },
+    {
+      "offset_start": 65936,
+      "offset_end_exclusive": 65938,
+      "runtime_start": "0x002EA190",
+      "runtime_end_exclusive": "0x002EA192",
+      "byte_length": 2,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 65938,
+      "offset_end_exclusive": 65972,
+      "runtime_start": "0x002EA192",
+      "runtime_end_exclusive": "0x002EA1B4",
+      "byte_length": 34,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002EA192",
+      "instruction_count": 17
+    },
+    {
+      "offset_start": 65972,
+      "offset_end_exclusive": 65974,
+      "runtime_start": "0x002EA1B4",
+      "runtime_end_exclusive": "0x002EA1B6",
+      "byte_length": 2,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 65974,
+      "offset_end_exclusive": 66036,
+      "runtime_start": "0x002EA1B6",
+      "runtime_end_exclusive": "0x002EA1F4",
+      "byte_length": 62,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002EA1B6",
+      "instruction_count": 31
+    },
+    {
+      "offset_start": 66036,
+      "offset_end_exclusive": 66038,
+      "runtime_start": "0x002EA1F4",
+      "runtime_end_exclusive": "0x002EA1F6",
+      "byte_length": 2,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 66038,
+      "offset_end_exclusive": 66078,
+      "runtime_start": "0x002EA1F6",
+      "runtime_end_exclusive": "0x002EA21E",
+      "byte_length": 40,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002EA1F6",
+      "instruction_count": 20
+    },
+    {
+      "offset_start": 66078,
+      "offset_end_exclusive": 66084,
+      "runtime_start": "0x002EA21E",
+      "runtime_end_exclusive": "0x002EA224",
+      "byte_length": 6,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 66084,
+      "offset_end_exclusive": 66098,
+      "runtime_start": "0x002EA224",
+      "runtime_end_exclusive": "0x002EA232",
+      "byte_length": 14,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002EA224",
+      "instruction_count": 7
+    },
+    {
+      "offset_start": 66098,
+      "offset_end_exclusive": 66100,
+      "runtime_start": "0x002EA232",
+      "runtime_end_exclusive": "0x002EA234",
+      "byte_length": 2,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 66100,
+      "offset_end_exclusive": 66106,
+      "runtime_start": "0x002EA234",
+      "runtime_end_exclusive": "0x002EA23A",
+      "byte_length": 6,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002EA234",
+      "instruction_count": 3
+    },
+    {
+      "offset_start": 66106,
+      "offset_end_exclusive": 66108,
+      "runtime_start": "0x002EA23A",
+      "runtime_end_exclusive": "0x002EA23C",
+      "byte_length": 2,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 66108,
+      "offset_end_exclusive": 66126,
+      "runtime_start": "0x002EA23C",
+      "runtime_end_exclusive": "0x002EA24E",
+      "byte_length": 18,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002EA23C",
+      "instruction_count": 9
+    },
+    {
+      "offset_start": 66126,
+      "offset_end_exclusive": 66128,
+      "runtime_start": "0x002EA24E",
+      "runtime_end_exclusive": "0x002EA250",
+      "byte_length": 2,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 66128,
+      "offset_end_exclusive": 66134,
+      "runtime_start": "0x002EA250",
+      "runtime_end_exclusive": "0x002EA256",
+      "byte_length": 6,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002EA250",
+      "instruction_count": 3
+    },
+    {
+      "offset_start": 66134,
+      "offset_end_exclusive": 66136,
+      "runtime_start": "0x002EA256",
+      "runtime_end_exclusive": "0x002EA258",
+      "byte_length": 2,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 66136,
+      "offset_end_exclusive": 66138,
+      "runtime_start": "0x002EA258",
+      "runtime_end_exclusive": "0x002EA25A",
+      "byte_length": 2,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002EA258",
       "instruction_count": 1
     },
-
     {
-      "offset_start": 63762,
+      "offset_start": 66138,
+      "offset_end_exclusive": 66140,
+      "runtime_start": "0x002EA25A",
+      "runtime_end_exclusive": "0x002EA25C",
+      "byte_length": 2,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 66140,
+      "offset_end_exclusive": 66148,
+      "runtime_start": "0x002EA25C",
+      "runtime_end_exclusive": "0x002EA264",
+      "byte_length": 8,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002EA25C",
+      "instruction_count": 4
+    },
+    {
+      "offset_start": 66148,
+      "offset_end_exclusive": 66150,
+      "runtime_start": "0x002EA264",
+      "runtime_end_exclusive": "0x002EA266",
+      "byte_length": 2,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 66150,
+      "offset_end_exclusive": 66152,
+      "runtime_start": "0x002EA266",
+      "runtime_end_exclusive": "0x002EA268",
+      "byte_length": 2,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002EA266",
+      "instruction_count": 1
+    },
+    {
+      "offset_start": 66152,
+      "offset_end_exclusive": 66154,
+      "runtime_start": "0x002EA268",
+      "runtime_end_exclusive": "0x002EA26A",
+      "byte_length": 2,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 66154,
+      "offset_end_exclusive": 66158,
+      "runtime_start": "0x002EA26A",
+      "runtime_end_exclusive": "0x002EA26E",
+      "byte_length": 4,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002EA26A",
+      "instruction_count": 2
+    },
+    {
+      "offset_start": 66158,
+      "offset_end_exclusive": 66160,
+      "runtime_start": "0x002EA26E",
+      "runtime_end_exclusive": "0x002EA270",
+      "byte_length": 2,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 66160,
+      "offset_end_exclusive": 66166,
+      "runtime_start": "0x002EA270",
+      "runtime_end_exclusive": "0x002EA276",
+      "byte_length": 6,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002EA270",
+      "instruction_count": 3
+    },
+    {
+      "offset_start": 66166,
+      "offset_end_exclusive": 66168,
+      "runtime_start": "0x002EA276",
+      "runtime_end_exclusive": "0x002EA278",
+      "byte_length": 2,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 66168,
+      "offset_end_exclusive": 66202,
+      "runtime_start": "0x002EA278",
+      "runtime_end_exclusive": "0x002EA29A",
+      "byte_length": 34,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002EA278",
+      "instruction_count": 17
+    },
+    {
+      "offset_start": 66202,
+      "offset_end_exclusive": 66204,
+      "runtime_start": "0x002EA29A",
+      "runtime_end_exclusive": "0x002EA29C",
+      "byte_length": 2,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 66204,
+      "offset_end_exclusive": 66210,
+      "runtime_start": "0x002EA29C",
+      "runtime_end_exclusive": "0x002EA2A2",
+      "byte_length": 6,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002EA29C",
+      "instruction_count": 3
+    },
+    {
+      "offset_start": 66210,
+      "offset_end_exclusive": 66212,
+      "runtime_start": "0x002EA2A2",
+      "runtime_end_exclusive": "0x002EA2A4",
+      "byte_length": 2,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 66212,
+      "offset_end_exclusive": 66224,
+      "runtime_start": "0x002EA2A4",
+      "runtime_end_exclusive": "0x002EA2B0",
+      "byte_length": 12,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002EA2A4",
+      "instruction_count": 6
+    },
+    {
+      "offset_start": 66224,
+      "offset_end_exclusive": 66226,
+      "runtime_start": "0x002EA2B0",
+      "runtime_end_exclusive": "0x002EA2B2",
+      "byte_length": 2,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 66226,
+      "offset_end_exclusive": 66254,
+      "runtime_start": "0x002EA2B2",
+      "runtime_end_exclusive": "0x002EA2CE",
+      "byte_length": 28,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002EA2B2",
+      "instruction_count": 14
+    },
+    {
+      "offset_start": 66254,
+      "offset_end_exclusive": 66256,
+      "runtime_start": "0x002EA2CE",
+      "runtime_end_exclusive": "0x002EA2D0",
+      "byte_length": 2,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 66256,
+      "offset_end_exclusive": 66262,
+      "runtime_start": "0x002EA2D0",
+      "runtime_end_exclusive": "0x002EA2D6",
+      "byte_length": 6,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002EA2D0",
+      "instruction_count": 3
+    },
+    {
+      "offset_start": 66262,
+      "offset_end_exclusive": 66264,
+      "runtime_start": "0x002EA2D6",
+      "runtime_end_exclusive": "0x002EA2D8",
+      "byte_length": 2,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 66264,
+      "offset_end_exclusive": 66276,
+      "runtime_start": "0x002EA2D8",
+      "runtime_end_exclusive": "0x002EA2E4",
+      "byte_length": 12,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002EA2D8",
+      "instruction_count": 6
+    },
+    {
+      "offset_start": 66276,
+      "offset_end_exclusive": 66278,
+      "runtime_start": "0x002EA2E4",
+      "runtime_end_exclusive": "0x002EA2E6",
+      "byte_length": 2,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 66278,
+      "offset_end_exclusive": 66290,
+      "runtime_start": "0x002EA2E6",
+      "runtime_end_exclusive": "0x002EA2F2",
+      "byte_length": 12,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002EA2E6",
+      "instruction_count": 6
+    },
+    {
+      "offset_start": 66290,
+      "offset_end_exclusive": 66292,
+      "runtime_start": "0x002EA2F2",
+      "runtime_end_exclusive": "0x002EA2F4",
+      "byte_length": 2,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 66292,
+      "offset_end_exclusive": 66340,
+      "runtime_start": "0x002EA2F4",
+      "runtime_end_exclusive": "0x002EA324",
+      "byte_length": 48,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002EA2F4",
+      "instruction_count": 24
+    },
+    {
+      "offset_start": 66340,
+      "offset_end_exclusive": 66342,
+      "runtime_start": "0x002EA324",
+      "runtime_end_exclusive": "0x002EA326",
+      "byte_length": 2,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 66342,
+      "offset_end_exclusive": 66380,
+      "runtime_start": "0x002EA326",
+      "runtime_end_exclusive": "0x002EA34C",
+      "byte_length": 38,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002EA326",
+      "instruction_count": 19
+    },
+    {
+      "offset_start": 66380,
+      "offset_end_exclusive": 66384,
+      "runtime_start": "0x002EA34C",
+      "runtime_end_exclusive": "0x002EA350",
+      "byte_length": 4,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 66384,
+      "offset_end_exclusive": 66402,
+      "runtime_start": "0x002EA350",
+      "runtime_end_exclusive": "0x002EA362",
+      "byte_length": 18,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002EA350",
+      "instruction_count": 9
+    },
+    {
+      "offset_start": 66402,
+      "offset_end_exclusive": 66462,
+      "runtime_start": "0x002EA362",
+      "runtime_end_exclusive": "0x002EA39E",
+      "byte_length": 60,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 66462,
+      "offset_end_exclusive": 66476,
+      "runtime_start": "0x002EA39E",
+      "runtime_end_exclusive": "0x002EA3AC",
+      "byte_length": 14,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002EA39E",
+      "instruction_count": 7
+    },
+    {
+      "offset_start": 66476,
+      "offset_end_exclusive": 66478,
+      "runtime_start": "0x002EA3AC",
+      "runtime_end_exclusive": "0x002EA3AE",
+      "byte_length": 2,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 66478,
+      "offset_end_exclusive": 66504,
+      "runtime_start": "0x002EA3AE",
+      "runtime_end_exclusive": "0x002EA3C8",
+      "byte_length": 26,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002EA3AE",
+      "instruction_count": 13
+    },
+    {
+      "offset_start": 66504,
+      "offset_end_exclusive": 66506,
+      "runtime_start": "0x002EA3C8",
+      "runtime_end_exclusive": "0x002EA3CA",
+      "byte_length": 2,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 66506,
+      "offset_end_exclusive": 66516,
+      "runtime_start": "0x002EA3CA",
+      "runtime_end_exclusive": "0x002EA3D4",
+      "byte_length": 10,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002EA3CA",
+      "instruction_count": 5
+    },
+    {
+      "offset_start": 66516,
+      "offset_end_exclusive": 66626,
+      "runtime_start": "0x002EA3D4",
+      "runtime_end_exclusive": "0x002EA442",
+      "byte_length": 110,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 66626,
+      "offset_end_exclusive": 66640,
+      "runtime_start": "0x002EA442",
+      "runtime_end_exclusive": "0x002EA450",
+      "byte_length": 14,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002EA442",
+      "instruction_count": 7
+    },
+    {
+      "offset_start": 66640,
+      "offset_end_exclusive": 66642,
+      "runtime_start": "0x002EA450",
+      "runtime_end_exclusive": "0x002EA452",
+      "byte_length": 2,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "RAW_CODE_PENDING_DECODE"
+    },
+    {
+      "offset_start": 66642,
+      "offset_end_exclusive": 66656,
+      "runtime_start": "0x002EA452",
+      "runtime_end_exclusive": "0x002EA460",
+      "byte_length": 14,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002EA452",
+      "instruction_count": 7
+    },
+    {
+      "offset_start": 66656,
+      "offset_end_exclusive": 66658,
+      "runtime_start": "0x002EA460",
+      "runtime_end_exclusive": "0x002EA462",
+      "byte_length": 2,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 66658,
+      "offset_end_exclusive": 66668,
+      "runtime_start": "0x002EA462",
+      "runtime_end_exclusive": "0x002EA46C",
+      "byte_length": 10,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002EA462",
+      "instruction_count": 5
+    },
+    {
+      "offset_start": 66668,
+      "offset_end_exclusive": 66670,
+      "runtime_start": "0x002EA46C",
+      "runtime_end_exclusive": "0x002EA46E",
+      "byte_length": 2,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 66670,
+      "offset_end_exclusive": 66680,
+      "runtime_start": "0x002EA46E",
+      "runtime_end_exclusive": "0x002EA478",
+      "byte_length": 10,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002EA46E",
+      "instruction_count": 5
+    },
+    {
+      "offset_start": 66680,
+      "offset_end_exclusive": 66682,
+      "runtime_start": "0x002EA478",
+      "runtime_end_exclusive": "0x002EA47A",
+      "byte_length": 2,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 66682,
+      "offset_end_exclusive": 66696,
+      "runtime_start": "0x002EA47A",
+      "runtime_end_exclusive": "0x002EA488",
+      "byte_length": 14,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002EA47A",
+      "instruction_count": 7
+    },
+    {
+      "offset_start": 66696,
+      "offset_end_exclusive": 66698,
+      "runtime_start": "0x002EA488",
+      "runtime_end_exclusive": "0x002EA48A",
+      "byte_length": 2,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "RAW_CODE_PENDING_DECODE"
+    },
+    {
+      "offset_start": 66698,
+      "offset_end_exclusive": 66700,
+      "runtime_start": "0x002EA48A",
+      "runtime_end_exclusive": "0x002EA48C",
+      "byte_length": 2,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002EA48A",
+      "instruction_count": 1
+    },
+    {
+      "offset_start": 66700,
+      "offset_end_exclusive": 66702,
+      "runtime_start": "0x002EA48C",
+      "runtime_end_exclusive": "0x002EA48E",
+      "byte_length": 2,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "RAW_CODE_PENDING_DECODE"
+    },
+    {
+      "offset_start": 66702,
+      "offset_end_exclusive": 66704,
+      "runtime_start": "0x002EA48E",
+      "runtime_end_exclusive": "0x002EA490",
+      "byte_length": 2,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002EA48E",
+      "instruction_count": 1
+    },
+    {
+      "offset_start": 66704,
+      "offset_end_exclusive": 66706,
+      "runtime_start": "0x002EA490",
+      "runtime_end_exclusive": "0x002EA492",
+      "byte_length": 2,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "RAW_CODE_PENDING_DECODE"
+    },
+    {
+      "offset_start": 66706,
+      "offset_end_exclusive": 66708,
+      "runtime_start": "0x002EA492",
+      "runtime_end_exclusive": "0x002EA494",
+      "byte_length": 2,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002EA492",
+      "instruction_count": 1
+    },
+    {
+      "offset_start": 66708,
+      "offset_end_exclusive": 66710,
+      "runtime_start": "0x002EA494",
+      "runtime_end_exclusive": "0x002EA496",
+      "byte_length": 2,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "RAW_CODE_PENDING_DECODE"
+    },
+    {
+      "offset_start": 66710,
+      "offset_end_exclusive": 66838,
+      "runtime_start": "0x002EA496",
+      "runtime_end_exclusive": "0x002EA516",
+      "byte_length": 128,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002EA496",
+      "instruction_count": 64
+    },
+    {
+      "offset_start": 66838,
+      "offset_end_exclusive": 66840,
+      "runtime_start": "0x002EA516",
+      "runtime_end_exclusive": "0x002EA518",
+      "byte_length": 2,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 66840,
+      "offset_end_exclusive": 66864,
+      "runtime_start": "0x002EA518",
+      "runtime_end_exclusive": "0x002EA530",
+      "byte_length": 24,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002EA518",
+      "instruction_count": 12
+    },
+    {
+      "offset_start": 66864,
+      "offset_end_exclusive": 66866,
+      "runtime_start": "0x002EA530",
+      "runtime_end_exclusive": "0x002EA532",
+      "byte_length": 2,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 66866,
+      "offset_end_exclusive": 66884,
+      "runtime_start": "0x002EA532",
+      "runtime_end_exclusive": "0x002EA544",
+      "byte_length": 18,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002EA532",
+      "instruction_count": 9
+    },
+    {
+      "offset_start": 66884,
+      "offset_end_exclusive": 66886,
+      "runtime_start": "0x002EA544",
+      "runtime_end_exclusive": "0x002EA546",
+      "byte_length": 2,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "RAW_CODE_PENDING_DECODE"
+    },
+    {
+      "offset_start": 66886,
+      "offset_end_exclusive": 66922,
+      "runtime_start": "0x002EA546",
+      "runtime_end_exclusive": "0x002EA56A",
+      "byte_length": 36,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002EA546",
+      "instruction_count": 18
+    },
+    {
+      "offset_start": 66922,
+      "offset_end_exclusive": 66924,
+      "runtime_start": "0x002EA56A",
+      "runtime_end_exclusive": "0x002EA56C",
+      "byte_length": 2,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 66924,
+      "offset_end_exclusive": 66940,
+      "runtime_start": "0x002EA56C",
+      "runtime_end_exclusive": "0x002EA57C",
+      "byte_length": 16,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002EA56C",
+      "instruction_count": 8
+    },
+    {
+      "offset_start": 66940,
+      "offset_end_exclusive": 66942,
+      "runtime_start": "0x002EA57C",
+      "runtime_end_exclusive": "0x002EA57E",
+      "byte_length": 2,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 66942,
+      "offset_end_exclusive": 66962,
+      "runtime_start": "0x002EA57E",
+      "runtime_end_exclusive": "0x002EA592",
+      "byte_length": 20,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002EA57E",
+      "instruction_count": 10
+    },
+    {
+      "offset_start": 66962,
+      "offset_end_exclusive": 67014,
+      "runtime_start": "0x002EA592",
+      "runtime_end_exclusive": "0x002EA5C6",
+      "byte_length": 52,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 67014,
+      "offset_end_exclusive": 67042,
+      "runtime_start": "0x002EA5C6",
+      "runtime_end_exclusive": "0x002EA5E2",
+      "byte_length": 28,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002EA5C6",
+      "instruction_count": 14
+    },
+    {
+      "offset_start": 67042,
+      "offset_end_exclusive": 67044,
+      "runtime_start": "0x002EA5E2",
+      "runtime_end_exclusive": "0x002EA5E4",
+      "byte_length": 2,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 67044,
+      "offset_end_exclusive": 67060,
+      "runtime_start": "0x002EA5E4",
+      "runtime_end_exclusive": "0x002EA5F4",
+      "byte_length": 16,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002EA5E4",
+      "instruction_count": 8
+    },
+    {
+      "offset_start": 67060,
+      "offset_end_exclusive": 67062,
+      "runtime_start": "0x002EA5F4",
+      "runtime_end_exclusive": "0x002EA5F6",
+      "byte_length": 2,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 67062,
+      "offset_end_exclusive": 67088,
+      "runtime_start": "0x002EA5F6",
+      "runtime_end_exclusive": "0x002EA610",
+      "byte_length": 26,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002EA5F6",
+      "instruction_count": 13
+    },
+    {
+      "offset_start": 67088,
+      "offset_end_exclusive": 67174,
+      "runtime_start": "0x002EA610",
+      "runtime_end_exclusive": "0x002EA666",
+      "byte_length": 86,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 67174,
+      "offset_end_exclusive": 67180,
+      "runtime_start": "0x002EA666",
+      "runtime_end_exclusive": "0x002EA66C",
+      "byte_length": 6,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002EA666",
+      "instruction_count": 3
+    },
+    {
+      "offset_start": 67180,
+      "offset_end_exclusive": 67398,
+      "runtime_start": "0x002EA66C",
+      "runtime_end_exclusive": "0x002EA746",
+      "byte_length": 218,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 67398,
+      "offset_end_exclusive": 67400,
+      "runtime_start": "0x002EA746",
+      "runtime_end_exclusive": "0x002EA748",
+      "byte_length": 2,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002EA746",
+      "instruction_count": 1
+    },
+    {
+      "offset_start": 67400,
+      "offset_end_exclusive": 67402,
+      "runtime_start": "0x002EA748",
+      "runtime_end_exclusive": "0x002EA74A",
+      "byte_length": 2,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "RAW_CODE_PENDING_DECODE"
+    },
+    {
+      "offset_start": 67402,
+      "offset_end_exclusive": 67420,
+      "runtime_start": "0x002EA74A",
+      "runtime_end_exclusive": "0x002EA75C",
+      "byte_length": 18,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002EA74A",
+      "instruction_count": 9
+    },
+    {
+      "offset_start": 67420,
+      "offset_end_exclusive": 68446,
+      "runtime_start": "0x002EA75C",
+      "runtime_end_exclusive": "0x002EAB5E",
+      "byte_length": 1026,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 68446,
+      "offset_end_exclusive": 68484,
+      "runtime_start": "0x002EAB5E",
+      "runtime_end_exclusive": "0x002EAB84",
+      "byte_length": 38,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002EAB5E",
+      "instruction_count": 19
+    },
+    {
+      "offset_start": 68484,
+      "offset_end_exclusive": 68486,
+      "runtime_start": "0x002EAB84",
+      "runtime_end_exclusive": "0x002EAB86",
+      "byte_length": 2,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 68486,
+      "offset_end_exclusive": 68492,
+      "runtime_start": "0x002EAB86",
+      "runtime_end_exclusive": "0x002EAB8C",
+      "byte_length": 6,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002EAB86",
+      "instruction_count": 3
+    },
+    {
+      "offset_start": 68492,
+      "offset_end_exclusive": 68494,
+      "runtime_start": "0x002EAB8C",
+      "runtime_end_exclusive": "0x002EAB8E",
+      "byte_length": 2,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 68494,
+      "offset_end_exclusive": 68520,
+      "runtime_start": "0x002EAB8E",
+      "runtime_end_exclusive": "0x002EABA8",
+      "byte_length": 26,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002EAB8E",
+      "instruction_count": 13
+    },
+    {
+      "offset_start": 68520,
+      "offset_end_exclusive": 68522,
+      "runtime_start": "0x002EABA8",
+      "runtime_end_exclusive": "0x002EABAA",
+      "byte_length": 2,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 68522,
+      "offset_end_exclusive": 68528,
+      "runtime_start": "0x002EABAA",
+      "runtime_end_exclusive": "0x002EABB0",
+      "byte_length": 6,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002EABAA",
+      "instruction_count": 3
+    },
+    {
+      "offset_start": 68528,
       "offset_end_exclusive": 149504,
-      "runtime_start": "0x002E9912",
+      "runtime_start": "0x002EABB0",
       "runtime_end_exclusive": "0x002FE800",
-      "byte_length": 85742,
+      "byte_length": 80976,
       "evidence_classification": "UNKNOWN",
       "assembly_representation": "RAW_UNKNOWN"
     }
   ],
   "code_blocks": [
     {
-      "block_id": "bb_002E9910",
-      "runtime_start": "0x002E9910",
-      "runtime_end": "0x002E9912",
+      "block_id": "bb_002E500E",
+      "runtime_start": "0x002E500E",
+      "runtime_end": "0x002E5014",
+      "byte_length": 6,
+      "instruction_count": 3
+    },
+    {
+      "block_id": "bb_002E5016",
+      "runtime_start": "0x002E5016",
+      "runtime_end": "0x002E501A",
+      "byte_length": 4,
+      "instruction_count": 2
+    },
+    {
+      "block_id": "bb_002E501C",
+      "runtime_start": "0x002E501C",
+      "runtime_end": "0x002E5020",
+      "byte_length": 4,
+      "instruction_count": 2
+    },
+    {
+      "block_id": "bb_002E5022",
+      "runtime_start": "0x002E5022",
+      "runtime_end": "0x002E5026",
+      "byte_length": 4,
+      "instruction_count": 2
+    },
+    {
+      "block_id": "bb_002E5028",
+      "runtime_start": "0x002E5028",
+      "runtime_end": "0x002E502C",
+      "byte_length": 4,
+      "instruction_count": 2
+    },
+    {
+      "block_id": "bb_002E502E",
+      "runtime_start": "0x002E502E",
+      "runtime_end": "0x002E5038",
+      "byte_length": 10,
+      "instruction_count": 5
+    },
+    {
+      "block_id": "bb_002E503A",
+      "runtime_start": "0x002E503A",
+      "runtime_end": "0x002E503E",
+      "byte_length": 4,
+      "instruction_count": 2
+    },
+    {
+      "block_id": "bb_002E5040",
+      "runtime_start": "0x002E5040",
+      "runtime_end": "0x002E5044",
+      "byte_length": 4,
+      "instruction_count": 2
+    },
+    {
+      "block_id": "bb_002E5046",
+      "runtime_start": "0x002E5046",
+      "runtime_end": "0x002E5056",
+      "byte_length": 16,
+      "instruction_count": 8
+    },
+    {
+      "block_id": "bb_002E5556",
+      "runtime_start": "0x002E5556",
+      "runtime_end": "0x002E5588",
+      "byte_length": 50,
+      "instruction_count": 25
+    },
+    {
+      "block_id": "bb_002E558A",
+      "runtime_start": "0x002E558A",
+      "runtime_end": "0x002E559C",
+      "byte_length": 18,
+      "instruction_count": 9
+    },
+    {
+      "block_id": "bb_002E73FE",
+      "runtime_start": "0x002E73FE",
+      "runtime_end": "0x002E7428",
+      "byte_length": 42,
+      "instruction_count": 21
+    },
+    {
+      "block_id": "bb_002E742A",
+      "runtime_start": "0x002E742A",
+      "runtime_end": "0x002E7438",
+      "byte_length": 14,
+      "instruction_count": 7
+    },
+    {
+      "block_id": "bb_002E743A",
+      "runtime_start": "0x002E743A",
+      "runtime_end": "0x002E744A",
+      "byte_length": 16,
+      "instruction_count": 8
+    },
+    {
+      "block_id": "bb_002E744C",
+      "runtime_start": "0x002E744C",
+      "runtime_end": "0x002E7464",
+      "byte_length": 24,
+      "instruction_count": 12
+    },
+    {
+      "block_id": "bb_002E7742",
+      "runtime_start": "0x002E7742",
+      "runtime_end": "0x002E774E",
+      "byte_length": 12,
+      "instruction_count": 6
+    },
+    {
+      "block_id": "bb_002E7750",
+      "runtime_start": "0x002E7750",
+      "runtime_end": "0x002E7758",
+      "byte_length": 8,
+      "instruction_count": 4
+    },
+    {
+      "block_id": "bb_002E776E",
+      "runtime_start": "0x002E776E",
+      "runtime_end": "0x002E77A6",
+      "byte_length": 56,
+      "instruction_count": 28
+    },
+    {
+      "block_id": "bb_002E77A8",
+      "runtime_start": "0x002E77A8",
+      "runtime_end": "0x002E77C4",
+      "byte_length": 28,
+      "instruction_count": 14
+    },
+    {
+      "block_id": "bb_002E77C6",
+      "runtime_start": "0x002E77C6",
+      "runtime_end": "0x002E77E2",
+      "byte_length": 28,
+      "instruction_count": 14
+    },
+    {
+      "block_id": "bb_002E77E4",
+      "runtime_start": "0x002E77E4",
+      "runtime_end": "0x002E7800",
+      "byte_length": 28,
+      "instruction_count": 14
+    },
+    {
+      "block_id": "bb_002E7802",
+      "runtime_start": "0x002E7802",
+      "runtime_end": "0x002E7826",
+      "byte_length": 36,
+      "instruction_count": 18
+    },
+    {
+      "block_id": "bb_002E7EF6",
+      "runtime_start": "0x002E7EF6",
+      "runtime_end": "0x002E7F0C",
+      "byte_length": 22,
+      "instruction_count": 11
+    },
+    {
+      "block_id": "bb_002E7F0E",
+      "runtime_start": "0x002E7F0E",
+      "runtime_end": "0x002E7F12",
+      "byte_length": 4,
+      "instruction_count": 2
+    },
+    {
+      "block_id": "bb_002E7F14",
+      "runtime_start": "0x002E7F14",
+      "runtime_end": "0x002E7F18",
+      "byte_length": 4,
+      "instruction_count": 2
+    },
+    {
+      "block_id": "bb_002E7F1A",
+      "runtime_start": "0x002E7F1A",
+      "runtime_end": "0x002E7F1E",
+      "byte_length": 4,
+      "instruction_count": 2
+    },
+    {
+      "block_id": "bb_002E7F20",
+      "runtime_start": "0x002E7F20",
+      "runtime_end": "0x002E7F24",
+      "byte_length": 4,
+      "instruction_count": 2
+    },
+    {
+      "block_id": "bb_002E7F26",
+      "runtime_start": "0x002E7F26",
+      "runtime_end": "0x002E7F2A",
+      "byte_length": 4,
+      "instruction_count": 2
+    },
+    {
+      "block_id": "bb_002E7F2C",
+      "runtime_start": "0x002E7F2C",
+      "runtime_end": "0x002E7F38",
+      "byte_length": 12,
+      "instruction_count": 6
+    },
+    {
+      "block_id": "bb_002E7F3A",
+      "runtime_start": "0x002E7F3A",
+      "runtime_end": "0x002E7F3C",
       "byte_length": 2,
       "instruction_count": 1
+    },
+    {
+      "block_id": "bb_002E7F44",
+      "runtime_start": "0x002E7F44",
+      "runtime_end": "0x002E7F5A",
+      "byte_length": 22,
+      "instruction_count": 11
+    },
+    {
+      "block_id": "bb_002E7F5E",
+      "runtime_start": "0x002E7F5E",
+      "runtime_end": "0x002E7F68",
+      "byte_length": 10,
+      "instruction_count": 5
+    },
+    {
+      "block_id": "bb_002E7F6A",
+      "runtime_start": "0x002E7F6A",
+      "runtime_end": "0x002E7F6C",
+      "byte_length": 2,
+      "instruction_count": 1
+    },
+    {
+      "block_id": "bb_002E7F6E",
+      "runtime_start": "0x002E7F6E",
+      "runtime_end": "0x002E7F74",
+      "byte_length": 6,
+      "instruction_count": 3
+    },
+    {
+      "block_id": "bb_002E7F76",
+      "runtime_start": "0x002E7F76",
+      "runtime_end": "0x002E7F8C",
+      "byte_length": 22,
+      "instruction_count": 11
+    },
+    {
+      "block_id": "bb_002E7F8E",
+      "runtime_start": "0x002E7F8E",
+      "runtime_end": "0x002E7F9A",
+      "byte_length": 12,
+      "instruction_count": 6
+    },
+    {
+      "block_id": "bb_002E7F9C",
+      "runtime_start": "0x002E7F9C",
+      "runtime_end": "0x002E7FAC",
+      "byte_length": 16,
+      "instruction_count": 8
+    },
+    {
+      "block_id": "bb_002E7FAE",
+      "runtime_start": "0x002E7FAE",
+      "runtime_end": "0x002E7FD0",
+      "byte_length": 34,
+      "instruction_count": 17
+    },
+    {
+      "block_id": "bb_002E7FD2",
+      "runtime_start": "0x002E7FD2",
+      "runtime_end": "0x002E7FDE",
+      "byte_length": 12,
+      "instruction_count": 6
+    },
+    {
+      "block_id": "bb_002E7FE0",
+      "runtime_start": "0x002E7FE0",
+      "runtime_end": "0x002E7FE8",
+      "byte_length": 8,
+      "instruction_count": 4
+    },
+    {
+      "block_id": "bb_002E7FEA",
+      "runtime_start": "0x002E7FEA",
+      "runtime_end": "0x002E7FF2",
+      "byte_length": 8,
+      "instruction_count": 4
+    },
+    {
+      "block_id": "bb_002E7FF4",
+      "runtime_start": "0x002E7FF4",
+      "runtime_end": "0x002E7FFA",
+      "byte_length": 6,
+      "instruction_count": 3
+    },
+    {
+      "block_id": "bb_002E806A",
+      "runtime_start": "0x002E806A",
+      "runtime_end": "0x002E8074",
+      "byte_length": 10,
+      "instruction_count": 5
+    },
+    {
+      "block_id": "bb_002E8088",
+      "runtime_start": "0x002E8088",
+      "runtime_end": "0x002E8094",
+      "byte_length": 12,
+      "instruction_count": 6
+    },
+    {
+      "block_id": "bb_002E8096",
+      "runtime_start": "0x002E8096",
+      "runtime_end": "0x002E80A0",
+      "byte_length": 10,
+      "instruction_count": 5
+    },
+    {
+      "block_id": "bb_002E80A2",
+      "runtime_start": "0x002E80A2",
+      "runtime_end": "0x002E80B0",
+      "byte_length": 14,
+      "instruction_count": 7
+    },
+    {
+      "block_id": "bb_002E80B4",
+      "runtime_start": "0x002E80B4",
+      "runtime_end": "0x002E80BA",
+      "byte_length": 6,
+      "instruction_count": 3
+    },
+    {
+      "block_id": "bb_002E80BC",
+      "runtime_start": "0x002E80BC",
+      "runtime_end": "0x002E80CC",
+      "byte_length": 16,
+      "instruction_count": 8
+    },
+    {
+      "block_id": "bb_002E80CE",
+      "runtime_start": "0x002E80CE",
+      "runtime_end": "0x002E80D8",
+      "byte_length": 10,
+      "instruction_count": 5
+    },
+    {
+      "block_id": "bb_002E80DA",
+      "runtime_start": "0x002E80DA",
+      "runtime_end": "0x002E80EA",
+      "byte_length": 16,
+      "instruction_count": 8
+    },
+    {
+      "block_id": "bb_002E80EC",
+      "runtime_start": "0x002E80EC",
+      "runtime_end": "0x002E810E",
+      "byte_length": 34,
+      "instruction_count": 17
+    },
+    {
+      "block_id": "bb_002E8110",
+      "runtime_start": "0x002E8110",
+      "runtime_end": "0x002E811E",
+      "byte_length": 14,
+      "instruction_count": 7
+    },
+    {
+      "block_id": "bb_002E8120",
+      "runtime_start": "0x002E8120",
+      "runtime_end": "0x002E8154",
+      "byte_length": 52,
+      "instruction_count": 26
+    },
+    {
+      "block_id": "bb_002E8156",
+      "runtime_start": "0x002E8156",
+      "runtime_end": "0x002E8162",
+      "byte_length": 12,
+      "instruction_count": 6
+    },
+    {
+      "block_id": "bb_002E8164",
+      "runtime_start": "0x002E8164",
+      "runtime_end": "0x002E816C",
+      "byte_length": 8,
+      "instruction_count": 4
+    },
+    {
+      "block_id": "bb_002E81C2",
+      "runtime_start": "0x002E81C2",
+      "runtime_end": "0x002E81CE",
+      "byte_length": 12,
+      "instruction_count": 6
+    },
+    {
+      "block_id": "bb_002E81D0",
+      "runtime_start": "0x002E81D0",
+      "runtime_end": "0x002E81D4",
+      "byte_length": 4,
+      "instruction_count": 2
+    },
+    {
+      "block_id": "bb_002E81D6",
+      "runtime_start": "0x002E81D6",
+      "runtime_end": "0x002E81DA",
+      "byte_length": 4,
+      "instruction_count": 2
+    },
+    {
+      "block_id": "bb_002E81DC",
+      "runtime_start": "0x002E81DC",
+      "runtime_end": "0x002E81E2",
+      "byte_length": 6,
+      "instruction_count": 3
+    },
+    {
+      "block_id": "bb_002E81E4",
+      "runtime_start": "0x002E81E4",
+      "runtime_end": "0x002E81E8",
+      "byte_length": 4,
+      "instruction_count": 2
+    },
+    {
+      "block_id": "bb_002E81EA",
+      "runtime_start": "0x002E81EA",
+      "runtime_end": "0x002E81F0",
+      "byte_length": 6,
+      "instruction_count": 3
+    },
+    {
+      "block_id": "bb_002E81F2",
+      "runtime_start": "0x002E81F2",
+      "runtime_end": "0x002E81F6",
+      "byte_length": 4,
+      "instruction_count": 2
+    },
+    {
+      "block_id": "bb_002E81F8",
+      "runtime_start": "0x002E81F8",
+      "runtime_end": "0x002E81FE",
+      "byte_length": 6,
+      "instruction_count": 3
+    },
+    {
+      "block_id": "bb_002E8200",
+      "runtime_start": "0x002E8200",
+      "runtime_end": "0x002E8204",
+      "byte_length": 4,
+      "instruction_count": 2
+    },
+    {
+      "block_id": "bb_002E8206",
+      "runtime_start": "0x002E8206",
+      "runtime_end": "0x002E820C",
+      "byte_length": 6,
+      "instruction_count": 3
+    },
+    {
+      "block_id": "bb_002E820E",
+      "runtime_start": "0x002E820E",
+      "runtime_end": "0x002E821E",
+      "byte_length": 16,
+      "instruction_count": 8
+    },
+    {
+      "block_id": "bb_002E8220",
+      "runtime_start": "0x002E8220",
+      "runtime_end": "0x002E8226",
+      "byte_length": 6,
+      "instruction_count": 3
+    },
+    {
+      "block_id": "bb_002E8228",
+      "runtime_start": "0x002E8228",
+      "runtime_end": "0x002E8236",
+      "byte_length": 14,
+      "instruction_count": 7
+    },
+    {
+      "block_id": "bb_002E8256",
+      "runtime_start": "0x002E8256",
+      "runtime_end": "0x002E8260",
+      "byte_length": 10,
+      "instruction_count": 5
+    },
+    {
+      "block_id": "bb_002E8262",
+      "runtime_start": "0x002E8262",
+      "runtime_end": "0x002E8280",
+      "byte_length": 30,
+      "instruction_count": 15
+    },
+    {
+      "block_id": "bb_002E8284",
+      "runtime_start": "0x002E8284",
+      "runtime_end": "0x002E8296",
+      "byte_length": 18,
+      "instruction_count": 9
+    },
+    {
+      "block_id": "bb_002E8298",
+      "runtime_start": "0x002E8298",
+      "runtime_end": "0x002E82A2",
+      "byte_length": 10,
+      "instruction_count": 5
+    },
+    {
+      "block_id": "bb_002E82CE",
+      "runtime_start": "0x002E82CE",
+      "runtime_end": "0x002E82D8",
+      "byte_length": 10,
+      "instruction_count": 5
+    },
+    {
+      "block_id": "bb_002E82DA",
+      "runtime_start": "0x002E82DA",
+      "runtime_end": "0x002E82DE",
+      "byte_length": 4,
+      "instruction_count": 2
+    },
+    {
+      "block_id": "bb_002E82E0",
+      "runtime_start": "0x002E82E0",
+      "runtime_end": "0x002E82E4",
+      "byte_length": 4,
+      "instruction_count": 2
+    },
+    {
+      "block_id": "bb_002E8326",
+      "runtime_start": "0x002E8326",
+      "runtime_end": "0x002E8330",
+      "byte_length": 10,
+      "instruction_count": 5
+    },
+    {
+      "block_id": "bb_002E8332",
+      "runtime_start": "0x002E8332",
+      "runtime_end": "0x002E8336",
+      "byte_length": 4,
+      "instruction_count": 2
+    },
+    {
+      "block_id": "bb_002E8338",
+      "runtime_start": "0x002E8338",
+      "runtime_end": "0x002E833A",
+      "byte_length": 2,
+      "instruction_count": 1
+    },
+    {
+      "block_id": "bb_002E833C",
+      "runtime_start": "0x002E833C",
+      "runtime_end": "0x002E8346",
+      "byte_length": 10,
+      "instruction_count": 5
+    },
+    {
+      "block_id": "bb_002E8348",
+      "runtime_start": "0x002E8348",
+      "runtime_end": "0x002E836E",
+      "byte_length": 38,
+      "instruction_count": 19
+    },
+    {
+      "block_id": "bb_002E8370",
+      "runtime_start": "0x002E8370",
+      "runtime_end": "0x002E837E",
+      "byte_length": 14,
+      "instruction_count": 7
+    },
+    {
+      "block_id": "bb_002E8380",
+      "runtime_start": "0x002E8380",
+      "runtime_end": "0x002E8394",
+      "byte_length": 20,
+      "instruction_count": 10
+    },
+    {
+      "block_id": "bb_002E8396",
+      "runtime_start": "0x002E8396",
+      "runtime_end": "0x002E8398",
+      "byte_length": 2,
+      "instruction_count": 1
+    },
+    {
+      "block_id": "bb_002E83D4",
+      "runtime_start": "0x002E83D4",
+      "runtime_end": "0x002E83E2",
+      "byte_length": 14,
+      "instruction_count": 7
+    },
+    {
+      "block_id": "bb_002E83E4",
+      "runtime_start": "0x002E83E4",
+      "runtime_end": "0x002E8412",
+      "byte_length": 46,
+      "instruction_count": 23
+    },
+    {
+      "block_id": "bb_002E8416",
+      "runtime_start": "0x002E8416",
+      "runtime_end": "0x002E8418",
+      "byte_length": 2,
+      "instruction_count": 1
+    },
+    {
+      "block_id": "bb_002E841A",
+      "runtime_start": "0x002E841A",
+      "runtime_end": "0x002E8430",
+      "byte_length": 22,
+      "instruction_count": 11
+    },
+    {
+      "block_id": "bb_002E8462",
+      "runtime_start": "0x002E8462",
+      "runtime_end": "0x002E846C",
+      "byte_length": 10,
+      "instruction_count": 5
+    },
+    {
+      "block_id": "bb_002E846E",
+      "runtime_start": "0x002E846E",
+      "runtime_end": "0x002E8472",
+      "byte_length": 4,
+      "instruction_count": 2
+    },
+    {
+      "block_id": "bb_002E8474",
+      "runtime_start": "0x002E8474",
+      "runtime_end": "0x002E8478",
+      "byte_length": 4,
+      "instruction_count": 2
+    },
+    {
+      "block_id": "bb_002E847A",
+      "runtime_start": "0x002E847A",
+      "runtime_end": "0x002E8482",
+      "byte_length": 8,
+      "instruction_count": 4
+    },
+    {
+      "block_id": "bb_002E8484",
+      "runtime_start": "0x002E8484",
+      "runtime_end": "0x002E8488",
+      "byte_length": 4,
+      "instruction_count": 2
+    },
+    {
+      "block_id": "bb_002E848A",
+      "runtime_start": "0x002E848A",
+      "runtime_end": "0x002E848C",
+      "byte_length": 2,
+      "instruction_count": 1
+    },
+    {
+      "block_id": "bb_002E84D6",
+      "runtime_start": "0x002E84D6",
+      "runtime_end": "0x002E84E0",
+      "byte_length": 10,
+      "instruction_count": 5
+    },
+    {
+      "block_id": "bb_002E84E4",
+      "runtime_start": "0x002E84E4",
+      "runtime_end": "0x002E84F0",
+      "byte_length": 12,
+      "instruction_count": 6
+    },
+    {
+      "block_id": "bb_002E84F2",
+      "runtime_start": "0x002E84F2",
+      "runtime_end": "0x002E8506",
+      "byte_length": 20,
+      "instruction_count": 10
+    },
+    {
+      "block_id": "bb_002E8598",
+      "runtime_start": "0x002E8598",
+      "runtime_end": "0x002E85BC",
+      "byte_length": 36,
+      "instruction_count": 18
+    },
+    {
+      "block_id": "bb_002E85D2",
+      "runtime_start": "0x002E85D2",
+      "runtime_end": "0x002E85E6",
+      "byte_length": 20,
+      "instruction_count": 10
+    },
+    {
+      "block_id": "bb_002E85E8",
+      "runtime_start": "0x002E85E8",
+      "runtime_end": "0x002E865C",
+      "byte_length": 116,
+      "instruction_count": 58
+    },
+    {
+      "block_id": "bb_002E86CE",
+      "runtime_start": "0x002E86CE",
+      "runtime_end": "0x002E872E",
+      "byte_length": 96,
+      "instruction_count": 48
+    },
+    {
+      "block_id": "bb_002E8780",
+      "runtime_start": "0x002E8780",
+      "runtime_end": "0x002E87E0",
+      "byte_length": 96,
+      "instruction_count": 48
+    },
+    {
+      "block_id": "bb_002E8832",
+      "runtime_start": "0x002E8832",
+      "runtime_end": "0x002E8892",
+      "byte_length": 96,
+      "instruction_count": 48
+    },
+    {
+      "block_id": "bb_002E88E4",
+      "runtime_start": "0x002E88E4",
+      "runtime_end": "0x002E88EE",
+      "byte_length": 10,
+      "instruction_count": 5
+    },
+    {
+      "block_id": "bb_002E88F0",
+      "runtime_start": "0x002E88F0",
+      "runtime_end": "0x002E8902",
+      "byte_length": 18,
+      "instruction_count": 9
+    },
+    {
+      "block_id": "bb_002E890E",
+      "runtime_start": "0x002E890E",
+      "runtime_end": "0x002E8926",
+      "byte_length": 24,
+      "instruction_count": 12
+    },
+    {
+      "block_id": "bb_002E8928",
+      "runtime_start": "0x002E8928",
+      "runtime_end": "0x002E892A",
+      "byte_length": 2,
+      "instruction_count": 1
+    },
+    {
+      "block_id": "bb_002E892C",
+      "runtime_start": "0x002E892C",
+      "runtime_end": "0x002E8970",
+      "byte_length": 68,
+      "instruction_count": 34
+    },
+    {
+      "block_id": "bb_002E8A32",
+      "runtime_start": "0x002E8A32",
+      "runtime_end": "0x002E8A5A",
+      "byte_length": 40,
+      "instruction_count": 20
+    },
+    {
+      "block_id": "bb_002E8AA2",
+      "runtime_start": "0x002E8AA2",
+      "runtime_end": "0x002E8AAA",
+      "byte_length": 8,
+      "instruction_count": 4
+    },
+    {
+      "block_id": "bb_002E8AB6",
+      "runtime_start": "0x002E8AB6",
+      "runtime_end": "0x002E8ABA",
+      "byte_length": 4,
+      "instruction_count": 2
+    },
+    {
+      "block_id": "bb_002E8AF6",
+      "runtime_start": "0x002E8AF6",
+      "runtime_end": "0x002E8B0A",
+      "byte_length": 20,
+      "instruction_count": 10
+    },
+    {
+      "block_id": "bb_002E8B0C",
+      "runtime_start": "0x002E8B0C",
+      "runtime_end": "0x002E8B20",
+      "byte_length": 20,
+      "instruction_count": 10
+    },
+    {
+      "block_id": "bb_002E8B2A",
+      "runtime_start": "0x002E8B2A",
+      "runtime_end": "0x002E8B2C",
+      "byte_length": 2,
+      "instruction_count": 1
+    },
+    {
+      "block_id": "bb_002E8B2E",
+      "runtime_start": "0x002E8B2E",
+      "runtime_end": "0x002E8B30",
+      "byte_length": 2,
+      "instruction_count": 1
+    },
+    {
+      "block_id": "bb_002E8B6A",
+      "runtime_start": "0x002E8B6A",
+      "runtime_end": "0x002E8B6C",
+      "byte_length": 2,
+      "instruction_count": 1
+    },
+    {
+      "block_id": "bb_002E8B6E",
+      "runtime_start": "0x002E8B6E",
+      "runtime_end": "0x002E8B7E",
+      "byte_length": 16,
+      "instruction_count": 8
+    },
+    {
+      "block_id": "bb_002E8BBE",
+      "runtime_start": "0x002E8BBE",
+      "runtime_end": "0x002E8BC6",
+      "byte_length": 8,
+      "instruction_count": 4
+    },
+    {
+      "block_id": "bb_002E8BE6",
+      "runtime_start": "0x002E8BE6",
+      "runtime_end": "0x002E8C02",
+      "byte_length": 28,
+      "instruction_count": 14
+    },
+    {
+      "block_id": "bb_002E9258",
+      "runtime_start": "0x002E9258",
+      "runtime_end": "0x002E9264",
+      "byte_length": 12,
+      "instruction_count": 6
+    },
+    {
+      "block_id": "bb_002E9266",
+      "runtime_start": "0x002E9266",
+      "runtime_end": "0x002E926A",
+      "byte_length": 4,
+      "instruction_count": 2
+    },
+    {
+      "block_id": "bb_002E926C",
+      "runtime_start": "0x002E926C",
+      "runtime_end": "0x002E9270",
+      "byte_length": 4,
+      "instruction_count": 2
+    },
+    {
+      "block_id": "bb_002E9272",
+      "runtime_start": "0x002E9272",
+      "runtime_end": "0x002E929C",
+      "byte_length": 42,
+      "instruction_count": 21
+    },
+    {
+      "block_id": "bb_002E9910",
+      "runtime_start": "0x002E9910",
+      "runtime_end": "0x002E9928",
+      "byte_length": 24,
+      "instruction_count": 12
+    },
+    {
+      "block_id": "bb_002E992A",
+      "runtime_start": "0x002E992A",
+      "runtime_end": "0x002E9932",
+      "byte_length": 8,
+      "instruction_count": 4
+    },
+    {
+      "block_id": "bb_002E9C42",
+      "runtime_start": "0x002E9C42",
+      "runtime_end": "0x002E9C54",
+      "byte_length": 18,
+      "instruction_count": 9
+    },
+    {
+      "block_id": "bb_002E9C56",
+      "runtime_start": "0x002E9C56",
+      "runtime_end": "0x002E9CD6",
+      "byte_length": 128,
+      "instruction_count": 64
+    },
+    {
+      "block_id": "bb_002EA15E",
+      "runtime_start": "0x002EA15E",
+      "runtime_end": "0x002EA190",
+      "byte_length": 50,
+      "instruction_count": 25
+    },
+    {
+      "block_id": "bb_002EA192",
+      "runtime_start": "0x002EA192",
+      "runtime_end": "0x002EA1B4",
+      "byte_length": 34,
+      "instruction_count": 17
+    },
+    {
+      "block_id": "bb_002EA1B6",
+      "runtime_start": "0x002EA1B6",
+      "runtime_end": "0x002EA1F4",
+      "byte_length": 62,
+      "instruction_count": 31
+    },
+    {
+      "block_id": "bb_002EA1F6",
+      "runtime_start": "0x002EA1F6",
+      "runtime_end": "0x002EA21E",
+      "byte_length": 40,
+      "instruction_count": 20
+    },
+    {
+      "block_id": "bb_002EA224",
+      "runtime_start": "0x002EA224",
+      "runtime_end": "0x002EA232",
+      "byte_length": 14,
+      "instruction_count": 7
+    },
+    {
+      "block_id": "bb_002EA234",
+      "runtime_start": "0x002EA234",
+      "runtime_end": "0x002EA23A",
+      "byte_length": 6,
+      "instruction_count": 3
+    },
+    {
+      "block_id": "bb_002EA23C",
+      "runtime_start": "0x002EA23C",
+      "runtime_end": "0x002EA24E",
+      "byte_length": 18,
+      "instruction_count": 9
+    },
+    {
+      "block_id": "bb_002EA250",
+      "runtime_start": "0x002EA250",
+      "runtime_end": "0x002EA256",
+      "byte_length": 6,
+      "instruction_count": 3
+    },
+    {
+      "block_id": "bb_002EA258",
+      "runtime_start": "0x002EA258",
+      "runtime_end": "0x002EA25A",
+      "byte_length": 2,
+      "instruction_count": 1
+    },
+    {
+      "block_id": "bb_002EA25C",
+      "runtime_start": "0x002EA25C",
+      "runtime_end": "0x002EA264",
+      "byte_length": 8,
+      "instruction_count": 4
+    },
+    {
+      "block_id": "bb_002EA266",
+      "runtime_start": "0x002EA266",
+      "runtime_end": "0x002EA268",
+      "byte_length": 2,
+      "instruction_count": 1
+    },
+    {
+      "block_id": "bb_002EA26A",
+      "runtime_start": "0x002EA26A",
+      "runtime_end": "0x002EA26E",
+      "byte_length": 4,
+      "instruction_count": 2
+    },
+    {
+      "block_id": "bb_002EA270",
+      "runtime_start": "0x002EA270",
+      "runtime_end": "0x002EA276",
+      "byte_length": 6,
+      "instruction_count": 3
+    },
+    {
+      "block_id": "bb_002EA278",
+      "runtime_start": "0x002EA278",
+      "runtime_end": "0x002EA29A",
+      "byte_length": 34,
+      "instruction_count": 17
+    },
+    {
+      "block_id": "bb_002EA29C",
+      "runtime_start": "0x002EA29C",
+      "runtime_end": "0x002EA2A2",
+      "byte_length": 6,
+      "instruction_count": 3
+    },
+    {
+      "block_id": "bb_002EA2A4",
+      "runtime_start": "0x002EA2A4",
+      "runtime_end": "0x002EA2B0",
+      "byte_length": 12,
+      "instruction_count": 6
+    },
+    {
+      "block_id": "bb_002EA2B2",
+      "runtime_start": "0x002EA2B2",
+      "runtime_end": "0x002EA2CE",
+      "byte_length": 28,
+      "instruction_count": 14
+    },
+    {
+      "block_id": "bb_002EA2D0",
+      "runtime_start": "0x002EA2D0",
+      "runtime_end": "0x002EA2D6",
+      "byte_length": 6,
+      "instruction_count": 3
+    },
+    {
+      "block_id": "bb_002EA2D8",
+      "runtime_start": "0x002EA2D8",
+      "runtime_end": "0x002EA2E4",
+      "byte_length": 12,
+      "instruction_count": 6
+    },
+    {
+      "block_id": "bb_002EA2E6",
+      "runtime_start": "0x002EA2E6",
+      "runtime_end": "0x002EA2F2",
+      "byte_length": 12,
+      "instruction_count": 6
+    },
+    {
+      "block_id": "bb_002EA2F4",
+      "runtime_start": "0x002EA2F4",
+      "runtime_end": "0x002EA324",
+      "byte_length": 48,
+      "instruction_count": 24
+    },
+    {
+      "block_id": "bb_002EA326",
+      "runtime_start": "0x002EA326",
+      "runtime_end": "0x002EA34C",
+      "byte_length": 38,
+      "instruction_count": 19
+    },
+    {
+      "block_id": "bb_002EA350",
+      "runtime_start": "0x002EA350",
+      "runtime_end": "0x002EA362",
+      "byte_length": 18,
+      "instruction_count": 9
+    },
+    {
+      "block_id": "bb_002EA39E",
+      "runtime_start": "0x002EA39E",
+      "runtime_end": "0x002EA3AC",
+      "byte_length": 14,
+      "instruction_count": 7
+    },
+    {
+      "block_id": "bb_002EA3AE",
+      "runtime_start": "0x002EA3AE",
+      "runtime_end": "0x002EA3C8",
+      "byte_length": 26,
+      "instruction_count": 13
+    },
+    {
+      "block_id": "bb_002EA3CA",
+      "runtime_start": "0x002EA3CA",
+      "runtime_end": "0x002EA3D4",
+      "byte_length": 10,
+      "instruction_count": 5
+    },
+    {
+      "block_id": "bb_002EA442",
+      "runtime_start": "0x002EA442",
+      "runtime_end": "0x002EA450",
+      "byte_length": 14,
+      "instruction_count": 7
+    },
+    {
+      "block_id": "bb_002EA452",
+      "runtime_start": "0x002EA452",
+      "runtime_end": "0x002EA460",
+      "byte_length": 14,
+      "instruction_count": 7
+    },
+    {
+      "block_id": "bb_002EA462",
+      "runtime_start": "0x002EA462",
+      "runtime_end": "0x002EA46C",
+      "byte_length": 10,
+      "instruction_count": 5
+    },
+    {
+      "block_id": "bb_002EA46E",
+      "runtime_start": "0x002EA46E",
+      "runtime_end": "0x002EA478",
+      "byte_length": 10,
+      "instruction_count": 5
+    },
+    {
+      "block_id": "bb_002EA47A",
+      "runtime_start": "0x002EA47A",
+      "runtime_end": "0x002EA488",
+      "byte_length": 14,
+      "instruction_count": 7
+    },
+    {
+      "block_id": "bb_002EA48A",
+      "runtime_start": "0x002EA48A",
+      "runtime_end": "0x002EA48C",
+      "byte_length": 2,
+      "instruction_count": 1
+    },
+    {
+      "block_id": "bb_002EA48E",
+      "runtime_start": "0x002EA48E",
+      "runtime_end": "0x002EA490",
+      "byte_length": 2,
+      "instruction_count": 1
+    },
+    {
+      "block_id": "bb_002EA492",
+      "runtime_start": "0x002EA492",
+      "runtime_end": "0x002EA494",
+      "byte_length": 2,
+      "instruction_count": 1
+    },
+    {
+      "block_id": "bb_002EA496",
+      "runtime_start": "0x002EA496",
+      "runtime_end": "0x002EA516",
+      "byte_length": 128,
+      "instruction_count": 64
+    },
+    {
+      "block_id": "bb_002EA518",
+      "runtime_start": "0x002EA518",
+      "runtime_end": "0x002EA530",
+      "byte_length": 24,
+      "instruction_count": 12
+    },
+    {
+      "block_id": "bb_002EA532",
+      "runtime_start": "0x002EA532",
+      "runtime_end": "0x002EA544",
+      "byte_length": 18,
+      "instruction_count": 9
+    },
+    {
+      "block_id": "bb_002EA546",
+      "runtime_start": "0x002EA546",
+      "runtime_end": "0x002EA56A",
+      "byte_length": 36,
+      "instruction_count": 18
+    },
+    {
+      "block_id": "bb_002EA56C",
+      "runtime_start": "0x002EA56C",
+      "runtime_end": "0x002EA57C",
+      "byte_length": 16,
+      "instruction_count": 8
+    },
+    {
+      "block_id": "bb_002EA57E",
+      "runtime_start": "0x002EA57E",
+      "runtime_end": "0x002EA592",
+      "byte_length": 20,
+      "instruction_count": 10
+    },
+    {
+      "block_id": "bb_002EA5C6",
+      "runtime_start": "0x002EA5C6",
+      "runtime_end": "0x002EA5E2",
+      "byte_length": 28,
+      "instruction_count": 14
+    },
+    {
+      "block_id": "bb_002EA5E4",
+      "runtime_start": "0x002EA5E4",
+      "runtime_end": "0x002EA5F4",
+      "byte_length": 16,
+      "instruction_count": 8
+    },
+    {
+      "block_id": "bb_002EA5F6",
+      "runtime_start": "0x002EA5F6",
+      "runtime_end": "0x002EA610",
+      "byte_length": 26,
+      "instruction_count": 13
+    },
+    {
+      "block_id": "bb_002EA666",
+      "runtime_start": "0x002EA666",
+      "runtime_end": "0x002EA66C",
+      "byte_length": 6,
+      "instruction_count": 3
+    },
+    {
+      "block_id": "bb_002EA746",
+      "runtime_start": "0x002EA746",
+      "runtime_end": "0x002EA748",
+      "byte_length": 2,
+      "instruction_count": 1
+    },
+    {
+      "block_id": "bb_002EA74A",
+      "runtime_start": "0x002EA74A",
+      "runtime_end": "0x002EA75C",
+      "byte_length": 18,
+      "instruction_count": 9
+    },
+    {
+      "block_id": "bb_002EAB5E",
+      "runtime_start": "0x002EAB5E",
+      "runtime_end": "0x002EAB84",
+      "byte_length": 38,
+      "instruction_count": 19
+    },
+    {
+      "block_id": "bb_002EAB86",
+      "runtime_start": "0x002EAB86",
+      "runtime_end": "0x002EAB8C",
+      "byte_length": 6,
+      "instruction_count": 3
+    },
+    {
+      "block_id": "bb_002EAB8E",
+      "runtime_start": "0x002EAB8E",
+      "runtime_end": "0x002EABA8",
+      "byte_length": 26,
+      "instruction_count": 13
+    },
+    {
+      "block_id": "bb_002EABAA",
+      "runtime_start": "0x002EABAA",
+      "runtime_end": "0x002EABB0",
+      "byte_length": 6,
+      "instruction_count": 3
     }
   ],
   "labels": [
-
     "entry_002E9910"
   ],
   "expected_output_sha256": "781396898191921b486be751163aea493ef9b1abcb55c0ab8698df9c69211224",
   "assembler_tool_identity": "GNU assembler (binutils-sh-elf 2.40+2) 2.40",
   "linker_tool_identity": "GNU ld (binutils-sh-elf 2.40+2) 2.40",
-  "provenance_identity": "T2-ASM-03"
+  "provenance_identity": "T2-ASM-05"
 }

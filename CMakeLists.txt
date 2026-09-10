@@ -14,7 +14,10 @@ include_directories(include .)
 
 add_library(thor_sh2 STATIC
     src/sh2/sh2_decoder.cpp
+    src/sh2/sh2_decoder_ext.cpp
+    src/sh2/sh2_disasm.cpp
     src/sh2/sh2_executor.cpp
+    src/sh2/sh2_executor_ext.cpp
     src/sh2/sh2_block.cpp
 )
 
@@ -86,9 +89,17 @@ add_executable(test_sh2_decoder tests/sh2/test_sh2_decoder.cpp)
 target_link_libraries(test_sh2_decoder PRIVATE thor_sh2)
 add_test(NAME test_sh2_decoder COMMAND test_sh2_decoder)
 
+add_executable(test_sh2_decoder_extended tests/sh2/test_sh2_decoder_extended.cpp)
+target_link_libraries(test_sh2_decoder_extended PRIVATE thor_sh2)
+add_test(NAME test_sh2_decoder_extended COMMAND test_sh2_decoder_extended)
+
 add_executable(test_sh2_l0_semantics tests/sh2/test_sh2_l0_semantics.cpp)
 target_link_libraries(test_sh2_l0_semantics PRIVATE thor_sh2)
 add_test(NAME test_sh2_l0_semantics COMMAND test_sh2_l0_semantics)
+
+add_executable(test_sh2_l0_extended tests/sh2/test_sh2_l0_extended.cpp)
+target_link_libraries(test_sh2_l0_extended PRIVATE thor_sh2)
+add_test(NAME test_sh2_l0_extended COMMAND test_sh2_l0_extended)
 
 add_executable(test_sh2_oracle_vector tests/sh2/test_sh2_oracle_vector.cpp)
 target_link_libraries(test_sh2_oracle_vector PRIVATE thor_sh2)

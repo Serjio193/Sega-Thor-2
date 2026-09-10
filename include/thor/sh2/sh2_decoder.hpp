@@ -15,4 +15,8 @@ namespace thor::sh2 {
 /// with id == OpcodeId::UNKNOWN.
 [[nodiscard]] Sh2Instruction decode_sh2(uint16_t opcode, uint32_t pc = 0) noexcept;
 
+/// Decodes extended SH-2 arithmetic, logical, and indexed instructions into instr.
+/// Returns true if decoded, false otherwise.
+bool decode_sh2_ext(uint16_t opcode, uint32_t pc, Sh2Instruction& instr) noexcept;
+
 } // namespace thor::sh2

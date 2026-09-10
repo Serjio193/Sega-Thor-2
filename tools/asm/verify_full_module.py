@@ -64,6 +64,7 @@ def run_cpp_rebuilt_verifier(repo_root: str, orig_bin: str, rebuilt_bin: str, ma
     """Execute C++ verify_sh2_rebuilt tool linking thor_sh2."""
     exe_name = "verify_sh2_rebuilt.exe" if sys.platform == "win32" else "verify_sh2_rebuilt"
     candidates = [
+        os.path.join(repo_root, "build_linux", exe_name),
         os.path.join(repo_root, "build-linux", exe_name),
         os.path.join(repo_root, "build", exe_name),
         os.path.join(repo_root, exe_name),

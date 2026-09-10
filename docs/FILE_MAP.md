@@ -60,7 +60,10 @@ include/
 src/
   sh2/
     sh2_decoder.cpp               target opcode decoding logic
+    sh2_decoder_ext.cpp           extended opcode decoding logic (DT, MOVT, shift, bitwise, byte disp)
+    sh2_disasm.cpp                instruction disassembly representation logic
     sh2_executor.cpp              target opcode execution semantics
+    sh2_executor_ext.cpp          extended opcode execution semantics
     sh2_block.cpp                 basic block discovery and block execution
   recomp/
     block_identity.cpp            executable identity verification logic
@@ -70,6 +73,20 @@ src/
     shadow_checker.cpp            shadow comparison and differential outcome verification logic
     native_dispatcher.cpp         authoritative native dispatcher and C ABI export definitions
     mutation_harness.cpp          bounded mutation testing and restoration logic
+
+asm/
+  schema/
+    module_manifest.schema.json   JSON schema for module partitioning manifests
+  manifests/
+    0TH2.BIN.json                 partition manifest for primary core module
+    TH2.LOW.json                  partition manifest for secondary engine module
+    SET07.BIN.json                partition manifest for stage overlay module
+    BGM.BIN.json                  catalog manifest for M68K sound driver module
+  linker/
+    0TH2.ld                       linker script for 0TH2.BIN assembly container
+    TH2_LOW.ld                    linker script for TH2.LOW assembly container
+    SET07.ld                      linker script for SET07.BIN assembly container
+    BGM.ld                        linker script for BGM.BIN sound container
 
 tools/
   disc/
@@ -95,7 +112,9 @@ tests/
     test_framework.hpp            THOR_ASSERT macro
     reference_decode_manifest.hpp multi-reference decode vector manifest
     test_sh2_decoder.cpp          structured decode & Catherine/Mednafen cross-check
+    test_sh2_decoder_extended.cpp extended opcode decoding test suite (63 opcodes)
     test_sh2_l0_semantics.cpp     synthetic L0 semantic test suite
+    test_sh2_l0_extended.cpp      extended L0 semantics test suite
     test_sh2_oracle_vector.cpp    Thor 2 startup oracle vector validation
     test_sh2_block.cpp            first complete basic block discovery & oracle replay
   recomp/

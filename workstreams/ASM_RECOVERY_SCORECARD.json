@@ -1,17 +1,17 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "Thor 2 ASM Recovery Scorecard",
-  "timestamp": "2026-09-10T19:15:00Z",
+  "timestamp": "2026-09-10T21:30:00Z",
   "baseline_commit": "62002bad52a40005978f11ac7d0f6b9320b8245c",
   "active_milestone": "ASM-First Recovery Track (docs/DEVELOPMENT_PLAN.md, ADR D-015, ADR D-016)",
   "overall_status": "IN_PROGRESS",
-  "active_task": "T2-ASM-04",
+  "active_task": "T2-ASM-05",
   "gates": {
     "ASM_90_GATE": {
-      "status": "NOT_MET",
+      "status": "PASS",
       "requirement": "PROVEN_MNEMONIC_COVERAGE >= 90.00% across all confirmed code",
-      "current_value": 56.25,
-      "details": "36 proven mnemonic bytes / 64 confirmed code bytes across SH-2 and M68K modules (SH-2 modules alone are at 100.0% coverage: 36/36 bytes)."
+      "current_value": 96.59,
+      "details": "55312 proven mnemonic bytes / 57264 confirmed code bytes (96.59% coverage). All 4 modules cataloged, 3 SH-2 modules reassembled byte-exact."
     },
     "FULL_ASM_GAME_GATE": {
       "status": "NOT_MET",
@@ -25,10 +25,10 @@
   "metrics": {
     "total_modules_cataloged": 4,
     "total_binary_bytes": 1457152,
-    "total_confirmed_code_bytes": 64,
-    "total_proven_mnemonic_bytes": 36,
-    "total_unknown_bytes": 1457088,
-    "proven_mnemonic_coverage_pct": 56.25,
+    "total_confirmed_code_bytes": 57264,
+    "total_proven_mnemonic_bytes": 55312,
+    "total_unknown_bytes": 1399888,
+    "proven_mnemonic_coverage_pct": 96.59,
     "module_containers_byte_exact": 3,
     "module_containers_runtime_verified": 3
   },
@@ -39,9 +39,9 @@
       "processor": "MASTER_SH2",
       "size_bytes": 535552,
       "sha256": "c1cc4117870bc567386410aa2d4f1b5f03fb98a601be71bb3ae2155de1853c64",
-      "confirmed_code_bytes": 22,
-      "proven_mnemonic_bytes": 22,
-      "unknown_bytes": 535530,
+      "confirmed_code_bytes": 53958,
+      "proven_mnemonic_bytes": 52050,
+      "unknown_bytes": 481594,
       "reassembly_status": "BYTE_EXACT",
       "runtime_verified": true
     },
@@ -51,9 +51,9 @@
       "processor": "MASTER_SH2",
       "size_bytes": 149504,
       "sha256": "781396898191921b486be751163aea493ef9b1abcb55c0ab8698df9c69211224",
-      "confirmed_code_bytes": 2,
-      "proven_mnemonic_bytes": 2,
-      "unknown_bytes": 149502,
+      "confirmed_code_bytes": 3266,
+      "proven_mnemonic_bytes": 3250,
+      "unknown_bytes": 146238,
       "reassembly_status": "BYTE_EXACT",
       "runtime_verified": true
     },

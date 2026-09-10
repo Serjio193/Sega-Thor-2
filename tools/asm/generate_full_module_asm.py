@@ -65,6 +65,7 @@ def run_cpp_ir_exporter(
     """Execute C++ export_sh2_asm_ir tool to obtain Thor-decoder-backed IR."""
     exe_name = "export_sh2_asm_ir.exe" if sys.platform == "win32" else "export_sh2_asm_ir"
     candidates = [
+        os.path.join(repo_root, "build_linux", exe_name),
         os.path.join(repo_root, "build-linux", exe_name),
         os.path.join(repo_root, "build", exe_name),
         os.path.join(repo_root, exe_name),
@@ -74,17 +75,19 @@ def run_cpp_ir_exporter(
         raise FileNotFoundError(f"IR exporter executable not found in candidates: {candidates}")
 
     os.makedirs(os.path.dirname(os.path.abspath(ir_out_path)), exist_ok=True)
-    range_args = []
-    for r in proven_ranges:
-        blk_id = r.get("block_id") or f"blk_{r['offset_start']:06X}"
-        range_args.append(f"{r['runtime_start']}:{r['runtime_end_exclusive']}:{blk_id}")
+    rsp_path = os.path.splitext(os.path.abspath(ir_out_path))[0] + "_ranges.rsp"
+    with open(rsp_path, "w", encoding="utf-8") as rf:
+        for r in proven_ranges:
+            blk_id = r.get("block_id") or f"blk_{r['offset_start']:06X}"
+            rf.write(f"{r['runtime_start']}:{r['runtime_end_exclusive']}:{blk_id}\n")
 
     cmd = [
         exe_path,
         os.path.abspath(module_bin_path),
         f"0x{base_vma:08X}",
         os.path.abspath(ir_out_path),
-    ] + range_args
+        f"@{rsp_path}",
+    ]
 
     res = subprocess.run(cmd, capture_output=True, text=True)
     if res.returncode != 0:
@@ -142,11 +145,11 @@ def generate_assembly(
         r["offset_start"]: r for r in manifest.get("ranges", [])
     }
 
+    # Only manifest labels and _start are global symbols. Local labels (loc_, lit_) remain local.
     all_globals = ["_start"]
-    for offset_lbls in labels_by_offset.values():
-        for lbl in offset_lbls:
-            if lbl not in all_globals:
-                all_globals.append(lbl)
+    for lbl in manifest.get("labels", []):
+        if lbl not in all_globals:
+            all_globals.append(lbl)
 
     lines: List[str] = [
         "! ==============================================================================",
@@ -170,23 +173,31 @@ def generate_assembly(
 
     offset = 0
     total_len = len(module_bytes)
+    emitted_labels: Set[str] = {"_start"}
+
+    def emit_labels(off: int) -> None:
+        if off in labels_by_offset:
+            for lbl in labels_by_offset[off]:
+                if lbl not in emitted_labels:
+                    lines.append(f"{lbl}:")
+                    emitted_labels.add(lbl)
 
     while offset < total_len:
-        # 1. Emit labels at current offset
-        if offset in labels_by_offset:
-            for lbl in labels_by_offset[offset]:
-                if lbl != "_start":
-                    lines.append(f"{lbl}:")
-
-        # 2. Check if proven MNEMONIC code starts here
+        # 1. Check if proven MNEMONIC code starts here
         if offset in blocks_by_offset:
             blk = blocks_by_offset[offset]
             blk_id = blk.get("block_id", f"bb_{base_vma + offset:08X}")
             lines.append(f"! --- CONFIRMED_CODE: {blk_id} (VMA 0x{base_vma + offset:08X}) ---")
+            insn_off = offset
             for insn in blk["instructions"]:
+                emit_labels(insn_off)
                 lines.append(f"    {insn['asm_line']:<32} ! {insn['comment']}")
+                insn_off += insn.get("byte_length", 2)
             offset += blk["byte_length"]
             continue
+
+        # 2. Emit labels at non-code offset
+        emit_labels(offset)
 
         # 3. Check if RAW_CODE_PENDING_DECODE range
         rng = ranges_by_start.get(offset)
@@ -194,6 +205,7 @@ def generate_assembly(
             end_off = rng["offset_end_exclusive"]
             lines.append(f"! --- CONFIRMED_CODE (RAW_CODE_PENDING_DECODE: VMA 0x{base_vma + offset:08X}) ---")
             for cur_off in range(offset, end_off, 2):
+                emit_labels(cur_off)
                 b0 = module_bytes[cur_off]
                 b1 = module_bytes[cur_off + 1]
                 lines.append(f"    .byte   0x{b0:02X}, 0x{b1:02X} ! opcode 0x{(b0 << 8) | b1:04X}")
@@ -241,13 +253,6 @@ def generate_linker_script(manifest: Dict[str, Any], ir_data: Dict[str, Any], ou
         f'    ASSERT(SIZEOF(.text) == {module_size}, "Size of .text must be exactly {module_size} bytes")',
     ]
     seen_labels: Set[str] = set()
-
-    for lbl in ir_data.get("labels", []):
-        name = lbl["name"]
-        vma = lbl["vma"]
-        if name not in seen_labels:
-            seen_labels.add(name)
-            assertions.append(f'    ASSERT({name} == {vma}, "{name} address mismatch")')
 
     for lbl in manifest.get("labels", []):
         if lbl not in seen_labels:

@@ -36,12 +36,75 @@ std::string opcode_id_name(thor::sh2::OpcodeId id) {
         case thor::sh2::OpcodeId::MOV_W_READ_MEM: return "MOV_W_READ_MEM";
         case thor::sh2::OpcodeId::MOV_REG: return "MOV_REG";
         case thor::sh2::OpcodeId::MOV_L_PC_REL: return "MOV_L_PC_REL";
+        case thor::sh2::OpcodeId::MOV_W_PC_REL: return "MOV_W_PC_REL";
         case thor::sh2::OpcodeId::MOV_L_READ_MEM: return "MOV_L_READ_MEM";
+        case thor::sh2::OpcodeId::MOV_L_READ_POSTINC: return "MOV_L_READ_POSTINC";
+        case thor::sh2::OpcodeId::MOV_L_WRITE_PREDEC: return "MOV_L_WRITE_PREDEC";
+        case thor::sh2::OpcodeId::STS_L_PR_PREDEC: return "STS_L_PR_PREDEC";
+        case thor::sh2::OpcodeId::LDS_L_PR_POSTINC: return "LDS_L_PR_POSTINC";
+        case thor::sh2::OpcodeId::MOV_IMM: return "MOV_IMM";
+        case thor::sh2::OpcodeId::ADD_IMM: return "ADD_IMM";
+        case thor::sh2::OpcodeId::MOV_W_WRITE_MEM: return "MOV_W_WRITE_MEM";
+        case thor::sh2::OpcodeId::MOV_L_WRITE_MEM: return "MOV_L_WRITE_MEM";
+        case thor::sh2::OpcodeId::TST_REG: return "TST_REG";
+        case thor::sh2::OpcodeId::CMP_EQ_IMM: return "CMP_EQ_IMM";
+        case thor::sh2::OpcodeId::CMP_EQ_REG: return "CMP_EQ_REG";
+        case thor::sh2::OpcodeId::BF: return "BF";
+        case thor::sh2::OpcodeId::BT: return "BT";
         case thor::sh2::OpcodeId::BRA: return "BRA";
+        case thor::sh2::OpcodeId::BSR: return "BSR";
+        case thor::sh2::OpcodeId::JMP: return "JMP";
         case thor::sh2::OpcodeId::JSR: return "JSR";
         case thor::sh2::OpcodeId::NOP: return "NOP";
-        case thor::sh2::OpcodeId::MOV_L_WRITE_PREDEC: return "MOV_L_WRITE_PREDEC";
         case thor::sh2::OpcodeId::RTS: return "RTS";
+        case thor::sh2::OpcodeId::MOV_L_DISP_READ: return "MOV_L_DISP_READ";
+        case thor::sh2::OpcodeId::MOV_L_DISP_WRITE: return "MOV_L_DISP_WRITE";
+        case thor::sh2::OpcodeId::MOV_W_DISP_READ: return "MOV_W_DISP_READ";
+        case thor::sh2::OpcodeId::MOV_W_DISP_WRITE: return "MOV_W_DISP_WRITE";
+        case thor::sh2::OpcodeId::MOV_B_READ_MEM: return "MOV_B_READ_MEM";
+        case thor::sh2::OpcodeId::MOV_B_WRITE_MEM: return "MOV_B_WRITE_MEM";
+        case thor::sh2::OpcodeId::ADD_REG: return "ADD_REG";
+        case thor::sh2::OpcodeId::SUB_REG: return "SUB_REG";
+        case thor::sh2::OpcodeId::SHLL: return "SHLL";
+        case thor::sh2::OpcodeId::SHLR: return "SHLR";
+        case thor::sh2::OpcodeId::SHLL2: return "SHLL2";
+        case thor::sh2::OpcodeId::SHLR2: return "SHLR2";
+        case thor::sh2::OpcodeId::CLRMAC: return "CLRMAC";
+        case thor::sh2::OpcodeId::CLRT: return "CLRT";
+        case thor::sh2::OpcodeId::SETT: return "SETT";
+        case thor::sh2::OpcodeId::SHAR: return "SHAR";
+        case thor::sh2::OpcodeId::BT_S: return "BT_S";
+        case thor::sh2::OpcodeId::BF_S: return "BF_S";
+        case thor::sh2::OpcodeId::EXTU_B: return "EXTU_B";
+        case thor::sh2::OpcodeId::EXTU_W: return "EXTU_W";
+        case thor::sh2::OpcodeId::EXTS_B: return "EXTS_B";
+        case thor::sh2::OpcodeId::EXTS_W: return "EXTS_W";
+        case thor::sh2::OpcodeId::CMP_PZ: return "CMP_PZ";
+        case thor::sh2::OpcodeId::CMP_PL: return "CMP_PL";
+        case thor::sh2::OpcodeId::MOV_W_READ_POSTINC: return "MOV_W_READ_POSTINC";
+        case thor::sh2::OpcodeId::AND_REG: return "AND_REG";
+        case thor::sh2::OpcodeId::OR_REG: return "OR_REG";
+        case thor::sh2::OpcodeId::CMP_HS: return "CMP_HS";
+        case thor::sh2::OpcodeId::CMP_GE: return "CMP_GE";
+        case thor::sh2::OpcodeId::CMP_HI: return "CMP_HI";
+        case thor::sh2::OpcodeId::CMP_GT: return "CMP_GT";
+        case thor::sh2::OpcodeId::ROTCL: return "ROTCL";
+        case thor::sh2::OpcodeId::AND_IMM: return "AND_IMM";
+        case thor::sh2::OpcodeId::TST_IMM: return "TST_IMM";
+        case thor::sh2::OpcodeId::MOV_B_DISP_READ: return "MOV_B_DISP_READ";
+        case thor::sh2::OpcodeId::MOV_B_DISP_WRITE: return "MOV_B_DISP_WRITE";
+        case thor::sh2::OpcodeId::MOV_W_R0_READ: return "MOV_W_R0_READ";
+        case thor::sh2::OpcodeId::MOV_L_R0_READ: return "MOV_L_R0_READ";
+        case thor::sh2::OpcodeId::MOV_B_R0_READ: return "MOV_B_R0_READ";
+        case thor::sh2::OpcodeId::MOV_L_R0_WRITE: return "MOV_L_R0_WRITE";
+        case thor::sh2::OpcodeId::MOV_W_R0_WRITE: return "MOV_W_R0_WRITE";
+        case thor::sh2::OpcodeId::MOV_B_R0_WRITE: return "MOV_B_R0_WRITE";
+        case thor::sh2::OpcodeId::SHLL8: return "SHLL8";
+        case thor::sh2::OpcodeId::SHLL16: return "SHLL16";
+        case thor::sh2::OpcodeId::SHLR8: return "SHLR8";
+        case thor::sh2::OpcodeId::SHLR16: return "SHLR16";
+        case thor::sh2::OpcodeId::DT: return "DT";
+        case thor::sh2::OpcodeId::MOVT: return "MOVT";
         default: return "UNKNOWN";
     }
 }
@@ -99,12 +162,31 @@ int main(int argc, char* argv[]) {
     std::vector<RangeSpec> ranges;
     if (argc > 4) {
         for (int i = 4; i < argc; ++i) {
-            RangeSpec r;
-            if (!parse_range(argv[i], r)) {
-                std::cerr << "Invalid range specification: " << argv[i] << "\n";
-                return 1;
+            std::string arg = argv[i];
+            if (!arg.empty() && arg[0] == '@') {
+                std::ifstream rf(arg.substr(1));
+                if (!rf.is_open()) {
+                    std::cerr << "Cannot open response file: " << arg.substr(1) << "\n";
+                    return 1;
+                }
+                std::string line;
+                while (std::getline(rf, line)) {
+                    if (line.empty() || line[0] == '#') continue;
+                    RangeSpec r;
+                    if (!parse_range(line, r)) {
+                        std::cerr << "Invalid range in response file: " << line << "\n";
+                        return 1;
+                    }
+                    ranges.push_back(r);
+                }
+            } else {
+                RangeSpec r;
+                if (!parse_range(arg, r)) {
+                    std::cerr << "Invalid range specification: " << arg << "\n";
+                    return 1;
+                }
+                ranges.push_back(r);
             }
-            ranges.push_back(r);
         }
     } else {
         // Default proven ranges for 0TH2.BIN
@@ -197,6 +279,15 @@ int main(int argc, char* argv[]) {
                               + std::to_string(instr.rn) + " -> " + hex_str(target_vma);
                     break;
                 }
+                case thor::sh2::OpcodeId::MOV_W_PC_REL: {
+                    target_vma = instr.compute_effective_address();
+                    std::string sym = "lit_" + hex_str(target_vma).substr(2);
+                    record_label(sym, target_vma, "literal_pool");
+                    asm_line = "mov.w   " + sym + ", r" + std::to_string(instr.rn);
+                    comment = "MOV.W @(0x" + hex_str(instr.disp * 2, 2).substr(2) + ", PC), R"
+                              + std::to_string(instr.rn) + " -> " + hex_str(target_vma);
+                    break;
+                }
                 case thor::sh2::OpcodeId::MOV_L_READ_MEM: {
                     asm_line = "mov.l   @r" + std::to_string(instr.rm) + ", r" + std::to_string(instr.rn);
                     comment = "MOV.L @R" + std::to_string(instr.rm) + ", R" + std::to_string(instr.rn);
@@ -210,9 +301,54 @@ int main(int argc, char* argv[]) {
                     comment = "BRA " + hex_str(target_vma);
                     break;
                 }
+                case thor::sh2::OpcodeId::BSR: {
+                    target_vma = instr.compute_branch_target();
+                    std::string sym = "loc_" + hex_str(target_vma).substr(2);
+                    record_label(sym, target_vma, "branch_target");
+                    asm_line = "bsr     " + sym;
+                    comment = "BSR " + hex_str(target_vma);
+                    break;
+                }
+                case thor::sh2::OpcodeId::BF: {
+                    target_vma = instr.compute_branch_target();
+                    std::string sym = "loc_" + hex_str(target_vma).substr(2);
+                    record_label(sym, target_vma, "branch_target");
+                    asm_line = "bf      " + sym;
+                    comment = "BF " + hex_str(target_vma);
+                    break;
+                }
+                case thor::sh2::OpcodeId::BT: {
+                    target_vma = instr.compute_branch_target();
+                    std::string sym = "loc_" + hex_str(target_vma).substr(2);
+                    record_label(sym, target_vma, "branch_target");
+                    asm_line = "bt      " + sym;
+                    comment = "BT " + hex_str(target_vma);
+                    break;
+                }
+                case thor::sh2::OpcodeId::BT_S: {
+                    target_vma = instr.compute_branch_target();
+                    std::string sym = "loc_" + hex_str(target_vma).substr(2);
+                    record_label(sym, target_vma, "branch_target");
+                    asm_line = "bt/s    " + sym;
+                    comment = "BT/S " + hex_str(target_vma);
+                    break;
+                }
+                case thor::sh2::OpcodeId::BF_S: {
+                    target_vma = instr.compute_branch_target();
+                    std::string sym = "loc_" + hex_str(target_vma).substr(2);
+                    record_label(sym, target_vma, "branch_target");
+                    asm_line = "bf/s    " + sym;
+                    comment = "BF/S " + hex_str(target_vma);
+                    break;
+                }
                 case thor::sh2::OpcodeId::JSR: {
                     asm_line = "jsr     @r" + std::to_string(instr.rn);
                     comment = "JSR @R" + std::to_string(instr.rn);
+                    break;
+                }
+                case thor::sh2::OpcodeId::JMP: {
+                    asm_line = "jmp     @r" + std::to_string(instr.rn);
+                    comment = "JMP @R" + std::to_string(instr.rn);
                     break;
                 }
                 case thor::sh2::OpcodeId::NOP: {
@@ -230,8 +366,11 @@ int main(int argc, char* argv[]) {
                     comment = "RTS";
                     break;
                 }
-                default:
-                    return 1;
+                default: {
+                    asm_line = instr.mnemonic();
+                    comment = instr.mnemonic();
+                    break;
+                }
             }
 
 
