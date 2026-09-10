@@ -89,9 +89,29 @@ static void test_pc_relative_ea_rules() {
     THOR_ASSERT(unaligned_ins.compute_effective_address() == 0x06004060);
 }
 
+static void test_jsr_decoding_all_registers() {
+    for (uint8_t reg = 0; reg < 16; ++reg) {
+        const uint16_t op = static_cast<uint16_t>(0x400Bu | (static_cast<uint16_t>(reg) << 8));
+        const uint32_t pc = 0x06004280 + (reg * 2u);
+        const Sh2Instruction ins = decode_sh2(op, pc);
+
+        THOR_ASSERT(ins.is_valid());
+        THOR_ASSERT(ins.id == OpcodeId::JSR);
+        THOR_ASSERT(ins.rn == reg);
+        THOR_ASSERT(ins.rm == 0);
+        THOR_ASSERT(ins.disp == 0);
+        THOR_ASSERT(ins.flow == ControlFlowType::CALL);
+        THOR_ASSERT(ins.has_delay_slot == true);
+        THOR_ASSERT(ins.mem_access == MemoryAccessType::NONE);
+
+        std::string expected_mn = "jsr @r" + std::to_string(reg);
+        THOR_ASSERT(ins.mnemonic() == expected_mn);
+    }
+}
+
 static void test_unsupported_opcodes_fail_closed() {
     const uint16_t unmodeled[] = {
-        0x0000, 0x000B, 0x2FE6, 0x7001,
+        0x0000, 0x000B, 0x2FE6, 0x4000, 0x400A, 0x400C, 0x7001,
         0x8900, 0xB000, 0xC000, 0xE000, 0xFFFF
     };
     for (uint16_t op : unmodeled) {
@@ -108,6 +128,8 @@ int main() {
     test_manifest_crosscheck();
     std::cout << "[test_sh2_decoder] Running BRA displacement edge cases...\n";
     test_bra_displacement_edge_cases();
+    std::cout << "[test_sh2_decoder] Running JSR all-register decoding tests...\n";
+    test_jsr_decoding_all_registers();
     std::cout << "[test_sh2_decoder] Running PC-relative EA rules...\n";
     test_pc_relative_ea_rules();
     std::cout << "[test_sh2_decoder] Running fail-closed unsupported opcode tests...\n";

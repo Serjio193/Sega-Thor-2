@@ -190,7 +190,7 @@ WHAT THIS MILESTONE DOES NOT ATTEMPT: Translation to C++, semantic naming, funct
 REQUIRED VERIFICATION GATE: V-06 (independent decoder cross-check) + explicit L0 semantic test suite.
 L0 SEMANTIC GATE: Decode correctness is strictly separate from instruction execution semantics and memory access semantics. Target instruction subset requires independent synthetic edge-case tests (arithmetic flags, T bit, sign/zero extension, narrow registers, PC-relative, GBR, PR, MACH/MACL, delay slots, big-endian loads/stores, alignment, ordered memory effects, MMIO classification).
 FALLBACK / ALTERNATIVE ROUTE: Multiple independent reference decoders exist (Catherine, Mednafen internals, SH7604 manual).
-STATUS:          PROPOSED
+STATUS:          BOUNDED_PROOF (Expanded to JSR @Rn in D9.1)
 ```
 
 ### D4 — Code/Data/Unknown Ownership
@@ -206,7 +206,7 @@ WHAT MUST BE TRUE BEFORE START: Decoder working on target range; at least one ex
 WHAT THIS MILESTONE DOES NOT ATTEMPT: Whole-module classification upfront, function boundary assignment, semantic naming.
 REQUIRED VERIFICATION GATE: V-03 (bounded candidate batch) and/or V-04 (segmentation schema).
 FALLBACK / ALTERNATIVE ROUTE: Dynamic execution evidence alone classifies executed bytes as CONFIRMED_CODE for bounded translation.
-STATUS:          PROPOSED
+STATUS:          BOUNDED_PROOF (Expanded to bb_06004280 in D9.1)
 ```
 
 ### D5 — Basic-Block CFG Construction
@@ -222,7 +222,7 @@ WHAT MUST BE TRUE BEFORE START: Code ranges classified; decoder produces correct
 WHAT THIS MILESTONE DOES NOT ATTEMPT: Function grouping, full indirect target resolution, semantic naming.
 REQUIRED VERIFICATION GATE: Dynamic execution must agree with static CFG for observed paths.
 FALLBACK / ALTERNATIVE ROUTE: Manual CFG construction for small ranges.
-STATUS:          PROPOSED
+STATUS:          BOUNDED_PROOF (Expanded to bb_06004280 in D9.1)
 ```
 
 ### D6 — Mechanical Explicit-State C++ Generation
@@ -240,7 +240,7 @@ WHAT MUST BE TRUE BEFORE START: Target block decode and L0 semantics proven; pre
 WHAT THIS MILESTONE DOES NOT ATTEMPT: Semantic naming, native type introduction, optimization, function-level grouping.
 REQUIRED VERIFICATION GATE: V-07A (generated transition proof).
 FALLBACK / ALTERNATIVE ROUTE: If code generation approach fails for a candidate, interpreter-only path remains authoritative.
-STATUS:          PROPOSED
+STATUS:          BOUNDED_PROOF (bb_06004000 / V-07A passed)
 ```
 
 ### D7 — Shadow Comparison Infrastructure
@@ -256,7 +256,7 @@ WHAT MUST BE TRUE BEFORE START: At least one generated block and working oracle;
 WHAT THIS MILESTONE DOES NOT ATTEMPT: Automatic divergence repair, broad coverage, optimization.
 REQUIRED VERIFICATION GATE: V-07B (shadow checker validation with negative controls).
 FALLBACK / ALTERNATIVE ROUTE: Manual state comparison for very small initial proofs if infrastructure is blocked.
-STATUS:          PROPOSED
+STATUS:          BOUNDED_PROOF (bb_06004000 / V-07B passed)
 ```
 
 ### D8 — First Native Promotion Proof
@@ -273,7 +273,7 @@ WHAT THIS MILESTONE DOES NOT ATTEMPT: Broad coverage, optimization, semantic rec
 REQUIRED VERIFICATION GATE: V-07C (real native override proof).
 COMPLETION RULE: D8 BOUNDED_PROOF applies strictly to the tested candidate block under its declared contract; does not imply all blocks are safe.
 FALLBACK / ALTERNATIVE ROUTE: If the first block candidate fails, try a simpler block. If ALL blocks fail, re-examine decode/generation/oracle correctness.
-STATUS:          PROPOSED
+STATUS:          BOUNDED_PROOF (bb_06004000 / V-07C passed)
 ```
 
 ### D9 — Indirect Control-Flow Handling
@@ -289,7 +289,7 @@ WHAT MUST BE TRUE BEFORE START: Basic promotion proof exists for direct-flow blo
 WHAT THIS MILESTONE DOES NOT ATTEMPT: Complete target-set resolution (UNKNOWN targets stay on interpreter/fallback).
 REQUIRED VERIFICATION GATE: At least one indirect-flow block handled correctly in shadow comparison.
 FALLBACK / ALTERNATIVE ROUTE: Interpreter fallback for all indirect flow until evidence is sufficient.
-STATUS:          READY_FOR_BOUNDED_TEST (Planning & candidate qualification complete; docs/D9_INDIRECT_CONTROL_FLOW_PLAN.md)
+STATUS:          READY_FOR_BOUNDED_TEST (D9.1 PASS: JSR @Rn semantics & bb_06004280 qualified; docs/D9_INDIRECT_CONTROL_FLOW_PLAN.md)
 ```
 
 ### D10 — Timing/Interrupt/DMA Execution Boundaries

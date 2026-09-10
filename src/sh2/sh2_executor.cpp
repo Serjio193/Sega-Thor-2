@@ -6,9 +6,9 @@ namespace {
 
 /// Advances PC to next sequential instruction (+2) or to pending delayed branch target.
 inline void advance_pc(Sh2CpuState& state) noexcept {
-    if (state.delayed_pc != 0) {
-        state.pc = state.delayed_pc;
-        state.delayed_pc = 0;
+    if (state.has_delayed_branch()) {
+        state.pc = *state.delayed_pc;
+        state.delayed_pc = std::nullopt;
     } else {
         state.pc += 2;
     }
@@ -66,6 +66,18 @@ ExecutionResult execute_sh2_instruction(
                 return ExecutionResult::ILLEGAL_SLOT_INSTRUCTION;
             }
             const uint32_t target = instr.compute_branch_target();
+            state.delayed_pc = target;
+            state.pc += 2; // Advance to delay slot instruction
+            return ExecutionResult::SUCCESS;
+        }
+
+        case OpcodeId::JSR: {
+            // Hitachi SH-2: branch instructions in a delay slot trigger an illegal slot instruction exception
+            if (state.has_delayed_branch()) {
+                return ExecutionResult::ILLEGAL_SLOT_INSTRUCTION;
+            }
+            const uint32_t target = state.r[instr.rn];
+            state.pr = instr.pc + 4u;
             state.delayed_pc = target;
             state.pc += 2; // Advance to delay slot instruction
             return ExecutionResult::SUCCESS;

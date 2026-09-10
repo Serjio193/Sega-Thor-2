@@ -13,6 +13,7 @@ enum class OpcodeId : uint16_t {
     MOV_L_PC_REL,    // MOV.L @(disp, PC), Rn (1101 nnnn dddddddd)
     MOV_L_READ_MEM,  // MOV.L @Rm, Rn (0110 nnnn mmmm 0010)
     BRA,             // BRA label     (1010 dddddddddddd)
+    JSR,             // JSR @Rn       (0100 nnnn 0000 1011)
     NOP              // NOP           (0000 0000 0000 1001)
 };
 
@@ -22,6 +23,7 @@ enum class ControlFlowType : uint8_t {
     BRANCH,
     BRANCH_CONDITIONAL,
     JUMP,
+    CALL,
     RETURN,
     ILLEGAL
 };

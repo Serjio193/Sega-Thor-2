@@ -125,6 +125,23 @@
         "mednafen": "src/ss/sh7095_opdefs.inc:139, src/ss/sh7095_ops.inc:1670-1671 OP_NOP",
         "catherine": "src/sh2_decoder.cpp:108 NOP"
       }
+    },
+    {
+      "opcode": "0x430B",
+      "pc": "0x06004286",
+      "mnemonic": "jsr @r3",
+      "format": "0x4n0B",
+      "rn": 3,
+      "rm": 0,
+      "disp": 0,
+      "flow": "CALL",
+      "has_delay_slot": true,
+      "mem_access": "NONE",
+      "references": {
+        "hardware_manual": "Section 5.21 JSR @Rn",
+        "mednafen": "src/ss/sh7095_opdefs.inc:131, src/ss/sh7095_ops.inc:1537-1546 OP_JSR_REGINDIR",
+        "catherine": "src/sh2_decoder.cpp:188 JSR"
+      }
     }
   ]
 }

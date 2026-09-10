@@ -85,6 +85,16 @@ inline const std::vector<ReferenceDecodeVector>& get_reference_decode_manifest()
             "Hitachi SH-1/SH-2 Programming Manual Rev 4.0 Sec 5.34",
             "AJBats/mednafen-saturn-debug (commit 15542666) sh7095_opdefs.inc:139 OP_NOP",
             "hazzaclark/catherine (commit 462f483c) sh2_decoder.cpp:108 NOP"
+        },
+        {
+            0x430B, 0x06004286,
+            OpcodeId::JSR, 3, 0, 0,
+            ControlFlowType::CALL, true, MemoryAccessType::NONE,
+            0, 0,
+            "jsr @r3",
+            "Hitachi SH-1/SH-2 Programming Manual Rev 4.0 Sec 5.21",
+            "AJBats/mednafen-saturn-debug (commit 15542666) sh7095_opdefs.inc:131 OP_JSR_REGINDIR",
+            "hazzaclark/catherine (commit 462f483c) sh2_decoder.cpp:188 JSR"
         }
     };
     return manifest;

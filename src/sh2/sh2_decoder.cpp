@@ -65,6 +65,16 @@ Sh2Instruction decode_sh2(uint16_t opcode, uint32_t pc) noexcept {
         return instr;
     }
 
+    // 0x4n0B: JSR @Rn
+    if ((opcode & 0xF0FFu) == 0x400Bu) {
+        instr.id = OpcodeId::JSR;
+        instr.rn = rn;
+        instr.flow = ControlFlowType::CALL;
+        instr.has_delay_slot = true;
+        instr.mem_access = MemoryAccessType::NONE;
+        return instr;
+    }
+
     // 0x0009: NOP
     if (opcode == 0x0009u) {
         instr.id = OpcodeId::NOP;
@@ -99,6 +109,9 @@ std::string Sh2Instruction::mnemonic() const {
             return ss.str();
         case OpcodeId::BRA:
             ss << "bra 0x" << std::hex << compute_branch_target();
+            return ss.str();
+        case OpcodeId::JSR:
+            ss << "jsr @r" << static_cast<int>(rn);
             return ss.str();
         case OpcodeId::NOP:
             return "nop";

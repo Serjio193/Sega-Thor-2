@@ -103,7 +103,7 @@ static void test_bra_synthetic_semantics() {
 
     state.pc = 0x06004008;
     state.set_t(true);
-    state.delayed_pc = 0;
+    state.clear_delayed_branch();
 
     // Step 1: execute BRA
     const StepResult step1 = step_sh2(state, mem);
@@ -120,7 +120,7 @@ static void test_bra_synthetic_semantics() {
     THOR_ASSERT(step2.pre_pc == 0x0600400A);
     THOR_ASSERT(step2.post_pc == 0x06004012);
     THOR_ASSERT(state.pc == 0x06004012);
-    THOR_ASSERT(state.delayed_pc == 0); // Delayed PC cleared
+    THOR_ASSERT(!state.has_delayed_branch()); // Delayed PC cleared
     THOR_ASSERT(state.get_t() == true);
 
     // 2. Delay slot with register write:
@@ -132,7 +132,7 @@ static void test_bra_synthetic_semantics() {
     state.pc = 0x06001000;
     state.r[0] = 0xCAFEBABE;
     state.r[15] = 0x00000000;
-    state.delayed_pc = 0;
+    state.clear_delayed_branch();
 
     const StepResult d_step1 = step_sh2(state, mem);
     THOR_ASSERT(d_step1.status == ExecutionResult::SUCCESS);
@@ -143,7 +143,7 @@ static void test_bra_synthetic_semantics() {
     const StepResult d_step2 = step_sh2(state, mem);
     THOR_ASSERT(d_step2.status == ExecutionResult::SUCCESS);
     THOR_ASSERT(state.pc == 0x06001006);
-    THOR_ASSERT(state.delayed_pc == 0);
+    THOR_ASSERT(!state.has_delayed_branch());
     THOR_ASSERT(state.r[15] == 0xCAFEBABE); // Register write in delay slot took effect
 
     // 3. Illegal slot instruction detection (branch in delay slot):
@@ -151,6 +151,135 @@ static void test_bra_synthetic_semantics() {
     state.delayed_pc = 0x06001020; // In delay slot
     const Sh2Instruction bra_in_slot = decode_sh2(0xA003, state.pc);
     THOR_ASSERT(execute_sh2_instruction(bra_in_slot, state, mem) == ExecutionResult::ILLEGAL_SLOT_INSTRUCTION);
+}
+
+static void test_jsr_synthetic_semantics() {
+    Sh2FlatMemory mem;
+    Sh2CpuState state;
+
+    // 1. Normal target JSR @R3 + delay slot NOP:
+    // 0x06004286: JSR @R3 (0x430B)
+    // 0x06004288: NOP     (0x0009)
+    mem.write16(0x06004286, 0x430B);
+    mem.write16(0x06004288, 0x0009);
+
+    state.pc = 0x06004286;
+    state.pr = 0x00000000;
+    state.r[3] = 0x0600A0F8;
+    state.clear_delayed_branch();
+    mem.clear_log();
+
+    // Step 1: execute JSR @R3
+    const StepResult step1 = step_sh2(state, mem);
+    THOR_ASSERT(step1.status == ExecutionResult::SUCCESS);
+    THOR_ASSERT(step1.pre_pc == 0x06004286);
+    THOR_ASSERT(step1.post_pc == 0x06004288);
+    THOR_ASSERT(state.pc == 0x06004288); // In delay slot
+    THOR_ASSERT(state.has_delayed_branch());
+    THOR_ASSERT(state.delayed_pc == 0x0600A0F8);
+    THOR_ASSERT(state.pr == 0x0600428A); // PR = PC + 4
+
+    // Step 2: execute delay slot NOP
+    const StepResult step2 = step_sh2(state, mem);
+    THOR_ASSERT(step2.status == ExecutionResult::SUCCESS);
+    THOR_ASSERT(step2.pre_pc == 0x06004288);
+    THOR_ASSERT(step2.post_pc == 0x0600A0F8);
+    THOR_ASSERT(state.pc == 0x0600A0F8); // Jumped to target
+    THOR_ASSERT(!state.has_delayed_branch()); // Delayed PC retired
+    THOR_ASSERT(state.pr == 0x0600428A); // PR preserved
+
+    // 2. Alternate target (proves target is dynamic, not hardcoded):
+    state.pc = 0x06004286;
+    state.pr = 0x00000000;
+    state.r[3] = 0x0600BEEF;
+    state.clear_delayed_branch();
+
+    THOR_ASSERT(step_sh2(state, mem).status == ExecutionResult::SUCCESS);
+    THOR_ASSERT(state.delayed_pc == 0x0600BEEF);
+    THOR_ASSERT(state.pr == 0x0600428A);
+    THOR_ASSERT(step_sh2(state, mem).status == ExecutionResult::SUCCESS);
+    THOR_ASSERT(state.pc == 0x0600BEEF);
+    THOR_ASSERT(!state.has_delayed_branch());
+
+    // 3. Delay slot modifies target register Rn (target must evaluate before delay slot):
+    // 0x06001000: JSR @R3       (0x430B)
+    // 0x06001002: MOV R0, R3    (0x6303)
+    mem.write16(0x06001000, 0x430B);
+    mem.write16(0x06001002, 0x6303);
+
+    state.pc = 0x06001000;
+    state.pr = 0x00000000;
+    state.r[0] = 0xDEADBEEF;
+    state.r[3] = 0x06005000; // Pre-delay target
+    state.clear_delayed_branch();
+
+    THOR_ASSERT(step_sh2(state, mem).status == ExecutionResult::SUCCESS);
+    THOR_ASSERT(state.pc == 0x06001002);
+    THOR_ASSERT(state.delayed_pc == 0x06005000);
+    THOR_ASSERT(state.r[3] == 0x06005000);
+
+    THOR_ASSERT(step_sh2(state, mem).status == ExecutionResult::SUCCESS);
+    THOR_ASSERT(state.pc == 0x06005000); // Branched to pre-delay target
+    THOR_ASSERT(state.r[3] == 0xDEADBEEF); // Delay slot mutation took effect
+    THOR_ASSERT(!state.has_delayed_branch());
+
+    // 4. Target 0x00000000 (verifies std::optional sentinel correctness):
+    state.pc = 0x06004286;
+    state.r[3] = 0x00000000;
+    state.clear_delayed_branch();
+
+    THOR_ASSERT(step_sh2(state, mem).status == ExecutionResult::SUCCESS);
+    THOR_ASSERT(state.has_delayed_branch());
+    THOR_ASSERT(state.delayed_pc == 0x00000000);
+    THOR_ASSERT(step_sh2(state, mem).status == ExecutionResult::SUCCESS);
+    THOR_ASSERT(state.pc == 0x00000000);
+    THOR_ASSERT(!state.has_delayed_branch());
+
+    // 5. PR overwrite:
+    state.pc = 0x06004286;
+    state.pr = 0x12345678; // Stale PR
+    state.r[3] = 0x0600A0F8;
+    state.clear_delayed_branch();
+
+    THOR_ASSERT(step_sh2(state, mem).status == ExecutionResult::SUCCESS);
+    THOR_ASSERT(state.pr == 0x0600428A); // Overwritten by JSR
+
+    // 6. Illegal slot instruction detection (JSR in delay slot):
+    state.pc = 0x06001000;
+    state.delayed_pc = 0x06002000; // In delay slot
+    const Sh2Instruction jsr_in_slot = decode_sh2(0x430B, state.pc);
+    THOR_ASSERT(execute_sh2_instruction(jsr_in_slot, state, mem) == ExecutionResult::ILLEGAL_SLOT_INSTRUCTION);
+
+    // 7. All 16 registers R0..R15:
+    for (uint8_t reg = 0; reg < 16; ++reg) {
+        const uint16_t op = static_cast<uint16_t>(0x400Bu | (static_cast<uint16_t>(reg) << 8));
+        const uint32_t pc = 0x06002000 + (reg * 8u);
+        const uint32_t target = 0x06020000 + (reg * 0x100u);
+        mem.write16(pc, op);
+        mem.write16(pc + 2, 0x0009); // NOP delay slot
+
+        state.pc = pc;
+        state.pr = 0;
+        state.r[reg] = target;
+        state.clear_delayed_branch();
+
+        THOR_ASSERT(step_sh2(state, mem).status == ExecutionResult::SUCCESS);
+        THOR_ASSERT(state.pr == pc + 4);
+        THOR_ASSERT(state.delayed_pc == target);
+
+        THOR_ASSERT(step_sh2(state, mem).status == ExecutionResult::SUCCESS);
+        THOR_ASSERT(state.pc == target);
+        THOR_ASSERT(!state.has_delayed_branch());
+    }
+
+    // 8. Zero memory access side-effects (JSR itself has no memory bus transactions):
+    mem.clear_log();
+    state.pc = 0x06004286;
+    state.r[3] = 0x0600A0F8;
+    state.clear_delayed_branch();
+    const Sh2Instruction jsr_ins = decode_sh2(0x430B, state.pc);
+    THOR_ASSERT(execute_sh2_instruction(jsr_ins, state, mem) == ExecutionResult::SUCCESS);
+    THOR_ASSERT(mem.log().empty());
 }
 
 static void test_register_isolation() {
@@ -217,6 +346,8 @@ int main() {
     test_nop_semantics();
     std::cout << "[test_sh2_l0_semantics] Running BRA synthetic semantics & delay slot tests...\n";
     test_bra_synthetic_semantics();
+    std::cout << "[test_sh2_l0_semantics] Running JSR synthetic semantics & delay slot tests...\n";
+    test_jsr_synthetic_semantics();
     std::cout << "[test_sh2_l0_semantics] Running register isolation tests...\n";
     test_register_isolation();
     std::cout << "[test_sh2_l0_semantics] Running ordered memory effects tests...\n";

@@ -2,6 +2,7 @@
 
 #include <array>
 #include <cstdint>
+#include <optional>
 
 namespace thor::sh2 {
 
@@ -15,10 +16,14 @@ struct Sh2CpuState {
     uint32_t vbr = 0;             // Vector base register
     uint32_t mach = 0;            // Multiply-accumulate high
     uint32_t macl = 0;            // Multiply-accumulate low
-    uint32_t delayed_pc = 0;       // Target PC for pending delayed branch (0 = none)
+    std::optional<uint32_t> delayed_pc = std::nullopt; // Target PC for pending delayed branch
 
     [[nodiscard]] constexpr bool has_delayed_branch() const noexcept {
-        return delayed_pc != 0;
+        return delayed_pc.has_value();
+    }
+
+    constexpr void clear_delayed_branch() noexcept {
+        delayed_pc = std::nullopt;
     }
 
     [[nodiscard]] constexpr bool get_t() const noexcept {

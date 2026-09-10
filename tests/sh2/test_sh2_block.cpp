@@ -89,7 +89,7 @@ static void test_block_execution_vs_mednafen_oracle() {
     state_block.vbr = 0x06000000;
     state_block.mach = 0x00000000;
     state_block.macl = 0x00000000;
-    state_block.delayed_pc = 0;
+    state_block.clear_delayed_branch();
 
     Sh2CpuState state_step = state_block;
 
@@ -132,7 +132,7 @@ static void test_block_execution_vs_mednafen_oracle() {
     THOR_ASSERT(state_block.vbr == 0x06000000);
     THOR_ASSERT(state_block.mach == 0x00000000);
     THOR_ASSERT(state_block.macl == 0x00000000);
-    THOR_ASSERT(state_block.delayed_pc == 0);
+    THOR_ASSERT(!state_block.has_delayed_branch());
 
     // Validate memory effects
     const auto& log = mem.log();
@@ -149,11 +149,121 @@ static void test_block_execution_vs_mednafen_oracle() {
     THOR_ASSERT(found_bss);
 }
 
+static void setup_candidate_block_06004280_memory(Sh2FlatMemory& mem) {
+    // 0x06004280: 0xD536  MOV.L @(0xD8, PC), R5
+    mem.write16(0x06004280, 0xD536);
+    // 0x06004282: 0xD437  MOV.L @(0xDC, PC), R4
+    mem.write16(0x06004282, 0xD437);
+    // 0x06004284: 0xD337  MOV.L @(0xDC, PC), R3
+    mem.write16(0x06004284, 0xD337);
+    // 0x06004286: 0x430B  JSR @R3 (terminator)
+    mem.write16(0x06004286, 0x430B);
+    // 0x06004288: 0x0009  NOP (delay slot)
+    mem.write16(0x06004288, 0x0009);
+
+    // Literal pool entries:
+    mem.write32(0x0600435C, 0x002DA000);
+    mem.write32(0x06004360, 0x06081C20);
+    mem.write32(0x06004364, 0x0600A0F8);
+
+    mem.clear_log();
+}
+
+static void test_candidate_block_06004280() {
+    Sh2FlatMemory mem;
+    setup_candidate_block_06004280_memory(mem);
+
+    // Discovery test:
+    const Sh2BasicBlock block = discover_basic_block(
+        0x06004280, mem, "0TH2.BIN", "MASTER_SH2", "workstreams/T2-D9-indirect/candidate_06004280.md");
+
+    THOR_ASSERT(block.start_address == 0x06004280);
+    THOR_ASSERT(block.end_address == 0x06004288);
+    THOR_ASSERT(block.instruction_count == 5);
+    THOR_ASSERT(block.byte_length == 10);
+    THOR_ASSERT(block.module_id == "0TH2.BIN");
+    THOR_ASSERT(block.cpu_id == "MASTER_SH2");
+
+    // Terminator checks
+    THOR_ASSERT(block.terminator.id == OpcodeId::JSR);
+    THOR_ASSERT(block.terminator.pc == 0x06004286);
+    THOR_ASSERT(block.terminator.rn == 3);
+    THOR_ASSERT(block.terminator.flow == ControlFlowType::CALL);
+    THOR_ASSERT(block.terminator.has_delay_slot == true);
+
+    // Delay slot checks
+    THOR_ASSERT(block.delay_slot.has_value());
+    THOR_ASSERT(block.delay_slot->id == OpcodeId::NOP);
+    THOR_ASSERT(block.delay_slot->pc == 0x06004288);
+
+    // Exits: indirect call has direct_exits empty, fallthrough nullopt, dynamic_taken_exit nullopt
+    THOR_ASSERT(block.direct_exits.empty());
+    THOR_ASSERT(!block.fallthrough.has_value());
+    THOR_ASSERT(!block.dynamic_taken_exit.has_value());
+
+    // Byte intervals
+    THOR_ASSERT(block.contains_pc(0x06004280));
+    THOR_ASSERT(block.contains_pc(0x06004288));
+    THOR_ASSERT(block.contains_pc(0x06004289));
+    THOR_ASSERT(!block.contains_pc(0x0600428A));
+
+    // Execution replay test:
+    Sh2CpuState state_block;
+    state_block.pc = 0x06004280;
+    state_block.pr = 0x00000000;
+    state_block.r[3] = 0x11111111; // Stale initial values
+    state_block.r[4] = 0x22222222;
+    state_block.r[5] = 0x33333333;
+    state_block.clear_delayed_branch();
+
+    Sh2CpuState state_step = state_block;
+
+    // Clear discovery opcode reads so log reflects only execution memory operations
+    mem.clear_log();
+
+    // Method A: Execute entire block via execute_basic_block
+    const ExecutionResult res = execute_basic_block(block, state_block, mem);
+    THOR_ASSERT(res == ExecutionResult::SUCCESS);
+
+    // Method B: Step instruction-by-instruction (5 instructions)
+    Sh2FlatMemory mem_step;
+    setup_candidate_block_06004280_memory(mem_step);
+    for (size_t s = 0; s < 5; ++s) {
+        const StepResult step = step_sh2(state_step, mem_step);
+        THOR_ASSERT(step.status == ExecutionResult::SUCCESS);
+    }
+
+    // Both execution modes must yield identical state
+    THOR_ASSERT(state_block == state_step);
+
+    // Check post-state against oracle facts:
+    // Target entered: PC = 0x0600A0F8
+    // Return address: PR = 0x0600428A
+    // R5 = 0x002DA000 (literal read from 0x0600435C)
+    // R4 = 0x06081C20 (literal read from 0x06004360)
+    // R3 = 0x0600A0F8 (literal read from 0x06004364)
+    THOR_ASSERT(state_block.pc == 0x0600A0F8);
+    THOR_ASSERT(state_block.pr == 0x0600428A);
+    THOR_ASSERT(state_block.r[5] == 0x002DA000);
+    THOR_ASSERT(state_block.r[4] == 0x06081C20);
+    THOR_ASSERT(state_block.r[3] == 0x0600A0F8);
+    THOR_ASSERT(!state_block.has_delayed_branch());
+
+    // Verify exactly 3 memory reads (literals), 0 writes
+    const auto& log = mem.log();
+    THOR_ASSERT(log.size() == 3);
+    THOR_ASSERT(log[0].address == 0x0600435C && log[0].value == 0x002DA000);
+    THOR_ASSERT(log[1].address == 0x06004360 && log[1].value == 0x06081C20);
+    THOR_ASSERT(log[2].address == 0x06004364 && log[2].value == 0x0600A0F8);
+}
+
 int main() {
     std::cout << "[test_sh2_block] Running basic block discovery tests...\n";
     test_block_discovery();
     std::cout << "[test_sh2_block] Running basic block oracle replay vs Mednafen...\n";
     test_block_execution_vs_mednafen_oracle();
-    std::cout << "[test_sh2_block] PASS: First Thor 2 basic block matches oracle identically (0 divergences).\n";
+    std::cout << "[test_sh2_block] Running candidate block 06004280 tests...\n";
+    test_candidate_block_06004280();
+    std::cout << "[test_sh2_block] PASS: All SH-2 basic block tests green (0 divergences).\n";
     return 0;
 }

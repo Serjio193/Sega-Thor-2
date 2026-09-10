@@ -72,6 +72,36 @@ def validate_plan_content(plan_text, cand_text, readme_text):
     if "copy-on-read" not in plan_text and "dependency descriptors" not in plan_text:
         raise ValueError("Memory generalization architecture missing from D9 plan")
 
+    # 9. Timing reconciliation: entry + duration == exit (316309168 + 21 == 316309189)
+    entry_m = re.search(r"BLOCK_ENTRY_CYCLE\s*=\s*(\d+)", plan_text)
+    duration_m = re.search(r"BLOCK_DURATION\s*=\s*(\d+)", plan_text)
+    exit_m = re.search(r"BLOCK_EXIT_TARGET_ENTRY_CYCLE\s*=\s*(\d+)", plan_text)
+
+    if not entry_m or not duration_m or not exit_m:
+        raise ValueError("Missing structured timing cycle definitions in D9 plan")
+
+    entry_cyc = int(entry_m.group(1))
+    duration_cyc = int(duration_m.group(1))
+    exit_cyc = int(exit_m.group(1))
+
+    if entry_cyc != 316309168:
+        raise ValueError(f"Incorrect entry cycle {entry_cyc} (expected 316309168)")
+    if duration_cyc != 21:
+        raise ValueError(f"Incorrect duration cycles {duration_cyc} (expected 21)")
+    if exit_cyc != 316309189:
+        raise ValueError(f"Incorrect exit cycle {exit_cyc} (expected 316309189)")
+    if entry_cyc + duration_cyc != exit_cyc:
+        raise ValueError(f"Timing arithmetic failure: {entry_cyc} + {duration_cyc} != {exit_cyc}")
+
+    # Also check candidate text has duration 21
+    if "21 cycles" not in cand_text:
+        raise ValueError("Candidate document missing 21 cycles duration")
+
+    # 10. No V-09A anywhere (V-09 is canonically reserved for D13)
+    for doc_name, doc_text in [("D9 plan", plan_text), ("Candidate doc", cand_text), ("README", readme_text)]:
+        if "V-09A" in doc_text:
+            raise ValueError(f"Invalid non-canonical gate label 'V-09A' found in {doc_name}")
+
     return True
 
 
@@ -108,6 +138,18 @@ def run_negative_controls(base_plan, base_cand, base_readme):
         ("missing_exit_kind",
          base_plan.replace("INDIRECT_CALL", "UNKNOWN_EXIT"),
          base_cand,
+         base_readme),
+        ("timing_arithmetic_mismatch",
+         base_plan.replace("BLOCK_DURATION = 21", "BLOCK_DURATION = 19"),
+         base_cand,
+         base_readme),
+        ("v09a_leak_in_plan",
+         base_plan + "\n(V-09A)\n",
+         base_cand,
+         base_readme),
+        ("v09a_leak_in_candidate",
+         base_plan,
+         base_cand + "\n(V-09A)\n",
          base_readme),
     ]
 

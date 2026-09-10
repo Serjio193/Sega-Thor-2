@@ -1,5 +1,63 @@
 # Worklog
 
+## 2026-09-10 — T2-D9.1 JSR @Rn L0 Semantics & bb_06004280 Block Qualification
+
+### Task
+
+Resolve the three D9.P0 integrity issues (reconcile candidate timing discrepancy 19 vs 21 cycles, remove invalid non-canonical `V-09A` label across all documents, and repair `delayed_pc` zero-sentinel in `Sh2CpuState`); implement exact `JSR @Rn` opcode decode (`0x4n0B`, `OpcodeId::JSR`, `ControlFlowType::CALL`) and execution semantics; prove synthetic semantics across 8 rigorous test dimensions; independently cross-check semantics against Hitachi SH-2 hardware manual, pinned Mednafen debug source, and Catherine reference; qualify basic block `bb_06004280` (`0x06004280..0x06004288`, 10 bytes, SHA-256 `8879cbe1...`) in D3/D4/D5; reproduce two independent cold-boot executions in Mednafen oracle; update all project records; verify all regressions green across Windows MinGW and Linux WSL (Debug + Release).
+
+### Method & Discoveries
+
+1. **Integrity Issue 1 — Candidate Timing Discrepancy Reconciled**:
+   - Trace audit established: block entry cycle = `316309168`; delay-slot entry cycle = `316309187` (+19 cycles: branch fetch & pipeline refill); target entry cycle = `316309189` (+21 cycles: execution begins at target `0x0600A0F8` after 2-cycle `NOP` delay slot retires).
+   - Proven duration: $316309189 - 316309168 = 21\text{ cycles}$. The preliminary 19-cycle count was measured upon delay-slot entry; full block completion through target entry is exactly 21 cycles.
+2. **Integrity Issue 2 — Elimination of Non-Canonical `V-09A` Label**:
+   - `V-09` is canonically reserved for milestone D13 in `docs/PIPELINE_VALIDATION_PLAN.md`.
+   - Replaced `V-09A` with `D9.4 — Authoritative Native Indirect Override & Dynamic Continuation` across all documents, plans, and READMEs.
+   - Added automated negative controls to `tests/recomp/test_d9_plan.py` enforcing complete absence of `V-09A`.
+3. **Integrity Issue 3 — `delayed_pc` Zero-Sentinel Repaired**:
+   - Replaced `uint32_t delayed_pc = 0;` in `include/thor/sh2/sh2_state.hpp` with `std::optional<uint32_t> delayed_pc = std::nullopt;`.
+   - Enabled unambiguous representation of valid target `0x00000000` (Saturn reset vector / BIOS entry) without false negative in `has_delayed_branch()`.
+4. **Exact `JSR @Rn` Decode & Semantics Implemented**:
+   - Implemented `0x4n0B` decode in `src/sh2/sh2_decoder.cpp` mapping to `OpcodeId::JSR`, `rn = (opcode >> 8) & 0x0F`, `ControlFlowType::CALL`, `has_delay_slot = true`, `MemoryAccessType::NONE`.
+   - Implemented execution semantics in `src/sh2/sh2_executor.cpp`: pre-delay target evaluation `target = state.r[instr.rn]`, `PR = instr.pc + 4`, `delayed_pc = target`, `pc += 2`, illegal slot check returning `ExecutionResult::ILLEGAL_SLOT_INSTRUCTION`.
+   - Updated block model in `src/sh2/sh2_block.cpp`: `JSR` recognized as block terminator with delay slot, direct exits empty, fallthrough nullopt, dynamic taken unresolved statically.
+5. **Synthetic L0 Verification Matrix (8 Dimensions)**:
+   - Normal target: `R3 = 0x0600A0F8`, `PR = 0x0600428A`, target reached after delay slot `NOP`.
+   - Alternate target: `R3 = 0x0600BEEF` (proves dynamic dispatch, 0 hardcoding).
+   - Pre-delay target evaluation invariant: delay slot mutating `Rn` (e.g. `MOV R0, R3`) does not affect jump destination.
+   - Zero target: `Rn = 0x00000000` verified with `std::optional` sentinel.
+   - PR overwrite: stale PR overwritten with `instr.pc + 4`.
+   - Illegal slot exception: JSR inside active delay slot triggers `ILLEGAL_SLOT_INSTRUCTION`.
+   - All 16 registers: `R0` through `R15` verified in loop with distinct targets.
+   - Memory side-effects: exactly 0 bus reads/writes logged during execution.
+6. **Independent 4-Way Decode Cross-Check**:
+   - Hitachi SH-1/SH-2 Programming Manual Rev 4.0 Section 5.21 (`JSR @Rn`).
+   - Pinned Mednafen debug oracle (`sh7095_opdefs.inc:131`, `sh7095_ops.inc:1537` `OP_JSR_REGINDIR`).
+   - Independent open reference `hazzaclark/catherine` (`sh2_decoder.cpp:188 JSR`).
+   - Thor 2 decoder and executor: 0 unexplained disagreements. Added reference vector to `reference_decode_manifest.hpp` and `reference_decode_manifest.json`.
+7. **Basic Block `bb_06004280` Qualified**:
+   - Added `test_candidate_block_06004280` in `tests/sh2/test_sh2_block.cpp`.
+   - Discovery confirmed 5 instructions (`0x06004280..0x06004288`), terminator `JSR @R3`, delay slot `NOP`, empty direct exits.
+   - Full block execution verified against Mednafen oracle pre/post-state: target `0x0600A0F8` reached, `PR = 0x0600428A`, `R5 = 0x002DA000`, `R4 = 0x06081C20`, `R3 = 0x0600A0F8`, exactly 3 literal pool reads, 0 writes.
+   - Instruction-by-instruction step matches block execution identically (0 divergences).
+8. **Independent Cold-Boot Reproductions**:
+   - Two cold boot runs in Mednafen debug oracle confirmed bit-identical arrival at Hit 2 (frame 702, cycle `316309168`), identical stepping trace, and identical target entry at cycle `316309189`.
+9. **D3/D4/D5 Bounded State Expansion**:
+   - D3: `BOUNDED_PROOF` expanded to include `JSR @Rn`.
+   - D4: `BOUNDED_PROOF` covers `0x06004280..0x06004289` as `CONFIRMED_CODE / EXECUTED`.
+   - D5: `BOUNDED_PROOF` covers `bb_06004280` CFG representation.
+   - D9: remains `READY_FOR_BOUNDED_TEST` (sub-gate D9.1 PASS).
+
+### Status After Pass
+
+- `D3`: **BOUNDED_PROOF** (expanded to `JSR @Rn`)
+- `D4`: **BOUNDED_PROOF** (expanded to `bb_06004280`)
+- `D5`: **BOUNDED_PROOF** (expanded to `bb_06004280`)
+- `D9.1`: **PASS**
+- `D9`: **READY_FOR_BOUNDED_TEST**
+- Next action: D9.2 Generic Dynamic-Exit Representation & Declarative Memory Descriptors.
+
 ## 2026-09-10 — T2-D9.P0 Indirect Control-Flow Architecture & First Bounded Candidate Plan
 
 ### Task

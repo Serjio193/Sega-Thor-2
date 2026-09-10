@@ -36,6 +36,11 @@ Sh2BasicBlock discover_basic_block(
                 block.direct_exits.push_back(target);
                 block.fallthrough = std::nullopt; // Unconditional branch has no fallthrough
                 block.dynamic_taken_exit = target;
+            } else if (ins.id == OpcodeId::JSR) {
+                // Indirect call: direct exits empty, fallthrough nullopt, dynamic taken unresolved statically
+                block.direct_exits.clear();
+                block.fallthrough = std::nullopt;
+                block.dynamic_taken_exit = std::nullopt;
             }
             break;
         }

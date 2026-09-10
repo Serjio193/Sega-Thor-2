@@ -74,7 +74,12 @@ Verified via pinned Mednafen debug oracle (`AJBats/mednafen-saturn-debug` commit
 - **Exit PC:** `0x0600A0F8`
 - **Return Address (`PR`):** `0x0600428A`
 - **Callstack:** `0x06004286 -> 0x0600A0F8 (ret=0x0600428A)`
-- **Duration of Candidate Block:** 19 cycles (`316309187 - 316309168`)
+- **Duration of Candidate Block:** 21 cycles (`316309189 - 316309168 = 21`)
+- **Timing Breakdown & Reconciliation:**
+  - `BLOCK_ENTRY_CYCLE = 316309168` (master cycle at initial instruction fetch `0x06004280`)
+  - `DELAY_SLOT_ENTRY_CYCLE = 316309187` (+19 cycles relative to entry; delay slot `0x06004288` entered following branch pipeline refill)
+  - `BLOCK_EXIT_TARGET_ENTRY_CYCLE = 316309189` (+21 cycles relative to entry; execution begins at target `0x0600A0F8`)
+  - *Reconciliation:* The preliminary 19-cycle count was measured upon entry into the delay slot instruction. With atomic delay-slot execution completed (+2 cycles for `NOP`), total block duration to target entry is exactly 21 cycles.
 
 ---
 
@@ -96,5 +101,10 @@ Verified via pinned Mednafen debug oracle (`AJBats/mednafen-saturn-debug` commit
 Per `AGENTS.md` and ADR D-011 / D-012 rules:
 - **Provenance:** `0TH2.BIN` is proven byte-for-byte in RAM under ADR D-011 (`V-02a`).
 - **Static Candidate:** `bb_06004280` is statically bounded as 5 instructions ending in `JSR @R3` + delay slot.
-- **Dynamic Observation:** Stepping trace proves 100% of the candidate block executes at cold boot Hit 2.
-- **Proof Level:** This candidate is qualified for D9 planning and test design (`QUALIFIED_CANDIDATE`). It is **NOT** yet marked `CONFIRMED_CODE` or `BOUNDED_PROOF` until D9.1..D9.4 gates pass.
+- **Dynamic Observation:** Stepping trace proves 100% of the candidate block executes at cold boot Hit 2 (frame 702).
+- **Classification Status:**
+  - **D3 (Instruction Semantics):** `BOUNDED_PROOF` — all 5 instructions (`MOV.L`, `JSR @Rn`, `NOP`) have full verified L0 semantics and 0 oracle disagreements.
+  - **D4 (Static Disassembly):** `BOUNDED_PROOF` — address range `0x06004280..0x06004289` (10 bytes) is promoted to `CONFIRMED_CODE / EXECUTED`.
+  - **D5 (CFG Structure):** `BOUNDED_PROOF` — `bb_06004280` is recovered as an indirect call block with empty direct exits, nullopt fallthrough, and dynamic runtime target.
+  - **D9 (Indirect Dispatch):** Sub-gate `D9.1` is `PASS`. Milestone D9 remains `READY_FOR_BOUNDED_TEST` until generic dispatch, shadow proof, and native override gates complete.
+- **Candidate SHA-256:** `8879cbe14f58a5fbc4eb9545e1cc41b3593e306cab114769a94f814a18bcb770`

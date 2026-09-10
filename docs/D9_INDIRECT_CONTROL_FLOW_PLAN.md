@@ -61,14 +61,20 @@ An audit of the D8 production implementation (`include/thor/recomp/native_dispat
    Delay slot instruction. Executes atomically before control transfers to `0x0600A0F8`.
 
 ### 3.3 Dynamic Oracle Trace (Mednafen Debug Fork `155426661b7ac3152e2c93a98da60ac33002b908`)
-- **Cold Boot Arrival:** Hit 2 at frame `701`, master cycle `316309168` (following `RTS` return from previous initialization subroutine `0x0600447C`).
+- **Cold Boot Arrival:** Hit 2 at frame `702`, master cycle `316309168` (following `RTS` return from previous initialization subroutine `0x0600447C`).
 - **Retirement Progression:**
   - `0x06004280`: `R5 = 0x002DA000`, cycle `316309169` (+1 cycle)
   - `0x06004282`: `R4 = 0x06081C20`, cycle `316309171` (+2 cycles)
   - `0x06004284`: `R3 = 0x0600A0F8`, cycle `316309172` (+1 cycle)
   - `0x06004286`: `PR = 0x0600428A`, cycle `316309187` (+15 cycles target fetch & pipeline refill)
   - `0x06004288`: Delay slot `NOP` completes, target `0x0600A0F8` enters at cycle `316309189` (+2 cycles)
-- **Exit State:** `PC = 0x0600A0F8`, `PR = 0x0600428A`, elapsed duration = 19 cycles (`316309187 - 316309168`).
+- **Timing Reconciliation:**
+  - `BLOCK_ENTRY_CYCLE = 316309168` (master cycle at initial instruction fetch `0x06004280`)
+  - `DELAY_SLOT_ENTRY_CYCLE = 316309187` (+19 cycles relative to entry; delay slot `0x06004288` entered following branch pipeline refill)
+  - `BLOCK_EXIT_TARGET_ENTRY_CYCLE = 316309189` (+21 cycles relative to entry; execution begins at target `0x0600A0F8`)
+  - `BLOCK_DURATION = 21 cycles` (`316309189 - 316309168 = 21`)
+  - *Accounting Note:* The 19-cycle timestamp (`316309187`) was solely entry into the delay slot instruction. Full block completion and architectural target entry occurs after the 2-cycle delay slot retires at cycle `316309189`, giving an exact total duration of 21 cycles.
+- **Exit State:** `PC = 0x0600A0F8`, `PR = 0x0600428A`, total block duration = 21 cycles (`316309189 - 316309168 = 21`).
 
 ---
 
@@ -91,7 +97,7 @@ Before `bb_06004280` can be promoted to native execution, all instructions must 
 | `0xD536` | `MOV.L @(disp,PC), R5` | `ALREADY_D3_L0_PROVEN` | None (covered by existing L0 vector suite) |
 | `0xD437` | `MOV.L @(disp,PC), R4` | `ALREADY_D3_L0_PROVEN` | None |
 | `0xD337` | `MOV.L @(disp,PC), R3` | `ALREADY_D3_L0_PROVEN` | None |
-| `0x430B` | `JSR @R3` | `NEEDS_D3_L0_PROOF` | **Must implement SH-2 decoder & executor semantics, PR update, and L0 test vectors** |
+| `0x430B` | `JSR @R3` | `NEEDS_D3_L0_PROOF` | **Must implement SH-2 decoder & executor semantics, PR update, and L0 test vectors** (Satisfied in D9.1) |
 | `0x0009` | `NOP` | `ALREADY_D3_L0_PROVEN` | None |
 
 *Important:* Method M-07 (SaturnRecomp reference data) is an accelerator and cross-check only. It cannot substitute for independent D3 L0 proof in Sega-Thor-2.
@@ -110,7 +116,7 @@ D9.2  — Generic Dynamic-Exit Representation & Declarative Memory Descriptors
 D9.3  — Isolated Shadow Qualification for bb_06004280 (Zero-Divergence Proof)
   │
   ▼
-D9.4  — Authoritative Native Override & Dynamic Continuation (V-09A)
+D9.4  — Authoritative Native Indirect Override & Dynamic Continuation
   │
   ├──────────────────────────────────────────────────────┐
   ▼                                                      ▼
