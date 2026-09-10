@@ -198,12 +198,58 @@ static void test_memory_contract_negative_controls() {
     std::cout << "  [OK] test_memory_contract_negative_controls\n";
 }
 
+static void test_width_aware_interval_safety() {
+    MemoryDependencyDescriptor dep{};
+    dep.instruction_pc = 0x06004000u;
+    dep.access_kind = MemoryAccessKind::READ;
+    dep.width = MemoryAccessWidth::U32;
+    dep.address_source = AddressSourceKind::REGISTER_AT_EXECUTION;
+    dep.region_class = MemoryRegionClass::RUNTIME_CLASSIFICATION_REQUIRED;
+
+    // 1. READ_U32 from ordinary HWRAM -> PASS
+    THOR_ASSERT(validate_runtime_memory_dependency(dep, 0x06004000u));
+
+    // 2. READ_U32 ending exactly at safe region end -> PASS
+    // HWRAM end is 0x060FFFFF. With width 4, start at 0x060FFFFC.
+    THOR_ASSERT(validate_runtime_memory_dependency(dep, 0x060FFFFCu));
+
+    // 3. READ_U32 starting too near region end and crossing out -> FAIL
+    // Starting at 0x060FFFFD (spans to 0x06100000 which is outside HWRAM)
+    THOR_ASSERT(!validate_runtime_memory_dependency(dep, 0x060FFFFDu));
+    THOR_ASSERT(!validate_runtime_memory_dependency(dep, 0x060FFFFEu));
+    THOR_ASSERT(!validate_runtime_memory_dependency(dep, 0x060FFFFFu));
+
+    // 4. READ_U32 with address wrap -> FAIL
+    THOR_ASSERT(!validate_runtime_memory_dependency(dep, 0xFFFFFFFEu));
+    THOR_ASSERT(!validate_runtime_memory_dependency(dep, 0xFFFFFFFFu));
+
+    // 5. MMIO -> FAIL
+    THOR_ASSERT(!validate_runtime_memory_dependency(dep, 0x25800000u));
+    THOR_ASSERT(!validate_runtime_memory_dependency(dep, 0xFFFFFE00u));
+
+    // 6. UNKNOWN -> FAIL
+    THOR_ASSERT(!validate_runtime_memory_dependency(dep, 0x10000000u));
+
+    // 7. Width 1 and 2 boundary tests:
+    dep.width = MemoryAccessWidth::U16;
+    THOR_ASSERT(validate_runtime_memory_dependency(dep, 0x060FFFFEu)); // Ends at 0x060FFFFF -> PASS
+    THOR_ASSERT(!validate_runtime_memory_dependency(dep, 0x060FFFFFu)); // Crosses into 0x06100000 -> FAIL
+    THOR_ASSERT(!validate_runtime_memory_dependency(dep, 0xFFFFFFFFu)); // Wrap -> FAIL
+
+    dep.width = MemoryAccessWidth::U8;
+    THOR_ASSERT(validate_runtime_memory_dependency(dep, 0x060FFFFFu)); // Exactly at 0x060FFFFF -> PASS
+    THOR_ASSERT(!validate_runtime_memory_dependency(dep, 0x06100000u)); // Outside -> FAIL
+
+    std::cout << "  [OK] test_width_aware_interval_safety\n";
+}
+
 int main() {
     std::cout << "=== D9.2 Declarative Memory Dependency Contract Unit Tests ===\n";
     test_candidate_block_memory_contract();
     test_bb0_memory_contract();
     test_runtime_classification_validation();
     test_memory_contract_negative_controls();
+    test_width_aware_interval_safety();
     std::cout << "ALL BLOCK MEMORY TESTS PASSED.\n";
     return 0;
 }

@@ -1,9 +1,13 @@
 # D8 Live Production Regression Record (T2-D9.3)
 
-Date: 2026-09-10  
-Baseline: 3aa1ee249774eb63a46f10b9459c023cfed8e116  
-Environment: Windows MinGW-w64 / MSYS2 pinned Mednafen debug harness (4662aad69f95222fe37c5e6b98f2285b1a7e4653)  
-Target Block: bb_06004000 (0x06004000 .. 0x0600400A)  
+Date: 2026-09-10
+Baseline: 3aa1ee249774eb63a46f10b9459c023cfed8e116
+Tested Working Tree: Uncommitted working tree implementing T2-D9.3 changes on top of 3aa1ee, subsequently committed and pushed as 32ebc5a4ffc42882d6b6d891167a29956fe0e9a6 (commit 3aa1ee alone did not contain D9.3 changes).
+External Pins:
+- SaturnAutoRE harness: 4662aad69f95222fe37c5e6b98f2285b1a7e4653
+- Mednafen debug submodule: 155426661b7ac3152e2c93a98da60ac33002b908
+Environment: Windows MinGW-w64 / MSYS2 pinned SaturnAutoRE test harness running pinned Mednafen debug submodule
+Target Block: bb_06004000 (0x06004000 .. 0x0600400A)
 Continuation Checkpoint: 0x06004280 (Hit 1 cold boot, cycle 307090585)
 
 ---

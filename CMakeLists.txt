@@ -133,14 +133,14 @@ add_test(NAME test_shadow_isolation COMMAND test_shadow_isolation)
 add_library(thor_native STATIC
     src/recomp/native_dispatcher.cpp
 )
-target_link_libraries(thor_native PUBLIC thor_recomp thor_generated_bb_06004000)
+target_link_libraries(thor_native PUBLIC thor_recomp thor_generated_bb_06004000 thor_generated_bb_06004280)
 target_include_directories(thor_native PUBLIC include "${GENERATED_DIR}")
 
 # Shared plugin for emulator oracle dynamic integration
 add_library(thor_native_plugin SHARED
     src/recomp/native_dispatcher.cpp
 )
-target_link_libraries(thor_native_plugin PUBLIC thor_recomp thor_generated_bb_06004000)
+target_link_libraries(thor_native_plugin PUBLIC thor_recomp thor_generated_bb_06004000 thor_generated_bb_06004280)
 target_include_directories(thor_native_plugin PUBLIC include "${GENERATED_DIR}")
 set_target_properties(thor_native_plugin PROPERTIES OUTPUT_NAME "thor_native")
 
@@ -149,6 +149,12 @@ add_executable(test_native_dispatcher tests/recomp/test_native_dispatcher.cpp)
 target_link_libraries(test_native_dispatcher PRIVATE thor_native)
 target_include_directories(test_native_dispatcher PRIVATE "${GENERATED_DIR}")
 add_test(NAME test_native_dispatcher COMMAND test_native_dispatcher)
+
+# D9.4 native indirect dispatcher, dynamic continuation, and block mask test suite
+add_executable(test_native_indirect tests/recomp/test_native_indirect.cpp)
+target_link_libraries(test_native_indirect PRIVATE thor_native)
+target_include_directories(test_native_indirect PRIVATE "${GENERATED_DIR}")
+add_test(NAME test_native_indirect COMMAND test_native_indirect)
 
 # M-02 guest mutation harness and fault injection test suite
 add_executable(test_mutation_harness tests/recomp/test_mutation_harness.cpp)

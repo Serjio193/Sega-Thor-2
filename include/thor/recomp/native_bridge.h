@@ -48,11 +48,19 @@ typedef struct {
     uint32_t macl;
 } ThorCpuRegs;
 
+#define THOR_BLOCK_MASK_NONE        0x00000000u
+#define THOR_BLOCK_MASK_BB_06004000  0x00000001u
+#define THOR_BLOCK_MASK_BB_06004280  0x00000002u
+#define THOR_BLOCK_MASK_ALL          0xFFFFFFFFu
+
 void thor_native_init(void);
 void thor_native_set_mode(ThorNativeMode mode);
 ThorNativeMode thor_native_get_mode(void);
+void thor_native_set_block_mask(uint32_t mask);
+uint32_t thor_native_get_block_mask(void);
 void thor_native_get_stats(ThorNativeStats* out_stats);
 void thor_native_reset_stats(void);
+bool thor_native_get_block_stats(uint32_t pc, uint64_t* out_executed, uint64_t* out_fallback);
 
 bool thor_native_dispatch_step(
     uint32_t pc,

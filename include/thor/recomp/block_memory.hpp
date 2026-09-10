@@ -29,6 +29,20 @@ enum class MemoryRegionClass : uint8_t {
     UNKNOWN
 };
 
+[[nodiscard]] constexpr uint32_t memory_access_width_bytes(MemoryAccessWidth w) noexcept {
+    switch (w) {
+    case MemoryAccessWidth::U8:
+    case MemoryAccessWidth::S8:
+        return 1u;
+    case MemoryAccessWidth::U16:
+    case MemoryAccessWidth::S16:
+        return 2u;
+    case MemoryAccessWidth::U32:
+        return 4u;
+    }
+    return 1u;
+}
+
 struct MemoryDependencyDescriptor {
     uint32_t instruction_pc = 0;
     thor::sh2::MemoryAccessKind access_kind = thor::sh2::MemoryAccessKind::READ;

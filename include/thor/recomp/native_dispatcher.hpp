@@ -67,7 +67,10 @@ public:
     [[nodiscard]] ThorNativeMode get_mode() const noexcept { return m_mode; }
 
     [[nodiscard]] ThorNativeStats get_stats() const noexcept { return m_stats; }
-    void reset_stats() noexcept { m_stats = {}; }
+    void reset_stats() noexcept {
+        m_stats = {};
+        m_block_stats.clear();
+    }
 
     /// Register a native recompiled block. Returns true if valid, false if validation failed.
     bool register_block(RegisteredNativeBlock block);
@@ -83,6 +86,11 @@ public:
         const ThorHardwareCallbacks& hw_cb
     );
 
+    void set_block_mask(uint32_t mask) noexcept { m_block_mask = mask; }
+    [[nodiscard]] uint32_t get_block_mask() const noexcept { return m_block_mask; }
+
+    bool get_block_stats(uint32_t pc, uint64_t* out_executed, uint64_t* out_fallback) const noexcept;
+
     /// Testing injection hooks
     void inject_forced_divergence(bool enable) noexcept { m_inject_divergence = enable; }
     void inject_ineligible_revision(bool enable) noexcept { m_inject_ineligible_rev = enable; }
@@ -91,9 +99,17 @@ public:
     static NativeDispatcher& instance();
 
 private:
+    struct BlockExecutionStats {
+        uint64_t dispatch_attempts = 0;
+        uint64_t native_executed_count = 0;
+        uint64_t fallback_count = 0;
+    };
+
     ThorNativeMode m_mode = THOR_NATIVE_MODE_INTERPRETER;
+    uint32_t m_block_mask = THOR_BLOCK_MASK_ALL;
     ThorNativeStats m_stats{};
     std::unordered_map<uint32_t, RegisteredNativeBlock> m_blocks{};
+    mutable std::unordered_map<uint32_t, BlockExecutionStats> m_block_stats{};
 
     bool m_inject_divergence = false;
     bool m_inject_ineligible_rev = false;

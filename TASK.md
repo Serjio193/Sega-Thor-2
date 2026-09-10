@@ -1,26 +1,26 @@
 # Current task
 
-TASK: T2-D9.3 — Mechanical JSR Generation + Isolated Shadow Qualification + mandatory D9.2 contract hardening
-WHY: Harden D9.2 memory and exit contracts; extend ShadowChecker to verify delayed-transfer state; implement fail-closed registration validation and write-commit safety in NativeDispatcher; reproduce D8 production live regression; establish bb_06004280 executable identity descriptor; implement mechanical JSR compilation in block_compiler; generate build-time isolated target thor_generated_bb_06004280; materialize isolated pre-state and shadow-qualify bb_06004280 across real cold-boot execution and synthetic controls; verify all regressions green across MinGW and Linux WSL (Debug + Release).
+TASK: T2-D9.4 — Authoritative Native Indirect Override & Dynamic Continuation
+WHY: Integrate candidate bb_06004280 into authoritative NativeDispatcher with generic memory contract materialization; extend native bridge with block mask control and per-block stats telemetry; execute live authoritative native indirect override in pinned Mednafen debug oracle across 4 bounded modes; prove target-entry parity (0x0600A0F8), downstream continuation (0x060042E0), 0 interpreter retirements in replaced block, cold-boot determinism, and timing parity; prove fail-closed negative controls; document live evidence and update project records.
 CURRENT MILESTONE: D9 — Indirect Control-Flow Handling (docs/D9_INDIRECT_CONTROL_FLOW_PLAN.md)
-TASK STATUS: PASS (D9.3: PASS; D9: READY_FOR_BOUNDED_TEST)
+TASK STATUS: PASS (D9.4: PASS; D9: BOUNDED_PROOF for bb_06004280; M-03: READY_FOR_BOUNDED_TEST)
 MILESTONE UNDERSTANDING CONFIDENCE: 100%
 CURRENT SLICE UNDERSTANDING CONFIDENCE: 100%
-SLICE CONFIDENCE EVIDENCE: D9.2 memory contract hardened with RUNTIME_CLASSIFICATION_REQUIRED and fail-closed MMIO rejection; resolve_block_exit hardened with delay-slot retirement and exit descriptor invariant validation; ShadowChecker extended with DELAYED_CONTROL_STATE comparison and 14 negative controls verified; NativeDispatcher registration validation and write-commit safety implemented and tested; D8 production regression reproduced bit-identical under pinned Mednafen debug oracle; bb_06004280 executable identity descriptor created with 10 byte corruption checks; mechanical JSR block generation implemented with zero hardcoded targets; thor_generated_bb_06004280 link-isolated with 0 interpreter dependencies; isolated shadow qualification proven for bb_06004280 on real cold boot (0x0600A0F8) and synthetic controls (0x0600BEEF, 0x00000000); 18/18 CTest test suites pass across MinGW and Linux WSL (Debug and Release).
+SLICE CONFIDENCE EVIDENCE: Live Mednafen debug oracle runs across all 4 modes (PURE_INTERPRETER, D8_ONLY, D9_ONLY Run 1, D9_ONLY Run 2, D8_PLUS_D9) proved 100% register parity across all 23 SH-2 registers at dynamically resolved target 0x0600A0F8; interpreter retired exactly 0 instructions during replaced block; cold boot determinism verified bit-identical; downstream continuation verified to 0x060042E0 without corruption; fixed redundant PC increment in SH7095::NativeBranch restoring branch completion parity; block mask filtering verified fail-closed; test_native_indirect unit tests verified with 6 negative controls; 19/19 CTest suites pass across MinGW and Linux WSL.
 ACCEPTANCE CRITERIA:
-- [x] memory contract hardened: dynamic register reads assigned RUNTIME_CLASSIFICATION_REQUIRED and validated;
-- [x] runtime exit completion hardened: resolve_block_exit validates delay-slot retirement and descriptor invariants;
-- [x] ShadowChecker extended to verify delayed-transfer state (DELAYED_CONTROL_STATE) with negative controls A, B, C, D;
-- [x] 10 candidate negative controls verified for bb_06004280 in ShadowChecker;
-- [x] NativeDispatcher::register_block validates oracle block, descriptors, contracts, cycle metadata, and rejects WRITE dependencies;
-- [x] NativeDispatcher::dispatch_step enforces write-commit safety before candidate execution;
-- [x] D8 production live regression reproduced under pinned Mednafen oracle with 100% register parity;
-- [x] bb_06004280 executable identity descriptor implemented with 10-byte corruption tests;
-- [x] mechanical JSR compilation implemented in block_compiler with delay-slot Rn preservation and no hardcoded targets;
-- [x] build-time target thor_generated_bb_06004280 generated and verified link-isolated with 0 interpreter dependencies;
-- [x] isolated shadow qualification proven for bb_06004280 on real cold boot and synthetic target controls;
-- [x] 18/18 CTest suites pass across MinGW and Linux WSL (Debug and Release);
-- [x] test_d9_plan.py passing with 19 negative controls;
+- [x] D9.3 integrity/safety items repaired (external pins, illegal delay-slot control transfer rejection, width-aware memory intervals);
+- [x] bb_06004280 registered in authoritative NativeDispatcher with generic memory contract materialization (no hardcoded literal addresses);
+- [x] native bridge extended with THOR_BLOCK_MASK_* constants, mask controls, and per-block stats telemetry;
+- [x] test_native_indirect unit tests pass covering positive override, dynamic anti-hardcoding, mask modes A/B/C/D, per-block stats, and 6 negative controls;
+- [x] Mednafen automation and SH-2 core updated; redundant PC increment bug fixed in SH7095::NativeBranch;
+- [x] live authoritative native JSR override executed in pinned Mednafen debug oracle across all 4 modes;
+- [x] 100% register parity (23/23 SH-2 registers) verified at target entry 0x0600A0F8;
+- [x] exactly 0 instructions retired by interpreter during replaced block interval;
+- [x] cold-boot determinism verified bit-identical between independent runs;
+- [x] downstream continuation to 0x060042E0 verified with zero CPU/memory corruption;
+- [x] evidence documented in workstreams/T2-D9-indirect/d9_4_native_indirect_evidence.md and .json;
+- [x] 19/19 CTest suites pass across MinGW and Linux WSL (Debug and Release);
+- [x] test_d9_plan.py passing with 22 negative controls;
 - [x] test_m07_reference.py passing with --require-external;
 - [x] all human-maintained code files <= 500 lines;
 - [x] git diff --check green;
@@ -29,33 +29,33 @@ EVIDENCE AVAILABLE:
 - Canonical D9 plan docs/D9_INDIRECT_CONTROL_FLOW_PLAN.md;
 - Candidate qualification records workstreams/T2-D9-indirect/candidate_06004280.md and candidate_06004280.json;
 - Live D8 regression record workstreams/T2-D9-indirect/d9_2_d8_live_regression.md;
+- Live D9.4 native indirect evidence records workstreams/T2-D9-indirect/d9_4_native_indirect_evidence.md and d9_4_native_indirect_evidence.json;
 - Workstream record workstreams/T2-D9-indirect/README.md;
 - Generated isolated block build/generated/bb_06004280.cpp;
-- Unit test suites tests/recomp/test_shadow_positive.cpp, tests/recomp/test_shadow_negative.cpp, tests/recomp/test_native_dispatcher.cpp, tests/recomp/test_executable_identity.cpp, tests/recomp/test_sh2_block_compiler.cpp, tests/recomp/test_generated_link_isolation.cpp;
+- Unit test suites tests/recomp/test_native_indirect.cpp, tests/recomp/test_native_dispatcher.cpp, tests/recomp/test_block_memory.cpp, tests/recomp/test_sh2_block_compiler.cpp;
 - Automated plan validator test tests/recomp/test_d9_plan.py;
-- Closure record docs/POST_D8_SECOND_PASS_CLOSURE.md;
 - Decisions record docs/DECISIONS.md.
 KNOWN UNKNOWNS:
-- Exact timing and bus-wait breakdown during target fetch and execution of sub_0600A0F8 (deferred to D9.4 live integration).
+- Candidate harvester heuristics across full 0TH2.BIN and TH2.LOW binary images (deferred to M-03).
 ALLOWED SCOPE:
-- Mechanical JSR block generation, isolated shadow qualification, executable identity descriptor, ShadowChecker extension, NativeDispatcher registration validation, and associated tests and documentation.
+- Authoritative native indirect override for bb_06004280, block mask filtering, per-block stats, live Mednafen execution, evidence documentation.
 OUT OF SCOPE:
-- D9.4 native override for bb_06004280, M-03, marking D9 BOUNDED_PROOF.
+- Translating or promoting target 0x0600A0F8, D9.5 multi-target expansion, marking M-03 complete.
 
 ## Last verified result
 
-`T2-D9.3_MECHANICAL_JSR_AND_SHADOW_QUALIFICATION_PASS`: Mechanical JSR block compiler and link-isolated build target thor_generated_bb_06004280 verified; isolated shadow qualification proven for bb_06004280 against real cold boot (0x0600A0F8) and synthetic controls; delayed-transfer state checked in ShadowChecker; NativeDispatcher registration validation and write-commit safety enforced; D8 live production regression verified zero-divergence; 18/18 CTest suites pass on MinGW and Linux WSL (Debug and Release).
+`T2-D9.4_AUTHORITATIVE_NATIVE_INDIRECT_OVERRIDE_PASS`: Authoritative native JSR @R3 override proven inside pinned Mednafen debug oracle; 100% register parity (23/23 SH-2 registers) at dynamically computed target 0x0600A0F8; 0 interpreter retirements in replaced block; cold-boot bit-identical parity proven across independent runs; zero downstream corruption at 0x060042E0; block mask fail-closed gating verified; 19/19 CTest suites pass across MinGW and Linux WSL.
 
 ## Session checkpoint
 
 CURRENT MILESTONE: D9 — Indirect Control-Flow Handling (docs/D9_INDIRECT_CONTROL_FLOW_PLAN.md)
-CURRENT TASK: T2-D9.3 — Mechanical JSR Generation + Isolated Shadow Qualification + mandatory D9.2 contract hardening
-TASK STATUS: PASS (D9.3: PASS; D9: READY_FOR_BOUNDED_TEST)
+CURRENT TASK: T2-D9.4 — Authoritative Native Indirect Override & Dynamic Continuation
+TASK STATUS: PASS (D9.4: PASS; D9: BOUNDED_PROOF for bb_06004280; M-03: READY_FOR_BOUNDED_TEST)
 MILESTONE UNDERSTANDING CONFIDENCE: 100%
 CURRENT SLICE UNDERSTANDING CONFIDENCE: 100%
-LAST VERIFIED RESULT: Mechanical JSR compiler, link-isolated generated block thor_generated_bb_06004280, isolated shadow qualification, delayed control state checks, registration validation, and live D8 regression passing; 18/18 CTest suites pass on MinGW and Linux WSL.
-FILES CHANGED: include/thor/recomp/block_memory.hpp, src/recomp/block_memory.cpp, tests/recomp/test_block_memory.cpp, src/recomp/block_exit.cpp, tests/recomp/test_block_exit.cpp, include/thor/recomp/shadow_checker.hpp, src/recomp/shadow_checker.cpp, tests/recomp/test_shadow_negative.cpp, tests/recomp/test_shadow_positive.cpp, include/thor/recomp/block_identity.hpp, src/recomp/block_identity.cpp, tests/recomp/test_executable_identity.cpp, src/recomp/block_compiler.cpp, tests/recomp/test_sh2_block_compiler.cpp, tools/recomp/generate_sh2_block.cpp, CMakeLists.txt, tests/recomp/test_generated_link_isolation.cpp, include/thor/recomp/native_dispatcher.hpp, src/recomp/native_dispatcher.cpp, tests/recomp/test_native_dispatcher.cpp, workstreams/T2-D9-indirect/d9_2_d8_live_regression.md, workstreams/T2-D9-indirect/README.md, docs/PROJECT_STATE.md, docs/WORKLOG.md, TASK.md
-TESTS RUN: test_block_exit, test_block_memory, test_shadow_negative, test_shadow_positive, test_executable_identity, test_sh2_block_compiler, test_generated_link_isolation, test_native_dispatcher, test_d9_plan.py, test_post_d8_closure.py, test_m07_reference.py (--require-external), 18/18 CTest suites pass across MinGW (Debug/Release) and Linux WSL (Debug/Release); source file line limit check; git diff --check.
-NEW KNOWLEDGE: JSR @Rn mechanical translation requires capturing target register before executing delay slot; ShadowChecker delayed-transfer state comparison prevents premature or omitted branch retirement; NativeDispatcher registration validation prevents registering invalid or writing blocks before native promotion.
-OPEN QUESTIONS: None for isolated shadow qualification.
-EXACT NEXT ACTION: D9.4 — Authoritative Native Indirect Override & Dynamic Continuation for bb_06004280.
+LAST VERIFIED RESULT: Authoritative native JSR override, target entry parity, 0 interpreter retirements, cold-boot determinism, downstream continuation, and block mask gating verified; 19/19 CTest suites pass on MinGW and Linux WSL.
+FILES CHANGED: CMakeLists.txt, include/thor/recomp/block_memory.hpp, include/thor/recomp/native_bridge.h, include/thor/recomp/native_dispatcher.hpp, src/recomp/block_compiler.cpp, src/recomp/block_memory.cpp, src/recomp/native_dispatcher.cpp, tests/recomp/test_block_memory.cpp, tests/recomp/test_d9_plan.py, tests/recomp/test_sh2_block_compiler.cpp, tests/recomp/test_native_indirect.cpp, workstreams/T2-D9-indirect/d9_2_d8_live_regression.md, workstreams/T2-D9-indirect/d9_4_native_indirect_evidence.md, workstreams/T2-D9-indirect/d9_4_native_indirect_evidence.json, workstreams/T2-D9-indirect/README.md, docs/PROJECT_STATE.md, docs/WORKLOG.md, TASK.md.
+TESTS RUN: test_native_indirect, test_native_dispatcher, test_block_memory, test_block_exit, test_sh2_block_compiler, test_shadow_positive, test_shadow_negative, test_executable_identity, test_generated_link_isolation, test_d9_plan.py, test_m07_reference.py (--require-external), 19/19 CTest suites pass across MinGW (Debug/Release) and Linux WSL (Debug/Release); source file line limit check; git diff --check.
+NEW KNOWLEDGE: Dynamic branch target in SH-2 requires exact instruction-aligned execution in hardware oracle; Mednafen NativeBranch PC increment must match normal branch buffer refill; generic memory contract pre-state materializer successfully feeds High Work RAM literal pool reads without candidate-specific address hacks.
+OPEN QUESTIONS: None for bb_06004280 authoritative native override.
+EXACT NEXT ACTION: M-03 — Bounded SaturnAutoRE Candidate Harvester Re-evaluation & Indirect Flow Scaling.

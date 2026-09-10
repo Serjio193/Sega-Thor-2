@@ -1,5 +1,45 @@
 # Worklog
 
+## 2026-09-10 — T2-D9.4 Authoritative Native Indirect Override & Dynamic Continuation
+
+### Task
+
+Repair remaining D9.3 integrity/safety items (external pins in regression record, illegal delay slot rejection in block compiler, width-aware memory intervals); integrate candidate `bb_06004280` into authoritative `NativeDispatcher` with generic memory contract materialization (no hardcoded literal addresses); extend native bridge and Mednafen harness with block mask control and per-block telemetry; execute live authoritative native indirect override in pinned Mednafen debug oracle across 4 bounded modes; prove dynamic target entry (`0x0600A0F8`), downstream continuation (`0x060042E0`), 0 interpreter retirements in replaced block, cold-boot determinism, and timing parity; prove fail-closed negative controls; document all evidence and update project state.
+
+### Method & Discoveries
+
+1. **D9.3 Safety & Integrity Repairs**:
+   - Corrected external pins in `workstreams/T2-D9-indirect/d9_2_d8_live_regression.md` (SaturnAutoRE harness `4662aad6...`, Mednafen debug submodule `15542666...`, tested tree `32ebc5a4...`).
+   - Hardened `src/recomp/block_compiler.cpp` to reject illegal control-transfer instructions (`BRA`, `JSR`) and non-sequential instructions in delay slots.
+   - Added `memory_access_width_bytes()` and width-aware interval validation (widths 1, 2, 4) in `include/thor/recomp/block_memory.hpp` and `src/recomp/block_memory.cpp`, preventing cross-boundary or MMIO wrapping.
+2. **Authoritative Dispatcher & Native Bridge Extension**:
+   - Extended `include/thor/recomp/native_bridge.h` with `THOR_BLOCK_MASK_*` constants and ABI exports (`thor_native_set_block_mask`, `thor_native_get_block_mask`, `thor_native_get_block_stats`).
+   - Extended `NativeDispatcher` with candidate `bb_06004280` registration (duration 21 cycles, 3 literal pool reads), generic pre-state materialization without hardcoded addresses, block mask filtering, and per-block stats tracking.
+   - Implemented unit test suite `tests/recomp/test_native_indirect.cpp` (392 lines) verifying positive indirect override, dynamic target anti-hardcoding, block mask modes A/B/C/D, per-block statistics, and 6 negative controls.
+3. **Mednafen Automation Harness & SH-2 Core Fix**:
+   - Added `Automation_SetNativeBlockMask`, `Automation_GetNativeBlockMask`, and `native_mask` bot command.
+   - Updated `ss.cpp` with dynamic bridge loading, dual-block override dispatch (`0x06004000` and `0x06004280`), and retirement tracking.
+   - **Root-Cause Discovery & Hardware Oracle Parity Fix**: In `mednafen/src/ss/sh7095.inc` line 3512, `SH7095::NativeBranch(target_val)` contained a redundant `PC += 2;` following `Branch(false, target_val);`. Because `Branch()` already advances `PC += 2` during instruction buffer refill, the redundant addition displaced `PC` to `target + 4` (`0x0600A0FC`), causing breakpoint skips and target misalignment. Removing the redundant increment restored bit-exact SH-2 branch completion parity (`PC == target + 2`).
+4. **Live Mednafen Experiment Results**:
+   - Executed 5 cold-boot runs via automated harness script across all 4 modes:
+     - `PURE_INTERPRETER` (mode 0, mask `0x00000000`): Baseline reference. Target `0x0600A0F8` reached at cycle `316309189`. 4 interpreter retirements in interval.
+     - `D8_ONLY` (mode 2, mask `0x00000001`): `bb_06004000` executed natively (`b4000_exec=1`), `bb_06004280` masked to interpreter (`b4280_fb=1`). Target `0x0600A0F8` reached with 100% register parity.
+     - `D9_ONLY_1` (mode 2, mask `0x00000002`): `bb_06004000` masked to interpreter (`b4000_fb=1`), `bb_06004280` executed natively (`b4280_exec=1`). Target `0x0600A0F8` reached with 100% register parity (23/23 registers match). Interpreter retired exactly 0 instructions in candidate interval (`retirements_in_interval` constant). Downstream continuation to `0x060042E0` verified with 0 drift.
+     - `D9_ONLY_2` (mode 2, mask `0x00000002`): Independent cold boot repeating Run 1. All cycles, registers, and call stack frames matched bit-identically to Run 1.
+     - `D8_PLUS_D9` (mode 2, mask `0x00000003`): Both blocks executed natively (`b4000_exec=1, b4280_exec=1, fallback=0`). 0 interpreter retirements across both blocks. Target reached at cycle `314698279`. Downstream continuation to `0x060042E0` verified with 100% register parity.
+5. **Evidence & Quality Assurance**:
+   - Recorded raw JSON telemetry in `workstreams/T2-D9-indirect/d9_4_native_indirect_evidence.json` and report in `d9_4_native_indirect_evidence.md`.
+   - 19/19 CTest test suites pass on MinGW (Debug + Release) and Linux WSL (Debug + Release).
+   - `test_d9_plan.py` passes 22 negative controls. `test_m07_reference.py --require-external` passes cleanly.
+   - All human-maintained files strictly <= 500 lines. `git diff --check` green.
+
+### Status After Pass
+
+- `D9.4`: **PASS**
+- `D9`: **BOUNDED_PROOF for bb_06004280**
+- `M-03`: **READY_FOR_BOUNDED_TEST**
+- Active next capability: M-03 SaturnAutoRE Candidate Harvester Re-evaluation & Indirect Flow Scaling.
+
 ## 2026-09-10 — T2-D9.3 Mechanical JSR Block Generation & Isolated Shadow Qualification
 
 ### Task

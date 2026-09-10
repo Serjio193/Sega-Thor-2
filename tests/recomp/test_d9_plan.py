@@ -13,6 +13,7 @@ CANDIDATE_DOC = os.path.join(REPO_ROOT, "workstreams", "T2-D9-indirect", "candid
 README_DOC = os.path.join(REPO_ROOT, "workstreams", "T2-D9-indirect", "README.md")
 CANDIDATE_JSON = os.path.join(REPO_ROOT, "workstreams", "T2-D9-indirect", "candidate_06004280.json")
 DECODE_MANIFEST_JSON = os.path.join(REPO_ROOT, "workstreams", "T2-D3-sh2-decode", "reference_decode_manifest.json")
+REGRESSION_DOC = os.path.join(REPO_ROOT, "workstreams", "T2-D9-indirect", "d9_2_d8_live_regression.md")
 
 EXPECTED_CANDIDATE_BYTES = bytes([0xD5, 0x36, 0xD4, 0x37, 0xD3, 0x37, 0x43, 0x0B, 0x00, 0x09])
 EXPECTED_CANDIDATE_SHA256 = "8879cbe14f58a5fbc4eb9545e1cc41b3593e306cab114769a94f814a18bcb770"
@@ -27,7 +28,7 @@ REQUIRED_EXIT_KINDS = [
 ]
 
 
-def validate_plan_content(plan_text, cand_text, readme_text, cand_json_text, decode_manifest_text):
+def validate_plan_content(plan_text, cand_text, readme_text, cand_json_text, decode_manifest_text, regression_text):
     # 1. SHA256 matches actual byte computation
     calc_sha = hashlib.sha256(EXPECTED_CANDIDATE_BYTES).hexdigest()
     if calc_sha != EXPECTED_CANDIDATE_SHA256:
@@ -156,79 +157,104 @@ def validate_plan_content(plan_text, cand_text, readme_text, cand_json_text, dec
     if roles.get("catherine", {}).get("role") != "INDEPENDENT_STATIC_DECODER_CROSS_CHECK":
         raise ValueError("Catherine must be labeled INDEPENDENT_STATIC_DECODER_CROSS_CHECK in decode manifest")
 
+    # 19. D8 live regression evidence pin validation
+    if re.search(r"Mednafen.*4662aad69f95222fe37c5e6b98f2285b1a7e4653", regression_text):
+        raise ValueError("SaturnAutoRE hash 4662aad incorrectly labeled as Mednafen in d9_2_d8_live_regression.md")
+    if "SaturnAutoRE harness: 4662aad69f95222fe37c5e6b98f2285b1a7e4653" not in regression_text:
+        raise ValueError("Missing or swapped SaturnAutoRE pin in d9_2_d8_live_regression.md")
+    if "Mednafen debug submodule: 155426661b7ac3152e2c93a98da60ac33002b908" not in regression_text:
+        raise ValueError("Missing or swapped Mednafen submodule pin in d9_2_d8_live_regression.md")
+    if "32ebc5a4ffc42882d6b6d891167a29956fe0e9a6" not in regression_text:
+        raise ValueError("Missing tested working tree SHA 32ebc5a... in d9_2_d8_live_regression.md")
+    if "3aa1ee" in regression_text and "alone did not contain D9.3" not in regression_text:
+        raise ValueError("Must explicitly state baseline commit 3aa1ee alone did not contain D9.3 changes")
+
     return True
 
 
-def run_negative_controls(base_plan, base_cand, base_readme, base_cand_json, base_manifest):
+def run_negative_controls(base_plan, base_cand, base_readme, base_cand_json, base_manifest, base_regression):
     controls = [
         ("corrupt_cand_sha",
          base_plan,
          base_cand.replace(EXPECTED_CANDIDATE_SHA256, "0000000000000000000000000000000000000000000000000000000000000000"),
-         base_readme, base_cand_json, base_manifest),
+         base_readme, base_cand_json, base_manifest, base_regression),
         ("corrupt_plan_sha",
          base_plan.replace(EXPECTED_CANDIDATE_SHA256, "0000000000000000000000000000000000000000000000000000000000000000"),
-         base_cand, base_readme, base_cand_json, base_manifest),
+         base_cand, base_readme, base_cand_json, base_manifest, base_regression),
         ("missing_start_pc",
          base_plan.replace("0x06004280", "0x00000000"),
-         base_cand, base_readme, base_cand_json, base_manifest),
+         base_cand, base_readme, base_cand_json, base_manifest, base_regression),
         ("missing_end_pc",
          base_plan.replace("0x06004288", "0x00000000"),
-         base_cand, base_readme, base_cand_json, base_manifest),
+         base_cand, base_readme, base_cand_json, base_manifest, base_regression),
         ("premature_bounded_proof",
          base_plan + "\nD9 = BOUNDED_PROOF\n",
-         base_cand, base_readme, base_cand_json, base_manifest),
+         base_cand, base_readme, base_cand_json, base_manifest, base_regression),
         ("missing_jsr_l0_need",
          base_plan.replace("NEEDS_D3_L0_PROOF", "ALREADY_PROVEN"),
-         base_cand, base_readme, base_cand_json, base_manifest),
+         base_cand, base_readme, base_cand_json, base_manifest, base_regression),
         ("missing_m03_trigger",
          base_plan.replace("D9.4", "D9.X_UNKNOWN"),
-         base_cand, base_readme, base_cand_json, base_manifest),
+         base_cand, base_readme, base_cand_json, base_manifest, base_regression),
         ("missing_exit_kind",
          base_plan.replace("INDIRECT_CALL", "UNKNOWN_EXIT"),
-         base_cand, base_readme, base_cand_json, base_manifest),
+         base_cand, base_readme, base_cand_json, base_manifest, base_regression),
         ("timing_arithmetic_mismatch",
          base_plan.replace("BLOCK_DURATION = 21", "BLOCK_DURATION = 19"),
-         base_cand, base_readme, base_cand_json, base_manifest),
+         base_cand, base_readme, base_cand_json, base_manifest, base_regression),
         ("v09a_leak_in_plan",
          base_plan + "\n(V-09A)\n",
-         base_cand, base_readme, base_cand_json, base_manifest),
+         base_cand, base_readme, base_cand_json, base_manifest, base_regression),
         ("v09a_leak_in_candidate",
          base_plan,
          base_cand + "\n(V-09A)\n",
-         base_readme, base_cand_json, base_manifest),
+         base_readme, base_cand_json, base_manifest, base_regression),
         ("stale_out_cycles_advanced_19",
          base_plan + "\nout_cycles_advanced = 19\n",
-         base_cand, base_readme, base_cand_json, base_manifest),
+         base_cand, base_readme, base_cand_json, base_manifest, base_regression),
         ("stale_timing_equation_19",
          base_plan + "\n1 + 2 + 1 + 15 = 19\n",
-         base_cand, base_readme, base_cand_json, base_manifest),
+         base_cand, base_readme, base_cand_json, base_manifest, base_regression),
         ("stale_exact_timing_prose_19",
          base_plan + "\nexact timing (19 cycles)\n",
-         base_cand, base_readme, base_cand_json, base_manifest),
+         base_cand, base_readme, base_cand_json, base_manifest, base_regression),
         ("stale_last_observed_cycle_316309187",
          base_plan + '\n"last_observed_cycle": 316309187\n',
-         base_cand, base_readme, base_cand_json, base_manifest),
+         base_cand, base_readme, base_cand_json, base_manifest, base_regression),
         ("stale_not_confirmed_code_claim",
          base_plan + "\nIt is not promoted to CONFIRMED_CODE until D9.4\n",
-         base_cand, base_readme, base_cand_json, base_manifest),
+         base_cand, base_readme, base_cand_json, base_manifest, base_regression),
         ("conflicting_frame_claim_cand",
          base_plan,
          base_cand.replace("Hit 2 at frame 701", "Hit 2 at frame 702"),
-         base_readme, base_cand_json, base_manifest),
+         base_readme, base_cand_json, base_manifest, base_regression),
         ("manifest_excludes_bb_06004280",
          base_plan, base_cand, base_readme, base_cand_json,
-         base_manifest.replace("and bb_06004280 (0x06004280..0x06004288)", "")),
+         base_manifest.replace("and bb_06004280 (0x06004280..0x06004288)", ""),
+         base_regression),
         ("cand_json_corrupt_duration",
          base_plan, base_cand, base_readme,
          base_cand_json.replace('"block_duration": 21', '"block_duration": 19'),
-         base_manifest),
+         base_manifest, base_regression),
+        ("swapped_pins_in_regression",
+         base_plan, base_cand, base_readme, base_cand_json, base_manifest,
+         base_regression.replace("SaturnAutoRE harness: 4662aad69f95222fe37c5e6b98f2285b1a7e4653",
+                                 "SaturnAutoRE harness: 155426661b7ac3152e2c93a98da60ac33002b908")
+                        .replace("Mednafen debug submodule: 155426661b7ac3152e2c93a98da60ac33002b908",
+                                 "Mednafen debug submodule: 4662aad69f95222fe37c5e6b98f2285b1a7e4653")),
+        ("missing_working_tree_sha",
+         base_plan, base_cand, base_readme, base_cand_json, base_manifest,
+         base_regression.replace("32ebc5a4ffc42882d6b6d891167a29956fe0e9a6", "0000000000000000000000000000000000000000")),
+        ("misleading_baseline_claim",
+         base_plan, base_cand, base_readme, base_cand_json, base_manifest,
+         base_regression.replace("alone did not contain D9.3", "alone contained D9.3")),
     ]
 
     print(f"Running {len(controls)} negative controls...")
-    for name, p, c, r, j, m in controls:
+    for name, p, c, r, j, m, reg in controls:
         caught = False
         try:
-            validate_plan_content(p, c, r, j, m)
+            validate_plan_content(p, c, r, j, m, reg)
         except Exception:
             caught = True
 
@@ -248,7 +274,8 @@ def main():
         (CANDIDATE_DOC, "D9 candidate doc"),
         (README_DOC, "D9 workstream README"),
         (CANDIDATE_JSON, "D9 candidate metadata JSON"),
-        (DECODE_MANIFEST_JSON, "D3 reference decode manifest JSON")
+        (DECODE_MANIFEST_JSON, "D3 reference decode manifest JSON"),
+        (REGRESSION_DOC, "D8 live regression doc")
     ]:
         if not os.path.exists(path):
             print(f"FAILED: {name} not found at {path}")
@@ -264,15 +291,17 @@ def main():
         cand_json_text = f.read()
     with open(DECODE_MANIFEST_JSON, "r", encoding="utf-8") as f:
         decode_manifest_text = f.read()
+    with open(REGRESSION_DOC, "r", encoding="utf-8") as f:
+        regression_text = f.read()
 
     try:
-        validate_plan_content(plan_text, cand_text, readme_text, cand_json_text, decode_manifest_text)
+        validate_plan_content(plan_text, cand_text, readme_text, cand_json_text, decode_manifest_text, regression_text)
         print("Positive validation: PASS (All D9 plan contracts, candidate metadata, and decode scope valid)")
     except Exception as e:
         print(f"FAILED: Positive validation error: {e}")
         sys.exit(1)
 
-    if not run_negative_controls(plan_text, cand_text, readme_text, cand_json_text, decode_manifest_text):
+    if not run_negative_controls(plan_text, cand_text, readme_text, cand_json_text, decode_manifest_text, regression_text):
         print("FAILED: Negative control suite failed")
         sys.exit(1)
 

@@ -1,6 +1,7 @@
 #include "thor/recomp/native_dispatcher.hpp"
 #include "thor/recomp/native_bridge.h"
 #include "bb_06004000.hpp"
+#include "bb_06004280.hpp"
 
 #include <cstring>
 
@@ -110,6 +111,39 @@ NativeDispatcher::NativeDispatcher() {
 
     bool ok = register_block(std::move(bb0));
     (void)ok;
+
+    // Register canonical bb_06004280
+    RegisteredNativeBlock bb1{};
+    bb1.proven_identity = make_bb_06004280_descriptor();
+
+    thor::sh2::Sh2FlatMemory dummy_mem1;
+    for (size_t i = 0; i < bb1.proven_identity.expected_bytes.size(); ++i) {
+        dummy_mem1.write8(0x06004280u + static_cast<uint32_t>(i), bb1.proven_identity.expected_bytes[i]);
+    }
+    bb1.oracle_block = thor::sh2::discover_basic_block(0x06004280u, dummy_mem1);
+    bb1.candidate_fn = thor::generated::bb_06004280;
+
+    auto exit_desc1 = derive_block_exit_descriptor(bb1.oracle_block);
+    if (exit_desc1.has_value()) {
+        bb1.exit_descriptor = *exit_desc1;
+    }
+    auto mem_contract1 = derive_block_memory_contract(bb1.oracle_block);
+    if (mem_contract1.has_value()) {
+        bb1.memory_contract = *mem_contract1;
+    }
+
+    // Hit 2 arrival at 316309168 -> target 0x0600A0F8 entry at 316309189 (delta 21 cycles)
+    bb1.cycle_cost = 21u;
+    bb1.expected_event_meta = BoundedEventMetadata{
+        .mmio_accessed = false,
+        .irq_accepted = false,
+        .scu_dma_crossing = false,
+        .slave_sh2_active = false,
+        .delay_slot_atomic = true
+    };
+
+    bool ok1 = register_block(std::move(bb1));
+    (void)ok1;
 }
 
 bool NativeDispatcher::register_block(RegisteredNativeBlock block) {
@@ -146,6 +180,12 @@ NativeDispatcher& NativeDispatcher::instance() {
     return s_instance;
 }
 
+static uint32_t get_block_mask_bit(uint32_t pc) noexcept {
+    if (pc == 0x06004000u) return THOR_BLOCK_MASK_BB_06004000;
+    if (pc == 0x06004280u) return THOR_BLOCK_MASK_BB_06004280;
+    return 0;
+}
+
 bool NativeDispatcher::dispatch_step(
     uint32_t pc,
     ThorCpuRegs& live_regs,
@@ -159,25 +199,38 @@ bool NativeDispatcher::dispatch_step(
     }
 
     m_stats.dispatch_attempts++;
+    m_block_stats[pc].dispatch_attempts++;
     const auto& block = it->second;
+
+    auto record_fallback = [&]() {
+        m_stats.fallback_count++;
+        m_block_stats[pc].fallback_count++;
+    };
+
+    // Mask gating
+    uint32_t mask_bit = get_block_mask_bit(pc);
+    if (mask_bit != 0 && (m_block_mask & mask_bit) == 0) {
+        record_fallback();
+        return false;
+    }
 
     // Fail closed if mode is INTERPRETER_AUTHORITATIVE
     if (m_mode == THOR_NATIVE_MODE_INTERPRETER) {
-        m_stats.fallback_count++;
+        record_fallback();
         return false;
     }
 
     // Event safety check
     if (hw_cb.is_slave_active && hw_cb.is_slave_active(hw_cb.user_data)) {
-        m_stats.fallback_count++;
+        record_fallback();
         return false;
     }
     if (hw_cb.is_dma_active && hw_cb.is_dma_active(hw_cb.user_data)) {
-        m_stats.fallback_count++;
+        record_fallback();
         return false;
     }
     if (hw_cb.is_irq_pending && hw_cb.is_irq_pending(hw_cb.user_data)) {
-        m_stats.fallback_count++;
+        record_fallback();
         return false;
     }
 
@@ -193,7 +246,7 @@ bool NativeDispatcher::dispatch_step(
     
     if (m_inject_ineligible_content || elig != EligibilityResult::ELIGIBLE) {
         m_stats.ineligible_count++;
-        m_stats.fallback_count++;
+        record_fallback();
         return false;
     }
 
@@ -209,16 +262,50 @@ bool NativeDispatcher::dispatch_step(
     pre_state.cpu_state.macl = live_regs.macl;
     pre_state.event_metadata = block.expected_event_meta;
 
-    // Snapshot necessary memory addresses into pre_state flat memory
+    // Snapshot code bytes
     for (size_t i = 0; i < block.proven_identity.expected_bytes.size(); ++i) {
         pre_state.memory.write8(pc + static_cast<uint32_t>(i), live_mem.peek8(pc + static_cast<uint32_t>(i)));
     }
-    // Setup literal pool and indirect pointers accessed by bb_06004000
-    uint32_t lit_addr = 0x06004064u;
-    uint32_t ptr_val = live_mem.peek32(lit_addr);
-    pre_state.memory.write32(lit_addr, ptr_val);
-    pre_state.memory.write32(ptr_val, live_mem.peek32(ptr_val));
-    pre_state.memory.write16(live_regs.r[1], live_mem.peek16(live_regs.r[1]));
+
+    // Setup memory dependencies
+    if (pc == 0x06004000u) {
+        // Documented legacy compatibility debt for bb_06004000
+        uint32_t lit_addr = 0x06004064u;
+        uint32_t ptr_val = live_mem.peek32(lit_addr);
+        pre_state.memory.write32(lit_addr, ptr_val);
+        pre_state.memory.write32(ptr_val, live_mem.peek32(ptr_val));
+        pre_state.memory.write16(live_regs.r[1], live_mem.peek16(live_regs.r[1]));
+    } else {
+        // Generic declarative memory contract materializer
+        for (const auto& dep : block.memory_contract.dependencies) {
+            uint32_t addr = 0;
+            if (dep.address_source == AddressSourceKind::STATIC_ADDRESS && dep.static_address.has_value()) {
+                addr = *dep.static_address;
+            } else if (dep.address_source == AddressSourceKind::REGISTER_AT_EXECUTION && dep.source_register.has_value()) {
+                addr = live_regs.r[*dep.source_register];
+            } else {
+                record_fallback();
+                return false;
+            }
+
+            if (!validate_runtime_memory_dependency(dep, addr)) {
+                record_fallback();
+                return false;
+            }
+
+            uint32_t width_bytes = memory_access_width_bytes(dep.width);
+            if (width_bytes == 1) {
+                pre_state.memory.write8(addr, live_mem.peek8(addr));
+            } else if (width_bytes == 2) {
+                pre_state.memory.write16(addr, live_mem.peek16(addr));
+            } else if (width_bytes == 4) {
+                pre_state.memory.write32(addr, live_mem.peek32(addr));
+            } else {
+                record_fallback();
+                return false;
+            }
+        }
+    }
 
     CandidateBlockFn cand_fn = block.candidate_fn;
     if (m_inject_divergence) {
@@ -233,7 +320,7 @@ bool NativeDispatcher::dispatch_step(
 
     if (!shadow_res.is_match()) {
         m_stats.shadow_divergence_count++;
-        m_stats.fallback_count++;
+        record_fallback();
         return false;
     }
 
@@ -241,14 +328,14 @@ bool NativeDispatcher::dispatch_step(
 
     // In SHADOW_VERIFY mode, parity is proven but no live override is applied
     if (m_mode == THOR_NATIVE_MODE_SHADOW_VERIFY) {
-        m_stats.fallback_count++;
+        record_fallback();
         return false;
     }
 
     // Write safety check: candidate blocks with WRITE dependencies are not yet supported for native commit
     for (const auto& dep : block.memory_contract.dependencies) {
         if (dep.access_kind == thor::sh2::MemoryAccessKind::WRITE) {
-            m_stats.fallback_count++;
+            record_fallback();
             return false;
         }
     }
@@ -260,7 +347,7 @@ bool NativeDispatcher::dispatch_step(
     // Resolve exit target dynamically from executed live_cpu post-state
     auto resolved_exit = resolve_block_exit(block.exit_descriptor, live_cpu);
     if (!resolved_exit.has_value()) {
-        m_stats.fallback_count++;
+        record_fallback();
         return false;
     }
 
@@ -276,6 +363,19 @@ bool NativeDispatcher::dispatch_step(
     out_target_pc = resolved_exit->target_pc;
     out_cycles_advanced = block.cycle_cost;
     m_stats.native_executed_count++;
+    m_block_stats[pc].native_executed_count++;
+    return true;
+}
+
+bool NativeDispatcher::get_block_stats(uint32_t pc, uint64_t* out_executed, uint64_t* out_fallback) const noexcept {
+    auto it = m_block_stats.find(pc);
+    if (it == m_block_stats.end()) {
+        if (out_executed) *out_executed = 0;
+        if (out_fallback) *out_fallback = 0;
+        return false;
+    }
+    if (out_executed) *out_executed = it->second.native_executed_count;
+    if (out_fallback) *out_fallback = it->second.fallback_count;
     return true;
 }
 
@@ -296,6 +396,14 @@ ThorNativeMode thor_native_get_mode(void) {
     return thor::recomp::NativeDispatcher::instance().get_mode();
 }
 
+void thor_native_set_block_mask(uint32_t mask) {
+    thor::recomp::NativeDispatcher::instance().set_block_mask(mask);
+}
+
+uint32_t thor_native_get_block_mask(void) {
+    return thor::recomp::NativeDispatcher::instance().get_block_mask();
+}
+
 void thor_native_get_stats(ThorNativeStats* out_stats) {
     if (out_stats) {
         *out_stats = thor::recomp::NativeDispatcher::instance().get_stats();
@@ -304,6 +412,10 @@ void thor_native_get_stats(ThorNativeStats* out_stats) {
 
 void thor_native_reset_stats(void) {
     thor::recomp::NativeDispatcher::instance().reset_stats();
+}
+
+bool thor_native_get_block_stats(uint32_t pc, uint64_t* out_executed, uint64_t* out_fallback) {
+    return thor::recomp::NativeDispatcher::instance().get_block_stats(pc, out_executed, out_fallback);
 }
 
 bool thor_native_dispatch_step(

@@ -34,20 +34,38 @@ bool validate_runtime_memory_dependency(
     const MemoryDependencyDescriptor& dep,
     uint32_t runtime_address
 ) noexcept {
-    const MemoryRegionClass reg = classify_memory_address(runtime_address);
-    if (reg == MemoryRegionClass::MMIO_PROHIBITED || reg == MemoryRegionClass::UNKNOWN) {
+    const uint32_t num_bytes = memory_access_width_bytes(dep.width);
+    if (num_bytes == 0 || num_bytes > 4) {
+        return false;
+    }
+    // Checked address wrap: runtime_address + (num_bytes - 1) must not overflow uint32
+    if (runtime_address > UINT32_MAX - (num_bytes - 1u)) {
+        return false;
+    }
+
+    const MemoryRegionClass start_reg = classify_memory_address(runtime_address);
+    if (start_reg == MemoryRegionClass::MMIO_PROHIBITED || start_reg == MemoryRegionClass::UNKNOWN) {
         return false; // Prohibited MMIO or unclassified unknown region fails closed
+    }
+
+    // Validate entire access interval: all accessed bytes must remain within the same permitted region
+    for (uint32_t i = 1; i < num_bytes; ++i) {
+        const uint32_t byte_addr = runtime_address + i;
+        const MemoryRegionClass byte_reg = classify_memory_address(byte_addr);
+        if (byte_reg != start_reg) {
+            return false;
+        }
     }
 
     if (dep.address_source == AddressSourceKind::STATIC_ADDRESS) {
         if (!dep.static_address.has_value() || *dep.static_address != runtime_address) {
             return false;
         }
-        return reg == dep.region_class;
+        return (start_reg == dep.region_class);
     }
 
     // For REGISTER_AT_EXECUTION:
-    return (reg == MemoryRegionClass::RAM || reg == MemoryRegionClass::ROM);
+    return (start_reg == MemoryRegionClass::RAM || start_reg == MemoryRegionClass::ROM);
 }
 
 std::optional<BlockMemoryContract> derive_block_memory_contract(

@@ -155,6 +155,39 @@ static void test_compile_synthetic_jsr_delay_slot_rn_mutation() {
     THOR_ASSERT(pos_pc_update < pos_delayed_pc);
 }
 
+static void test_fail_closed_illegal_delay_slots() {
+    // 1. JSR @R3 followed by JSR @R4
+    {
+        Sh2FlatMemory mem;
+        mem.write16(0x06005100u, 0x430Bu); // JSR @R3
+        mem.write16(0x06005102u, 0x440Bu); // JSR @R4
+        const auto block = discover_basic_block(0x06005100u, mem);
+        THOR_ASSERT(!block.instructions.empty());
+        const auto res = compile_block_to_cpp(block, "bb_illegal_jsr_jsr");
+        THOR_ASSERT(!res.has_value());
+    }
+    // 2. JSR @R3 followed by BRA
+    {
+        Sh2FlatMemory mem;
+        mem.write16(0x06005100u, 0x430Bu); // JSR @R3
+        mem.write16(0x06005102u, 0xA002u); // BRA +4
+        const auto block = discover_basic_block(0x06005100u, mem);
+        THOR_ASSERT(!block.instructions.empty());
+        const auto res = compile_block_to_cpp(block, "bb_illegal_jsr_bra");
+        THOR_ASSERT(!res.has_value());
+    }
+    // 3. BRA followed by JSR @R3
+    {
+        Sh2FlatMemory mem;
+        mem.write16(0x06005100u, 0xA002u); // BRA +4
+        mem.write16(0x06005102u, 0x430Bu); // JSR @R3
+        const auto block = discover_basic_block(0x06005100u, mem);
+        THOR_ASSERT(!block.instructions.empty());
+        const auto res = compile_block_to_cpp(block, "bb_illegal_bra_jsr");
+        THOR_ASSERT(!res.has_value());
+    }
+}
+
 int main() {
     std::cout << "Running test_sh2_block_compiler...\n";
     test_compile_bb_06004000();
@@ -164,6 +197,7 @@ int main() {
     test_fail_closed_unsupported_opcode();
     test_fail_closed_empty_block();
     test_fail_closed_malformed_branch();
+    test_fail_closed_illegal_delay_slots();
     std::cout << "All test_sh2_block_compiler cases passed!\n";
     return 0;
 }

@@ -33,6 +33,12 @@ std::optional<GeneratedBlockCode> compile_block_to_cpp(
         if (block.instructions.size() < 2) {
             return std::nullopt;
         }
+        // An instruction that alters control flow cannot be placed in a delay slot (SH-2 architecture rule)
+        if (block.delay_slot->id == thor::sh2::OpcodeId::BRA ||
+            block.delay_slot->id == thor::sh2::OpcodeId::JSR ||
+            block.delay_slot->flow != thor::sh2::ControlFlowType::SEQUENTIAL) {
+            return std::nullopt;
+        }
         if (block.terminator.id == thor::sh2::OpcodeId::BRA) {
             if (block.direct_exits.empty()) {
                 return std::nullopt;
