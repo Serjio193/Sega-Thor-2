@@ -1,5 +1,46 @@
 # Worklog
 
+## 2026-09-10 — D16 Native Subsystem Replacement (Unified Hardware Bridge & Backends) Passed
+
+### Task
+
+Execute D16 (Native Subsystem Replacement: Unified Native Hardware Bridge & Backends) in the Progressive Native Recovery Track:
+1. Implement `NativeSaturnSystem` coordinating VDP1 sprite rasterizer, VDP2 tilemap compositor, SCSP audio synthesizer, and unified MMIO dispatch across VDP1, VDP2, and Sound RAM (`include/thor/hw/native_system.hpp`, `src/hw/native_system.cpp`).
+2. Implement frame rendering pipeline (`render_frame`) producing a 320x224 32-bit RGBA8888 frame from VDP1 sprites and VDP2 planes.
+3. Implement audio rendering pipeline (`render_audio`) producing 16-bit interleaved stereo PCM audio from active SCSP slots.
+4. Establish dedicated unit test suite `tests/hw/test_native_subsystems.cpp` registered as CTest #24.
+5. Verify dual-platform passing (33/33 CTests green across Windows MinGW and Linux WSL).
+
+### Method & Discoveries
+
+1. **Unified Saturn System Architecture**:
+   - Implemented `include/thor/hw/native_system.hpp` (76 lines) and `src/hw/native_system.cpp` (178 lines).
+   - Coordinated subsystem memory: 512KB VDP1 VRAM, 512KB VDP2 VRAM, 4KB CRAM, 512KB Sound RAM.
+   - Implemented unified MMIO routing:
+     - VDP1: `0x05D00000..0x05D7FFFF` (VRAM write directly updates command memory).
+     - VDP2: `0x05E00000..0x05EFFFFF` (registers, TVMD, plane enable), `0x05F00000..0x05F00FFF` (CRAM).
+     - SCSP: `0x05A00000..0x05AFFFFF` (Sound RAM and command mailbox protocol).
+2. **Native Frame Rasterization & Audio Synthesis**:
+   - `render_frame`: clears 320x224 buffer to VDP2 backdrop color, rasterizes active VDP1 display list commands into sprite buffer, composites with VDP2 background planes according to priority arbitration (0..7).
+   - `render_audio`: processes active SCSP voice slots, computes stereo pan/volume attenuations, synthesizes 16-bit PCM waveform samples into output buffer.
+3. **Dual-Platform CTest Suite (33/33 Tests)**:
+   - Registered `test_native_subsystems` as CTest #24 in `CMakeLists.txt`.
+   - Windows MinGW: 33/33 tests passed (50.00s).
+   - Linux WSL: 33/33 tests passed (51.12s).
+   - Verified strict <= 500 lines policy across all human-maintained source/test/tool files (93/93 clean).
+
+### Status After Pass
+
+- `D16`: **PASS**
+- `D15`: **PASS**
+- `D12`: **PASS**
+- `D11`: **PASS**
+- `D10`: **PASS**
+- `FULL_ASM_GAME_GATE`: **PASS**
+- `ASM_90_GATE`: **PASS** (96.59%)
+- CTests: 33 / 33 PASSING across Windows MinGW and Linux WSL
+- Exact next action: `D17 / T2-NAT-05 — Progressive Standalone Runtime (Native Execution Loop & Subsystem Binding)`
+
 ## 2026-09-10 — D15 Hardware Subsystem Contracts (VDP1, VDP2, SCSP) Passed
 
 ### Task

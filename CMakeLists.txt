@@ -37,6 +37,7 @@ add_library(thor_hw STATIC
     src/hw/vdp1.cpp
     src/hw/vdp2.cpp
     src/hw/scsp.cpp
+    src/hw/native_system.cpp
 )
 
 # Tool to mechanically compile a basic block to C++20
@@ -221,6 +222,11 @@ add_test(NAME test_vdp2 COMMAND test_vdp2)
 add_executable(test_scsp tests/hw/test_scsp.cpp)
 target_link_libraries(test_scsp PRIVATE thor_hw)
 add_test(NAME test_scsp COMMAND test_scsp)
+
+# D16 native subsystem replacement test suite
+add_executable(test_native_subsystems tests/hw/test_native_subsystems.cpp)
+target_link_libraries(test_native_subsystems PRIVATE thor_hw)
+add_test(NAME test_native_subsystems COMMAND test_native_subsystems)
 
 # M-07 SaturnRecomp reference corpus and negative controls test suite
 find_package(Python3 COMPONENTS Interpreter)

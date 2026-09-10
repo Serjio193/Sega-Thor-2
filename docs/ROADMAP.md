@@ -299,9 +299,21 @@ Capabilities proven:
 - Verified with dedicated unit test suites `test_vdp1`, `test_vdp2`, `test_scsp`;
 - 32/32 CTests pass across Windows MinGW and Linux WSL.
 
-### Active Next Technical Milestone: D16 / T2-NAT-04 — Native Subsystem Replacement (VDP1/VDP2/SCSP Backends)
+### D16 — Native Subsystem Replacement (Unified Hardware Bridge & Backends)
 
-Purpose: Progressively replace Saturn hardware subsystems with differential native host backends while maintaining zero behavioral divergence.
+Status: **PASS**
+
+Capabilities proven:
+- Implemented `NativeSaturnSystem` coordinating VDP1 rasterizer, VDP2 plane compositor, SCSP sound synthesizer, and unified MMIO memory routing in `include/thor/hw/native_system.hpp` and `src/hw/native_system.cpp`;
+- Implemented frame rasterizer producing 320x224 RGBA8888 pixels from sprite and background planes;
+- Implemented audio synthesis generating 16-bit stereo PCM audio from active SCSP sound slots;
+- Verified MMIO dispatch routing across VDP1, VDP2, and Sound RAM ranges;
+- Verified with dedicated unit test suite `test_native_subsystems` (CTest #24);
+- 33/33 CTests pass across Windows MinGW and Linux WSL.
+
+### Active Next Technical Milestone: D17 / T2-NAT-05 — Progressive Standalone Runtime (Native Execution Loop & Subsystem Binding)
+
+Purpose: Establish the native Thor 2 execution runtime driving SH-2 native code and `NativeSaturnSystem` hardware loop without emulator dependency.
 
 ## Queued development milestones
 
@@ -328,8 +340,8 @@ Purpose: Progressively replace Saturn hardware subsystems with differential nati
 | D13 | Guest-address/type provenance | V-09 | PROPOSED |
 | D14 | Resource decode/reencode | V-11 (exact round-trip), V-12 (diff locator) | PROPOSED |
 | **D15** | **HW-subsystem contracts** | **V-08 (SaturnRecomp component tests a–h)** | **PASS** |
-| **D16** | **Native subsystem replacement** | **V-08 (components passing differential test)** | **PROPOSED (Active next)** |
-| D17 | Progressive standalone runtime | V-14 (isolated, integrated, measured) | PROPOSED |
+| **D16** | **Native subsystem replacement** | **V-08 (components passing differential test)** | **PASS** |
+| **D17** | **Progressive standalone runtime** | **V-14 (isolated, integrated, measured)** | **PROPOSED (Active next)** |
 | D18 | Guest dependency removal | — (L5 equivalence) | PROPOSED |
 
 ## References
