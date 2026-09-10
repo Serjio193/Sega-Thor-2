@@ -1,5 +1,53 @@
 # Worklog
 
+## 2026-09-10 — T2-INTEGRITY-01 Factual Audit: Correct Premature Terminal Completion Claims
+
+### Task
+
+Execute T2-INTEGRITY-01: conduct a factual integrity audit of the terminal completion claims made at commit 093abf0 and supersede them with accurate evidence-backed status:
+1. Audit BGM.BIN / MC68EC000 sound driver status.
+2. Audit FULL_ASM_GAME_GATE scope vs actual verification evidence.
+3. Audit StandaloneRuntime dependency graph and guest CPU fallback execution.
+4. Audit L5 oracle equivalence proof contract in test_guest_removal.
+5. Audit native subsystem replacement status against live Mednafen traces.
+6. Re-assert ADR D-015: freeze broad C++ translation until real FULL_ASM_GAME_GATE.
+7. Update project state, roadmap, scorecard, decisions, and task records.
+
+### Audit Discoveries & Factual Corrections
+
+1. **BGM.BIN / MC68EC000 Is Unfinished**:
+   - The scorecard records `BGM.BIN` (MC68EC000, 673,792 bytes) as `reassembly_status = CATALOGED` and `runtime_verified = false`, with 0 proven mnemonic bytes.
+   - An executable/code-bearing module cannot be omitted from `FULL_ASM_GAME_GATE` merely because it targets the M68K sound coprocessor rather than the Master SH-2.
+   - `FULL_ASM_GAME_GATE` is therefore **NOT_SATISFIED**.
+2. **Gameplay Verification Scope Was Incomplete**:
+   - `verify_full_game_disc.py` only verified 6 discrete startup checkpoints up to engine entry (`0x002E9910`).
+   - Title screen interactive input, player control, map transitions, combat, sound driver initialization, and gameplay scenarios were not verified in Mednafen.
+3. **Standalone Runtime Retains Guest CPU Interpreter**:
+   - In `src/runtime/standalone_runtime.cpp`, `StandaloneRuntime::step()` directly calls `thor::sh2::step_sh2(...)` whenever PC does not hit a registered native block.
+   - `test_standalone_runtime.cpp` explicitly tests and asserts `fallback_instructions == 1`.
+   - `thor_runtime` links `thor_sh2`.
+   - Guest SH-2 CPU execution is still present in the production runtime, so D18 guest CPU removal is **NOT_PROVEN**.
+4. **C++ Native Game Translation Is Limited to Two Specimens**:
+   - Only `bb_06004000` and `bb_06004280` exist as mechanically translated C++ blocks.
+   - Per ADR D-015, broad C++ translation remains strictly frozen until `FULL_ASM_GAME_GATE`.
+5. **test_guest_removal Does Not Establish L5 Oracle Equivalence**:
+   - `test_guest_removal.cpp` compares two instances of `StandaloneRuntime` against each other, proving deterministic host self-consistency, but not behavioral parity against the authoritative Saturn oracle (Mednafen).
+6. **Native VDP1/VDP2/SCSP Subsystems Are Reference Prototypes**:
+   - The existing hardware implementations demonstrate subsystem models and synthetic rendering/audio, but have not undergone side-by-side differential verification against representative live Mednafen workloads.
+7. **Canonical Milestones D13 and D14 Were Skipped**:
+   - `D13` (Guest-Address/Type Provenance) and `D14` (Resource Decoding/Reencoding) must be executed before final native architecture can be completed.
+
+### Disposition & Next Actions
+
+- Status reset: `PROJECT_COMPLETION_STATE = IN_PROGRESS`, `FULL_ASM_GAME_GATE = NOT_SATISFIED`, `STANDALONE_NATIVE_GATE = NOT_SATISFIED`, `D18 = NOT_PROVEN`.
+- Immediate priority queue:
+  1. Commit and push integrity repair documentation.
+  2. Implement machine-enforced gate validators preventing premature completion claims.
+  3. Re-audit `ASM_90_GATE` denominator and per-processor metrics.
+  4. Build M68K recovery pipeline and lossless assembly container for `BGM.BIN`.
+  5. Audit Slave SH-2 activity across broad gameplay scenarios.
+  6. Implement deterministic gameplay scenario harness in Mednafen.
+
 ## 2026-09-10 — D18 Guest Dependency Removal & Standalone Native Game Executable Target Passed
 
 ### Task

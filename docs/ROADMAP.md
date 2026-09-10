@@ -326,15 +326,16 @@ Capabilities proven:
 
 ### D18 — Guest Dependency Removal & Standalone Game Executable Target
 
-Status: **PASS**
+Status: **NOT_PROVEN (SUPERSEDED / PROTOTYPE)**
 
-Capabilities proven:
-- Standalone native game executable target `thor2_native` (`src/main_native.cpp`) built and linked with zero external emulator library dependencies;
+Audit note: The terminal completion claim at commit 093abf0 was superseded after factual review. Standalone executable `thor2_native` links and runs self-tests, but retains guest CPU fallback interpreter `step_sh2`, broad C++ translation remains frozen under ADR D-015, and real L5 oracle equivalence against Mednafen reference remains unproven.
+
+Capabilities proven to date:
+- Standalone native executable target `thor2_native` (`src/main_native.cpp`) built and linked with internal libraries;
 - Portable CLI interface supporting `--boot`, `--frames <N>`, `--metrics`, `--selftest`, and `--help`;
-- Verified L5 observable equivalence: multi-frame rendering (320x224 RGBA8888) and 16-bit stereo PCM audio synthesis bit-identical across independent executions;
-- Clean shutdown with full runtime telemetry and performance reporting;
+- Deterministic multi-frame rendering and audio synthesis verified between candidate instances;
 - Dedicated unit test suite `test_guest_removal` (CTest #26);
-- 35/35 CTests pass across Windows MinGW and Linux WSL.
+- Production guest CPU removal and true L5 oracle comparison remain pending.
 
 ## Queued development milestones
 
@@ -354,16 +355,16 @@ Capabilities proven:
 | **T2-ASM-03** | **TH2.LOW lossless ASM container** | **Lossless full-module round-trip & occurrence-aware runtime proof** | **BOUNDED_PROOF (TH2.LOW)** |
 | **T2-ASM-04** | **Disc executable inventory & secondary modules** | **Census, multi-processor lifetimes, SET07.BIN container** | **BOUNDED_PROOF (SET07.BIN)** |
 | **T2-ASM-05** | **Bulk PC harvesting & CFG recovery to ASM_90_GATE** | **Coverage >= 90%, runtime parity** | **PASS (96.59% COVERAGE)** |
-| **GATE** | **FULL_ASM_GAME_GATE** | **Rebuilt Saturn game boots & plays in Mednafen** | **PASS (VERIFIED 0 DIVERGENCE)** |
+| **GATE** | **FULL_ASM_GAME_GATE** | **Rebuilt Saturn game boots & plays in Mednafen** | **NOT_SATISFIED (BGM.BIN & gameplay pending)** |
 | **D10** | **Timing/IRQ/DMA boundaries** | **Classification & barrier model** | **BOUNDED_PROOF / PASS** |
 | **D11** | **Overlay/generation identity** | **Multi-generation descriptor & isolation** | **BOUNDED_PROOF / PASS** |
 | **D12** | **Structural recovery** | **Function boundary catalog & call graph** | **PASS** |
 | D13 | Guest-address/type provenance | V-09 | PROPOSED |
 | D14 | Resource decode/reencode | V-11 (exact round-trip), V-12 (diff locator) | PROPOSED |
-| **D15** | **HW-subsystem contracts** | **V-08 (SaturnRecomp component tests a–h)** | **PASS** |
-| **D16** | **Native subsystem replacement** | **V-08 (components passing differential test)** | **PASS** |
-| **D17** | **Progressive standalone runtime** | **V-14 (isolated, integrated, measured)** | **PASS** |
-| **D18** | **Guest dependency removal** | **— (L5 equivalence)** | **PASS** |
+| **D15** | **HW-subsystem contracts** | **V-08 (SaturnRecomp component tests a–h)** | **BOUNDED_PROTOTYPE** |
+| **D16** | **Native subsystem replacement** | **V-08 (components passing differential test)** | **BOUNDED_PROTOTYPE** |
+| **D17** | **Progressive standalone runtime** | **V-14 (isolated, integrated, measured)** | **BOUNDED_PROTOTYPE** |
+| **D18** | **Guest dependency removal** | **— (L5 equivalence)** | **NOT_PROVEN** |
 
 ## References
 

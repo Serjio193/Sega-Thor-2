@@ -316,3 +316,23 @@ This experiment proves toolchain feasibility and establishes the ASM round-trip 
 - **Consequences:**
   - `thor2_native` serves as the primary distribution and execution target for the native C++20 port.
   - Verification can run fully standalone in standard CI/CD pipelines without emulator GUI or IPC harnesses.
+
+## ADR D-018: Supersede Premature Terminal Completion and Enforce Real Gate Verification
+
+- **Status:** APPROVED (2026-09-10)
+- **Context:**
+  At commit `093abf0`, the project was prematurely declared complete. A factual audit revealed that:
+  1. `BGM.BIN` (MC68EC000 sound driver, 673,792 bytes) is CATALOGED but not reassembled byte-exact, disassembled, or runtime-verified.
+  2. `FULL_ASM_GAME_GATE` verification was limited to 6 discrete startup checkpoints; interactive gameplay (title screen, player control, map transitions, combat, sound) was not verified.
+  3. `StandaloneRuntime` still executes guest CPU fallback interpreter `thor::sh2::step_sh2(...)`, retaining guest CPU dependency in production paths.
+  4. `test_guest_removal` compared two candidate instances against each other (self-consistency), not against Mednafen oracle output.
+  5. Milestones D13 (Guest Address/Type Provenance) and D14 (Resource Decode/Reencode) were skipped.
+- **Decision:**
+  1. **Supersede Premature Claims:** Formally supersede the terminal completion assertion made at `093abf0`.
+  2. **Reset Gate States:** Set `PROJECT_COMPLETION_STATE = IN_PROGRESS`, `FULL_ASM_GAME_GATE = NOT_SATISFIED`, `STANDALONE_NATIVE_GATE = NOT_SATISFIED`, and `D18 = NOT_PROVEN`.
+  3. **Re-Affirm ADR D-015:** Broad C++ translation remains strictly FROZEN until real `FULL_ASM_GAME_GATE` passes with all modules (including `BGM.BIN` / MC68EC000) and multi-scenario gameplay verification.
+  4. **Retain Useful Work:** Preserve all native subsystem and runtime implementations (`thor2_native`, `StandaloneRuntime`, `NativeSaturnSystem`) as bounded reference prototypes.
+  5. **Machine-Enforced Validation:** Mandate automated validation scripts for `FULL_ASM_GAME_GATE` and `STANDALONE_NATIVE_GATE` that fail closed if any module, processor, or interpreter fallback remains unaddressed.
+- **Consequences:**
+  - Project returns immediately to the ASM-first recovery track.
+  - Immediate focus is directed to `BGM.BIN` / MC68EC000 assembly pipeline and multi-scenario gameplay verification.
