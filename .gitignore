@@ -40,6 +40,7 @@ dumps/
 traces/raw/
 ghidra-projects/
 private/
+.private/
 RE_Work/
 
 # Build/editor noise

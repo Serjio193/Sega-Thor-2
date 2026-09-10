@@ -1,0 +1,35 @@
+{
+  "module": "0TH2.BIN",
+  "revision": "thor2_ntsc_patched_fe11d2fb",
+  "module_runtime_base": "0x06004000",
+  "module_size": 535552,
+  "confirmed_code_bytes": 22,
+  "raw_unknown_bytes": 535530,
+  "code_blocks": [
+    {
+      "block_id": "bb_06004000",
+      "runtime_start": "0x06004000",
+      "runtime_end": "0x0600400C",
+      "byte_length": 12,
+      "instruction_count": 6
+    },
+    {
+      "block_id": "bb_06004280",
+      "runtime_start": "0x06004280",
+      "runtime_end": "0x0600428A",
+      "byte_length": 10,
+      "instruction_count": 5
+    }
+  ],
+  "labels": [
+    "lit_06004064",
+    "loc_06004012",
+    "lit_0600435C",
+    "lit_06004360",
+    "lit_06004364"
+  ],
+  "expected_output_sha256": "c1cc4117870bc567386410aa2d4f1b5f03fb98a601be71bb3ae2155de1853c64",
+  "assembler_tool_identity": "GNU assembler (binutils-sh-elf 2.40+2) 2.40",
+  "linker_tool_identity": "GNU ld (binutils-sh-elf 2.40+2) 2.40",
+  "provenance_identity": "T2-ASM-02"
+}

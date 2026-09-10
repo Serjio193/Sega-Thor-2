@@ -1,6 +1,59 @@
 # Worklog
 
-## 2026-09-10 — T2-ASM-01 First Bounded SH-2 ASM Round-Trip & Runtime Proof
+## 2026-09-10 — T2-ASM-02 Full 0TH2.BIN Lossless Assembly Container & Byte-Exact Module Round-Trip
+
+### Task
+
+Execute the second bounded experiment of ADR D-015 (ASM_FIRST_RECOVERY): repair ASM-01 tooling provenance debt by replacing temporary Python decoders with generic C++ tool `export_sh2_asm_ir` linked against `thor_sh2`; generate a private lossless assembly representation of the entire primary Saturn retail executable `0TH2.BIN` (535,552 bytes, VMA `0x06004000`); emit every currently confirmed code instruction as a real SH-2 mnemonic (`bb_06004000` [12 bytes, 6 insns] and `bb_06004280` [10 bytes, 5 insns], total 22 bytes); emit all remaining 535,530 bytes losslessly via `.byte` directives without guessing; resolve all labels at real in-module offsets without `.equ` workarounds; link complete module at original VMA `0x06004000` with zero unresolved relocations; prove byte-exact extraction (535,552 / 535,552 bytes, canonical SHA-256 `c1cc4117870bc567386410aa2d4f1b5f03fb98a601be71bb3ae2155de1853c64`); prove dual-build determinism; verify sector-by-sector private disc splice (clean disc SHA-256 `fe11d2fb...`); prove interpreter-only Mednafen runtime parity across 5 checkpoints (`0x06004000`, `0x06004012`, `0x06004280`, `0x0600A0F8`, `0x002E9910`); run >= 23 negative controls (28 verified); ensure strict git publication hygiene (zero commercial bytes tracked).
+
+### Method & Discoveries
+
+1. **Tooling Provenance Debt Repaired (`tools/asm/export_sh2_asm_ir.cpp`)**:
+   - Replaced ad-hoc Python decoders with a generic C++ tool linked directly against authoritative `thor_sh2` (`thor::sh2::decode_sh2`).
+   - Added as a build target in root `CMakeLists.txt` (`export_sh2_asm_ir`).
+   - Decodes candidate blocks (`bb_06004000` and `bb_06004280`), mechanically derives literal pool targets and branch targets via `Sh2Instruction::compute_effective_address()` and `compute_branch_target()`, and emits structured Assembly IR JSON (`assembly_ir.json`).
+2. **Lossless Module Assembly Generator (`tools/asm/generate_full_module_asm.py`)**:
+   - Extracted canonical 535,552-byte `0TH2.BIN` directly from retail disc image (LBA 24..285, Mode 1 / 2352).
+   - Generated private assembly container `.private/asm/0TH2/0TH2.s` (33,521 lines):
+     - All 11 confirmed code instructions emitted as real SH-2 mnemonics with comments.
+     - All remaining 535,530 bytes emitted losslessly as `.byte` directives (16 bytes per line).
+     - Real in-module label resolution: labels `loc_06004012`, `lit_06004064`, `lit_0600435C`, `lit_06004360`, and `lit_06004364` placed at real byte offsets within the single `.text` section.
+     - Zero `.equ` workarounds used; zero `.incbin` directives used; zero raw `.word` escapes for proven code.
+   - Generated linker script `asm/linker/0TH2.ld` asserting `ADDR(.text) == 0x06004000`, `SIZEOF(.text) == 535552`, and exact label addresses.
+   - Generated legal-safe public metadata manifest `asm/manifests/0TH2.BIN.json` (zero commercial bytes).
+3. **Assembly, Link & Dual-Build Determinism (`tools/asm/build_full_module.py`)**:
+   - Assembled `.private/asm/0TH2/0TH2.s` with pinned GNU assembler (`sh-elf-as -isa=sh2 -big`) in ~30 ms under WSL.
+   - Linked with pinned GNU linker (`sh-elf-ld -EB -T asm/linker/0TH2.ld`).
+   - Audited ELF relocations: clean link with zero unresolved relocations.
+   - Extracted raw machine code via `sh-elf-objcopy -O binary -j .text`.
+   - Length: exactly 535,552 bytes; differing bytes: 0; SHA-256: `c1cc4117870bc567386410aa2d4f1b5f03fb98a601be71bb3ae2155de1853c64` (MATCH).
+   - Dual-build determinism proven: independent builds in `out/asm_module_build_1` and `out/asm_module_build_2` produced bit-identical binaries (0 differing bytes).
+4. **Sector-by-Sector Private Disc Splice**:
+   - Spliced all 535,552 rebuilt bytes across Mode 1 sectors 24..285 (user data offset +16).
+   - Spliced disc image SHA-256 matches canonical retail disc `fe11d2fbda58d63300ef2265c555ce05bddf14d69fb7b73fc409e25c0ef6c0a8` bit-for-bit.
+5. **Interpreter-Only Mednafen Runtime Parity Across 5 Checkpoints (`tools/asm/runtime_substitution_proof.py`)**:
+   - Executed clean Mednafen oracle (`155426661b7ac3152e2c93a98da60ac33002b908`) in pure interpreter mode (`native_mode 0`).
+   - Compared cold-boot ORIGINAL vs cold-boot ASM_REBUILT across 5 architectural checkpoints:
+     - `0x06004000` (entry): cycle `305462360`, 23/23 registers match.
+     - `0x06004012` (branch target): cycle `305462387`, duration 27 cycles, 23/23 registers match.
+     - `0x06004280` (checkpoint): cycle `307090585`, 23/23 registers match.
+     - `0x0600A0F8` (checkpoint): cycle `316309144`, 23/23 registers match.
+     - `0x002E9910` (checkpoint): cycle `387459915`, 23/23 registers match.
+   - Cycle divergence: 0 cycles; register divergence: 0 registers. Private substituted disc cleaned up.
+6. **Negative Controls Suite & Publication Hygiene (`tools/asm/verify_full_module.py`)**:
+   - 28/28 negative controls pass and fail closed (mutations, endianness, VMAs, sizes, labels, relocations, padding, lengths, hashes, manifests, git leak guards).
+   - Git publication hygiene verified: `.private/` in `.gitignore`; zero commercial bytes or private `.s` tracked.
+   - CTest integration test `tests/asm/test_full_module_asm.py` added; 21/21 CTest suites pass on Windows and Linux WSL.
+
+### Status After Pass
+
+- `T2-ASM-02`: **PASS**
+- `0TH2.BIN`: `MODULE_CONTAINER_ESTABLISHED = PASS`, `ASM_BYTE_EXACT = PASS`, `ASM_RUNTIME_VERIFIED = PASS`
+- Broad C++ Translation: **FROZEN** (ADR D-015)
+- `FULL_ASM_GAME_GATE`: **IN_PROGRESS** (primary module skeleton established; auxiliary files pending)
+- Exact next action: `T2-ASM-03 — Progressive Multi-Module Assembly Skeleton & Systematic Function Disassembly Pipeline`.
+
+
 
 ### Task
 

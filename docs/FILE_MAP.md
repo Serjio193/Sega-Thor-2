@@ -81,6 +81,10 @@ tools/
     assemble_roundtrip.py         pinned GNU toolchain assembly, linking & raw extraction pipeline
     verify_roundtrip.py           comprehensive round-trip verification & 12 negative controls
     runtime_substitution_proof.py Mednafen dual cold-boot runtime substitution proof
+    export_sh2_asm_ir.cpp         generic Thor-decoder-backed SH-2 Assembly IR exporter CLI
+    generate_full_module_asm.py   lossless full 0TH2.BIN assembly container generator
+    build_full_module.py          full 0TH2.BIN assembly build and dual-build determinism pipeline
+    verify_full_module.py         comprehensive full module verification & 28 negative controls suite
 
 tests/
   test_census_saturn_cd.py        synthetic tests for census parser
@@ -108,6 +112,7 @@ tests/
     test_d9_plan.py               D9 indirect plan and artifact validator with 19 negative controls
   asm/
     test_asm_roundtrip.py         CTest integration test for SH-2 ASM round-trip verification
+    test_full_module_asm.py       CTest integration test for full 0TH2.BIN module round-trip
 
 workstreams/
   T2-M0-disc-census/
@@ -166,14 +171,20 @@ workstreams/
     README.md                     T2-ASM-01 workstream record and proof summary
     experiment_evidence.md        detailed toolchain, assembly, relocation, and runtime proof
     experiment_evidence.json      machine-readable round-trip and negative control evidence
+  T2-ASM-02/
+    README.md                     T2-ASM-02 workstream record and full module proof summary
+    experiment_evidence.md        detailed toolchain, full module assembly, and runtime proof
+    experiment_evidence.json      machine-readable round-trip, runtime, and 28 negative controls evidence
 
 asm/                              assembly reconstruction layout (ADR D-015)
   generated/
     bb_06004000.s                 mechanically emitted SH-2 assembly specimen
   linker/
     bb_06004000.ld                linker script for bb_06004000 at VMA 0x06004000
+    0TH2.ld                       linker script for full 0TH2.BIN module at VMA 0x06004000
   manifests/
     bb_06004000.json              provenance manifest for bb_06004000 slice
+    0TH2.BIN.json                 provenance manifest for 0TH2.BIN module container
 
 
 external/

@@ -1,0 +1,108 @@
+{
+  "schema_version": "1.0.0",
+  "task": "T2-ASM-02",
+  "title": "Full 0TH2.BIN Lossless Assembly Container & Byte-Exact Module Round-Trip",
+  "status": "PASS",
+  "target_module": "0TH2.BIN",
+  "cpu": "MASTER_SH2",
+  "module_size": 535552,
+  "module_vma": "0x06004000",
+  "canonical_module_sha256": "c1cc4117870bc567386410aa2d4f1b5f03fb98a601be71bb3ae2155de1853c64",
+  "canonical_disc_sha256": "fe11d2fbda58d63300ef2265c555ce05bddf14d69fb7b73fc409e25c0ef6c0a8",
+  "confirmed_code": {
+    "byte_length": 22,
+    "instruction_count": 11,
+    "ranges": [
+      {
+        "block_id": "bb_06004000",
+        "start": "0x06004000",
+        "end": "0x0600400C",
+        "byte_length": 12,
+        "instructions": 6
+      },
+      {
+        "block_id": "bb_06004280",
+        "start": "0x06004280",
+        "end": "0x0600428A",
+        "byte_length": 10,
+        "instructions": 5
+      }
+    ]
+  },
+  "raw_unknown_byte_length": 535530,
+  "toolchain": {
+    "target": "sh-elf",
+    "package": "binutils-sh-elf 2.40+2 (Ubuntu noble universe)",
+    "binutils_version": "2.40",
+    "as_sha256": "fd3ddc347d0f83521b98e039e30acf93380930dd521d5031682767e822c074e5",
+    "ld_sha256": "e369cd410424715b549f2e61fc12f1f93f525f656ff3f60f2fdc22f689c8472d",
+    "objcopy_sha256": "1da83e2a6bbabe453a0fe12a37dd57a262135fc9cb769413655cdfc5e54aaea2",
+    "objdump_sha256": "ee13a67c88f386a388cf10eb4710d13f05691ac008af103b84329276bc41eb35"
+  },
+  "roundtrip_verification": {
+    "byte_exact": true,
+    "extracted_byte_length": 535552,
+    "differing_bytes": 0,
+    "rebuilt_sha256": "c1cc4117870bc567386410aa2d4f1b5f03fb98a601be71bb3ae2155de1853c64",
+    "dual_build_determinism": "PASS",
+    "unresolved_relocations": 0,
+    "disc_splice_sha256": "fe11d2fbda58d63300ef2265c555ce05bddf14d69fb7b73fc409e25c0ef6c0a8"
+  },
+  "runtime_substitution_proof": {
+    "oracle": "Mednafen Saturn Debug 155426661b7ac3152e2c93a98da60ac33002b908",
+    "mode": "interpreter_only (native_mode 0)",
+    "checkpoints": [
+      {
+        "label": "entry_06004000",
+        "address": "0x06004000",
+        "cycle_original": 305462360,
+        "cycle_rebuilt": 305462360,
+        "cycle_divergence": 0,
+        "registers_match": true
+      },
+      {
+        "label": "branch_target_06004012",
+        "address": "0x06004012",
+        "cycle_original": 305462387,
+        "cycle_rebuilt": 305462387,
+        "cycle_divergence": 0,
+        "registers_match": true
+      },
+      {
+        "label": "checkpoint_06004280",
+        "address": "0x06004280",
+        "cycle_original": 307090585,
+        "cycle_rebuilt": 307090585,
+        "cycle_divergence": 0,
+        "registers_match": true
+      },
+      {
+        "label": "checkpoint_0600A0F8",
+        "address": "0x0600A0F8",
+        "cycle_original": 316309144,
+        "cycle_rebuilt": 316309144,
+        "cycle_divergence": 0,
+        "registers_match": true
+      },
+      {
+        "label": "checkpoint_002E9910",
+        "address": "0x002E9910",
+        "cycle_original": 387459915,
+        "cycle_rebuilt": 387459915,
+        "cycle_divergence": 0,
+        "registers_match": true
+      }
+    ],
+    "timing_duration_27_cycles": true
+  },
+  "negative_controls": {
+    "total": 28,
+    "passed": 28,
+    "failed": 0
+  },
+  "publication_hygiene": {
+    "private_assembly_tracked": false,
+    "rebuilt_binary_tracked": false,
+    "commercial_bytes_in_repo": false
+  }
+}

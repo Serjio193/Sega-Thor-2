@@ -22,6 +22,8 @@ CHECKPOINTS = [
     ("06004000", "entry_06004000"),
     ("06004012", "branch_target_06004012"),
     ("06004280", "checkpoint_06004280"),
+    ("0600A0F8", "checkpoint_0600A0F8"),
+    ("002E9910", "checkpoint_002E9910"),
 ]
 
 EXPECTED_ENTRY_CYCLE = 305462360
@@ -54,15 +56,22 @@ def create_substituted_disc(
     rebuilt_bin_path = os.path.join(scratch_dir, "thor2_rebuilt.bin")
     rebuilt_cue_path = os.path.join(scratch_dir, "thor2_rebuilt.cue")
 
-    # Splicing 12 bytes at LBA 24, user data offset +16 inside sector
-    splice_offset = 24 * 2352 + 16
-
     print(f"Creating private substituted disc image in {scratch_dir}...")
     shutil.copyfile(orig_bin_path, rebuilt_bin_path)
 
     with open(rebuilt_bin_path, "r+b") as f:
-        f.seek(splice_offset)
-        f.write(reassembled_bytes)
+        if len(reassembled_bytes) > 2048:
+            lba = 24
+            num_sectors = (len(reassembled_bytes) + 2047) // 2048
+            for sec_idx in range(num_sectors):
+                chunk = reassembled_bytes[sec_idx * 2048 : (sec_idx + 1) * 2048]
+                sec_offset = (lba + sec_idx) * 2352 + 16
+                f.seek(sec_offset)
+                f.write(chunk)
+        else:
+            splice_offset = 24 * 2352 + 16
+            f.seek(splice_offset)
+            f.write(reassembled_bytes)
 
     # Create matching CUE pointing to rebuilt bin
     cue_content = (
@@ -259,11 +268,24 @@ def execute_runtime_parity_proof(
 
 def main() -> int:
     repo_root = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
-    bin_path = os.path.join(repo_root, "out", "asm_build_1", "block.bin")
-    if not os.path.exists(bin_path):
-        print(f"ERROR: Assembled binary not found at {bin_path}. Run assemble_roundtrip.py first.")
+    bin_path = None
+    if len(sys.argv) > 1:
+        bin_path = sys.argv[1]
+    else:
+        candidates = [
+            os.path.join(repo_root, "out", "asm_module_build_1", "block.bin"),
+            os.path.join(repo_root, "out", "asm_build_1", "block.bin"),
+        ]
+        for c in candidates:
+            if os.path.exists(c):
+                bin_path = c
+                break
+
+    if not bin_path or not os.path.exists(bin_path):
+        print("ERROR: Assembled binary not found. Run build_full_module.py first.")
         return 1
 
+    print(f"Running runtime substitution proof with binary: {bin_path}")
     with open(bin_path, "rb") as f:
         rebuilt_bytes = f.read()
 

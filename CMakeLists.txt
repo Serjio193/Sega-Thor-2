@@ -32,6 +32,10 @@ target_link_libraries(thor_recomp PUBLIC thor_sh2)
 add_executable(generate_sh2_block tools/recomp/generate_sh2_block.cpp)
 target_link_libraries(generate_sh2_block PRIVATE thor_recomp thor_sh2)
 
+# Tool to export generic Thor-decoder-backed SH-2 Assembly IR
+add_executable(export_sh2_asm_ir tools/asm/export_sh2_asm_ir.cpp)
+target_link_libraries(export_sh2_asm_ir PRIVATE thor_sh2)
+
 # Build-time mechanical C++20 generation for bb_06004000
 set(GENERATED_DIR "${CMAKE_CURRENT_BINARY_DIR}/generated")
 file(MAKE_DIRECTORY "${GENERATED_DIR}")
@@ -179,4 +183,5 @@ if (Python3_Interpreter_FOUND)
     add_test(NAME test_post_d8_closure COMMAND Python3::Interpreter "${CMAKE_CURRENT_SOURCE_DIR}/tests/recomp/test_post_d8_closure.py")
     add_test(NAME test_d9_plan COMMAND Python3::Interpreter "${CMAKE_CURRENT_SOURCE_DIR}/tests/recomp/test_d9_plan.py")
     add_test(NAME test_asm_roundtrip COMMAND Python3::Interpreter "${CMAKE_CURRENT_SOURCE_DIR}/tests/asm/test_asm_roundtrip.py")
+    add_test(NAME test_full_module_asm COMMAND Python3::Interpreter "${CMAKE_CURRENT_SOURCE_DIR}/tests/asm/test_full_module_asm.py")
 endif()

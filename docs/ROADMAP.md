@@ -182,13 +182,24 @@ Verified gate:
 - Mednafen cold-boot runtime substitution matches ORIGINAL in pure interpreter mode (entry cycle `305462360`, target `305462387`, duration 27, 23/23 registers match);
 - 12/12 negative controls fail closed.
 
-### Active Next Technical Task: T2-ASM-02 — Module Assembly Skeleton & Lossless CODE/DATA/UNKNOWN Emission for 0TH2.BIN
+### T2-ASM-02 — Full 0TH2.BIN Lossless Assembly Container & Byte-Exact Module Round-Trip
 
-Purpose: Scale the mechanical assembly pipeline to the complete primary disc binary `0TH2.BIN` (535,552 bytes):
-- generate an assembly module skeleton representing the full 535,552 bytes losslessly using proven SH-2 mnemonics for confirmed code and raw data directives (`.byte`/`.long`) for unclassified/data ranges;
-- link at `0x06004000` with linker script matching 0TH2.BIN extents;
-- prove byte-exact whole-module reassembly (`c1cc4117870bc567386410aa2d4f1b5f03fb98a601be71bb3ae2155de1853c64`);
-- verify boot in clean Mednafen oracle with the rebuilt module.
+Status: **BOUNDED_PROOF (0TH2.BIN)**
+
+Capabilities proven:
+- Generic C++ Thor-decoder-backed Assembly IR tool `export_sh2_asm_ir` linked against authoritative `thor_sh2`;
+- Lossless assembly container `.private/asm/0TH2/0TH2.s` (33,521 lines) emitting real mnemonics for confirmed code (22 bytes, 11 instructions) and `.byte` directives for remaining 535,530 bytes without guessing;
+- Real in-module label resolution eliminating all `.equ` workarounds;
+- Linker script `asm/linker/0TH2.ld` asserting VMA `0x06004000`, 535,552 bytes, and exact label offsets;
+- Byte-exact extraction (535,552 / 535,552 bytes, SHA-256 `c1cc4117...`);
+- Dual independent builds bit-identical (0 differing bytes);
+- Sector-by-sector private disc splice matches canonical disc SHA-256 `fe11d2fb...`;
+- Mednafen cold-boot runtime parity verified in interpreter mode across 5 checkpoints (`06004000`, `06004012`, `06004280`, `0600A0F8`, `002E9910`) with 0-cycle divergence and 23/23 matching registers;
+- 28/28 negative controls fail closed.
+
+### Active Next Technical Task: T2-ASM-03 — Progressive Multi-Module Assembly Skeleton & Systematic Function Disassembly Pipeline
+
+Purpose: Extend the lossless assembly container methodology to auxiliary Saturn disc files (SLAVE SH-2 code, sound DSP code), establish systematic boundary & CFG recovery under ASM-first gate, and advance toward `FULL_ASM_GAME_GATE`.
 
 ## Queued development milestones
 
@@ -204,7 +215,8 @@ Purpose: Scale the mechanical assembly pipeline to the complete primary disc bin
 | D9 | Indirect control-flow handling | Bounded native JSR override | BOUNDED_PROOF (specimen bb_06004280) |
 | **M-03** | **Candidate harvester re-evaluation** | **Post-D9.4 re-entry gate** | **READY_FOR_BOUNDED_TEST (DEFERRED_BY_ASM_FIRST_ARCHITECTURE)** |
 | **T2-ASM-01** | **First bounded ASM round-trip** | **Candidate toolchain assembly & substitution** | **BOUNDED_PROOF (bb_06004000)** |
-| **T2-ASM-02** | **Module assembly skeleton for 0TH2.BIN** | **Lossless full-module round-trip** | **ACTIVE NEXT TASK** |
+| **T2-ASM-02** | **Full 0TH2.BIN lossless assembly container** | **Lossless full-module round-trip** | **BOUNDED_PROOF (0TH2.BIN)** |
+| **T2-ASM-03** | **Multi-module assembly & CFG pipeline** | **Multi-module round-trip & boot** | **ACTIVE NEXT TASK** |
 | **GATE** | **FULL_ASM_GAME_GATE** | **Rebuilt Saturn game boots & plays in Mednafen** | **MANDATORY PREREQUISITE FOR BROAD C++ TRANSLATION** |
 | D10 | Timing/IRQ/DMA boundaries | — (general scaling) | PROPOSED (Post-ASM-Gate) |
 | D11 | Overlay/generation identity | V-10 (transformation/overlay discovery) | PROPOSED (Active for ASM reconstruction) |
