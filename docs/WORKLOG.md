@@ -1,5 +1,48 @@
 # Worklog
 
+## 2026-09-10 — D15 Hardware Subsystem Contracts (VDP1, VDP2, SCSP) Passed
+
+### Task
+
+Execute D15 (Hardware Subsystem Contracts: VDP1, VDP2, SCSP) in the Progressive Native Recovery Track:
+1. Implement VDP1 sprite and display list contract (`include/thor/hw/vdp1_types.hpp`, `include/thor/hw/vdp1.hpp`, `src/hw/vdp1.cpp`): 32-byte command decoder, jump/call/return/skip modes, user/system clipping, local coordinate transformation, and display list tracer.
+2. Implement VDP2 tilemap and background rasterization contract (`include/thor/hw/vdp2_types.hpp`, `include/thor/hw/vdp2.hpp`, `src/hw/vdp2.cpp`): plane configurations (NBG0..NBG3, RBG0, Sprite, Back), CRAM color decoder (15-bit BGR555, 24-bit RGB888), RBG0 fixed-point rotation matrix transform, plane priority arbitration, and color calculation blending.
+3. Implement SCSP audio bridge contract (`include/thor/hw/scsp_types.hpp`, `include/thor/hw/scsp.hpp`, `src/hw/scsp.cpp`): sound command packet structure, ring buffer FIFO mailbox, BGM state transitions (Play, Stop, Pause, Resume), SFX slot dynamic allocation, master volume clamping, and driver reset.
+4. Establish unit test suites (`tests/hw/test_vdp1.cpp`, `tests/hw/test_vdp2.cpp`, `tests/hw/test_scsp.cpp`) registered as CTest #21, #22, #23 in `CMakeLists.txt`.
+5. Verify dual-platform passing (32/32 CTests green across Windows MinGW and Linux WSL).
+
+### Method & Discoveries
+
+1. **VDP1 Command List & Sprite Architecture**:
+   - Modeled 10 standard VDP1 command types (`NORMAL_SPRITE`, `SCALED_SPRITE`, `DISTORTED_SPRITE`, `POLYGON`, `POLYLINE`, `LINE`, `USER_CLIPPING`, `SYSTEM_CLIPPING`, `LOCAL_COORDINATE`, `END_MARKER`).
+   - Implemented display list tracing respecting jump modes (`JUMP_NEXT`, `JUMP_ASSIGN`, `JUMP_CALL`, `JUMP_RETURN`, `JUMP_SKIP`) with 2-level hardware call stack depth and VRAM wrap-around.
+   - Modeled local coordinate translation and clipping bounds checking against viewport.
+2. **VDP2 Plane Priority & Color Blending Engine**:
+   - Modeled planes NBG0..NBG3, RBG0, Sprite plane, and Back plane with priorities 0..7.
+   - Implemented CRAM color decoding in Mode 0/1 (15-bit BGR555) and Mode 2 (24-bit RGB888).
+   - Implemented RBG0 rotation matrix affine transformation with 16.16 fixed point arithmetic.
+   - Implemented multi-plane pixel priority arbitration and alpha/ratio color calculation blending.
+3. **SCSP / M68K Audio Command Bridge**:
+   - Modeled ring buffer FIFO mailbox protocol with sequence numbers, command IDs, and volume/pan parameters.
+   - Implemented driver lifecycle states (`READY`, `PLAYING`, `PAUSED`, `STOPPED`, `ERROR_STATE`).
+   - Implemented 32 PCM/FM sound slots with dynamic allocation for sound effects and volume clamping.
+4. **Dual-Platform CTest Suite (32/32 Tests)**:
+   - All 3 hardware test targets compiled and verified.
+   - Isolated full game disc scratch folders (`full_game_proof_win`, `full_game_proof_linux`) preventing concurrent IPC file collisions.
+   - 32/32 CTests pass on Windows MinGW (51.87s) and Linux WSL (45.30s).
+   - Audited 93 human-maintained source/test/tool files: 0 violations of the <= 500 lines limit.
+
+### Status After Pass
+
+- `D15`: **PASS**
+- `D12`: **PASS**
+- `D11`: **PASS**
+- `D10`: **PASS**
+- `FULL_ASM_GAME_GATE`: **PASS**
+- `ASM_90_GATE`: **PASS** (96.59%)
+- CTests: 32 / 32 PASSING across Windows MinGW and Linux WSL
+- Exact next action: `D16 / T2-NAT-04 — Native Subsystem Replacement (Differential Integration of VDP1/VDP2/SCSP Native Backends)`
+
 ## 2026-09-10 — D12 Structural Recovery & Function Boundary Demarcation Passed
 
 ### Task

@@ -58,6 +58,13 @@ include/
       mutation_harness.hpp        reusable mutation fault-injection harness declaration
       block_timing.hpp            D10 timing, interrupt, and DMA boundary classification declaration
       function_boundary.hpp       D12 evidence-backed function boundary & call-graph declaration
+    hw/
+      vdp1_types.hpp              D15 VDP1 command, jump, color mode, and vertex types
+      vdp1.hpp                    D15 VDP1 sprite, clipping, and display list engine declaration
+      vdp2_types.hpp              D15 VDP2 plane, CRAM, color format, and rotation types
+      vdp2.hpp                    D15 VDP2 background planes, rotation, and pixel arbitration declaration
+      scsp_types.hpp              D15 SCSP sound command, driver status, and slot types
+      scsp.hpp                    D15 SCSP sound engine, mailbox, and ring buffer declaration
 
 src/
   sh2/
@@ -77,6 +84,10 @@ src/
     mutation_harness.cpp          bounded mutation testing and restoration logic
     block_timing.cpp              D10 execution boundary and timing classification logic
     function_boundary.cpp         D12 function boundary catalog and call-graph resolution logic
+  hw/
+    vdp1.cpp                      D15 VDP1 display list parsing, clipping, and coordinate transformation
+    vdp2.cpp                      D15 VDP2 color decode, RBG0 rotation matrix, and pixel arbitration
+    scsp.cpp                      D15 SCSP sound command queue processing, slot configuration, and mailbox
 
 asm/
   schema/
@@ -138,6 +149,10 @@ tests/
     test_m07_reference.py         SaturnRecomp reference manifest validation & negative control tests
     test_post_d8_closure.py       canonical POST-D8 closure audit validator with 9 negative controls
     test_d9_plan.py               D9 indirect plan and artifact validator with 19 negative controls
+  hw/
+    test_vdp1.cpp                 D15 VDP1 command decoding, jump modes, clipping, and coordinate tests
+    test_vdp2.cpp                 D15 VDP2 color decode, CRAM, RBG0 matrix, and pixel arbitration tests
+    test_scsp.cpp                 D15 SCSP sound command ring buffer, transitions, and slot tests
   asm/
     test_asm_roundtrip.py         CTest integration test for SH-2 ASM round-trip verification
     test_full_module_asm.py       CTest integration test for full 0TH2.BIN module round-trip

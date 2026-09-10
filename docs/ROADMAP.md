@@ -288,9 +288,20 @@ Capabilities proven:
 - Verified bidirectional caller/callee adjacency indexing and call graph queries (`get_callers`, `get_callees`, `find_by_pc`);
 - Verified with `test_function_boundary` (CTest #20); 29/29 CTests pass across Windows MinGW and Linux WSL.
 
-### Active Next Technical Milestone: D15 / T2-NAT-03 — Hardware Subsystem Contracts (VDP1, VDP2, SCSP)
+### D15 — Hardware Subsystem Contracts (VDP1, VDP2, SCSP)
 
-Purpose: Formalize native contracts for Saturn hardware subsystems (VDP1 sprite command list processing, VDP2 tilemaps/scroll planes, and SCSP audio command ring buffer) to enable differential validation and native subsystem replacement.
+Status: **PASS**
+
+Capabilities proven:
+- Formalized VDP1 display list command decoder (10 command types, 5 jump modes, 6 color modes), clipping rectangles, and local coordinate transformation in `include/thor/hw/vdp1_types.hpp`, `include/thor/hw/vdp1.hpp`, `src/hw/vdp1.cpp`;
+- Formalized VDP2 background plane configurations (NBG0..NBG3, RBG0, Sprite, Back), CRAM 15-bit/24-bit decoding, 16.16 fixed-point rotation matrix transform, multi-plane priority arbitration, and color calculation blending in `include/thor/hw/vdp2_types.hpp`, `include/thor/hw/vdp2.hpp`, `src/hw/vdp2.cpp`;
+- Formalized SCSP sound command ring buffer FIFO, driver state machine, and SFX slot allocation in `include/thor/hw/scsp_types.hpp`, `include/thor/hw/scsp.hpp`, `src/hw/scsp.cpp`;
+- Verified with dedicated unit test suites `test_vdp1`, `test_vdp2`, `test_scsp`;
+- 32/32 CTests pass across Windows MinGW and Linux WSL.
+
+### Active Next Technical Milestone: D16 / T2-NAT-04 — Native Subsystem Replacement (VDP1/VDP2/SCSP Backends)
+
+Purpose: Progressively replace Saturn hardware subsystems with differential native host backends while maintaining zero behavioral divergence.
 
 ## Queued development milestones
 
@@ -316,8 +327,8 @@ Purpose: Formalize native contracts for Saturn hardware subsystems (VDP1 sprite 
 | **D12** | **Structural recovery** | **Function boundary catalog & call graph** | **PASS** |
 | D13 | Guest-address/type provenance | V-09 | PROPOSED |
 | D14 | Resource decode/reencode | V-11 (exact round-trip), V-12 (diff locator) | PROPOSED |
-| **D15** | **HW-subsystem contracts** | **V-08 (SaturnRecomp component tests a–h)** | **PROPOSED (Active next)** |
-| D16 | Native subsystem replacement | V-08 (components passing differential test) | PROPOSED |
+| **D15** | **HW-subsystem contracts** | **V-08 (SaturnRecomp component tests a–h)** | **PASS** |
+| **D16** | **Native subsystem replacement** | **V-08 (components passing differential test)** | **PROPOSED (Active next)** |
 | D17 | Progressive standalone runtime | V-14 (isolated, integrated, measured) | PROPOSED |
 | D18 | Guest dependency removal | — (L5 equivalence) | PROPOSED |
 

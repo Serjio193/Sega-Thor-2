@@ -181,7 +181,8 @@ with open('{out_json}', 'w') as f:
 
 def main() -> int:
     repo_root = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
-    scratch = os.path.join(repo_root, "scratch", "full_game_proof")
+    scratch_name = "full_game_proof_win" if sys.platform == "win32" else "full_game_proof_linux"
+    scratch = os.path.join(repo_root, "scratch", scratch_name)
     shutil.rmtree(scratch, ignore_errors=True)
     os.makedirs(scratch, exist_ok=True)
 

@@ -33,6 +33,12 @@ add_library(thor_recomp STATIC
 )
 target_link_libraries(thor_recomp PUBLIC thor_sh2)
 
+add_library(thor_hw STATIC
+    src/hw/vdp1.cpp
+    src/hw/vdp2.cpp
+    src/hw/scsp.cpp
+)
+
 # Tool to mechanically compile a basic block to C++20
 add_executable(generate_sh2_block tools/recomp/generate_sh2_block.cpp)
 target_link_libraries(generate_sh2_block PRIVATE thor_recomp thor_sh2)
@@ -202,6 +208,19 @@ add_test(NAME test_block_timing COMMAND test_block_timing)
 add_executable(test_function_boundary tests/recomp/test_function_boundary.cpp)
 target_link_libraries(test_function_boundary PRIVATE thor_recomp thor_sh2)
 add_test(NAME test_function_boundary COMMAND test_function_boundary)
+
+# D15 hardware subsystem contracts test suite
+add_executable(test_vdp1 tests/hw/test_vdp1.cpp)
+target_link_libraries(test_vdp1 PRIVATE thor_hw)
+add_test(NAME test_vdp1 COMMAND test_vdp1)
+
+add_executable(test_vdp2 tests/hw/test_vdp2.cpp)
+target_link_libraries(test_vdp2 PRIVATE thor_hw)
+add_test(NAME test_vdp2 COMMAND test_vdp2)
+
+add_executable(test_scsp tests/hw/test_scsp.cpp)
+target_link_libraries(test_scsp PRIVATE thor_hw)
+add_test(NAME test_scsp COMMAND test_scsp)
 
 # M-07 SaturnRecomp reference corpus and negative controls test suite
 find_package(Python3 COMPONENTS Interpreter)
