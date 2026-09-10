@@ -24,6 +24,7 @@ docs/
   DEVELOPMENT_RULES.md            source/C++/testing/PR/scope discipline
   POST_D8_SECOND_PASS_PLAN.md     mandatory external method second-pass plan (ADR D-012)
   POST_D8_SECOND_PASS_CLOSURE.md  canonical closure audit of external methods M-01..M-10
+  D9_INDIRECT_CONTROL_FLOW_PLAN.md D9 architecture, dynamic exit model & candidate plan
   RE_TOOLCHAIN_GUIDE.md           historical Saturn SDK/toolchain evidence rules
   RULES_TRANSFER_AUDIT.md         Sega-Thor -> Sega-Thor-2 governance parity audit
 
@@ -93,6 +94,7 @@ tests/
     test_mutation_harness.cpp     12/12 single-byte and 6/6 NOP mutation unit tests
     test_m07_reference.py         SaturnRecomp reference manifest validation & negative control tests
     test_post_d8_closure.py       canonical POST-D8 closure audit validator with 9 negative controls
+    test_d9_plan.py               D9 indirect control-flow plan validator with 8 negative controls
 
 workstreams/
   T2-M0-disc-census/
@@ -138,6 +140,9 @@ workstreams/
     README.md                     M-07 SaturnRecomp reference corpus experiment summary
     experiment_evidence.md        decode and semantic cross-check results (0 disagreements)
     reference_vectors.json        derived legal-safe reference vectors (6 overlap + 14 probes)
+  T2-D9-indirect/
+    README.md                     D9 indirect control-flow workstream summary
+    candidate_06004280.md         first candidate qualification record (bb_06004280)
 
 external/
   README.md                       rules for private user-supplied inputs

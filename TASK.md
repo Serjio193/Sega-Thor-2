@@ -1,57 +1,58 @@
 # Current task
 
-TASK: T2-POST-D8.3.1 — ADR D-012 Closure Evidence Integrity Repair
-WHY: Audit and repair the canonical POST-D8 closure record docs/POST_D8_SECOND_PASS_CLOSURE.md to guarantee that every factual statement, external commit pin, repository evidence path, test reference, disposition, and evidence-strength rating is grounded strictly in existing repository evidence; remove ungrounded pins, paths, and Ghidra claims; add automated closure validator with negative controls; close POST-D8 second pass cleanly.
-CURRENT MILESTONE: POST-D8 Second-Pass Method Closure (docs/POST_D8_SECOND_PASS_CLOSURE.md / ADR D-012)
-TASK STATUS: PASS (POST_D8_SECOND_PASS: SATISFIED / CLOSED; ADR D-012: PASS; D9: UNBLOCKED_FOR_PLANNING)
+TASK: T2-D9.P0 — Indirect Control-Flow Architecture & First Bounded Candidate Plan
+WHY: Establish canonical architectural foundation, dynamic exit model, generalized memory snapshot contract, fail-closed unknown target policy, and verification matrix for capability D9; qualify the first indirect-flow candidate block bb_06004280 (0x06004280..0x06004288); schedule M-03 re-entry trigger at D9.4; implement automated plan integrity validator with negative controls (tests/recomp/test_d9_plan.py); declare D9 status READY_FOR_BOUNDED_TEST.
+CURRENT MILESTONE: D9 — Indirect Control-Flow Handling (docs/D9_INDIRECT_CONTROL_FLOW_PLAN.md)
+TASK STATUS: PASS (D9: READY_FOR_BOUNDED_TEST; bb_06004280: QUALIFIED_CANDIDATE)
 MILESTONE UNDERSTANDING CONFIDENCE: 100%
 CURRENT SLICE UNDERSTANDING CONFIDENCE: 100%
-SLICE CONFIDENCE EVIDENCE: All 11 method entries M-01..M-10 line-by-line audited against DECISIONS.md, POST_D8_SECOND_PASS_PLAN.md, and real repository evidence; canonical SaturnAutoRE pin 4662aad69f95222fe37c5e6b98f2285b1a7e4653 restored; all 22 referenced repository evidence paths verified present on disk; unevidenced Ghidra/GDT claims stripped from M-05 and grounded in ADR D-011 module provenance evidence; D-012 Evidence Strength scale strictly standardized to LOW/MEDIUM/HIGH/N/A (M-02 set to LOW positive proof / HIGH utility); automated validator test_post_d8_closure.py implemented and verified (positive PASS, 9/9 negative controls caught); 15/15 CTest suites pass across MinGW and WSL Linux (Debug and Release).
+SLICE CONFIDENCE EVIDENCE: Complete audit of current single-block system against D9 requirements; first indirect candidate bb_06004280 qualified with exact 10 bytes (SHA-256 8879cbe1...), 5 instructions, dynamic Mednafen oracle cold-boot trace (Hit 2 frame 701, cycle 316309168, duration 19 cycles to target 0x0600A0F8 with PR=0x0600428A); JSR @R3 identified as missing L0 prerequisite for D9.1; dynamic exit model designed with anti-hardcoding invariant; interpreter-continuation execution contract specified; fail-closed unknown target policy and generalized memory snapshot contract defined; M-03 re-entry formally gated at D9.4; automated validator test_d9_plan.py passing with 8 negative controls; 16/16 CTest suites pass across MinGW and Linux WSL (Debug and Release).
 ACCEPTANCE CRITERIA:
-- [x] audit docs/POST_D8_SECOND_PASS_CLOSURE.md against authoritative project records;
-- [x] restore canonical SaturnAutoRE pin 4662aad69f95222fe37c5e6b98f2285b1a7e4653;
-- [x] verify every evidence path and remove fabricated/stale references;
-- [x] re-audit M-05 to remove invented Ghidra/GDT claims and ground in ADR D-011 provenance evidence;
-- [x] unify D-012 Evidence Strength scale to LOW/MEDIUM/HIGH/N/A (M-02 = LOW);
-- [x] verify gating logic for deferred methods M-03, M-04, M-06, M-09, M-10;
-- [x] verify M-08 rejection wording as architectural constraint;
-- [x] implement automated closure validator with negative controls (tests/recomp/test_post_d8_closure.py);
-- [x] 15/15 CTest test suites pass on Windows MinGW and Linux WSL (Debug and Release);
+- [x] audit current single-block architecture against D9 requirements (10 assumptions evaluated);
+- [x] qualify first indirect call candidate bb_06004280 (0x06004280..0x06004288, 10 bytes, SHA-256 8879cbe1..., cold-boot exit to 0x0600A0F8 in 19 cycles);
+- [x] establish exact pre-D9 prerequisite chain (JSR @R3 classified as NEEDS_D3_L0_PROOF);
+- [x] design dynamic exit model (BlockExitKind, BlockExitDescriptor, anti-hardcoding invariant);
+- [x] design native indirect source with interpreter continuation architecture (no native-to-native chaining required for initial proof);
+- [x] define fail-closed unknown target policy (5-case matrix);
+- [x] design generalized memory snapshot contract (declarative descriptors + copy-on-read facade);
+- [x] define target observation database schema;
+- [x] define M-03 re-entry trigger at sub-gate D9.4;
+- [x] define staged sub-gates (D9.P0 -> D9.1 -> D9.2 -> D9.3 -> D9.4 -> M-03 -> D9.5);
+- [x] define first D9 bounded verification contract & 14-case negative control matrix;
+- [x] implement automated plan validator tests/recomp/test_d9_plan.py with 8 negative controls;
+- [x] 16/16 CTest test suites pass on Windows MinGW and Linux WSL (Debug and Release);
 - [x] strict M-07 reference tests (--require-external) pass on MinGW and Linux WSL;
 - [x] all human-maintained source/test/tool files <= 500 lines;
 - [x] git diff --check green;
 - [x] terminal response only in Russian, max 7 bullets.
 EVIDENCE AVAILABLE:
-- Canonical closure record docs/POST_D8_SECOND_PASS_CLOSURE.md;
-- Closure validator test tests/recomp/test_post_d8_closure.py;
-- Workstream record workstreams/POST-D8-M07-saturnrecomp/README.md;
-- Workstream record workstreams/POST-D8-M07-saturnrecomp/experiment_evidence.md;
-- Workstream record workstreams/POST-D8-M02-mutation/README.md;
-- Workstream record workstreams/POST-D8-M02-mutation/experiment_evidence.md;
-- Provenance records workstreams/T2-V02a-0th2-provenance/provenance_evidence.md and T2-V02b-th2-low-provenance/provenance_evidence.md;
-- Second-pass plan docs/POST_D8_SECOND_PASS_PLAN.md;
+- Canonical D9 plan docs/D9_INDIRECT_CONTROL_FLOW_PLAN.md;
+- Candidate qualification record workstreams/T2-D9-indirect/candidate_06004280.md;
+- Workstream record workstreams/T2-D9-indirect/README.md;
+- Automated plan validator test tests/recomp/test_d9_plan.py;
+- Closure record docs/POST_D8_SECOND_PASS_CLOSURE.md;
 - Decisions record docs/DECISIONS.md (ADR D-006, D-009, D-010, D-011, D-012, D-014).
 KNOWN UNKNOWNS:
-- Multi-block control-flow topology and indirect branch handling for D9.
+- L0 test vector edge cases for JSR @Rn (Rn in delay slot, illegal slot instruction exceptions, unaligned branch targets).
 ALLOWED SCOPE:
-- Bounded repair of POST-D8 closure evidence integrity and automated validator.
+- Architectural design, candidate qualification, planning artifacts, and automated plan validator for D9.
 OUT OF SCOPE:
-- Starting D9 multi-block implementation before planning is approved.
+- Production dispatcher implementation for D9 or second native block promotion before D9.1..D9.3 pass.
 
 ## Last verified result
 
-`T2-POST-D8.3.1_CLOSURE_EVIDENCE_INTEGRITY_PASS`: Canonical POST-D8 closure record audited and repaired; all pins aligned to canonical records (SaturnAutoRE 4662aad...); all 22 evidence paths verified on disk; M-05 cleansed of unevidenced Ghidra/GDT claims; Evidence Strength standardized to LOW/MEDIUM/HIGH/N/A (M-02 = LOW); automated closure validator with 9 negative controls implemented and passing; 15/15 CTest suites pass across MinGW and Linux WSL (Debug and Release); POST_D8_SECOND_PASS closed; D9 unblocked for planning.
+`T2-D9.P0_PLAN_AND_CANDIDATE_QUALIFIED_PASS`: D9 indirect control-flow handling architecture established; candidate block bb_06004280 qualified (10 bytes, SHA-256 8879cbe1..., 19-cycle exit to 0x0600A0F8 with PR=0x0600428A); dynamic exit representation and interpreter continuation contract designed; fail-closed unknown target policy and generalized memory snapshot contract specified; M-03 re-entry scheduled at D9.4; automated validator test_d9_plan.py passes with 8 negative controls; 16/16 CTest suites pass across MinGW and Linux WSL (Debug and Release); D9 declared READY_FOR_BOUNDED_TEST.
 
 ## Session checkpoint
 
-CURRENT MILESTONE: POST-D8 Second-Pass Method Closure (docs/POST_D8_SECOND_PASS_CLOSURE.md / ADR D-012)
-CURRENT TASK: T2-POST-D8.3.1 — ADR D-012 Closure Evidence Integrity Repair
-TASK STATUS: PASS (POST_D8_SECOND_PASS: SATISFIED / CLOSED; ADR D-012: PASS; D9: UNBLOCKED_FOR_PLANNING)
+CURRENT MILESTONE: D9 — Indirect Control-Flow Handling (docs/D9_INDIRECT_CONTROL_FLOW_PLAN.md)
+CURRENT TASK: T2-D9.P0 — Indirect Control-Flow Architecture & First Bounded Candidate Plan
+TASK STATUS: PASS (D9: READY_FOR_BOUNDED_TEST; bb_06004280: QUALIFIED_CANDIDATE)
 MILESTONE UNDERSTANDING CONFIDENCE: 100%
 CURRENT SLICE UNDERSTANDING CONFIDENCE: 100%
-LAST VERIFIED RESULT: All 11 methods M-01..M-10 verified against repository evidence; closure validator passes with 9/9 negative controls caught; 15/15 C++ suites pass on MinGW and Linux WSL (Debug and Release).
-FILES CHANGED: docs/POST_D8_SECOND_PASS_CLOSURE.md, tests/recomp/test_post_d8_closure.py, CMakeLists.txt, docs/FILE_MAP.md, docs/WORKLOG.md, TASK.md
-TESTS RUN: test_post_d8_closure.py (positive PASS, 9 negative controls pass), test_mutation_harness, test_m07_reference.py (--require-external on Windows and WSL), 15/15 CTest suites pass across MinGW Debug/Release and Linux WSL Debug/Release; source line limits check (all human-maintained files <= 500 lines); git diff --check.
-NEW KNOWLEDGE: Grounding closure facts strictly in verified repository artifacts and enforcing pin/path/enum integrity with an automated validator guarantees fail-closed governance reproducibility.
-OPEN QUESTIONS: Architectural design of multi-block CFG and indirect branch dispatch for D9.
-EXACT NEXT ACTION: D9 Planning & Multi-Block Expansion Architecture Design.
+LAST VERIFIED RESULT: D9 architecture plan and first candidate qualified; 16/16 CTest suites pass on MinGW and Linux WSL (Debug and Release).
+FILES CHANGED: docs/D9_INDIRECT_CONTROL_FLOW_PLAN.md, workstreams/T2-D9-indirect/candidate_06004280.md, workstreams/T2-D9-indirect/README.md, tests/recomp/test_d9_plan.py, CMakeLists.txt, docs/FILE_MAP.md, docs/PROJECT_STATE.md, docs/DEVELOPMENT_PLAN.md, docs/WORKLOG.md, TASK.md
+TESTS RUN: test_d9_plan.py (positive PASS, 8 negative controls pass), test_post_d8_closure.py, test_mutation_harness, test_m07_reference.py (--require-external on Windows and WSL), 16/16 CTest suites pass across MinGW Debug/Release and Linux WSL Debug/Release; source line limits check (all human-maintained files <= 500 lines); git diff --check.
+NEW KNOWLEDGE: Candidate block bb_06004280 executes at cold boot Hit 2 (frame 701, cycle 316309168) after RTS return from 0x0600447C, preparing R5=0x002DA000, R4=0x06081C20, R3=0x0600A0F8 before JSR @R3; decouples into native source + interpreter continuation without native-to-native chaining.
+OPEN QUESTIONS: Specific test vectors for JSR @Rn edge cases in D9.1.
+EXACT NEXT ACTION: D9.1 Candidate Opcode L0 Semantics & Block Qualification (JSR @Rn, PR update, delay slot).

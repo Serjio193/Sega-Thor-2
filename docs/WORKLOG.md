@@ -1,5 +1,49 @@
 # Worklog
 
+## 2026-09-10 — T2-D9.P0 Indirect Control-Flow Architecture & First Bounded Candidate Plan
+
+### Task
+
+Architectural audit of current single-block system; qualification and empirical verification of the first indirect-flow candidate block (`bb_06004280`); design of dynamic exit model, generalized memory snapshot contract, timing/scheduler contract, fail-closed unknown target policy, anti-hardcoding controls, and M-03 re-entry trigger; author canonical planning and candidate records (`docs/D9_INDIRECT_CONTROL_FLOW_PLAN.md`, `workstreams/T2-D9-indirect/candidate_06004280.md`); implement automated plan integrity validator with negative controls (`tests/recomp/test_d9_plan.py`); formally evaluate D9 status.
+
+### Method & Discoveries
+
+1. **Single-Block Architecture Audit (D8 vs D9 Delta)**:
+   - Evaluated 10 foundational assumptions in current implementation.
+   - Classified intentional D8 specializations (`target_pc`, fixed `cycle_cost`, literal pool `0x06004064` hardcoding, single-block registry, block-specific event metadata) vs generalization mandates for D9.
+   - Identified critical D9 requirements: dynamic target assignment `out_target_pc = live_cpu.pc`, generalized memory pre-state capture, multi-kind exit representation, and interpreter continuation contract.
+2. **First Bounded Candidate Qualification (`bb_06004280`)**:
+   - Identified and verified the startup indirect call site in `0TH2.BIN` (High Work RAM `0x06004280..0x06004288`).
+   - Exact length: 10 bytes (5 instructions: 3x `MOV.L @(disp,PC)`, `JSR @R3`, `NOP` delay slot).
+   - Raw candidate bytes: `D5 36 D4 37 D3 37 43 0B 00 09`.
+   - SHA-256 (Candidate block bytes only): `8879cbe14f58a5fbc4eb9545e1cc41b3593e306cab114769a94f814a18bcb770`.
+3. **Dynamic Oracle Verification & Timing Trace**:
+   - Pinned Mednafen debug oracle verified arrival at `0x06004280` at cold-boot Hit 2 (frame 701, cycle `316309168`).
+   - Traced step-by-step instruction retirement, PC advance, PR update (`PR = 0x0600428A`), and target entry (`0x0600A0F8`) at cycle `316309187` (19-cycle block duration).
+   - Proven memory accesses: 3x 32-bit literal pool reads (`0x0600435C -> 0x002DA000`, `0x06004360 -> 0x06081C20`, `0x06004364 -> 0x0600A0F8`), 0 memory writes, 0 MMIO, atomic delay slot.
+4. **Code Ownership & Prerequisite Chain**:
+   - Block classified as `QUALIFIED_CANDIDATE` (not yet `CONFIRMED_CODE` or `BOUNDED_PROOF` until D9 sub-gates pass).
+   - Opcode classification: `MOV.L` and `NOP` are `ALREADY_D3_L0_PROVEN`; `JSR @R3` (`0x430B`) is `NEEDS_D3_L0_PROOF` (requires SH-2 decode/executor semantics, PR update, delay slot handling, and L0 test suite in D9.1).
+   - M-07 reference data recognized as reference/cross-check only, not production proof.
+5. **D9 Dynamic Exit Model & Native Continuation Architecture**:
+   - Designed `BlockExitKind` (`DIRECT`, `CONDITIONAL`, `INDIRECT_JUMP`, `INDIRECT_CALL`, `RETURN`, `FALLBACK_UNSUPPORTED`) and `BlockExitDescriptor`.
+   - Invariant: runtime target must be computed dynamically from guest post-state, never hardcoded.
+   - First D9 proof decoupled from native-to-native chaining: native indirect source block verifies in shadow mode, commits state, and yields control to interpreter at computed `out_target_pc`.
+6. **Fail-Closed Unknown Target Policy & Memory Generalization**:
+   - Defined 5-case fail-closed matrix (ineligible source, shadow divergence, unregistered target, malformed target, ineligible target).
+   - Replaced dispatcher address hardcoding with declarative generator descriptors + isolated copy-on-read memory facade.
+7. **M-03 Re-Entry Gate & Sub-Gate Roadmap**:
+   - Formally scheduled method M-03 (SaturnAutoRE offline candidate harvester) to unblock at sub-gate `D9.4` (Authoritative Native Indirect Override).
+   - Established concrete 7-stage roadmap: `D9.P0` -> `D9.1` -> `D9.2` -> `D9.3` -> `D9.4` -> `M-03` -> `D9.5`.
+8. **Automated Plan Integrity Validator**:
+   - Implemented `tests/recomp/test_d9_plan.py` (registered in `CMakeLists.txt` / `ctest`).
+   - Positive validation passes; 8 negative controls (hash corruption, address corruption, premature proof claim, missing L0 prerequisites, missing M-03 trigger, missing exit kinds) caught fail-closed.
+
+### Status After Pass
+
+- `D9`: **READY_FOR_BOUNDED_TEST**
+- Next action: D9.1 Candidate Opcode L0 Semantics & Block Qualification (`JSR @Rn`, PR update, delay slot).
+
 ## 2026-09-10 — T2-POST-D8.3.1 ADR D-012 Closure Evidence Integrity Repair
 
 ### Task

@@ -21,8 +21,9 @@
   - **M-07A (Decoder & Semantic Reference Corpus)**: **ADOPT_PARTIAL (DECODER_AND_SEMANTIC_REFERENCE)** (pinned commit `26c9715e5493054b8a205aa31d73d8f125fdd8f5`, blobs `6a5f7e06` and `709f9243`; 20 decode vectors and 8 live semantic cases cross-checked with 0 unexplained disagreements; 18 fail-closed negative controls verified; verified with `--require-external`; Evidence Strength [MEDIUM], Workflow Utility [HIGH]).
   - **M-07B (AOT Translation Emitter / C Codegen)**: **NOT_PRESENT_AT_PIN** (pinned commit contains no public AOT emitter or C code generator; upstream README explicitly notes absence; Evidence Strength [N/A], Workflow Utility [N/A]).
 - **POST-D8 SECOND-PASS CLOSURE (ADR D-012)**: **COMPLETE / SATISFIED / CLOSED** (canonical record in `docs/POST_D8_SECOND_PASS_CLOSURE.md`; exhaustive audit across M-01..M-10; D9 unblocked for planning).
+- **D9 / T2-D9.P0 — Indirect Control-Flow Handling**: **READY_FOR_BOUNDED_TEST** (canonical architecture plan in `docs/D9_INDIRECT_CONTROL_FLOW_PLAN.md`; dynamic exit model, generalized memory snapshot contract, fail-closed unknown target policy, and first candidate block `bb_06004280` [`0x06004280..0x06004288`, 10 bytes, SHA-256 `8879cbe1...`, cold-boot exit to `0x0600A0F8` in 19 cycles] qualified; automated validator `test_d9_plan.py` passing with 8 negative controls; M-03 re-entry gated at `D9.4`).
 
-Active next capability: **D9 multi-block recompilation scaling & indirect control-flow architecture (UNBLOCKED FOR PLANNING)**.
+Active next capability: **D9.1 Candidate Opcode L0 Semantics & Block Qualification (JSR @Rn, PR update, delay slot)**.
 
 Note: Basic block `bb_06004000` (`0x06004000..0x0600400A`) has complete decode, L0 semantic, code ownership, CFG, identity guard, minimum event safety, mechanical C++ transition proof, shadow checker validation, and authoritative native promotion proof. D3, D4, D5, D6, D7, and D8 remain at `BOUNDED_PROOF` for `bb_06004000` until broader corpus/module coverage is achieved. D8 is NOT whole-system recompiler completion.
 

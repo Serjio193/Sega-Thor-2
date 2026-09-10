@@ -1,0 +1,48 @@
+# T2-D9 — Indirect Control-Flow Handling
+
+Status: **READY_FOR_BOUNDED_TEST (Planning & Candidate Qualification Complete)**  
+Capability: **D9 — Indirect Control-Flow Handling**  
+Baseline Commit: `b2a326852dd1f3d01596310d6dc25fc5b10d2109`  
+
+---
+
+## 1. Capability Mission
+
+Establish the runtime dispatch and control-flow continuation mechanism for basic blocks containing indirect jumps, calls, or computed branches on Sega Saturn SH-2 architecture.
+
+Canonical definition per `docs/DEVELOPMENT_PLAN.md`:
+> Strategy for blocks containing indirect jumps, calls, or computed branches. Required bounded deliverable: runtime dispatch mechanism OR evidence-based target resolution for at least one indirect-flow block. UNKNOWN targets remain on interpreter/fallback.
+
+---
+
+## 2. Workstream Artifacts
+
+- `candidate_06004280.md`: First candidate block qualification record (`bb_06004280`), exact bytes, disassembly, oracle trace, and ownership classification.
+- `docs/D9_INDIRECT_CONTROL_FLOW_PLAN.md`: Complete architectural design, exit representation, memory snapshot generalization, timing contract, negative control matrix, and sub-gate roadmap.
+- `tests/recomp/test_d9_plan.py`: Automated plan integrity validator with fail-closed negative controls.
+
+---
+
+## 3. First Bounded Candidate Summary
+
+- **Block ID:** `bb_06004280`
+- **Range:** `0x06004280 .. 0x06004288` (10 bytes, 5 instructions)
+- **Module:** `0TH2.BIN` (Master SH-2)
+- **Indirect Instruction:** `0x430B` (`JSR @R3`) at `0x06004286`
+- **Delay Slot:** `0x0009` (`NOP`) at `0x06004288`
+- **SHA-256 (Candidate Bytes Only):** `8879cbe14f58a5fbc4eb9545e1cc41b3593e306cab114769a94f814a18bcb770`
+- **Observed Cold-Boot Target:** `0x0600A0F8`
+- **Observed Return Address (`PR`):** `0x0600428A`
+- **Execution Evidence:** Cold boot Hit 2 at frame `701`, cycle `316309168` in Mednafen debug oracle.
+
+---
+
+## 4. Sub-Gate Progression
+
+1. **`D9.P0` — Architecture & Candidate Qualification** [DONE / PASS]
+2. **`D9.1` — Candidate Opcode L0 Semantics & Block Qualification** [NEXT]
+3. **`D9.2` — Generic Dynamic-Exit & Memory-Descriptor Representation**
+4. **`D9.3` — Isolated Shadow Proof for `bb_06004280`**
+5. **`D9.4` — Authoritative Native Indirect Override & Dynamic Continuation (V-09A)**
+6. **`M-03` — Bounded SaturnAutoRE Candidate Harvester Re-Entry**
+7. **`D9.5` — Multi-Target / Secondary Indirect Expansion**
