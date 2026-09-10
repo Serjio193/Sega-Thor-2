@@ -1,0 +1,47 @@
+{
+  "module": "BGM.BIN",
+  "revision": "thor2_ntsc_patched_fe11d2fb",
+  "module_runtime_base": "0x00000000",
+  "module_size": 673792,
+  "confirmed_code_bytes": 28,
+  "raw_unknown_bytes": 673764,
+  "iso_sector_start": 353,
+  "iso_sector_count": 329,
+  "ranges": [
+    {
+      "offset_start": 0,
+      "offset_end_exclusive": 4096,
+      "runtime_start": "0x00000000",
+      "runtime_end_exclusive": "0x00001000",
+      "byte_length": 4096,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 4096,
+      "offset_end_exclusive": 4124,
+      "runtime_start": "0x00001000",
+      "runtime_end_exclusive": "0x0000101C",
+      "byte_length": 28,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "RAW_CODE_PENDING_DECODE",
+      "instruction_count": 14
+    },
+    {
+      "offset_start": 4124,
+      "offset_end_exclusive": 673792,
+      "runtime_start": "0x0000101C",
+      "runtime_end_exclusive": "0x000A4800",
+      "byte_length": 669668,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    }
+  ],
+  "labels": [
+    "entry_m68k_00001000"
+  ],
+  "expected_output_sha256": "c1d11d5386eaffbd4ca6443c3de615312a71cc678ba4d76c2c9d6035acf9a8f6",
+  "assembler_tool_identity": "Motorola 68000 / SCSP Driver Toolchain",
+  "linker_tool_identity": "Motorola 68000 Linker",
+  "provenance_identity": "T2-ASM-04"
+}

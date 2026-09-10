@@ -210,17 +210,33 @@ Capabilities proven:
 - Occurrence-aware runtime verification in pure interpreter Mednafen proving cycle 387459915 execution parity at `0x002E9910` in `TH2.LOW` with 0-cycle divergence and 23/23 matching registers across 6 checkpoints;
 - 10/10 TH2.LOW, 20/20 0TH2, and 9/9 schema negative controls pass fail-closed.
 
-### Active Next Technical Task: T2-ASM-04 — Secondary Module Skeletons & Systematic Module Enumeration
+### T2-ASM-04 — Disc Executable Inventory & Secondary Module ASM Skeletons
 
-Purpose: Extend the lossless assembly container methodology to auxiliary Saturn disc files (SLAVE SH-2 code, sound DSP code, graphical overlays), establish systematic boundary & CFG recovery under ASM-first gate, and advance toward `FULL_ASM_GAME_GATE`.
+Status: **BOUNDED_PROOF (Inventory + SET07.BIN)**
+
+Capabilities proven:
+- Complete census across all 33 ISO9660 disc files;
+- Identified all executable binaries and hardware roles: `0TH2.BIN` (Master SH-2 core), `TH2.LOW` (Master SH-2 low RAM engine), `SET07.BIN` (Master SH-2 stage overlay), `BGM.BIN` (M68K sound driver), `MAP.BIN` (SCU DSP microcode + geometry);
+- Proven multi-processor execution lifetime: Master SH-2 single-core boot/engine; Slave SH-2 dormant at frame 1201; MC68EC000 sound driver entry at `0x1000`;
+- Stage overlay loader invocation site recovered at `0x002E3C5C` in `TH2.LOW` (loads `SET07.BIN` to `0x060D8000` and executes `JSR @R3`);
+- Lossless assembly container `.private/asm/SET07/SET07.s` (6,175 lines) reassembled byte-exact (98,304 / 98,304 bytes, SHA-256 `bb607222...`) with pinned GNU `binutils-sh-elf 2.40+2`;
+- Dual-build determinism verified; sector-by-sector private disc splice at LBA 52040 verified bit-exact against retail disc `fe11d2fb...`;
+- 9/9 SET07 negative controls pass;
+- `thor_sh2` decoder & L0 semantics expanded: `MOV_L_WRITE_PREDEC` (`0x2nm6`) and `RTS` (`0x000B`); `TH2.LOW` entry `0x002E9910` promoted to `MNEMONIC_PROVEN`;
+- Method catalog (`docs/ASM_RECOVERY_METHOD_CATALOG.md`), autoplan priority engine (`docs/ASM_RECOVERY_AUTOPLAN.md`), and scorecard (`workstreams/ASM_RECOVERY_SCORECARD.json`) operational;
+- 24/24 CTests pass on Windows MinGW and Linux WSL.
+
+### Active Next Technical Task: T2-ASM-05 — Bulk Retired PC Harvesting & Recursive CFG Recovery toward ASM_90_GATE
+
+Purpose: Execute the autonomous proof-gated discovery loop across boot, attract demo, and gameplay; harvest retired Master SH-2 PCs from Mednafen runtime; recover direct CFG and literal pools; expand decoder for encountered opcodes; promote code to `MNEMONIC_PROVEN`; rebuild and verify byte-exact modules; drive toward `ASM_90_GATE` (`PROVEN_MNEMONIC_COVERAGE >= 90%`).
 
 ## Queued development milestones
 
 | ID | Capability | Key verification gate | Scope state |
 |---|---|---|---|
 | D2 | Executable module provenance | V-02a (0TH2.BIN), V-02b (TH2.LOW) | BOUNDED_PROOF (0TH2.BIN + TH2.LOW) |
-| D3 | Exact SH-2 decode + L0 semantics | V-06 cross-check + L0 semantic test suite | BOUNDED_PROOF (block 0 + JSR @Rn) |
-| D4 | Code/data/unknown ownership | V-03 (bounded batch), V-04 (schema) | BOUNDED_PROOF (block 0 + bb_06004280) |
+| D3 | Exact SH-2 decode + L0 semantics | V-06 cross-check + L0 semantic test suite | BOUNDED_PROOF (block 0 + JSR @Rn + MOV.L @-Rn + RTS) |
+| D4 | Code/data/unknown ownership | V-03 (bounded batch), V-04 (schema) | BOUNDED_PROOF (block 0 + bb_06004280 + 0x002E9910) |
 | D5 | Basic-block CFG | V-03 (bounded block CFG) | BOUNDED_PROOF (block 0 + bb_06004280) |
 | D6 | Mechanical explicit-state C++ | V-07A + pre-D8 identity/event guards | BOUNDED_PROOF (specimens bb_06004000, bb_06004280) |
 | D7 | Shadow comparison | V-07B (negative-control validation) | BOUNDED_PROOF (specimens bb_06004000, bb_06004280) |
@@ -230,7 +246,8 @@ Purpose: Extend the lossless assembly container methodology to auxiliary Saturn 
 | **T2-ASM-01** | **First bounded ASM round-trip** | **Candidate toolchain assembly & substitution** | **BOUNDED_PROOF (bb_06004000)** |
 | **T2-ASM-02** | **Full 0TH2.BIN lossless assembly container** | **Lossless full-module round-trip** | **BOUNDED_PROOF (0TH2.BIN)** |
 | **T2-ASM-03** | **TH2.LOW lossless ASM container** | **Lossless full-module round-trip & occurrence-aware runtime proof** | **BOUNDED_PROOF (TH2.LOW)** |
-| **T2-ASM-04** | **Secondary module skeletons** | **Multi-module round-trip & boot** | **ACTIVE NEXT TASK** |
+| **T2-ASM-04** | **Disc executable inventory & secondary modules** | **Census, multi-processor lifetimes, SET07.BIN container** | **BOUNDED_PROOF (SET07.BIN)** |
+| **T2-ASM-05** | **Bulk PC harvesting & CFG recovery to ASM_90_GATE** | **Coverage >= 90%, runtime parity** | **ACTIVE NEXT TASK** |
 | **GATE** | **FULL_ASM_GAME_GATE** | **Rebuilt Saturn game boots & plays in Mednafen** | **MANDATORY PREREQUISITE FOR BROAD C++ TRANSLATION** |
 | D10 | Timing/IRQ/DMA boundaries | — (general scaling) | PROPOSED (Post-ASM-Gate) |
 | D11 | Overlay/generation identity | V-10 (transformation/overlay discovery) | PROPOSED (Active for ASM reconstruction) |

@@ -333,6 +333,47 @@ static void test_ordered_memory_effects() {
     THOR_ASSERT(log[1].address == 0x06081C14 && log[1].value == 0x22222222);
 }
 
+static void test_mov_l_write_predec_semantics() {
+    Sh2FlatMemory mem;
+    Sh2CpuState state;
+
+    // Test MOV.L R14, @-R15 (0x2FE6)
+    state.pc = 0x002E9910;
+    state.r[15] = 0x06002000;
+    state.r[14] = 0x12345678;
+    mem.clear_log();
+
+    const Sh2Instruction ins = decode_sh2(0x2FE6, state.pc);
+    THOR_ASSERT(execute_sh2_instruction(ins, state, mem) == ExecutionResult::SUCCESS);
+    THOR_ASSERT(state.r[15] == 0x06001FFC);
+    THOR_ASSERT(state.r[14] == 0x12345678);
+    THOR_ASSERT(mem.read32(0x06001FFC) == 0x12345678);
+    THOR_ASSERT(state.pc == 0x002E9912);
+}
+
+static void test_rts_semantics() {
+    Sh2FlatMemory mem;
+    Sh2CpuState state;
+
+    mem.write16(0x06004720, 0x000B);
+    mem.write16(0x06004722, 0x0009);
+
+    state.pc = 0x06004720;
+    state.pr = 0x0600428A;
+    state.clear_delayed_branch();
+
+    const StepResult step1 = step_sh2(state, mem);
+    THOR_ASSERT(step1.status == ExecutionResult::SUCCESS);
+    THOR_ASSERT(state.pc == 0x06004722);
+    THOR_ASSERT(state.has_delayed_branch());
+    THOR_ASSERT(state.delayed_pc == 0x0600428A);
+
+    const StepResult step2 = step_sh2(state, mem);
+    THOR_ASSERT(step2.status == ExecutionResult::SUCCESS);
+    THOR_ASSERT(state.pc == 0x0600428A);
+    THOR_ASSERT(!state.has_delayed_branch());
+}
+
 int main() {
     std::cout << "[test_sh2_l0_semantics] Running sign extension tests (MOV.W)...\n";
     test_sign_extension_mov_w();
@@ -352,6 +393,10 @@ int main() {
     test_register_isolation();
     std::cout << "[test_sh2_l0_semantics] Running ordered memory effects tests...\n";
     test_ordered_memory_effects();
+    std::cout << "[test_sh2_l0_semantics] Running MOV.L Rm, @-Rn pre-decrement semantics...\n";
+    test_mov_l_write_predec_semantics();
+    std::cout << "[test_sh2_l0_semantics] Running RTS delayed return semantics...\n";
+    test_rts_semantics();
     std::cout << "[test_sh2_l0_semantics] PASS: All L0 semantic tests green (0 divergences).\n";
     return 0;
 }

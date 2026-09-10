@@ -25,9 +25,10 @@ from assemble_roundtrip import (
 
 def get_module_stem(module_name: str) -> str:
     """Return filesystem-friendly identifier for module."""
-    if module_name == "0TH2.BIN":
-        return "0TH2"
+    if module_name.endswith(".BIN"):
+        return module_name[:-4]
     return module_name.replace(".", "_")
+
 
 
 def execute_build(

@@ -14,8 +14,11 @@ enum class OpcodeId : uint16_t {
     MOV_L_READ_MEM,  // MOV.L @Rm, Rn (0110 nnnn mmmm 0010)
     BRA,             // BRA label     (1010 dddddddddddd)
     JSR,             // JSR @Rn       (0100 nnnn 0000 1011)
-    NOP              // NOP           (0000 0000 0000 1001)
+    NOP,             // NOP           (0000 0000 0000 1001)
+    MOV_L_WRITE_PREDEC, // MOV.L Rm, @-Rn (0010 nnnn mmmm 0110)
+    RTS              // RTS           (0000 0000 0000 1011)
 };
+
 
 /// Control flow behavior.
 enum class ControlFlowType : uint8_t {

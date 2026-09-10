@@ -1,5 +1,55 @@
 # Worklog
 
+## 2026-09-10 — T2-ASM-04 Disc Executable Inventory & Secondary Module ASM Skeletons
+
+### Task
+
+Execute the fourth bounded experiment of ADR D-015 (ASM_FIRST_RECOVERY) and implement ADR D-016 (Proof-Gated Discovery Accelerators): establish a complete executable census across all 33 ISO9660 disc files; classify executable modules, stage overlays, sound programs, and microcode; trace multi-processor execution lifetimes (Master SH-2, Slave SH-2, MC68EC000, SCU DSP); establish lossless assembly container for stage overlay `SET07.BIN` (98,304 bytes, VMA `0x060D8000`); reassemble `SET07.BIN` byte-exact (SHA-256 `bb6072222e19f8cb68934cbdb94e7d187c67680bb9e167524f85579ee6bc0af6`); prove dual-build determinism; splice into private disc image at LBA 52040 across 48 sectors; prove fail-closed negative controls; expand `thor_sh2` decoder for newly discovered opcodes (`MOV_L_WRITE_PREDEC` `0x2nm6`, `RTS` `0x000B`) and promote `TH2.LOW` entry point `0x002E9910` to `MNEMONIC_PROVEN`; create method catalog (`docs/ASM_RECOVERY_METHOD_CATALOG.md`), autoplan priority engine (`docs/ASM_RECOVERY_AUTOPLAN.md`), and machine-readable scorecard (`workstreams/ASM_RECOVERY_SCORECARD.json`).
+
+### Method & Discoveries
+
+1. **Complete Disc Census (33 Files)**:
+   - Evaluated all 33 ISO9660 disc files via header analysis, pointer detection, entropy scans, and symbol strings.
+   - Identified all executable binaries and hardware roles:
+     - `0TH2.BIN`: 535,552 bytes, VMA `0x06004000`, Master SH-2 primary retail core.
+     - `TH2.LOW`: 149,504 bytes, VMA `0x002DA000`, Master SH-2 secondary low-RAM engine module.
+     - `SET07.BIN`: 98,304 bytes, VMA `0x060D8000`, Master SH-2 stage/gameplay overlay.
+     - `BGM.BIN`: 673,792 bytes, Sound RAM `0x00000000` (`0x05A00000`), Motorola 68EC000 sound driver (reset vector `0x1000`: `46FC 2700` `MOVE #$2700, SR`).
+     - `MAP.BIN`: 4,036,608 bytes, SCU DSP microcode header (`DSP<`) and stage map geometry.
+2. **Multi-Processor Life Cycle Proven**:
+   - Master SH-2: executes `0TH2.BIN` boot entry, loads `TH2.LOW` via CD loader at `0x0600A0F8`, jumps to `0x002E9910`, and executes main game loop.
+   - Slave SH-2: remains dormant / uninitialized at frame 1201 (`PC=0x00000000`, `SR=0x000000F0`). Proves single-core Master SH-2 architecture for boot and core game loop.
+   - MC68EC000: dedicated sound co-processor driven by `BGM.BIN`.
+   - Stage overlay call site recovered in `TH2.LOW`: `0x002E3C5C` sets `R4 = "SET07.BIN"`, `R5 = 0x060D8000`, calls loader `0x0600A0F8`, and transfers control to `0x060D8000` (`JSR @R3`).
+3. **Lossless Assembly Container for SET07.BIN**:
+   - Created manifest `asm/manifests/SET07.BIN.json` and linker script `asm/linker/SET07.ld`.
+   - Generated private container `.private/asm/SET07/SET07.s` (6,175 lines).
+   - Reassembled with pinned `binutils-sh-elf 2.40+2`: 98,304 / 98,304 bytes byte-exact (SHA-256 `bb6072222e19f8cb68934cbdb94e7d187c67680bb9e167524f85579ee6bc0af6`).
+   - Dual-build determinism verified (0 diffs).
+   - Sector-by-sector private disc splice at LBA 52040 verified against clean retail disc `fe11d2fb...`.
+   - 9/9 fail-closed negative controls pass (`tests/asm/test_set07_asm.py`).
+4. **Decoder & Semantics Expansion (`thor_sh2`)**:
+   - Added `MOV_L_WRITE_PREDEC` (`0x2nm6`, `MOV.L Rm, @-Rn`) to `sh2_types.hpp`, `sh2_decoder.cpp`, and `sh2_executor.cpp`.
+   - Added `RTS` (`0x000B`, Return from Subroutine) with delay-slot execution.
+   - Upgraded `asm/manifests/TH2.LOW.json`: promoted `0x002E9910` from `RAW_CODE_PENDING_DECODE` to `MNEMONIC_PROVEN` (`mov.l r14, @-r15`). Reassembled byte-exact, 10/10 negative controls pass.
+   - Added comprehensive decoder and L0 semantic unit tests.
+5. **Governance & Automation Infrastructure**:
+   - Adopted ADR D-016: Allow Proof-Gated Discovery Accelerators During ASM-First Recovery in `docs/DECISIONS.md`.
+   - Created `docs/ASM_RECOVERY_METHOD_CATALOG.md` documenting Methods M-01..M-10, ASM-01..ASM-04, and Tracks A through R.
+   - Created `docs/ASM_RECOVERY_AUTOPLAN.md` defining priority scoring engine and anti-gaming rules.
+   - Initialized machine-readable metric tracker `workstreams/ASM_RECOVERY_SCORECARD.json`.
+
+### Status After Pass
+
+- `T2-ASM-04`: **PASS**
+- `SET07.BIN`: `MODULE_CONTAINER_ESTABLISHED = PASS`, `ASM_BYTE_EXACT = PASS`
+- `TH2.LOW`: `ASM_BYTE_EXACT = PASS`, `ASM_RUNTIME_VERIFIED = PASS`, `PROVEN_CODE_EMITTED = PASS`
+- `0TH2.BIN`: `ASM_BYTE_EXACT = PASS`, `ASM_RUNTIME_VERIFIED = PASS`
+- `BGM.BIN`: `SOUND_PROGRAM_MANIFEST = PASS`
+- Broad C++ Translation: **FROZEN** (ADR D-015)
+- `FULL_ASM_GAME_GATE`: **IN_PROGRESS**
+- Exact next action: `T2-ASM-05 — Bulk Retired PC Harvesting & Recursive CFG Recovery toward ASM_90_GATE`.
+
 ## 2026-09-10 — T2-ASM-03 TH2.LOW Lossless ASM Container & Shared ASM Recovery Infrastructure
 
 ### Task

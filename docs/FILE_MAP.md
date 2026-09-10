@@ -27,6 +27,8 @@ docs/
   D9_INDIRECT_CONTROL_FLOW_PLAN.md D9 architecture, dynamic exit model & candidate plan
   RE_TOOLCHAIN_GUIDE.md           historical Saturn SDK/toolchain evidence rules
   RULES_TRANSFER_AUDIT.md         Sega-Thor -> Sega-Thor-2 governance parity audit
+  ASM_RECOVERY_METHOD_CATALOG.md  recovery methods M-01..M-10, ASM-01..04, and tracks A..R
+  ASM_RECOVERY_AUTOPLAN.md        live priority queue and cost-benefit scoring engine
 
 config/
   revisions/
@@ -115,9 +117,12 @@ tests/
     test_asm_roundtrip.py         CTest integration test for SH-2 ASM round-trip verification
     test_full_module_asm.py       CTest integration test for full 0TH2.BIN module round-trip
     test_th2_low_asm.py           CTest integration test for full TH2.LOW module round-trip
+    test_set07_asm.py             CTest integration test for full SET07.BIN overlay round-trip
     test_manifest_schema.py       CTest integration test for module manifest schema & partition invariants
 
+
 workstreams/
+  ASM_RECOVERY_SCORECARD.json   machine-readable tracking metrics for ASM_90_GATE and FULL_ASM_GAME_GATE
   T2-M0-disc-census/
     README.md                     completed M0 proof
     disc_manifest.tsv             all 33 ISO logical files: LBA/size/SHA-256
@@ -182,6 +187,10 @@ workstreams/
     README.md                     T2-ASM-03 workstream record and TH2.LOW proof summary
     experiment_evidence.md        detailed toolchain, TH2.LOW assembly, and runtime proof
     experiment_evidence.json      machine-readable round-trip, occurrence runtime, and negative controls evidence
+  T2-ASM-04/
+    README.md                     T2-ASM-04 workstream record and executable inventory summary
+    experiment_evidence.md        detailed disc census, processor ownership, and SET07 proof
+    experiment_evidence.json      machine-readable inventory, co-processor, and round-trip evidence
 
 asm/                              assembly reconstruction layout (ADR D-015)
   schema/
@@ -192,10 +201,14 @@ asm/                              assembly reconstruction layout (ADR D-015)
     bb_06004000.ld                linker script for bb_06004000 at VMA 0x06004000
     0TH2.ld                       linker script for full 0TH2.BIN module at VMA 0x06004000
     TH2_LOW.ld                    linker script for full TH2.LOW module at VMA 0x002DA000
+    SET07.ld                      linker script for full SET07.BIN overlay at VMA 0x060D8000
   manifests/
     bb_06004000.json              provenance manifest for bb_06004000 slice
     0TH2.BIN.json                 provenance manifest for 0TH2.BIN module container
     TH2.LOW.json                  provenance manifest for TH2.LOW module container
+    SET07.BIN.json                provenance manifest for SET07.BIN overlay container
+    BGM.BIN.json                  provenance manifest for BGM.BIN sound driver container
+
 
 external/
   README.md                       rules for private user-supplied inputs

@@ -280,3 +280,21 @@ This experiment proves toolchain feasibility and establishes the ASM round-trip 
 - **Technical capability:** `READY_FOR_BOUNDED_TEST` (technically unblocked by D9.4 proof).
 - **Execution status:** `DEFERRED_BY_ASM_FIRST_ARCHITECTURE` until `FULL_ASM_GAME_GATE` passes.
 - M-03 is NOT technically disproven, but its execution is postponed in accordance with the ASM-first sequencing rule.
+
+## ADR D-016: Allow Proof-Gated Discovery Accelerators During ASM-First Recovery
+
+- **Status:** APPROVED (2026-09-10)
+- **Context:**
+  ADR D-015 established the mandatory ASM-first recovery track and froze broad C++ translation until `FULL_ASM_GAME_GATE`. However, reaching `ASM_90_GATE` ($\ge 90.00\%$ proven mnemonic coverage) and `FULL_ASM_GAME_GATE` across all Saturn executable modules, overlays, and sound programs requires analyzing over 685 KB of Saturn binaries. Performing this solely by manual ad-hoc inspection is unnecessarily slow. Automated discovery accelerators (static analyzers, headless decompilation, dynamic trace harvesters, debug mode controllers, signature matchers, and pattern recognizers) can dramatically speed up candidate generation.
+- **Decision:**
+  Authorize the creation and use of proof-gated discovery accelerators during the ASM-first recovery track. Specifically:
+  1. **Autonomous Recovery Loop:** An automated discovery and verification engine may iteratively execute test scenarios, harvest retired PCs, trace memory loads, and propose candidate code/data boundaries.
+  2. **Multi-Source Discovery:** Static analyzers (recursive CFG closure, literal pool extractors, pointer table scanners, compiler pattern matchers), dynamic oracles (Mednafen retired PC harvesters, RAM write watchers, interrupt monitors), and external tools (headless Ghidra disassemblers, Saturn SDK signatures) may be used to discover candidate blocks.
+  3. **Thor In-Game Debug Tooling:** Activation of retail debug features (such as `0x06009CC4` debug menu, level select, and sound tests) is approved as an oracle stimulus tool to explore code paths.
+  4. **Multi-Processor Scope:** Discovery applies to Master SH-2, Slave SH-2, and MC68EC000 (SCSP sound) programs.
+- **Mandatory Invariant — DISCOVERY $\ne$ PROOF:**
+  1. Discovery tools produce *hypotheses* (`PROBABLE_CODE`, `PROBABLE_DATA`, candidate boundaries).
+  2. A candidate range is promoted to `CONFIRMED_CODE` ONLY when supported by independent verification (e.g., observed dynamic execution in clean Mednafen oracle, verified deterministic CFG closure from a confirmed entry point, or byte-exact assembler/linker round-trip).
+  3. An instruction is promoted to `MNEMONIC_PROVEN` ONLY when decoded bit-exact by `thor_sh2` with verified L0 semantics.
+  4. Unproven bytes must remain losslessly emitted as raw data directives (`.byte`), never guessed instructions.
+  5. Broad ASM $\to$ C++ translation remains strictly FROZEN per ADR D-015 until `FULL_ASM_GAME_GATE` passes.

@@ -36,9 +36,10 @@ DEFAULT_DISC_PATH = "The_Story_of_Thor_2_[RUS]_(NTSC).bin"
 
 def get_module_stem(module_name: str) -> str:
     """Return filesystem-friendly identifier for module."""
-    if module_name == "0TH2.BIN":
-        return "0TH2"
+    if module_name.endswith(".BIN"):
+        return module_name[:-4]
     return module_name.replace(".", "_")
+
 
 
 def extract_disc_module(repo_root: str, manifest: Dict[str, Any]) -> bytes:
@@ -230,14 +231,23 @@ def run_negative_controls(repo_root: str, manifest_path: str) -> Dict[str, bool]
             results["NC_wrong_endian_ld"] = (hashlib.sha256(b).hexdigest() != expected_sha)
         except (AssertionError, RuntimeError):
             results["NC_wrong_endian_ld"] = True
-    else:
+    elif module_name == "TH2.LOW":
         # TH2.LOW negative controls
-        results["NC_TH2L_01_mutate_opcode"] = test_s_mut("nct01", ".byte   0x2F, 0xE6", ".byte   0x2F, 0xE7")
+        results["NC_TH2L_01_mutate_opcode"] = test_s_mut("nct01", "mov.l   r14, @-r15", "mov.l   r13, @-r15")
         results["NC_TH2L_02_wrong_vma"] = test_ld_mut("nct02", "0x002DA000", "0x002DB000")
         results["NC_TH2L_03_wrong_size"] = test_ld_mut("nct03", f"SIZEOF(.text) == {expected_size}", f"SIZEOF(.text) == {expected_size - 4}")
         results["NC_TH2L_04_wrong_label"] = test_ld_mut("nct04", "entry_002E9910 == 0x002E9910", "entry_002E9910 == 0x002E9912")
         results["NC_TH2L_05_unresolved_reloc"] = test_s_mut("nct05", "entry_002E9910:", "entry_undefined:")
-        results["NC_TH2L_06_instruction_endian_swap"] = test_s_mut("nct06", ".byte   0x2F, 0xE6", ".byte   0xE6, 0x2F")
+        results["NC_TH2L_06_instruction_endian_swap"] = test_s_mut("nct06", "mov.l   r14, @-r15", "mov.l   r14, @-r14")
+
+    elif module_name == "SET07.BIN":
+        # SET07.BIN negative controls
+        results["NC_SET07_01_mutate_opcode"] = test_s_mut("ncs01", "bra     loc_060D8012", "bra     loc_060D8014")
+        results["NC_SET07_02_wrong_vma"] = test_ld_mut("ncs02", "0x060D8000", "0x060D9000")
+        results["NC_SET07_03_wrong_size"] = test_ld_mut("ncs03", f"SIZEOF(.text) == {expected_size}", f"SIZEOF(.text) == {expected_size - 4}")
+        results["NC_SET07_04_wrong_label"] = test_ld_mut("ncs04", "loc_060D8012 == 0x060D8012", "loc_060D8012 == 0x060D8014")
+        results["NC_SET07_05_unresolved_reloc"] = test_s_mut("ncs05", "loc_060D8012:", "loc_undefined:")
+
 
     # Truncated output
     try:

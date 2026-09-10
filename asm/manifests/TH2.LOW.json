@@ -24,9 +24,11 @@
       "runtime_end_exclusive": "0x002E9912",
       "byte_length": 2,
       "evidence_classification": "CONFIRMED_CODE",
-      "assembly_representation": "RAW_CODE_PENDING_DECODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E9910",
       "instruction_count": 1
     },
+
     {
       "offset_start": 63762,
       "offset_end_exclusive": 149504,
@@ -37,7 +39,17 @@
       "assembly_representation": "RAW_UNKNOWN"
     }
   ],
+  "code_blocks": [
+    {
+      "block_id": "bb_002E9910",
+      "runtime_start": "0x002E9910",
+      "runtime_end": "0x002E9912",
+      "byte_length": 2,
+      "instruction_count": 1
+    }
+  ],
   "labels": [
+
     "entry_002E9910"
   ],
   "expected_output_sha256": "781396898191921b486be751163aea493ef9b1abcb55c0ab8698df9c69211224",

@@ -1,0 +1,50 @@
+{
+  "module": "SET07.BIN",
+  "revision": "thor2_ntsc_patched_fe11d2fb",
+  "module_runtime_base": "0x060D8000",
+  "module_size": 98304,
+  "confirmed_code_bytes": 12,
+  "raw_unknown_bytes": 98292,
+  "iso_sector_start": 52040,
+  "iso_sector_count": 48,
+  "ranges": [
+    {
+      "offset_start": 0,
+      "offset_end_exclusive": 12,
+      "runtime_start": "0x060D8000",
+      "runtime_end_exclusive": "0x060D800C",
+      "byte_length": 12,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_060D8000",
+      "instruction_count": 6
+    },
+    {
+      "offset_start": 12,
+      "offset_end_exclusive": 98304,
+      "runtime_start": "0x060D800C",
+      "runtime_end_exclusive": "0x060F0000",
+      "byte_length": 98292,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    }
+  ],
+  "code_blocks": [
+    {
+      "block_id": "bb_060D8000",
+      "runtime_start": "0x060D8000",
+      "runtime_end": "0x060D800C",
+      "byte_length": 12,
+      "instruction_count": 6
+    }
+  ],
+  "labels": [
+    "lit_060D8048",
+    "lit_060D8064",
+    "loc_060D8012"
+  ],
+  "expected_output_sha256": "bb6072222e19f8cb68934cbdb94e7d187c67680bb9e167524f85579ee6bc0af6",
+  "assembler_tool_identity": "GNU assembler (binutils-sh-elf 2.40+2) 2.40",
+  "linker_tool_identity": "GNU ld (binutils-sh-elf 2.40+2) 2.40",
+  "provenance_identity": "T2-ASM-04"
+}

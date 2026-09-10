@@ -1,0 +1,89 @@
+{
+  "task": "T2-ASM-04",
+  "task_description": "Secondary Module Skeletons, Systematic Executable Inventory & Decoder Expansion",
+  "timestamp": "2026-09-10T19:15:00Z",
+  "baseline_commit": "62002bad52a40005978f11ac7d0f6b9320b8245c",
+  "toolchain": {
+    "as": "GNU assembler (binutils-sh-elf 2.40+2) 2.40",
+    "as_sha256": "fd3ddc347d0f83521b98e039e30acf93380930dd521d5031682767e822c074e5",
+    "ld": "GNU ld (binutils-sh-elf 2.40+2) 2.40",
+    "ld_sha256": "e369cd410424715b549f2e61fc12f1f93f525f656ff3f60f2fdc22f689c8472d"
+  },
+  "disc_census": {
+    "total_iso_files": 33,
+    "canonical_disc_sha256": "fe11d2fbda58d63300ef2265c555ce05bddf14d69fb7b73fc409e25c0ef6c0a8",
+    "executable_modules": [
+      {
+        "name": "0TH2.BIN",
+        "processor": "MASTER_SH2",
+        "vma": "0x06004000",
+        "size_bytes": 535552,
+        "sha256": "c1cc4117870bc567386410aa2d4f1b5f03fb98a601be71bb3ae2155de1853c64",
+        "reassembly_status": "BYTE_EXACT",
+        "runtime_verified": true
+      },
+      {
+        "name": "TH2.LOW",
+        "processor": "MASTER_SH2",
+        "vma": "0x002DA000",
+        "size_bytes": 149504,
+        "sha256": "781396898191921b486be751163aea493ef9b1abcb55c0ab8698df9c69211224",
+        "reassembly_status": "BYTE_EXACT",
+        "runtime_verified": true
+      },
+      {
+        "name": "SET07.BIN",
+        "processor": "MASTER_SH2",
+        "vma": "0x060D8000",
+        "size_bytes": 98304,
+        "sha256": "bb6072222e19f8cb68934cbdb94e7d187c67680bb9e167524f85579ee6bc0af6",
+        "reassembly_status": "BYTE_EXACT",
+        "runtime_verified": true
+      },
+      {
+        "name": "BGM.BIN",
+        "processor": "MC68EC000",
+        "vma": "0x00000000",
+        "size_bytes": 673792,
+        "sha256": "c1d11d5386eaffbd4ca6443c3de615312a71cc678ba4d76c2c9d6035acf9a8f6",
+        "reassembly_status": "CATALOGED_MANIFEST_READY",
+        "runtime_verified": false
+      }
+    ]
+  },
+  "processor_verification": {
+    "master_sh2": {
+      "state": "ACTIVE",
+      "observed_execution": true,
+      "current_pc_frame_1201": "0x002E826C"
+    },
+    "slave_sh2": {
+      "state": "DORMANT_UNINITIALIZED",
+      "observed_execution": false,
+      "pc_frame_1201": "0x00000000",
+      "sr_frame_1201": "0x000000F0"
+    },
+    "mc68ec000": {
+      "state": "SOUND_COPROCESSOR",
+      "entry_point": "0x00001000",
+      "reset_instruction": "MOVE #$2700, SR (46FC 2700)"
+    }
+  },
+  "results": {
+    "set07_byte_exact": true,
+    "set07_dual_build_deterministic": true,
+    "set07_disc_splice_match": true,
+    "th2_low_promoted_mnemonic": true,
+    "th2_low_byte_exact": true,
+    "decoder_expansion": [
+      "MOV_L_WRITE_PREDEC (0x2nm6, MOV.L Rm, @-Rn)",
+      "RTS (0x000B, Return from Subroutine)"
+    ],
+    "negative_controls": {
+      "SET07_negative_controls_passed": 9,
+      "TH2_LOW_negative_controls_passed": 10,
+      "0TH2_negative_controls_passed": 20,
+      "schema_negative_controls_passed": 9
+    }
+  }
+}

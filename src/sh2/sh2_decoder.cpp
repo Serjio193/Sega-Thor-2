@@ -84,6 +84,26 @@ Sh2Instruction decode_sh2(uint16_t opcode, uint32_t pc) noexcept {
         return instr;
     }
 
+    // 0x2nm6: MOV.L Rm, @-Rn
+    if (hi == 0x2u && lo == 0x6u) {
+        instr.id = OpcodeId::MOV_L_WRITE_PREDEC;
+        instr.rn = rn;
+        instr.rm = rm;
+        instr.flow = ControlFlowType::SEQUENTIAL;
+        instr.has_delay_slot = false;
+        instr.mem_access = MemoryAccessType::WRITE_U32;
+        return instr;
+    }
+
+    // 0x000B: RTS
+    if (opcode == 0x000Bu) {
+        instr.id = OpcodeId::RTS;
+        instr.flow = ControlFlowType::RETURN;
+        instr.has_delay_slot = true;
+        instr.mem_access = MemoryAccessType::NONE;
+        return instr;
+    }
+
     // Fail closed for any unmodeled opcode
     instr.id = OpcodeId::UNKNOWN;
     instr.flow = ControlFlowType::ILLEGAL;
@@ -107,6 +127,9 @@ std::string Sh2Instruction::mnemonic() const {
         case OpcodeId::MOV_L_READ_MEM:
             ss << "mov.l @r" << static_cast<int>(rm) << ", r" << static_cast<int>(rn);
             return ss.str();
+        case OpcodeId::MOV_L_WRITE_PREDEC:
+            ss << "mov.l r" << static_cast<int>(rm) << ", @-r" << static_cast<int>(rn);
+            return ss.str();
         case OpcodeId::BRA:
             ss << "bra 0x" << std::hex << compute_branch_target();
             return ss.str();
@@ -115,10 +138,13 @@ std::string Sh2Instruction::mnemonic() const {
             return ss.str();
         case OpcodeId::NOP:
             return "nop";
+        case OpcodeId::RTS:
+            return "rts";
         default:
             ss << ".word 0x" << std::hex << std::setw(4) << std::setfill('0') << raw_opcode;
             return ss.str();
     }
 }
+
 
 } // namespace thor::sh2

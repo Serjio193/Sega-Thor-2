@@ -109,9 +109,31 @@ static void test_jsr_decoding_all_registers() {
     }
 }
 
+static void test_mov_l_write_predec_decoding() {
+    const Sh2Instruction ins = decode_sh2(0x2FE6, 0x002E9910);
+    THOR_ASSERT(ins.is_valid());
+    THOR_ASSERT(ins.id == OpcodeId::MOV_L_WRITE_PREDEC);
+    THOR_ASSERT(ins.rn == 15);
+    THOR_ASSERT(ins.rm == 14);
+    THOR_ASSERT(ins.flow == ControlFlowType::SEQUENTIAL);
+    THOR_ASSERT(ins.has_delay_slot == false);
+    THOR_ASSERT(ins.mem_access == MemoryAccessType::WRITE_U32);
+    THOR_ASSERT(ins.mnemonic() == "mov.l r14, @-r15");
+}
+
+static void test_rts_decoding() {
+    const Sh2Instruction ins = decode_sh2(0x000B, 0x06004720);
+    THOR_ASSERT(ins.is_valid());
+    THOR_ASSERT(ins.id == OpcodeId::RTS);
+    THOR_ASSERT(ins.flow == ControlFlowType::RETURN);
+    THOR_ASSERT(ins.has_delay_slot == true);
+    THOR_ASSERT(ins.mem_access == MemoryAccessType::NONE);
+    THOR_ASSERT(ins.mnemonic() == "rts");
+}
+
 static void test_unsupported_opcodes_fail_closed() {
     const uint16_t unmodeled[] = {
-        0x0000, 0x000B, 0x2FE6, 0x4000, 0x400A, 0x400C, 0x7001,
+        0x0000, 0x0001, 0x2FE5, 0x4000, 0x400A, 0x400C, 0x7001,
         0x8900, 0xB000, 0xC000, 0xE000, 0xFFFF
     };
     for (uint16_t op : unmodeled) {
@@ -132,8 +154,13 @@ int main() {
     test_jsr_decoding_all_registers();
     std::cout << "[test_sh2_decoder] Running PC-relative EA rules...\n";
     test_pc_relative_ea_rules();
+    std::cout << "[test_sh2_decoder] Running MOV.L Rm, @-Rn decoding tests...\n";
+    test_mov_l_write_predec_decoding();
+    std::cout << "[test_sh2_decoder] Running RTS decoding tests...\n";
+    test_rts_decoding();
     std::cout << "[test_sh2_decoder] Running fail-closed unsupported opcode tests...\n";
     test_unsupported_opcodes_fail_closed();
+
     std::cout << "[test_sh2_decoder] PASS: All decode checks green (0 disagreements).\n";
     return 0;
 }

@@ -21,9 +21,10 @@ DEFAULT_DISC_PATH = "The_Story_of_Thor_2_[RUS]_(NTSC).bin"
 
 def get_module_stem(module_name: str) -> str:
     """Return filesystem-friendly identifier for module."""
-    if module_name == "0TH2.BIN":
-        return "0TH2"
+    if module_name.endswith(".BIN"):
+        return module_name[:-4]
     return module_name.replace(".", "_")
+
 
 
 def extract_module_from_disc(repo_root: str, manifest: Dict[str, Any]) -> bytes:

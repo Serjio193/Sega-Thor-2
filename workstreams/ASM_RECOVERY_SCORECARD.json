@@ -1,0 +1,85 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Thor 2 ASM Recovery Scorecard",
+  "timestamp": "2026-09-10T19:15:00Z",
+  "baseline_commit": "62002bad52a40005978f11ac7d0f6b9320b8245c",
+  "active_milestone": "ASM-First Recovery Track (docs/DEVELOPMENT_PLAN.md, ADR D-015, ADR D-016)",
+  "overall_status": "IN_PROGRESS",
+  "active_task": "T2-ASM-04",
+  "gates": {
+    "ASM_90_GATE": {
+      "status": "NOT_MET",
+      "requirement": "PROVEN_MNEMONIC_COVERAGE >= 90.00% across all confirmed code",
+      "current_value": 56.25,
+      "details": "36 proven mnemonic bytes / 64 confirmed code bytes across SH-2 and M68K modules (SH-2 modules alone are at 100.0% coverage: 36/36 bytes)."
+    },
+    "FULL_ASM_GAME_GATE": {
+      "status": "NOT_MET",
+      "requirement": "100% executable modules reassembled byte-exact, boot and gameplay verified with 0 divergence"
+    },
+    "STANDALONE_NATIVE_GATE": {
+      "status": "NOT_MET",
+      "requirement": "D18 standalone C++20 game parity reached without Saturn emulator"
+    }
+  },
+  "metrics": {
+    "total_modules_cataloged": 4,
+    "total_binary_bytes": 1457152,
+    "total_confirmed_code_bytes": 64,
+    "total_proven_mnemonic_bytes": 36,
+    "total_unknown_bytes": 1457088,
+    "proven_mnemonic_coverage_pct": 56.25,
+    "module_containers_byte_exact": 3,
+    "module_containers_runtime_verified": 3
+  },
+  "modules": [
+    {
+      "name": "0TH2.BIN",
+      "vma": "0x06004000",
+      "processor": "MASTER_SH2",
+      "size_bytes": 535552,
+      "sha256": "c1cc4117870bc567386410aa2d4f1b5f03fb98a601be71bb3ae2155de1853c64",
+      "confirmed_code_bytes": 22,
+      "proven_mnemonic_bytes": 22,
+      "unknown_bytes": 535530,
+      "reassembly_status": "BYTE_EXACT",
+      "runtime_verified": true
+    },
+    {
+      "name": "TH2.LOW",
+      "vma": "0x002DA000",
+      "processor": "MASTER_SH2",
+      "size_bytes": 149504,
+      "sha256": "781396898191921b486be751163aea493ef9b1abcb55c0ab8698df9c69211224",
+      "confirmed_code_bytes": 2,
+      "proven_mnemonic_bytes": 2,
+      "unknown_bytes": 149502,
+      "reassembly_status": "BYTE_EXACT",
+      "runtime_verified": true
+    },
+    {
+      "name": "SET07.BIN",
+      "vma": "0x060D8000",
+      "processor": "MASTER_SH2",
+      "size_bytes": 98304,
+      "sha256": "bb6072222e19f8cb68934cbdb94e7d187c67680bb9e167524f85579ee6bc0af6",
+      "confirmed_code_bytes": 12,
+      "proven_mnemonic_bytes": 12,
+      "unknown_bytes": 98292,
+      "reassembly_status": "BYTE_EXACT",
+      "runtime_verified": true
+    },
+    {
+      "name": "BGM.BIN",
+      "vma": "0x00000000",
+      "processor": "MC68EC000",
+      "size_bytes": 673792,
+      "sha256": "c1d11d5386eaffbd4ca6443c3de615312a71cc678ba4d76c2c9d6035acf9a8f6",
+      "confirmed_code_bytes": 28,
+      "proven_mnemonic_bytes": 0,
+      "unknown_bytes": 673764,
+      "reassembly_status": "CATALOGED",
+      "runtime_verified": false
+    }
+  ]
+}

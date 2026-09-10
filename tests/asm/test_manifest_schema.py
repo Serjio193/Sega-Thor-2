@@ -78,7 +78,7 @@ def validate_manifest(manifest: Dict[str, Any]) -> None:
 def run_positive_manifest_tests(repo_root: str) -> None:
     """Validate all committed manifests against invariants."""
     manifest_dir = os.path.join(repo_root, "asm", "manifests")
-    for name in ["0TH2.BIN.json", "TH2.LOW.json"]:
+    for name in ["0TH2.BIN.json", "TH2.LOW.json", "SET07.BIN.json", "BGM.BIN.json"]:
         path = os.path.join(manifest_dir, name)
         with open(path, "r", encoding="utf-8") as f:
             manifest = json.load(f)

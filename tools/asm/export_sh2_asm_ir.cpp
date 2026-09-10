@@ -40,9 +40,12 @@ std::string opcode_id_name(thor::sh2::OpcodeId id) {
         case thor::sh2::OpcodeId::BRA: return "BRA";
         case thor::sh2::OpcodeId::JSR: return "JSR";
         case thor::sh2::OpcodeId::NOP: return "NOP";
+        case thor::sh2::OpcodeId::MOV_L_WRITE_PREDEC: return "MOV_L_WRITE_PREDEC";
+        case thor::sh2::OpcodeId::RTS: return "RTS";
         default: return "UNKNOWN";
     }
 }
+
 
 std::string flow_type_name(thor::sh2::ControlFlowType flow) {
     switch (flow) {
@@ -217,9 +220,20 @@ int main(int argc, char* argv[]) {
                     comment = "NOP";
                     break;
                 }
+                case thor::sh2::OpcodeId::MOV_L_WRITE_PREDEC: {
+                    asm_line = "mov.l   r" + std::to_string(instr.rm) + ", @-r" + std::to_string(instr.rn);
+                    comment = "MOV.L R" + std::to_string(instr.rm) + ", @-R" + std::to_string(instr.rn);
+                    break;
+                }
+                case thor::sh2::OpcodeId::RTS: {
+                    asm_line = "rts";
+                    comment = "RTS";
+                    break;
+                }
                 default:
                     return 1;
             }
+
 
             json << "        {\n";
             json << "          \"pc\": \"" << hex_str(pc) << "\",\n";

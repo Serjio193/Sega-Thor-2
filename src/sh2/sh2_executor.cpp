@@ -88,9 +88,27 @@ ExecutionResult execute_sh2_instruction(
             return ExecutionResult::SUCCESS;
         }
 
+        case OpcodeId::MOV_L_WRITE_PREDEC: {
+            state.r[instr.rn] -= 4;
+            const uint32_t val = (instr.rn == instr.rm) ? state.r[instr.rn] : state.r[instr.rm];
+            mem.write32(state.r[instr.rn], val);
+            advance_pc(state);
+            return ExecutionResult::SUCCESS;
+        }
+
+        case OpcodeId::RTS: {
+            if (state.has_delayed_branch()) {
+                return ExecutionResult::ILLEGAL_SLOT_INSTRUCTION;
+            }
+            state.delayed_pc = state.pr;
+            state.pc += 2;
+            return ExecutionResult::SUCCESS;
+        }
+
         default:
             return ExecutionResult::UNSUPPORTED_INSTRUCTION;
     }
+
 }
 
 StepResult step_sh2(Sh2CpuState& state, ISh2Memory& mem) noexcept {
