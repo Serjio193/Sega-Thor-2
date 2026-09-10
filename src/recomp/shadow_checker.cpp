@@ -40,6 +40,8 @@ const char* divergence_category_to_string(DivergenceCategory cat) noexcept {
         return "MEMORY_EFFECT_SIZE";
     case DivergenceCategory::EVENT_SAFETY_METADATA:
         return "EVENT_SAFETY_METADATA";
+    case DivergenceCategory::DELAYED_CONTROL_STATE:
+        return "DELAYED_CONTROL_STATE";
     default:
         return "UNKNOWN_CATEGORY";
     }
@@ -192,6 +194,29 @@ ShadowComparisonResult ShadowChecker::compare_outcomes(
     if (oracle_meta.delay_slot_atomic != candidate_meta.delay_slot_atomic) {
         diffs.push_back({DivergenceCategory::EVENT_SAFETY_METADATA, 4, "delay_slot_atomic",
             oracle_meta.delay_slot_atomic, candidate_meta.delay_slot_atomic, "Delay slot atomicity mismatch"});
+    }
+
+    // 7. Compare Delayed Control State (delayed_pc / pending delayed transfer)
+    if (oracle_cpu.has_delayed_branch() != candidate_cpu.has_delayed_branch()) {
+        diffs.push_back(DivergenceRecord{
+            .category = DivergenceCategory::DELAYED_CONTROL_STATE,
+            .index = 0,
+            .field_name = "delayed_pc.has_value",
+            .oracle_value = oracle_cpu.has_delayed_branch() ? 1u : 0u,
+            .candidate_value = candidate_cpu.has_delayed_branch() ? 1u : 0u,
+            .details = "Delayed branch presence mismatch"
+        });
+    } else if (oracle_cpu.has_delayed_branch()) {
+        if (oracle_cpu.delayed_pc != candidate_cpu.delayed_pc) {
+            diffs.push_back(DivergenceRecord{
+                .category = DivergenceCategory::DELAYED_CONTROL_STATE,
+                .index = 1,
+                .field_name = "delayed_pc.target",
+                .oracle_value = *oracle_cpu.delayed_pc,
+                .candidate_value = *candidate_cpu.delayed_pc,
+                .details = "Delayed branch target address mismatch"
+            });
+        }
     }
 
     return ShadowComparisonResult{

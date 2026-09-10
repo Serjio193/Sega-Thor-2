@@ -31,7 +31,8 @@ enum class DivergenceCategory : uint8_t {
     MEMORY_EFFECT_ADDRESS,
     MEMORY_EFFECT_VALUE,
     MEMORY_EFFECT_SIZE,
-    EVENT_SAFETY_METADATA
+    EVENT_SAFETY_METADATA,
+    DELAYED_CONTROL_STATE
 };
 
 [[nodiscard]] const char* divergence_category_to_string(DivergenceCategory cat) noexcept;

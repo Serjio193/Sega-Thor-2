@@ -54,6 +54,24 @@ add_library(thor_generated_bb_06004000 STATIC
 )
 target_include_directories(thor_generated_bb_06004000 PUBLIC include "${GENERATED_DIR}")
 
+# Build-time mechanical C++20 generation for bb_06004280
+set(GEN_BB4280_HEADER "${GENERATED_DIR}/bb_06004280.hpp")
+set(GEN_BB4280_SOURCE "${GENERATED_DIR}/bb_06004280.cpp")
+
+add_custom_command(
+    OUTPUT "${GEN_BB4280_HEADER}" "${GEN_BB4280_SOURCE}"
+    COMMAND generate_sh2_block "bb_06004280" "${GEN_BB4280_HEADER}" "${GEN_BB4280_SOURCE}"
+    DEPENDS generate_sh2_block
+    COMMENT "Mechanically generating C++20 for bb_06004280"
+    VERBATIM
+)
+
+add_library(thor_generated_bb_06004280 STATIC
+    "${GEN_BB4280_SOURCE}"
+    "${GEN_BB4280_HEADER}"
+)
+target_include_directories(thor_generated_bb_06004280 PUBLIC include "${GENERATED_DIR}")
+
 enable_testing()
 
 add_executable(test_sh2_decoder tests/sh2/test_sh2_decoder.cpp)
@@ -84,7 +102,8 @@ add_test(NAME test_sh2_block_compiler COMMAND test_sh2_block_compiler)
 
 # Link isolation verification: links ONLY against generated library
 add_executable(test_generated_link_isolation tests/recomp/test_generated_link_isolation.cpp)
-target_link_libraries(test_generated_link_isolation PRIVATE thor_generated_bb_06004000)
+target_link_libraries(test_generated_link_isolation PRIVATE thor_generated_bb_06004000 thor_generated_bb_06004280)
+target_include_directories(test_generated_link_isolation PRIVATE "${GENERATED_DIR}")
 add_test(NAME test_generated_link_isolation COMMAND test_generated_link_isolation)
 
 # V-07A transition proof test suite
@@ -95,7 +114,7 @@ add_test(NAME test_v07a_transition COMMAND test_v07a_transition)
 
 # V-07B positive shadow comparison test suite
 add_executable(test_shadow_positive tests/recomp/test_shadow_positive.cpp)
-target_link_libraries(test_shadow_positive PRIVATE thor_generated_bb_06004000 thor_recomp thor_sh2)
+target_link_libraries(test_shadow_positive PRIVATE thor_generated_bb_06004000 thor_generated_bb_06004280 thor_recomp thor_sh2)
 target_include_directories(test_shadow_positive PRIVATE "${GENERATED_DIR}")
 add_test(NAME test_shadow_positive COMMAND test_shadow_positive)
 

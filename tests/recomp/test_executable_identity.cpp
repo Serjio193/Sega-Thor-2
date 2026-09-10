@@ -126,6 +126,53 @@ static void test_negative_invalid_validity_state() {
     THOR_ASSERT(check_block_eligibility(proven, query_unv, mem) == EligibilityResult::INVALID_STATE);
 }
 
+static void test_candidate_06004280_eligibility_and_negative_controls() {
+    const auto proven = make_bb_06004280_descriptor();
+    THOR_ASSERT(proven.expected_bytes.size() == 10);
+    THOR_ASSERT(proven.start_pc == 0x06004280u);
+    THOR_ASSERT(proven.end_pc == 0x06004288u);
+
+    Sh2FlatMemory mem;
+    for (size_t i = 0; i < proven.expected_bytes.size(); ++i) {
+        mem.write8(proven.start_pc + static_cast<uint32_t>(i), proven.expected_bytes[i]);
+    }
+    mem.clear_log();
+
+    // Positive
+    const auto query = make_bb_06004280_descriptor();
+    THOR_ASSERT(check_block_eligibility(proven, query, mem) == EligibilityResult::ELIGIBLE);
+    THOR_ASSERT(mem.log().empty()); // Zero guest access log contamination
+
+    // Wrong revision
+    auto q_rev = query; q_rev.revision_id = "wrong_rev";
+    THOR_ASSERT(check_block_eligibility(proven, q_rev, mem) == EligibilityResult::REVISION_MISMATCH);
+
+    // Wrong module
+    auto q_mod = query; q_mod.module_name = "OTHER.BIN";
+    THOR_ASSERT(check_block_eligibility(proven, q_mod, mem) == EligibilityResult::MODULE_MISMATCH);
+
+    // Wrong CPU
+    auto q_cpu = query; q_cpu.cpu = CpuTarget::SLAVE_SH2;
+    THOR_ASSERT(check_block_eligibility(proven, q_cpu, mem) == EligibilityResult::CPU_MISMATCH);
+
+    // Wrong range
+    auto q_range = query; q_range.start_pc = 0x06004282u;
+    THOR_ASSERT(check_block_eligibility(proven, q_range, mem) == EligibilityResult::ADDRESS_RANGE_MISMATCH);
+
+    // Invalid validity
+    auto q_val = query; q_val.validity = BlockValidity::INVALIDATED;
+    THOR_ASSERT(check_block_eligibility(proven, q_val, mem) == EligibilityResult::INVALID_STATE);
+
+    // Each candidate byte corruption (10 byte positions)
+    for (size_t i = 0; i < proven.expected_bytes.size(); ++i) {
+        Sh2FlatMemory corrupt_mem = mem;
+        corrupt_mem.write8(proven.start_pc + static_cast<uint32_t>(i), proven.expected_bytes[i] ^ 0xFF);
+        corrupt_mem.clear_log();
+        THOR_ASSERT(check_block_eligibility(proven, query, corrupt_mem) == EligibilityResult::CONTENT_BYTE_MISMATCH);
+        THOR_ASSERT(corrupt_mem.log().empty());
+    }
+}
+
 int main() {
     std::cout << "Running test_executable_identity...\n";
     test_positive_eligibility();
@@ -136,6 +183,7 @@ int main() {
     test_negative_wrong_address_range();
     test_negative_content_byte_mutation();
     test_negative_invalid_validity_state();
+    test_candidate_06004280_eligibility_and_negative_controls();
     std::cout << "All test_executable_identity cases passed!\n";
     return 0;
 }

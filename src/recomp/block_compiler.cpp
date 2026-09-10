@@ -20,6 +20,7 @@ std::optional<GeneratedBlockCode> compile_block_to_cpp(
         case thor::sh2::OpcodeId::MOV_L_PC_REL:
         case thor::sh2::OpcodeId::MOV_L_READ_MEM:
         case thor::sh2::OpcodeId::BRA:
+        case thor::sh2::OpcodeId::JSR:
         case thor::sh2::OpcodeId::NOP:
             break;
         default:
@@ -29,10 +30,16 @@ std::optional<GeneratedBlockCode> compile_block_to_cpp(
 
     const bool has_delay_slot = block.delay_slot.has_value();
     if (has_delay_slot) {
-        if (block.instructions.size() < 2 || block.direct_exits.empty()) {
+        if (block.instructions.size() < 2) {
             return std::nullopt;
         }
-        if (block.terminator.id != thor::sh2::OpcodeId::BRA) {
+        if (block.terminator.id == thor::sh2::OpcodeId::BRA) {
+            if (block.direct_exits.empty()) {
+                return std::nullopt;
+            }
+        } else if (block.terminator.id == thor::sh2::OpcodeId::JSR) {
+            // JSR has dynamic indirect target
+        } else {
             return std::nullopt;
         }
     }
@@ -96,12 +103,23 @@ std::optional<GeneratedBlockCode> compile_block_to_cpp(
     }
 
     if (has_delay_slot) {
-        emit_instruction(*block.delay_slot);
-        src << "    state.pc = 0x" << std::hex << std::uppercase << std::setfill('0') << std::setw(8)
-            << block.direct_exits[0] << std::dec << "u;\n";
+        if (block.terminator.id == thor::sh2::OpcodeId::BRA) {
+            emit_instruction(*block.delay_slot);
+            src << "    state.pc = 0x" << std::hex << std::uppercase << std::setfill('0') << std::setw(8)
+                << block.direct_exits[0] << std::dec << "u;\n";
+            src << "    state.delayed_pc = std::nullopt;\n";
+        } else if (block.terminator.id == thor::sh2::OpcodeId::JSR) {
+            src << "    const uint32_t target_temp = state.r[" << std::dec << static_cast<int>(block.terminator.rn) << "];\n";
+            src << "    state.pr = 0x" << std::hex << std::uppercase << std::setfill('0') << std::setw(8)
+                << (block.terminator.pc + 4u) << std::dec << "u;\n";
+            emit_instruction(*block.delay_slot);
+            src << "    state.pc = target_temp;\n";
+            src << "    state.delayed_pc = std::nullopt;\n";
+        }
     } else if (block.fallthrough.has_value()) {
         src << "    state.pc = 0x" << std::hex << std::uppercase << std::setfill('0') << std::setw(8)
             << *block.fallthrough << std::dec << "u;\n";
+        src << "    state.delayed_pc = std::nullopt;\n";
     }
 
     src << "}\n\n"

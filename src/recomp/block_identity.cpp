@@ -91,4 +91,23 @@ BlockIdentityDescriptor make_bb_06004000_descriptor() {
     };
 }
 
+BlockIdentityDescriptor make_bb_06004280_descriptor() {
+    return BlockIdentityDescriptor{
+        .revision_id = "thor2_ntsc_patched_fe11d2fb",
+        .module_name = "0TH2.BIN",
+        .module_provenance_proven = true,
+        .cpu = CpuTarget::MASTER_SH2,
+        .start_pc = 0x06004280u,
+        .end_pc = 0x06004288u,
+        .expected_bytes = {
+            0xD5, 0x36, // 0x06004280: MOV.L @(0xD8, PC), R5
+            0xD4, 0x37, // 0x06004282: MOV.L @(0xDC, PC), R4
+            0xD3, 0x37, // 0x06004284: MOV.L @(0xDC, PC), R3
+            0x43, 0x0B, // 0x06004286: JSR @R3
+            0x00, 0x09  // 0x06004288: NOP (delay slot)
+        },
+        .validity = BlockValidity::VALID
+    };
+}
+
 } // namespace thor::recomp

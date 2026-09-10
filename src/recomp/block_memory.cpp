@@ -30,6 +30,26 @@ MemoryRegionClass classify_memory_address(uint32_t addr) noexcept {
     return MemoryRegionClass::UNKNOWN;
 }
 
+bool validate_runtime_memory_dependency(
+    const MemoryDependencyDescriptor& dep,
+    uint32_t runtime_address
+) noexcept {
+    const MemoryRegionClass reg = classify_memory_address(runtime_address);
+    if (reg == MemoryRegionClass::MMIO_PROHIBITED || reg == MemoryRegionClass::UNKNOWN) {
+        return false; // Prohibited MMIO or unclassified unknown region fails closed
+    }
+
+    if (dep.address_source == AddressSourceKind::STATIC_ADDRESS) {
+        if (!dep.static_address.has_value() || *dep.static_address != runtime_address) {
+            return false;
+        }
+        return reg == dep.region_class;
+    }
+
+    // For REGISTER_AT_EXECUTION:
+    return (reg == MemoryRegionClass::RAM || reg == MemoryRegionClass::ROM);
+}
+
 std::optional<BlockMemoryContract> derive_block_memory_contract(
     const thor::sh2::Sh2BasicBlock& block
 ) noexcept {
@@ -50,7 +70,7 @@ std::optional<BlockMemoryContract> derive_block_memory_contract(
             dep.address_source = AddressSourceKind::REGISTER_AT_EXECUTION;
             dep.source_register = ins.rm;
             dep.static_address = std::nullopt;
-            dep.region_class = MemoryRegionClass::RAM;
+            dep.region_class = MemoryRegionClass::RUNTIME_CLASSIFICATION_REQUIRED;
             contract.dependencies.push_back(dep);
             break;
         }
@@ -81,7 +101,7 @@ std::optional<BlockMemoryContract> derive_block_memory_contract(
             dep.address_source = AddressSourceKind::REGISTER_AT_EXECUTION;
             dep.source_register = ins.rm;
             dep.static_address = std::nullopt;
-            dep.region_class = MemoryRegionClass::RAM;
+            dep.region_class = MemoryRegionClass::RUNTIME_CLASSIFICATION_REQUIRED;
             contract.dependencies.push_back(dep);
             break;
         }

@@ -69,8 +69,8 @@ public:
     [[nodiscard]] ThorNativeStats get_stats() const noexcept { return m_stats; }
     void reset_stats() noexcept { m_stats = {}; }
 
-    /// Register a native recompiled block.
-    void register_block(RegisteredNativeBlock block);
+    /// Register a native recompiled block. Returns true if valid, false if validation failed.
+    bool register_block(RegisteredNativeBlock block);
 
     /// Attempt to dispatch and execute recompiled block at live PC.
     /// Returns true if native override was executed and committed.

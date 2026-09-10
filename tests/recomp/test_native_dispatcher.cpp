@@ -335,6 +335,79 @@ static void test_dynamic_target_resolution_regression() {
     dispatcher.inject_forced_divergence(false);
 }
 
+static void test_registration_validation() {
+    auto& dispatcher = thor::recomp::NativeDispatcher::instance();
+
+    auto make_valid = []() {
+        thor::recomp::RegisteredNativeBlock b{};
+        b.proven_identity = thor::recomp::make_bb_06004000_descriptor();
+        thor::sh2::Sh2FlatMemory dummy_mem;
+        for (size_t i = 0; i < b.proven_identity.expected_bytes.size(); ++i) {
+            dummy_mem.write8(0x06004000u + static_cast<uint32_t>(i), b.proven_identity.expected_bytes[i]);
+        }
+        b.oracle_block = thor::sh2::discover_basic_block(0x06004000u, dummy_mem);
+        b.candidate_fn = [](thor::sh2::Sh2CpuState&, thor::sh2::ISh2Memory&) {};
+        b.exit_descriptor = *thor::recomp::derive_block_exit_descriptor(b.oracle_block);
+        b.memory_contract = *thor::recomp::derive_block_memory_contract(b.oracle_block);
+        b.cycle_cost = 27u;
+        return b;
+    };
+
+    // Positive
+    THOR_ASSERT(dispatcher.register_block(make_valid()));
+
+    // Null candidate function
+    {
+        auto b = make_valid();
+        b.candidate_fn = nullptr;
+        THOR_ASSERT(!dispatcher.register_block(b));
+    }
+    // Empty instructions
+    {
+        auto b = make_valid();
+        b.oracle_block.instructions.clear();
+        THOR_ASSERT(!dispatcher.register_block(b));
+    }
+    // Range mismatch
+    {
+        auto b = make_valid();
+        b.proven_identity.start_pc = 0x06004002u;
+        THOR_ASSERT(!dispatcher.register_block(b));
+    }
+    // Exit descriptor mismatch
+    {
+        auto b = make_valid();
+        b.exit_descriptor.kind = thor::recomp::BlockExitKind::CONDITIONAL;
+        THOR_ASSERT(!dispatcher.register_block(b));
+    }
+    // Memory contract mismatch
+    {
+        auto b = make_valid();
+        b.memory_contract.block_start_pc ^= 1u;
+        THOR_ASSERT(!dispatcher.register_block(b));
+    }
+    // Zero cycle cost
+    {
+        auto b = make_valid();
+        b.cycle_cost = 0;
+        THOR_ASSERT(!dispatcher.register_block(b));
+    }
+    // Memory contract has WRITE dependency (must be rejected)
+    {
+        auto b = make_valid();
+        b.memory_contract.dependencies.push_back(thor::recomp::MemoryDependencyDescriptor{
+            .instruction_pc = 0x06004000u,
+            .access_kind = thor::sh2::MemoryAccessKind::WRITE,
+            .width = thor::recomp::MemoryAccessWidth::U32,
+            .address_source = thor::recomp::AddressSourceKind::STATIC_ADDRESS,
+            .static_address = 0x06001000u,
+            .source_register = std::nullopt,
+            .region_class = thor::recomp::MemoryRegionClass::RAM
+        });
+        THOR_ASSERT(!dispatcher.register_block(b));
+    }
+}
+
 int main() {
     std::cout << "Running NativeDispatcher and Fail-Closed Verification Tests...\n";
 
@@ -352,6 +425,9 @@ int main() {
 
     test_dynamic_target_resolution_regression();
     std::cout << "  PASS: test_dynamic_target_resolution_regression\n";
+
+    test_registration_validation();
+    std::cout << "  PASS: test_registration_validation\n";
 
     std::cout << "All NativeDispatcher tests passed successfully.\n";
     return 0;

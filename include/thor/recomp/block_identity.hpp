@@ -52,4 +52,7 @@ struct BlockIdentityDescriptor {
 /// Constructs the proven canonical descriptor for Thor 2 startup block bb_06004000.
 [[nodiscard]] BlockIdentityDescriptor make_bb_06004000_descriptor();
 
+/// Constructs the proven canonical descriptor for Thor 2 indirect candidate block bb_06004280.
+[[nodiscard]] BlockIdentityDescriptor make_bb_06004280_descriptor();
+
 } // namespace thor::recomp

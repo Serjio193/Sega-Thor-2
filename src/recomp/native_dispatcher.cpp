@@ -108,11 +108,37 @@ NativeDispatcher::NativeDispatcher() {
         .delay_slot_atomic = true
     };
 
-    register_block(std::move(bb0));
+    bool ok = register_block(std::move(bb0));
+    (void)ok;
 }
 
-void NativeDispatcher::register_block(RegisteredNativeBlock block) {
+bool NativeDispatcher::register_block(RegisteredNativeBlock block) {
+    if (!block.candidate_fn || block.oracle_block.instructions.empty()) {
+        return false;
+    }
+    if (block.proven_identity.start_pc != block.oracle_block.start_address ||
+        block.proven_identity.end_pc != block.oracle_block.end_address) {
+        return false;
+    }
+    auto derived_exit = derive_block_exit_descriptor(block.oracle_block);
+    if (!derived_exit.has_value() || *derived_exit != block.exit_descriptor) {
+        return false;
+    }
+    auto derived_mem = derive_block_memory_contract(block.oracle_block);
+    if (!derived_mem.has_value() || *derived_mem != block.memory_contract) {
+        return false;
+    }
+    if (block.cycle_cost == 0) {
+        return false;
+    }
+    for (const auto& dep : block.memory_contract.dependencies) {
+        if (dep.access_kind == thor::sh2::MemoryAccessKind::WRITE) {
+            return false;
+        }
+    }
+
     m_blocks[block.proven_identity.start_pc] = std::move(block);
+    return true;
 }
 
 NativeDispatcher& NativeDispatcher::instance() {
@@ -217,6 +243,14 @@ bool NativeDispatcher::dispatch_step(
     if (m_mode == THOR_NATIVE_MODE_SHADOW_VERIFY) {
         m_stats.fallback_count++;
         return false;
+    }
+
+    // Write safety check: candidate blocks with WRITE dependencies are not yet supported for native commit
+    for (const auto& dep : block.memory_contract.dependencies) {
+        if (dep.access_kind == thor::sh2::MemoryAccessKind::WRITE) {
+            m_stats.fallback_count++;
+            return false;
+        }
     }
 
     // Authoritative Native Override Commit

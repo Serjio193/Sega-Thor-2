@@ -106,6 +106,7 @@ static void test_bb0_memory_contract() {
     THOR_ASSERT(dep0.address_source == AddressSourceKind::REGISTER_AT_EXECUTION);
     THOR_ASSERT(dep0.source_register.has_value() && *dep0.source_register == 1);
     THOR_ASSERT(!dep0.static_address.has_value());
+    THOR_ASSERT(dep0.region_class == MemoryRegionClass::RUNTIME_CLASSIFICATION_REQUIRED);
 
     // Dependency 1: 0x06004004 MOV.L @(0x5c, PC), R4 -> READ_U32, STATIC_ADDRESS 0x06004064
     const auto& dep1 = contract.dependencies[1];
@@ -125,8 +126,49 @@ static void test_bb0_memory_contract() {
     THOR_ASSERT(dep2.address_source == AddressSourceKind::REGISTER_AT_EXECUTION);
     THOR_ASSERT(dep2.source_register.has_value() && *dep2.source_register == 4);
     THOR_ASSERT(!dep2.static_address.has_value());
+    THOR_ASSERT(dep2.region_class == MemoryRegionClass::RUNTIME_CLASSIFICATION_REQUIRED);
 
     std::cout << "  [OK] test_bb0_memory_contract\n";
+}
+
+static void test_runtime_classification_validation() {
+    Sh2BasicBlock bb0 = make_bb0();
+    auto opt_contract = derive_block_memory_contract(bb0);
+    THOR_ASSERT(opt_contract.has_value());
+    const auto& dep0 = opt_contract->dependencies[0]; // R1 dynamic read
+    const auto& dep2 = opt_contract->dependencies[2]; // R4 dynamic read
+
+    // 1. Dynamic register in HWRAM is accepted
+    THOR_ASSERT(validate_runtime_memory_dependency(dep0, 0x06001000u));
+    THOR_ASSERT(validate_runtime_memory_dependency(dep0, 0x06093B14u));
+    THOR_ASSERT(validate_runtime_memory_dependency(dep2, 0x06085000u));
+    THOR_ASSERT(validate_runtime_memory_dependency(dep2, 0x00200000u));
+
+    // 2. Dynamic register in Boot ROM is accepted
+    THOR_ASSERT(validate_runtime_memory_dependency(dep0, 0x00001000u));
+
+    // 3. Dynamic register in MMIO is rejected BEFORE any read/snapshot
+    bool mmio_read_attempted = false;
+    auto mock_check_and_read = [&](uint32_t addr) -> bool {
+        if (!validate_runtime_memory_dependency(dep0, addr)) {
+            return false; // Rejected before read!
+        }
+        mmio_read_attempted = true;
+        return true;
+    };
+
+    THOR_ASSERT(!mock_check_and_read(0x25FE0000u)); // SCU MMIO
+    THOR_ASSERT(!mmio_read_attempted);
+    THOR_ASSERT(!mock_check_and_read(0xFFFFFE10u)); // SH2 on-chip MMIO
+    THOR_ASSERT(!mmio_read_attempted);
+    THOR_ASSERT(!mock_check_and_read(0x05B00000u)); // SCSP MMIO
+    THOR_ASSERT(!mmio_read_attempted);
+
+    // 4. Dynamic register pointing into UNKNOWN region is rejected
+    THOR_ASSERT(!mock_check_and_read(0x10000000u));
+    THOR_ASSERT(!mmio_read_attempted);
+
+    std::cout << "  [OK] test_runtime_classification_validation\n";
 }
 
 static void test_memory_contract_negative_controls() {
@@ -141,9 +183,6 @@ static void test_memory_contract_negative_controls() {
 
     // 3. Static address pointing into prohibited MMIO fails closed
     Sh2BasicBlock mmio_block = make_cand_block();
-    // Corrupt disp so ea points into SCU MMIO range 0x25FE0000
-    // disp to produce 0x25FE0000:
-    // ((0x06004280 + 4) & ~3) + disp * 4 = 0x25FE0000 -> disp = (0x25FE0000 - 0x06004284)/4
     mmio_block.instructions[0].disp = (0x25FE0000u - 0x06004284u) / 4u;
     THOR_ASSERT(!derive_block_memory_contract(mmio_block).has_value());
 
@@ -154,6 +193,7 @@ static void test_memory_contract_negative_controls() {
     THOR_ASSERT(classify_memory_address(0x00000000u) == MemoryRegionClass::ROM);
     THOR_ASSERT(classify_memory_address(0x25FE0000u) == MemoryRegionClass::MMIO_PROHIBITED);
     THOR_ASSERT(classify_memory_address(0xFFFFFE10u) == MemoryRegionClass::MMIO_PROHIBITED);
+    THOR_ASSERT(classify_memory_address(0x10000000u) == MemoryRegionClass::UNKNOWN);
 
     std::cout << "  [OK] test_memory_contract_negative_controls\n";
 }
@@ -162,6 +202,7 @@ int main() {
     std::cout << "=== D9.2 Declarative Memory Dependency Contract Unit Tests ===\n";
     test_candidate_block_memory_contract();
     test_bb0_memory_contract();
+    test_runtime_classification_validation();
     test_memory_contract_negative_controls();
     std::cout << "ALL BLOCK MEMORY TESTS PASSED.\n";
     return 0;

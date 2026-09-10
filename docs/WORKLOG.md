@@ -1,5 +1,60 @@
 # Worklog
 
+## 2026-09-10 — T2-D9.3 Mechanical JSR Block Generation & Isolated Shadow Qualification
+
+### Task
+
+Harden D9.2 memory contract and exit completion contracts; extend `ShadowChecker` to verify delayed-transfer state (`DELAYED_CONTROL_STATE`) with fail-closed negative controls; implement fail-closed registration validation and temporary write-commit safety in `NativeDispatcher`; reproduce D8 production live regression under pinned Mednafen debug oracle; establish `bb_06004280` executable identity descriptor (`make_bb_06004280_descriptor()`); implement mechanical `JSR @Rn` block compilation in `block_compiler`; generate build-time isolated target `thor_generated_bb_06004280`; materialize isolated pre-state for `bb_06004280` and prove isolated shadow qualification across real cold-boot execution and synthetic target controls (`0x0600A0F8`, `0x0600BEEF`, `0x00000000`); verify all regressions green across MinGW and Linux WSL (Debug + Release).
+
+### Method & Discoveries
+
+1. **D9.2 Memory Contract & Exit Completion Hardening**:
+   - Dynamic register reads (`MOV_W_READ_MEM`, `MOV_L_READ_MEM`) are assigned `RUNTIME_CLASSIFICATION_REQUIRED` in `derive_block_memory_contract()`.
+   - Added `validate_runtime_memory_dependency()` verifying runtime effective addresses fall strictly in RAM/ROM, failing closed on MMIO/UNKNOWN before reads occur.
+   - Hardened `resolve_block_exit()`: enforces `!post_state.has_delayed_branch()`; for `DIRECT`, enforces `writes_pr == false`; for `INDIRECT_CALL`, enforces `static_target_pc == nullopt`, `fallthrough_pc == nullopt`, and `writes_pr == true`.
+2. **Delayed Control State Shadow Verification**:
+   - Added `DELAYED_CONTROL_STATE` category to `DivergenceCategory`.
+   - Extended `ShadowChecker::compare_outcomes()` to compare `delayed_pc` presence and target value.
+   - Tested negative controls A (target mismatch), B (candidate delayed branch without oracle branch), C (oracle delayed branch without candidate branch), and D (illegal slot exception divergence).
+   - Added 10 candidate negative controls for `bb_06004280` in `test_shadow_negative.cpp`.
+3. **Registration Validation & Write-Commit Safety in NativeDispatcher**:
+   - `NativeDispatcher::register_block()` validates: non-empty candidate function, non-empty oracle instructions, start/end address match, derived exit descriptor match, derived memory contract match, positive cycle cost, and rejects any block containing WRITE dependencies.
+   - Added write-commit safety check in `dispatch_step()` before candidate execution.
+   - Added comprehensive registration rejection tests in `tests/recomp/test_native_dispatcher.cpp`.
+4. **Live D8 Production Regression**:
+   - Executed `tools/recomp/run_v07c_experiment.py` live against pinned Mednafen debug oracle (`4662aad69f95222fe37c5e6b98f2285b1a7e4653`).
+   - Runs A & B: native override executed=1, fallback=0, shadow_match=1, retirements=0, bit-identical reproduction.
+   - Run C: pure interpreter matches 100% across all 23 registers at continuation checkpoint `0x06004280` (cycle `307090585`).
+   - Run D: shadow verify mode fallback=1, shadow_match=1.
+   - Run E: corruption fallback=1.
+   - Documented in `workstreams/T2-D9-indirect/d9_2_d8_live_regression.md`.
+5. **Executable Identity for bb_06004280**:
+   - Implemented `make_bb_06004280_descriptor()` in `include/thor/recomp/block_identity.hpp` and `src/recomp/block_identity.cpp`.
+   - Range: `0x06004280..0x06004288`, 10 bytes, SHA-256 `8879cbe14f58a5fbc4eb9545e1cc41b3593e306cab114769a94f814a18bcb770`.
+   - Added 10 single-byte corruption tests and non-architectural observation check in `tests/recomp/test_executable_identity.cpp`.
+6. **Mechanical JSR Block Generation & Link Isolation**:
+   - Added `OpcodeId::JSR` translation in `src/recomp/block_compiler.cpp`: captures target temporary `state.r[Rn]` before delay slot execution, calculates `state.pr = PC + 4`, executes delay slot, assigns `state.pc = target_temp`, clears `state.delayed_pc = std::nullopt`. No hardcoded targets.
+   - Updated `tools/recomp/generate_sh2_block.cpp` and `CMakeLists.txt` to generate `thor_generated_bb_06004280`.
+   - Verified 0 runtime interpreter dependencies via `tests/recomp/test_generated_link_isolation.cpp`.
+7. **Isolated Pre-State & Shadow Qualification**:
+   - Materialized isolated pre-state with 3 High Work RAM literal pool reads (`0x0600435C`, `0x06004360`, `0x06004364`).
+   - Proved shadow equivalence for real cold boot (`0x0600A0F8`) and synthetic controls (`0x0600BEEF`, `0x00000000`) in `tests/recomp/test_shadow_positive.cpp`.
+8. **Regression Suite**:
+   - 18/18 CTest passing on Windows MinGW (Debug + Release) and Linux WSL (Debug + Release).
+   - Strict M-07 reference validation passing.
+   - All code files strictly <= 500 lines. Clean `git diff --check`.
+
+### Status After Pass
+
+- `D6`: **BOUNDED_PROOF** (expanded to `bb_06004000` and `bb_06004280`)
+- `D7`: **BOUNDED_PROOF** (expanded to `bb_06004000` and `bb_06004280`)
+- `D8`: **BOUNDED_PROOF** (live regression confirmed)
+- `D9.1`: **PASS**
+- `D9.2`: **PASS**
+- `D9.3`: **PASS**
+- `D9`: **READY_FOR_BOUNDED_TEST** (not marked `BOUNDED_PROOF`)
+- Next action: D9.4 — Authoritative Native Indirect Override & Dynamic Continuation.
+
 ## 2026-09-10 — T2-D9.2 Generic Dynamic Exit & Declarative Memory Contract
 
 ### Task

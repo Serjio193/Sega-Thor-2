@@ -175,7 +175,7 @@ static void test_exit_descriptor_negative_controls() {
     bad_term.terminator.id = OpcodeId::UNKNOWN;
     THOR_ASSERT(!derive_block_exit_descriptor(bad_term).has_value());
 
-    // 6. Direct exit descriptor with mismatched static target fails resolution
+    // 6. Direct exit descriptor without static target fails resolution
     BlockExitDescriptor bad_desc{};
     bad_desc.kind = BlockExitKind::DIRECT;
     bad_desc.static_target_pc = std::nullopt; // Direct without static target
@@ -186,8 +186,48 @@ static void test_exit_descriptor_negative_controls() {
     // 7. JSR exit descriptor with illegally populated static target fails resolution
     BlockExitDescriptor bad_jsr_desc{};
     bad_jsr_desc.kind = BlockExitKind::INDIRECT_CALL;
+    bad_jsr_desc.writes_pr = true;
     bad_jsr_desc.static_target_pc = 0x0600A0F8u; // JSR cannot have static target
     THOR_ASSERT(!resolve_block_exit(bad_jsr_desc, s).has_value());
+
+    // 8. INDIRECT_CALL post-state still has delayed_pc (unretired delayed transfer) -> FAIL CLOSED
+    Sh2BasicBlock cand = make_cand_block();
+    auto opt_cand_desc = derive_block_exit_descriptor(cand);
+    THOR_ASSERT(opt_cand_desc.has_value());
+    Sh2CpuState unretired_indirect_state{};
+    unretired_indirect_state.pc = 0x0600A0F8u;
+    unretired_indirect_state.pr = 0x0600428Au;
+    unretired_indirect_state.delayed_pc = 0x0600A0F8u; // Still pending!
+    THOR_ASSERT(!resolve_block_exit(*opt_cand_desc, unretired_indirect_state).has_value());
+
+    // 9. DIRECT post-state still has delayed_pc (unretired delayed transfer) -> FAIL CLOSED
+    Sh2BasicBlock bb0 = make_bb0();
+    auto opt_bb0_desc = derive_block_exit_descriptor(bb0);
+    THOR_ASSERT(opt_bb0_desc.has_value());
+    Sh2CpuState unretired_direct_state{};
+    unretired_direct_state.pc = 0x06004012u;
+    unretired_direct_state.delayed_pc = 0x06004012u; // Still pending!
+    THOR_ASSERT(!resolve_block_exit(*opt_bb0_desc, unretired_direct_state).has_value());
+
+    // 10. INDIRECT_CALL descriptor with writes_pr=false -> FAIL CLOSED
+    BlockExitDescriptor no_pr_jsr = *opt_cand_desc;
+    no_pr_jsr.writes_pr = false;
+    Sh2CpuState valid_state{};
+    valid_state.pc = 0x0600A0F8u;
+    valid_state.pr = 0x0600428Au;
+    THOR_ASSERT(!resolve_block_exit(no_pr_jsr, valid_state).has_value());
+
+    // 11. INDIRECT_CALL descriptor with malformed fallthrough -> FAIL CLOSED
+    BlockExitDescriptor fall_jsr = *opt_cand_desc;
+    fall_jsr.fallthrough_pc = 0x0600428Au;
+    THOR_ASSERT(!resolve_block_exit(fall_jsr, valid_state).has_value());
+
+    // 12. DIRECT descriptor with writes_pr=true -> FAIL CLOSED
+    BlockExitDescriptor pr_direct = *opt_bb0_desc;
+    pr_direct.writes_pr = true;
+    Sh2CpuState valid_dir_state{};
+    valid_dir_state.pc = 0x06004012u;
+    THOR_ASSERT(!resolve_block_exit(pr_direct, valid_dir_state).has_value());
 
     std::cout << "  [OK] test_exit_descriptor_negative_controls\n";
 }

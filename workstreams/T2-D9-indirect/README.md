@@ -19,6 +19,7 @@ Canonical definition per `docs/DEVELOPMENT_PLAN.md`:
 
 - `candidate_06004280.md`: First candidate block qualification record (`bb_06004280`), exact bytes, disassembly, oracle trace, and ownership classification.
 - `docs/D9_INDIRECT_CONTROL_FLOW_PLAN.md`: Complete architectural design, exit representation, memory snapshot generalization, timing contract, negative control matrix, and sub-gate roadmap.
+- `d9_2_d8_live_regression.md`: Live D8 production regression under pinned Mednafen debug oracle.
 - `tests/recomp/test_d9_plan.py`: Automated plan integrity validator with fail-closed negative controls.
 
 ---
@@ -41,8 +42,8 @@ Canonical definition per `docs/DEVELOPMENT_PLAN.md`:
 
 1. **`D9.P0` — Architecture & Candidate Qualification** [DONE / PASS]
 2. **`D9.1` — Candidate Opcode L0 Semantics & Block Qualification** [DONE / PASS]
-3. **`D9.2` — Generic Dynamic-Exit & Memory-Descriptor Representation** [NEXT]
-4. **`D9.3` — Isolated Shadow Proof for `bb_06004280`**
-5. **`D9.4` — Authoritative Native Indirect Override & Dynamic Continuation**
+3. **`D9.2` — Generic Dynamic-Exit & Memory-Descriptor Representation** [DONE / PASS]
+4. **`D9.3` — Isolated Shadow Proof for `bb_06004280`** [DONE / PASS]
+5. **`D9.4` — Authoritative Native Indirect Override & Dynamic Continuation** [NEXT]
 6. **`M-03` — Bounded SaturnAutoRE Candidate Harvester Re-Entry**
 7. **`D9.5` — Multi-Target / Secondary Indirect Expansion**

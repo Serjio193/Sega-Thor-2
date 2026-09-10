@@ -25,6 +25,7 @@ enum class MemoryRegionClass : uint8_t {
     RAM = 0,
     ROM,
     MMIO_PROHIBITED,
+    RUNTIME_CLASSIFICATION_REQUIRED,
     UNKNOWN
 };
 
@@ -49,6 +50,13 @@ struct BlockMemoryContract {
 
 /// Classifies a guest memory address into RAM, ROM, MMIO_PROHIBITED, or UNKNOWN.
 [[nodiscard]] MemoryRegionClass classify_memory_address(uint32_t addr) noexcept;
+
+/// Validates a concrete runtime address against a dependency descriptor.
+/// Fails closed (false) if the runtime address falls in prohibited MMIO or UNKNOWN areas.
+[[nodiscard]] bool validate_runtime_memory_dependency(
+    const MemoryDependencyDescriptor& dep,
+    uint32_t runtime_address
+) noexcept;
 
 /// Deterministically derives the BlockMemoryContract from an Sh2BasicBlock.
 /// Returns std::nullopt if the block contains instructions whose memory behavior

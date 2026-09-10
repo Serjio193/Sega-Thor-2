@@ -54,10 +54,18 @@ std::optional<ResolvedBlockExit> resolve_block_exit(
     const BlockExitDescriptor& desc,
     const thor::sh2::Sh2CpuState& post_state
 ) noexcept {
+    // A fully retired basic block must not have a pending uncompleted delayed transfer.
+    if (post_state.has_delayed_branch()) {
+        return std::nullopt;
+    }
+
     switch (desc.kind) {
     case BlockExitKind::DIRECT: {
         if (!desc.static_target_pc.has_value()) {
             return std::nullopt;
+        }
+        if (desc.writes_pr) {
+            return std::nullopt; // Direct BRA must not claim PR write
         }
         // Direct branch runtime PC must agree with static target
         if (post_state.pc != *desc.static_target_pc) {
@@ -66,7 +74,7 @@ std::optional<ResolvedBlockExit> resolve_block_exit(
         ResolvedBlockExit res{};
         res.kind = BlockExitKind::DIRECT;
         res.target_pc = post_state.pc;
-        res.pr_value = desc.writes_pr ? std::make_optional(post_state.pr) : std::nullopt;
+        res.pr_value = std::nullopt;
         res.delay_slot_completed = desc.has_delay_slot;
         return res;
     }
@@ -74,6 +82,14 @@ std::optional<ResolvedBlockExit> resolve_block_exit(
     case BlockExitKind::INDIRECT_CALL: {
         // Static target PC must be absent for indirect call
         if (desc.static_target_pc.has_value()) {
+            return std::nullopt;
+        }
+        // Fallthrough must be absent for indirect call
+        if (desc.fallthrough_pc.has_value()) {
+            return std::nullopt;
+        }
+        // Call must write procedure register
+        if (!desc.writes_pr) {
             return std::nullopt;
         }
         ResolvedBlockExit res{};
@@ -86,7 +102,7 @@ std::optional<ResolvedBlockExit> resolve_block_exit(
     }
 
     case BlockExitKind::INDIRECT_JUMP: {
-        if (desc.static_target_pc.has_value()) {
+        if (desc.static_target_pc.has_value() || desc.fallthrough_pc.has_value() || desc.writes_pr) {
             return std::nullopt;
         }
         ResolvedBlockExit res{};
