@@ -92,6 +92,7 @@ tests/
     test_native_dispatcher.cpp    authoritative native dispatcher and negative fallback test suite
     test_mutation_harness.cpp     12/12 single-byte and 6/6 NOP mutation unit tests
     test_m07_reference.py         SaturnRecomp reference manifest validation & negative control tests
+    test_post_d8_closure.py       canonical POST-D8 closure audit validator with 9 negative controls
 
 workstreams/
   T2-M0-disc-census/

@@ -1,5 +1,53 @@
 # Worklog
 
+## 2026-09-10 — T2-POST-D8.3.1 ADR D-012 Closure Evidence Integrity Repair
+
+### Task
+
+Audit and repair the canonical POST-D8 closure record (`docs/POST_D8_SECOND_PASS_CLOSURE.md`) to guarantee that every factual statement, external commit pin, repository evidence path, test reference, disposition, and evidence-strength rating is grounded strictly in existing repository evidence.
+Replaced unauthorized SaturnAutoRE commit `ca88cf23b2c6d7d51944daaa2d41571214041a99` with canonical pin `4662aad69f95222fe37c5e6b98f2285b1a7e4653` across M-01, M-02, M-03, M-04; decoupled Mednafen debug oracle pin (`155426...`) in M-01; verified all 22 referenced repository evidence paths and fixed stale workstream references (`POST-D8-M02-mutation`); audited M-05 to strictly reflect accepted ADR D-011 module provenance methodology (removing ungrounded Ghidra/GDT claims and fabricated test names); unified D-012 Evidence Strength scale to strictly `LOW / MEDIUM / HIGH / N/A` (with M-02 set to `LOW` positive proof / `HIGH` workflow utility); implemented dedicated automated validator with 9 fail-closed negative controls in `tests/recomp/test_post_d8_closure.py`; verified all CTest suites and `--require-external` cross-checks across Windows MinGW and Linux WSL.
+
+### Method & Discoveries
+
+1. **SaturnAutoRE Canonical Pin Alignment**:
+   - Replaced unauthorized commit `ca88cf23b2c6d7d51944daaa2d41571214041a99` with canonical project pin `4662aad69f95222fe37c5e6b98f2285b1a7e4653` (ADR D-010) across M-01, M-02, M-03, M-04.
+   - Decoupled M-01 description: `AJBats/SaturnAutoRE` commit `4662aad69f95222fe37c5e6b98f2285b1a7e4653` (`MednafenBot` harness) driving target debug oracle `AJBats/mednafen-saturn-debug` commit `155426661b7ac3152e2c93a98da60ac33002b908`.
+2. **Evidence Path & Test Name Grounding**:
+   - Replaced stale path `workstreams/POST-D8-M02-mutation-re/` with canonical `workstreams/POST-D8-M02-mutation/`.
+   - Removed fabricated references (`tools/runner/saturn_oracle.cpp`, `tools/runner/mednafen_bot.py`, `test_v07c_timing_oracle`, `test_v02a_ram_map.cpp`).
+   - Grounded M-01 in `workstreams/T2-V01-dynamic-oracle/automation_validation.md`, `workstreams/T2-V01-dynamic-oracle/README.md`, `workstreams/T2-D8-V07C-native/native_override_evidence.md`, `docs/DECISIONS.md`.
+   - Grounded M-05 in `workstreams/T2-V02a-0th2-provenance/README.md`, `workstreams/T2-V02a-0th2-provenance/provenance_evidence.md`, `workstreams/T2-V02b-th2-low-provenance/README.md`, `workstreams/T2-V02b-th2-low-provenance/provenance_evidence.md`, `docs/DECISIONS.md`.
+   - All 22 referenced repository evidence paths verified present on disk.
+3. **M-05 Scope Realignment (ADR D-011)**:
+   - Stripped unevidenced Ghidra 11.2.1 and GDT data type claims from M-05; restored canonical ADR D-011 scope: module RAM mapping verification and SHA-256 byte comparison.
+4. **Consistent D-012 Evidence-Strength Scale**:
+   - Standardized Evidence Strength strictly to `{LOW, MEDIUM, HIGH, N/A}`:
+     - M-01: `HIGH`
+     - M-02: `LOW` (direct positive proof capability is low; negative-control falsification utility is `HIGH`)
+     - M-03: `N/A`
+     - M-04: `N/A`
+     - M-05: `HIGH` (direct byte-level proof of module mapping)
+     - M-06: `N/A`
+     - M-07A: `MEDIUM` (clean-room reference corpus)
+     - M-07B: `N/A`
+     - M-08: `N/A`
+     - M-09: `N/A`
+     - M-10: `N/A`
+5. **Automated Closure Validator with 9 Negative Controls**:
+   - Implemented `tests/recomp/test_post_d8_closure.py` (231 lines, registered in `CMakeLists.txt` / `ctest`).
+   - Enforces required methods, canonical pins, allowed enum values, valid evidence paths, prerequisite gates, and M-05 hygiene.
+   - Tested 9 negative controls (wrong pin, nonexistent file, invalid strength enum, missing future gate, missing method ID, duplicate method ID, invalid disposition enum, invented Ghidra claim, Mednafen pin confusion) — all 9 caught and failed closed.
+6. **Re-verification**:
+   - 15/15 CTest test suites pass across Windows MinGW and Linux WSL (Debug and Release).
+   - Strict M-07 reference tests with `--require-external` pass on both platforms.
+
+### Status After Pass
+
+- `POST_D8_SECOND_PASS`: **SATISFIED / CLOSED**
+- `ADR D-012`: **PASS**
+- `D9`: **UNBLOCKED_FOR_PLANNING**
+- Next action: D9 planning and multi-block expansion architecture design.
+
 ## 2026-09-10 — T2-POST-D8.3 ADR D-012 Second-Pass Closure Audit
 
 ### Task
@@ -32,7 +80,7 @@ Repair residual M-07 reproducibility and classification issues; harden external 
      - `M-02`: `ADOPT_PARTIAL / NEGATIVE_CONTROL_HARNESS` (Mutation fault injection, operational).
      - `M-03`: `DEFER / PREREQUISITE_BLOCKED_AT_D9` (Autonomous loop / scanner, blocked at D9 multi-block CFG).
      - `M-04`: `DEFER / PREREQUISITE_BLOCKED_AT_D12` (Function boundary heuristics, blocked at D12 structural recovery).
-     - `M-05`: `ADOPT_PARTIAL / ACTIVE_INFRASTRUCTURE` (RAM mapping and Ghidra data types, operational).
+     - `M-05`: `ADOPT_PARTIAL / ACTIVE_INFRASTRUCTURE` (RAM mapping and module provenance verification, operational).
      - `M-06`: `DEFER / PREREQUISITE_BLOCKED_AT_D12_D13` (Linker script reconstruction, blocked at D12/D13).
      - `M-07A`: `ADOPT_PARTIAL / DECODER_AND_SEMANTIC_REFERENCE` (SaturnRecomp decoder/semantic corpus, operational).
      - `M-07B`: `NOT_PRESENT_AT_PIN` (Public AOT translation emitter absent upstream).
