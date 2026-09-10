@@ -105,6 +105,7 @@ tools/
     generate_full_module_asm.py   manifest-driven lossless module assembly container generator
     build_full_module.py          manifest-driven full module assembly build and determinism pipeline
     verify_full_module.py         manifest-driven full module verification & negative controls suite
+    verify_full_game_disc.py      full Saturn disc reassembled module verification in Mednafen
 
 tests/
   test_census_saturn_cd.py        synthetic tests for census parser
@@ -138,6 +139,7 @@ tests/
     test_th2_low_asm.py           CTest integration test for full TH2.LOW module round-trip
     test_set07_asm.py             CTest integration test for full SET07.BIN overlay round-trip
     test_manifest_schema.py       CTest integration test for module manifest schema & partition invariants
+    test_full_game_disc.py        CTest integration test for FULL_ASM_GAME_GATE rebuilt disc verification
 
 
 workstreams/
