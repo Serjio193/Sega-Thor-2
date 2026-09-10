@@ -240,6 +240,15 @@ add_executable(test_standalone_runtime tests/runtime/test_standalone_runtime.cpp
 target_link_libraries(test_standalone_runtime PRIVATE thor_runtime)
 add_test(NAME test_standalone_runtime COMMAND test_standalone_runtime)
 
+# D18 Standalone Native Game Executable Target
+add_executable(thor2_native src/main_native.cpp)
+target_link_libraries(thor2_native PRIVATE thor_runtime)
+
+# D18 Guest Dependency Removal & L5 Observable Equivalence Test Suite
+add_executable(test_guest_removal tests/runtime/test_guest_removal.cpp)
+target_link_libraries(test_guest_removal PRIVATE thor_runtime)
+add_test(NAME test_guest_removal COMMAND test_guest_removal)
+
 # M-07 SaturnRecomp reference corpus and negative controls test suite
 find_package(Python3 COMPONENTS Interpreter)
 if (Python3_Interpreter_FOUND)

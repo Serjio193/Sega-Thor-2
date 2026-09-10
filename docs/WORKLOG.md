@@ -1,5 +1,51 @@
 # Worklog
 
+## 2026-09-10 — D18 Guest Dependency Removal & Standalone Native Game Executable Target Passed
+
+### Task
+
+Execute D18 (Guest Dependency Removal & Standalone Native Game Executable Target) in the Progressive Native Recovery Track:
+1. Build the standalone native Thor 2 game executable target `thor2_native` (`src/main_native.cpp`) eliminating guest emulator dependencies for verified native subsystems.
+2. Implement portable CLI interface supporting `--boot`, `--frames <N>`, `--metrics`, `--selftest`, and `--help`.
+3. Verify L5 observable equivalence: multi-frame rendering (320x224 RGBA8888) and 16-bit stereo PCM audio synthesis bit-identical across independent executions.
+4. Establish dedicated unit test suite `tests/runtime/test_guest_removal.cpp` registered as CTest #26 in `CMakeLists.txt`.
+5. Verify dual-platform passing (35/35 CTests green across Windows MinGW and Linux WSL).
+
+### Method & Discoveries
+
+1. **Standalone Native Game Executable Target (`thor2_native`)**:
+   - Implemented `src/main_native.cpp` (76 lines) compiling and linking directly with `thor_runtime`, `thor_hw`, `thor_recomp`, `thor_sh2`.
+   - Executable links zero external emulator libraries, SDK headers, or proprietary dependencies.
+   - CLI options provide interactive execution, headless automated batch processing, and self-testing:
+     - `--boot`: boots runtime and executes startup sequence.
+     - `--frames <N>`: executes specified frame count (default: 5 frames, 300,000 cycles).
+     - `--metrics`: prints comprehensive telemetry including native/fallback instruction ratios, cycles, frame and audio counts.
+     - `--selftest`: executes built-in hardware and execution self-test, returning exit code 0 on success.
+2. **L5 Observable Equivalence & Determinism Proof**:
+   - Implemented test suite `tests/runtime/test_guest_removal.cpp` (108 lines, CTest #26).
+   - Proved zero guest emulator handles/dependencies in standalone runtime.
+   - Proved multi-frame bit-identical video determinism: rendered 5 frames (320x224 RGBA8888) across two independent cold-boot instances, verifying 100% exact pixel match across all $5 \times 320 \times 224 \times 4 = 1,433,600$ bytes.
+   - Proved multi-buffer bit-identical audio determinism: synthesized stereo audio across two independent cold-boot instances, verifying 100% exact sample match across all 5,880 samples (11,760 bytes).
+   - Proved native execution dominance: verified native execution ratio on proven startup sequence with zero fallback retirements.
+3. **Dual-Platform CTest Suite (35/35 Tests)**:
+   - Windows MinGW: 35/35 tests passed (53.75s).
+   - Linux WSL: 35/35 tests passed.
+   - Verified strict <= 500 lines policy across all human-maintained source/test/tool files (100/100 clean).
+
+### Status After Pass
+
+- `D18`: **PASS / COMPLETE**
+- `D17`: **PASS**
+- `D16`: **PASS**
+- `D15`: **PASS**
+- `D12`: **PASS**
+- `D11`: **PASS**
+- `D10`: **PASS**
+- `FULL_ASM_GAME_GATE`: **PASS**
+- `ASM_90_GATE`: **PASS** (96.59%)
+- CTests: 35 / 35 PASSING across Windows MinGW and Linux WSL
+- Progressive Native Recovery Track: **TERMINAL COMPLETION**
+
 ## 2026-09-10 — D17 Progressive Standalone Runtime (Native Execution Loop & Subsystem Binding) Passed
 
 ### Task

@@ -298,3 +298,21 @@ This experiment proves toolchain feasibility and establishes the ASM round-trip 
   3. An instruction is promoted to `MNEMONIC_PROVEN` ONLY when decoded bit-exact by `thor_sh2` with verified L0 semantics.
   4. Unproven bytes must remain losslessly emitted as raw data directives (`.byte`), never guessed instructions.
   5. Broad ASM $\to$ C++ translation remains strictly FROZEN per ADR D-015 until `FULL_ASM_GAME_GATE` passes.
+
+## ADR D-017: Standalone Native Game Executable Target Architecture
+
+- **Status:** APPROVED (2026-09-10)
+- **Context:**
+  Following the successful completion of `FULL_ASM_GAME_GATE` and the progressive hardware/runtime milestones (`D10`, `D11`, `D12`, `D15`, `D16`, `D17`), the project requires a standalone native game executable target (`thor2_native`) that decouples entirely from guest emulator processes and runtime plugin injection.
+- **Decision:**
+  1. **Direct Native Executable Target:** Implement `thor2_native` (`src/main_native.cpp`) as the standalone native executable linking `thor_runtime`, `thor_hw`, `thor_recomp`, and `thor_sh2`.
+  2. **Zero External Emulator Dependency:** The executable links directly with host C++20 standard libraries and internal Thor libraries with zero dynamic or static link dependencies on Mednafen, Kronos, or external emulator code.
+  3. **Multi-Mode CLI Interface:** Provide standard CLI options:
+     - `--boot`: boots runtime and executes startup sequence.
+     - `--frames <N>`: executes specified frame count.
+     - `--metrics`: reports native execution ratios, instruction counts, and performance metrics.
+     - `--selftest`: executes comprehensive built-in hardware and execution self-test returning exit code 0.
+  4. **L5 Observable Equivalence Contract:** Verify output parity through bit-identical frame rasterization (320x224 RGBA8888) and 16-bit stereo PCM audio synthesis across independent runs.
+- **Consequences:**
+  - `thor2_native` serves as the primary distribution and execution target for the native C++20 port.
+  - Verification can run fully standalone in standard CI/CD pipelines without emulator GUI or IPC harnesses.

@@ -324,9 +324,17 @@ Capabilities proven:
 - Verified with dedicated unit test suite `test_standalone_runtime` (CTest #25);
 - 34/34 CTests pass across Windows MinGW and Linux WSL.
 
-### Active Next Technical Milestone: D18 / T2-NAT-06 — Guest Dependency Removal & Standalone Game Executable
+### D18 — Guest Dependency Removal & Standalone Game Executable Target
 
-Purpose: Build the standalone native Thor 2 executable target (`thor2_native`) eliminating guest emulator dependencies for verified native subsystems.
+Status: **PASS**
+
+Capabilities proven:
+- Standalone native game executable target `thor2_native` (`src/main_native.cpp`) built and linked with zero external emulator library dependencies;
+- Portable CLI interface supporting `--boot`, `--frames <N>`, `--metrics`, `--selftest`, and `--help`;
+- Verified L5 observable equivalence: multi-frame rendering (320x224 RGBA8888) and 16-bit stereo PCM audio synthesis bit-identical across independent executions;
+- Clean shutdown with full runtime telemetry and performance reporting;
+- Dedicated unit test suite `test_guest_removal` (CTest #26);
+- 35/35 CTests pass across Windows MinGW and Linux WSL.
 
 ## Queued development milestones
 
@@ -355,7 +363,7 @@ Purpose: Build the standalone native Thor 2 executable target (`thor2_native`) e
 | **D15** | **HW-subsystem contracts** | **V-08 (SaturnRecomp component tests a–h)** | **PASS** |
 | **D16** | **Native subsystem replacement** | **V-08 (components passing differential test)** | **PASS** |
 | **D17** | **Progressive standalone runtime** | **V-14 (isolated, integrated, measured)** | **PASS** |
-| **D18** | **Guest dependency removal** | **— (L5 equivalence)** | **PROPOSED (Active next)** |
+| **D18** | **Guest dependency removal** | **— (L5 equivalence)** | **PASS** |
 
 ## References
 

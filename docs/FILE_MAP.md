@@ -70,6 +70,7 @@ include/
       standalone_runtime.hpp      D17 progressive standalone runtime and execution loop declaration
 
 src/
+  main_native.cpp               D18 standalone native Thor 2 game executable entry point
   sh2/
     sh2_decoder.cpp               target opcode decoding logic
     sh2_decoder_ext.cpp           extended opcode decoding logic (DT, MOVT, shift, bitwise, byte disp)
@@ -162,6 +163,7 @@ tests/
     test_native_subsystems.cpp    D16 native hardware subsystems and MMIO routing test suite
   runtime/
     test_standalone_runtime.cpp   D17 standalone runtime boot, native execution, and metrics tests
+    test_guest_removal.cpp        D18 guest dependency removal and L5 observable equivalence tests
   asm/
     test_asm_roundtrip.py         CTest integration test for SH-2 ASM round-trip verification
     test_full_module_asm.py       CTest integration test for full 0TH2.BIN module round-trip
