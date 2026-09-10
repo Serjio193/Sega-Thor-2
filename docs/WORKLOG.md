@@ -1,6 +1,58 @@
 # Worklog
 
+## 2026-09-10 — T2-ASM-01 First Bounded SH-2 ASM Round-Trip & Runtime Proof
+
+### Task
+
+Execute the first bounded experiment of ADR D-015 (ASM_FIRST_RECOVERY): select exactly one open SH-2 assembler/linker toolchain; pin and record executable SHA-256 hashes without proprietary Sega SDK tools; mechanically emit real SH-2 assembly mnemonics for startup block `bb_06004000` (no raw `.word` copying); assemble and link at original Saturn VMA (`0x06004000`); prove zero unresolved relocations and 12-byte section length; extract raw machine code and prove byte-exact parity (`837951102416988d0fc9cbc55c581662463a28dca74dceeb6bd0fca3fdaec10e`); perform independent decode cross-check; verify private module splice into canonical `0TH2.BIN` (`c1cc4117...`); perform bounded runtime substitution proof in clean Mednafen oracle (`155426661b7ac3152e2c93a98da60ac33002b908`) in pure interpreter mode; verify zero cycle/register divergence; run 12 negative controls; record evidence.
+
+### Method & Discoveries
+
+1. **Toolchain Selection & Pinned Identity**:
+   - Selected the official open GNU Binutils SH cross-toolchain (`binutils-sh-elf 2.40+2`, Ubuntu noble universe, upstream GNU Binutils 2.40).
+   - Target triplet: `sh-elf`; ISA: `-isa=sh2`; Endianness: Big-Endian (`-big` for `as`, `-EB` for `ld`).
+   - Pinned exact SHA-256 hashes for all 4 toolchain binaries:
+     - `sh-elf-as`: `fd3ddc347d0f83521b98e039e30acf93380930dd521d5031682767e822c074e5`
+     - `sh-elf-ld`: `e369cd410424715b549f2e61fc12f1f93f525f656ff3f60f2fdc22f689c8472d`
+     - `sh-elf-objcopy`: `1da83e2a6bbabe453a0fe12a37dd57a262135fc9cb769413655cdfc5e54aaea2`
+     - `sh-elf-objdump`: `ee13a67c88f386a388cf10eb4710d13f05691ac008af103b84329276bc41eb35`
+   - Strictly zero proprietary Sega SDK or leaked assembler components.
+2. **Mechanical Assembly Emission (`tools/asm/generate_asm_slice.py`)**:
+   - Implemented mechanical SH-2 ASM emitter supporting proven forms (`MOV.W @Rm, Rn`, `MOV Rm, Rn`, `MOV.L @(disp,PC), Rn`, `MOV.L @Rm, Rn`, `BRA disp`, `NOP`).
+   - Fails closed on any unrecognized opcode.
+   - Emits real mnemonics to `asm/generated/bb_06004000.s`, linker script to `asm/linker/bb_06004000.ld`, and provenance manifest to `asm/manifests/bb_06004000.json`.
+   - PC-relative literal target `0x06004064` and branch target `0x06004012` resolved symbolically.
+3. **Assembly, Link & Byte-Exact Extraction (`tools/asm/assemble_roundtrip.py`)**:
+   - Linker script sets VMA `0x06004000` with strict ASSERTs on section length and symbol addresses.
+   - Object file relocations inspected before link (`R_SH_IND12W` / `R_SH_DIR8WPL`); final linked ELF confirmed with zero unresolved relocations.
+   - Raw binary extracted via `sh-elf-objcopy -O binary -j .text`.
+   - Result: 12 bytes == 12 bytes; differing bytes = 0; SHA-256 matches canonical `837951102416988d0fc9cbc55c581662463a28dca74dceeb6bd0fca3fdaec10e` exactly.
+   - Two independent builds verified deterministic (0 differing bytes).
+4. **Structural Re-Decode & Private Module Splice**:
+   - Rebuilt raw bytes fed back through SH-2 decoder: reproduced all 6 instructions, identical OpcodeIds, operands, and targets.
+   - Extracted `0TH2.BIN` from disc image (LBA 24, 535,552 bytes, baseline SHA-256 `c1cc4117870bc567386410aa2d4f1b5f03fb98a601be71bb3ae2155de1853c64`).
+   - Spliced 12 rebuilt bytes into offset 0: module SHA-256 remains bit-identical (`c1cc4117...`).
+5. **Bounded Runtime Substitution Proof in Mednafen Oracle**:
+   - Clean Mednafen oracle (`155426661b7ac3152e2c93a98da60ac33002b908`) in pure interpreter mode (`native_mode 0`, zero native C++ overrides).
+   - Cold boot Run A (clean original disc) vs Run B (rebuilt 12 bytes spliced at LBA 24).
+   - Checkpoint entry `0x06004000`: cycle `305462360` in both runs; all 23 registers match 100%.
+   - Checkpoint branch target `0x06004012`: cycle `305462387` in both runs; duration exactly 27 cycles; all 23 registers match 100%.
+   - Checkpoint continuation `0x06004280`: cycle `307090585` in both runs; all 23 registers match 100%.
+   - Zero unexplained divergence observed; temporary disc image cleaned up.
+6. **Negative Controls Suite (`tools/asm/verify_roundtrip.py`)**:
+   - 12/12 negative controls verified to fail closed: opcode mutation, wrong endianness, wrong VMA, wrong branch target, wrong literal target, missing NOP delay slot, unexpected padding, length != 12, wrong expected SHA, stale toolchain hash, unresolved relocation, wrong module manifest.
+
+### Status After Pass
+
+- `T2-ASM-01`: **PASS**
+- `bb_06004000`: `ASM_BYTE_EXACT = PASS`, `ASM_RUNTIME_VERIFIED = PASS`
+- Broad C++ Translation: **FROZEN**
+- `FULL_ASM_GAME_GATE`: **NOT_SATISFIED** (1/N slices proven)
+- `M-03`: `READY_FOR_BOUNDED_TEST (DEFERRED_BY_ASM_FIRST_ARCHITECTURE)`
+- Exact next action: `T2-ASM-02 — Module Assembly Skeleton & Lossless CODE/DATA/UNKNOWN Emission for 0TH2.BIN`.
+
 ## 2026-09-10 — T2-ARCH Freeze Broad C++ Translation and Establish ASM-First Recovery Gate
+
 
 ### Task
 

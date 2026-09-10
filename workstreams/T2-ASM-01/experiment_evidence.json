@@ -1,0 +1,144 @@
+{
+  "schema_version": "1.0.0",
+  "task": "T2-ASM-01",
+  "title": "First Bounded SH-2 ASM Round-Trip & Runtime Proof",
+  "status": "PASS",
+  "target_block": "bb_06004000",
+  "cpu": "MASTER_SH2",
+  "module": "0TH2.BIN",
+  "module_sha256": "c1cc4117870bc567386410aa2d4f1b5f03fb98a601be71bb3ae2155de1853c64",
+  "revision": "thor2_ntsc_patched_fe11d2fb",
+  "runtime_range": {
+    "start": "0x06004000",
+    "end": "0x0600400A",
+    "byte_length": 12,
+    "instruction_count": 6
+  },
+  "canonical_bytes_hex": "66116f03d4176442a0030009",
+  "canonical_slice_sha256": "837951102416988d0fc9cbc55c581662463a28dca74dceeb6bd0fca3fdaec10e",
+  "toolchain": {
+    "target": "sh-elf",
+    "package": "binutils-sh-elf 2.40+2 (Ubuntu noble universe)",
+    "binutils_version": "2.40",
+    "upstream_source": "sourceware.org GNU Binutils 2.40",
+    "assembler": {
+      "name": "sh-elf-as",
+      "version": "GNU assembler (2.40+2) 2.40",
+      "sha256": "fd3ddc347d0f83521b98e039e30acf93380930dd521d5031682767e822c074e5",
+      "command": "sh-elf-as -isa=sh2 -big bb_06004000.s -o block.o"
+    },
+    "linker": {
+      "name": "sh-elf-ld",
+      "version": "GNU ld (2.40+2) 2.40",
+      "sha256": "e369cd410424715b549f2e61fc12f1f93f525f656ff3f60f2fdc22f689c8472d",
+      "command": "sh-elf-ld -EB -T bb_06004000.ld block.o -o block.elf"
+    },
+    "objcopy": {
+      "name": "sh-elf-objcopy",
+      "version": "GNU objcopy (2.40+2) 2.40",
+      "sha256": "1da83e2a6bbabe453a0fe12a37dd57a262135fc9cb769413655cdfc5e54aaea2",
+      "command": "sh-elf-objcopy -O binary -j .text block.elf block.bin"
+    },
+    "objdump": {
+      "name": "sh-elf-objdump",
+      "version": "GNU objdump (2.40+2) 2.40",
+      "sha256": "ee13a67c88f386a388cf10eb4710d13f05691ac008af103b84329276bc41eb35"
+    }
+  },
+  "vma": {
+    "base": "0x06004000",
+    "entry_symbol": "_start",
+    "branch_target": "0x06004012",
+    "literal_target": "0x06004064"
+  },
+  "roundtrip_verification": {
+    "byte_exact": true,
+    "extracted_byte_length": 12,
+    "differing_bytes": 0,
+    "rebuilt_sha256": "837951102416988d0fc9cbc55c581662463a28dca74dceeb6bd0fca3fdaec10e",
+    "deterministic_build": {
+      "status": "PASS",
+      "differing_bytes_between_runs": 0
+    },
+    "relocations": {
+      "object_file_relocations_count": 1,
+      "final_elf_unresolved_relocations": 0
+    },
+    "decoder_crosscheck": {
+      "status": "PASS",
+      "instruction_count": 6,
+      "instructions": [
+        {"pc": "0x06004000", "opcode": "0x6611", "mnemonic": "mov.w @r1, r6", "id": "MOV_W_READ_MEM"},
+        {"pc": "0x06004002", "opcode": "0x6F03", "mnemonic": "mov r0, r15", "id": "MOV_REG"},
+        {"pc": "0x06004004", "opcode": "0xD417", "mnemonic": "mov.l lit_06004064, r4", "id": "MOV_L_PC_REL", "target": "0x06004064"},
+        {"pc": "0x06004006", "opcode": "0x6442", "mnemonic": "mov.l @r4, r4", "id": "MOV_L_READ_MEM"},
+        {"pc": "0x06004008", "opcode": "0xA003", "mnemonic": "bra loc_06004012", "id": "BRA", "target": "0x06004012", "delay_slot": true},
+        {"pc": "0x0600400A", "opcode": "0x0009", "mnemonic": "nop", "id": "NOP"}
+      ]
+    },
+    "private_module_splice": {
+      "status": "PASS",
+      "canonical_0th2_sha256": "c1cc4117870bc567386410aa2d4f1b5f03fb98a601be71bb3ae2155de1853c64",
+      "spliced_0th2_sha256": "c1cc4117870bc567386410aa2d4f1b5f03fb98a601be71bb3ae2155de1853c64",
+      "match": true
+    }
+  },
+  "runtime_substitution_proof": {
+    "status": "PASS",
+    "oracle": "Mednafen debug fork",
+    "oracle_commit": "155426661b7ac3152e2c93a98da60ac33002b908",
+    "execution_mode": "PURE_INTERPRETER (native_mode 0, no C++ overrides)",
+    "timing": {
+      "entry_cycle_06004000": 305462360,
+      "target_cycle_06004012": 305462387,
+      "block_duration_cycles": 27,
+      "downstream_checkpoint_cycle_06004280": 307090585,
+      "timing_invariants_pass": true
+    },
+    "checkpoints": {
+      "entry_06004000": {
+        "cycle": 305462360,
+        "diverging_registers": 0,
+        "regs_match": true
+      },
+      "branch_target_06004012": {
+        "cycle": 305462387,
+        "diverging_registers": 0,
+        "regs_match": true
+      },
+      "checkpoint_06004280": {
+        "cycle": 307090585,
+        "diverging_registers": 0,
+        "regs_match": true
+      }
+    },
+    "total_divergence": 0
+  },
+  "negative_controls": {
+    "total_count": 12,
+    "passed_count": 12,
+    "controls": {
+      "nc1_opcode_mutation": "PASS (rejected)",
+      "nc2_wrong_endian": "PASS (rejected)",
+      "nc3_wrong_vma": "PASS (rejected)",
+      "nc4_wrong_branch_target": "PASS (rejected)",
+      "nc5_wrong_literal_target": "PASS (rejected)",
+      "nc6_missing_nop": "PASS (rejected)",
+      "nc7_unexpected_padding": "PASS (rejected)",
+      "nc8_output_length_mismatch": "PASS (rejected)",
+      "nc9_wrong_expected_sha": "PASS (rejected)",
+      "nc10_stale_tool_identity": "PASS (rejected)",
+      "nc11_unresolved_relocation": "PASS (rejected)",
+      "nc12_wrong_module_manifest": "PASS (rejected)"
+    }
+  },
+  "final_disposition": {
+    "task_verdict": "PASS",
+    "bb_06004000_status": {
+      "ASM_BYTE_EXACT": "PASS",
+      "ASM_RUNTIME_VERIFIED": "PASS"
+    },
+    "full_asm_game_gate": "NOT_SATISFIED (1/N slices)",
+    "next_action": "T2-ASM-02 — Module Assembly Skeleton & Lossless CODE/DATA/UNKNOWN Emission for 0TH2.BIN"
+  }
+}

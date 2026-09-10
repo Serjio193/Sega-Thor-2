@@ -76,6 +76,11 @@ tools/
     generate_sh2_block.cpp        build-time mechanical C++20 block generator CLI
     mutation_harness.py           live Mednafen IPC mutation and non-contamination harness
     saturnrecomp_adapter.py       external SaturnRecomp decoder probe adapter
+  asm/
+    generate_asm_slice.py         mechanical SH-2 assembly slice emitter
+    assemble_roundtrip.py         pinned GNU toolchain assembly, linking & raw extraction pipeline
+    verify_roundtrip.py           comprehensive round-trip verification & 12 negative controls
+    runtime_substitution_proof.py Mednafen dual cold-boot runtime substitution proof
 
 tests/
   test_census_saturn_cd.py        synthetic tests for census parser
@@ -101,6 +106,8 @@ tests/
     test_m07_reference.py         SaturnRecomp reference manifest validation & negative control tests
     test_post_d8_closure.py       canonical POST-D8 closure audit validator with 9 negative controls
     test_d9_plan.py               D9 indirect plan and artifact validator with 19 negative controls
+  asm/
+    test_asm_roundtrip.py         CTest integration test for SH-2 ASM round-trip verification
 
 workstreams/
   T2-M0-disc-census/
@@ -155,14 +162,19 @@ workstreams/
     d9_4_native_indirect_evidence.json canonical raw JSON telemetry across all 5 experiment modes
     patches/
       mednafen_dut_integration.patch  isolated Mednafen DUT automation adapter patch
+  T2-ASM-01/
+    README.md                     T2-ASM-01 workstream record and proof summary
+    experiment_evidence.md        detailed toolchain, assembly, relocation, and runtime proof
+    experiment_evidence.json      machine-readable round-trip and negative control evidence
 
-asm/                              planned assembly reconstruction layout (ADR D-015)
-  modules/                        main reconstructed executable modules (0TH2.BIN, TH2.LOW)
-  overlays/                       reconstructed dynamic overlay assembly sources
-  include/                        shared assembly headers, macros, hardware equates
-  generated/                      mechanically emitted assembly slices with provenance tags
-  linker/                         linker scripts, memory maps, and layout definitions
-  manifests/                      reconstruction manifests, section maps, and byte hashes
+asm/                              assembly reconstruction layout (ADR D-015)
+  generated/
+    bb_06004000.s                 mechanically emitted SH-2 assembly specimen
+  linker/
+    bb_06004000.ld                linker script for bb_06004000 at VMA 0x06004000
+  manifests/
+    bb_06004000.json              provenance manifest for bb_06004000 slice
+
 
 external/
   README.md                       rules for private user-supplied inputs

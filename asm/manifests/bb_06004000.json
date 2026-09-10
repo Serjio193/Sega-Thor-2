@@ -1,0 +1,25 @@
+{
+  "schema_version": "1.0.0",
+  "revision": "thor2_ntsc_patched_fe11d2fb",
+  "module": "0TH2.BIN",
+  "module_sha256": "c1cc4117870bc567386410aa2d4f1b5f03fb98a601be71bb3ae2155de1853c64",
+  "module_runtime_base": "0x06004000",
+  "source_file_offset": "0x00000000",
+  "runtime_start": "0x06004000",
+  "runtime_end": "0x0600400A",
+  "byte_length": 12,
+  "instruction_count": 6,
+  "original_slice_sha256": "837951102416988d0fc9cbc55c581662463a28dca74dceeb6bd0fca3fdaec10e",
+  "cpu": "MASTER_SH2",
+  "generation_provenance_identity": "T2-V02a / T2-D4-D5 / T2-ASM-01",
+  "classification_state": "CONFIRMED_CODE / EXECUTED",
+  "assembler_tool_identity": "GNU assembler (binutils-sh-elf 2.40+2) 2.40",
+  "link_vma": "0x06004000",
+  "branch_targets": [
+    "0x06004012"
+  ],
+  "literal_targets": [
+    "0x06004064"
+  ],
+  "expected_output_sha256": "837951102416988d0fc9cbc55c581662463a28dca74dceeb6bd0fca3fdaec10e"
+}

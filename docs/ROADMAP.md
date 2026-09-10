@@ -168,14 +168,27 @@ The project enforces an **ASM-FIRST recovery strategy**:
 5. Existing C++ blocks `bb_06004000` (D8) and `bb_06004280` (D9) are retained strictly as bounded technology specimens.
 6. M-03 technical capability is `READY_FOR_BOUNDED_TEST`, with execution `DEFERRED_BY_ASM_FIRST_ARCHITECTURE` until `FULL_ASM_GAME_GATE` passes.
 
-### Active Next Technical Task: T2-ASM-01 — First Bounded ASM Round-Trip Experiment
+### T2-ASM-01 — First Bounded SH-2 ASM Round-Trip & Runtime Proof
 
-Purpose: Prove candidate assembler/linker toolchain feasibility on an already-proven small region (`bb_06004000` / `bb_06004280`):
-- emit generated SH-2 `.s` assembly with mechanical directives and provenance tags;
-- assemble using candidate open toolchain;
-- compare reassembled bytes and layout against original retail bytes;
-- substitute rebuilt bytes into live memory / module;
-- verify execution in clean Mednafen oracle with zero divergence.
+Status: **BOUNDED_PROOF (bb_06004000 byte-exact & runtime verified)**
+
+Capability: mechanical SH-2 assembly emission, open toolchain assembly/linking at original Saturn VMA, byte-exact extraction, and live runtime substitution in Mednafen oracle.
+Verified gate:
+- Open GNU Binutils SH toolchain (`binutils-sh-elf 2.40+2`) pinned by binary hashes;
+- Real SH-2 mnemonics emitted mechanically (`mov.w`, `mov`, `mov.l`, `bra`, `nop`);
+- Linker script establishes VMA `0x06004000` with zero unresolved relocations;
+- 12-byte raw extraction byte-exact to canonical slice SHA-256 `83795110...`;
+- Private `0TH2.BIN` splice verified bit-identical to SHA-256 `c1cc4117...`;
+- Mednafen cold-boot runtime substitution matches ORIGINAL in pure interpreter mode (entry cycle `305462360`, target `305462387`, duration 27, 23/23 registers match);
+- 12/12 negative controls fail closed.
+
+### Active Next Technical Task: T2-ASM-02 — Module Assembly Skeleton & Lossless CODE/DATA/UNKNOWN Emission for 0TH2.BIN
+
+Purpose: Scale the mechanical assembly pipeline to the complete primary disc binary `0TH2.BIN` (535,552 bytes):
+- generate an assembly module skeleton representing the full 535,552 bytes losslessly using proven SH-2 mnemonics for confirmed code and raw data directives (`.byte`/`.long`) for unclassified/data ranges;
+- link at `0x06004000` with linker script matching 0TH2.BIN extents;
+- prove byte-exact whole-module reassembly (`c1cc4117870bc567386410aa2d4f1b5f03fb98a601be71bb3ae2155de1853c64`);
+- verify boot in clean Mednafen oracle with the rebuilt module.
 
 ## Queued development milestones
 
@@ -190,7 +203,8 @@ Purpose: Prove candidate assembler/linker toolchain feasibility on an already-pr
 | D8 | First native promotion proof | V-07C (native override proof) | BOUNDED_PROOF (specimen bb_06004000) |
 | D9 | Indirect control-flow handling | Bounded native JSR override | BOUNDED_PROOF (specimen bb_06004280) |
 | **M-03** | **Candidate harvester re-evaluation** | **Post-D9.4 re-entry gate** | **READY_FOR_BOUNDED_TEST (DEFERRED_BY_ASM_FIRST_ARCHITECTURE)** |
-| **T2-ASM-01** | **First bounded ASM round-trip** | **Candidate toolchain assembly & substitution** | **ACTIVE NEXT TASK** |
+| **T2-ASM-01** | **First bounded ASM round-trip** | **Candidate toolchain assembly & substitution** | **BOUNDED_PROOF (bb_06004000)** |
+| **T2-ASM-02** | **Module assembly skeleton for 0TH2.BIN** | **Lossless full-module round-trip** | **ACTIVE NEXT TASK** |
 | **GATE** | **FULL_ASM_GAME_GATE** | **Rebuilt Saturn game boots & plays in Mednafen** | **MANDATORY PREREQUISITE FOR BROAD C++ TRANSLATION** |
 | D10 | Timing/IRQ/DMA boundaries | — (general scaling) | PROPOSED (Post-ASM-Gate) |
 | D11 | Overlay/generation identity | V-10 (transformation/overlay discovery) | PROPOSED (Active for ASM reconstruction) |
