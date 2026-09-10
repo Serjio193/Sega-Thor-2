@@ -29,6 +29,7 @@ add_library(thor_recomp STATIC
     src/recomp/block_exit.cpp
     src/recomp/block_memory.cpp
     src/recomp/block_timing.cpp
+    src/recomp/function_boundary.cpp
 )
 target_link_libraries(thor_recomp PUBLIC thor_sh2)
 
@@ -196,6 +197,11 @@ add_test(NAME test_block_memory COMMAND test_block_memory)
 add_executable(test_block_timing tests/recomp/test_block_timing.cpp)
 target_link_libraries(test_block_timing PRIVATE thor_recomp thor_sh2)
 add_test(NAME test_block_timing COMMAND test_block_timing)
+
+# D12 structural recovery & function boundary test suite
+add_executable(test_function_boundary tests/recomp/test_function_boundary.cpp)
+target_link_libraries(test_function_boundary PRIVATE thor_recomp thor_sh2)
+add_test(NAME test_function_boundary COMMAND test_function_boundary)
 
 # M-07 SaturnRecomp reference corpus and negative controls test suite
 find_package(Python3 COMPONENTS Interpreter)

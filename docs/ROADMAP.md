@@ -277,9 +277,20 @@ Capabilities proven:
 - Verified positive qualification (matching generation) and negative fault injection (mismatched generations 0, 6 fail closed with `GENERATION_MISMATCH`);
 - Verified with `test_executable_identity`.
 
-### Active Next Technical Milestone: D12 / T2-NAT-02 — Structural Recovery & Subsystem Function Boundary Demarcation
+### D12 — Structural Recovery & Subsystem Function Demarcation
 
-Purpose: Progressively recover function boundaries, call graphs, and subsystem bridges across verified assembly containers and native translation units.
+Status: **PASS**
+
+Capabilities proven:
+- Formalized function boundary kinds and invariants in `include/thor/recomp/function_boundary.hpp` and `src/recomp/function_boundary.cpp`: `MODULE_ENTRY`, `DIRECT_CALL_TARGET`, `INDIRECT_CALL_TARGET`, `EXCEPTION_VECTOR`;
+- Formalized exit kinds: `SUBROUTINE_RETURN`, `EXCEPTION_RETURN`, `TAIL_CALL`, `NON_RETURNING`;
+- Demarcated canonical subroutines: `sub_06004000_boot`, `sub_0600A0F8_load_file`, `sub_002E9910_engine_start`, `sub_060D8000_stage_overlay`;
+- Verified bidirectional caller/callee adjacency indexing and call graph queries (`get_callers`, `get_callees`, `find_by_pc`);
+- Verified with `test_function_boundary` (CTest #20); 29/29 CTests pass across Windows MinGW and Linux WSL.
+
+### Active Next Technical Milestone: D15 / T2-NAT-03 — Hardware Subsystem Contracts (VDP1, VDP2, SCSP)
+
+Purpose: Formalize native contracts for Saturn hardware subsystems (VDP1 sprite command list processing, VDP2 tilemaps/scroll planes, and SCSP audio command ring buffer) to enable differential validation and native subsystem replacement.
 
 ## Queued development milestones
 
@@ -302,10 +313,10 @@ Purpose: Progressively recover function boundaries, call graphs, and subsystem b
 | **GATE** | **FULL_ASM_GAME_GATE** | **Rebuilt Saturn game boots & plays in Mednafen** | **PASS (VERIFIED 0 DIVERGENCE)** |
 | **D10** | **Timing/IRQ/DMA boundaries** | **Classification & barrier model** | **BOUNDED_PROOF / PASS** |
 | **D11** | **Overlay/generation identity** | **Multi-generation descriptor & isolation** | **BOUNDED_PROOF / PASS** |
-| D12 | Structural recovery | V-05, V-13 | PROPOSED (Active next) |
+| **D12** | **Structural recovery** | **Function boundary catalog & call graph** | **PASS** |
 | D13 | Guest-address/type provenance | V-09 | PROPOSED |
 | D14 | Resource decode/reencode | V-11 (exact round-trip), V-12 (diff locator) | PROPOSED |
-| D15 | HW-subsystem contracts | V-08 (SaturnRecomp component tests a–h) | PROPOSED |
+| **D15** | **HW-subsystem contracts** | **V-08 (SaturnRecomp component tests a–h)** | **PROPOSED (Active next)** |
 | D16 | Native subsystem replacement | V-08 (components passing differential test) | PROPOSED |
 | D17 | Progressive standalone runtime | V-14 (isolated, integrated, measured) | PROPOSED |
 | D18 | Guest dependency removal | — (L5 equivalence) | PROPOSED |

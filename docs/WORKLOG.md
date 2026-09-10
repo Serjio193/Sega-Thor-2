@@ -1,5 +1,42 @@
 # Worklog
 
+## 2026-09-10 — D12 Structural Recovery & Function Boundary Demarcation Passed
+
+### Task
+
+Execute D12 (Structural Recovery & Subsystem Function Demarcation) in the Progressive Native Recovery Track:
+1. Formalize function entry kinds (`MODULE_ENTRY`, `DIRECT_CALL_TARGET`, `INDIRECT_CALL_TARGET`, `EXCEPTION_VECTOR`) and exit kinds (`SUBROUTINE_RETURN`, `EXCEPTION_RETURN`, `TAIL_CALL`, `NON_RETURNING`).
+2. Implement `FunctionDescriptor` and `FunctionBoundaryCatalog` (`include/thor/recomp/function_boundary.hpp`, `src/recomp/function_boundary.cpp`).
+3. Catalog and demarcate canonical Thor 2 subroutines: `sub_06004000_boot`, `sub_0600A0F8_load_file`, `sub_002E9910_engine_start`, `sub_060D8000_stage_overlay`.
+4. Recover caller/callee adjacency and verify call graph queries (`get_callers`, `get_callees`, `find_by_pc`).
+5. Establish CTest #20 (`test_function_boundary`) and verify dual-platform passing (29/29 CTests green on Windows MinGW and Linux WSL).
+
+### Method & Discoveries
+
+1. **Function Boundary & Call Graph Representation**:
+   - Created `include/thor/recomp/function_boundary.hpp` (68 lines) and `src/recomp/function_boundary.cpp` (143 lines).
+   - Modeled function boundary invariants per AGENTS.md: function boundaries are evidence-backed hypotheses, initial recompilation units are basic blocks, and indirect targets remain runtime-dispatched.
+   - Implemented caller/callee bidirectional indexing in `FunctionBoundaryCatalog`.
+2. **Canonical Thor 2 Call Sites Demarcated**:
+   - Demarcated `sub_06004000_boot` (`0TH2.BIN`, VMA `0x06004000..0x0600428A`, entry `MODULE_ENTRY`, exit `NON_RETURNING`).
+   - Demarcated `sub_0600A0F8_load_file` (`0TH2.BIN`, VMA `0x0600A0F8..0x0600A160`, entry `INDIRECT_CALL_TARGET`, exit `SUBROUTINE_RETURN`), called via `JSR @R3` at `0x06004280`.
+   - Demarcated `sub_002E9910_engine_start` (`TH2.LOW`, VMA `0x002E9910..0x002E9960`, entry `MODULE_ENTRY`, exit `NON_RETURNING`).
+   - Demarcated `sub_060D8000_stage_overlay` (`SET07.BIN`, VMA `0x060D8000..0x060D8080`, entry `INDIRECT_CALL_TARGET`, exit `SUBROUTINE_RETURN`), invoked dynamically by `TH2.LOW` at `0x002E3C5C`.
+3. **Dual-Platform CTest Suite (29/29 Tests)**:
+   - Registered `test_function_boundary` in `CMakeLists.txt`.
+   - 29/29 CTests pass on Windows MinGW (52.61s) and Linux WSL (55.38s).
+   - Audited 81 human-maintained source/test/tool files: 0 violations of the <= 500 lines limit.
+
+### Status After Pass
+
+- `D12`: **PASS**
+- `D11`: **PASS**
+- `D10`: **PASS**
+- `FULL_ASM_GAME_GATE`: **PASS**
+- `ASM_90_GATE`: **PASS** (96.59%)
+- CTests: 29 / 29 PASSING across Windows MinGW and Linux WSL
+- Exact next action: `D13 / D15 — Guest Type/Address Provenance & Hardware Subsystem Contracts (VDP1, VDP2, SCSP)`
+
 ## 2026-09-10 — D10 Timing/Interrupt/DMA Boundaries & D11 Overlay/Generation Identity Passed
 
 ### Task

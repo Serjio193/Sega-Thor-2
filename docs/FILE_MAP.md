@@ -57,6 +57,7 @@ include/
       native_dispatcher.hpp       reusable native dispatcher with shadow qualification
       mutation_harness.hpp        reusable mutation fault-injection harness declaration
       block_timing.hpp            D10 timing, interrupt, and DMA boundary classification declaration
+      function_boundary.hpp       D12 evidence-backed function boundary & call-graph declaration
 
 src/
   sh2/
@@ -75,6 +76,7 @@ src/
     native_dispatcher.cpp         authoritative native dispatcher and C ABI export definitions
     mutation_harness.cpp          bounded mutation testing and restoration logic
     block_timing.cpp              D10 execution boundary and timing classification logic
+    function_boundary.cpp         D12 function boundary catalog and call-graph resolution logic
 
 asm/
   schema/
