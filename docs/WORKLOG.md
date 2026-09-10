@@ -1,5 +1,46 @@
 # Worklog
 
+## 2026-09-10 — D17 Progressive Standalone Runtime (Native Execution Loop & Subsystem Binding) Passed
+
+### Task
+
+Execute D17 (Progressive Standalone Runtime: Native Execution Loop & Subsystem Binding) and Gate V-14 in the Progressive Native Recovery Track:
+1. Implement `StandaloneRuntime` coordinating High/Low Work RAM, native hardware subsystems (`NativeSaturnSystem`), native block dispatch (`NativeDispatcher`), and fallback SH-2 execution (`include/thor/runtime/standalone_runtime.hpp`, `src/runtime/standalone_runtime.cpp`).
+2. Implement runtime execution loop (`step`, `run_cycles`, `run_frame`) with quantified metrics tracking (`native_instructions`, `fallback_instructions`, `native_cycles`, `fallback_cycles`, `frames_rendered`, `audio_buffers_rendered`).
+3. Satisfy Gate V-14: demonstrate measured dependency reduction with native basic block execution (`bb_06004000`) achieving 100% native instruction ratio on proven startup sequence.
+4. Establish dedicated unit test suite `tests/runtime/test_standalone_runtime.cpp` registered as CTest #25.
+5. Verify dual-platform passing (34/34 CTests green across Windows MinGW and Linux WSL).
+
+### Method & Discoveries
+
+1. **Standalone Runtime Architecture**:
+   - Implemented `include/thor/runtime/standalone_runtime.hpp` (68 lines) and `src/runtime/standalone_runtime.cpp` (215 lines).
+   - Coordinated 1MB High Work RAM (`0x06000000..0x060FFFFF`), 1MB Low Work RAM (`0x00200000..0x002FFFFF`), and hardware MMIO dispatch.
+   - Master SH-2 CPU state initialized matching BIOS handover (`PC=0x06004000`, `R15=0x06001000`, `SR=0x00000001`, `VBR=0x06000000`).
+2. **Native Execution & Quantified Dependency Reduction**:
+   - `step()` checks registered native blocks in `NativeDispatcher` before instruction decode.
+   - On canonical startup sequence (`0x06004000..0x0600400A`), dispatches `bb_06004000` natively, advancing PC directly to `0x06004012` with 0 interpreter retirements in the block and exact register updates (`R6=0x6611`, `R15=0x06002EDC`, `R4=0x060917DC`).
+   - Quantified metrics verify: `native_instructions = 6`, `native_cycles = 27`, `has_measured_dependency_reduction() = true`.
+   - Fallback interpreter correctly executes uncompiled instructions and records emulated metrics.
+3. **Dual-Platform CTest Suite (34/34 Tests)**:
+   - Registered `test_standalone_runtime` as CTest #25 in `CMakeLists.txt`.
+   - Windows MinGW: 34/34 tests passed (50.69s).
+   - Linux WSL: 34/34 tests passed (53.27s).
+   - Verified strict <= 500 lines policy across all human-maintained source/test/tool files (96/96 clean).
+
+### Status After Pass
+
+- `D17`: **PASS**
+- `D16`: **PASS**
+- `D15`: **PASS**
+- `D12`: **PASS**
+- `D11`: **PASS**
+- `D10`: **PASS**
+- `FULL_ASM_GAME_GATE`: **PASS**
+- `ASM_90_GATE`: **PASS** (96.59%)
+- CTests: 34 / 34 PASSING across Windows MinGW and Linux WSL
+- Exact next action: `D18 / T2-NAT-06 — Guest Dependency Removal & Standalone Game Executable Target`
+
 ## 2026-09-10 — D16 Native Subsystem Replacement (Unified Hardware Bridge & Backends) Passed
 
 ### Task

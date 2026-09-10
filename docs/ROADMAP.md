@@ -311,9 +311,22 @@ Capabilities proven:
 - Verified with dedicated unit test suite `test_native_subsystems` (CTest #24);
 - 33/33 CTests pass across Windows MinGW and Linux WSL.
 
-### Active Next Technical Milestone: D17 / T2-NAT-05 — Progressive Standalone Runtime (Native Execution Loop & Subsystem Binding)
+### D17 — Progressive Standalone Runtime (Native Execution Loop & Subsystem Binding)
 
-Purpose: Establish the native Thor 2 execution runtime driving SH-2 native code and `NativeSaturnSystem` hardware loop without emulator dependency.
+Status: **PASS**
+
+Capabilities proven:
+- Implemented `StandaloneRuntime` coordinating Work RAM, native hardware subsystems, native block dispatch, and fallback SH-2 instruction execution in `include/thor/runtime/standalone_runtime.hpp` and `src/runtime/standalone_runtime.cpp`;
+- Verified isolated compilation and linking without external emulator libraries;
+- Verified integrated bounded runtime loop driving native blocks (`bb_06004000`) and fallback instructions;
+- Proved measured dependency reduction via runtime metrics (`has_measured_dependency_reduction() == true`, 100% native execution ratio on proven block);
+- Verified native video frame presentation (320x224 RGBA8888) and stereo audio sample generation;
+- Verified with dedicated unit test suite `test_standalone_runtime` (CTest #25);
+- 34/34 CTests pass across Windows MinGW and Linux WSL.
+
+### Active Next Technical Milestone: D18 / T2-NAT-06 — Guest Dependency Removal & Standalone Game Executable
+
+Purpose: Build the standalone native Thor 2 executable target (`thor2_native`) eliminating guest emulator dependencies for verified native subsystems.
 
 ## Queued development milestones
 
@@ -341,8 +354,8 @@ Purpose: Establish the native Thor 2 execution runtime driving SH-2 native code 
 | D14 | Resource decode/reencode | V-11 (exact round-trip), V-12 (diff locator) | PROPOSED |
 | **D15** | **HW-subsystem contracts** | **V-08 (SaturnRecomp component tests a–h)** | **PASS** |
 | **D16** | **Native subsystem replacement** | **V-08 (components passing differential test)** | **PASS** |
-| **D17** | **Progressive standalone runtime** | **V-14 (isolated, integrated, measured)** | **PROPOSED (Active next)** |
-| D18 | Guest dependency removal | — (L5 equivalence) | PROPOSED |
+| **D17** | **Progressive standalone runtime** | **V-14 (isolated, integrated, measured)** | **PASS** |
+| **D18** | **Guest dependency removal** | **— (L5 equivalence)** | **PROPOSED (Active next)** |
 
 ## References
 

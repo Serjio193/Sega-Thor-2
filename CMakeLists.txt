@@ -172,6 +172,13 @@ target_link_libraries(thor_native_plugin PUBLIC thor_recomp thor_generated_bb_06
 target_include_directories(thor_native_plugin PUBLIC include "${GENERATED_DIR}")
 set_target_properties(thor_native_plugin PROPERTIES OUTPUT_NAME "thor_native")
 
+# D17 Progressive standalone runtime library
+add_library(thor_runtime STATIC
+    src/runtime/standalone_runtime.cpp
+)
+target_link_libraries(thor_runtime PUBLIC thor_native thor_hw thor_recomp thor_sh2)
+target_include_directories(thor_runtime PUBLIC include "${GENERATED_DIR}")
+
 # V-07C native dispatcher and fail-closed fallback test suite
 add_executable(test_native_dispatcher tests/recomp/test_native_dispatcher.cpp)
 target_link_libraries(test_native_dispatcher PRIVATE thor_native)
@@ -227,6 +234,11 @@ add_test(NAME test_scsp COMMAND test_scsp)
 add_executable(test_native_subsystems tests/hw/test_native_subsystems.cpp)
 target_link_libraries(test_native_subsystems PRIVATE thor_hw)
 add_test(NAME test_native_subsystems COMMAND test_native_subsystems)
+
+# D17 progressive standalone runtime test suite
+add_executable(test_standalone_runtime tests/runtime/test_standalone_runtime.cpp)
+target_link_libraries(test_standalone_runtime PRIVATE thor_runtime)
+add_test(NAME test_standalone_runtime COMMAND test_standalone_runtime)
 
 # M-07 SaturnRecomp reference corpus and negative controls test suite
 find_package(Python3 COMPONENTS Interpreter)

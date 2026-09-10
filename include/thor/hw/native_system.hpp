@@ -71,6 +71,7 @@ private:
     std::vector<uint8_t> vdp2_vram_{};
     std::vector<uint8_t> vdp2_cram_{};
     std::vector<uint8_t> sound_ram_{};
+    uint16_t vdp2_tvmd_ = 0;
 };
 
 } // namespace thor::hw

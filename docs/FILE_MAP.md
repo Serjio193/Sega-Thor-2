@@ -66,6 +66,8 @@ include/
       scsp_types.hpp              D15 SCSP sound command, driver status, and slot types
       scsp.hpp                    D15 SCSP sound engine, mailbox, and ring buffer declaration
       native_system.hpp           D16 unified Saturn hardware subsystem coordinator declaration
+    runtime/
+      standalone_runtime.hpp      D17 progressive standalone runtime and execution loop declaration
 
 src/
   sh2/
@@ -90,6 +92,8 @@ src/
     vdp2.cpp                      D15 VDP2 color decode, RBG0 rotation matrix, and pixel arbitration
     scsp.cpp                      D15 SCSP sound command queue processing, slot configuration, and mailbox
     native_system.cpp             D16 unified Saturn hardware subsystem coordinator implementation
+  runtime/
+    standalone_runtime.cpp        D17 progressive standalone runtime and execution loop implementation
 
 asm/
   schema/
@@ -156,6 +160,8 @@ tests/
     test_vdp2.cpp                 D15 VDP2 color decode, CRAM, RBG0 matrix, and pixel arbitration tests
     test_scsp.cpp                 D15 SCSP sound command ring buffer, transitions, and slot tests
     test_native_subsystems.cpp    D16 native hardware subsystems and MMIO routing test suite
+  runtime/
+    test_standalone_runtime.cpp   D17 standalone runtime boot, native execution, and metrics tests
   asm/
     test_asm_roundtrip.py         CTest integration test for SH-2 ASM round-trip verification
     test_full_module_asm.py       CTest integration test for full 0TH2.BIN module round-trip

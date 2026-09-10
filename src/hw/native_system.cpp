@@ -16,6 +16,7 @@ void NativeSaturnSystem::reset() noexcept {
     vdp1_.reset();
     vdp2_.reset();
     scsp_.reset();
+    vdp2_tvmd_ = 0;
 }
 
 bool NativeSaturnSystem::write_mmio_u16(uint32_t address, uint16_t value) noexcept {
@@ -30,6 +31,14 @@ bool NativeSaturnSystem::write_mmio_u16(uint32_t address, uint16_t value) noexce
         case 0x05D00010u: vdp1_.set_edsr(value); return true;
         default: return true;
         }
+    }
+
+    // VDP2 Registers
+    if (masked >= 0x05E00000u && masked <= 0x05E00100u) {
+        if (masked == 0x05E00000u) {
+            vdp2_tvmd_ = value;
+        }
+        return true;
     }
 
     // VDP2 CRAM write
@@ -72,6 +81,29 @@ uint16_t NativeSaturnSystem::read_mmio_u16(uint32_t address) const noexcept {
         default: return 0;
         }
     }
+
+    // VDP2 Registers
+    if (masked >= 0x05E00000u && masked <= 0x05E00100u) {
+        if (masked == 0x05E00000u) return vdp2_tvmd_;
+        return 0;
+    }
+
+    // VDP2 CRAM read
+    if (masked >= 0x05F00000u && masked <= 0x05F00FFFu) {
+        const uint32_t off = masked - 0x05F00000u;
+        if (off + 2 <= vdp2_cram_.size()) {
+            return static_cast<uint16_t>((static_cast<uint16_t>(vdp2_cram_[off]) << 8) | vdp2_cram_[off + 1]);
+        }
+    }
+
+    // Sound RAM read
+    if (masked >= 0x05A00000u && masked <= 0x05A7FFFFu) {
+        const uint32_t off = masked - 0x05A00000u;
+        if (off + 2 <= sound_ram_.size()) {
+            return static_cast<uint16_t>((static_cast<uint16_t>(sound_ram_[off]) << 8) | sound_ram_[off + 1]);
+        }
+    }
+
     return 0;
 }
 
