@@ -152,7 +152,7 @@ static void test_native_indirect_positive() {
     bool ok = thor_native_dispatch_step(0x06004280u, &regs, &target_pc, &cycles_adv, &cb);
     THOR_ASSERT(ok);
     THOR_ASSERT(target_pc == 0x0600A0F8u);
-    THOR_ASSERT(cycles_adv == 21u);
+    THOR_ASSERT(cycles_adv == 20u);
 
     // Register checks
     THOR_ASSERT(regs.r[5] == 0x002DA000u);

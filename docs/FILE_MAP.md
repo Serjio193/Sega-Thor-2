@@ -150,6 +150,11 @@ workstreams/
     README.md                     D9 indirect control-flow workstream summary
     candidate_06004280.md         first candidate qualification record (bb_06004280)
     candidate_06004280.json       canonical machine-readable metadata record for bb_06004280
+    d9_2_d8_live_regression.md    D8 live regression reproduction record under D9
+    d9_4_native_indirect_evidence.md  D9.4.1 authoritative native indirect proof integrity record
+    d9_4_native_indirect_evidence.json canonical raw JSON telemetry across all 5 experiment modes
+    patches/
+      mednafen_dut_integration.patch  isolated Mednafen DUT automation adapter patch
 
 external/
   README.md                       rules for private user-supplied inputs

@@ -1,0 +1,440 @@
+diff --git a/src/drivers/automation.cpp b/src/drivers/automation.cpp
+index 27a4d04..dff7fad 100644
+--- a/src/drivers/automation.cpp
++++ b/src/drivers/automation.cpp
+@@ -1526,7 +1526,7 @@ static void process_command(const std::string& line)
+    snprintf(buf, sizeof(buf), "ok read_watchpoint 0x%08X", addr);
+   write_ack(buf);
+  }
+- else if (cmd == "read_watchpoint_clear") {
++else if (cmd == "read_watchpoint_clear") {
+   read_watchpoint_active = false;
+   read_watchpoint_paused = false;
+   exception_paused = false;
+@@ -1534,6 +1534,33 @@ static void process_command(const std::string& line)
+   MDFN_IEN_SS::Automation_ClearReadWatchpoint();
+   write_ack("ok read_watchpoint_clear");
+  }
++ else if (cmd == "native_mode") {
++  int mode = 0;
++  iss >> mode;
++  MDFN_IEN_SS::Automation_SetNativeMode(mode);
++  char buf[64];
++  snprintf(buf, sizeof(buf), "ok native_mode %d", mode);
++  write_ack(buf);
++ }
++ else if (cmd == "native_mask") {
++  uint32_t mask = 0xFFFFFFFFu;
++  std::string mask_str;
++  if (iss >> mask_str) {
++   mask = (uint32_t)std::stoul(mask_str, nullptr, 16);
++  }
++  MDFN_IEN_SS::Automation_SetNativeBlockMask(mask);
++  char buf[64];
++  snprintf(buf, sizeof(buf), "ok native_mask 0x%08X", mask);
++  write_ack(buf);
++ }
++ else if (cmd == "native_stats") {
++  std::string stats = MDFN_IEN_SS::Automation_GetNativeStats();
++  write_ack("ok native_stats " + stats);
++ }
++ else if (cmd == "native_reset_stats") {
++  MDFN_IEN_SS::Automation_ResetNativeStats();
++  write_ack("ok native_reset_stats");
++ }
+  else if (cmd == "read_watchpoint_set_from_file") {
+   // read_watchpoint_set_from_file <input_path> <result_path> [clear] [once]
+   // Bulk installer for byte-resolution read-watchpoints in log mode (no pause).
+diff --git a/src/ss/automation_ss.h b/src/ss/automation_ss.h
+index bae487a..d60af41 100644
+--- a/src/ss/automation_ss.h
++++ b/src/ss/automation_ss.h
+@@ -124,6 +124,14 @@ namespace MDFN_IEN_SS {
+  // Memory write profiling
+  void Automation_EnableMemProfile(const char* path, uint32 lo, uint32 hi);
+  void Automation_DisableMemProfile(void);
++
++ // Authoritative native execution & shadow qualification
++ void Automation_SetNativeMode(int mode);
++ int Automation_GetNativeMode(void);
++ void Automation_SetNativeBlockMask(uint32 mask);
++ uint32 Automation_GetNativeBlockMask(void);
++ std::string Automation_GetNativeStats(void);
++ void Automation_ResetNativeStats(void);
+ }
+ 
+ #endif
+diff --git a/src/ss/ss.cpp b/src/ss/ss.cpp
+index e339e27..95f56d3 100644
+--- a/src/ss/ss.cpp
++++ b/src/ss/ss.cpp
+@@ -1956,6 +1956,334 @@ void SS_RequestMLExit(void)
+  next_event_ts = 0;
+ }
+ 
++#include <dlfcn.h>
++#include <string>
++#include <algorithm>
++
++struct ThorNativePluginRegs {
++    uint32_t r[16];
++    uint32_t pc;
++    uint32_t sr;
++    uint32_t pr;
++    uint32_t gbr;
++    uint32_t vbr;
++    uint32_t mach;
++    uint32_t macl;
++};
++
++struct ThorNativePluginCallbacks {
++    uint8_t (*read8)(uint32_t addr, void* user_data);
++    uint16_t (*read16)(uint32_t addr, void* user_data);
++    uint32_t (*read32)(uint32_t addr, void* user_data);
++    void (*write8)(uint32_t addr, uint8_t val, void* user_data);
++    void (*write16)(uint32_t addr, uint16_t val, void* user_data);
++    void (*write32)(uint32_t addr, uint32_t val, void* user_data);
++    bool (*is_slave_active)(void* user_data);
++    bool (*is_dma_active)(void* user_data);
++    bool (*is_irq_pending)(void* user_data);
++    void* user_data;
++};
++
++struct ThorNativePluginStats {
++    uint64_t attempts;
++    uint64_t native_executed_count;
++    uint64_t fallback_count;
++    uint64_t shadow_match_count;
++    uint64_t shadow_divergence_count;
++    uint64_t ineligible_count;
++};
++
++typedef void (*fn_thor_native_init)(void);
++typedef void (*fn_thor_native_set_mode)(int mode);
++typedef int (*fn_thor_native_get_mode)(void);
++typedef void (*fn_thor_native_set_block_mask)(uint32_t mask);
++typedef uint32_t (*fn_thor_native_get_block_mask)(void);
++typedef void (*fn_thor_native_get_stats)(ThorNativePluginStats* out_stats);
++typedef void (*fn_thor_native_reset_stats)(void);
++typedef bool (*fn_thor_native_get_block_stats)(uint32_t pc, uint64_t* out_executed, uint64_t* out_fallback);
++typedef bool (*fn_thor_native_dispatch_step)(
++    uint32_t pc,
++    ThorNativePluginRegs* live_regs,
++    uint32_t* out_target_pc,
++    uint32_t* out_cycles_advanced,
++    const ThorNativePluginCallbacks* hw_cb
++);
++
++static void* s_native_lib_handle = nullptr;
++static fn_thor_native_init p_thor_native_init = nullptr;
++static fn_thor_native_set_mode p_thor_native_set_mode = nullptr;
++static fn_thor_native_set_block_mask p_thor_native_set_block_mask = nullptr;
++static fn_thor_native_get_block_mask p_thor_native_get_block_mask = nullptr;
++static fn_thor_native_get_stats p_thor_native_get_stats = nullptr;
++static fn_thor_native_reset_stats p_thor_native_reset_stats = nullptr;
++static fn_thor_native_get_block_stats p_thor_native_get_block_stats = nullptr;
++static fn_thor_native_dispatch_step p_thor_native_dispatch_step = nullptr;
++
++static int s_native_mode = 0;
++static uint32_t s_native_block_mask = 0xFFFFFFFFu;
++static uint64_t s_native_executed_count = 0;
++static uint64_t s_native_fallback_count = 0;
++static uint64_t s_native_shadow_match_count = 0;
++static uint64_t s_native_shadow_divergence_count = 0;
++static uint64_t s_native_ineligible_count = 0;
++static uint64_t s_native_retirements_in_interval = 0;
++static bool s_in_block_interval = false;
++
++static bool InitNativePluginIfNeeded()
++{
++ if(p_thor_native_dispatch_step != nullptr)
++  return true;
++
++ const char* plugin_paths[] = {
++  "/mnt/e/Github/Sega-Thor-2/build-linux-rel/libthor_native.so",
++  "/mnt/e/Github/Sega-Thor-2/build_linux_release/libthor_native.so",
++  "/mnt/e/Github/Sega-Thor-2/build_linux_debug/libthor_native.so",
++  "libthor_native.so"
++ };
++
++ for(size_t i = 0; i < sizeof(plugin_paths)/sizeof(plugin_paths[0]); i++)
++ {
++  void* h = dlopen(plugin_paths[i], RTLD_NOW | RTLD_LOCAL);
++  if(h)
++  {
++   s_native_lib_handle = h;
++   p_thor_native_init = (fn_thor_native_init)dlsym(h, "thor_native_init");
++   p_thor_native_set_mode = (fn_thor_native_set_mode)dlsym(h, "thor_native_set_mode");
++   p_thor_native_set_block_mask = (fn_thor_native_set_block_mask)dlsym(h, "thor_native_set_block_mask");
++   p_thor_native_get_block_mask = (fn_thor_native_get_block_mask)dlsym(h, "thor_native_get_block_mask");
++   p_thor_native_get_stats = (fn_thor_native_get_stats)dlsym(h, "thor_native_get_stats");
++   p_thor_native_reset_stats = (fn_thor_native_reset_stats)dlsym(h, "thor_native_reset_stats");
++   p_thor_native_get_block_stats = (fn_thor_native_get_block_stats)dlsym(h, "thor_native_get_block_stats");
++   p_thor_native_dispatch_step = (fn_thor_native_dispatch_step)dlsym(h, "thor_native_dispatch_step");
++
++   if(p_thor_native_init) p_thor_native_init();
++   return (p_thor_native_dispatch_step != nullptr);
++  }
++ }
++ return false;
++}
++
++void Automation_SetNativeBlockMask(uint32 mask)
++{
++ s_native_block_mask = mask;
++ if(p_thor_native_set_block_mask)
++ {
++  p_thor_native_set_block_mask(mask);
++ }
++}
++
++uint32 Automation_GetNativeBlockMask(void)
++{
++ return s_native_block_mask;
++}
++
++void Automation_SetNativeMode(int mode)
++{
++ s_native_mode = mode;
++ if(mode > 0)
++ {
++  InitNativePluginIfNeeded();
++ }
++ if(p_thor_native_set_mode)
++ {
++  p_thor_native_set_mode(mode);
++ }
++ if(p_thor_native_set_block_mask)
++ {
++  p_thor_native_set_block_mask(s_native_block_mask);
++ }
++}
++
++int Automation_GetNativeMode(void)
++{
++ return s_native_mode;
++}
++
++void Automation_ResetNativeStats(void)
++{
++ s_native_executed_count = 0;
++ s_native_fallback_count = 0;
++ s_native_shadow_match_count = 0;
++ s_native_shadow_divergence_count = 0;
++ s_native_ineligible_count = 0;
++ s_native_retirements_in_interval = 0;
++ s_in_block_interval = false;
++ if(p_thor_native_reset_stats)
++ {
++  p_thor_native_reset_stats();
++ }
++}
++
++std::string Automation_GetNativeStats(void)
++{
++ uint64_t b4000_exec = 0, b4000_fb = 0;
++ uint64_t b4280_exec = 0, b4280_fb = 0;
++ if(p_thor_native_get_stats)
++ {
++  ThorNativePluginStats st;
++  memset(&st, 0, sizeof(st));
++  p_thor_native_get_stats(&st);
++  s_native_executed_count = st.native_executed_count;
++  s_native_fallback_count = st.fallback_count;
++  s_native_shadow_match_count = st.shadow_match_count;
++  s_native_shadow_divergence_count = st.shadow_divergence_count;
++  s_native_ineligible_count = st.ineligible_count;
++ }
++ if(p_thor_native_get_block_stats)
++ {
++  p_thor_native_get_block_stats(0x06004000u, &b4000_exec, &b4000_fb);
++  p_thor_native_get_block_stats(0x06004280u, &b4280_exec, &b4280_fb);
++ }
++ char buf[512];
++ snprintf(buf, sizeof(buf), "mode=%d mask=0x%08x attempts=%llu executed=%llu fallback=%llu shadow_match=%llu shadow_div=%llu ineligible=%llu retirements_in_interval=%llu b4000_exec=%llu b4000_fb=%llu b4280_exec=%llu b4280_fb=%llu",
++  s_native_mode,
++  s_native_block_mask,
++  (unsigned long long)(s_native_executed_count + s_native_fallback_count),
++  (unsigned long long)s_native_executed_count,
++  (unsigned long long)s_native_fallback_count,
++  (unsigned long long)s_native_shadow_match_count,
++  (unsigned long long)s_native_shadow_divergence_count,
++  (unsigned long long)s_native_ineligible_count,
++  (unsigned long long)s_native_retirements_in_interval,
++  (unsigned long long)b4000_exec,
++  (unsigned long long)b4000_fb,
++  (unsigned long long)b4280_exec,
++  (unsigned long long)b4280_fb);
++ return std::string(buf);
++}
++
++template<bool EmulateICache, bool DebugMode>
++static void NativeBranchTo(uint32 target)
++{
++ CPU[0].PC = target;
++
++ uint32 delay_slot = 0x0009; // NOP
++ uint32 op = InstrDecodeTab[delay_slot];
++ CPU[0].Pipe_ID = delay_slot | ((op | 0x80) << 24);
++
++ if(EmulateICache)
++ {
++  CPU[0].UCRead_IF_Kludge = false;
++  uint32 ibuf = CPU[0].MRFPI[(CPU[0].PC & ~2) >> 29](CPU[0].PC & ~2);
++  CPU[0].IBuffer = ibuf;
++  CPU[0].Pipe_IF = (uint16)ibuf;
++  if(!(CPU[0].PC & 0x2))
++   CPU[0].Pipe_IF = ibuf >> 16;
++  CPU[0].timestamp -= (CPU[0].PC >> 1) & CPU[0].UCRead_IF_Kludge;
++ }
++ else
++ {
++  if(CPU[0].timestamp < CPU[0].MA_until)
++   CPU[0].timestamp = CPU[0].MA_until;
++  CPU[0].Pipe_IF = *(uint16*)(SH7095_FastMap[CPU[0].PC >> SH7095_EXT_MAP_GRAN_BITS] + CPU[0].PC);
++  if(MDFN_UNLIKELY((int32)CPU[0].PC < 0))
++   CPU[0].Pipe_IF = CPU[0].Cache_ReadDataArray<uint16>(CPU[0].PC);
++ }
++ CPU[0].timestamp++;
++
++ CPU[0].PC += 2;
++}
++
++template<bool EmulateICache, bool DebugMode>
++static bool Automation_TryNativeOverride(uint32_t override_pc)
++{
++ if(s_native_mode == 0)
++  return false;
++
++ if(!InitNativePluginIfNeeded() || !p_thor_native_dispatch_step)
++  return false;
++
++ if(p_thor_native_set_mode)
++  p_thor_native_set_mode(s_native_mode);
++ if(p_thor_native_set_block_mask)
++  p_thor_native_set_block_mask(s_native_block_mask);
++
++ ThorNativePluginRegs regs;
++ for(unsigned i = 0; i < 16; i++) regs.r[i] = CPU[0].R[i];
++ regs.pc = override_pc;
++ regs.sr = CPU[0].SR;
++ regs.pr = CPU[0].PR;
++ regs.gbr = CPU[0].GBR;
++ regs.vbr = CPU[0].VBR;
++ regs.mach = CPU[0].MACH;
++ regs.macl = CPU[0].MACL;
++
++ ThorNativePluginCallbacks hw;
++ hw.user_data = nullptr;
++ hw.read8 = [](uint32_t a, void*) -> uint8_t {
++  return CPU[0].MRFP8[(a) >> 29](a);
++ };
++ hw.read16 = [](uint32_t a, void*) -> uint16_t {
++  return CPU[0].MRFP16[(a) >> 29](a);
++ };
++ hw.read32 = [](uint32_t a, void*) -> uint32_t {
++  return CPU[0].MRFP32[(a) >> 29](a);
++ };
++ hw.write8 = [](uint32_t a, uint8_t v, void*) {
++  CPU[0].MWFP8[(a) >> 29](a, v);
++ };
++ hw.write16 = [](uint32_t a, uint16_t v, void*) {
++  CPU[0].MWFP16[(a) >> 29](a, v);
++ };
++ hw.write32 = [](uint32_t a, uint32_t v, void*) {
++  CPU[0].MWFP32[(a) >> 29](a, v);
++ };
++ hw.is_slave_active = [](void*) -> bool {
++  return CPU[1].timestamp != SS_EVENT_DISABLED_TS;
++ };
++ hw.is_dma_active = [](void*) -> bool {
++  return CPU[0].DMA_InBurst();
++ };
++ hw.is_irq_pending = [](void*) -> bool {
++  return (CPU[0].SR & 0xF0) != 0;
++ };
++
++ uint32_t out_target_pc = 0;
++ uint32_t out_cycles_advanced = 0;
++
++ bool handled = p_thor_native_dispatch_step(override_pc, &regs, &out_target_pc, &out_cycles_advanced, &hw);
++
++ if(p_thor_native_get_stats)
++ {
++  ThorNativePluginStats st;
++  memset(&st, 0, sizeof(st));
++  p_thor_native_get_stats(&st);
++  s_native_executed_count = st.native_executed_count;
++  s_native_fallback_count = st.fallback_count;
++  s_native_shadow_match_count = st.shadow_match_count;
++  s_native_shadow_divergence_count = st.shadow_divergence_count;
++  s_native_ineligible_count = st.ineligible_count;
++ }
++
++ if(handled && s_native_mode == 2)
++ {
++  // Commit native state to live hardware
++  for(unsigned i = 0; i < 16; i++) CPU[0].R[i] = regs.r[i];
++  CPU[0].SR = regs.sr;
++  CPU[0].PR = regs.pr;
++  CPU[0].GBR = regs.gbr;
++  CPU[0].VBR = regs.vbr;
++  CPU[0].MACH = regs.mach;
++  CPU[0].MACL = regs.macl;
++
++  sscpu_timestamp_t target_ts = CPU[0].timestamp + out_cycles_advanced;
++  NativeBranchTo<EmulateICache, DebugMode>(out_target_pc);
++  if(override_pc == 0x06004280u)
++  {
++   ShadowStack_Push(0, 0x06004286u, out_target_pc, regs.pr);
++  }
++  CPU[0].timestamp = target_ts;
++  SH7095_mem_timestamp = std::max(SH7095_mem_timestamp, target_ts);
++  CPU[0].MA_until = std::min(CPU[0].MA_until, target_ts);
++  for(unsigned i = 0; i < 16; i++) {
++   if(CPU[0].WB_until[i] > target_ts) CPU[0].WB_until[i] = target_ts;
++  }
++  return true;
++ }
++
++ return false;
++}
++
+ #if defined(__GNUC__) && !defined(__clang__)
+  #pragma GCC push_options
+  #pragma GCC optimize("O2,no-unroll-loops,no-peel-loops,no-crossjumping")
+@@ -1990,8 +2318,32 @@ static INLINE int32 RunLoop_INLINE(EmulateSpecStruct* espec)
+      s_automation_inline_hook();
+     }
+ 
+-    CPU[0].Step<0, EmulateICache, DebugMode>();
+-    CPU[0].DMA_BusTimingKludge();
++    uint32_t pc_val = CPU[0].PC;
++    uint16 pipe_id = (uint16)CPU[0].Pipe_ID;
++
++    bool is_entry_06004000 = ((pc_val - 4 == 0x06004000u || pc_val - 2 == 0x06004000u) && pipe_id == 0x6611);
++    bool is_entry_06004280 = ((pc_val - 4 == 0x06004280u || pc_val - 2 == 0x06004280u) && pipe_id == 0xD536);
++
++    bool native_handled = false;
++    if(MDFN_UNLIKELY(s_native_mode != 0 && (is_entry_06004000 || is_entry_06004280)))
++    {
++     uint32_t target_block_pc = is_entry_06004000 ? 0x06004000u : 0x06004280u;
++     native_handled = Automation_TryNativeOverride<EmulateICache, DebugMode>(target_block_pc);
++    }
++
++    if(!native_handled)
++    {
++     if(MDFN_UNLIKELY(is_entry_06004000 || is_entry_06004280))
++      s_in_block_interval = true;
++     if(s_in_block_interval)
++     {
++      s_native_retirements_in_interval++;
++      if(pipe_id == 0x0009 && (CPU[0].PC == 0x06004014u || CPU[0].PC == 0x0600428Au || CPU[0].PC == 0x0600428Cu))
++       s_in_block_interval = false;
++     }
++     CPU[0].Step<0, EmulateICache, DebugMode>();
++     CPU[0].DMA_BusTimingKludge();
++    }
+ 
+     if(EmulateICache)
+     {

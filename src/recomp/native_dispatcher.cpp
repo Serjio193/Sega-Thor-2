@@ -132,8 +132,8 @@ NativeDispatcher::NativeDispatcher() {
         bb1.memory_contract = *mem_contract1;
     }
 
-    // Hit 2 arrival at 316309168 -> target 0x0600A0F8 entry at 316309189 (delta 21 cycles)
-    bb1.cycle_cost = 21u;
+    // Hit 2 arrival at 316309169 -> target 0x0600A0F8 entry at 316309189 (delta 20 cycles)
+    bb1.cycle_cost = 20u;
     bb1.expected_event_meta = BoundedEventMetadata{
         .mmio_accessed = false,
         .irq_accepted = false,

@@ -1,5 +1,45 @@
 # Worklog
 
+## 2026-09-10 — T2-D9.4.1 Native Indirect Proof Integrity Repair
+
+### Task
+
+Audit clean oracle provenance (Mednafen submodule HEAD `155426661b7ac3152e2c93a98da60ac33002b908`, clean tree, core SH-2 files `src/ss/sh7095.h` and `src/ss/sh7095.inc` 100% untouched); implement DUT integration adapter strictly in Mednafen wrapper layer without altering core emulation; correct candidate identity metadata and baseline binary SHA-256; reproduce exact 0-cycle timing parity at target entry (`0x0600A0F8`), establish unambiguous return site parity at `0x0600428A` and downstream continuation at `0x060042E0`; rerun all 5 live experiment modes (`PURE_INTERPRETER`, `D8_ONLY`, `D9_ONLY_1`, `D9_ONLY_2`, `D8_PLUS_D9`); prove bit-identical cold-boot determinism and 6 negative controls; repair project documentation and records.
+
+### Method & Discoveries
+
+1. **Clean Oracle Provenance & Core Interpreter Hygiene**:
+   - Audited baseline Mednafen repository at commit `155426661b7ac3152e2c93a98da60ac33002b908`.
+   - Core SH-2 files `src/ss/sh7095.h` and `src/ss/sh7095.inc` were verified 100% clean and untouched (0 diff against commit `15542666`).
+   - Clean baseline binary recorded: `src/mednafen_clean_15542666` (SHA-256: `861f03f36882ac2cff9334e3bdb54c8a29991f711ff81cb1132183ade9828c49`).
+   - Isolated DUT integration adapter to `src/drivers/automation.cpp`, `src/ss/automation_ss.h`, and `src/ss/ss.cpp`. Exported clean patch `workstreams/T2-D9-indirect/patches/mednafen_dut_integration.patch` (SHA-256: `ecd3514e409b21665c5245a011e67503b2f59aab02acca78a905654e30625da2`).
+2. **Hardware Pipeline Delay-Slot Refill Contract Parity**:
+   - In SH-2 execution within Mednafen, a delayed branch opcode completes while leaving `Pipe_ID` as the delay slot instruction (`NOP`), `Pipe_IF` as the first target instruction (`0x0600A0F8`), and `PC` at `target + 2` (`0x0600A0FA`).
+   - Replicating this exact pipeline state in `NativeBranchTo` eliminated target entry re-fetch and resolved the 4-byte stack displacement discrepancy without modifying the oracle core.
+   - Synchronized entry-to-target cycle advance to 20 cycles, matching exact Mednafen pipeline advance.
+3. **Live 5-Mode Reproduction & Parity Metrics**:
+   - Executed 5 cold-boot runs via automated harness script:
+     - `PURE_INTERPRETER` (mode 0, mask `0x00000000`): Reference baseline.
+     - `D8_ONLY` (mode 2, mask `0x00000001`): `bb_06004000` executed (1), `bb_06004280` fallback (1). Target reached with 100% register parity.
+     - `D9_ONLY_1` (mode 2, mask `0x00000002`): `bb_06004000` fallback (1), `bb_06004280` executed (1).
+       - Target entry (`0x0600A0F8`): Pure cycle `316309189` vs Native cycle `316309189` (DELTA = **0 cycles exact**). All 23 registers match 100.0%.
+       - Return site (`0x0600428A`): Pure cycle `337109623` vs Native cycle `337109623` (DELTA = **0 cycles exact**). `R15 = 0x06002ED8` matches 100.0%. All 23 registers match.
+       - Downstream continuation (`0x060042E0`): Pure cycle `387459912` vs Native cycle `387459912` (DELTA = **0 cycles exact**). All 23 registers match.
+     - `D9_ONLY_2` (mode 2, mask `0x00000002`): Cold-boot determinism test. 100% bit-identical to Run 1 across all checkpoints and registers.
+     - `D8_PLUS_D9` (mode 2, mask `0x00000003`): Dual native execution (`b4000_exec=1, b4280_exec=1, fallback=0`). Downstream continuation verified.
+4. **Validation & Governance**:
+   - Unit tests `test_native_indirect` passing with 6 negative controls.
+   - 19/19 CTest suites passing on MinGW and Linux WSL.
+   - All code files <= 500 lines. `git diff --check` green.
+
+### Status After Pass
+
+- `T2-D9.4.1`: **PASS**
+- `D9.4`: **PASS**
+- `D9`: **BOUNDED_PROOF for bb_06004280**
+- `M-03`: **READY_FOR_BOUNDED_TEST**
+- Active next action: M-03 SaturnAutoRE Candidate Harvester Re-evaluation & Indirect Flow Scaling.
+
 ## 2026-09-10 — T2-D9.4 Authoritative Native Indirect Override & Dynamic Continuation
 
 ### Task
