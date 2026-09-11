@@ -217,6 +217,11 @@ add_executable(test_function_boundary tests/recomp/test_function_boundary.cpp)
 target_link_libraries(test_function_boundary PRIVATE thor_recomp thor_sh2)
 add_test(NAME test_function_boundary COMMAND test_function_boundary)
 
+# D13 guest-address & type provenance test suite (Gate V-09)
+add_executable(test_guest_provenance tests/provenance/test_guest_provenance.cpp)
+target_link_libraries(test_guest_provenance PRIVATE thor_sh2)
+add_test(NAME test_guest_provenance COMMAND test_guest_provenance)
+
 # D15 hardware subsystem contracts test suite
 add_executable(test_vdp1 tests/hw/test_vdp1.cpp)
 target_link_libraries(test_vdp1 PRIVATE thor_hw)

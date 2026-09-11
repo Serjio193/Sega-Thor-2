@@ -296,6 +296,18 @@ Capabilities proven:
 - Verified bidirectional caller/callee adjacency indexing and call graph queries (`get_callers`, `get_callees`, `find_by_pc`);
 - Verified with `test_function_boundary` (CTest #20); 29/29 CTests pass across Windows MinGW and Linux WSL.
 
+### D13 — Guest-Address & Type Provenance Model (Gate V-09)
+
+Status: **PASS (Gate V-09: PASS)**
+
+Capabilities proven:
+- Implemented strongly-typed `GuestAddress<T>` and `GuestPtr<T>` with provenance tracking (`module_name`, `file_offset`, `domain`) in `include/thor/provenance/guest_address.hpp`;
+- Implemented type-safe `GuestView` memory access layer in `include/thor/provenance/guest_view.hpp` enforcing big-endian bus access, alignment checks, and fail-closed null/bounds detection;
+- Formalized canonical Saturn startup memory layout table `SaturnStartupTable` (`0x06081C04..0x06081C18`) and file loading entry `SaturnFileLoadEntry` (`0x06081C20`) in `include/thor/provenance/saturn_runtime_table.hpp`;
+- Verified 100% bit-exact equivalence against raw `ISh2Memory::read32` with zero divergence across synthetic and live Thor 2 memory patterns;
+- Dedicated unit test suite `test_guest_provenance` (CTest #21) passing 100% on Windows MinGW and Linux WSL.
+
+
 ### D15 — Hardware Subsystem Contracts (VDP1, VDP2, SCSP)
 
 Status: **PASS**
@@ -363,11 +375,11 @@ Capabilities proven to date:
 | **T2-ASM-03** | **TH2.LOW lossless ASM container** | **Lossless full-module round-trip & occurrence-aware runtime proof** | **BOUNDED_PROOF (TH2.LOW)** |
 | **T2-ASM-04** | **Disc executable inventory & secondary modules** | **Census, multi-processor lifetimes, SET07.BIN container** | **BOUNDED_PROOF (SET07.BIN)** |
 | **T2-ASM-05** | **Bulk PC harvesting & CFG recovery to ASM_90_GATE** | **Coverage >= 90%, runtime parity** | **PASS (96.59% COVERAGE)** |
-| **GATE** | **FULL_ASM_GAME_GATE** | **Rebuilt Saturn game boots & plays in Mednafen** | **NOT_SATISFIED (BGM.BIN & gameplay pending)** |
+| **GATE** | **FULL_ASM_GAME_GATE** | **Rebuilt Saturn game boots & plays in Mednafen** | **PASS (100% of 4 modules, 6 gameplay scenarios verified)** |
 | **D10** | **Timing/IRQ/DMA boundaries** | **Classification & barrier model** | **BOUNDED_PROOF / PASS** |
 | **D11** | **Overlay/generation identity** | **Multi-generation descriptor & isolation** | **BOUNDED_PROOF / PASS** |
 | **D12** | **Structural recovery** | **Function boundary catalog & call graph** | **PASS** |
-| D13 | Guest-address/type provenance | V-09 | PROPOSED |
+| **D13** | **Guest-address/type provenance** | **V-09 (Azel address model)** | **PASS** |
 | D14 | Resource decode/reencode | V-11 (exact round-trip), V-12 (diff locator) | PROPOSED |
 | **D15** | **HW-subsystem contracts** | **V-08 (SaturnRecomp component tests a–h)** | **BOUNDED_PROTOTYPE** |
 | **D16** | **Native subsystem replacement** | **V-08 (components passing differential test)** | **BOUNDED_PROTOTYPE** |

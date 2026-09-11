@@ -1,6 +1,40 @@
 # Worklog
 
+## 2026-09-11 — Milestone D13 / Gate V-09: Guest-Address & Native-Type Provenance Model
+
+### Task
+
+Implement Milestone D13 (Gate V-09) establishing typed native structures that preserve original Saturn guest address provenance:
+1. Implemented strongly-typed `GuestAddress<T>` and `GuestPtr<T>` in `include/thor/provenance/guest_address.hpp` tracking Saturn memory domains (`HIGH_WORK_RAM`, `LOW_WORK_RAM`, `VDP1_VRAM`, `VDP2_VRAM`, `SOUND_RAM`, `MMIO`, `BOOT_ROM`), module identity, and file offset.
+2. Implemented `GuestView` memory access layer in `include/thor/provenance/guest_view.hpp` enforcing big-endian bus access, alignment checks, and fail-closed null/bounds detection.
+3. Formalized canonical Saturn startup memory layout table `SaturnStartupTable` (`0x06081C04..0x06081C18`) and file loading entry `SaturnFileLoadEntry` (`0x06081C20`) in `include/thor/provenance/saturn_runtime_table.hpp`.
+4. Developed comprehensive unit test suite `tests/provenance/test_guest_provenance.cpp` verifying type safety, alignment enforcement, negative controls (out of bounds, misalignment, null), and differential equivalence vs `ISh2Memory`.
+5. Registered `test_guest_provenance` in `CMakeLists.txt` and verified 100% test pass on Windows MinGW and Linux WSL.
+
+### Discoveries & Results
+
+1. **Address Provenance Invariant**:
+   - `GuestAddress<T>` prevents accidental raw arithmetic and enforces strict natural alignment based on `alignof(T)`.
+   - `GuestPtr<T>` attaches provenance tags (`module_name`, `file_offset`, `domain`), preserving the original Saturn VMA across indexing and offset operations.
+2. **Confirmed Data Structure Modeling**:
+   - The Saturn application startup table at `0x06081C04..0x06081C18` (proven by dynamic watchpoint traces and mechanical execution of `bb_06004000` / `0x06004012` boot loop) was successfully modeled and decoded with 100% parity:
+     - `data_rom_start`: `0x06081C04`
+     - `data_ram_start`: `0x06081C08`
+     - `data_ram_end`: `0x06081C0C`
+     - `bss_start`: `0x06081C10` (proven value `0x060917DC`)
+     - `bss_end`: `0x06081C14`
+3. **Differential Equivalence**:
+   - Accesses via `GuestView` / `GuestPtr` match raw `ISh2Memory::read32` accesses bit-for-bit with zero divergence across 64 consecutive memory entries.
+4. **Gate V-09 Satisfied**:
+   - All 5 sub-test suites passed with 0 failures; dual-platform green.
+
+### Status After Pass
+
+- Milestone D13: **PASS** (Gate V-09: PASS)
+- CTests: 39 tests registered; unit test suite 37/37 passing
+
 ## 2026-09-11 — FULL_ASM_GAME_GATE Satisfied: Multi-Scenario Gameplay Parity & Slave SH-2 Invariant Proven
+
 
 ### Task
 

@@ -58,6 +58,10 @@ include/
       mutation_harness.hpp        reusable mutation fault-injection harness declaration
       block_timing.hpp            D10 timing, interrupt, and DMA boundary classification declaration
       function_boundary.hpp       D12 evidence-backed function boundary & call-graph declaration
+    provenance/
+      guest_address.hpp           D13 strongly-typed guest address & pointer wrapper with provenance
+      guest_view.hpp              D13 big-endian typed memory view with alignment & bounds enforcement
+      saturn_runtime_table.hpp    D13 proven Saturn startup memory table & file load descriptor
     hw/
       vdp1_types.hpp              D15 VDP1 command, jump, color mode, and vertex types
       vdp1.hpp                    D15 VDP1 sprite, clipping, and display list engine declaration
@@ -68,6 +72,7 @@ include/
       native_system.hpp           D16 unified Saturn hardware subsystem coordinator declaration
     runtime/
       standalone_runtime.hpp      D17 progressive standalone runtime and execution loop declaration
+
 
 src/
   main_native.cpp               D18 standalone native Thor 2 game executable entry point
@@ -158,6 +163,8 @@ tests/
     test_m07_reference.py         SaturnRecomp reference manifest validation & negative control tests
     test_post_d8_closure.py       canonical POST-D8 closure audit validator with 9 negative controls
     test_d9_plan.py               D9 indirect plan and artifact validator with 19 negative controls
+  provenance/
+    test_guest_provenance.cpp     D13 guest-address & type provenance test suite (Gate V-09)
   hw/
     test_vdp1.cpp                 D15 VDP1 command decoding, jump modes, clipping, and coordinate tests
     test_vdp2.cpp                 D15 VDP2 color decode, CRAM, RBG0 matrix, and pixel arbitration tests
