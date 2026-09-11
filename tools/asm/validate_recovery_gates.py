@@ -12,6 +12,7 @@ import os
 import re
 import sys
 from pathlib import Path
+from typing import Optional
 
 
 class GateIntegrityError(Exception):
@@ -152,12 +153,13 @@ def audit_l5_oracle_equivalence(test_guest_removal_path: Path, scorecard: dict) 
     }
 
 
-def run_full_validation(repo_root: Path) -> bool:
+def run_full_validation(repo_root: Path, scorecard: Optional[dict] = None) -> bool:
     scorecard_path = repo_root / "workstreams" / "ASM_RECOVERY_SCORECARD.json"
     runtime_src = repo_root / "src" / "runtime" / "standalone_runtime.cpp"
     test_l5 = repo_root / "tests" / "runtime" / "test_guest_removal.cpp"
 
-    scorecard = load_scorecard(scorecard_path)
+    if scorecard is None:
+        scorecard = load_scorecard(scorecard_path)
 
     print("=== Thor 2 Gate Integrity Audit ===")
     asm_audit = audit_asm_90_gate(scorecard)

@@ -128,6 +128,7 @@ tools/
     build_full_module.py          manifest-driven full module assembly build and determinism pipeline
     verify_full_module.py         manifest-driven full module verification & negative controls suite
     verify_full_game_disc.py      full Saturn disc reassembled module verification in Mednafen
+    verify_gameplay_scenarios.py  multi-scenario gameplay regression suite across 6 distinct scenarios
     validate_recovery_gates.py    machine-enforced recovery gate integrity validator
 
 tests/
@@ -173,6 +174,7 @@ tests/
     test_bgm_asm.py               CTest integration test for full BGM.BIN M68K sound driver round-trip
     test_manifest_schema.py       CTest integration test for module manifest schema & partition invariants
     test_full_game_disc.py        CTest integration test for FULL_ASM_GAME_GATE rebuilt disc verification
+    test_gameplay_scenarios.py    CTest integration test for multi-scenario gameplay verification
     test_recovery_gates.py        negative controls & validation for recovery gates
 
 

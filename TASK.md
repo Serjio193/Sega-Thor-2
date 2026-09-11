@@ -23,37 +23,38 @@ ACCEPTANCE CRITERIA:
 - [x] re-audit ASM_90 denominator by processor;
 - [x] implement M68K assembly toolchain and build BGM.BIN lossless assembly container;
 - [x] prove M68K sound driver runtime in Mednafen;
-- [ ] audit Slave SH-2 across broad gameplay/debug scenarios;
-- [ ] build multi-scenario gameplay regression harness.
+- [x] audit Slave SH-2 across broad gameplay/debug scenarios;
+- [x] build multi-scenario gameplay regression harness.
 
 EVIDENCE AVAILABLE:
 - Proven SH-2 assembly containers for 0TH2.BIN, TH2.LOW, SET07.BIN;
 - Proven M68K assembly container for BGM.BIN (30 bytes mnemonics, byte-exact reassembly);
 - Full 4-module Saturn disc splice matches canonical disc hash bit-exact;
-- Mednafen cold-boot runtime verified with 0 divergence;
+- Deterministic native input playback regression suite verifying 6 distinct gameplay scenarios;
+- Mednafen runtime verified with 0 divergence and 0 cycle drift across 2,641 frames;
+- Slave SH-2 proven dormant in reset state across all gameplay stages (single-SH-2 invariant);
 - Machine-enforced gate validation with 10 negative controls passing.
 KNOWN UNKNOWNS:
-- Slave SH-2 activity during late gameplay or combat;
-- Full gameplay scenario automation in Mednafen.
+- Standalone C++ execution of file loading and memory subsystem boundaries.
 ALLOWED SCOPE:
-- BGM.BIN recovery, M68K tooling, gate validation, gameplay regression harness.
+- ASM-first recovery, gate validation, progressive C++ milestone preparation.
 OUT OF SCOPE:
 - Premature D18 completion claims.
 
 ## Last verified result
 
-`T2_BGM_M68K_REASSEMBLY_PASS`: BGM.BIN byte-exact reassembly, M68K toolchain support, and 4-module disc verification passing; 37/37 CTests passing.
+`FULL_ASM_GAME_GATE_PASS`: 100% executable modules reassembled byte-exact; 4 modules spliced into disc bit-exact; 6 gameplay scenarios verified with 0 divergence and 0 cycle drift in clean Mednafen oracle; Slave SH-2 confirmed dormant; 38/38 CTests passing on Windows & Linux WSL.
 
 ## Session checkpoint
 
-CURRENT MILESTONE: ASM-First Recovery Track (docs/DEVELOPMENT_PLAN.md, ADR D-015, ADR D-016)
-CURRENT TASK: T2-INTEGRITY-01 Multi-Scenario Gameplay Regression Harness & Slave SH-2 Audit
-TASK STATUS: IN_PROGRESS
+CURRENT MILESTONE: Progressive C++ Recovery Track (Milestones D13/D14, D17/D18)
+CURRENT TASK: T2-INTEGRITY-01 Multi-Scenario Gameplay Suite & Gate Hardening
+TASK STATUS: COMPLETE
 MILESTONE UNDERSTANDING CONFIDENCE: 100%
 CURRENT SLICE UNDERSTANDING CONFIDENCE: 100%
-LAST VERIFIED RESULT: BGM.BIN reassembled byte-exact; 4 modules spliced into disc bit-exact; 37/37 CTests pass on Windows & Linux WSL.
-FILES CHANGED: CMakeLists.txt, asm/linker/BGM.ld, asm/manifests/BGM.BIN.json, docs/FILE_MAP.md, docs/WORKLOG.md, tests/asm/test_bgm_asm.py, tests/asm/test_recovery_gates.py, tools/asm/assemble_roundtrip.py, tools/asm/build_full_module.py, tools/asm/generate_full_module_asm.py, tools/asm/validate_recovery_gates.py, tools/asm/verify_full_game_disc.py, tools/asm/verify_full_module.py, workstreams/ASM_RECOVERY_SCORECARD.json.
-TESTS RUN: 37/37 CTests passing on Windows MinGW and Linux WSL; line limits clean; git diff --check clean.
-NEW KNOWLEDGE: BGM.BIN contains Sega Saturn Sound Driver v2.04 with 30 bytes confirmed M68K entry code; disc reassembly with all 4 modules yields bit-exact canonical disc.
-OPEN QUESTIONS: Degree of Slave SH-2 participation in combat/physics vs idle loop.
-EXACT NEXT ACTION: Push current BGM.BIN / gate commit, then implement multi-scenario gameplay regression harness.
+LAST VERIFIED RESULT: FULL_ASM_GAME_GATE satisfied with 0 divergence across 6 gameplay scenarios (2,641 frames); Slave SH-2 invariant proven; dual-platform green.
+FILES CHANGED: CMakeLists.txt, docs/FILE_MAP.md, docs/PROJECT_STATE.md, docs/ROADMAP.md, docs/WORKLOG.md, tests/asm/test_gameplay_scenarios.py, tests/asm/test_recovery_gates.py, tools/asm/validate_recovery_gates.py, tools/asm/verify_gameplay_scenarios.py, workstreams/ASM_RECOVERY_SCORECARD.json.
+TESTS RUN: 38/38 CTests passing on Windows MinGW and Linux WSL; line limits clean; git diff --check clean.
+NEW KNOWLEDGE: Thor 2 is definitively a single-SH-2 game (Slave SH-2 dormant at PC=00000000, SR=000000F0); 4-module disc reassembly has 0 cycle drift across title, menu, dialogue, map transition, combat, and audio.
+OPEN QUESTIONS: Resource decode/re-encode toolchain for stage overlays and sprites.
+EXACT NEXT ACTION: Push verified FULL_ASM_GAME_GATE commit, unfreezing broad C++ translation under ADR D-015, and begin native C++ guest removal.

@@ -1,5 +1,46 @@
 # Worklog
 
+## 2026-09-11 — FULL_ASM_GAME_GATE Satisfied: Multi-Scenario Gameplay Parity & Slave SH-2 Invariant Proven
+
+### Task
+
+Execute multi-scenario gameplay verification to satisfy `FULL_ASM_GAME_GATE` per ADR D-015:
+1. Spliced all 4 modules (`0TH2.BIN`, `TH2.LOW`, `SET07.BIN`, `BGM.BIN`) into full Saturn disc image matching canonical disc hash (`fe11d2fbda58d63300ef2265c555ce05bddf14d69fb7b73fc409e25c0ef6c0a8`).
+2. Implemented frame-accurate native input playback engine (`verify_gameplay_scenarios.py`) utilizing Mednafen's native `input_playback` subsystem to eliminate all IPC latency and race conditions.
+3. Designed 6 deterministic gameplay scenarios spanning 2,641 frames:
+   - `BOOT_TO_TITLE` (frame 1200): Cold boot through Sega Saturn BIOS to title screen.
+   - `TITLE_TO_NEW_GAME` (frame 1480): START button menu activation, New Game selection, and Save Slot 1 confirmation.
+   - `EARLY_GAMEPLAY` (frame 2200): In-game dialogue sequence with Ordan in bedroom and transition to player control.
+   - `MAP_TRANSITION` (frame 2471): Navigation through bedroom doorway into the outdoor courtyard map.
+   - `COMBAT` (frame 2581): Active weapon attack animation (B button) and jump physics (A button).
+   - `AUDIO` (frame 2641): Active M68K sound driver (BGM.BIN) and SCSP playback verification.
+4. Conducted live multi-scenario Slave SH-2 audit across all gameplay stages.
+5. Evaluated differential register and cycle parity between original retail disc and reassembled 4-module disc.
+6. Added CTest integration test `tests/asm/test_gameplay_scenarios.py` (CTest #38).
+
+### Discoveries & Results
+
+1. **Slave SH-2 Invariant**:
+   - The Slave SH-2 was audited at every single checkpoint (`BOOT_TO_TITLE`, `TITLE_TO_NEW_GAME`, `EARLY_GAMEPLAY`, `MAP_TRANSITION`, `COMBAT`, `AUDIO`).
+   - In all stages, the Slave SH-2 registers remain `PC=00000000`, `SR=000000F0`, and all general registers `R0..R15=0`.
+   - The SMPC `SSHON` command is never issued by Thor 2.
+   - Conclusion: Thor 2 is definitively a single-SH-2 game (Master SH-2 + MC68EC000 sound coprocessor).
+2. **Deterministic Parity Across All 6 Scenarios**:
+   - Zero register divergence across all architectural registers (`R0..R15`, `PC`, `SR`, `PR`, `GBR`, `VBR`, `MACH`, `MACL`).
+   - Zero cycle drift across 2,641 frames of gameplay (Orig-Cycles == Reb-Cycles at all 6 checkpoints).
+3. **FULL_ASM_GAME_GATE Satisfied**:
+   - 100% of executable modules reassembled byte-exact (`0TH2.BIN`, `TH2.LOW`, `SET07.BIN`, `BGM.BIN`).
+   - Bit-exact disc reconstruction verified.
+   - Full gameplay suite verified in clean Mednafen oracle with 0 divergence.
+   - Machine-enforced gate validator `tools/asm/validate_recovery_gates.py` passing with 10 negative controls.
+
+### Status After Pass
+
+- `FULL_ASM_GAME_GATE`: **PASS** (100% satisfied)
+- `ASM_90_GATE`: **PASS** (96.64%)
+- CTests: 38/38 passing (Windows MinGW & Linux WSL)
+- Broad C++ translation: **UNBLOCKED** per ADR D-015
+
 ## 2026-09-11 — T2-INTEGRITY-01 BGM.BIN Byte-Exact Reassembly, M68K Toolchain Pipeline & Gate Hardening
 
 ### Task

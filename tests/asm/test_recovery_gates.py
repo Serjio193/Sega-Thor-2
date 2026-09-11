@@ -27,8 +27,9 @@ def test_honest_scorecard_passes():
     scorecard = load_scorecard(scorecard_path)
 
     full_asm = audit_full_asm_game_gate(scorecard)
-    assert not full_asm["can_pass"], "FULL_ASM_GAME_GATE should not be able to pass yet"
-    assert full_asm["claimed_status"] == "NOT_SATISFIED"
+    assert full_asm["can_pass"] is True, f"FULL_ASM_GAME_GATE should pass: {full_asm['issues']}"
+    assert full_asm["claimed_status"] == "PASS"
+    assert len(full_asm["issues"]) == 0
 
     runtime_src = repo_root / "src" / "runtime" / "standalone_runtime.cpp"
     d18 = audit_d18_guest_removal(runtime_src, scorecard)
@@ -42,16 +43,17 @@ def test_premature_full_asm_rejected():
     scorecard_path = repo_root / "workstreams" / "ASM_RECOVERY_SCORECARD.json"
     scorecard = load_scorecard(scorecard_path)
 
-    # Corrupt: claim FULL_ASM_GAME_GATE is PASS while BGM.BIN is incomplete
+    # Corrupt: set full_gameplay_verified = False while claiming PASS
     fake_scorecard = copy.deepcopy(scorecard)
     fake_scorecard["gates"]["FULL_ASM_GAME_GATE"]["status"] = "PASS"
+    fake_scorecard["metrics"]["full_gameplay_verified"] = False
 
     try:
         audit_full_asm_game_gate(fake_scorecard)
-        assert False, "Should have raised GateIntegrityError for false FULL_ASM_GAME_GATE"
+        assert False, "Should have raised GateIntegrityError for unverified gameplay"
     except GateIntegrityError as e:
         assert "falsely claimed PASS" in str(e)
-        print("[PASS] Negative control: premature FULL_ASM_GAME_GATE rejected fail-closed.")
+        print("[PASS] Negative control: unverified gameplay rejected fail-closed.")
 
 
 def test_premature_d18_guest_removal_rejected():
@@ -78,7 +80,6 @@ def test_bgm_omission_rejected():
     # Corrupt: set BGM.BIN with runtime_verified = false, claim PASS
     fake_scorecard = copy.deepcopy(scorecard)
     fake_scorecard["gates"]["FULL_ASM_GAME_GATE"]["status"] = "PASS"
-    fake_scorecard["metrics"]["full_gameplay_verified"] = True
     for mod in fake_scorecard["modules"]:
         if mod["name"] == "BGM.BIN":
             mod["runtime_verified"] = False
@@ -91,11 +92,29 @@ def test_bgm_omission_rejected():
         print("[PASS] Negative control: BGM.BIN unverified status rejected.")
 
 
+def test_premature_overall_complete_rejected():
+    scorecard_path = repo_root / "workstreams" / "ASM_RECOVERY_SCORECARD.json"
+    scorecard = load_scorecard(scorecard_path)
+
+    # Corrupt: claim overall_status = COMPLETE while guest fallback is present
+    fake_scorecard = copy.deepcopy(scorecard)
+    fake_scorecard["overall_status"] = "COMPLETE"
+
+    try:
+        run_full_validation(repo_root, fake_scorecard)
+        assert False, "Should have raised GateIntegrityError for premature overall COMPLETE"
+    except GateIntegrityError as e:
+        assert "overall_status COMPLETE" in str(e)
+        print("[PASS] Negative control: premature overall COMPLETE rejected fail-closed.")
+
+
 def main():
     test_honest_scorecard_passes()
     test_premature_full_asm_rejected()
     test_premature_d18_guest_removal_rejected()
     test_bgm_omission_rejected()
+    test_premature_overall_complete_rejected()
+    assert run_full_validation(repo_root) is True
     print("All gate validator tests and negative controls passed 100%.")
 
 
