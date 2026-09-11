@@ -1,9 +1,9 @@
 {
-  "total_harvested_blocks": 3683,
+  "total_harvested_blocks": 6367,
   "summary_by_state": {
-    "HARVESTED": 3683,
-    "MNEMONIC_PROVEN": 3412,
-    "CODEGEN_ELIGIBLE": 271,
+    "HARVESTED": 6367,
+    "MNEMONIC_PROVEN": 5319,
+    "CODEGEN_ELIGIBLE": 1048,
     "GENERATED": 270,
     "COMPILES": 270,
     "SHADOW_ELIGIBLE": 1,
@@ -11,25 +11,26 @@
     "PROMOTED": 1
   },
   "summary_by_reason": {
-    "UNSUPPORTED_EMITTER_OPCODE": 3395,
-    "INVALID_BLOCK_BOUNDARY": 14,
-    "UNSUPPORTED_CONTROL_FLOW": 3
+    "UNSUPPORTED_EMITTER_OPCODE": 5213,
+    "INVALID_BLOCK_BOUNDARY": 92,
+    "UNSUPPORTED_CONTROL_FLOW": 14
   },
   "modules": {
     "0TH2.BIN": {
-      "total_proven_blocks": 3499,
-      "codegen_eligible": 244,
+      "total_proven_blocks": 6007,
+      "codegen_eligible": 957,
       "rejection_reasons": {
-        "UNSUPPORTED_EMITTER_OPCODE": 3238,
-        "UNSUPPORTED_CONTROL_FLOW": 3,
-        "INVALID_BLOCK_BOUNDARY": 14
+        "UNSUPPORTED_EMITTER_OPCODE": 4949,
+        "INVALID_BLOCK_BOUNDARY": 87,
+        "UNSUPPORTED_CONTROL_FLOW": 14
       }
     },
     "TH2.LOW": {
-      "total_proven_blocks": 184,
-      "codegen_eligible": 27,
+      "total_proven_blocks": 360,
+      "codegen_eligible": 91,
       "rejection_reasons": {
-        "UNSUPPORTED_EMITTER_OPCODE": 157
+        "UNSUPPORTED_EMITTER_OPCODE": 264,
+        "INVALID_BLOCK_BOUNDARY": 5
       }
     }
   }

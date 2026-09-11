@@ -21,6 +21,8 @@ from validate_recovery_gates import (
     load_scorecard,
     run_full_validation,
 )
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from negative_controls_p3 import run_all_p3_negative_controls
 
 
 def test_honest_scorecard_passes():
@@ -322,8 +324,9 @@ def main():
     test_nc7_byte_mismatch_rejected()
     test_nc8_unknown_execution_hit_rejected()
     test_premature_overall_complete_rejected()
+    run_all_p3_negative_controls(repo_root)
     assert run_full_validation(repo_root) is True
-    print("All 8 explicit negative controls and gate validator tests passed 100%.")
+    print("All 16 negative controls (8 base + 8 P3 NC-A..NC-H) and gate validator tests passed 100%.")
 
 
 if __name__ == "__main__":

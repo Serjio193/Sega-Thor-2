@@ -206,6 +206,9 @@ def audit_full_asm_game_gate(scorecard: dict, repo_root: Optional[Path] = None) 
                 except Exception:
                     pass
 
+        # Interval subset cross-checks: P3 subset of manifest, manifest subset of mnemonic, execution invariants
+        _audit_p3_manifest_cross_checks(repo_root, issues)
+
         # Confirmed vs proven byte parity check
         total_conf_bytes = sum(m.get("confirmed_code_bytes", 0) for m in scorecard.get("modules", []))
         total_prov_bytes = sum(m.get("proven_mnemonic_bytes", 0) for m in scorecard.get("modules", []))
@@ -238,6 +241,115 @@ def audit_full_asm_game_gate(scorecard: dict, repo_root: Optional[Path] = None) 
         "non_byte_exact_modules": non_byte_exact_modules,
         "unverified_modules": unverified_modules,
     }
+
+
+def _audit_p3_manifest_cross_checks(repo_root: Path, issues: list) -> None:
+    manifest_dir = repo_root / "asm" / "manifests"
+    p3_path = repo_root / "workstreams" / "T2-ASM-CARVER" / "p3_control_flow_resolution.json"
+    if not p3_path.exists():
+        return
+
+    try:
+        p3_data = json.loads(p3_path.read_text(encoding="utf-8"))
+    except Exception as e:
+        issues.append(f"p3_control_flow_resolution.json read error: {e}")
+        return
+
+    p3_code_by_mod = {}
+    for r in p3_data.get("records", []):
+        if r.get("resolved_state") == "CONFIRMED_CODE":
+            m = r.get("module")
+            s = int(r.get("runtime_start"), 16)
+            e = int(r.get("runtime_end_exclusive"), 16)
+            p3_code_by_mod.setdefault(m, []).append((s, e))
+
+    mf_code_by_mod = {}
+    mf_proven_by_mod = {}
+    for mf_name in ["0TH2.BIN.json", "TH2.LOW.json", "SET07.BIN.json", "BGM.BIN.json"]:
+        mf_path = manifest_dir / mf_name
+        if mf_path.exists():
+            try:
+                mf_data = json.loads(mf_path.read_text(encoding="utf-8"))
+                m_name = mf_data.get("module")
+                for r in mf_data.get("ranges", []):
+                    if r.get("evidence_classification") == "CONFIRMED_CODE":
+                        s = int(r.get("runtime_start"), 16)
+                        e = int(r.get("runtime_end_exclusive"), 16)
+                        mf_code_by_mod.setdefault(m_name, []).append((s, e))
+                        if r.get("assembly_representation") == "MNEMONIC_PROVEN":
+                            mf_proven_by_mod.setdefault(m_name, []).append((s, e))
+            except Exception as e:
+                issues.append(f"Manifest read error for {mf_name}: {e}")
+
+    p3_missing = 0
+    for m, p3_ivs in p3_code_by_mod.items():
+        mf_pcs = set()
+        for s, e in mf_code_by_mod.get(m, []):
+            mf_pcs.update(range(s, e))
+        for s, e in p3_ivs:
+            for b in range(s, e):
+                if b not in mf_pcs:
+                    p3_missing += 1
+    if p3_missing > 0:
+        issues.append(f"P3_CONFIRMED_MISSING_FROM_MANIFEST_BYTES == {p3_missing} (must be 0)")
+
+    mf_not_prov = 0
+    for m, mf_ivs in mf_code_by_mod.items():
+        prov_pcs = set()
+        for s, e in mf_proven_by_mod.get(m, []):
+            prov_pcs.update(range(s, e))
+        for s, e in mf_ivs:
+            for b in range(s, e):
+                if b not in prov_pcs:
+                    mf_not_prov += 1
+    if mf_not_prov > 0:
+        issues.append(f"MANIFEST_CONFIRMED_CODE_NOT_PROVEN == {mf_not_prov} (must be 0)")
+
+    exec_union_path = repo_root / "workstreams" / "T2-ASM-CARVER" / "executed_pc_union.json"
+    if exec_union_path.exists():
+        try:
+            exec_data = json.loads(exec_union_path.read_text(encoding="utf-8"))
+            man_der = exec_data.get("manifest_derived_execution_entries", 0)
+            if man_der > 0:
+                issues.append(f"MANIFEST_DERIVED_EXECUTION_ENTRIES == {man_der} (must be 0)")
+            unaligned = exec_data.get("unaligned_instruction_pcs", 0)
+            if unaligned > 0:
+                issues.append(f"UNALIGNED_EXECUTED_INSTRUCTION_PCS == {unaligned} (must be 0)")
+            no_art = exec_data.get("dynamic_evidence_without_real_artifact", 0)
+            if no_art > 0:
+                issues.append(f"DYNAMIC_EVIDENCE_WITHOUT_REAL_ARTIFACT == {no_art} (must be 0)")
+
+            inst_pcs = exec_data.get("executed_instruction_pcs", [])
+            outside_exec = 0
+            for item in inst_pcs:
+                pc_raw = item.get("pc", 0) if isinstance(item, dict) else item
+                pc = int(pc_raw, 16) if isinstance(pc_raw, str) else int(pc_raw)
+                mod = item.get("module", "") if isinstance(item, dict) else ""
+                if (pc % 2) != 0:
+                    issues.append(f"UNALIGNED_SH2_PC: 0x{pc:08X} in {mod}")
+                if mod in mf_code_by_mod:
+                    mf_ivs = mf_code_by_mod[mod]
+                    if not any(s <= pc < e for s, e in mf_ivs):
+                        outside_exec += 1
+            if outside_exec > 0:
+                issues.append(f"EXECUTED_PC_OUTSIDE_CONFIRMED_CODE == {outside_exec} (must be 0)")
+        except Exception as e:
+            issues.append(f"executed_pc_union.json read error: {e}")
+
+    try:
+        if str(repo_root) not in sys.path:
+            sys.path.insert(0, str(repo_root))
+        from tools.carver.executed_pc_union import ExecutedPCUnion
+        union = ExecutedPCUnion(repo_root)
+        union.build_union()
+        if union.manifest_derived_entries > 0:
+            issues.append(f"LIVE_MANIFEST_DERIVED_EXECUTION_ENTRIES == {union.manifest_derived_entries} (must be 0)")
+        if union.unaligned_instruction_pcs > 0:
+            issues.append(f"LIVE_UNALIGNED_EXECUTED_INSTRUCTION_PCS == {union.unaligned_instruction_pcs} (must be 0)")
+        if union.dynamic_evidence_without_real_artifact > 0:
+            issues.append(f"LIVE_DYNAMIC_EVIDENCE_WITHOUT_REAL_ARTIFACT == {union.dynamic_evidence_without_real_artifact} (must be 0)")
+    except Exception:
+        pass
 
 
 def audit_d18_guest_removal(runtime_src_path: Path, scorecard: dict) -> dict:

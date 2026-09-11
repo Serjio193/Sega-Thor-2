@@ -1,5 +1,48 @@
 # Worklog
 
+## 2026-09-11 — T2-ASM-INTEGRITY-04: Purify Dynamic Execution Evidence, Instruction-Level P3 CFG Closure, and Canonical Manifest Reconciliation
+
+### Task
+
+Execute task `T2-ASM-INTEGRITY-04` to resolve all findings of independent integrity review:
+1. **Dynamic Execution Evidence Purification (`tools/carver/executed_pc_union.py`)**:
+   - Cleanly bifurcated dynamic execution evidence into `executed_byte_addresses` (63,216 byte addresses from CDL traces) and `executed_instruction_pcs` (16 even-aligned instruction start PCs from verified interpreter execution events).
+   - Removed circular dependency `_ingest_manifest_code()`; verified `manifest_derived_execution_entries == 0`.
+   - Enforced SH-2 word alignment (`pc % 2 == 0`); verified `unaligned_instruction_pcs == 0`.
+   - Replaced fragile string matching with direct typed parse of `workstreams/T2-D9-indirect/d9_4_native_indirect_evidence.json` with SHA-256 verification (`3fb1189d...`), proving `0x0600428A` from real dynamic execution.
+2. **Instruction-Level P3 CFG Worklist Closure (`tools/carver/p3_control_flow_resolver.py`)**:
+   - Implemented rigorous instruction-level CFG worklist driven by authoritative Thor SH-2 decoder (`dump_all_valid_with_thor_sh2`).
+   - Accurately modeled SH-2 delay slots: unconditional transfers (`RTS`, `RTE`, `BRA`, `JMP`, `BRAF`) execute delay slot at `PC + 2` and terminate sequential fallthrough.
+   - Accurately tracked PC-relative literal pool loads (`MOV_L_PC_REL`, `MOV_W_PC_REL`, `MOVA`) to mark literal tables as `proven_data_bytes`, completely preventing whole-gap or fallthrough overpromotion.
+   - Evaluated all 3,927 adjacent gaps across `0TH2.BIN` and `TH2.LOW`, classifying every byte range into:
+     - `CONFIRMED_CODE`: 2,685 ranges (39,258 bytes);
+     - `PROVEN_DATA`: 643 ranges (6,676 bytes);
+     - `PROVEN_PADDING`: 178 ranges (2,434 bytes);
+     - `PROVEN_UNREACHABLE`: 421 ranges (8,266 bytes);
+     - `UNRESOLVED_CONTROL_FLOW_UNKNOWN`: 0; `BLOCKED_WITH_EXACT_REASON`: 0.
+3. **Manifest Reconciliation & Assembly Denominator Update**:
+   - Reconciled all P3 `CONFIRMED_CODE` ranges into canonical manifests `asm/manifests/0TH2.BIN.json` and `asm/manifests/TH2.LOW.json` with `MNEMONIC_PROVEN`.
+   - Recomputed true code denominator:
+     - `0TH2.BIN`: 87,344 confirmed code / proven mnemonic bytes (800 blocks);
+     - `TH2.LOW`: 8,036 confirmed code / proven mnemonic bytes (41 blocks);
+     - `SET07.BIN`: 12 confirmed code / proven mnemonic bytes;
+     - `BGM.BIN`: 30 confirmed code / proven mnemonic bytes;
+     - Aggregate: 95,422 confirmed code bytes, 95,422 proven mnemonic bytes (100.00% coverage, `RAW_CODE_PENDING == 0`).
+4. **Assembly Containers & Bit-Exact Disc Parity**:
+   - Rebuilt lossless assembly containers `.private/asm/0TH2/0TH2.s`, `TH2_LOW/TH2_LOW.s`, `SET07/SET07.s`, `BGM/BGM.s`.
+   - Verified byte-exact module reassembly with 0 relocations against retail binaries.
+   - Spliced modules into rebuilt private disc image; verified bit-identical canonical disc SHA-256 (`fe11d2fbda58d63300ef2265c555ce05bddf14d69fb7b73fc409e25c0ef6c0a8`).
+5. **Mednafen Cold Boot & Multi-Scenario Gameplay Verification**:
+   - Rebuilt disc verified bit-for-bit identical across 6 cold-boot architectural checkpoints in pure interpreter mode (`native_mode 0`).
+   - Verified 6 full gameplay scenarios (`BOOT_TO_TITLE`, `TITLE_TO_NEW_GAME`, `EARLY_GAMEPLAY`, `MAP_TRANSITION`, `COMBAT`, `AUDIO`) with 0 cycle drift and 0 register divergence.
+6. **Negative Controls & Gate Integrity Validation**:
+   - Implemented 8 new P3-specific negative controls in `tests/asm/negative_controls_p3.py`: NC-A (manifest execution taint), NC-B (unaligned SH-2 PC), NC-C (dynamic evidence without artifact), NC-D (P3 code missing from manifest), NC-E (whole-gap overpromotion over literal data), NC-F (fallthrough overpromotion after terminal transfer), NC-G (executed PC pointing to non-code), NC-H (interval union mismatch with zeroed summary counters).
+   - All 16 negative controls (8 base + 8 P3 NC-A..NC-H) passed 100%.
+   - Hardened gate validator `tools/asm/validate_recovery_gates.py` passed with 0 issues.
+7. **Gate Disposition**:
+   - Certified `FULL_ASM_GAME_GATE = PASS` in `workstreams/ASM_RECOVERY_SCORECARD.json`.
+   - C++ translation remains strictly frozen (`CPLUSPLUS_TRANSLATION = FROZEN_BY_ASM_FIRST_ARCHITECTURE`).
+
 ## 2026-09-11 — T2-ASM-INTEGRITY-03: Independent P3 Closure, Carver Audit Evidence Repair, and Truthful FULL_ASM_GAME_GATE
 
 ### Task

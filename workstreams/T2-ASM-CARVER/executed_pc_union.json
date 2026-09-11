@@ -1,25 +1,200 @@
 {
-  "total_canonical_entries": 63245,
+  "total_canonical_entries": 63232,
+  "executed_byte_addresses_total": 63216,
+  "executed_instruction_pcs_total": 16,
+  "unaligned_instruction_pcs": 0,
+  "manifest_derived_execution_entries": 0,
+  "dynamic_evidence_without_real_artifact": 0,
+  "executed_instruction_pcs": [
+    {
+      "revision": "RUS",
+      "cpu": "MASTER_SH2",
+      "module": "0TH2.BIN",
+      "generation": 0,
+      "pc": "0x06004000",
+      "source": "D9_EVENT:PURE_INTERPRETER:bb_06004000_entry",
+      "artifact_path": "workstreams/T2-D9-indirect/d9_4_native_indirect_evidence.json",
+      "artifact_sha256": "3fb1189d7fc3e12183902a3aae47241a8100be6a235dd17303ff3a17734a7b14",
+      "cycle": 305462360
+    },
+    {
+      "revision": "RUS",
+      "cpu": "MASTER_SH2",
+      "module": "0TH2.BIN",
+      "generation": 0,
+      "pc": "0x06004002",
+      "source": "D9_REG_PC:PURE_INTERPRETER:bb_06004000_entry",
+      "artifact_path": "workstreams/T2-D9-indirect/d9_4_native_indirect_evidence.json",
+      "artifact_sha256": "3fb1189d7fc3e12183902a3aae47241a8100be6a235dd17303ff3a17734a7b14",
+      "cycle": 305462360
+    },
+    {
+      "revision": "RUS",
+      "cpu": "MASTER_SH2",
+      "module": "0TH2.BIN",
+      "generation": 0,
+      "pc": "0x06004012",
+      "source": "D9_EVENT:PURE_INTERPRETER:bb_06004000_exit_target_06004012",
+      "artifact_path": "workstreams/T2-D9-indirect/d9_4_native_indirect_evidence.json",
+      "artifact_sha256": "3fb1189d7fc3e12183902a3aae47241a8100be6a235dd17303ff3a17734a7b14",
+      "cycle": 305462387
+    },
+    {
+      "revision": "RUS",
+      "cpu": "MASTER_SH2",
+      "module": "0TH2.BIN",
+      "generation": 0,
+      "pc": "0x06004014",
+      "source": "D9_REG_PC:PURE_INTERPRETER:bb_06004000_exit_target_06004012",
+      "artifact_path": "workstreams/T2-D9-indirect/d9_4_native_indirect_evidence.json",
+      "artifact_sha256": "3fb1189d7fc3e12183902a3aae47241a8100be6a235dd17303ff3a17734a7b14",
+      "cycle": 305462387
+    },
+    {
+      "revision": "RUS",
+      "cpu": "MASTER_SH2",
+      "module": "0TH2.BIN",
+      "generation": 0,
+      "pc": "0x06004280",
+      "source": "D9_EVENT:PURE_INTERPRETER:hit_1_at_06004280_bsr_return",
+      "artifact_path": "workstreams/T2-D9-indirect/d9_4_native_indirect_evidence.json",
+      "artifact_sha256": "3fb1189d7fc3e12183902a3aae47241a8100be6a235dd17303ff3a17734a7b14",
+      "cycle": 307090585
+    },
+    {
+      "revision": "RUS",
+      "cpu": "MASTER_SH2",
+      "module": "0TH2.BIN",
+      "generation": 0,
+      "pc": "0x0600427C",
+      "source": "D9_REG_PR:PURE_INTERPRETER:hit_1_at_06004280_bsr_return",
+      "artifact_path": "workstreams/T2-D9-indirect/d9_4_native_indirect_evidence.json",
+      "artifact_sha256": "3fb1189d7fc3e12183902a3aae47241a8100be6a235dd17303ff3a17734a7b14",
+      "cycle": 307090585
+    },
+    {
+      "revision": "RUS",
+      "cpu": "MASTER_SH2",
+      "module": "0TH2.BIN",
+      "generation": 0,
+      "pc": "0x06004282",
+      "source": "D9_REG_PC:PURE_INTERPRETER:hit_2_at_06004280_candidate_entry",
+      "artifact_path": "workstreams/T2-D9-indirect/d9_4_native_indirect_evidence.json",
+      "artifact_sha256": "3fb1189d7fc3e12183902a3aae47241a8100be6a235dd17303ff3a17734a7b14",
+      "cycle": 316309168
+    },
+    {
+      "revision": "RUS",
+      "cpu": "MASTER_SH2",
+      "module": "0TH2.BIN",
+      "generation": 0,
+      "pc": "0x0600A0F8",
+      "source": "D9_EVENT:PURE_INTERPRETER:target_entry_0600A0F8",
+      "artifact_path": "workstreams/T2-D9-indirect/d9_4_native_indirect_evidence.json",
+      "artifact_sha256": "3fb1189d7fc3e12183902a3aae47241a8100be6a235dd17303ff3a17734a7b14",
+      "cycle": 316309189
+    },
+    {
+      "revision": "RUS",
+      "cpu": "MASTER_SH2",
+      "module": "0TH2.BIN",
+      "generation": 0,
+      "pc": "0x0600A0FA",
+      "source": "D9_REG_PC:PURE_INTERPRETER:target_entry_0600A0F8",
+      "artifact_path": "workstreams/T2-D9-indirect/d9_4_native_indirect_evidence.json",
+      "artifact_sha256": "3fb1189d7fc3e12183902a3aae47241a8100be6a235dd17303ff3a17734a7b14",
+      "cycle": 316309189
+    },
+    {
+      "revision": "RUS",
+      "cpu": "MASTER_SH2",
+      "module": "0TH2.BIN",
+      "generation": 0,
+      "pc": "0x0600428A",
+      "source": "D9_REG_PR:PURE_INTERPRETER:target_entry_0600A0F8",
+      "artifact_path": "workstreams/T2-D9-indirect/d9_4_native_indirect_evidence.json",
+      "artifact_sha256": "3fb1189d7fc3e12183902a3aae47241a8100be6a235dd17303ff3a17734a7b14",
+      "cycle": 316309189
+    },
+    {
+      "revision": "RUS",
+      "cpu": "MASTER_SH2",
+      "module": "0TH2.BIN",
+      "generation": 0,
+      "pc": "0x0600428C",
+      "source": "D9_REG_PC:PURE_INTERPRETER:return_to_caller_0600428A",
+      "artifact_path": "workstreams/T2-D9-indirect/d9_4_native_indirect_evidence.json",
+      "artifact_sha256": "3fb1189d7fc3e12183902a3aae47241a8100be6a235dd17303ff3a17734a7b14",
+      "cycle": 337109623
+    },
+    {
+      "revision": "RUS",
+      "cpu": "MASTER_SH2",
+      "module": "0TH2.BIN",
+      "generation": 0,
+      "pc": "0x060042E0",
+      "source": "D9_EVENT:PURE_INTERPRETER:downstream_continuation_060042E0",
+      "artifact_path": "workstreams/T2-D9-indirect/d9_4_native_indirect_evidence.json",
+      "artifact_sha256": "3fb1189d7fc3e12183902a3aae47241a8100be6a235dd17303ff3a17734a7b14",
+      "cycle": 387459912
+    },
+    {
+      "revision": "RUS",
+      "cpu": "MASTER_SH2",
+      "module": "0TH2.BIN",
+      "generation": 0,
+      "pc": "0x060042E2",
+      "source": "D9_REG_PC:PURE_INTERPRETER:downstream_continuation_060042E0",
+      "artifact_path": "workstreams/T2-D9-indirect/d9_4_native_indirect_evidence.json",
+      "artifact_sha256": "3fb1189d7fc3e12183902a3aae47241a8100be6a235dd17303ff3a17734a7b14",
+      "cycle": 387459912
+    },
+    {
+      "revision": "RUS",
+      "cpu": "MASTER_SH2",
+      "module": "0TH2.BIN",
+      "generation": 0,
+      "pc": "0x060042D0",
+      "source": "D9_REG_PR:PURE_INTERPRETER:downstream_continuation_060042E0",
+      "artifact_path": "workstreams/T2-D9-indirect/d9_4_native_indirect_evidence.json",
+      "artifact_sha256": "3fb1189d7fc3e12183902a3aae47241a8100be6a235dd17303ff3a17734a7b14",
+      "cycle": 387459912
+    },
+    {
+      "revision": "RUS",
+      "cpu": "MASTER_SH2",
+      "module": "TH2.LOW",
+      "generation": 0,
+      "pc": "0x002E9910",
+      "source": "T2-ASM-03_CHECKPOINT",
+      "artifact_path": "workstreams/T2-ASM-03/experiment_evidence.json",
+      "artifact_sha256": "f60629c18a57cc27074094da336ad04812bdb89b7f90594accec861bddaf9155",
+      "cycle": null
+    },
+    {
+      "revision": "RUS",
+      "cpu": "MASTER_SH2",
+      "module": "0TH2.BIN",
+      "generation": 0,
+      "pc": "0x060042E4",
+      "source": "T2-ASM-03_RETURN_SITE",
+      "artifact_path": "workstreams/T2-ASM-03/experiment_evidence.json",
+      "artifact_sha256": "f60629c18a57cc27074094da336ad04812bdb89b7f90594accec861bddaf9155",
+      "cycle": null
+    }
+  ],
   "by_module": {
     "0TH2.BIN": {
-      "total_executed_pcs": 59959,
-      "min_pc": "0x06004000",
-      "max_pc": "0x06081991"
+      "total_executed_bytes": 59952,
+      "total_executed_instruction_pcs": 15,
+      "min_instruction_pc": "0x06004000",
+      "max_instruction_pc": "0x0600A0FA"
     },
     "TH2.LOW": {
-      "total_executed_pcs": 3265,
-      "min_pc": "0x002E500E",
-      "max_pc": "0x002EABAF"
-    },
-    "SET07.BIN": {
-      "total_executed_pcs": 6,
-      "min_pc": "0x060D8000",
-      "max_pc": "0x060D800A"
-    },
-    "BGM.BIN": {
-      "total_executed_pcs": 15,
-      "min_pc": "0x00001000",
-      "max_pc": "0x0000101C"
+      "total_executed_bytes": 3264,
+      "total_executed_instruction_pcs": 1,
+      "min_instruction_pc": "0x002E9910",
+      "max_instruction_pc": "0x002E9910"
     }
   },
   "contains_0x0600428A": true

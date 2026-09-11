@@ -145,22 +145,63 @@ def _decode_block_by_block(
     return results
 
 
+def _make_decoded_instruction(ins: Dict[str, Any]) -> DecodedInstruction:
+    return DecodedInstruction(
+        pc=int(ins["pc"], 16),
+        offset=int(ins["offset"]),
+        opcode=int(ins["opcode"], 16),
+        opcode_id=ins["opcode_id"],
+        asm_line=ins.get("asm_line", ""),
+        comment=ins.get("comment", ""),
+        rn=int(ins.get("rn", 0)),
+        rm=int(ins.get("rm", 0)),
+        disp=int(ins.get("disp", 0)),
+        target_vma=int(ins.get("target_vma", "0x0"), 16),
+        flow=ins.get("flow", "SEQUENTIAL"),
+        has_delay_slot=bool(ins.get("has_delay_slot", False)),
+    )
+
+
 def _parse_json_instructions(data: Dict[str, Any]) -> List[DecodedInstruction]:
     instructions: List[DecodedInstruction] = []
     for blk in data.get("blocks", []):
         for ins in blk.get("instructions", []):
-            instructions.append(DecodedInstruction(
-                pc=int(ins["pc"], 16),
-                offset=int(ins["offset"]),
-                opcode=int(ins["opcode"], 16),
-                opcode_id=ins["opcode_id"],
-                asm_line=ins.get("asm_line", ""),
-                comment=ins.get("comment", ""),
-                rn=int(ins.get("rn", 0)),
-                rm=int(ins.get("rm", 0)),
-                disp=int(ins.get("disp", 0)),
-                target_vma=int(ins.get("target_vma", "0x0"), 16),
-                flow=ins.get("flow", "SEQUENTIAL"),
-                has_delay_slot=bool(ins.get("has_delay_slot", False)),
-            ))
+            instructions.append(_make_decoded_instruction(ins))
+    for ins in data.get("instructions", []):
+        instructions.append(_make_decoded_instruction(ins))
     return instructions
+
+
+def dump_all_valid_with_thor_sh2(
+    repo_root: Path,
+    module_name: str,
+    base_vma: int,
+    module_bytes: bytes,
+) -> Dict[int, DecodedInstruction]:
+    """Execute C++ export_sh2_asm_ir --dump-all-valid and return dict of DecodedInstructions by PC."""
+    if not module_bytes:
+        return {}
+    exe_path = find_exporter_binary(repo_root)
+    scratch_dir = repo_root / "scratch"
+    scratch_dir.mkdir(parents=True, exist_ok=True)
+    temp_bin = scratch_dir / f"{module_name}_all_valid.bin"
+    temp_bin.write_bytes(module_bytes)
+    temp_json = scratch_dir / f"{module_name}_all_valid.json"
+    if temp_json.exists():
+        temp_json.unlink()
+
+    cmd = [
+        str(exe_path),
+        "--dump-all-valid",
+        str(temp_bin),
+        f"0x{base_vma:08X}",
+        str(temp_json),
+    ]
+    res = subprocess.run(cmd, capture_output=True, text=True)
+    if res.returncode != 0 or not temp_json.exists():
+        raise RuntimeError(f"export_sh2_asm_ir --dump-all-valid failed for {module_name}: {res.stderr}")
+
+    with open(temp_json, "r", encoding="utf-8") as f:
+        data = json.load(f)
+    instructions = _parse_json_instructions(data)
+    return {ins.pc: ins for ins in instructions}

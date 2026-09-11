@@ -2,14 +2,14 @@
   "passes": [
     {
       "pass": 1,
-      "candidates_found": 11053,
-      "bytes_promoted": 79653,
+      "candidates_found": 11985,
+      "bytes_promoted": 80741,
       "conflicts": 0
     },
     {
       "pass": 2,
-      "candidates_found": 4465,
-      "bytes_promoted": 29459,
+      "candidates_found": 4194,
+      "bytes_promoted": 28537,
       "conflicts": 0
     }
   ],

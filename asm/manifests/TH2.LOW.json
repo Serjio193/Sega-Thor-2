@@ -3,9 +3,9 @@
   "revision": "thor2_ntsc_patched_fe11d2fb",
   "module_runtime_base": "0x002DA000",
   "module_size": 149504,
-  "confirmed_code_bytes": 3266,
-  "proven_mnemonic_bytes": 3266,
-  "raw_unknown_bytes": 146238,
+  "confirmed_code_bytes": 8036,
+  "proven_mnemonic_bytes": 8036,
+  "raw_unknown_bytes": 141468,
   "iso_sector_start": 52123,
   "iso_sector_count": 73,
   "ranges": [
@@ -35,8 +35,13 @@
       "runtime_start": "0x002E5014",
       "runtime_end_exclusive": "0x002E5016",
       "byte_length": 2,
-      "evidence_classification": "UNKNOWN",
-      "assembly_representation": "RAW_UNKNOWN"
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E5014",
+      "instruction_count": 1,
+      "evidence_refs": [
+        "P3_CFG_CLOSURE"
+      ]
     },
     {
       "offset_start": 45078,
@@ -55,8 +60,13 @@
       "runtime_start": "0x002E501A",
       "runtime_end_exclusive": "0x002E501C",
       "byte_length": 2,
-      "evidence_classification": "UNKNOWN",
-      "assembly_representation": "RAW_UNKNOWN"
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E501A",
+      "instruction_count": 1,
+      "evidence_refs": [
+        "P3_CFG_CLOSURE"
+      ]
     },
     {
       "offset_start": 45084,
@@ -75,8 +85,13 @@
       "runtime_start": "0x002E5020",
       "runtime_end_exclusive": "0x002E5022",
       "byte_length": 2,
-      "evidence_classification": "UNKNOWN",
-      "assembly_representation": "RAW_UNKNOWN"
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E5020",
+      "instruction_count": 1,
+      "evidence_refs": [
+        "P3_CFG_CLOSURE"
+      ]
     },
     {
       "offset_start": 45090,
@@ -95,8 +110,13 @@
       "runtime_start": "0x002E5026",
       "runtime_end_exclusive": "0x002E5028",
       "byte_length": 2,
-      "evidence_classification": "UNKNOWN",
-      "assembly_representation": "RAW_UNKNOWN"
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E5026",
+      "instruction_count": 1,
+      "evidence_refs": [
+        "P3_CFG_CLOSURE"
+      ]
     },
     {
       "offset_start": 45096,
@@ -135,8 +155,13 @@
       "runtime_start": "0x002E5038",
       "runtime_end_exclusive": "0x002E503A",
       "byte_length": 2,
-      "evidence_classification": "UNKNOWN",
-      "assembly_representation": "RAW_UNKNOWN"
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E5038",
+      "instruction_count": 1,
+      "evidence_refs": [
+        "P3_CFG_CLOSURE"
+      ]
     },
     {
       "offset_start": 45114,
@@ -155,8 +180,13 @@
       "runtime_start": "0x002E503E",
       "runtime_end_exclusive": "0x002E5040",
       "byte_length": 2,
-      "evidence_classification": "UNKNOWN",
-      "assembly_representation": "RAW_UNKNOWN"
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E503E",
+      "instruction_count": 1,
+      "evidence_refs": [
+        "P3_CFG_CLOSURE"
+      ]
     },
     {
       "offset_start": 45120,
@@ -175,8 +205,13 @@
       "runtime_start": "0x002E5044",
       "runtime_end_exclusive": "0x002E5046",
       "byte_length": 2,
-      "evidence_classification": "UNKNOWN",
-      "assembly_representation": "RAW_UNKNOWN"
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E5044",
+      "instruction_count": 1,
+      "evidence_refs": [
+        "P3_CFG_CLOSURE"
+      ]
     },
     {
       "offset_start": 45126,
@@ -215,8 +250,13 @@
       "runtime_start": "0x002E5588",
       "runtime_end_exclusive": "0x002E558A",
       "byte_length": 2,
-      "evidence_classification": "UNKNOWN",
-      "assembly_representation": "RAW_UNKNOWN"
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E5588",
+      "instruction_count": 1,
+      "evidence_refs": [
+        "P3_CFG_CLOSURE"
+      ]
     },
     {
       "offset_start": 46474,
@@ -231,12 +271,26 @@
     },
     {
       "offset_start": 46492,
-      "offset_end_exclusive": 54270,
+      "offset_end_exclusive": 54268,
       "runtime_start": "0x002E559C",
-      "runtime_end_exclusive": "0x002E73FE",
-      "byte_length": 7778,
+      "runtime_end_exclusive": "0x002E73FC",
+      "byte_length": 7776,
       "evidence_classification": "UNKNOWN",
       "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 54268,
+      "offset_end_exclusive": 54270,
+      "runtime_start": "0x002E73FC",
+      "runtime_end_exclusive": "0x002E73FE",
+      "byte_length": 2,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E73FC",
+      "instruction_count": 1,
+      "evidence_refs": [
+        "P3_CFG_CLOSURE"
+      ]
     },
     {
       "offset_start": 54270,
@@ -255,8 +309,13 @@
       "runtime_start": "0x002E7428",
       "runtime_end_exclusive": "0x002E742A",
       "byte_length": 2,
-      "evidence_classification": "UNKNOWN",
-      "assembly_representation": "RAW_UNKNOWN"
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E7428",
+      "instruction_count": 1,
+      "evidence_refs": [
+        "P3_CFG_CLOSURE"
+      ]
     },
     {
       "offset_start": 54314,
@@ -275,8 +334,13 @@
       "runtime_start": "0x002E7438",
       "runtime_end_exclusive": "0x002E743A",
       "byte_length": 2,
-      "evidence_classification": "UNKNOWN",
-      "assembly_representation": "RAW_UNKNOWN"
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E7438",
+      "instruction_count": 1,
+      "evidence_refs": [
+        "P3_CFG_CLOSURE"
+      ]
     },
     {
       "offset_start": 54330,
@@ -295,8 +359,13 @@
       "runtime_start": "0x002E744A",
       "runtime_end_exclusive": "0x002E744C",
       "byte_length": 2,
-      "evidence_classification": "UNKNOWN",
-      "assembly_representation": "RAW_UNKNOWN"
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E744A",
+      "instruction_count": 1,
+      "evidence_refs": [
+        "P3_CFG_CLOSURE"
+      ]
     },
     {
       "offset_start": 54348,
@@ -311,12 +380,26 @@
     },
     {
       "offset_start": 54372,
-      "offset_end_exclusive": 55106,
+      "offset_end_exclusive": 55104,
       "runtime_start": "0x002E7464",
-      "runtime_end_exclusive": "0x002E7742",
-      "byte_length": 734,
+      "runtime_end_exclusive": "0x002E7740",
+      "byte_length": 732,
       "evidence_classification": "UNKNOWN",
       "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 55104,
+      "offset_end_exclusive": 55106,
+      "runtime_start": "0x002E7740",
+      "runtime_end_exclusive": "0x002E7742",
+      "byte_length": 2,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E7740",
+      "instruction_count": 1,
+      "evidence_refs": [
+        "P3_CFG_CLOSURE"
+      ]
     },
     {
       "offset_start": 55106,
@@ -335,8 +418,13 @@
       "runtime_start": "0x002E774E",
       "runtime_end_exclusive": "0x002E7750",
       "byte_length": 2,
-      "evidence_classification": "UNKNOWN",
-      "assembly_representation": "RAW_UNKNOWN"
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E774E",
+      "instruction_count": 1,
+      "evidence_refs": [
+        "P3_CFG_CLOSURE"
+      ]
     },
     {
       "offset_start": 55120,
@@ -351,12 +439,40 @@
     },
     {
       "offset_start": 55128,
-      "offset_end_exclusive": 55150,
+      "offset_end_exclusive": 55132,
       "runtime_start": "0x002E7758",
-      "runtime_end_exclusive": "0x002E776E",
-      "byte_length": 22,
+      "runtime_end_exclusive": "0x002E775C",
+      "byte_length": 4,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E7758",
+      "instruction_count": 2,
+      "evidence_refs": [
+        "P3_CFG_CLOSURE"
+      ]
+    },
+    {
+      "offset_start": 55132,
+      "offset_end_exclusive": 55148,
+      "runtime_start": "0x002E775C",
+      "runtime_end_exclusive": "0x002E776C",
+      "byte_length": 16,
       "evidence_classification": "UNKNOWN",
       "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 55148,
+      "offset_end_exclusive": 55150,
+      "runtime_start": "0x002E776C",
+      "runtime_end_exclusive": "0x002E776E",
+      "byte_length": 2,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E776C",
+      "instruction_count": 1,
+      "evidence_refs": [
+        "P3_CFG_CLOSURE"
+      ]
     },
     {
       "offset_start": 55150,
@@ -375,8 +491,13 @@
       "runtime_start": "0x002E77A6",
       "runtime_end_exclusive": "0x002E77A8",
       "byte_length": 2,
-      "evidence_classification": "UNKNOWN",
-      "assembly_representation": "RAW_UNKNOWN"
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E77A6",
+      "instruction_count": 1,
+      "evidence_refs": [
+        "P3_CFG_CLOSURE"
+      ]
     },
     {
       "offset_start": 55208,
@@ -395,8 +516,13 @@
       "runtime_start": "0x002E77C4",
       "runtime_end_exclusive": "0x002E77C6",
       "byte_length": 2,
-      "evidence_classification": "UNKNOWN",
-      "assembly_representation": "RAW_UNKNOWN"
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E77C4",
+      "instruction_count": 1,
+      "evidence_refs": [
+        "P3_CFG_CLOSURE"
+      ]
     },
     {
       "offset_start": 55238,
@@ -415,8 +541,13 @@
       "runtime_start": "0x002E77E2",
       "runtime_end_exclusive": "0x002E77E4",
       "byte_length": 2,
-      "evidence_classification": "UNKNOWN",
-      "assembly_representation": "RAW_UNKNOWN"
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E77E2",
+      "instruction_count": 1,
+      "evidence_refs": [
+        "P3_CFG_CLOSURE"
+      ]
     },
     {
       "offset_start": 55268,
@@ -435,8 +566,13 @@
       "runtime_start": "0x002E7800",
       "runtime_end_exclusive": "0x002E7802",
       "byte_length": 2,
-      "evidence_classification": "UNKNOWN",
-      "assembly_representation": "RAW_UNKNOWN"
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E7800",
+      "instruction_count": 1,
+      "evidence_refs": [
+        "P3_CFG_CLOSURE"
+      ]
     },
     {
       "offset_start": 55298,
@@ -475,8 +611,13 @@
       "runtime_start": "0x002E7F0C",
       "runtime_end_exclusive": "0x002E7F0E",
       "byte_length": 2,
-      "evidence_classification": "UNKNOWN",
-      "assembly_representation": "RAW_UNKNOWN"
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E7F0C",
+      "instruction_count": 1,
+      "evidence_refs": [
+        "P3_CFG_CLOSURE"
+      ]
     },
     {
       "offset_start": 57102,
@@ -495,8 +636,13 @@
       "runtime_start": "0x002E7F12",
       "runtime_end_exclusive": "0x002E7F14",
       "byte_length": 2,
-      "evidence_classification": "UNKNOWN",
-      "assembly_representation": "RAW_UNKNOWN"
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E7F12",
+      "instruction_count": 1,
+      "evidence_refs": [
+        "P3_CFG_CLOSURE"
+      ]
     },
     {
       "offset_start": 57108,
@@ -515,8 +661,13 @@
       "runtime_start": "0x002E7F18",
       "runtime_end_exclusive": "0x002E7F1A",
       "byte_length": 2,
-      "evidence_classification": "UNKNOWN",
-      "assembly_representation": "RAW_UNKNOWN"
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E7F18",
+      "instruction_count": 1,
+      "evidence_refs": [
+        "P3_CFG_CLOSURE"
+      ]
     },
     {
       "offset_start": 57114,
@@ -535,8 +686,13 @@
       "runtime_start": "0x002E7F1E",
       "runtime_end_exclusive": "0x002E7F20",
       "byte_length": 2,
-      "evidence_classification": "UNKNOWN",
-      "assembly_representation": "RAW_UNKNOWN"
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E7F1E",
+      "instruction_count": 1,
+      "evidence_refs": [
+        "P3_CFG_CLOSURE"
+      ]
     },
     {
       "offset_start": 57120,
@@ -555,8 +711,13 @@
       "runtime_start": "0x002E7F24",
       "runtime_end_exclusive": "0x002E7F26",
       "byte_length": 2,
-      "evidence_classification": "UNKNOWN",
-      "assembly_representation": "RAW_UNKNOWN"
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E7F24",
+      "instruction_count": 1,
+      "evidence_refs": [
+        "P3_CFG_CLOSURE"
+      ]
     },
     {
       "offset_start": 57126,
@@ -575,8 +736,13 @@
       "runtime_start": "0x002E7F2A",
       "runtime_end_exclusive": "0x002E7F2C",
       "byte_length": 2,
-      "evidence_classification": "UNKNOWN",
-      "assembly_representation": "RAW_UNKNOWN"
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E7F2A",
+      "instruction_count": 1,
+      "evidence_refs": [
+        "P3_CFG_CLOSURE"
+      ]
     },
     {
       "offset_start": 57132,
@@ -595,8 +761,13 @@
       "runtime_start": "0x002E7F38",
       "runtime_end_exclusive": "0x002E7F3A",
       "byte_length": 2,
-      "evidence_classification": "UNKNOWN",
-      "assembly_representation": "RAW_UNKNOWN"
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E7F38",
+      "instruction_count": 1,
+      "evidence_refs": [
+        "P3_CFG_CLOSURE"
+      ]
     },
     {
       "offset_start": 57146,
@@ -615,8 +786,13 @@
       "runtime_start": "0x002E7F3C",
       "runtime_end_exclusive": "0x002E7F44",
       "byte_length": 8,
-      "evidence_classification": "UNKNOWN",
-      "assembly_representation": "RAW_UNKNOWN"
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E7F3C",
+      "instruction_count": 4,
+      "evidence_refs": [
+        "P3_CFG_CLOSURE"
+      ]
     },
     {
       "offset_start": 57156,
@@ -635,8 +811,13 @@
       "runtime_start": "0x002E7F5A",
       "runtime_end_exclusive": "0x002E7F5E",
       "byte_length": 4,
-      "evidence_classification": "UNKNOWN",
-      "assembly_representation": "RAW_UNKNOWN"
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E7F5A",
+      "instruction_count": 2,
+      "evidence_refs": [
+        "P3_CFG_CLOSURE"
+      ]
     },
     {
       "offset_start": 57182,
@@ -655,8 +836,13 @@
       "runtime_start": "0x002E7F68",
       "runtime_end_exclusive": "0x002E7F6A",
       "byte_length": 2,
-      "evidence_classification": "UNKNOWN",
-      "assembly_representation": "RAW_UNKNOWN"
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E7F68",
+      "instruction_count": 1,
+      "evidence_refs": [
+        "P3_CFG_CLOSURE"
+      ]
     },
     {
       "offset_start": 57194,
@@ -675,8 +861,13 @@
       "runtime_start": "0x002E7F6C",
       "runtime_end_exclusive": "0x002E7F6E",
       "byte_length": 2,
-      "evidence_classification": "UNKNOWN",
-      "assembly_representation": "RAW_UNKNOWN"
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E7F6C",
+      "instruction_count": 1,
+      "evidence_refs": [
+        "P3_CFG_CLOSURE"
+      ]
     },
     {
       "offset_start": 57198,
@@ -695,8 +886,13 @@
       "runtime_start": "0x002E7F74",
       "runtime_end_exclusive": "0x002E7F76",
       "byte_length": 2,
-      "evidence_classification": "UNKNOWN",
-      "assembly_representation": "RAW_UNKNOWN"
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E7F74",
+      "instruction_count": 1,
+      "evidence_refs": [
+        "P3_CFG_CLOSURE"
+      ]
     },
     {
       "offset_start": 57206,
@@ -715,8 +911,13 @@
       "runtime_start": "0x002E7F8C",
       "runtime_end_exclusive": "0x002E7F8E",
       "byte_length": 2,
-      "evidence_classification": "UNKNOWN",
-      "assembly_representation": "RAW_UNKNOWN"
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E7F8C",
+      "instruction_count": 1,
+      "evidence_refs": [
+        "P3_CFG_CLOSURE"
+      ]
     },
     {
       "offset_start": 57230,
@@ -735,8 +936,13 @@
       "runtime_start": "0x002E7F9A",
       "runtime_end_exclusive": "0x002E7F9C",
       "byte_length": 2,
-      "evidence_classification": "UNKNOWN",
-      "assembly_representation": "RAW_UNKNOWN"
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E7F9A",
+      "instruction_count": 1,
+      "evidence_refs": [
+        "P3_CFG_CLOSURE"
+      ]
     },
     {
       "offset_start": 57244,
@@ -755,8 +961,13 @@
       "runtime_start": "0x002E7FAC",
       "runtime_end_exclusive": "0x002E7FAE",
       "byte_length": 2,
-      "evidence_classification": "UNKNOWN",
-      "assembly_representation": "RAW_UNKNOWN"
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E7FAC",
+      "instruction_count": 1,
+      "evidence_refs": [
+        "P3_CFG_CLOSURE"
+      ]
     },
     {
       "offset_start": 57262,
@@ -775,8 +986,13 @@
       "runtime_start": "0x002E7FD0",
       "runtime_end_exclusive": "0x002E7FD2",
       "byte_length": 2,
-      "evidence_classification": "UNKNOWN",
-      "assembly_representation": "RAW_UNKNOWN"
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E7FD0",
+      "instruction_count": 1,
+      "evidence_refs": [
+        "P3_CFG_CLOSURE"
+      ]
     },
     {
       "offset_start": 57298,
@@ -795,8 +1011,13 @@
       "runtime_start": "0x002E7FDE",
       "runtime_end_exclusive": "0x002E7FE0",
       "byte_length": 2,
-      "evidence_classification": "UNKNOWN",
-      "assembly_representation": "RAW_UNKNOWN"
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E7FDE",
+      "instruction_count": 1,
+      "evidence_refs": [
+        "P3_CFG_CLOSURE"
+      ]
     },
     {
       "offset_start": 57312,
@@ -815,8 +1036,13 @@
       "runtime_start": "0x002E7FE8",
       "runtime_end_exclusive": "0x002E7FEA",
       "byte_length": 2,
-      "evidence_classification": "UNKNOWN",
-      "assembly_representation": "RAW_UNKNOWN"
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E7FE8",
+      "instruction_count": 1,
+      "evidence_refs": [
+        "P3_CFG_CLOSURE"
+      ]
     },
     {
       "offset_start": 57322,
@@ -859,12 +1085,26 @@
     },
     {
       "offset_start": 57338,
-      "offset_end_exclusive": 57450,
+      "offset_end_exclusive": 57448,
       "runtime_start": "0x002E7FFA",
-      "runtime_end_exclusive": "0x002E806A",
-      "byte_length": 112,
+      "runtime_end_exclusive": "0x002E8068",
+      "byte_length": 110,
       "evidence_classification": "UNKNOWN",
       "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 57448,
+      "offset_end_exclusive": 57450,
+      "runtime_start": "0x002E8068",
+      "runtime_end_exclusive": "0x002E806A",
+      "byte_length": 2,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E8068",
+      "instruction_count": 1,
+      "evidence_refs": [
+        "P3_CFG_CLOSURE"
+      ]
     },
     {
       "offset_start": 57450,
@@ -883,8 +1123,13 @@
       "runtime_start": "0x002E8074",
       "runtime_end_exclusive": "0x002E8088",
       "byte_length": 20,
-      "evidence_classification": "UNKNOWN",
-      "assembly_representation": "RAW_UNKNOWN"
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E8074",
+      "instruction_count": 10,
+      "evidence_refs": [
+        "P3_CFG_CLOSURE"
+      ]
     },
     {
       "offset_start": 57480,
@@ -903,8 +1148,13 @@
       "runtime_start": "0x002E8094",
       "runtime_end_exclusive": "0x002E8096",
       "byte_length": 2,
-      "evidence_classification": "UNKNOWN",
-      "assembly_representation": "RAW_UNKNOWN"
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E8094",
+      "instruction_count": 1,
+      "evidence_refs": [
+        "P3_CFG_CLOSURE"
+      ]
     },
     {
       "offset_start": 57494,
@@ -923,8 +1173,13 @@
       "runtime_start": "0x002E80A0",
       "runtime_end_exclusive": "0x002E80A2",
       "byte_length": 2,
-      "evidence_classification": "UNKNOWN",
-      "assembly_representation": "RAW_UNKNOWN"
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E80A0",
+      "instruction_count": 1,
+      "evidence_refs": [
+        "P3_CFG_CLOSURE"
+      ]
     },
     {
       "offset_start": 57506,
@@ -943,8 +1198,13 @@
       "runtime_start": "0x002E80B0",
       "runtime_end_exclusive": "0x002E80B4",
       "byte_length": 4,
-      "evidence_classification": "UNKNOWN",
-      "assembly_representation": "RAW_UNKNOWN"
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E80B0",
+      "instruction_count": 2,
+      "evidence_refs": [
+        "P3_CFG_CLOSURE"
+      ]
     },
     {
       "offset_start": 57524,
@@ -963,8 +1223,13 @@
       "runtime_start": "0x002E80BA",
       "runtime_end_exclusive": "0x002E80BC",
       "byte_length": 2,
-      "evidence_classification": "UNKNOWN",
-      "assembly_representation": "RAW_UNKNOWN"
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E80BA",
+      "instruction_count": 1,
+      "evidence_refs": [
+        "P3_CFG_CLOSURE"
+      ]
     },
     {
       "offset_start": 57532,
@@ -983,8 +1248,13 @@
       "runtime_start": "0x002E80CC",
       "runtime_end_exclusive": "0x002E80CE",
       "byte_length": 2,
-      "evidence_classification": "UNKNOWN",
-      "assembly_representation": "RAW_UNKNOWN"
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E80CC",
+      "instruction_count": 1,
+      "evidence_refs": [
+        "P3_CFG_CLOSURE"
+      ]
     },
     {
       "offset_start": 57550,
@@ -1003,8 +1273,13 @@
       "runtime_start": "0x002E80D8",
       "runtime_end_exclusive": "0x002E80DA",
       "byte_length": 2,
-      "evidence_classification": "UNKNOWN",
-      "assembly_representation": "RAW_UNKNOWN"
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E80D8",
+      "instruction_count": 1,
+      "evidence_refs": [
+        "P3_CFG_CLOSURE"
+      ]
     },
     {
       "offset_start": 57562,
@@ -1023,8 +1298,13 @@
       "runtime_start": "0x002E80EA",
       "runtime_end_exclusive": "0x002E80EC",
       "byte_length": 2,
-      "evidence_classification": "UNKNOWN",
-      "assembly_representation": "RAW_UNKNOWN"
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E80EA",
+      "instruction_count": 1,
+      "evidence_refs": [
+        "P3_CFG_CLOSURE"
+      ]
     },
     {
       "offset_start": 57580,
@@ -1043,8 +1323,13 @@
       "runtime_start": "0x002E810E",
       "runtime_end_exclusive": "0x002E8110",
       "byte_length": 2,
-      "evidence_classification": "UNKNOWN",
-      "assembly_representation": "RAW_UNKNOWN"
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E810E",
+      "instruction_count": 1,
+      "evidence_refs": [
+        "P3_CFG_CLOSURE"
+      ]
     },
     {
       "offset_start": 57616,
@@ -1063,8 +1348,13 @@
       "runtime_start": "0x002E811E",
       "runtime_end_exclusive": "0x002E8120",
       "byte_length": 2,
-      "evidence_classification": "UNKNOWN",
-      "assembly_representation": "RAW_UNKNOWN"
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E811E",
+      "instruction_count": 1,
+      "evidence_refs": [
+        "P3_CFG_CLOSURE"
+      ]
     },
     {
       "offset_start": 57632,
@@ -1083,8 +1373,13 @@
       "runtime_start": "0x002E8154",
       "runtime_end_exclusive": "0x002E8156",
       "byte_length": 2,
-      "evidence_classification": "UNKNOWN",
-      "assembly_representation": "RAW_UNKNOWN"
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E8154",
+      "instruction_count": 1,
+      "evidence_refs": [
+        "P3_CFG_CLOSURE"
+      ]
     },
     {
       "offset_start": 57686,
@@ -1103,8 +1398,13 @@
       "runtime_start": "0x002E8162",
       "runtime_end_exclusive": "0x002E8164",
       "byte_length": 2,
-      "evidence_classification": "UNKNOWN",
-      "assembly_representation": "RAW_UNKNOWN"
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E8162",
+      "instruction_count": 1,
+      "evidence_refs": [
+        "P3_CFG_CLOSURE"
+      ]
     },
     {
       "offset_start": 57700,
@@ -1119,12 +1419,26 @@
     },
     {
       "offset_start": 57708,
-      "offset_end_exclusive": 57794,
+      "offset_end_exclusive": 57792,
       "runtime_start": "0x002E816C",
-      "runtime_end_exclusive": "0x002E81C2",
-      "byte_length": 86,
+      "runtime_end_exclusive": "0x002E81C0",
+      "byte_length": 84,
       "evidence_classification": "UNKNOWN",
       "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 57792,
+      "offset_end_exclusive": 57794,
+      "runtime_start": "0x002E81C0",
+      "runtime_end_exclusive": "0x002E81C2",
+      "byte_length": 2,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E81C0",
+      "instruction_count": 1,
+      "evidence_refs": [
+        "P3_CFG_CLOSURE"
+      ]
     },
     {
       "offset_start": 57794,
@@ -1143,8 +1457,13 @@
       "runtime_start": "0x002E81CE",
       "runtime_end_exclusive": "0x002E81D0",
       "byte_length": 2,
-      "evidence_classification": "UNKNOWN",
-      "assembly_representation": "RAW_UNKNOWN"
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E81CE",
+      "instruction_count": 1,
+      "evidence_refs": [
+        "P3_CFG_CLOSURE"
+      ]
     },
     {
       "offset_start": 57808,
@@ -1163,8 +1482,13 @@
       "runtime_start": "0x002E81D4",
       "runtime_end_exclusive": "0x002E81D6",
       "byte_length": 2,
-      "evidence_classification": "UNKNOWN",
-      "assembly_representation": "RAW_UNKNOWN"
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E81D4",
+      "instruction_count": 1,
+      "evidence_refs": [
+        "P3_CFG_CLOSURE"
+      ]
     },
     {
       "offset_start": 57814,
@@ -1183,8 +1507,13 @@
       "runtime_start": "0x002E81DA",
       "runtime_end_exclusive": "0x002E81DC",
       "byte_length": 2,
-      "evidence_classification": "UNKNOWN",
-      "assembly_representation": "RAW_UNKNOWN"
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E81DA",
+      "instruction_count": 1,
+      "evidence_refs": [
+        "P3_CFG_CLOSURE"
+      ]
     },
     {
       "offset_start": 57820,
@@ -1203,8 +1532,13 @@
       "runtime_start": "0x002E81E2",
       "runtime_end_exclusive": "0x002E81E4",
       "byte_length": 2,
-      "evidence_classification": "UNKNOWN",
-      "assembly_representation": "RAW_UNKNOWN"
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E81E2",
+      "instruction_count": 1,
+      "evidence_refs": [
+        "P3_CFG_CLOSURE"
+      ]
     },
     {
       "offset_start": 57828,
@@ -1223,8 +1557,13 @@
       "runtime_start": "0x002E81E8",
       "runtime_end_exclusive": "0x002E81EA",
       "byte_length": 2,
-      "evidence_classification": "UNKNOWN",
-      "assembly_representation": "RAW_UNKNOWN"
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E81E8",
+      "instruction_count": 1,
+      "evidence_refs": [
+        "P3_CFG_CLOSURE"
+      ]
     },
     {
       "offset_start": 57834,
@@ -1243,8 +1582,13 @@
       "runtime_start": "0x002E81F0",
       "runtime_end_exclusive": "0x002E81F2",
       "byte_length": 2,
-      "evidence_classification": "UNKNOWN",
-      "assembly_representation": "RAW_UNKNOWN"
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E81F0",
+      "instruction_count": 1,
+      "evidence_refs": [
+        "P3_CFG_CLOSURE"
+      ]
     },
     {
       "offset_start": 57842,
@@ -1263,8 +1607,13 @@
       "runtime_start": "0x002E81F6",
       "runtime_end_exclusive": "0x002E81F8",
       "byte_length": 2,
-      "evidence_classification": "UNKNOWN",
-      "assembly_representation": "RAW_UNKNOWN"
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E81F6",
+      "instruction_count": 1,
+      "evidence_refs": [
+        "P3_CFG_CLOSURE"
+      ]
     },
     {
       "offset_start": 57848,
@@ -1283,8 +1632,13 @@
       "runtime_start": "0x002E81FE",
       "runtime_end_exclusive": "0x002E8200",
       "byte_length": 2,
-      "evidence_classification": "UNKNOWN",
-      "assembly_representation": "RAW_UNKNOWN"
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E81FE",
+      "instruction_count": 1,
+      "evidence_refs": [
+        "P3_CFG_CLOSURE"
+      ]
     },
     {
       "offset_start": 57856,
@@ -1303,8 +1657,13 @@
       "runtime_start": "0x002E8204",
       "runtime_end_exclusive": "0x002E8206",
       "byte_length": 2,
-      "evidence_classification": "UNKNOWN",
-      "assembly_representation": "RAW_UNKNOWN"
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E8204",
+      "instruction_count": 1,
+      "evidence_refs": [
+        "P3_CFG_CLOSURE"
+      ]
     },
     {
       "offset_start": 57862,
@@ -1323,8 +1682,13 @@
       "runtime_start": "0x002E820C",
       "runtime_end_exclusive": "0x002E820E",
       "byte_length": 2,
-      "evidence_classification": "UNKNOWN",
-      "assembly_representation": "RAW_UNKNOWN"
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E820C",
+      "instruction_count": 1,
+      "evidence_refs": [
+        "P3_CFG_CLOSURE"
+      ]
     },
     {
       "offset_start": 57870,
@@ -1343,8 +1707,13 @@
       "runtime_start": "0x002E821E",
       "runtime_end_exclusive": "0x002E8220",
       "byte_length": 2,
-      "evidence_classification": "UNKNOWN",
-      "assembly_representation": "RAW_UNKNOWN"
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E821E",
+      "instruction_count": 1,
+      "evidence_refs": [
+        "P3_CFG_CLOSURE"
+      ]
     },
     {
       "offset_start": 57888,
@@ -1363,8 +1732,13 @@
       "runtime_start": "0x002E8226",
       "runtime_end_exclusive": "0x002E8228",
       "byte_length": 2,
-      "evidence_classification": "UNKNOWN",
-      "assembly_representation": "RAW_UNKNOWN"
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E8226",
+      "instruction_count": 1,
+      "evidence_refs": [
+        "P3_CFG_CLOSURE"
+      ]
     },
     {
       "offset_start": 57896,
@@ -1379,12 +1753,26 @@
     },
     {
       "offset_start": 57910,
-      "offset_end_exclusive": 57942,
+      "offset_end_exclusive": 57936,
       "runtime_start": "0x002E8236",
-      "runtime_end_exclusive": "0x002E8256",
-      "byte_length": 32,
+      "runtime_end_exclusive": "0x002E8250",
+      "byte_length": 26,
       "evidence_classification": "UNKNOWN",
       "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 57936,
+      "offset_end_exclusive": 57942,
+      "runtime_start": "0x002E8250",
+      "runtime_end_exclusive": "0x002E8256",
+      "byte_length": 6,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E8250",
+      "instruction_count": 3,
+      "evidence_refs": [
+        "P3_CFG_CLOSURE"
+      ]
     },
     {
       "offset_start": 57942,
@@ -1403,8 +1791,13 @@
       "runtime_start": "0x002E8260",
       "runtime_end_exclusive": "0x002E8262",
       "byte_length": 2,
-      "evidence_classification": "UNKNOWN",
-      "assembly_representation": "RAW_UNKNOWN"
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E8260",
+      "instruction_count": 1,
+      "evidence_refs": [
+        "P3_CFG_CLOSURE"
+      ]
     },
     {
       "offset_start": 57954,
@@ -1423,8 +1816,13 @@
       "runtime_start": "0x002E8280",
       "runtime_end_exclusive": "0x002E8284",
       "byte_length": 4,
-      "evidence_classification": "UNKNOWN",
-      "assembly_representation": "RAW_UNKNOWN"
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E8280",
+      "instruction_count": 2,
+      "evidence_refs": [
+        "P3_CFG_CLOSURE"
+      ]
     },
     {
       "offset_start": 57988,
@@ -1443,8 +1841,13 @@
       "runtime_start": "0x002E8296",
       "runtime_end_exclusive": "0x002E8298",
       "byte_length": 2,
-      "evidence_classification": "UNKNOWN",
-      "assembly_representation": "RAW_UNKNOWN"
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E8296",
+      "instruction_count": 1,
+      "evidence_refs": [
+        "P3_CFG_CLOSURE"
+      ]
     },
     {
       "offset_start": 58008,
@@ -1463,8 +1866,13 @@
       "runtime_start": "0x002E82A2",
       "runtime_end_exclusive": "0x002E82CE",
       "byte_length": 44,
-      "evidence_classification": "UNKNOWN",
-      "assembly_representation": "RAW_UNKNOWN"
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E82A2",
+      "instruction_count": 22,
+      "evidence_refs": [
+        "P3_CFG_CLOSURE"
+      ]
     },
     {
       "offset_start": 58062,
@@ -1483,8 +1891,13 @@
       "runtime_start": "0x002E82D8",
       "runtime_end_exclusive": "0x002E82DA",
       "byte_length": 2,
-      "evidence_classification": "UNKNOWN",
-      "assembly_representation": "RAW_UNKNOWN"
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E82D8",
+      "instruction_count": 1,
+      "evidence_refs": [
+        "P3_CFG_CLOSURE"
+      ]
     },
     {
       "offset_start": 58074,
@@ -1503,8 +1916,13 @@
       "runtime_start": "0x002E82DE",
       "runtime_end_exclusive": "0x002E82E0",
       "byte_length": 2,
-      "evidence_classification": "UNKNOWN",
-      "assembly_representation": "RAW_UNKNOWN"
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E82DE",
+      "instruction_count": 1,
+      "evidence_refs": [
+        "P3_CFG_CLOSURE"
+      ]
     },
     {
       "offset_start": 58080,
@@ -1519,12 +1937,26 @@
     },
     {
       "offset_start": 58084,
-      "offset_end_exclusive": 58150,
+      "offset_end_exclusive": 58148,
       "runtime_start": "0x002E82E4",
-      "runtime_end_exclusive": "0x002E8326",
-      "byte_length": 66,
+      "runtime_end_exclusive": "0x002E8324",
+      "byte_length": 64,
       "evidence_classification": "UNKNOWN",
       "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 58148,
+      "offset_end_exclusive": 58150,
+      "runtime_start": "0x002E8324",
+      "runtime_end_exclusive": "0x002E8326",
+      "byte_length": 2,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E8324",
+      "instruction_count": 1,
+      "evidence_refs": [
+        "P3_CFG_CLOSURE"
+      ]
     },
     {
       "offset_start": 58150,
@@ -1543,8 +1975,13 @@
       "runtime_start": "0x002E8330",
       "runtime_end_exclusive": "0x002E8332",
       "byte_length": 2,
-      "evidence_classification": "UNKNOWN",
-      "assembly_representation": "RAW_UNKNOWN"
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E8330",
+      "instruction_count": 1,
+      "evidence_refs": [
+        "P3_CFG_CLOSURE"
+      ]
     },
     {
       "offset_start": 58162,
@@ -1563,8 +2000,13 @@
       "runtime_start": "0x002E8336",
       "runtime_end_exclusive": "0x002E8338",
       "byte_length": 2,
-      "evidence_classification": "UNKNOWN",
-      "assembly_representation": "RAW_UNKNOWN"
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E8336",
+      "instruction_count": 1,
+      "evidence_refs": [
+        "P3_CFG_CLOSURE"
+      ]
     },
     {
       "offset_start": 58168,
@@ -1583,8 +2025,13 @@
       "runtime_start": "0x002E833A",
       "runtime_end_exclusive": "0x002E833C",
       "byte_length": 2,
-      "evidence_classification": "UNKNOWN",
-      "assembly_representation": "RAW_UNKNOWN"
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E833A",
+      "instruction_count": 1,
+      "evidence_refs": [
+        "P3_CFG_CLOSURE"
+      ]
     },
     {
       "offset_start": 58172,
@@ -1603,8 +2050,13 @@
       "runtime_start": "0x002E8346",
       "runtime_end_exclusive": "0x002E8348",
       "byte_length": 2,
-      "evidence_classification": "UNKNOWN",
-      "assembly_representation": "RAW_UNKNOWN"
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E8346",
+      "instruction_count": 1,
+      "evidence_refs": [
+        "P3_CFG_CLOSURE"
+      ]
     },
     {
       "offset_start": 58184,
@@ -1623,8 +2075,13 @@
       "runtime_start": "0x002E836E",
       "runtime_end_exclusive": "0x002E8370",
       "byte_length": 2,
-      "evidence_classification": "UNKNOWN",
-      "assembly_representation": "RAW_UNKNOWN"
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E836E",
+      "instruction_count": 1,
+      "evidence_refs": [
+        "P3_CFG_CLOSURE"
+      ]
     },
     {
       "offset_start": 58224,
@@ -1643,8 +2100,13 @@
       "runtime_start": "0x002E837E",
       "runtime_end_exclusive": "0x002E8380",
       "byte_length": 2,
-      "evidence_classification": "UNKNOWN",
-      "assembly_representation": "RAW_UNKNOWN"
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E837E",
+      "instruction_count": 1,
+      "evidence_refs": [
+        "P3_CFG_CLOSURE"
+      ]
     },
     {
       "offset_start": 58240,
@@ -1663,8 +2125,13 @@
       "runtime_start": "0x002E8394",
       "runtime_end_exclusive": "0x002E8396",
       "byte_length": 2,
-      "evidence_classification": "UNKNOWN",
-      "assembly_representation": "RAW_UNKNOWN"
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E8394",
+      "instruction_count": 1,
+      "evidence_refs": [
+        "P3_CFG_CLOSURE"
+      ]
     },
     {
       "offset_start": 58262,
@@ -1679,12 +2146,26 @@
     },
     {
       "offset_start": 58264,
-      "offset_end_exclusive": 58324,
+      "offset_end_exclusive": 58308,
       "runtime_start": "0x002E8398",
-      "runtime_end_exclusive": "0x002E83D4",
-      "byte_length": 60,
+      "runtime_end_exclusive": "0x002E83C4",
+      "byte_length": 44,
       "evidence_classification": "UNKNOWN",
       "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 58308,
+      "offset_end_exclusive": 58324,
+      "runtime_start": "0x002E83C4",
+      "runtime_end_exclusive": "0x002E83D4",
+      "byte_length": 16,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E83C4",
+      "instruction_count": 8,
+      "evidence_refs": [
+        "P3_CFG_CLOSURE"
+      ]
     },
     {
       "offset_start": 58324,
@@ -1703,8 +2184,13 @@
       "runtime_start": "0x002E83E2",
       "runtime_end_exclusive": "0x002E83E4",
       "byte_length": 2,
-      "evidence_classification": "UNKNOWN",
-      "assembly_representation": "RAW_UNKNOWN"
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E83E2",
+      "instruction_count": 1,
+      "evidence_refs": [
+        "P3_CFG_CLOSURE"
+      ]
     },
     {
       "offset_start": 58340,
@@ -1723,8 +2209,13 @@
       "runtime_start": "0x002E8412",
       "runtime_end_exclusive": "0x002E8416",
       "byte_length": 4,
-      "evidence_classification": "UNKNOWN",
-      "assembly_representation": "RAW_UNKNOWN"
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E8412",
+      "instruction_count": 2,
+      "evidence_refs": [
+        "P3_CFG_CLOSURE"
+      ]
     },
     {
       "offset_start": 58390,
@@ -1743,8 +2234,13 @@
       "runtime_start": "0x002E8418",
       "runtime_end_exclusive": "0x002E841A",
       "byte_length": 2,
-      "evidence_classification": "UNKNOWN",
-      "assembly_representation": "RAW_UNKNOWN"
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E8418",
+      "instruction_count": 1,
+      "evidence_refs": [
+        "P3_CFG_CLOSURE"
+      ]
     },
     {
       "offset_start": 58394,
@@ -1763,8 +2259,13 @@
       "runtime_start": "0x002E8430",
       "runtime_end_exclusive": "0x002E8462",
       "byte_length": 50,
-      "evidence_classification": "UNKNOWN",
-      "assembly_representation": "RAW_UNKNOWN"
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E8430",
+      "instruction_count": 25,
+      "evidence_refs": [
+        "P3_CFG_CLOSURE"
+      ]
     },
     {
       "offset_start": 58466,
@@ -1783,8 +2284,13 @@
       "runtime_start": "0x002E846C",
       "runtime_end_exclusive": "0x002E846E",
       "byte_length": 2,
-      "evidence_classification": "UNKNOWN",
-      "assembly_representation": "RAW_UNKNOWN"
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E846C",
+      "instruction_count": 1,
+      "evidence_refs": [
+        "P3_CFG_CLOSURE"
+      ]
     },
     {
       "offset_start": 58478,
@@ -1803,8 +2309,13 @@
       "runtime_start": "0x002E8472",
       "runtime_end_exclusive": "0x002E8474",
       "byte_length": 2,
-      "evidence_classification": "UNKNOWN",
-      "assembly_representation": "RAW_UNKNOWN"
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E8472",
+      "instruction_count": 1,
+      "evidence_refs": [
+        "P3_CFG_CLOSURE"
+      ]
     },
     {
       "offset_start": 58484,
@@ -1823,8 +2334,13 @@
       "runtime_start": "0x002E8478",
       "runtime_end_exclusive": "0x002E847A",
       "byte_length": 2,
-      "evidence_classification": "UNKNOWN",
-      "assembly_representation": "RAW_UNKNOWN"
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E8478",
+      "instruction_count": 1,
+      "evidence_refs": [
+        "P3_CFG_CLOSURE"
+      ]
     },
     {
       "offset_start": 58490,
@@ -1843,8 +2359,13 @@
       "runtime_start": "0x002E8482",
       "runtime_end_exclusive": "0x002E8484",
       "byte_length": 2,
-      "evidence_classification": "UNKNOWN",
-      "assembly_representation": "RAW_UNKNOWN"
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E8482",
+      "instruction_count": 1,
+      "evidence_refs": [
+        "P3_CFG_CLOSURE"
+      ]
     },
     {
       "offset_start": 58500,
@@ -1863,8 +2384,13 @@
       "runtime_start": "0x002E8488",
       "runtime_end_exclusive": "0x002E848A",
       "byte_length": 2,
-      "evidence_classification": "UNKNOWN",
-      "assembly_representation": "RAW_UNKNOWN"
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E8488",
+      "instruction_count": 1,
+      "evidence_refs": [
+        "P3_CFG_CLOSURE"
+      ]
     },
     {
       "offset_start": 58506,
@@ -1879,12 +2405,26 @@
     },
     {
       "offset_start": 58508,
-      "offset_end_exclusive": 58582,
+      "offset_end_exclusive": 58580,
       "runtime_start": "0x002E848C",
-      "runtime_end_exclusive": "0x002E84D6",
-      "byte_length": 74,
+      "runtime_end_exclusive": "0x002E84D4",
+      "byte_length": 72,
       "evidence_classification": "UNKNOWN",
       "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 58580,
+      "offset_end_exclusive": 58582,
+      "runtime_start": "0x002E84D4",
+      "runtime_end_exclusive": "0x002E84D6",
+      "byte_length": 2,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E84D4",
+      "instruction_count": 1,
+      "evidence_refs": [
+        "P3_CFG_CLOSURE"
+      ]
     },
     {
       "offset_start": 58582,
@@ -1903,8 +2443,13 @@
       "runtime_start": "0x002E84E0",
       "runtime_end_exclusive": "0x002E84E4",
       "byte_length": 4,
-      "evidence_classification": "UNKNOWN",
-      "assembly_representation": "RAW_UNKNOWN"
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E84E0",
+      "instruction_count": 2,
+      "evidence_refs": [
+        "P3_CFG_CLOSURE"
+      ]
     },
     {
       "offset_start": 58596,
@@ -1923,8 +2468,13 @@
       "runtime_start": "0x002E84F0",
       "runtime_end_exclusive": "0x002E84F2",
       "byte_length": 2,
-      "evidence_classification": "UNKNOWN",
-      "assembly_representation": "RAW_UNKNOWN"
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E84F0",
+      "instruction_count": 1,
+      "evidence_refs": [
+        "P3_CFG_CLOSURE"
+      ]
     },
     {
       "offset_start": 58610,
@@ -1939,12 +2489,26 @@
     },
     {
       "offset_start": 58630,
-      "offset_end_exclusive": 58776,
+      "offset_end_exclusive": 58774,
       "runtime_start": "0x002E8506",
-      "runtime_end_exclusive": "0x002E8598",
-      "byte_length": 146,
+      "runtime_end_exclusive": "0x002E8596",
+      "byte_length": 144,
       "evidence_classification": "UNKNOWN",
       "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 58774,
+      "offset_end_exclusive": 58776,
+      "runtime_start": "0x002E8596",
+      "runtime_end_exclusive": "0x002E8598",
+      "byte_length": 2,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E8596",
+      "instruction_count": 1,
+      "evidence_refs": [
+        "P3_CFG_CLOSURE"
+      ]
     },
     {
       "offset_start": 58776,
@@ -1959,12 +2523,26 @@
     },
     {
       "offset_start": 58812,
-      "offset_end_exclusive": 58834,
+      "offset_end_exclusive": 58832,
       "runtime_start": "0x002E85BC",
-      "runtime_end_exclusive": "0x002E85D2",
-      "byte_length": 22,
+      "runtime_end_exclusive": "0x002E85D0",
+      "byte_length": 20,
       "evidence_classification": "UNKNOWN",
       "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 58832,
+      "offset_end_exclusive": 58834,
+      "runtime_start": "0x002E85D0",
+      "runtime_end_exclusive": "0x002E85D2",
+      "byte_length": 2,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E85D0",
+      "instruction_count": 1,
+      "evidence_refs": [
+        "P3_CFG_CLOSURE"
+      ]
     },
     {
       "offset_start": 58834,
@@ -1983,8 +2561,13 @@
       "runtime_start": "0x002E85E6",
       "runtime_end_exclusive": "0x002E85E8",
       "byte_length": 2,
-      "evidence_classification": "UNKNOWN",
-      "assembly_representation": "RAW_UNKNOWN"
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E85E6",
+      "instruction_count": 1,
+      "evidence_refs": [
+        "P3_CFG_CLOSURE"
+      ]
     },
     {
       "offset_start": 58856,
@@ -1999,12 +2582,26 @@
     },
     {
       "offset_start": 58972,
-      "offset_end_exclusive": 59086,
+      "offset_end_exclusive": 59004,
       "runtime_start": "0x002E865C",
-      "runtime_end_exclusive": "0x002E86CE",
-      "byte_length": 114,
+      "runtime_end_exclusive": "0x002E867C",
+      "byte_length": 32,
       "evidence_classification": "UNKNOWN",
       "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 59004,
+      "offset_end_exclusive": 59086,
+      "runtime_start": "0x002E867C",
+      "runtime_end_exclusive": "0x002E86CE",
+      "byte_length": 82,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E867C",
+      "instruction_count": 41,
+      "evidence_refs": [
+        "P3_CFG_CLOSURE"
+      ]
     },
     {
       "offset_start": 59086,
@@ -2023,8 +2620,13 @@
       "runtime_start": "0x002E872E",
       "runtime_end_exclusive": "0x002E8780",
       "byte_length": 82,
-      "evidence_classification": "UNKNOWN",
-      "assembly_representation": "RAW_UNKNOWN"
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E872E",
+      "instruction_count": 41,
+      "evidence_refs": [
+        "P3_CFG_CLOSURE"
+      ]
     },
     {
       "offset_start": 59264,
@@ -2043,8 +2645,13 @@
       "runtime_start": "0x002E87E0",
       "runtime_end_exclusive": "0x002E8832",
       "byte_length": 82,
-      "evidence_classification": "UNKNOWN",
-      "assembly_representation": "RAW_UNKNOWN"
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E87E0",
+      "instruction_count": 41,
+      "evidence_refs": [
+        "P3_CFG_CLOSURE"
+      ]
     },
     {
       "offset_start": 59442,
@@ -2063,8 +2670,13 @@
       "runtime_start": "0x002E8892",
       "runtime_end_exclusive": "0x002E88E4",
       "byte_length": 82,
-      "evidence_classification": "UNKNOWN",
-      "assembly_representation": "RAW_UNKNOWN"
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E8892",
+      "instruction_count": 41,
+      "evidence_refs": [
+        "P3_CFG_CLOSURE"
+      ]
     },
     {
       "offset_start": 59620,
@@ -2083,8 +2695,13 @@
       "runtime_start": "0x002E88EE",
       "runtime_end_exclusive": "0x002E88F0",
       "byte_length": 2,
-      "evidence_classification": "UNKNOWN",
-      "assembly_representation": "RAW_UNKNOWN"
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E88EE",
+      "instruction_count": 1,
+      "evidence_refs": [
+        "P3_CFG_CLOSURE"
+      ]
     },
     {
       "offset_start": 59632,
@@ -2123,8 +2740,13 @@
       "runtime_start": "0x002E8926",
       "runtime_end_exclusive": "0x002E8928",
       "byte_length": 2,
-      "evidence_classification": "UNKNOWN",
-      "assembly_representation": "RAW_UNKNOWN"
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E8926",
+      "instruction_count": 1,
+      "evidence_refs": [
+        "P3_CFG_CLOSURE"
+      ]
     },
     {
       "offset_start": 59688,
@@ -2143,8 +2765,13 @@
       "runtime_start": "0x002E892A",
       "runtime_end_exclusive": "0x002E892C",
       "byte_length": 2,
-      "evidence_classification": "UNKNOWN",
-      "assembly_representation": "RAW_UNKNOWN"
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E892A",
+      "instruction_count": 1,
+      "evidence_refs": [
+        "P3_CFG_CLOSURE"
+      ]
     },
     {
       "offset_start": 59692,
@@ -2159,12 +2786,40 @@
     },
     {
       "offset_start": 59760,
-      "offset_end_exclusive": 59954,
+      "offset_end_exclusive": 59860,
       "runtime_start": "0x002E8970",
-      "runtime_end_exclusive": "0x002E8A32",
-      "byte_length": 194,
+      "runtime_end_exclusive": "0x002E89D4",
+      "byte_length": 100,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E8970",
+      "instruction_count": 50,
+      "evidence_refs": [
+        "P3_CFG_CLOSURE"
+      ]
+    },
+    {
+      "offset_start": 59860,
+      "offset_end_exclusive": 59900,
+      "runtime_start": "0x002E89D4",
+      "runtime_end_exclusive": "0x002E89FC",
+      "byte_length": 40,
       "evidence_classification": "UNKNOWN",
       "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 59900,
+      "offset_end_exclusive": 59954,
+      "runtime_start": "0x002E89FC",
+      "runtime_end_exclusive": "0x002E8A32",
+      "byte_length": 54,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E89FC",
+      "instruction_count": 27,
+      "evidence_refs": [
+        "P3_CFG_CLOSURE"
+      ]
     },
     {
       "offset_start": 59954,
@@ -2183,8 +2838,13 @@
       "runtime_start": "0x002E8A5A",
       "runtime_end_exclusive": "0x002E8AA2",
       "byte_length": 72,
-      "evidence_classification": "UNKNOWN",
-      "assembly_representation": "RAW_UNKNOWN"
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E8A5A",
+      "instruction_count": 36,
+      "evidence_refs": [
+        "P3_CFG_CLOSURE"
+      ]
     },
     {
       "offset_start": 60066,
@@ -2203,8 +2863,13 @@
       "runtime_start": "0x002E8AAA",
       "runtime_end_exclusive": "0x002E8AB6",
       "byte_length": 12,
-      "evidence_classification": "UNKNOWN",
-      "assembly_representation": "RAW_UNKNOWN"
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E8AAA",
+      "instruction_count": 6,
+      "evidence_refs": [
+        "P3_CFG_CLOSURE"
+      ]
     },
     {
       "offset_start": 60086,
@@ -2219,12 +2884,26 @@
     },
     {
       "offset_start": 60090,
-      "offset_end_exclusive": 60150,
+      "offset_end_exclusive": 60148,
       "runtime_start": "0x002E8ABA",
-      "runtime_end_exclusive": "0x002E8AF6",
-      "byte_length": 60,
+      "runtime_end_exclusive": "0x002E8AF4",
+      "byte_length": 58,
       "evidence_classification": "UNKNOWN",
       "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 60148,
+      "offset_end_exclusive": 60150,
+      "runtime_start": "0x002E8AF4",
+      "runtime_end_exclusive": "0x002E8AF6",
+      "byte_length": 2,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E8AF4",
+      "instruction_count": 1,
+      "evidence_refs": [
+        "P3_CFG_CLOSURE"
+      ]
     },
     {
       "offset_start": 60150,
@@ -2243,8 +2922,13 @@
       "runtime_start": "0x002E8B0A",
       "runtime_end_exclusive": "0x002E8B0C",
       "byte_length": 2,
-      "evidence_classification": "UNKNOWN",
-      "assembly_representation": "RAW_UNKNOWN"
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E8B0A",
+      "instruction_count": 1,
+      "evidence_refs": [
+        "P3_CFG_CLOSURE"
+      ]
     },
     {
       "offset_start": 60172,
@@ -2263,8 +2947,13 @@
       "runtime_start": "0x002E8B20",
       "runtime_end_exclusive": "0x002E8B2A",
       "byte_length": 10,
-      "evidence_classification": "UNKNOWN",
-      "assembly_representation": "RAW_UNKNOWN"
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E8B20",
+      "instruction_count": 5,
+      "evidence_refs": [
+        "P3_CFG_CLOSURE"
+      ]
     },
     {
       "offset_start": 60202,
@@ -2283,8 +2972,13 @@
       "runtime_start": "0x002E8B2C",
       "runtime_end_exclusive": "0x002E8B2E",
       "byte_length": 2,
-      "evidence_classification": "UNKNOWN",
-      "assembly_representation": "RAW_UNKNOWN"
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E8B2C",
+      "instruction_count": 1,
+      "evidence_refs": [
+        "P3_CFG_CLOSURE"
+      ]
     },
     {
       "offset_start": 60206,
@@ -2303,8 +2997,13 @@
       "runtime_start": "0x002E8B30",
       "runtime_end_exclusive": "0x002E8B6A",
       "byte_length": 58,
-      "evidence_classification": "UNKNOWN",
-      "assembly_representation": "RAW_UNKNOWN"
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E8B30",
+      "instruction_count": 29,
+      "evidence_refs": [
+        "P3_CFG_CLOSURE"
+      ]
     },
     {
       "offset_start": 60266,
@@ -2323,8 +3022,13 @@
       "runtime_start": "0x002E8B6C",
       "runtime_end_exclusive": "0x002E8B6E",
       "byte_length": 2,
-      "evidence_classification": "UNKNOWN",
-      "assembly_representation": "RAW_UNKNOWN"
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E8B6C",
+      "instruction_count": 1,
+      "evidence_refs": [
+        "P3_CFG_CLOSURE"
+      ]
     },
     {
       "offset_start": 60270,
@@ -2339,12 +3043,40 @@
     },
     {
       "offset_start": 60286,
-      "offset_end_exclusive": 60350,
+      "offset_end_exclusive": 60318,
       "runtime_start": "0x002E8B7E",
-      "runtime_end_exclusive": "0x002E8BBE",
-      "byte_length": 64,
+      "runtime_end_exclusive": "0x002E8B9E",
+      "byte_length": 32,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E8B7E",
+      "instruction_count": 16,
+      "evidence_refs": [
+        "P3_CFG_CLOSURE"
+      ]
+    },
+    {
+      "offset_start": 60318,
+      "offset_end_exclusive": 60348,
+      "runtime_start": "0x002E8B9E",
+      "runtime_end_exclusive": "0x002E8BBC",
+      "byte_length": 30,
       "evidence_classification": "UNKNOWN",
       "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 60348,
+      "offset_end_exclusive": 60350,
+      "runtime_start": "0x002E8BBC",
+      "runtime_end_exclusive": "0x002E8BBE",
+      "byte_length": 2,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E8BBC",
+      "instruction_count": 1,
+      "evidence_refs": [
+        "P3_CFG_CLOSURE"
+      ]
     },
     {
       "offset_start": 60350,
@@ -2363,8 +3095,13 @@
       "runtime_start": "0x002E8BC6",
       "runtime_end_exclusive": "0x002E8BE6",
       "byte_length": 32,
-      "evidence_classification": "UNKNOWN",
-      "assembly_representation": "RAW_UNKNOWN"
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E8BC6",
+      "instruction_count": 16,
+      "evidence_refs": [
+        "P3_CFG_CLOSURE"
+      ]
     },
     {
       "offset_start": 60390,
@@ -2379,12 +3116,132 @@
     },
     {
       "offset_start": 60418,
-      "offset_end_exclusive": 62040,
+      "offset_end_exclusive": 60594,
       "runtime_start": "0x002E8C02",
-      "runtime_end_exclusive": "0x002E9258",
-      "byte_length": 1622,
+      "runtime_end_exclusive": "0x002E8CB2",
+      "byte_length": 176,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E8C02",
+      "instruction_count": 88,
+      "evidence_refs": [
+        "P3_CFG_CLOSURE"
+      ]
+    },
+    {
+      "offset_start": 60594,
+      "offset_end_exclusive": 60652,
+      "runtime_start": "0x002E8CB2",
+      "runtime_end_exclusive": "0x002E8CEC",
+      "byte_length": 58,
       "evidence_classification": "UNKNOWN",
       "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 60652,
+      "offset_end_exclusive": 60952,
+      "runtime_start": "0x002E8CEC",
+      "runtime_end_exclusive": "0x002E8E18",
+      "byte_length": 300,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E8CEC",
+      "instruction_count": 150,
+      "evidence_refs": [
+        "P3_CFG_CLOSURE"
+      ]
+    },
+    {
+      "offset_start": 60952,
+      "offset_end_exclusive": 61040,
+      "runtime_start": "0x002E8E18",
+      "runtime_end_exclusive": "0x002E8E70",
+      "byte_length": 88,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 61040,
+      "offset_end_exclusive": 61244,
+      "runtime_start": "0x002E8E70",
+      "runtime_end_exclusive": "0x002E8F3C",
+      "byte_length": 204,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E8E70",
+      "instruction_count": 102,
+      "evidence_refs": [
+        "P3_CFG_CLOSURE"
+      ]
+    },
+    {
+      "offset_start": 61244,
+      "offset_end_exclusive": 61304,
+      "runtime_start": "0x002E8F3C",
+      "runtime_end_exclusive": "0x002E8F78",
+      "byte_length": 60,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 61304,
+      "offset_end_exclusive": 61512,
+      "runtime_start": "0x002E8F78",
+      "runtime_end_exclusive": "0x002E9048",
+      "byte_length": 208,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E8F78",
+      "instruction_count": 104,
+      "evidence_refs": [
+        "P3_CFG_CLOSURE"
+      ]
+    },
+    {
+      "offset_start": 61512,
+      "offset_end_exclusive": 61560,
+      "runtime_start": "0x002E9048",
+      "runtime_end_exclusive": "0x002E9078",
+      "byte_length": 48,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 61560,
+      "offset_end_exclusive": 61910,
+      "runtime_start": "0x002E9078",
+      "runtime_end_exclusive": "0x002E91D6",
+      "byte_length": 350,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E9078",
+      "instruction_count": 175,
+      "evidence_refs": [
+        "P3_CFG_CLOSURE"
+      ]
+    },
+    {
+      "offset_start": 61910,
+      "offset_end_exclusive": 61972,
+      "runtime_start": "0x002E91D6",
+      "runtime_end_exclusive": "0x002E9214",
+      "byte_length": 62,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 61972,
+      "offset_end_exclusive": 62040,
+      "runtime_start": "0x002E9214",
+      "runtime_end_exclusive": "0x002E9258",
+      "byte_length": 68,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E9214",
+      "instruction_count": 34,
+      "evidence_refs": [
+        "P3_CFG_CLOSURE"
+      ]
     },
     {
       "offset_start": 62040,
@@ -2403,8 +3260,13 @@
       "runtime_start": "0x002E9264",
       "runtime_end_exclusive": "0x002E9266",
       "byte_length": 2,
-      "evidence_classification": "UNKNOWN",
-      "assembly_representation": "RAW_UNKNOWN"
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E9264",
+      "instruction_count": 1,
+      "evidence_refs": [
+        "P3_CFG_CLOSURE"
+      ]
     },
     {
       "offset_start": 62054,
@@ -2423,8 +3285,13 @@
       "runtime_start": "0x002E926A",
       "runtime_end_exclusive": "0x002E926C",
       "byte_length": 2,
-      "evidence_classification": "UNKNOWN",
-      "assembly_representation": "RAW_UNKNOWN"
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E926A",
+      "instruction_count": 1,
+      "evidence_refs": [
+        "P3_CFG_CLOSURE"
+      ]
     },
     {
       "offset_start": 62060,
@@ -2443,8 +3310,13 @@
       "runtime_start": "0x002E9270",
       "runtime_end_exclusive": "0x002E9272",
       "byte_length": 2,
-      "evidence_classification": "UNKNOWN",
-      "assembly_representation": "RAW_UNKNOWN"
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E9270",
+      "instruction_count": 1,
+      "evidence_refs": [
+        "P3_CFG_CLOSURE"
+      ]
     },
     {
       "offset_start": 62066,
@@ -2459,10 +3331,148 @@
     },
     {
       "offset_start": 62108,
-      "offset_end_exclusive": 63760,
+      "offset_end_exclusive": 62148,
       "runtime_start": "0x002E929C",
+      "runtime_end_exclusive": "0x002E92C4",
+      "byte_length": 40,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 62148,
+      "offset_end_exclusive": 62428,
+      "runtime_start": "0x002E92C4",
+      "runtime_end_exclusive": "0x002E93DC",
+      "byte_length": 280,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E92C4",
+      "instruction_count": 140,
+      "evidence_refs": [
+        "P3_CFG_CLOSURE"
+      ]
+    },
+    {
+      "offset_start": 62428,
+      "offset_end_exclusive": 62512,
+      "runtime_start": "0x002E93DC",
+      "runtime_end_exclusive": "0x002E9430",
+      "byte_length": 84,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 62512,
+      "offset_end_exclusive": 62690,
+      "runtime_start": "0x002E9430",
+      "runtime_end_exclusive": "0x002E94E2",
+      "byte_length": 178,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E9430",
+      "instruction_count": 89,
+      "evidence_refs": [
+        "P3_CFG_CLOSURE"
+      ]
+    },
+    {
+      "offset_start": 62690,
+      "offset_end_exclusive": 62704,
+      "runtime_start": "0x002E94E2",
+      "runtime_end_exclusive": "0x002E94F0",
+      "byte_length": 14,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 62704,
+      "offset_end_exclusive": 62954,
+      "runtime_start": "0x002E94F0",
+      "runtime_end_exclusive": "0x002E95EA",
+      "byte_length": 250,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E94F0",
+      "instruction_count": 125,
+      "evidence_refs": [
+        "P3_CFG_CLOSURE"
+      ]
+    },
+    {
+      "offset_start": 62954,
+      "offset_end_exclusive": 63016,
+      "runtime_start": "0x002E95EA",
+      "runtime_end_exclusive": "0x002E9628",
+      "byte_length": 62,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 63016,
+      "offset_end_exclusive": 63090,
+      "runtime_start": "0x002E9628",
+      "runtime_end_exclusive": "0x002E9672",
+      "byte_length": 74,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E9628",
+      "instruction_count": 37,
+      "evidence_refs": [
+        "P3_CFG_CLOSURE"
+      ]
+    },
+    {
+      "offset_start": 63090,
+      "offset_end_exclusive": 63116,
+      "runtime_start": "0x002E9672",
+      "runtime_end_exclusive": "0x002E968C",
+      "byte_length": 26,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 63116,
+      "offset_end_exclusive": 63400,
+      "runtime_start": "0x002E968C",
+      "runtime_end_exclusive": "0x002E97A8",
+      "byte_length": 284,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E968C",
+      "instruction_count": 142,
+      "evidence_refs": [
+        "P3_CFG_CLOSURE"
+      ]
+    },
+    {
+      "offset_start": 63400,
+      "offset_end_exclusive": 63460,
+      "runtime_start": "0x002E97A8",
+      "runtime_end_exclusive": "0x002E97E4",
+      "byte_length": 60,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 63460,
+      "offset_end_exclusive": 63724,
+      "runtime_start": "0x002E97E4",
+      "runtime_end_exclusive": "0x002E98EC",
+      "byte_length": 264,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E97E4",
+      "instruction_count": 132,
+      "evidence_refs": [
+        "P3_CFG_CLOSURE"
+      ]
+    },
+    {
+      "offset_start": 63724,
+      "offset_end_exclusive": 63760,
+      "runtime_start": "0x002E98EC",
       "runtime_end_exclusive": "0x002E9910",
-      "byte_length": 1652,
+      "byte_length": 36,
       "evidence_classification": "UNKNOWN",
       "assembly_representation": "RAW_UNKNOWN"
     },
@@ -2483,8 +3493,13 @@
       "runtime_start": "0x002E9928",
       "runtime_end_exclusive": "0x002E992A",
       "byte_length": 2,
-      "evidence_classification": "UNKNOWN",
-      "assembly_representation": "RAW_UNKNOWN"
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E9928",
+      "instruction_count": 1,
+      "evidence_refs": [
+        "P3_CFG_CLOSURE"
+      ]
     },
     {
       "offset_start": 63786,
@@ -2499,12 +3514,63 @@
     },
     {
       "offset_start": 63794,
-      "offset_end_exclusive": 64578,
+      "offset_end_exclusive": 64010,
       "runtime_start": "0x002E9932",
-      "runtime_end_exclusive": "0x002E9C42",
-      "byte_length": 784,
+      "runtime_end_exclusive": "0x002E9A0A",
+      "byte_length": 216,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E9932",
+      "instruction_count": 108,
+      "evidence_refs": [
+        "P3_CFG_CLOSURE"
+      ]
+    },
+    {
+      "offset_start": 64010,
+      "offset_end_exclusive": 64084,
+      "runtime_start": "0x002E9A0A",
+      "runtime_end_exclusive": "0x002E9A54",
+      "byte_length": 74,
       "evidence_classification": "UNKNOWN",
       "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 64084,
+      "offset_end_exclusive": 64394,
+      "runtime_start": "0x002E9A54",
+      "runtime_end_exclusive": "0x002E9B8A",
+      "byte_length": 310,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E9A54",
+      "instruction_count": 155,
+      "evidence_refs": [
+        "P3_CFG_CLOSURE"
+      ]
+    },
+    {
+      "offset_start": 64394,
+      "offset_end_exclusive": 64488,
+      "runtime_start": "0x002E9B8A",
+      "runtime_end_exclusive": "0x002E9BE8",
+      "byte_length": 94,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 64488,
+      "offset_end_exclusive": 64578,
+      "runtime_start": "0x002E9BE8",
+      "runtime_end_exclusive": "0x002E9C42",
+      "byte_length": 90,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002E9BE8",
+      "instruction_count": 45,
+      "evidence_refs": [
+        "P3_CFG_CLOSURE"
+      ]
     },
     {
       "offset_start": 64578,
@@ -2563,8 +3629,13 @@
       "runtime_start": "0x002EA190",
       "runtime_end_exclusive": "0x002EA192",
       "byte_length": 2,
-      "evidence_classification": "UNKNOWN",
-      "assembly_representation": "RAW_UNKNOWN"
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002EA190",
+      "instruction_count": 1,
+      "evidence_refs": [
+        "P3_CFG_CLOSURE"
+      ]
     },
     {
       "offset_start": 65938,
@@ -2603,8 +3674,13 @@
       "runtime_start": "0x002EA1F4",
       "runtime_end_exclusive": "0x002EA1F6",
       "byte_length": 2,
-      "evidence_classification": "UNKNOWN",
-      "assembly_representation": "RAW_UNKNOWN"
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002EA1F4",
+      "instruction_count": 1,
+      "evidence_refs": [
+        "P3_CFG_CLOSURE"
+      ]
     },
     {
       "offset_start": 66038,
@@ -2623,8 +3699,13 @@
       "runtime_start": "0x002EA21E",
       "runtime_end_exclusive": "0x002EA224",
       "byte_length": 6,
-      "evidence_classification": "UNKNOWN",
-      "assembly_representation": "RAW_UNKNOWN"
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002EA21E",
+      "instruction_count": 3,
+      "evidence_refs": [
+        "P3_CFG_CLOSURE"
+      ]
     },
     {
       "offset_start": 66084,
@@ -2643,8 +3724,13 @@
       "runtime_start": "0x002EA232",
       "runtime_end_exclusive": "0x002EA234",
       "byte_length": 2,
-      "evidence_classification": "UNKNOWN",
-      "assembly_representation": "RAW_UNKNOWN"
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002EA232",
+      "instruction_count": 1,
+      "evidence_refs": [
+        "P3_CFG_CLOSURE"
+      ]
     },
     {
       "offset_start": 66100,
@@ -2663,8 +3749,13 @@
       "runtime_start": "0x002EA23A",
       "runtime_end_exclusive": "0x002EA23C",
       "byte_length": 2,
-      "evidence_classification": "UNKNOWN",
-      "assembly_representation": "RAW_UNKNOWN"
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002EA23A",
+      "instruction_count": 1,
+      "evidence_refs": [
+        "P3_CFG_CLOSURE"
+      ]
     },
     {
       "offset_start": 66108,
@@ -2683,8 +3774,13 @@
       "runtime_start": "0x002EA24E",
       "runtime_end_exclusive": "0x002EA250",
       "byte_length": 2,
-      "evidence_classification": "UNKNOWN",
-      "assembly_representation": "RAW_UNKNOWN"
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002EA24E",
+      "instruction_count": 1,
+      "evidence_refs": [
+        "P3_CFG_CLOSURE"
+      ]
     },
     {
       "offset_start": 66128,
@@ -2703,8 +3799,13 @@
       "runtime_start": "0x002EA256",
       "runtime_end_exclusive": "0x002EA258",
       "byte_length": 2,
-      "evidence_classification": "UNKNOWN",
-      "assembly_representation": "RAW_UNKNOWN"
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002EA256",
+      "instruction_count": 1,
+      "evidence_refs": [
+        "P3_CFG_CLOSURE"
+      ]
     },
     {
       "offset_start": 66136,
@@ -2723,8 +3824,13 @@
       "runtime_start": "0x002EA25A",
       "runtime_end_exclusive": "0x002EA25C",
       "byte_length": 2,
-      "evidence_classification": "UNKNOWN",
-      "assembly_representation": "RAW_UNKNOWN"
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002EA25A",
+      "instruction_count": 1,
+      "evidence_refs": [
+        "P3_CFG_CLOSURE"
+      ]
     },
     {
       "offset_start": 66140,
@@ -2743,8 +3849,13 @@
       "runtime_start": "0x002EA264",
       "runtime_end_exclusive": "0x002EA266",
       "byte_length": 2,
-      "evidence_classification": "UNKNOWN",
-      "assembly_representation": "RAW_UNKNOWN"
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002EA264",
+      "instruction_count": 1,
+      "evidence_refs": [
+        "P3_CFG_CLOSURE"
+      ]
     },
     {
       "offset_start": 66150,
@@ -2763,8 +3874,13 @@
       "runtime_start": "0x002EA268",
       "runtime_end_exclusive": "0x002EA26A",
       "byte_length": 2,
-      "evidence_classification": "UNKNOWN",
-      "assembly_representation": "RAW_UNKNOWN"
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002EA268",
+      "instruction_count": 1,
+      "evidence_refs": [
+        "P3_CFG_CLOSURE"
+      ]
     },
     {
       "offset_start": 66154,
@@ -2783,8 +3899,13 @@
       "runtime_start": "0x002EA26E",
       "runtime_end_exclusive": "0x002EA270",
       "byte_length": 2,
-      "evidence_classification": "UNKNOWN",
-      "assembly_representation": "RAW_UNKNOWN"
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002EA26E",
+      "instruction_count": 1,
+      "evidence_refs": [
+        "P3_CFG_CLOSURE"
+      ]
     },
     {
       "offset_start": 66160,
@@ -2803,8 +3924,13 @@
       "runtime_start": "0x002EA276",
       "runtime_end_exclusive": "0x002EA278",
       "byte_length": 2,
-      "evidence_classification": "UNKNOWN",
-      "assembly_representation": "RAW_UNKNOWN"
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002EA276",
+      "instruction_count": 1,
+      "evidence_refs": [
+        "P3_CFG_CLOSURE"
+      ]
     },
     {
       "offset_start": 66168,
@@ -2823,8 +3949,13 @@
       "runtime_start": "0x002EA29A",
       "runtime_end_exclusive": "0x002EA29C",
       "byte_length": 2,
-      "evidence_classification": "UNKNOWN",
-      "assembly_representation": "RAW_UNKNOWN"
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002EA29A",
+      "instruction_count": 1,
+      "evidence_refs": [
+        "P3_CFG_CLOSURE"
+      ]
     },
     {
       "offset_start": 66204,
@@ -2843,8 +3974,13 @@
       "runtime_start": "0x002EA2A2",
       "runtime_end_exclusive": "0x002EA2A4",
       "byte_length": 2,
-      "evidence_classification": "UNKNOWN",
-      "assembly_representation": "RAW_UNKNOWN"
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002EA2A2",
+      "instruction_count": 1,
+      "evidence_refs": [
+        "P3_CFG_CLOSURE"
+      ]
     },
     {
       "offset_start": 66212,
@@ -2863,8 +3999,13 @@
       "runtime_start": "0x002EA2B0",
       "runtime_end_exclusive": "0x002EA2B2",
       "byte_length": 2,
-      "evidence_classification": "UNKNOWN",
-      "assembly_representation": "RAW_UNKNOWN"
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002EA2B0",
+      "instruction_count": 1,
+      "evidence_refs": [
+        "P3_CFG_CLOSURE"
+      ]
     },
     {
       "offset_start": 66226,
@@ -2883,8 +4024,13 @@
       "runtime_start": "0x002EA2CE",
       "runtime_end_exclusive": "0x002EA2D0",
       "byte_length": 2,
-      "evidence_classification": "UNKNOWN",
-      "assembly_representation": "RAW_UNKNOWN"
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002EA2CE",
+      "instruction_count": 1,
+      "evidence_refs": [
+        "P3_CFG_CLOSURE"
+      ]
     },
     {
       "offset_start": 66256,
@@ -2903,8 +4049,13 @@
       "runtime_start": "0x002EA2D6",
       "runtime_end_exclusive": "0x002EA2D8",
       "byte_length": 2,
-      "evidence_classification": "UNKNOWN",
-      "assembly_representation": "RAW_UNKNOWN"
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002EA2D6",
+      "instruction_count": 1,
+      "evidence_refs": [
+        "P3_CFG_CLOSURE"
+      ]
     },
     {
       "offset_start": 66264,
@@ -2923,8 +4074,13 @@
       "runtime_start": "0x002EA2E4",
       "runtime_end_exclusive": "0x002EA2E6",
       "byte_length": 2,
-      "evidence_classification": "UNKNOWN",
-      "assembly_representation": "RAW_UNKNOWN"
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002EA2E4",
+      "instruction_count": 1,
+      "evidence_refs": [
+        "P3_CFG_CLOSURE"
+      ]
     },
     {
       "offset_start": 66278,
@@ -2943,8 +4099,13 @@
       "runtime_start": "0x002EA2F2",
       "runtime_end_exclusive": "0x002EA2F4",
       "byte_length": 2,
-      "evidence_classification": "UNKNOWN",
-      "assembly_representation": "RAW_UNKNOWN"
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002EA2F2",
+      "instruction_count": 1,
+      "evidence_refs": [
+        "P3_CFG_CLOSURE"
+      ]
     },
     {
       "offset_start": 66292,
@@ -2963,8 +4124,13 @@
       "runtime_start": "0x002EA324",
       "runtime_end_exclusive": "0x002EA326",
       "byte_length": 2,
-      "evidence_classification": "UNKNOWN",
-      "assembly_representation": "RAW_UNKNOWN"
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002EA324",
+      "instruction_count": 1,
+      "evidence_refs": [
+        "P3_CFG_CLOSURE"
+      ]
     },
     {
       "offset_start": 66342,
@@ -2983,8 +4149,13 @@
       "runtime_start": "0x002EA34C",
       "runtime_end_exclusive": "0x002EA350",
       "byte_length": 4,
-      "evidence_classification": "UNKNOWN",
-      "assembly_representation": "RAW_UNKNOWN"
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002EA34C",
+      "instruction_count": 2,
+      "evidence_refs": [
+        "P3_CFG_CLOSURE"
+      ]
     },
     {
       "offset_start": 66384,
@@ -2999,12 +4170,26 @@
     },
     {
       "offset_start": 66402,
-      "offset_end_exclusive": 66462,
+      "offset_end_exclusive": 66460,
       "runtime_start": "0x002EA362",
-      "runtime_end_exclusive": "0x002EA39E",
-      "byte_length": 60,
+      "runtime_end_exclusive": "0x002EA39C",
+      "byte_length": 58,
       "evidence_classification": "UNKNOWN",
       "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 66460,
+      "offset_end_exclusive": 66462,
+      "runtime_start": "0x002EA39C",
+      "runtime_end_exclusive": "0x002EA39E",
+      "byte_length": 2,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002EA39C",
+      "instruction_count": 1,
+      "evidence_refs": [
+        "P3_CFG_CLOSURE"
+      ]
     },
     {
       "offset_start": 66462,
@@ -3023,8 +4208,13 @@
       "runtime_start": "0x002EA3AC",
       "runtime_end_exclusive": "0x002EA3AE",
       "byte_length": 2,
-      "evidence_classification": "UNKNOWN",
-      "assembly_representation": "RAW_UNKNOWN"
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002EA3AC",
+      "instruction_count": 1,
+      "evidence_refs": [
+        "P3_CFG_CLOSURE"
+      ]
     },
     {
       "offset_start": 66478,
@@ -3043,8 +4233,13 @@
       "runtime_start": "0x002EA3C8",
       "runtime_end_exclusive": "0x002EA3CA",
       "byte_length": 2,
-      "evidence_classification": "UNKNOWN",
-      "assembly_representation": "RAW_UNKNOWN"
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002EA3C8",
+      "instruction_count": 1,
+      "evidence_refs": [
+        "P3_CFG_CLOSURE"
+      ]
     },
     {
       "offset_start": 66506,
@@ -3059,12 +4254,40 @@
     },
     {
       "offset_start": 66516,
-      "offset_end_exclusive": 66626,
+      "offset_end_exclusive": 66582,
       "runtime_start": "0x002EA3D4",
-      "runtime_end_exclusive": "0x002EA442",
-      "byte_length": 110,
+      "runtime_end_exclusive": "0x002EA416",
+      "byte_length": 66,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002EA3D4",
+      "instruction_count": 33,
+      "evidence_refs": [
+        "P3_CFG_CLOSURE"
+      ]
+    },
+    {
+      "offset_start": 66582,
+      "offset_end_exclusive": 66624,
+      "runtime_start": "0x002EA416",
+      "runtime_end_exclusive": "0x002EA440",
+      "byte_length": 42,
       "evidence_classification": "UNKNOWN",
       "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 66624,
+      "offset_end_exclusive": 66626,
+      "runtime_start": "0x002EA440",
+      "runtime_end_exclusive": "0x002EA442",
+      "byte_length": 2,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002EA440",
+      "instruction_count": 1,
+      "evidence_refs": [
+        "P3_CFG_CLOSURE"
+      ]
     },
     {
       "offset_start": 66626,
@@ -3111,8 +4334,13 @@
       "runtime_start": "0x002EA460",
       "runtime_end_exclusive": "0x002EA462",
       "byte_length": 2,
-      "evidence_classification": "UNKNOWN",
-      "assembly_representation": "RAW_UNKNOWN"
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002EA460",
+      "instruction_count": 1,
+      "evidence_refs": [
+        "P3_CFG_CLOSURE"
+      ]
     },
     {
       "offset_start": 66658,
@@ -3131,8 +4359,13 @@
       "runtime_start": "0x002EA46C",
       "runtime_end_exclusive": "0x002EA46E",
       "byte_length": 2,
-      "evidence_classification": "UNKNOWN",
-      "assembly_representation": "RAW_UNKNOWN"
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002EA46C",
+      "instruction_count": 1,
+      "evidence_refs": [
+        "P3_CFG_CLOSURE"
+      ]
     },
     {
       "offset_start": 66670,
@@ -3151,8 +4384,13 @@
       "runtime_start": "0x002EA478",
       "runtime_end_exclusive": "0x002EA47A",
       "byte_length": 2,
-      "evidence_classification": "UNKNOWN",
-      "assembly_representation": "RAW_UNKNOWN"
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002EA478",
+      "instruction_count": 1,
+      "evidence_refs": [
+        "P3_CFG_CLOSURE"
+      ]
     },
     {
       "offset_start": 66682,
@@ -3283,8 +4521,13 @@
       "runtime_start": "0x002EA516",
       "runtime_end_exclusive": "0x002EA518",
       "byte_length": 2,
-      "evidence_classification": "UNKNOWN",
-      "assembly_representation": "RAW_UNKNOWN"
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002EA516",
+      "instruction_count": 1,
+      "evidence_refs": [
+        "P3_CFG_CLOSURE"
+      ]
     },
     {
       "offset_start": 66840,
@@ -3303,8 +4546,13 @@
       "runtime_start": "0x002EA530",
       "runtime_end_exclusive": "0x002EA532",
       "byte_length": 2,
-      "evidence_classification": "UNKNOWN",
-      "assembly_representation": "RAW_UNKNOWN"
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002EA530",
+      "instruction_count": 1,
+      "evidence_refs": [
+        "P3_CFG_CLOSURE"
+      ]
     },
     {
       "offset_start": 66866,
@@ -3351,8 +4599,13 @@
       "runtime_start": "0x002EA56A",
       "runtime_end_exclusive": "0x002EA56C",
       "byte_length": 2,
-      "evidence_classification": "UNKNOWN",
-      "assembly_representation": "RAW_UNKNOWN"
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002EA56A",
+      "instruction_count": 1,
+      "evidence_refs": [
+        "P3_CFG_CLOSURE"
+      ]
     },
     {
       "offset_start": 66924,
@@ -3371,8 +4624,13 @@
       "runtime_start": "0x002EA57C",
       "runtime_end_exclusive": "0x002EA57E",
       "byte_length": 2,
-      "evidence_classification": "UNKNOWN",
-      "assembly_representation": "RAW_UNKNOWN"
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002EA57C",
+      "instruction_count": 1,
+      "evidence_refs": [
+        "P3_CFG_CLOSURE"
+      ]
     },
     {
       "offset_start": 66942,
@@ -3387,12 +4645,26 @@
     },
     {
       "offset_start": 66962,
-      "offset_end_exclusive": 67014,
+      "offset_end_exclusive": 67012,
       "runtime_start": "0x002EA592",
-      "runtime_end_exclusive": "0x002EA5C6",
-      "byte_length": 52,
+      "runtime_end_exclusive": "0x002EA5C4",
+      "byte_length": 50,
       "evidence_classification": "UNKNOWN",
       "assembly_representation": "RAW_UNKNOWN"
+    },
+    {
+      "offset_start": 67012,
+      "offset_end_exclusive": 67014,
+      "runtime_start": "0x002EA5C4",
+      "runtime_end_exclusive": "0x002EA5C6",
+      "byte_length": 2,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002EA5C4",
+      "instruction_count": 1,
+      "evidence_refs": [
+        "P3_CFG_CLOSURE"
+      ]
     },
     {
       "offset_start": 67014,
@@ -3411,8 +4683,13 @@
       "runtime_start": "0x002EA5E2",
       "runtime_end_exclusive": "0x002EA5E4",
       "byte_length": 2,
-      "evidence_classification": "UNKNOWN",
-      "assembly_representation": "RAW_UNKNOWN"
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002EA5E2",
+      "instruction_count": 1,
+      "evidence_refs": [
+        "P3_CFG_CLOSURE"
+      ]
     },
     {
       "offset_start": 67044,
@@ -3431,8 +4708,13 @@
       "runtime_start": "0x002EA5F4",
       "runtime_end_exclusive": "0x002EA5F6",
       "byte_length": 2,
-      "evidence_classification": "UNKNOWN",
-      "assembly_representation": "RAW_UNKNOWN"
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002EA5F4",
+      "instruction_count": 1,
+      "evidence_refs": [
+        "P3_CFG_CLOSURE"
+      ]
     },
     {
       "offset_start": 67062,
@@ -3451,8 +4733,13 @@
       "runtime_start": "0x002EA610",
       "runtime_end_exclusive": "0x002EA666",
       "byte_length": 86,
-      "evidence_classification": "UNKNOWN",
-      "assembly_representation": "RAW_UNKNOWN"
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002EA610",
+      "instruction_count": 43,
+      "evidence_refs": [
+        "P3_CFG_CLOSURE"
+      ]
     },
     {
       "offset_start": 67174,
@@ -3471,8 +4758,13 @@
       "runtime_start": "0x002EA66C",
       "runtime_end_exclusive": "0x002EA746",
       "byte_length": 218,
-      "evidence_classification": "UNKNOWN",
-      "assembly_representation": "RAW_UNKNOWN"
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002EA66C",
+      "instruction_count": 109,
+      "evidence_refs": [
+        "P3_CFG_CLOSURE"
+      ]
     },
     {
       "offset_start": 67398,
@@ -3539,8 +4831,13 @@
       "runtime_start": "0x002EAB84",
       "runtime_end_exclusive": "0x002EAB86",
       "byte_length": 2,
-      "evidence_classification": "UNKNOWN",
-      "assembly_representation": "RAW_UNKNOWN"
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002EAB84",
+      "instruction_count": 1,
+      "evidence_refs": [
+        "P3_CFG_CLOSURE"
+      ]
     },
     {
       "offset_start": 68486,
@@ -3559,8 +4856,13 @@
       "runtime_start": "0x002EAB8C",
       "runtime_end_exclusive": "0x002EAB8E",
       "byte_length": 2,
-      "evidence_classification": "UNKNOWN",
-      "assembly_representation": "RAW_UNKNOWN"
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002EAB8C",
+      "instruction_count": 1,
+      "evidence_refs": [
+        "P3_CFG_CLOSURE"
+      ]
     },
     {
       "offset_start": 68494,
@@ -3579,8 +4881,13 @@
       "runtime_start": "0x002EABA8",
       "runtime_end_exclusive": "0x002EABAA",
       "byte_length": 2,
-      "evidence_classification": "UNKNOWN",
-      "assembly_representation": "RAW_UNKNOWN"
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002EABA8",
+      "instruction_count": 1,
+      "evidence_refs": [
+        "P3_CFG_CLOSURE"
+      ]
     },
     {
       "offset_start": 68522,
@@ -3595,10 +4902,24 @@
     },
     {
       "offset_start": 68528,
-      "offset_end_exclusive": 149504,
+      "offset_end_exclusive": 68538,
       "runtime_start": "0x002EABB0",
+      "runtime_end_exclusive": "0x002EABBA",
+      "byte_length": 10,
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_002EABB0",
+      "instruction_count": 5,
+      "evidence_refs": [
+        "P3_CFG_CLOSURE"
+      ]
+    },
+    {
+      "offset_start": 68538,
+      "offset_end_exclusive": 149504,
+      "runtime_start": "0x002EABBA",
       "runtime_end_exclusive": "0x002FE800",
-      "byte_length": 80976,
+      "byte_length": 80966,
       "evidence_classification": "UNKNOWN",
       "assembly_representation": "RAW_UNKNOWN"
     }

@@ -63,12 +63,240 @@ bool parse_range(const std::string& str, RangeSpec& out) {
     return out.start_vma < out.end_vma;
 }
 
+struct FormattedInstruction {
+    std::string asm_line;
+    std::string comment;
+    uint32_t target_vma = 0;
+};
+
+FormattedInstruction format_instruction(
+    const thor::sh2::Sh2Instruction& instr,
+    uint32_t base_vma,
+    std::vector<LabelRef>* labels
+) {
+    FormattedInstruction fi;
+    auto record_label = [&](const std::string& name, uint32_t vma, const std::string& type) {
+        if (!labels) return;
+        for (const auto& l : *labels) {
+            if (l.vma == vma && l.name == name) return;
+        }
+        labels->push_back({name, vma, vma - base_vma, type});
+    };
+
+    switch (instr.id) {
+        case thor::sh2::OpcodeId::MOV_W_READ_MEM: {
+            fi.asm_line = "mov.w   @r" + std::to_string(instr.rm) + ", r" + std::to_string(instr.rn);
+            fi.comment = "MOV.W @R" + std::to_string(instr.rm) + ", R" + std::to_string(instr.rn);
+            break;
+        }
+        case thor::sh2::OpcodeId::MOV_REG: {
+            fi.asm_line = "mov     r" + std::to_string(instr.rm) + ", r" + std::to_string(instr.rn);
+            fi.comment = "MOV R" + std::to_string(instr.rm) + ", R" + std::to_string(instr.rn);
+            break;
+        }
+        case thor::sh2::OpcodeId::MOV_L_PC_REL: {
+            fi.target_vma = instr.compute_effective_address();
+            std::string sym = "lit_" + hex_str(fi.target_vma).substr(2);
+            record_label(sym, fi.target_vma, "literal_pool");
+            fi.asm_line = "mov.l   " + sym + ", r" + std::to_string(instr.rn);
+            fi.comment = "MOV.L @(0x" + hex_str(instr.disp * 4, 2).substr(2) + ", PC), R"
+                      + std::to_string(instr.rn) + " -> " + hex_str(fi.target_vma);
+            break;
+        }
+        case thor::sh2::OpcodeId::MOV_W_PC_REL: {
+            fi.target_vma = instr.compute_effective_address();
+            std::string sym = "lit_" + hex_str(fi.target_vma).substr(2);
+            record_label(sym, fi.target_vma, "literal_pool");
+            fi.asm_line = "mov.w   " + sym + ", r" + std::to_string(instr.rn);
+            fi.comment = "MOV.W @(0x" + hex_str(instr.disp * 2, 2).substr(2) + ", PC), R"
+                      + std::to_string(instr.rn) + " -> " + hex_str(fi.target_vma);
+            break;
+        }
+        case thor::sh2::OpcodeId::MOVA: {
+            fi.target_vma = instr.compute_effective_address();
+            std::string sym = "lit_" + hex_str(fi.target_vma).substr(2);
+            record_label(sym, fi.target_vma, "literal_pool");
+            fi.asm_line = "mova    " + sym + ", r0";
+            fi.comment = "MOVA @(0x" + hex_str(instr.disp * 4, 2).substr(2) + ", PC), R0 -> " + hex_str(fi.target_vma);
+            break;
+        }
+        case thor::sh2::OpcodeId::MOV_L_READ_MEM: {
+            fi.asm_line = "mov.l   @r" + std::to_string(instr.rm) + ", r" + std::to_string(instr.rn);
+            fi.comment = "MOV.L @R" + std::to_string(instr.rm) + ", R" + std::to_string(instr.rn);
+            break;
+        }
+        case thor::sh2::OpcodeId::BRA: {
+            fi.target_vma = instr.compute_branch_target();
+            std::string sym = "loc_" + hex_str(fi.target_vma).substr(2);
+            record_label(sym, fi.target_vma, "branch_target");
+            fi.asm_line = "bra     " + sym;
+            fi.comment = "BRA " + hex_str(fi.target_vma);
+            break;
+        }
+        case thor::sh2::OpcodeId::BSR: {
+            fi.target_vma = instr.compute_branch_target();
+            std::string sym = "loc_" + hex_str(fi.target_vma).substr(2);
+            record_label(sym, fi.target_vma, "branch_target");
+            fi.asm_line = "bsr     " + sym;
+            fi.comment = "BSR " + hex_str(fi.target_vma);
+            break;
+        }
+        case thor::sh2::OpcodeId::BF: {
+            fi.target_vma = instr.compute_branch_target();
+            std::string sym = "loc_" + hex_str(fi.target_vma).substr(2);
+            record_label(sym, fi.target_vma, "branch_target");
+            fi.asm_line = "bf      " + sym;
+            fi.comment = "BF " + hex_str(fi.target_vma);
+            break;
+        }
+        case thor::sh2::OpcodeId::BT: {
+            fi.target_vma = instr.compute_branch_target();
+            std::string sym = "loc_" + hex_str(fi.target_vma).substr(2);
+            record_label(sym, fi.target_vma, "branch_target");
+            fi.asm_line = "bt      " + sym;
+            fi.comment = "BT " + hex_str(fi.target_vma);
+            break;
+        }
+        case thor::sh2::OpcodeId::BT_S: {
+            fi.target_vma = instr.compute_branch_target();
+            std::string sym = "loc_" + hex_str(fi.target_vma).substr(2);
+            record_label(sym, fi.target_vma, "branch_target");
+            fi.asm_line = "bt/s    " + sym;
+            fi.comment = "BT/S " + hex_str(fi.target_vma);
+            break;
+        }
+        case thor::sh2::OpcodeId::BF_S: {
+            fi.target_vma = instr.compute_branch_target();
+            std::string sym = "loc_" + hex_str(fi.target_vma).substr(2);
+            record_label(sym, fi.target_vma, "branch_target");
+            fi.asm_line = "bf/s    " + sym;
+            fi.comment = "BF/S " + hex_str(fi.target_vma);
+            break;
+        }
+        case thor::sh2::OpcodeId::JSR: {
+            fi.asm_line = "jsr     @r" + std::to_string(instr.rn);
+            fi.comment = "JSR @R" + std::to_string(instr.rn);
+            break;
+        }
+        case thor::sh2::OpcodeId::JMP: {
+            fi.asm_line = "jmp     @r" + std::to_string(instr.rn);
+            fi.comment = "JMP @R" + std::to_string(instr.rn);
+            break;
+        }
+        case thor::sh2::OpcodeId::NOP: {
+            fi.asm_line = "nop";
+            fi.comment = "NOP";
+            break;
+        }
+        case thor::sh2::OpcodeId::MOV_L_WRITE_PREDEC: {
+            fi.asm_line = "mov.l   r" + std::to_string(instr.rm) + ", @-r" + std::to_string(instr.rn);
+            fi.comment = "MOV.L R" + std::to_string(instr.rm) + ", @-R" + std::to_string(instr.rn);
+            break;
+        }
+        case thor::sh2::OpcodeId::RTS: {
+            fi.asm_line = "rts";
+            fi.comment = "RTS";
+            break;
+        }
+        default: {
+            fi.asm_line = instr.mnemonic();
+            fi.comment = instr.mnemonic();
+            break;
+        }
+    }
+    return fi;
+}
+
+void emit_instruction_json(
+    std::ostringstream& json,
+    const thor::sh2::Sh2Instruction& instr,
+    uint32_t pc,
+    uint32_t offset,
+    uint16_t opcode,
+    const FormattedInstruction& fi,
+    const std::string& indent
+) {
+    json << indent << "{\n";
+    json << indent << "  \"pc\": \"" << hex_str(pc) << "\",\n";
+    json << indent << "  \"offset\": " << offset << ",\n";
+    json << indent << "  \"opcode\": \"" << hex_str(opcode, 4) << "\",\n";
+    json << indent << "  \"opcode_id\": \"" << thor::sh2::opcode_id_name(instr.id) << "\",\n";
+    json << indent << "  \"asm_line\": \"" << fi.asm_line << "\",\n";
+    json << indent << "  \"comment\": \"" << fi.comment << "\",\n";
+    json << indent << "  \"rn\": " << static_cast<int>(instr.rn) << ",\n";
+    json << indent << "  \"rm\": " << static_cast<int>(instr.rm) << ",\n";
+    json << indent << "  \"disp\": " << instr.disp << ",\n";
+    json << indent << "  \"target_vma\": \"" << hex_str(fi.target_vma) << "\",\n";
+    json << indent << "  \"flow\": \"" << flow_type_name(instr.flow) << "\",\n";
+    json << indent << "  \"has_delay_slot\": " << (instr.has_delay_slot ? "true" : "false") << "\n";
+    json << indent << "}";
+}
+
 } // namespace
 
 int main(int argc, char* argv[]) {
+    if (argc > 4 && std::string(argv[1]) == "--dump-all-valid") {
+        const std::string bin_path = argv[2];
+        uint32_t base_vma = 0;
+        try {
+            base_vma = static_cast<uint32_t>(std::stoul(argv[3], nullptr, 0));
+        } catch (...) {
+            std::cerr << "Invalid base VMA: " << argv[3] << "\n";
+            return 1;
+        }
+        const std::string out_json_path = argv[4];
+
+        std::ifstream bin_file(bin_path, std::ios::binary);
+        if (!bin_file.is_open()) {
+            std::cerr << "Cannot open binary: " << bin_path << "\n";
+            return 1;
+        }
+        bin_file.seekg(0, std::ios::end);
+        const size_t file_size = static_cast<size_t>(bin_file.tellg());
+        bin_file.seekg(0, std::ios::beg);
+        std::vector<uint8_t> bytes(file_size);
+        bin_file.read(reinterpret_cast<char*>(bytes.data()), file_size);
+
+        std::ostringstream json;
+        json << "{\n";
+        json << "  \"mode\": \"dump_all_valid\",\n";
+        json << "  \"base_vma\": \"" << hex_str(base_vma) << "\",\n";
+        json << "  \"file_size\": " << file_size << ",\n";
+        json << "  \"instructions\": [\n";
+
+        bool first = true;
+        for (size_t offset = 0; offset + 1 < file_size; offset += 2) {
+            uint32_t pc = base_vma + static_cast<uint32_t>(offset);
+            uint16_t opcode = static_cast<uint16_t>((bytes[offset] << 8) | bytes[offset + 1]);
+            auto instr = thor::sh2::decode_sh2(opcode, pc);
+            if (!instr.is_valid()) continue;
+
+            if (!first) {
+                json << ",\n";
+            }
+            first = false;
+
+            FormattedInstruction fi = format_instruction(instr, base_vma, nullptr);
+            emit_instruction_json(json, instr, pc, static_cast<uint32_t>(offset), opcode, fi, "    ");
+        }
+        json << "\n  ]\n";
+        json << "}\n";
+
+        std::ofstream out_file(out_json_path, std::ios::out | std::ios::trunc);
+        if (!out_file.is_open()) {
+            std::cerr << "Cannot write output json: " << out_json_path << "\n";
+            return 1;
+        }
+        out_file << json.str();
+        std::cout << "Successfully exported all valid SH-2 IR to " << out_json_path << "\n";
+        return 0;
+    }
+
     if (argc < 4) {
         std::cerr << "Usage: " << argv[0]
-                  << " <binary_path> <base_vma_hex> <output_json_path> [start:end:block_id ...]\n";
+                  << " <binary_path> <base_vma_hex> <output_json_path> [start:end:block_id ...]\n"
+                  << "   or: " << argv[0]
+                  << " --dump-all-valid <binary_path> <base_vma_hex> <output_json_path>\n";
         return 1;
     }
 
@@ -129,12 +357,6 @@ int main(int argc, char* argv[]) {
     bin_file.read(reinterpret_cast<char*>(bytes.data()), file_size);
 
     std::vector<LabelRef> labels;
-    auto record_label = [&](const std::string& name, uint32_t vma, const std::string& type) {
-        for (const auto& l : labels) {
-            if (l.vma == vma && l.name == name) return;
-        }
-        labels.push_back({name, vma, vma - base_vma, type});
-    };
 
     std::string clean_bin_path = bin_path;
     for (char& c : clean_bin_path) {
@@ -178,147 +400,13 @@ int main(int argc, char* argv[]) {
                 return 1;
             }
 
-            std::string asm_line;
-            std::string comment;
-            uint32_t target_vma = 0;
-
-            switch (instr.id) {
-                case thor::sh2::OpcodeId::MOV_W_READ_MEM: {
-                    asm_line = "mov.w   @r" + std::to_string(instr.rm) + ", r" + std::to_string(instr.rn);
-                    comment = "MOV.W @R" + std::to_string(instr.rm) + ", R" + std::to_string(instr.rn);
-                    break;
-                }
-                case thor::sh2::OpcodeId::MOV_REG: {
-                    asm_line = "mov     r" + std::to_string(instr.rm) + ", r" + std::to_string(instr.rn);
-                    comment = "MOV R" + std::to_string(instr.rm) + ", R" + std::to_string(instr.rn);
-                    break;
-                }
-                case thor::sh2::OpcodeId::MOV_L_PC_REL: {
-                    target_vma = instr.compute_effective_address();
-                    std::string sym = "lit_" + hex_str(target_vma).substr(2);
-                    record_label(sym, target_vma, "literal_pool");
-                    asm_line = "mov.l   " + sym + ", r" + std::to_string(instr.rn);
-                    comment = "MOV.L @(0x" + hex_str(instr.disp * 4, 2).substr(2) + ", PC), R"
-                              + std::to_string(instr.rn) + " -> " + hex_str(target_vma);
-                    break;
-                }
-                case thor::sh2::OpcodeId::MOV_W_PC_REL: {
-                    target_vma = instr.compute_effective_address();
-                    std::string sym = "lit_" + hex_str(target_vma).substr(2);
-                    record_label(sym, target_vma, "literal_pool");
-                    asm_line = "mov.w   " + sym + ", r" + std::to_string(instr.rn);
-                    comment = "MOV.W @(0x" + hex_str(instr.disp * 2, 2).substr(2) + ", PC), R"
-                              + std::to_string(instr.rn) + " -> " + hex_str(target_vma);
-                    break;
-                }
-                case thor::sh2::OpcodeId::MOVA: {
-                    target_vma = instr.compute_effective_address();
-                    std::string sym = "lit_" + hex_str(target_vma).substr(2);
-                    record_label(sym, target_vma, "literal_pool");
-                    asm_line = "mova    " + sym + ", r0";
-                    comment = "MOVA @(0x" + hex_str(instr.disp * 4, 2).substr(2) + ", PC), R0 -> " + hex_str(target_vma);
-                    break;
-                }
-                case thor::sh2::OpcodeId::MOV_L_READ_MEM: {
-                    asm_line = "mov.l   @r" + std::to_string(instr.rm) + ", r" + std::to_string(instr.rn);
-                    comment = "MOV.L @R" + std::to_string(instr.rm) + ", R" + std::to_string(instr.rn);
-                    break;
-                }
-                case thor::sh2::OpcodeId::BRA: {
-                    target_vma = instr.compute_branch_target();
-                    std::string sym = "loc_" + hex_str(target_vma).substr(2);
-                    record_label(sym, target_vma, "branch_target");
-                    asm_line = "bra     " + sym;
-                    comment = "BRA " + hex_str(target_vma);
-                    break;
-                }
-                case thor::sh2::OpcodeId::BSR: {
-                    target_vma = instr.compute_branch_target();
-                    std::string sym = "loc_" + hex_str(target_vma).substr(2);
-                    record_label(sym, target_vma, "branch_target");
-                    asm_line = "bsr     " + sym;
-                    comment = "BSR " + hex_str(target_vma);
-                    break;
-                }
-                case thor::sh2::OpcodeId::BF: {
-                    target_vma = instr.compute_branch_target();
-                    std::string sym = "loc_" + hex_str(target_vma).substr(2);
-                    record_label(sym, target_vma, "branch_target");
-                    asm_line = "bf      " + sym;
-                    comment = "BF " + hex_str(target_vma);
-                    break;
-                }
-                case thor::sh2::OpcodeId::BT: {
-                    target_vma = instr.compute_branch_target();
-                    std::string sym = "loc_" + hex_str(target_vma).substr(2);
-                    record_label(sym, target_vma, "branch_target");
-                    asm_line = "bt      " + sym;
-                    comment = "BT " + hex_str(target_vma);
-                    break;
-                }
-                case thor::sh2::OpcodeId::BT_S: {
-                    target_vma = instr.compute_branch_target();
-                    std::string sym = "loc_" + hex_str(target_vma).substr(2);
-                    record_label(sym, target_vma, "branch_target");
-                    asm_line = "bt/s    " + sym;
-                    comment = "BT/S " + hex_str(target_vma);
-                    break;
-                }
-                case thor::sh2::OpcodeId::BF_S: {
-                    target_vma = instr.compute_branch_target();
-                    std::string sym = "loc_" + hex_str(target_vma).substr(2);
-                    record_label(sym, target_vma, "branch_target");
-                    asm_line = "bf/s    " + sym;
-                    comment = "BF/S " + hex_str(target_vma);
-                    break;
-                }
-                case thor::sh2::OpcodeId::JSR: {
-                    asm_line = "jsr     @r" + std::to_string(instr.rn);
-                    comment = "JSR @R" + std::to_string(instr.rn);
-                    break;
-                }
-                case thor::sh2::OpcodeId::JMP: {
-                    asm_line = "jmp     @r" + std::to_string(instr.rn);
-                    comment = "JMP @R" + std::to_string(instr.rn);
-                    break;
-                }
-                case thor::sh2::OpcodeId::NOP: {
-                    asm_line = "nop";
-                    comment = "NOP";
-                    break;
-                }
-                case thor::sh2::OpcodeId::MOV_L_WRITE_PREDEC: {
-                    asm_line = "mov.l   r" + std::to_string(instr.rm) + ", @-r" + std::to_string(instr.rn);
-                    comment = "MOV.L R" + std::to_string(instr.rm) + ", @-R" + std::to_string(instr.rn);
-                    break;
-                }
-                case thor::sh2::OpcodeId::RTS: {
-                    asm_line = "rts";
-                    comment = "RTS";
-                    break;
-                }
-                default: {
-                    asm_line = instr.mnemonic();
-                    comment = instr.mnemonic();
-                    break;
-                }
+            FormattedInstruction fi = format_instruction(instr, base_vma, &labels);
+            emit_instruction_json(json, instr, pc, static_cast<uint32_t>(offset), opcode, fi, "        ");
+            if (pc + 2 < r.end_vma) {
+                json << ",\n";
+            } else {
+                json << "\n";
             }
-
-
-            json << "        {\n";
-            json << "          \"pc\": \"" << hex_str(pc) << "\",\n";
-            json << "          \"offset\": " << offset << ",\n";
-            json << "          \"opcode\": \"" << hex_str(opcode, 4) << "\",\n";
-            json << "          \"opcode_id\": \"" << thor::sh2::opcode_id_name(instr.id) << "\",\n";
-            json << "          \"asm_line\": \"" << asm_line << "\",\n";
-            json << "          \"comment\": \"" << comment << "\",\n";
-            json << "          \"rn\": " << static_cast<int>(instr.rn) << ",\n";
-            json << "          \"rm\": " << static_cast<int>(instr.rm) << ",\n";
-            json << "          \"disp\": " << instr.disp << ",\n";
-            json << "          \"target_vma\": \"" << hex_str(target_vma) << "\",\n";
-            json << "          \"flow\": \"" << flow_type_name(instr.flow) << "\",\n";
-            json << "          \"has_delay_slot\": " << (instr.has_delay_slot ? "true" : "false") << "\n";
-            json << "        }" << (pc + 2 < r.end_vma ? ",\n" : "\n");
         }
 
         json << "      ]\n";
