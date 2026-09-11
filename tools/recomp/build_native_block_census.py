@@ -86,7 +86,7 @@ def main():
         mod_reasons = {}
 
         for r in proven:
-            bid = r['block_id']
+            bid = r.get('block_id') or f"bb_{r['runtime_start'][2:]}"
             o_start = r['offset_start']
             o_end = r['offset_end_exclusive']
             raw = bin_data[o_start:o_end]

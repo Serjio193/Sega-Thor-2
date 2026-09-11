@@ -19,4 +19,8 @@ namespace thor::sh2 {
 /// Returns true if decoded, false otherwise.
 bool decode_sh2_ext(uint16_t opcode, uint32_t pc, Sh2Instruction& instr) noexcept;
 
+/// Decodes system, transfer, and ALU operations into instr.
+/// Returns true if decoded, false otherwise.
+bool decode_sh2_ops(uint16_t opcode, uint32_t pc, Sh2Instruction& instr) noexcept;
+
 } // namespace thor::sh2

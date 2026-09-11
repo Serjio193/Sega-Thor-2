@@ -366,7 +366,7 @@ Capabilities proven:
 - R-Studio style RAM → disc signature carver (`tools/carver/ram_disc_carver.py`) matching runtime ranges across all 33 ISO9660 files on disc;
 - Provenance DAG (`tools/carver/provenance_dag.py`) enforcing Rule 5 (only `CONFIRMED` nodes authoritatively expand);
 - Fixed-point carver convergence loop (`tools/carver/carver_pipeline.py`) converging in 3 passes with 0 conflicts;
-- Residual UNKNOWN gaps audited and grouped into 43 recovery campaigns; P1 execution gaps in UNKNOWN reduced to 0;
+- Residual UNKNOWN gaps audited and grouped into 22 campaigns (machine-audited in unknown_gap_report.json); P1 execution gaps in UNKNOWN reduced to 0;
 - Denominator honestly re-audited from 57,266 to 60,108 bytes (+2,842 newly confirmed code bytes); 81,435 bytes structured data and 82,562 bytes padding classified; residual UNKNOWN reduced by 166,839 bytes; audited mnemonic coverage confirmed at **92.07%** (passing `ASM_90_GATE` >= 90.00%);
 - 7/7 carver unit tests passing (`tests/carver/test_carver_pipeline.py`).
 

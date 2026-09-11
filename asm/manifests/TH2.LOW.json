@@ -4,7 +4,7 @@
   "module_runtime_base": "0x002DA000",
   "module_size": 149504,
   "confirmed_code_bytes": 3266,
-  "proven_mnemonic_bytes": 3250,
+  "proven_mnemonic_bytes": 3266,
   "raw_unknown_bytes": 146238,
   "iso_sector_start": 52123,
   "iso_sector_count": 73,
@@ -836,7 +836,15 @@
       "runtime_end_exclusive": "0x002E7FF4",
       "byte_length": 2,
       "evidence_classification": "CONFIRMED_CODE",
-      "assembly_representation": "RAW_CODE_PENDING_DECODE"
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "instruction_count": 1,
+      "instructions": [
+        "xor #1, r0"
+      ],
+      "evidence_refs": [
+        "PROVEN_BY_THOR_SH2_DECODER"
+      ],
+      "block_id": "bb_002E7FF2"
     },
     {
       "offset_start": 57332,
@@ -3076,7 +3084,15 @@
       "runtime_end_exclusive": "0x002EA452",
       "byte_length": 2,
       "evidence_classification": "CONFIRMED_CODE",
-      "assembly_representation": "RAW_CODE_PENDING_DECODE"
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "instruction_count": 1,
+      "instructions": [
+        "sts.l macl, @-r15"
+      ],
+      "evidence_refs": [
+        "PROVEN_BY_THOR_SH2_DECODER"
+      ],
+      "block_id": "bb_002EA450"
     },
     {
       "offset_start": 66642,
@@ -3156,7 +3172,15 @@
       "runtime_end_exclusive": "0x002EA48A",
       "byte_length": 2,
       "evidence_classification": "CONFIRMED_CODE",
-      "assembly_representation": "RAW_CODE_PENDING_DECODE"
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "instruction_count": 1,
+      "instructions": [
+        "mulu.w r2, r3"
+      ],
+      "evidence_refs": [
+        "PROVEN_BY_THOR_SH2_DECODER"
+      ],
+      "block_id": "bb_002EA488"
     },
     {
       "offset_start": 66698,
@@ -3176,7 +3200,15 @@
       "runtime_end_exclusive": "0x002EA48E",
       "byte_length": 2,
       "evidence_classification": "CONFIRMED_CODE",
-      "assembly_representation": "RAW_CODE_PENDING_DECODE"
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "instruction_count": 1,
+      "instructions": [
+        "sts macl, r3"
+      ],
+      "evidence_refs": [
+        "PROVEN_BY_THOR_SH2_DECODER"
+      ],
+      "block_id": "bb_002EA48C"
     },
     {
       "offset_start": 66702,
@@ -3196,7 +3228,15 @@
       "runtime_end_exclusive": "0x002EA492",
       "byte_length": 2,
       "evidence_classification": "CONFIRMED_CODE",
-      "assembly_representation": "RAW_CODE_PENDING_DECODE"
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "instruction_count": 1,
+      "instructions": [
+        "mulu.w r0, r1"
+      ],
+      "evidence_refs": [
+        "PROVEN_BY_THOR_SH2_DECODER"
+      ],
+      "block_id": "bb_002EA490"
     },
     {
       "offset_start": 66706,
@@ -3216,7 +3256,15 @@
       "runtime_end_exclusive": "0x002EA496",
       "byte_length": 2,
       "evidence_classification": "CONFIRMED_CODE",
-      "assembly_representation": "RAW_CODE_PENDING_DECODE"
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "instruction_count": 1,
+      "instructions": [
+        "sts macl, r1"
+      ],
+      "evidence_refs": [
+        "PROVEN_BY_THOR_SH2_DECODER"
+      ],
+      "block_id": "bb_002EA494"
     },
     {
       "offset_start": 66710,
@@ -3276,7 +3324,15 @@
       "runtime_end_exclusive": "0x002EA546",
       "byte_length": 2,
       "evidence_classification": "CONFIRMED_CODE",
-      "assembly_representation": "RAW_CODE_PENDING_DECODE"
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "instruction_count": 1,
+      "instructions": [
+        "xor r3, r7"
+      ],
+      "evidence_refs": [
+        "PROVEN_BY_THOR_SH2_DECODER"
+      ],
+      "block_id": "bb_002EA544"
     },
     {
       "offset_start": 66886,
@@ -3436,7 +3492,15 @@
       "runtime_end_exclusive": "0x002EA74A",
       "byte_length": 2,
       "evidence_classification": "CONFIRMED_CODE",
-      "assembly_representation": "RAW_CODE_PENDING_DECODE"
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "instruction_count": 1,
+      "instructions": [
+        "lds.l @r15+, macl"
+      ],
+      "evidence_refs": [
+        "PROVEN_BY_THOR_SH2_DECODER"
+      ],
+      "block_id": "bb_002EA748"
     },
     {
       "offset_start": 67402,
@@ -4779,5 +4843,6 @@
   "expected_output_sha256": "781396898191921b486be751163aea493ef9b1abcb55c0ab8698df9c69211224",
   "assembler_tool_identity": "GNU assembler (binutils-sh-elf 2.40+2) 2.40",
   "linker_tool_identity": "GNU ld (binutils-sh-elf 2.40+2) 2.40",
-  "provenance_identity": "T2-ASM-05"
+  "provenance_identity": "T2-ASM-05",
+  "raw_code_pending_bytes": 0
 }

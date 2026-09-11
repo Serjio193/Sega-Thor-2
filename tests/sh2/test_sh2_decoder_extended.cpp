@@ -243,6 +243,52 @@ void test_extended_batch3() {
     THOR_ASSERT(decode_sh2(0x4729, 0).id == OpcodeId::SHLR16 && decode_sh2(0x4729, 0).rn == 7);
 }
 
+static void test_extended_batch4() {
+    // STS MACL / MACH / PR
+    const auto ins_sts_macl = decode_sh2(0x001A, 0);
+    THOR_ASSERT(ins_sts_macl.id == OpcodeId::STS_MACL && ins_sts_macl.rn == 0);
+    THOR_ASSERT(ins_sts_macl.mnemonic() == "sts macl, r0");
+
+    const auto ins_sts_mach = decode_sh2(0x010A, 0);
+    THOR_ASSERT(ins_sts_mach.id == OpcodeId::STS_MACH && ins_sts_mach.rn == 1);
+
+    // MOV.B @Rm+, Rn
+    const auto ins_movb_post = decode_sh2(0x6044, 0);
+    THOR_ASSERT(ins_movb_post.id == OpcodeId::MOV_B_READ_POSTINC && ins_movb_post.rn == 0 && ins_movb_post.rm == 4);
+    THOR_ASSERT(ins_movb_post.mem_access == MemoryAccessType::READ_S8);
+
+    // MOV.B Rm, @-Rn
+    const auto ins_movb_pre = decode_sh2(0x2424, 0);
+    THOR_ASSERT(ins_movb_pre.id == OpcodeId::MOV_B_WRITE_PREDEC && ins_movb_pre.rn == 4 && ins_movb_pre.rm == 2);
+
+    // MOVA @(disp, PC), R0
+    const auto ins_mova = decode_sh2(0xC704, 0x06001000);
+    THOR_ASSERT(ins_mova.id == OpcodeId::MOVA && ins_mova.rn == 0 && ins_mova.disp == 4);
+    THOR_ASSERT(ins_mova.compute_effective_address() == 0x06001014);
+
+    // NOT, SWAP, NEG, NEGC
+    THOR_ASSERT(decode_sh2(0x6447, 0).id == OpcodeId::NOT_REG);
+    THOR_ASSERT(decode_sh2(0x6008, 0).id == OpcodeId::SWAP_B);
+    THOR_ASSERT(decode_sh2(0x6009, 0).id == OpcodeId::SWAP_W);
+    THOR_ASSERT(decode_sh2(0x603B, 0).id == OpcodeId::NEG);
+
+    // XOR, OR, DIV
+    THOR_ASSERT(decode_sh2(0x210A, 0).id == OpcodeId::XOR_REG);
+    THOR_ASSERT(decode_sh2(0xCA02, 0).id == OpcodeId::XOR_IMM && decode_sh2(0xCA02, 0).disp == 2);
+    THOR_ASSERT(decode_sh2(0xCB01, 0).id == OpcodeId::OR_IMM && decode_sh2(0xCB01, 0).disp == 1);
+    THOR_ASSERT(decode_sh2(0x0019, 0).id == OpcodeId::DIV0U);
+    THOR_ASSERT(decode_sh2(0x2307, 0).id == OpcodeId::DIV0S);
+    THOR_ASSERT(decode_sh2(0x3204, 0).id == OpcodeId::DIV1);
+
+    // MUL, ROT, Control
+    THOR_ASSERT(decode_sh2(0x250E, 0).id == OpcodeId::MULU_W);
+    THOR_ASSERT(decode_sh2(0x254F, 0).id == OpcodeId::MULS_W);
+    THOR_ASSERT(decode_sh2(0x4404, 0).id == OpcodeId::ROTL);
+    THOR_ASSERT(decode_sh2(0x4405, 0).id == OpcodeId::ROTR);
+    THOR_ASSERT(decode_sh2(0x002B, 0).id == OpcodeId::RTE);
+    THOR_ASSERT(decode_sh2(0xC310, 0).id == OpcodeId::TRAPA && decode_sh2(0xC310, 0).disp == 0x10);
+}
+
 int main() {
     std::cout << "[test_sh2_decoder_extended] Testing extended SH-2 opcodes...\n";
     test_extended_mov_w_pc_rel();
@@ -252,6 +298,7 @@ int main() {
     test_extended_disp_and_shifts();
     test_extended_batch2();
     test_extended_batch3();
+    test_extended_batch4();
     std::cout << "[test_sh2_decoder_extended] PASS: All extended decoder checks green.\n";
     return 0;
 }

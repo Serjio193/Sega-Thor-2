@@ -372,6 +372,11 @@ Sh2Instruction decode_sh2(uint16_t opcode, uint32_t pc) noexcept {
         return instr;
     }
 
+    // Delegate system, transfer, and ALU operations
+    if (decode_sh2_ops(opcode, pc, instr)) {
+        return instr;
+    }
+
     // Fail closed for any unmodeled opcode
     instr.id = OpcodeId::UNKNOWN;
     instr.flow = ControlFlowType::ILLEGAL;

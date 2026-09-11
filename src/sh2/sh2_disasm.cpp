@@ -221,6 +221,213 @@ std::string Sh2Instruction::mnemonic() const {
         case OpcodeId::MOVT:
             ss << "movt r" << static_cast<int>(rn);
             return ss.str();
+        case OpcodeId::STS_MACL:
+            ss << "sts macl, r" << static_cast<int>(rn);
+            return ss.str();
+        case OpcodeId::STS_MACH:
+            ss << "sts mach, r" << static_cast<int>(rn);
+            return ss.str();
+        case OpcodeId::STS_PR:
+            ss << "sts pr, r" << static_cast<int>(rn);
+            return ss.str();
+        case OpcodeId::LDS_MACL:
+            ss << "lds r" << static_cast<int>(rm) << ", macl";
+            return ss.str();
+        case OpcodeId::LDS_MACH:
+            ss << "lds r" << static_cast<int>(rm) << ", mach";
+            return ss.str();
+        case OpcodeId::LDS_PR:
+            ss << "lds r" << static_cast<int>(rm) << ", pr";
+            return ss.str();
+        case OpcodeId::STS_L_MACL_PREDEC:
+            ss << "sts.l macl, @-r" << static_cast<int>(rn);
+            return ss.str();
+        case OpcodeId::STS_L_MACH_PREDEC:
+            ss << "sts.l mach, @-r" << static_cast<int>(rn);
+            return ss.str();
+        case OpcodeId::LDS_L_MACL_POSTINC:
+            ss << "lds.l @r" << static_cast<int>(rm) << "+, macl";
+            return ss.str();
+        case OpcodeId::LDS_L_MACH_POSTINC:
+            ss << "lds.l @r" << static_cast<int>(rm) << "+, mach";
+            return ss.str();
+        case OpcodeId::MOV_B_READ_POSTINC:
+            ss << "mov.b @r" << static_cast<int>(rm) << "+, r" << static_cast<int>(rn);
+            return ss.str();
+        case OpcodeId::MOV_B_WRITE_PREDEC:
+            ss << "mov.b r" << static_cast<int>(rm) << ", @-r" << static_cast<int>(rn);
+            return ss.str();
+        case OpcodeId::MOV_W_WRITE_PREDEC:
+            ss << "mov.w r" << static_cast<int>(rm) << ", @-r" << static_cast<int>(rn);
+            return ss.str();
+        case OpcodeId::MOVA:
+            ss << "mova @(0x" << std::hex << (disp * 4u) << ", pc), r0";
+            return ss.str();
+        case OpcodeId::NOT_REG:
+            ss << "not r" << static_cast<int>(rm) << ", r" << static_cast<int>(rn);
+            return ss.str();
+        case OpcodeId::SWAP_B:
+            ss << "swap.b r" << static_cast<int>(rm) << ", r" << static_cast<int>(rn);
+            return ss.str();
+        case OpcodeId::SWAP_W:
+            ss << "swap.w r" << static_cast<int>(rm) << ", r" << static_cast<int>(rn);
+            return ss.str();
+        case OpcodeId::NEGC:
+            ss << "negc r" << static_cast<int>(rm) << ", r" << static_cast<int>(rn);
+            return ss.str();
+        case OpcodeId::NEG:
+            ss << "neg r" << static_cast<int>(rm) << ", r" << static_cast<int>(rn);
+            return ss.str();
+        case OpcodeId::XOR_REG:
+            ss << "xor r" << static_cast<int>(rm) << ", r" << static_cast<int>(rn);
+            return ss.str();
+        case OpcodeId::XOR_IMM:
+            ss << "xor #" << static_cast<int>(disp) << ", r0";
+            return ss.str();
+        case OpcodeId::OR_IMM:
+            ss << "or #" << static_cast<int>(disp) << ", r0";
+            return ss.str();
+        case OpcodeId::DIV0U:
+            return "div0u";
+        case OpcodeId::DIV0S:
+            ss << "div0s r" << static_cast<int>(rm) << ", r" << static_cast<int>(rn);
+            return ss.str();
+        case OpcodeId::DIV1:
+            ss << "div1 r" << static_cast<int>(rm) << ", r" << static_cast<int>(rn);
+            return ss.str();
+        case OpcodeId::ROTL:
+            ss << "rotl r" << static_cast<int>(rn);
+            return ss.str();
+        case OpcodeId::ROTR:
+            ss << "rotr r" << static_cast<int>(rn);
+            return ss.str();
+        case OpcodeId::ROTCR:
+            ss << "rotcr r" << static_cast<int>(rn);
+            return ss.str();
+        case OpcodeId::SHAL:
+            ss << "shal r" << static_cast<int>(rn);
+            return ss.str();
+        case OpcodeId::SUBC:
+            ss << "subc r" << static_cast<int>(rm) << ", r" << static_cast<int>(rn);
+            return ss.str();
+        case OpcodeId::SUBV:
+            ss << "subv r" << static_cast<int>(rm) << ", r" << static_cast<int>(rn);
+            return ss.str();
+        case OpcodeId::ADDC:
+            ss << "addc r" << static_cast<int>(rm) << ", r" << static_cast<int>(rn);
+            return ss.str();
+        case OpcodeId::ADDV:
+            ss << "addv r" << static_cast<int>(rm) << ", r" << static_cast<int>(rn);
+            return ss.str();
+        case OpcodeId::MULU_W:
+            ss << "mulu.w r" << static_cast<int>(rm) << ", r" << static_cast<int>(rn);
+            return ss.str();
+        case OpcodeId::MULS_W:
+            ss << "muls.w r" << static_cast<int>(rm) << ", r" << static_cast<int>(rn);
+            return ss.str();
+        case OpcodeId::DMULU_L:
+            ss << "dmulu.l r" << static_cast<int>(rm) << ", r" << static_cast<int>(rn);
+            return ss.str();
+        case OpcodeId::DMULS_L:
+            ss << "dmuls.l r" << static_cast<int>(rm) << ", r" << static_cast<int>(rn);
+            return ss.str();
+        case OpcodeId::CMP_STR:
+            ss << "cmp/str r" << static_cast<int>(rm) << ", r" << static_cast<int>(rn);
+            return ss.str();
+        case OpcodeId::STC_SR:
+            ss << "stc sr, r" << static_cast<int>(rn);
+            return ss.str();
+        case OpcodeId::STC_GBR:
+            ss << "stc gbr, r" << static_cast<int>(rn);
+            return ss.str();
+        case OpcodeId::STC_VBR:
+            ss << "stc vbr, r" << static_cast<int>(rn);
+            return ss.str();
+        case OpcodeId::LDC_SR:
+            ss << "ldc r" << static_cast<int>(rm) << ", sr";
+            return ss.str();
+        case OpcodeId::LDC_GBR:
+            ss << "ldc r" << static_cast<int>(rm) << ", gbr";
+            return ss.str();
+        case OpcodeId::LDC_VBR:
+            ss << "ldc r" << static_cast<int>(rm) << ", vbr";
+            return ss.str();
+        case OpcodeId::STC_L_SR_PREDEC:
+            ss << "stc.l sr, @-r" << static_cast<int>(rn);
+            return ss.str();
+        case OpcodeId::STC_L_GBR_PREDEC:
+            ss << "stc.l gbr, @-r" << static_cast<int>(rn);
+            return ss.str();
+        case OpcodeId::STC_L_VBR_PREDEC:
+            ss << "stc.l vbr, @-r" << static_cast<int>(rn);
+            return ss.str();
+        case OpcodeId::LDC_L_SR_POSTINC:
+            ss << "ldc.l @r" << static_cast<int>(rm) << "+, sr";
+            return ss.str();
+        case OpcodeId::LDC_L_GBR_POSTINC:
+            ss << "ldc.l @r" << static_cast<int>(rm) << "+, gbr";
+            return ss.str();
+        case OpcodeId::LDC_L_VBR_POSTINC:
+            ss << "ldc.l @r" << static_cast<int>(rm) << "+, vbr";
+            return ss.str();
+        case OpcodeId::SLEEP:
+            return "sleep";
+        case OpcodeId::RTE:
+            return "rte";
+        case OpcodeId::TRAPA:
+            ss << "trapa #" << static_cast<int>(disp);
+            return ss.str();
+        case OpcodeId::MUL_L:
+            ss << "mul.l r" << static_cast<int>(rm) << ", r" << static_cast<int>(rn);
+            return ss.str();
+        case OpcodeId::MAC_L:
+            ss << "mac.l @r" << static_cast<int>(rm) << "+, @r" << static_cast<int>(rn) << "+";
+            return ss.str();
+        case OpcodeId::MAC_W:
+            ss << "mac.w @r" << static_cast<int>(rm) << "+, @r" << static_cast<int>(rn) << "+";
+            return ss.str();
+        case OpcodeId::BSRF:
+            ss << "bsrf r" << static_cast<int>(rn);
+            return ss.str();
+        case OpcodeId::BRAF:
+            ss << "braf r" << static_cast<int>(rn);
+            return ss.str();
+        case OpcodeId::TAS_B:
+            ss << "tas.b @r" << static_cast<int>(rn);
+            return ss.str();
+        case OpcodeId::XTRCT:
+            ss << "xtrct r" << static_cast<int>(rm) << ", r" << static_cast<int>(rn);
+            return ss.str();
+        case OpcodeId::MOV_B_GBR_WRITE:
+            ss << "mov.b r0, @(0x" << std::hex << disp << ", gbr)";
+            return ss.str();
+        case OpcodeId::MOV_W_GBR_WRITE:
+            ss << "mov.w r0, @(0x" << std::hex << (disp * 2u) << ", gbr)";
+            return ss.str();
+        case OpcodeId::MOV_L_GBR_WRITE:
+            ss << "mov.l r0, @(0x" << std::hex << (disp * 4u) << ", gbr)";
+            return ss.str();
+        case OpcodeId::MOV_B_GBR_READ:
+            ss << "mov.b @(0x" << std::hex << disp << ", gbr), r0";
+            return ss.str();
+        case OpcodeId::MOV_W_GBR_READ:
+            ss << "mov.w @(0x" << std::hex << (disp * 2u) << ", gbr), r0";
+            return ss.str();
+        case OpcodeId::MOV_L_GBR_READ:
+            ss << "mov.l @(0x" << std::hex << (disp * 4u) << ", gbr), r0";
+            return ss.str();
+        case OpcodeId::TST_B_GBR:
+            ss << "tst.b #0x" << std::hex << disp << ", @(r0, gbr)";
+            return ss.str();
+        case OpcodeId::AND_B_GBR:
+            ss << "and.b #0x" << std::hex << disp << ", @(r0, gbr)";
+            return ss.str();
+        case OpcodeId::XOR_B_GBR:
+            ss << "xor.b #0x" << std::hex << disp << ", @(r0, gbr)";
+            return ss.str();
+        case OpcodeId::OR_B_GBR:
+            ss << "or.b #0x" << std::hex << disp << ", @(r0, gbr)";
+            return ss.str();
         default:
             ss << ".word 0x" << std::hex << std::setw(4) << std::setfill('0') << raw_opcode;
             return ss.str();

@@ -35,10 +35,10 @@ class TestNativeBlockCensusPipeline(unittest.TestCase):
         with open(os.path.join(REPO_ROOT, 'workstreams', 'T2-D17-native-scaling', 'block_census_summary.json'), 'r') as f:
             summary = json.load(f)
 
-        self.assertEqual(summary['total_harvested_blocks'], 3302)
+        self.assertEqual(summary['total_harvested_blocks'], 3682)
         states = summary['summary_by_state']
-        self.assertEqual(states['HARVESTED'], 3302)
-        self.assertEqual(states['MNEMONIC_PROVEN'], 3032)
+        self.assertEqual(states['HARVESTED'], 3682)
+        self.assertEqual(states['MNEMONIC_PROVEN'], 3412)
         self.assertEqual(states['CODEGEN_ELIGIBLE'], 270)
         self.assertEqual(states['GENERATED'], 270)
         self.assertEqual(states['COMPILES'], 270)
@@ -46,9 +46,9 @@ class TestNativeBlockCensusPipeline(unittest.TestCase):
 
         # Check modules breakdown
         mods = summary['modules']
-        self.assertEqual(mods['0TH2.BIN']['total_proven_blocks'], 3126)
+        self.assertEqual(mods['0TH2.BIN']['total_proven_blocks'], 3498)
         self.assertEqual(mods['0TH2.BIN']['codegen_eligible'], 243)
-        self.assertEqual(mods['TH2.LOW']['total_proven_blocks'], 176)
+        self.assertEqual(mods['TH2.LOW']['total_proven_blocks'], 184)
         self.assertEqual(mods['TH2.LOW']['codegen_eligible'], 27)
 
     def test_02_dual_run_determinism(self):

@@ -1,8 +1,8 @@
 {
-  "total_harvested_blocks": 3302,
+  "total_harvested_blocks": 3682,
   "summary_by_state": {
-    "HARVESTED": 3302,
-    "MNEMONIC_PROVEN": 3032,
+    "HARVESTED": 3682,
+    "MNEMONIC_PROVEN": 3412,
     "CODEGEN_ELIGIBLE": 270,
     "GENERATED": 270,
     "COMPILES": 270,
@@ -11,25 +11,25 @@
     "PROMOTED": 1
   },
   "summary_by_reason": {
-    "UNSUPPORTED_EMITTER_OPCODE": 3015,
+    "UNSUPPORTED_EMITTER_OPCODE": 3395,
     "INVALID_BLOCK_BOUNDARY": 14,
     "UNSUPPORTED_CONTROL_FLOW": 3
   },
   "modules": {
     "0TH2.BIN": {
-      "total_proven_blocks": 3126,
+      "total_proven_blocks": 3498,
       "codegen_eligible": 243,
       "rejection_reasons": {
-        "UNSUPPORTED_EMITTER_OPCODE": 2866,
+        "UNSUPPORTED_EMITTER_OPCODE": 3238,
         "UNSUPPORTED_CONTROL_FLOW": 3,
         "INVALID_BLOCK_BOUNDARY": 14
       }
     },
     "TH2.LOW": {
-      "total_proven_blocks": 176,
+      "total_proven_blocks": 184,
       "codegen_eligible": 27,
       "rejection_reasons": {
-        "UNSUPPORTED_EMITTER_OPCODE": 149
+        "UNSUPPORTED_EMITTER_OPCODE": 157
       }
     }
   }

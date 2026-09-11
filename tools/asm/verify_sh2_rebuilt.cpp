@@ -81,15 +81,41 @@ bool parse_manifest_ranges(const std::string& json_text, std::vector<RangeRecord
     }
     auto open_bracket = json_text.find('[', ranges_pos);
     if (open_bracket == std::string::npos) return false;
-    auto close_bracket = json_text.find(']', open_bracket);
+
+    // Track bracket depth to find matching close bracket of ranges array
+    size_t close_bracket = std::string::npos;
+    int depth = 0;
+    for (size_t i = open_bracket; i < json_text.size(); ++i) {
+        if (json_text[i] == '[') depth++;
+        else if (json_text[i] == ']') {
+            depth--;
+            if (depth == 0) {
+                close_bracket = i;
+                break;
+            }
+        }
+    }
     if (close_bracket == std::string::npos) return false;
 
-    size_t cur = open_bracket;
+    size_t cur = open_bracket + 1;
     while (cur < close_bracket) {
         auto obj_start = json_text.find('{', cur);
         if (obj_start == std::string::npos || obj_start > close_bracket) break;
-        auto obj_end = json_text.find('}', obj_start);
-        if (obj_end == std::string::npos || obj_end > close_bracket) break;
+
+        // Track brace depth to find matching closing brace of range object
+        size_t obj_end = std::string::npos;
+        int obj_depth = 0;
+        for (size_t i = obj_start; i < close_bracket; ++i) {
+            if (json_text[i] == '{') obj_depth++;
+            else if (json_text[i] == '}') {
+                obj_depth--;
+                if (obj_depth == 0) {
+                    obj_end = i;
+                    break;
+                }
+            }
+        }
+        if (obj_end == std::string::npos) break;
 
         std::string block = json_text.substr(obj_start, obj_end - obj_start + 1);
         RangeRecord rec;

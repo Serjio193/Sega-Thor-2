@@ -15,6 +15,7 @@ include_directories(include .)
 add_library(thor_sh2 STATIC
     src/sh2/sh2_decoder.cpp
     src/sh2/sh2_decoder_ext.cpp
+    src/sh2/sh2_decoder_ops.cpp
     src/sh2/sh2_disasm.cpp
     src/sh2/sh2_executor.cpp
     src/sh2/sh2_executor_ext.cpp
