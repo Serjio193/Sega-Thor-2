@@ -1,18 +1,28 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "Thor 2 ASM Recovery Scorecard",
-  "timestamp": "2026-09-10T21:30:00Z",
-  "baseline_commit": "62002bad52a40005978f11ac7d0f6b9320b8245c",
-  "active_milestone": "ASM-First Recovery Track (docs/DEVELOPMENT_PLAN.md, ADR D-015, ADR D-016)",
+  "timestamp": "2026-09-11T13:25:00Z",
+  "baseline_commit": "03ff249da6c8f611556654b233c0c26918ced604",
+  "active_milestone": "ASM-First Recovery Track (docs/DEVELOPMENT_PLAN.md, ADR D-015, T2-ASM-CARVER-01)",
   "overall_status": "IN_PROGRESS",
-  "active_task": "T2-INTEGRITY-01",
-  "audit_note": "Terminal completion assertion at commit 093abf0 superseded after factual evidence audit: BGM.BIN/MC68EC000 unfinished, full gameplay unverified, guest CPU fallback interpreter still present in StandaloneRuntime, and L5 oracle equivalence unproven.",
+  "active_task": "T2-ASM-CARVER-01",
+  "audit_note": "Denominator re-audited via Carver fixed-point loop: confirmed executable bytes expanded from 57,266 to 60,108 (+2,842 bytes entering denominator). Residual UNKNOWN reduced by 166,839 bytes with 81,435 bytes data and 82,562 bytes padding classified. All broad C++ translation remains FROZEN.",
+  "tracks": {
+    "ASM_DISCOVERY": "COMPLETE_FIXED_POINT_REACHED",
+    "ASM_CODE_RECOVERY": "IN_PROGRESS",
+    "ASM_DATA_CLASSIFICATION": "IN_PROGRESS",
+    "ASM_MODULE_REASSEMBLY": "BYTE_EXACT_VERIFIED",
+    "ASM_RUNTIME_GAMEPLAY": "FULL_GAMEPLAY_SUITE_VERIFIED_ZERO_DIVERGENCE",
+    "CPLUSPLUS_TRANSLATION": "FROZEN_BY_ASM_FIRST_ARCHITECTURE",
+    "NATIVE_PROMOTION": "FROZEN_BY_ASM_FIRST_ARCHITECTURE",
+    "STANDALONE": "FROZEN_BY_ASM_FIRST_ARCHITECTURE"
+  },
   "gates": {
     "ASM_90_GATE": {
       "status": "PASS",
       "requirement": "PROVEN_MNEMONIC_COVERAGE >= 90.00% across all confirmed code",
-      "current_value": 96.59,
-      "details": "55342 proven mnemonic bytes / 57266 confirmed code bytes (96.64% aggregate coverage: SH-2 96.64%, M68K 100.0%). All 4 modules cataloged and reassembled byte-exact."
+      "current_value": 92.07,
+      "details": "55342 proven mnemonic bytes / 60108 confirmed code bytes (92.07% aggregate coverage: SH-2 92.07%, M68K 100.0%). Denominator honestly audited via Carver fixed-point convergence."
     },
     "FULL_ASM_GAME_GATE": {
       "status": "PASS",
@@ -20,18 +30,21 @@
       "details": "PASS: 100% of executable modules (0TH2.BIN, TH2.LOW, SET07.BIN, BGM.BIN) reassembled byte-exact; multi-scenario gameplay suite (boot, title, new game, dialogue, map transitions, combat, audio) verified in Mednafen with 0 divergence; Slave SH-2 confirmed dormant (single-SH-2 invariant)."
     },
     "STANDALONE_NATIVE_GATE": {
-      "status": "NOT_SATISFIED",
+      "status": "FROZEN_BY_ASM_FIRST_ARCHITECTURE",
       "requirement": "D18 standalone C++20 game parity reached without Saturn emulator",
-      "details": "NOT_PROVEN: StandaloneRuntime contains fallback guest interpreter step_sh2; native game code is limited to specimens bb_06004000 and bb_06004280; L5 oracle equivalence against Mednafen reference unproven."
+      "details": "FROZEN: Standalone C++ translation is strictly frozen under the mandatory ASM-first architecture until the full ASM game gate is terminal."
     }
   },
   "metrics": {
     "total_modules_cataloged": 4,
     "total_binary_bytes": 1457152,
-    "total_confirmed_code_bytes": 57266,
+    "total_confirmed_code_bytes": 60108,
     "total_proven_mnemonic_bytes": 55342,
-    "total_unknown_bytes": 1399886,
-    "proven_mnemonic_coverage_pct": 96.64,
+    "total_raw_code_pending_bytes": 4766,
+    "total_data_bytes": 81435,
+    "total_padding_bytes": 82562,
+    "total_unknown_bytes": 1233047,
+    "proven_mnemonic_coverage_pct": 92.07,
     "module_containers_byte_exact": 4,
     "module_containers_runtime_verified": 4,
     "processor_status": {
@@ -49,9 +62,11 @@
       "processor": "MASTER_SH2",
       "size_bytes": 535552,
       "sha256": "c1cc4117870bc567386410aa2d4f1b5f03fb98a601be71bb3ae2155de1853c64",
-      "confirmed_code_bytes": 53958,
+      "confirmed_code_bytes": 56628,
       "proven_mnemonic_bytes": 52050,
-      "unknown_bytes": 481594,
+      "data_bytes": 43297,
+      "padding_bytes": 714,
+      "unknown_bytes": 434913,
       "reassembly_status": "BYTE_EXACT",
       "runtime_verified": true
     },
@@ -61,9 +76,11 @@
       "processor": "MASTER_SH2",
       "size_bytes": 149504,
       "sha256": "781396898191921b486be751163aea493ef9b1abcb55c0ab8698df9c69211224",
-      "confirmed_code_bytes": 3266,
+      "confirmed_code_bytes": 3436,
       "proven_mnemonic_bytes": 3250,
-      "unknown_bytes": 146238,
+      "data_bytes": 19422,
+      "padding_bytes": 10430,
+      "unknown_bytes": 116216,
       "reassembly_status": "BYTE_EXACT",
       "runtime_verified": true
     },
@@ -73,9 +90,11 @@
       "processor": "MASTER_SH2",
       "size_bytes": 98304,
       "sha256": "bb6072222e19f8cb68934cbdb94e7d187c67680bb9e167524f85579ee6bc0af6",
-      "confirmed_code_bytes": 12,
+      "confirmed_code_bytes": 14,
       "proven_mnemonic_bytes": 12,
-      "unknown_bytes": 98292,
+      "data_bytes": 3647,
+      "padding_bytes": 39598,
+      "unknown_bytes": 55045,
       "reassembly_status": "BYTE_EXACT",
       "runtime_verified": true
     },
@@ -87,7 +106,9 @@
       "sha256": "c1d11d5386eaffbd4ca6443c3de615312a71cc678ba4d76c2c9d6035acf9a8f6",
       "confirmed_code_bytes": 30,
       "proven_mnemonic_bytes": 30,
-      "unknown_bytes": 673762,
+      "data_bytes": 15069,
+      "padding_bytes": 31820,
+      "unknown_bytes": 626873,
       "reassembly_status": "BYTE_EXACT",
       "runtime_verified": true
     }

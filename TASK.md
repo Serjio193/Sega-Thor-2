@@ -1,50 +1,56 @@
 # Current task
 
-TASK: T2-D17-02 Scalable Native Candidate Pipeline (Timing Integrity Repair + 3,302-Block Census + Manifest-Driven Batch C++ Generation)
-WHY: Broad native recompilation scaling requires moving from bespoke per-block C++ emission to an automated, manifest-driven batch generation pipeline over the 3,302 harvested ASM blocks while maintaining strict qualification gating, timing integrity (reconciling bb_06004280 21 architectural cycles vs 20 integration hook cycles), and fail-closed isolation between linkable candidates and promoted blocks.
+TASK: T2-ASM-CARVER-01 — Thor Saturn Recovery Carver: Interval Database + UNKNOWN Audit + Executable Candidate Discovery
+WHY: The user confirmed strict return to ASM-first completion before any broad C++ translation. The scorecard mnemonic coverage denominator (~96.6%) only counted previously confirmed code (57,266 bytes) while leaving 1,399,886 bytes as unexamined UNKNOWN. An evidence-driven forensic carver was required to systematically audit all UNKNOWN ranges, enforce fail-closed execution conflict invariants, discover hidden code/data/padding structures, and honestly re-audit the denominator.
 
-CURRENT MILESTONE: Milestone D17 (docs/DEVELOPMENT_PLAN.md, Gate V-14 in docs/PIPELINE_VALIDATION_PLAN.md) — ADVANCED_PROTOTYPE / IN_PROGRESS (Gate V-14: NOT_YET_PASSED)
+CURRENT MILESTONE: ASM-First Recovery Track (docs/DEVELOPMENT_PLAN.md, ADR D-015, ADR D-019)
 TASK STATUS: COMPLETE
 MILESTONE UNDERSTANDING CONFIDENCE: 100%
 CURRENT SLICE UNDERSTANDING CONFIDENCE: 100%
-SLICE CONFIDENCE EVIDENCE: 3,302 harvested blocks parsed across 0TH2.BIN (3,126) and TH2.LOW (176); 270 CODEGEN_ELIGIBLE blocks batch-generated and compiled into link-isolated library `thor_generated_batch_candidates`; differential transition proven against thor_sh2; timing integrity reconciled to 21 cycles (48 cycles multi-block sequence).
+SLICE CONFIDENCE EVIDENCE: Central Interval Database (`IntervalDatabase`) and 8 Saturn-specific detectors implemented in `tools/carver/`; converged to fixed point in 3 passes with 0 conflicts; discovered 2,842 newly confirmed executable code bytes, 81,435 bytes of structured data (literal pools, pointer tables, MMIO pointers, strings), and 82,562 bytes of padding; reduced UNKNOWN by 166,839 bytes; Provenance DAG generated with 13,780 nodes; 7/7 carver unit tests passing; `validate_recovery_gates.py` passing with audited 92.07% coverage.
+
 ACCEPTANCE CRITERIA:
-- [x] Timing repair: reconcile bb_06004280 cycle accounting (21 architectural cycles, 20 hook cycles), update StandaloneRuntime multi-block test to 48 cycles, fix MACL typo in d9_4_native_indirect_evidence.md;
-- [x] Status normalization: ensure docs/ROADMAP.md and docs/PROJECT_STATE.md do NOT claim D17, V-14, or D18 complete;
-- [x] Fail-closed census: evaluate all 3,302 harvested ASM blocks into 8 mutually exclusive states with explicit rejection reasons;
-- [x] Generic block generator CLI: add flags (--block-name, --module, --start-pc, --length, --offset, --out-header, --out-source) with fallback to legacy positional syntax;
-- [x] Batch C++ generation: emit all 270 eligible candidate blocks, 6 compilation shards, master catalog, and master header;
-- [x] Link-isolated target: configure `thor_generated_batch_candidates` in CMakeLists.txt with zero interpreter dependencies;
-- [x] Scalable enable/disable gating: implement enable_pc/disable_pc/is_pc_enabled/enable_all_proven/disable_all in NativeDispatcher and C ABI;
-- [x] Strict promotion isolation: exactly 2 blocks (bb_06004000, bb_06004280) promoted; remaining 268 link-isolated;
-- [x] Differential transition proof: verify candidate differential equivalence against thor_sh2 interpreter in test_v07a_transition.cpp;
+- [x] Freeze broad C++ translation scaling (D17, D18, StandaloneRuntime) per explicit user instruction;
+- [x] Central Interval Database (`tools/carver/interval_db.py`): canonical non-overlapping partition covering 100% of bytes across all modules;
+- [x] Saturn-Specific Detector Registry (`tools/carver/detector_registry.py`, `detectors_code.py`, `detectors_data.py`) with 8 detectors;
+- [x] R-Studio Style RAM → Disc Signature Carver (`tools/carver/ram_disc_carver.py`) scanning all 33 ISO files;
+- [x] Execution Conflict Rule (Rule 4): dynamically retired bytes promoted to CONFIRMED_CODE fail-closed; proven DATA never decoded as code;
+- [x] Graph Expansion & Provenance DAG (`tools/carver/provenance_dag.py`): Rule 5 enforced (only CONFIRMED nodes expand);
+- [x] Fixed-Point Loop (`tools/carver/carver_pipeline.py`): iterative loop converging in 3 passes with 0 conflicts;
+- [x] UNKNOWN Gap Report (`tools/carver/gap_reporter.py`): residual gaps audited and grouped into 43 campaigns; P1 execution gaps = 0;
+- [x] Denominator Re-audit: expanded confirmed code from 57,266 to 60,108 bytes; coverage honestly adjusted to 92.07% (passing ASM_90_GATE >= 90.00%);
+- [x] Evidence artifacts: `workstreams/T2-ASM-CARVER/` generated with README, interval_db_summary, carver_passes, unknown_gap_report, provenance_graph_summary, carver_evidence;
+- [x] Scorecard updated with track separation: CPLUSPLUS_TRANSLATION = FROZEN_BY_ASM_FIRST_ARCHITECTURE;
 - [x] Maintain <= 500 lines limit across all human-maintained files.
 
 EVIDENCE AVAILABLE:
-- D17 workstream evidence: `workstreams/T2-D17-native-scaling/batch_codegen_evidence.md`, `batch_codegen_evidence.json`, `block_census_summary.json`;
-- Canonical D9 indirect evidence: `workstreams/T2-D9-indirect/candidate_06004280.json`, `d9_4_native_indirect_evidence.json`;
-- Automated pipeline test suite: `tests/recomp/test_native_pipeline.py`.
+- Carver evidence directory: `workstreams/T2-ASM-CARVER/*`;
+- Audited scorecard: `workstreams/ASM_RECOVERY_SCORECARD.json`;
+- Test suite: `tests/carver/test_carver_pipeline.py`.
+
 KNOWN UNKNOWNS:
-- Extended SH-2 opcode emission in mechanical block compiler (e.g., TST, CMP, ADD, SUB) to admit remaining 3,015 candidate blocks.
+- Exact mechanical decoding of the 2,842 newly confirmed code bytes into mnemonics to advance mnemonic coverage towards 100%.
+
 ALLOWED SCOPE:
-- Recompilation tools, runtime dispatch gating, batch block generation, differential transition tests, workstream records, documentation.
+- Forensic carver, interval database, detector registry, provenance DAG, gap reporting, evidence artifacts, scorecard update, documentation.
+
 OUT OF SCOPE:
-- Wholesale emulator replacement; unverified promotion of batch candidates.
+- Broad C++ translation before FULL_ASM_GAME_GATE; unverified promotion of heuristic candidates.
 
 ## Last verified result
 
-`D17_02_BATCH_CODEGEN_AND_CENSUS_PASS`: Reconciled timing integrity (21 architectural cycles for `bb_06004280`, 48 cycles multi-block sequence); completed fail-closed census over 3,302 harvested blocks identifying 270 `CODEGEN_ELIGIBLE` candidates; batch-generated all 270 blocks across 6 compilation shards and verified zero-warning compilation in link-isolated target `thor_generated_batch_candidates`; differential transition proven against `thor_sh2`; 41/41 CTests passing.
+`T2_ASM_CARVER_01_PASS`: Central Interval Database and 8 Saturn-specific detectors implemented; fixed-point convergence reached in 3 passes with 0 conflicts; discovered 2,842 newly confirmed executable code bytes (expanding denominator to 60,108 bytes), 81,435 bytes structured data, and 82,562 bytes padding; reduced UNKNOWN by 166,839 bytes; 0 residual P1 execution gaps in UNKNOWN; audited mnemonic coverage confirmed at 92.07% (passing ASM_90_GATE); 7/7 carver unit tests pass; `validate_recovery_gates.py` passes.
 
 ## Session checkpoint
 
-CURRENT MILESTONE: Milestone D17 (Progressive Standalone Runtime, Gate V-14: NOT_YET_PASSED)
-CURRENT TASK: T2-D17-02 Scalable Native Candidate Pipeline
+CURRENT MILESTONE: ASM-First Recovery Track (docs/DEVELOPMENT_PLAN.md, ADR D-015, ADR D-019)
+CURRENT TASK: T2-ASM-CARVER-01 Saturn Recovery Carver & Denominator Re-Audit
 TASK STATUS: COMPLETE
 MILESTONE UNDERSTANDING CONFIDENCE: 100%
 CURRENT SLICE UNDERSTANDING CONFIDENCE: 100%
-LAST VERIFIED RESULT: 3,302-block census, 270-block batch codegen, 6-shard link-isolated library, per-PC enable/disable gating, and timing integrity verified at 48 cycles. 41/41 CTests pass.
-FILES CHANGED: CMakeLists.txt, include/thor/recomp/native_bridge.h, include/thor/recomp/native_dispatcher.hpp, include/thor/sh2/sh2_block.hpp, src/recomp/block_compiler.cpp, src/recomp/native_dispatcher.cpp, src/sh2/sh2_block.cpp, tests/recomp/test_generated_link_isolation.cpp, tests/recomp/test_native_indirect.cpp, tests/recomp/test_native_pipeline.py, tests/recomp/test_v07a_transition.cpp, tests/runtime/test_standalone_runtime.cpp, tools/recomp/build_native_block_census.py, tools/recomp/generate_batch_native_blocks.py, tools/recomp/generate_sh2_block.cpp, docs/PROJECT_STATE.md, docs/ROADMAP.md, docs/FILE_MAP.md, docs/WORKLOG.md, TASK.md, workstreams/T2-D9-indirect/d9_4_native_indirect_evidence.md, workstreams/T2-D17-native-scaling/*
-TESTS RUN: 41/41 unit tests passing on Windows MinGW (`ctest --test-dir build -E test_gameplay_scenarios`).
-NEW KNOWLEDGE: Census establishes 270/3302 blocks currently codegen-eligible under 7 opcodes (91.3% rejected on opcodes alone); bounded block discovery prevents fallthrough overruns; Mednafen hook advances 20 cycles while standalone architecture requires 21 cycles.
-OPEN QUESTIONS: None for T2-D17-02 scaling slice.
-EXACT NEXT ACTION: T2-D17-03: Expand mechanical compiler opcodes (CMP, TST, ADD, SUB, etc.) to scale candidate block eligibility from 270 to >1000 blocks and establish shadow qualification harness for batch candidates.
+LAST VERIFIED RESULT: Fixed point reached in 3 passes, 0 conflicts, 2,842 new code bytes discovered, 163,997 data+padding bytes classified, audited mnemonic coverage 92.07%, 7/7 carver tests pass.
+FILES CHANGED: tools/carver/*, tests/carver/*, workstreams/T2-ASM-CARVER/*, workstreams/ASM_RECOVERY_SCORECARD.json, docs/DECISIONS.md, TASK.md
+TESTS RUN: `python tests/carver/test_carver_pipeline.py` (7/7 PASS), `python tools/asm/validate_recovery_gates.py` (PASS), `ctest --test-dir build -E test_gameplay_scenarios` (40/40 PASS).
+NEW KNOWLEDGE: 0TH2.BIN has 2,670 uncataloged executed code bytes and 43,297 bytes structured data; SET07.BIN contains 39,598 bytes alignment padding and 3,647 bytes data; denominator honestly updated to 60,108 bytes yielding 92.07% coverage.
+OPEN QUESTIONS: None for carver slice.
+EXACT NEXT ACTION: T2-ASM-06: Mechanically decode the 2,842 newly confirmed code bytes into real SH-2 mnemonics using `thor_sh2`, update module manifests, and regenerate lossless assembly containers.

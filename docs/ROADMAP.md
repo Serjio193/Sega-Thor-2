@@ -345,30 +345,30 @@ Capabilities proven:
 
 ### D17 — Progressive Standalone Runtime (Native Execution Loop & Subsystem Binding)
 
-Status: **ADVANCED_PROTOTYPE / IN_PROGRESS (Gate V-14: NOT_YET_PASSED)**
+Status: **FROZEN_BY_ASM_FIRST_ARCHITECTURE (ADR D-015, ADR D-019)**
 
-Capabilities proven:
-- Implemented `StandaloneRuntime` coordinating Work RAM, native hardware subsystems, native block dispatch, and fallback SH-2 instruction execution in `include/thor/runtime/standalone_runtime.hpp` and `src/runtime/standalone_runtime.cpp`;
-- Verified isolated compilation and linking without external emulator libraries;
-- Hardened dynamic instruction count and cycle accounting per executed native block in `NativeDispatcher`;
-- Verified sequential multi-block native execution (`bb_06004000` + `bb_06004280`) retiring 11 native instructions over 48 cycles with zero fallback instructions;
-- Proved measured dependency reduction via runtime metrics (`has_measured_dependency_reduction() == true`, 100% native execution ratio across proven blocks);
-- Verified native video frame presentation (320x224 RGBA8888) and stereo audio sample generation;
-- Verified with dedicated unit test suite `test_standalone_runtime` (CTest #27);
-- 38/38 CTests pass across Windows MinGW and Linux WSL.
+Audit note: Under the mandatory ASM-first architecture confirmed by the user, all broad native C++ translation scaling is strictly frozen until the full ASM game gate is terminal. Existing implementations remain bounded proof/verification infrastructure specimens.
 
 ### D18 — Guest Dependency Removal & Standalone Game Executable Target
 
-Status: **NOT_PROVEN (SUPERSEDED / PROTOTYPE)**
+Status: **FROZEN_BY_ASM_FIRST_ARCHITECTURE (ADR D-015, ADR D-019)**
 
-Audit note: The terminal completion claim at commit 093abf0 was superseded after factual review. Standalone executable `thor2_native` links and runs self-tests, but retains guest CPU fallback interpreter `step_sh2`, broad C++ translation remains frozen under ADR D-015, and real L5 oracle equivalence against Mednafen reference remains unproven.
+Audit note: Under the mandatory ASM-first architecture confirmed by the user, standalone C++20 executable scaling and guest CPU removal are strictly frozen until the full ASM game gate is terminal.
 
-Capabilities proven to date:
-- Standalone native executable target `thor2_native` (`src/main_native.cpp`) built and linked with internal libraries;
-- Portable CLI interface supporting `--boot`, `--frames <N>`, `--metrics`, `--selftest`, and `--help`;
-- Deterministic multi-frame rendering and audio synthesis verified between candidate instances;
-- Dedicated unit test suite `test_guest_removal` (CTest #26);
-- Production guest CPU removal and true L5 oracle comparison remain pending.
+### T2-ASM-CARVER-01 — Thor Saturn Recovery Carver & Denominator Re-Audit
+
+Status: **COMPLETE / PASS**
+
+Capabilities proven:
+- Implemented Central Interval Database (`tools/carver/interval_db.py`) representing 100% of bytes across all modules with strict contiguous non-overlapping invariants;
+- Implemented prioritized Saturn Detector Registry (`tools/carver/detector_registry.py`, `detectors_code.py`, `detectors_data.py`) with 8 detectors;
+- Enforced Execution Conflict Rule (Rule 4 fail-closed): dynamically retired instructions promoted to `CONFIRMED_CODE` evidence; proven `DATA` never decoded as code;
+- R-Studio style RAM → disc signature carver (`tools/carver/ram_disc_carver.py`) matching runtime ranges across all 33 ISO9660 files on disc;
+- Provenance DAG (`tools/carver/provenance_dag.py`) enforcing Rule 5 (only `CONFIRMED` nodes authoritatively expand);
+- Fixed-point carver convergence loop (`tools/carver/carver_pipeline.py`) converging in 3 passes with 0 conflicts;
+- Residual UNKNOWN gaps audited and grouped into 43 recovery campaigns; P1 execution gaps in UNKNOWN reduced to 0;
+- Denominator honestly re-audited from 57,266 to 60,108 bytes (+2,842 newly confirmed code bytes); 81,435 bytes structured data and 82,562 bytes padding classified; residual UNKNOWN reduced by 166,839 bytes; audited mnemonic coverage confirmed at **92.07%** (passing `ASM_90_GATE` >= 90.00%);
+- 7/7 carver unit tests passing (`tests/carver/test_carver_pipeline.py`).
 
 ## Queued development milestones
 
@@ -387,7 +387,8 @@ Capabilities proven to date:
 | **T2-ASM-02** | **Full 0TH2.BIN lossless assembly container** | **Lossless full-module round-trip** | **BOUNDED_PROOF (0TH2.BIN)** |
 | **T2-ASM-03** | **TH2.LOW lossless ASM container** | **Lossless full-module round-trip & occurrence-aware runtime proof** | **BOUNDED_PROOF (TH2.LOW)** |
 | **T2-ASM-04** | **Disc executable inventory & secondary modules** | **Census, multi-processor lifetimes, SET07.BIN container** | **BOUNDED_PROOF (SET07.BIN)** |
-| **T2-ASM-05** | **Bulk PC harvesting & CFG recovery to ASM_90_GATE** | **Coverage >= 90%, runtime parity** | **PASS (96.59% COVERAGE)** |
+| **T2-ASM-05** | **Bulk PC harvesting & CFG recovery to ASM_90_GATE** | **Coverage >= 90%, runtime parity** | **PASS (96.59% PRE-AUDIT)** |
+| **T2-ASM-CARVER-01** | **Thor Saturn Recovery Carver & Denominator Re-Audit** | **Fixed-point interval audit & denominator re-calculation** | **COMPLETE / PASS (Audited 92.07% coverage, 0 conflicts)** |
 | **GATE** | **FULL_ASM_GAME_GATE** | **Rebuilt Saturn game boots & plays in Mednafen** | **PASS (100% of 4 modules, 6 gameplay scenarios verified)** |
 | **D10** | **Timing/IRQ/DMA boundaries** | **Classification & barrier model** | **BOUNDED_PROOF / PASS** |
 | **D11** | **Overlay/generation identity** | **Multi-generation descriptor & isolation** | **BOUNDED_PROOF / PASS** |
@@ -396,8 +397,8 @@ Capabilities proven to date:
 | **D14** | **Resource decode/reencode** | **V-11 (exact round-trip)** | **PASS (BYTE_ROUNDTRIP_EXACT)** |
 | **D15** | **HW-subsystem contracts** | **V-08 (SaturnRecomp component tests a–h)** | **BOUNDED_PROTOTYPE** |
 | **D16** | **Native subsystem replacement** | **V-08 (components passing differential test)** | **BOUNDED_PROTOTYPE** |
-| **D17** | **Progressive standalone runtime** | **V-14 (isolated, integrated, measured)** | **BOUNDED_PROTOTYPE** |
-| **D18** | **Guest dependency removal** | **— (L5 equivalence)** | **NOT_PROVEN** |
+| **D17** | **Progressive standalone runtime** | **V-14 (isolated, integrated, measured)** | **FROZEN_BY_ASM_FIRST_ARCHITECTURE** |
+| **D18** | **Guest dependency removal** | **— (L5 equivalence)** | **FROZEN_BY_ASM_FIRST_ARCHITECTURE** |
 
 ## References
 

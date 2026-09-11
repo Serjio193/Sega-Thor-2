@@ -336,3 +336,20 @@ This experiment proves toolchain feasibility and establishes the ASM round-trip 
 - **Consequences:**
   - Project returns immediately to the ASM-first recovery track.
   - Immediate focus is directed to `BGM.BIN` / MC68EC000 assembly pipeline and multi-scenario gameplay verification.
+
+## ADR D-019: Strict Return to ASM-First Architecture and Implementation of Evidence-Driven Recovery Carver
+
+- **Status:** APPROVED (2026-09-11)
+- **Context:**
+  The user explicitly confirmed the canonical ASM-first architecture: the entire game must be completely recovered in assembly before any broad C++ translation is permitted. While the previous scorecard reported 96.6% mnemonic coverage, this figure was calculated strictly over previously confirmed code (57,266 bytes), leaving 1,399,886 bytes as unexamined `UNKNOWN`. Unexamined code in the denominator meant the claimed 96.6% was unproven across the full binary substrate.
+- **Decision:**
+  1. **Freeze Broad C++ Translation Scaling:** Freeze D17 native scaling, StandaloneRuntime expansion, and D18 work. Existing C++ artifacts remain bounded proof specimens.
+  2. **Establish Central Interval Database:** Create canonical interval database (`tools/carver/interval_db.py`) representing 100% of bytes across all modules with strict contiguous non-overlapping invariants.
+  3. **Implement Saturn Detector Registry:** Deploy prioritized detectors for dynamic execution hits (CDL), direct branches, calls, literal pools, pointer tables, MMIO pointers, strings, and padding.
+  4. **Enforce Execution Conflict Rule:** Any byte retired by a CPU dynamically cannot remain `DATA` or `UNKNOWN`; it is promoted to `CONFIRMED_CODE` evidence fail-closed. Proven `DATA` cannot be silently decoded as code.
+  5. **Execute Fixed-Point Convergence:** Run iterative discovery loop until zero new candidate ranges emerge (converged in 3 passes).
+  6. **Honestly Re-Audit Denominator:** Discovered 2,842 newly confirmed executable code bytes (expanding denominator to 60,108 bytes), 81,435 bytes of structured data, and 82,562 bytes of alignment padding, reducing residual `UNKNOWN` by 166,839 bytes with 0 conflicts. Audited proven mnemonic coverage is 92.07% ($\ge 90.00\%$ passing `ASM_90_GATE`).
+- **Consequences:**
+  - Denominator is factually audited and hardened against coverage inflation.
+  - P1 execution gaps in UNKNOWN are reduced to 0.
+  - Residual UNKNOWN ranges are cataloged into prioritized recovery campaigns in `workstreams/T2-ASM-CARVER/`.

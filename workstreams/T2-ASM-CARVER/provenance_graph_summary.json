@@ -1,0 +1,18 @@
+{
+  "total_nodes": 13780,
+  "total_edges": 3434,
+  "nodes_by_type": {
+    "CODE_BLOCK": 5339,
+    "DATA_BLOCK": 8441
+  },
+  "nodes_by_status": {
+    "CONFIRMED": 6417,
+    "PROBABLE": 7363
+  },
+  "edges_by_relation": {
+    "EXPANSION_CHILD": 3434
+  },
+  "confirmed_nodes": 6417,
+  "probable_nodes": 7363,
+  "hypothesis_nodes": 0
+}

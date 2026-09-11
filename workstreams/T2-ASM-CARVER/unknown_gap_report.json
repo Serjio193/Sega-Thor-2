@@ -1,0 +1,1416 @@
+{
+  "total_unknown_gaps": 8196,
+  "total_unknown_bytes": 1233047,
+  "gaps_by_priority": {
+    "P1_EXECUTION": 0,
+    "P2_PROVENANCE": 0,
+    "P3_CONTROL_FLOW": 2259,
+    "P4_DATA_CONSUMER": 1994,
+    "P5_HEURISTIC": 3943
+  },
+  "total_campaigns": 25,
+  "campaigns": {
+    "0TH2.BIN_block_00": {
+      "count": 1149,
+      "bytes": 37438
+    },
+    "0TH2.BIN_block_01": {
+      "count": 438,
+      "bytes": 56076
+    },
+    "0TH2.BIN_block_02": {
+      "count": 203,
+      "bytes": 61947
+    },
+    "0TH2.BIN_block_03": {
+      "count": 326,
+      "bytes": 57035
+    },
+    "0TH2.BIN_block_04": {
+      "count": 230,
+      "bytes": 61156
+    },
+    "0TH2.BIN_block_05": {
+      "count": 220,
+      "bytes": 61149
+    },
+    "0TH2.BIN_block_06": {
+      "count": 313,
+      "bytes": 58811
+    },
+    "0TH2.BIN_block_07": {
+      "count": 1295,
+      "bytes": 36238
+    },
+    "0TH2.BIN_block_08": {
+      "count": 38,
+      "bytes": 5063
+    },
+    "BGM.BIN_block_00": {
+      "count": 176,
+      "bytes": 57791
+    },
+    "BGM.BIN_block_01": {
+      "count": 74,
+      "bytes": 80133
+    },
+    "BGM.BIN_block_02": {
+      "count": 187,
+      "bytes": 48129
+    },
+    "BGM.BIN_block_03": {
+      "count": 35,
+      "bytes": 71275
+    },
+    "BGM.BIN_block_04": {
+      "count": 111,
+      "bytes": 57111
+    },
+    "BGM.BIN_block_05": {
+      "count": 48,
+      "bytes": 63287
+    },
+    "BGM.BIN_block_06": {
+      "count": 403,
+      "bytes": 56034
+    },
+    "BGM.BIN_block_07": {
+      "count": 563,
+      "bytes": 59098
+    },
+    "BGM.BIN_block_08": {
+      "count": 405,
+      "bytes": 61354
+    },
+    "BGM.BIN_block_09": {
+      "count": 501,
+      "bytes": 57827
+    },
+    "BGM.BIN_block_0A": {
+      "count": 289,
+      "bytes": 14834
+    },
+    "SET07.BIN_block_00": {
+      "count": 227,
+      "bytes": 53852
+    },
+    "SET07.BIN_block_01": {
+      "count": 22,
+      "bytes": 1193
+    },
+    "TH2.LOW_block_00": {
+      "count": 426,
+      "bytes": 45943
+    },
+    "TH2.LOW_block_01": {
+      "count": 390,
+      "bytes": 57988
+    },
+    "TH2.LOW_block_02": {
+      "count": 127,
+      "bytes": 12285
+    }
+  },
+  "top_gaps": [
+    {
+      "module": "0TH2.BIN",
+      "generation": "gen_0",
+      "offset_start": 438424,
+      "offset_end_exclusive": 439528,
+      "byte_length": 1104,
+      "runtime_start": "0x0606F098",
+      "runtime_end_exclusive": "0x0606F4E8",
+      "left_neighbor": {
+        "class": "CONFIRMED_CODE",
+        "subclass": null,
+        "bytes": 4
+      },
+      "right_neighbor": {
+        "class": "CONFIRMED_CODE",
+        "subclass": null,
+        "bytes": 2
+      },
+      "pointers_into_gap": 0,
+      "runtime_reads": 554,
+      "runtime_executions": 0,
+      "literal_references": 0,
+      "candidate_subclasses": [],
+      "priority": "P3_CONTROL_FLOW",
+      "campaign_id": "0TH2.BIN_block_06"
+    },
+    {
+      "module": "0TH2.BIN",
+      "generation": "gen_0",
+      "offset_start": 449308,
+      "offset_end_exclusive": 450166,
+      "byte_length": 858,
+      "runtime_start": "0x06071B1C",
+      "runtime_end_exclusive": "0x06071E76",
+      "left_neighbor": {
+        "class": "CONFIRMED_CODE",
+        "subclass": null,
+        "bytes": 16
+      },
+      "right_neighbor": {
+        "class": "CONFIRMED_CODE",
+        "subclass": null,
+        "bytes": 6
+      },
+      "pointers_into_gap": 0,
+      "runtime_reads": 393,
+      "runtime_executions": 0,
+      "literal_references": 0,
+      "candidate_subclasses": [],
+      "priority": "P3_CONTROL_FLOW",
+      "campaign_id": "0TH2.BIN_block_06"
+    },
+    {
+      "module": "0TH2.BIN",
+      "generation": "gen_0",
+      "offset_start": 460890,
+      "offset_end_exclusive": 461700,
+      "byte_length": 810,
+      "runtime_start": "0x0607485A",
+      "runtime_end_exclusive": "0x06074B84",
+      "left_neighbor": {
+        "class": "CONFIRMED_CODE",
+        "subclass": null,
+        "bytes": 2
+      },
+      "right_neighbor": {
+        "class": "CONFIRMED_CODE",
+        "subclass": null,
+        "bytes": 2
+      },
+      "pointers_into_gap": 0,
+      "runtime_reads": 368,
+      "runtime_executions": 0,
+      "literal_references": 0,
+      "candidate_subclasses": [],
+      "priority": "P3_CONTROL_FLOW",
+      "campaign_id": "0TH2.BIN_block_07"
+    },
+    {
+      "module": "TH2.LOW",
+      "generation": "gen_0",
+      "offset_start": 54372,
+      "offset_end_exclusive": 55104,
+      "byte_length": 732,
+      "runtime_start": "0x002E7464",
+      "runtime_end_exclusive": "0x002E7740",
+      "left_neighbor": {
+        "class": "CONFIRMED_CODE",
+        "subclass": null,
+        "bytes": 24
+      },
+      "right_neighbor": {
+        "class": "CONFIRMED_CODE",
+        "subclass": null,
+        "bytes": 2
+      },
+      "pointers_into_gap": 0,
+      "runtime_reads": 0,
+      "runtime_executions": 0,
+      "literal_references": 0,
+      "candidate_subclasses": [],
+      "priority": "P3_CONTROL_FLOW",
+      "campaign_id": "TH2.LOW_block_00"
+    },
+    {
+      "module": "0TH2.BIN",
+      "generation": "gen_0",
+      "offset_start": 78246,
+      "offset_end_exclusive": 78798,
+      "byte_length": 552,
+      "runtime_start": "0x060171A6",
+      "runtime_end_exclusive": "0x060173CE",
+      "left_neighbor": {
+        "class": "CONFIRMED_CODE",
+        "subclass": null,
+        "bytes": 2
+      },
+      "right_neighbor": {
+        "class": "CONFIRMED_CODE",
+        "subclass": null,
+        "bytes": 14
+      },
+      "pointers_into_gap": 0,
+      "runtime_reads": 552,
+      "runtime_executions": 0,
+      "literal_references": 0,
+      "candidate_subclasses": [],
+      "priority": "P3_CONTROL_FLOW",
+      "campaign_id": "0TH2.BIN_block_01"
+    },
+    {
+      "module": "0TH2.BIN",
+      "generation": "gen_0",
+      "offset_start": 41604,
+      "offset_end_exclusive": 42015,
+      "byte_length": 411,
+      "runtime_start": "0x0600E284",
+      "runtime_end_exclusive": "0x0600E41F",
+      "left_neighbor": {
+        "class": "CONFIRMED_CODE",
+        "subclass": null,
+        "bytes": 42
+      },
+      "right_neighbor": {
+        "class": "DATA",
+        "subclass": "STRING_TABLE",
+        "bytes": 7
+      },
+      "pointers_into_gap": 0,
+      "runtime_reads": 4,
+      "runtime_executions": 0,
+      "literal_references": 0,
+      "candidate_subclasses": [],
+      "priority": "P3_CONTROL_FLOW",
+      "campaign_id": "0TH2.BIN_block_00"
+    },
+    {
+      "module": "0TH2.BIN",
+      "generation": "gen_0",
+      "offset_start": 437992,
+      "offset_end_exclusive": 438378,
+      "byte_length": 386,
+      "runtime_start": "0x0606EEE8",
+      "runtime_end_exclusive": "0x0606F06A",
+      "left_neighbor": {
+        "class": "CONFIRMED_CODE",
+        "subclass": null,
+        "bytes": 22
+      },
+      "right_neighbor": {
+        "class": "CONFIRMED_CODE",
+        "subclass": null,
+        "bytes": 4
+      },
+      "pointers_into_gap": 0,
+      "runtime_reads": 186,
+      "runtime_executions": 0,
+      "literal_references": 0,
+      "candidate_subclasses": [],
+      "priority": "P3_CONTROL_FLOW",
+      "campaign_id": "0TH2.BIN_block_06"
+    },
+    {
+      "module": "0TH2.BIN",
+      "generation": "gen_0",
+      "offset_start": 7958,
+      "offset_end_exclusive": 8312,
+      "byte_length": 354,
+      "runtime_start": "0x06005F16",
+      "runtime_end_exclusive": "0x06006078",
+      "left_neighbor": {
+        "class": "CONFIRMED_CODE",
+        "subclass": null,
+        "bytes": 2
+      },
+      "right_neighbor": {
+        "class": "CONFIRMED_CODE",
+        "subclass": null,
+        "bytes": 2
+      },
+      "pointers_into_gap": 0,
+      "runtime_reads": 4,
+      "runtime_executions": 0,
+      "literal_references": 0,
+      "candidate_subclasses": [],
+      "priority": "P3_CONTROL_FLOW",
+      "campaign_id": "0TH2.BIN_block_00"
+    },
+    {
+      "module": "0TH2.BIN",
+      "generation": "gen_0",
+      "offset_start": 505676,
+      "offset_end_exclusive": 506026,
+      "byte_length": 350,
+      "runtime_start": "0x0607F74C",
+      "runtime_end_exclusive": "0x0607F8AA",
+      "left_neighbor": {
+        "class": "CONFIRMED_CODE",
+        "subclass": null,
+        "bytes": 8
+      },
+      "right_neighbor": {
+        "class": "CONFIRMED_CODE",
+        "subclass": null,
+        "bytes": 52
+      },
+      "pointers_into_gap": 0,
+      "runtime_reads": 8,
+      "runtime_executions": 0,
+      "literal_references": 0,
+      "candidate_subclasses": [],
+      "priority": "P3_CONTROL_FLOW",
+      "campaign_id": "0TH2.BIN_block_07"
+    },
+    {
+      "module": "0TH2.BIN",
+      "generation": "gen_0",
+      "offset_start": 461702,
+      "offset_end_exclusive": 462048,
+      "byte_length": 346,
+      "runtime_start": "0x06074B86",
+      "runtime_end_exclusive": "0x06074CE0",
+      "left_neighbor": {
+        "class": "CONFIRMED_CODE",
+        "subclass": null,
+        "bytes": 2
+      },
+      "right_neighbor": {
+        "class": "CONFIRMED_CODE",
+        "subclass": null,
+        "bytes": 2
+      },
+      "pointers_into_gap": 0,
+      "runtime_reads": 158,
+      "runtime_executions": 0,
+      "literal_references": 0,
+      "candidate_subclasses": [],
+      "priority": "P3_CONTROL_FLOW",
+      "campaign_id": "0TH2.BIN_block_07"
+    },
+    {
+      "module": "TH2.LOW",
+      "generation": "gen_0",
+      "offset_start": 55334,
+      "offset_end_exclusive": 55664,
+      "byte_length": 330,
+      "runtime_start": "0x002E7826",
+      "runtime_end_exclusive": "0x002E7970",
+      "left_neighbor": {
+        "class": "CONFIRMED_CODE",
+        "subclass": null,
+        "bytes": 36
+      },
+      "right_neighbor": {
+        "class": "DATA",
+        "subclass": "LITERAL_POOL",
+        "bytes": 4
+      },
+      "pointers_into_gap": 0,
+      "runtime_reads": 0,
+      "runtime_executions": 0,
+      "literal_references": 0,
+      "candidate_subclasses": [],
+      "priority": "P3_CONTROL_FLOW",
+      "campaign_id": "TH2.LOW_block_00"
+    },
+    {
+      "module": "0TH2.BIN",
+      "generation": "gen_0",
+      "offset_start": 19114,
+      "offset_end_exclusive": 19442,
+      "byte_length": 328,
+      "runtime_start": "0x06008AAA",
+      "runtime_end_exclusive": "0x06008BF2",
+      "left_neighbor": {
+        "class": "CONFIRMED_CODE",
+        "subclass": null,
+        "bytes": 2
+      },
+      "right_neighbor": {
+        "class": "CONFIRMED_CODE",
+        "subclass": null,
+        "bytes": 2
+      },
+      "pointers_into_gap": 0,
+      "runtime_reads": 0,
+      "runtime_executions": 0,
+      "literal_references": 0,
+      "candidate_subclasses": [],
+      "priority": "P3_CONTROL_FLOW",
+      "campaign_id": "0TH2.BIN_block_00"
+    },
+    {
+      "module": "0TH2.BIN",
+      "generation": "gen_0",
+      "offset_start": 71026,
+      "offset_end_exclusive": 71352,
+      "byte_length": 326,
+      "runtime_start": "0x06015572",
+      "runtime_end_exclusive": "0x060156B8",
+      "left_neighbor": {
+        "class": "CONFIRMED_CODE",
+        "subclass": null,
+        "bytes": 2
+      },
+      "right_neighbor": {
+        "class": "CONFIRMED_CODE",
+        "subclass": null,
+        "bytes": 2
+      },
+      "pointers_into_gap": 0,
+      "runtime_reads": 326,
+      "runtime_executions": 0,
+      "literal_references": 0,
+      "candidate_subclasses": [],
+      "priority": "P3_CONTROL_FLOW",
+      "campaign_id": "0TH2.BIN_block_01"
+    },
+    {
+      "module": "0TH2.BIN",
+      "generation": "gen_0",
+      "offset_start": 426348,
+      "offset_end_exclusive": 426652,
+      "byte_length": 304,
+      "runtime_start": "0x0606C16C",
+      "runtime_end_exclusive": "0x0606C29C",
+      "left_neighbor": {
+        "class": "CONFIRMED_CODE",
+        "subclass": null,
+        "bytes": 4
+      },
+      "right_neighbor": {
+        "class": "DATA",
+        "subclass": "POINTER_TABLE",
+        "bytes": 24
+      },
+      "pointers_into_gap": 0,
+      "runtime_reads": 154,
+      "runtime_executions": 0,
+      "literal_references": 0,
+      "candidate_subclasses": [],
+      "priority": "P3_CONTROL_FLOW",
+      "campaign_id": "0TH2.BIN_block_06"
+    },
+    {
+      "module": "0TH2.BIN",
+      "generation": "gen_0",
+      "offset_start": 478138,
+      "offset_end_exclusive": 478434,
+      "byte_length": 296,
+      "runtime_start": "0x06078BBA",
+      "runtime_end_exclusive": "0x06078CE2",
+      "left_neighbor": {
+        "class": "CONFIRMED_CODE",
+        "subclass": null,
+        "bytes": 6
+      },
+      "right_neighbor": {
+        "class": "CONFIRMED_CODE",
+        "subclass": null,
+        "bytes": 2
+      },
+      "pointers_into_gap": 0,
+      "runtime_reads": 192,
+      "runtime_executions": 0,
+      "literal_references": 0,
+      "candidate_subclasses": [],
+      "priority": "P3_CONTROL_FLOW",
+      "campaign_id": "0TH2.BIN_block_07"
+    },
+    {
+      "module": "0TH2.BIN",
+      "generation": "gen_0",
+      "offset_start": 495812,
+      "offset_end_exclusive": 496058,
+      "byte_length": 246,
+      "runtime_start": "0x0607D0C4",
+      "runtime_end_exclusive": "0x0607D1BA",
+      "left_neighbor": {
+        "class": "CONFIRMED_CODE",
+        "subclass": null,
+        "bytes": 20
+      },
+      "right_neighbor": {
+        "class": "CONFIRMED_CODE",
+        "subclass": null,
+        "bytes": 2
+      },
+      "pointers_into_gap": 0,
+      "runtime_reads": 0,
+      "runtime_executions": 0,
+      "literal_references": 0,
+      "candidate_subclasses": [],
+      "priority": "P3_CONTROL_FLOW",
+      "campaign_id": "0TH2.BIN_block_07"
+    },
+    {
+      "module": "0TH2.BIN",
+      "generation": "gen_0",
+      "offset_start": 74994,
+      "offset_end_exclusive": 75238,
+      "byte_length": 244,
+      "runtime_start": "0x060164F2",
+      "runtime_end_exclusive": "0x060165E6",
+      "left_neighbor": {
+        "class": "CONFIRMED_CODE",
+        "subclass": null,
+        "bytes": 16
+      },
+      "right_neighbor": {
+        "class": "DATA",
+        "subclass": "STRING_TABLE",
+        "bytes": 6
+      },
+      "pointers_into_gap": 0,
+      "runtime_reads": 244,
+      "runtime_executions": 0,
+      "literal_references": 0,
+      "candidate_subclasses": [],
+      "priority": "P3_CONTROL_FLOW",
+      "campaign_id": "0TH2.BIN_block_01"
+    },
+    {
+      "module": "0TH2.BIN",
+      "generation": "gen_0",
+      "offset_start": 9038,
+      "offset_end_exclusive": 9260,
+      "byte_length": 222,
+      "runtime_start": "0x0600634E",
+      "runtime_end_exclusive": "0x0600642C",
+      "left_neighbor": {
+        "class": "CONFIRMED_CODE",
+        "subclass": null,
+        "bytes": 2
+      },
+      "right_neighbor": {
+        "class": "DATA",
+        "subclass": "POINTER_TABLE",
+        "bytes": 72
+      },
+      "pointers_into_gap": 0,
+      "runtime_reads": 4,
+      "runtime_executions": 0,
+      "literal_references": 0,
+      "candidate_subclasses": [],
+      "priority": "P3_CONTROL_FLOW",
+      "campaign_id": "0TH2.BIN_block_00"
+    },
+    {
+      "module": "TH2.LOW",
+      "generation": "gen_0",
+      "offset_start": 63796,
+      "offset_end_exclusive": 64012,
+      "byte_length": 216,
+      "runtime_start": "0x002E9934",
+      "runtime_end_exclusive": "0x002E9A0C",
+      "left_neighbor": {
+        "class": "CONFIRMED_CODE",
+        "subclass": null,
+        "bytes": 2
+      },
+      "right_neighbor": {
+        "class": "DATA",
+        "subclass": "LITERAL_POOL",
+        "bytes": 4
+      },
+      "pointers_into_gap": 0,
+      "runtime_reads": 0,
+      "runtime_executions": 0,
+      "literal_references": 0,
+      "candidate_subclasses": [],
+      "priority": "P3_CONTROL_FLOW",
+      "campaign_id": "TH2.LOW_block_00"
+    },
+    {
+      "module": "TH2.LOW",
+      "generation": "gen_0",
+      "offset_start": 67180,
+      "offset_end_exclusive": 67396,
+      "byte_length": 216,
+      "runtime_start": "0x002EA66C",
+      "runtime_end_exclusive": "0x002EA744",
+      "left_neighbor": {
+        "class": "CONFIRMED_CODE",
+        "subclass": null,
+        "bytes": 6
+      },
+      "right_neighbor": {
+        "class": "CONFIRMED_CODE",
+        "subclass": null,
+        "bytes": 2
+      },
+      "pointers_into_gap": 0,
+      "runtime_reads": 0,
+      "runtime_executions": 0,
+      "literal_references": 0,
+      "candidate_subclasses": [],
+      "priority": "P3_CONTROL_FLOW",
+      "campaign_id": "TH2.LOW_block_01"
+    },
+    {
+      "module": "0TH2.BIN",
+      "generation": "gen_0",
+      "offset_start": 15986,
+      "offset_end_exclusive": 16200,
+      "byte_length": 214,
+      "runtime_start": "0x06007E72",
+      "runtime_end_exclusive": "0x06007F48",
+      "left_neighbor": {
+        "class": "CONFIRMED_CODE",
+        "subclass": null,
+        "bytes": 60
+      },
+      "right_neighbor": {
+        "class": "CONFIRMED_CODE",
+        "subclass": null,
+        "bytes": 2
+      },
+      "pointers_into_gap": 0,
+      "runtime_reads": 0,
+      "runtime_executions": 0,
+      "literal_references": 0,
+      "candidate_subclasses": [],
+      "priority": "P3_CONTROL_FLOW",
+      "campaign_id": "0TH2.BIN_block_00"
+    },
+    {
+      "module": "0TH2.BIN",
+      "generation": "gen_0",
+      "offset_start": 73144,
+      "offset_end_exclusive": 73350,
+      "byte_length": 206,
+      "runtime_start": "0x06015DB8",
+      "runtime_end_exclusive": "0x06015E86",
+      "left_neighbor": {
+        "class": "CONFIRMED_CODE",
+        "subclass": null,
+        "bytes": 2
+      },
+      "right_neighbor": {
+        "class": "CONFIRMED_CODE",
+        "subclass": null,
+        "bytes": 2
+      },
+      "pointers_into_gap": 0,
+      "runtime_reads": 206,
+      "runtime_executions": 0,
+      "literal_references": 0,
+      "candidate_subclasses": [],
+      "priority": "P3_CONTROL_FLOW",
+      "campaign_id": "0TH2.BIN_block_01"
+    },
+    {
+      "module": "0TH2.BIN",
+      "generation": "gen_0",
+      "offset_start": 78904,
+      "offset_end_exclusive": 79110,
+      "byte_length": 206,
+      "runtime_start": "0x06017438",
+      "runtime_end_exclusive": "0x06017506",
+      "left_neighbor": {
+        "class": "CONFIRMED_CODE",
+        "subclass": null,
+        "bytes": 10
+      },
+      "right_neighbor": {
+        "class": "DATA",
+        "subclass": "LITERAL_POOL",
+        "bytes": 2
+      },
+      "pointers_into_gap": 0,
+      "runtime_reads": 206,
+      "runtime_executions": 0,
+      "literal_references": 0,
+      "candidate_subclasses": [],
+      "priority": "P3_CONTROL_FLOW",
+      "campaign_id": "0TH2.BIN_block_01"
+    },
+    {
+      "module": "0TH2.BIN",
+      "generation": "gen_0",
+      "offset_start": 478526,
+      "offset_end_exclusive": 478712,
+      "byte_length": 186,
+      "runtime_start": "0x06078D3E",
+      "runtime_end_exclusive": "0x06078DF8",
+      "left_neighbor": {
+        "class": "CONFIRMED_CODE",
+        "subclass": null,
+        "bytes": 8
+      },
+      "right_neighbor": {
+        "class": "DATA",
+        "subclass": "POINTER_TABLE",
+        "bytes": 12
+      },
+      "pointers_into_gap": 0,
+      "runtime_reads": 108,
+      "runtime_executions": 0,
+      "literal_references": 0,
+      "candidate_subclasses": [],
+      "priority": "P3_CONTROL_FLOW",
+      "campaign_id": "0TH2.BIN_block_07"
+    },
+    {
+      "module": "0TH2.BIN",
+      "generation": "gen_0",
+      "offset_start": 76718,
+      "offset_end_exclusive": 76902,
+      "byte_length": 184,
+      "runtime_start": "0x06016BAE",
+      "runtime_end_exclusive": "0x06016C66",
+      "left_neighbor": {
+        "class": "CONFIRMED_CODE",
+        "subclass": null,
+        "bytes": 20
+      },
+      "right_neighbor": {
+        "class": "DATA",
+        "subclass": "LITERAL_POOL",
+        "bytes": 2
+      },
+      "pointers_into_gap": 0,
+      "runtime_reads": 184,
+      "runtime_executions": 0,
+      "literal_references": 0,
+      "candidate_subclasses": [],
+      "priority": "P3_CONTROL_FLOW",
+      "campaign_id": "0TH2.BIN_block_01"
+    },
+    {
+      "module": "0TH2.BIN",
+      "generation": "gen_0",
+      "offset_start": 221608,
+      "offset_end_exclusive": 221790,
+      "byte_length": 182,
+      "runtime_start": "0x0603A1A8",
+      "runtime_end_exclusive": "0x0603A25E",
+      "left_neighbor": {
+        "class": "CONFIRMED_CODE",
+        "subclass": null,
+        "bytes": 2
+      },
+      "right_neighbor": {
+        "class": "DATA",
+        "subclass": "LITERAL_POOL",
+        "bytes": 2
+      },
+      "pointers_into_gap": 0,
+      "runtime_reads": 5,
+      "runtime_executions": 0,
+      "literal_references": 0,
+      "candidate_subclasses": [],
+      "priority": "P3_CONTROL_FLOW",
+      "campaign_id": "0TH2.BIN_block_03"
+    },
+    {
+      "module": "0TH2.BIN",
+      "generation": "gen_0",
+      "offset_start": 437510,
+      "offset_end_exclusive": 437690,
+      "byte_length": 180,
+      "runtime_start": "0x0606ED06",
+      "runtime_end_exclusive": "0x0606EDBA",
+      "left_neighbor": {
+        "class": "CONFIRMED_CODE",
+        "subclass": null,
+        "bytes": 4
+      },
+      "right_neighbor": {
+        "class": "CONFIRMED_CODE",
+        "subclass": null,
+        "bytes": 8
+      },
+      "pointers_into_gap": 0,
+      "runtime_reads": 98,
+      "runtime_executions": 0,
+      "literal_references": 0,
+      "candidate_subclasses": [],
+      "priority": "P3_CONTROL_FLOW",
+      "campaign_id": "0TH2.BIN_block_06"
+    },
+    {
+      "module": "0TH2.BIN",
+      "generation": "gen_0",
+      "offset_start": 8496,
+      "offset_end_exclusive": 8674,
+      "byte_length": 178,
+      "runtime_start": "0x06006130",
+      "runtime_end_exclusive": "0x060061E2",
+      "left_neighbor": {
+        "class": "CONFIRMED_CODE",
+        "subclass": null,
+        "bytes": 10
+      },
+      "right_neighbor": {
+        "class": "DATA",
+        "subclass": "LITERAL_POOL",
+        "bytes": 2
+      },
+      "pointers_into_gap": 0,
+      "runtime_reads": 0,
+      "runtime_executions": 0,
+      "literal_references": 0,
+      "candidate_subclasses": [],
+      "priority": "P3_CONTROL_FLOW",
+      "campaign_id": "0TH2.BIN_block_00"
+    },
+    {
+      "module": "TH2.LOW",
+      "generation": "gen_0",
+      "offset_start": 60418,
+      "offset_end_exclusive": 60596,
+      "byte_length": 178,
+      "runtime_start": "0x002E8C02",
+      "runtime_end_exclusive": "0x002E8CB4",
+      "left_neighbor": {
+        "class": "CONFIRMED_CODE",
+        "subclass": null,
+        "bytes": 28
+      },
+      "right_neighbor": {
+        "class": "DATA",
+        "subclass": "LITERAL_POOL",
+        "bytes": 2
+      },
+      "pointers_into_gap": 0,
+      "runtime_reads": 0,
+      "runtime_executions": 0,
+      "literal_references": 0,
+      "candidate_subclasses": [],
+      "priority": "P3_CONTROL_FLOW",
+      "campaign_id": "TH2.LOW_block_00"
+    },
+    {
+      "module": "TH2.LOW",
+      "generation": "gen_0",
+      "offset_start": 46492,
+      "offset_end_exclusive": 46668,
+      "byte_length": 176,
+      "runtime_start": "0x002E559C",
+      "runtime_end_exclusive": "0x002E564C",
+      "left_neighbor": {
+        "class": "CONFIRMED_CODE",
+        "subclass": null,
+        "bytes": 18
+      },
+      "right_neighbor": {
+        "class": "DATA",
+        "subclass": "MMIO_POINTER",
+        "bytes": 4
+      },
+      "pointers_into_gap": 0,
+      "runtime_reads": 0,
+      "runtime_executions": 0,
+      "literal_references": 0,
+      "candidate_subclasses": [],
+      "priority": "P3_CONTROL_FLOW",
+      "campaign_id": "TH2.LOW_block_00"
+    },
+    {
+      "module": "0TH2.BIN",
+      "generation": "gen_0",
+      "offset_start": 498836,
+      "offset_end_exclusive": 499008,
+      "byte_length": 172,
+      "runtime_start": "0x0607DC94",
+      "runtime_end_exclusive": "0x0607DD40",
+      "left_neighbor": {
+        "class": "CONFIRMED_CODE",
+        "subclass": null,
+        "bytes": 8
+      },
+      "right_neighbor": {
+        "class": "DATA",
+        "subclass": "POINTER_TABLE",
+        "bytes": 16
+      },
+      "pointers_into_gap": 0,
+      "runtime_reads": 0,
+      "runtime_executions": 0,
+      "literal_references": 0,
+      "candidate_subclasses": [],
+      "priority": "P3_CONTROL_FLOW",
+      "campaign_id": "0TH2.BIN_block_07"
+    },
+    {
+      "module": "0TH2.BIN",
+      "generation": "gen_0",
+      "offset_start": 14420,
+      "offset_end_exclusive": 14580,
+      "byte_length": 160,
+      "runtime_start": "0x06007854",
+      "runtime_end_exclusive": "0x060078F4",
+      "left_neighbor": {
+        "class": "CONFIRMED_CODE",
+        "subclass": null,
+        "bytes": 12
+      },
+      "right_neighbor": {
+        "class": "CONFIRMED_CODE",
+        "subclass": null,
+        "bytes": 2
+      },
+      "pointers_into_gap": 0,
+      "runtime_reads": 0,
+      "runtime_executions": 0,
+      "literal_references": 0,
+      "candidate_subclasses": [],
+      "priority": "P3_CONTROL_FLOW",
+      "campaign_id": "0TH2.BIN_block_00"
+    },
+    {
+      "module": "0TH2.BIN",
+      "generation": "gen_0",
+      "offset_start": 497988,
+      "offset_end_exclusive": 498146,
+      "byte_length": 158,
+      "runtime_start": "0x0607D944",
+      "runtime_end_exclusive": "0x0607D9E2",
+      "left_neighbor": {
+        "class": "CONFIRMED_CODE",
+        "subclass": null,
+        "bytes": 4
+      },
+      "right_neighbor": {
+        "class": "CONFIRMED_CODE",
+        "subclass": null,
+        "bytes": 24
+      },
+      "pointers_into_gap": 0,
+      "runtime_reads": 0,
+      "runtime_executions": 0,
+      "literal_references": 0,
+      "candidate_subclasses": [],
+      "priority": "P3_CONTROL_FLOW",
+      "campaign_id": "0TH2.BIN_block_07"
+    },
+    {
+      "module": "0TH2.BIN",
+      "generation": "gen_0",
+      "offset_start": 4598,
+      "offset_end_exclusive": 4752,
+      "byte_length": 154,
+      "runtime_start": "0x060051F6",
+      "runtime_end_exclusive": "0x06005290",
+      "left_neighbor": {
+        "class": "CONFIRMED_CODE",
+        "subclass": null,
+        "bytes": 34
+      },
+      "right_neighbor": {
+        "class": "DATA",
+        "subclass": "LITERAL_POOL",
+        "bytes": 4
+      },
+      "pointers_into_gap": 0,
+      "runtime_reads": 0,
+      "runtime_executions": 0,
+      "literal_references": 0,
+      "candidate_subclasses": [],
+      "priority": "P3_CONTROL_FLOW",
+      "campaign_id": "0TH2.BIN_block_00"
+    },
+    {
+      "module": "0TH2.BIN",
+      "generation": "gen_0",
+      "offset_start": 33664,
+      "offset_end_exclusive": 33816,
+      "byte_length": 152,
+      "runtime_start": "0x0600C380",
+      "runtime_end_exclusive": "0x0600C418",
+      "left_neighbor": {
+        "class": "CONFIRMED_CODE",
+        "subclass": null,
+        "bytes": 38
+      },
+      "right_neighbor": {
+        "class": "DATA",
+        "subclass": "LITERAL_POOL",
+        "bytes": 4
+      },
+      "pointers_into_gap": 0,
+      "runtime_reads": 4,
+      "runtime_executions": 0,
+      "literal_references": 0,
+      "candidate_subclasses": [],
+      "priority": "P3_CONTROL_FLOW",
+      "campaign_id": "0TH2.BIN_block_00"
+    },
+    {
+      "module": "0TH2.BIN",
+      "generation": "gen_0",
+      "offset_start": 23738,
+      "offset_end_exclusive": 23888,
+      "byte_length": 150,
+      "runtime_start": "0x06009CBA",
+      "runtime_end_exclusive": "0x06009D50",
+      "left_neighbor": {
+        "class": "CONFIRMED_CODE",
+        "subclass": null,
+        "bytes": 16
+      },
+      "right_neighbor": {
+        "class": "CONFIRMED_CODE",
+        "subclass": null,
+        "bytes": 2
+      },
+      "pointers_into_gap": 0,
+      "runtime_reads": 0,
+      "runtime_executions": 0,
+      "literal_references": 0,
+      "candidate_subclasses": [],
+      "priority": "P3_CONTROL_FLOW",
+      "campaign_id": "0TH2.BIN_block_00"
+    },
+    {
+      "module": "0TH2.BIN",
+      "generation": "gen_0",
+      "offset_start": 50852,
+      "offset_end_exclusive": 50998,
+      "byte_length": 146,
+      "runtime_start": "0x060106A4",
+      "runtime_end_exclusive": "0x06010736",
+      "left_neighbor": {
+        "class": "CONFIRMED_CODE",
+        "subclass": null,
+        "bytes": 54
+      },
+      "right_neighbor": {
+        "class": "CONFIRMED_CODE",
+        "subclass": null,
+        "bytes": 56
+      },
+      "pointers_into_gap": 0,
+      "runtime_reads": 146,
+      "runtime_executions": 0,
+      "literal_references": 0,
+      "candidate_subclasses": [],
+      "priority": "P3_CONTROL_FLOW",
+      "campaign_id": "0TH2.BIN_block_00"
+    },
+    {
+      "module": "0TH2.BIN",
+      "generation": "gen_0",
+      "offset_start": 19940,
+      "offset_end_exclusive": 20084,
+      "byte_length": 144,
+      "runtime_start": "0x06008DE4",
+      "runtime_end_exclusive": "0x06008E74",
+      "left_neighbor": {
+        "class": "CONFIRMED_CODE",
+        "subclass": null,
+        "bytes": 12
+      },
+      "right_neighbor": {
+        "class": "DATA",
+        "subclass": "LITERAL_POOL",
+        "bytes": 4
+      },
+      "pointers_into_gap": 0,
+      "runtime_reads": 0,
+      "runtime_executions": 0,
+      "literal_references": 0,
+      "candidate_subclasses": [],
+      "priority": "P3_CONTROL_FLOW",
+      "campaign_id": "0TH2.BIN_block_00"
+    },
+    {
+      "module": "0TH2.BIN",
+      "generation": "gen_0",
+      "offset_start": 25198,
+      "offset_end_exclusive": 25342,
+      "byte_length": 144,
+      "runtime_start": "0x0600A26E",
+      "runtime_end_exclusive": "0x0600A2FE",
+      "left_neighbor": {
+        "class": "CONFIRMED_CODE",
+        "subclass": null,
+        "bytes": 16
+      },
+      "right_neighbor": {
+        "class": "DATA",
+        "subclass": "LITERAL_POOL",
+        "bytes": 2
+      },
+      "pointers_into_gap": 0,
+      "runtime_reads": 0,
+      "runtime_executions": 0,
+      "literal_references": 0,
+      "candidate_subclasses": [],
+      "priority": "P3_CONTROL_FLOW",
+      "campaign_id": "0TH2.BIN_block_00"
+    },
+    {
+      "module": "0TH2.BIN",
+      "generation": "gen_0",
+      "offset_start": 27732,
+      "offset_end_exclusive": 27876,
+      "byte_length": 144,
+      "runtime_start": "0x0600AC54",
+      "runtime_end_exclusive": "0x0600ACE4",
+      "left_neighbor": {
+        "class": "CONFIRMED_CODE",
+        "subclass": null,
+        "bytes": 4
+      },
+      "right_neighbor": {
+        "class": "DATA",
+        "subclass": "POINTER_TABLE",
+        "bytes": 84
+      },
+      "pointers_into_gap": 0,
+      "runtime_reads": 0,
+      "runtime_executions": 0,
+      "literal_references": 0,
+      "candidate_subclasses": [],
+      "priority": "P3_CONTROL_FLOW",
+      "campaign_id": "0TH2.BIN_block_00"
+    },
+    {
+      "module": "0TH2.BIN",
+      "generation": "gen_0",
+      "offset_start": 70224,
+      "offset_end_exclusive": 70368,
+      "byte_length": 144,
+      "runtime_start": "0x06015250",
+      "runtime_end_exclusive": "0x060152E0",
+      "left_neighbor": {
+        "class": "CONFIRMED_CODE",
+        "subclass": null,
+        "bytes": 34
+      },
+      "right_neighbor": {
+        "class": "DATA",
+        "subclass": "LITERAL_POOL",
+        "bytes": 2
+      },
+      "pointers_into_gap": 0,
+      "runtime_reads": 144,
+      "runtime_executions": 0,
+      "literal_references": 0,
+      "candidate_subclasses": [],
+      "priority": "P3_CONTROL_FLOW",
+      "campaign_id": "0TH2.BIN_block_01"
+    },
+    {
+      "module": "0TH2.BIN",
+      "generation": "gen_0",
+      "offset_start": 467268,
+      "offset_end_exclusive": 467412,
+      "byte_length": 144,
+      "runtime_start": "0x06076144",
+      "runtime_end_exclusive": "0x060761D4",
+      "left_neighbor": {
+        "class": "CONFIRMED_CODE",
+        "subclass": null,
+        "bytes": 2
+      },
+      "right_neighbor": {
+        "class": "DATA",
+        "subclass": "LITERAL_POOL",
+        "bytes": 2
+      },
+      "pointers_into_gap": 0,
+      "runtime_reads": 65,
+      "runtime_executions": 0,
+      "literal_references": 0,
+      "candidate_subclasses": [],
+      "priority": "P3_CONTROL_FLOW",
+      "campaign_id": "0TH2.BIN_block_07"
+    },
+    {
+      "module": "TH2.LOW",
+      "generation": "gen_0",
+      "offset_start": 58630,
+      "offset_end_exclusive": 58774,
+      "byte_length": 144,
+      "runtime_start": "0x002E8506",
+      "runtime_end_exclusive": "0x002E8596",
+      "left_neighbor": {
+        "class": "CONFIRMED_CODE",
+        "subclass": null,
+        "bytes": 20
+      },
+      "right_neighbor": {
+        "class": "CONFIRMED_CODE",
+        "subclass": null,
+        "bytes": 2
+      },
+      "pointers_into_gap": 0,
+      "runtime_reads": 0,
+      "runtime_executions": 0,
+      "literal_references": 0,
+      "candidate_subclasses": [],
+      "priority": "P3_CONTROL_FLOW",
+      "campaign_id": "TH2.LOW_block_00"
+    },
+    {
+      "module": "0TH2.BIN",
+      "generation": "gen_0",
+      "offset_start": 71558,
+      "offset_end_exclusive": 71696,
+      "byte_length": 138,
+      "runtime_start": "0x06015786",
+      "runtime_end_exclusive": "0x06015810",
+      "left_neighbor": {
+        "class": "CONFIRMED_CODE",
+        "subclass": null,
+        "bytes": 24
+      },
+      "right_neighbor": {
+        "class": "CONFIRMED_CODE",
+        "subclass": null,
+        "bytes": 2
+      },
+      "pointers_into_gap": 0,
+      "runtime_reads": 138,
+      "runtime_executions": 0,
+      "literal_references": 0,
+      "candidate_subclasses": [],
+      "priority": "P3_CONTROL_FLOW",
+      "campaign_id": "0TH2.BIN_block_01"
+    },
+    {
+      "module": "0TH2.BIN",
+      "generation": "gen_0",
+      "offset_start": 458010,
+      "offset_end_exclusive": 458148,
+      "byte_length": 138,
+      "runtime_start": "0x06073D1A",
+      "runtime_end_exclusive": "0x06073DA4",
+      "left_neighbor": {
+        "class": "CONFIRMED_CODE",
+        "subclass": null,
+        "bytes": 2
+      },
+      "right_neighbor": {
+        "class": "CONFIRMED_CODE",
+        "subclass": null,
+        "bytes": 2
+      },
+      "pointers_into_gap": 0,
+      "runtime_reads": 63,
+      "runtime_executions": 0,
+      "literal_references": 0,
+      "candidate_subclasses": [],
+      "priority": "P3_CONTROL_FLOW",
+      "campaign_id": "0TH2.BIN_block_06"
+    },
+    {
+      "module": "0TH2.BIN",
+      "generation": "gen_0",
+      "offset_start": 3706,
+      "offset_end_exclusive": 3842,
+      "byte_length": 136,
+      "runtime_start": "0x06004E7A",
+      "runtime_end_exclusive": "0x06004F02",
+      "left_neighbor": {
+        "class": "CONFIRMED_CODE",
+        "subclass": null,
+        "bytes": 40
+      },
+      "right_neighbor": {
+        "class": "CONFIRMED_CODE",
+        "subclass": null,
+        "bytes": 22
+      },
+      "pointers_into_gap": 0,
+      "runtime_reads": 0,
+      "runtime_executions": 0,
+      "literal_references": 0,
+      "candidate_subclasses": [],
+      "priority": "P3_CONTROL_FLOW",
+      "campaign_id": "0TH2.BIN_block_00"
+    },
+    {
+      "module": "0TH2.BIN",
+      "generation": "gen_0",
+      "offset_start": 79272,
+      "offset_end_exclusive": 79408,
+      "byte_length": 136,
+      "runtime_start": "0x060175A8",
+      "runtime_end_exclusive": "0x06017630",
+      "left_neighbor": {
+        "class": "CONFIRMED_CODE",
+        "subclass": null,
+        "bytes": 6
+      },
+      "right_neighbor": {
+        "class": "DATA",
+        "subclass": "LITERAL_POOL",
+        "bytes": 4
+      },
+      "pointers_into_gap": 0,
+      "runtime_reads": 136,
+      "runtime_executions": 0,
+      "literal_references": 0,
+      "candidate_subclasses": [],
+      "priority": "P3_CONTROL_FLOW",
+      "campaign_id": "0TH2.BIN_block_01"
+    },
+    {
+      "module": "0TH2.BIN",
+      "generation": "gen_0",
+      "offset_start": 225104,
+      "offset_end_exclusive": 225238,
+      "byte_length": 134,
+      "runtime_start": "0x0603AF50",
+      "runtime_end_exclusive": "0x0603AFD6",
+      "left_neighbor": {
+        "class": "CONFIRMED_CODE",
+        "subclass": null,
+        "bytes": 2
+      },
+      "right_neighbor": {
+        "class": "CONFIRMED_CODE",
+        "subclass": null,
+        "bytes": 2
+      },
+      "pointers_into_gap": 0,
+      "runtime_reads": 0,
+      "runtime_executions": 0,
+      "literal_references": 0,
+      "candidate_subclasses": [],
+      "priority": "P3_CONTROL_FLOW",
+      "campaign_id": "0TH2.BIN_block_03"
+    },
+    {
+      "module": "0TH2.BIN",
+      "generation": "gen_0",
+      "offset_start": 28942,
+      "offset_end_exclusive": 29072,
+      "byte_length": 130,
+      "runtime_start": "0x0600B10E",
+      "runtime_end_exclusive": "0x0600B190",
+      "left_neighbor": {
+        "class": "CONFIRMED_CODE",
+        "subclass": null,
+        "bytes": 36
+      },
+      "right_neighbor": {
+        "class": "CONFIRMED_CODE",
+        "subclass": null,
+        "bytes": 2
+      },
+      "pointers_into_gap": 0,
+      "runtime_reads": 0,
+      "runtime_executions": 0,
+      "literal_references": 0,
+      "candidate_subclasses": [],
+      "priority": "P3_CONTROL_FLOW",
+      "campaign_id": "0TH2.BIN_block_00"
+    },
+    {
+      "module": "0TH2.BIN",
+      "generation": "gen_0",
+      "offset_start": 459244,
+      "offset_end_exclusive": 459372,
+      "byte_length": 128,
+      "runtime_start": "0x060741EC",
+      "runtime_end_exclusive": "0x0607426C",
+      "left_neighbor": {
+        "class": "CONFIRMED_CODE",
+        "subclass": null,
+        "bytes": 8
+      },
+      "right_neighbor": {
+        "class": "DATA",
+        "subclass": "MMIO_POINTER",
+        "bytes": 4
+      },
+      "pointers_into_gap": 0,
+      "runtime_reads": 58,
+      "runtime_executions": 0,
+      "literal_references": 0,
+      "candidate_subclasses": [],
+      "priority": "P3_CONTROL_FLOW",
+      "campaign_id": "0TH2.BIN_block_07"
+    }
+  ]
+}

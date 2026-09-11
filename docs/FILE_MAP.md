@@ -141,6 +141,16 @@ tools/
     verify_full_game_disc.py      full Saturn disc reassembled module verification in Mednafen
     verify_gameplay_scenarios.py  multi-scenario gameplay regression suite across 6 distinct scenarios
     validate_recovery_gates.py    machine-enforced recovery gate integrity validator
+  carver/
+    interval_db.py                canonical central interval database & execution conflict engine
+    provenance_dag.py             provenance DAG & graph expansion engine
+    detector_base.py              detector base interfaces and candidate range structures
+    detector_registry.py          prioritized Saturn detector registry
+    detectors_code.py             executed PC, direct branch, and call target detectors
+    detectors_data.py             literal pool, pointer table, MMIO pointer, string, and padding detectors
+    ram_disc_carver.py            R-Studio style RAM to disc file signature carver
+    gap_reporter.py               residual UNKNOWN gap auditor and campaign prioritization
+    carver_pipeline.py            fixed-point carver convergence loop engine
 
 tests/
   test_census_saturn_cd.py        synthetic tests for census parser
@@ -192,7 +202,8 @@ tests/
     test_full_game_disc.py        CTest integration test for FULL_ASM_GAME_GATE rebuilt disc verification
     test_gameplay_scenarios.py    CTest integration test for multi-scenario gameplay verification
     test_recovery_gates.py        negative controls & validation for recovery gates
-
+  carver/
+    test_carver_pipeline.py       carver pipeline, interval algebra, conflict, and determinism test suite
 
 workstreams/
   ASM_RECOVERY_SCORECARD.json   machine-readable tracking metrics for ASM_90_GATE and FULL_ASM_GAME_GATE
@@ -269,6 +280,13 @@ workstreams/
     batch_codegen_evidence.md     detailed 3,302-block census and 270-block batch codegen evidence
     batch_codegen_evidence.json   machine-readable census, compiler, and shard telemetry
     block_census_summary.json     8-state census breakdown across 0TH2.BIN and TH2.LOW
+  T2-ASM-CARVER/
+    README.md                     T2-ASM-CARVER workstream record and architecture summary
+    interval_db_summary.json      audited module and aggregate interval database metrics
+    carver_passes.json            fixed-point pass-by-pass convergence telemetry
+    unknown_gap_report.json       exhaustive audit of residual UNKNOWN gaps and campaigns
+    provenance_graph_summary.json Provenance DAG node and edge topology metrics
+    carver_evidence.md            comprehensive experiment evidence and denominator re-audit
 
 asm/                              assembly reconstruction layout (ADR D-015)
   schema/

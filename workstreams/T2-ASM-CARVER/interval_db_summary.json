@@ -1,0 +1,86 @@
+{
+  "modules": {
+    "0TH2.BIN": {
+      "size": 535552,
+      "cpu": "MASTER_SH2",
+      "vma_base": "0x06004000",
+      "ranges_count": 12938,
+      "confirmed_code_bytes": 56628,
+      "data_bytes": 43297,
+      "unknown_bytes": 434913,
+      "padding_bytes": 714,
+      "mnemonic_proven_bytes": 52050,
+      "subclasses": {
+        "LITERAL_POOL": 6486,
+        "POINTER_TABLE": 33924,
+        "MMIO_POINTER": 376,
+        "STRING_TABLE": 2511,
+        "ALIGNMENT_PADDING": 714
+      }
+    },
+    "BGM.BIN": {
+      "size": 673792,
+      "cpu": "MC68EC000",
+      "vma_base": "0x00000000",
+      "ranges_count": 6099,
+      "confirmed_code_bytes": 30,
+      "data_bytes": 15069,
+      "unknown_bytes": 626873,
+      "padding_bytes": 31820,
+      "mnemonic_proven_bytes": 30,
+      "subclasses": {
+        "ALIGNMENT_PADDING": 31820,
+        "STRING_TABLE": 14060,
+        "POINTER_TABLE": 124,
+        "MMIO_POINTER": 885
+      }
+    },
+    "SET07.BIN": {
+      "size": 98304,
+      "cpu": "MASTER_SH2",
+      "vma_base": "0x060D8000",
+      "ranges_count": 538,
+      "confirmed_code_bytes": 14,
+      "data_bytes": 3647,
+      "unknown_bytes": 55045,
+      "padding_bytes": 39598,
+      "mnemonic_proven_bytes": 12,
+      "subclasses": {
+        "LITERAL_POOL": 8,
+        "MMIO_POINTER": 244,
+        "POINTER_TABLE": 2720,
+        "STRING_TABLE": 675,
+        "ALIGNMENT_PADDING": 39598
+      }
+    },
+    "TH2.LOW": {
+      "size": 149504,
+      "cpu": "MASTER_SH2",
+      "vma_base": "0x002DA000",
+      "ranges_count": 2401,
+      "confirmed_code_bytes": 3436,
+      "data_bytes": 19422,
+      "unknown_bytes": 116216,
+      "padding_bytes": 10430,
+      "mnemonic_proven_bytes": 3250,
+      "subclasses": {
+        "STRING_TABLE": 10474,
+        "ALIGNMENT_PADDING": 10430,
+        "POINTER_TABLE": 8044,
+        "MMIO_POINTER": 268,
+        "LITERAL_POOL": 636
+      }
+    }
+  },
+  "aggregate": {
+    "total_bytes": 1457152,
+    "confirmed_code_bytes": 60108,
+    "data_bytes": 81435,
+    "unknown_bytes": 1233047,
+    "padding_bytes": 82562,
+    "mnemonic_proven_bytes": 55342,
+    "total_ranges": 21976,
+    "conflicts_count": 0
+  },
+  "conflicts": []
+}
