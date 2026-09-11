@@ -69,15 +69,19 @@ def audit_asm_90_gate(scorecard: dict) -> dict:
     }
 
 
-def audit_full_asm_game_gate(scorecard: dict) -> dict:
-    """Verifies that 100% of executable modules are byte-exact and runtime-verified."""
+def audit_full_asm_game_gate(scorecard: dict, repo_root: Optional[Path] = None) -> dict:
+    """Independently verifies all factual requirements for FULL_ASM_GAME_GATE."""
     modules = scorecard.get("modules", [])
     issues = []
     unverified_modules = []
     non_byte_exact_modules = []
 
+    expected_modules = {"0TH2.BIN", "TH2.LOW", "SET07.BIN", "BGM.BIN"}
+    found_modules = set()
+
     for mod in modules:
         name = mod.get("name", "UNNAMED")
+        found_modules.add(name)
         reassembly = mod.get("reassembly_status")
         runtime_ver = mod.get("runtime_verified", False)
 
@@ -88,9 +92,63 @@ def audit_full_asm_game_gate(scorecard: dict) -> dict:
             unverified_modules.append(name)
             issues.append(f"Module '{name}' has runtime_verified = false")
 
+    missing = expected_modules - found_modules
+    if missing:
+        issues.append(f"Missing required executable modules from inventory: {sorted(missing)}")
+
     gameplay_verified = scorecard.get("metrics", {}).get("full_gameplay_verified", False)
     if not gameplay_verified:
         issues.append("Full multi-scenario gameplay suite (menus, transitions, combat, audio) not yet verified")
+
+    # Independent manifest verification if repo_root available
+    sh2_pending_bytes = 0
+    m68k_pending_bytes = 0
+    if repo_root:
+        manifest_dir = repo_root / "asm" / "manifests"
+        for mf_name, cpu in [("0TH2.BIN.json", "SH2"), ("TH2.LOW.json", "SH2"), ("SET07.BIN.json", "SH2"), ("BGM.BIN.json", "M68K")]:
+            mf_path = manifest_dir / mf_name
+            if not mf_path.exists():
+                issues.append(f"Manifest missing: {mf_path}")
+                continue
+            with open(mf_path, "r", encoding="utf-8") as fp:
+                mf_data = json.load(fp)
+            for r in mf_data.get("ranges", []):
+                if r.get("evidence_classification") == "CONFIRMED_CODE":
+                    if r.get("assembly_representation") != "MNEMONIC_PROVEN":
+                        if cpu == "SH2":
+                            sh2_pending_bytes += r.get("byte_length", 0)
+                        else:
+                            m68k_pending_bytes += r.get("byte_length", 0)
+
+        if sh2_pending_bytes > 0:
+            issues.append(f"SH2_RAW_CODE_PENDING == {sh2_pending_bytes} (must be 0)")
+        if m68k_pending_bytes > 0:
+            issues.append(f"M68K_RAW_CODE_PENDING == {m68k_pending_bytes} (must be 0)")
+
+        # Independent carver evidence verification
+        gap_rep_path = repo_root / "workstreams" / "T2-ASM-CARVER" / "unknown_gap_report.json"
+        if gap_rep_path.exists():
+            with open(gap_rep_path, "r", encoding="utf-8") as fp:
+                gap_data = json.load(fp)
+            p1_execs = gap_data.get("gaps_by_priority", {}).get("P1_EXECUTION", 0)
+            if p1_execs > 0:
+                issues.append(f"UNKNOWN_EXECUTION_HITS == {p1_execs} (must be 0)")
+
+        p3_res_path = repo_root / "workstreams" / "T2-ASM-CARVER" / "p3_control_flow_resolution.json"
+        if p3_res_path.exists():
+            with open(p3_res_path, "r", encoding="utf-8") as fp:
+                p3_data = json.load(fp)
+            unres_p3 = p3_data.get("unresolved_control_flow_unknown", 0)
+            if unres_p3 > 0:
+                issues.append(f"UNRESOLVED_CONTROL_FLOW_UNKNOWN == {unres_p3} (must be 0)")
+
+        db_sum_path = repo_root / "workstreams" / "T2-ASM-CARVER" / "interval_db_summary.json"
+        if db_sum_path.exists():
+            with open(db_sum_path, "r", encoding="utf-8") as fp:
+                db_data = json.load(fp)
+            conflicts = db_data.get("aggregate", {}).get("conflicts_count", 0)
+            if conflicts > 0:
+                issues.append(f"Carver conflicts == {conflicts} (must be 0)")
 
     claimed_status = scorecard.get("gates", {}).get("FULL_ASM_GAME_GATE", {}).get("status")
     can_pass = (len(issues) == 0)
@@ -105,8 +163,10 @@ def audit_full_asm_game_gate(scorecard: dict) -> dict:
         "can_pass": can_pass,
         "claimed_status": claimed_status,
         "issues": issues,
+        "sh2_pending_bytes": sh2_pending_bytes,
+        "m68k_pending_bytes": m68k_pending_bytes,
         "non_byte_exact_modules": non_byte_exact_modules,
-        "unverified_modules": unverified_modules
+        "unverified_modules": unverified_modules,
     }
 
 
@@ -167,7 +227,7 @@ def run_full_validation(repo_root: Path, scorecard: Optional[dict] = None) -> bo
     for proc, stats in asm_audit["processors"].items():
         print(f"  [{proc}] {stats['proven_bytes']} / {stats['confirmed_bytes']} bytes ({stats['coverage_pct']}%)")
 
-    full_asm = audit_full_asm_game_gate(scorecard)
+    full_asm = audit_full_asm_game_gate(scorecard, repo_root)
     print(f"FULL_ASM_GAME_GATE: Claimed = '{full_asm['claimed_status']}', Valid = {full_asm['can_pass']}")
     if full_asm["issues"]:
         for issue in full_asm["issues"]:

@@ -1,5 +1,9 @@
 #!/usr/bin/env python3
-"""tools/carver/detectors_data.py — Saturn Data, Table & Resource Detectors."""
+"""tools/carver/detectors_data.py — Saturn Data, Table & Resource Detectors.
+
+Authoritative SH-2 PC-relative decoding is delegated 100% to C++ thor_sh2.
+No hand-written Python opcode bitmasks or displacement arithmetic.
+"""
 
 from typing import Any, Dict, List, Optional
 import struct
@@ -7,10 +11,11 @@ import struct
 from .detector_base import CarverDetector, CandidateRange, CarverContext
 from .interval_db import IntervalDatabase
 from .provenance_dag import ProvenanceDAG
+from .thor_decoder import decode_intervals_with_thor_sh2, DecodedInstruction
 
 
 class LiteralPoolDetector(CarverDetector):
-    """Detects PC-relative literal pool references (MOV.W, MOV.L, MOVA) from confirmed code."""
+    """Detects PC-relative literal references using C++ thor_sh2 decoded instructions."""
 
     def __init__(self) -> None:
         super().__init__("LITERAL_POOL_DETECTOR", "DATA", default_confidence="CONFIRMED")
@@ -32,51 +37,38 @@ class LiteralPoolDetector(CarverDetector):
 
             vma_base = meta["vma_base"]
             confirmed_ivs = [iv for iv in db.intervals[mod_name] if iv.classification == "CONFIRMED_CODE"]
+            if not confirmed_ivs:
+                continue
 
-            for iv in confirmed_ivs:
-                parent_id = f"{mod_name}_{iv.offset_start:06X}"
-                for off in range(iv.offset_start, iv.offset_end_exclusive, 2):
-                    if off + 2 > len(raw):
-                        break
-                    op = (raw[off] << 8) | raw[off + 1]
-                    pc = vma_base + off
+            # Query C++ thor_sh2 decoder: authoritative decode, no Python bitmasks
+            instructions = decode_intervals_with_thor_sh2(
+                ctx.repo_root, mod_name, vma_base, raw, confirmed_ivs
+            )
 
-                    target_pc: Optional[int] = None
-                    target_len = 0
+            for ins in instructions:
+                if not ins.is_pc_rel_data or ins.target_vma == 0:
+                    continue
 
-                    # MOV.W @(disp, PC), Rn: 0x9ndd
-                    if (op & 0xF000) == 0x9000:
-                        disp = op & 0x00FF
-                        target_pc = pc + 4 + (disp * 2)
-                        target_len = 2
-                    # MOV.L @(disp, PC), Rn: 0xDndd
-                    elif (op & 0xF000) == 0xD000:
-                        disp = op & 0x00FF
-                        target_pc = (pc & ~3) + 4 + (disp * 4)
-                        target_len = 4
-                    # MOVA @(disp, PC), R0: 0xC7dd
-                    elif (op & 0xFF00) == 0xC700:
-                        disp = op & 0x00FF
-                        target_pc = (pc & ~3) + 4 + (disp * 4)
-                        target_len = 4
-
-                    if target_pc is not None:
-                        t_off = target_pc - vma_base
-                        if 0 <= t_off <= meta["size"] - target_len:
-                            t_iv = db.find_interval(mod_name, t_off)
-                            if t_iv and t_iv.classification == "UNKNOWN":
-                                candidates.append(CandidateRange(
-                                    module=mod_name,
-                                    offset_start=t_off,
-                                    offset_end_exclusive=t_off + target_len,
-                                    classification="DATA",
-                                    representation="RAW_DATA",
-                                    subclass="LITERAL_POOL",
-                                    confidence="CONFIRMED",
-                                    evidence=[f"LITERAL_REF_FROM_0x{pc:08X}"],
-                                    parent_node_id=parent_id,
-                                    detector_name=self.name,
-                                ))
+                target_pc = ins.target_vma
+                target_len = ins.data_access_size
+                t_off = target_pc - vma_base
+                if 0 <= t_off <= meta["size"] - target_len:
+                    t_iv = db.find_interval(mod_name, t_off)
+                    if t_iv and t_iv.classification == "UNKNOWN":
+                        parent_iv = db.find_interval(mod_name, ins.offset)
+                        parent_id = f"{mod_name}_{parent_iv.offset_start:06X}" if parent_iv else None
+                        candidates.append(CandidateRange(
+                            module=mod_name,
+                            offset_start=t_off,
+                            offset_end_exclusive=t_off + target_len,
+                            classification="DATA",
+                            representation="RAW_DATA",
+                            subclass="LITERAL_POOL",
+                            confidence="CONFIRMED",
+                            evidence=[f"LITERAL_REF_FROM_0x{ins.pc:08X}"],
+                            parent_node_id=parent_id,
+                            detector_name=self.name,
+                        ))
 
         return candidates
 
@@ -180,7 +172,6 @@ class MmioPointerDetector(CarverDetector):
                 e_off = iv.offset_end_exclusive & ~3
                 for off in range(s_off, e_off - 3, 4):
                     val = struct.unpack(">I", raw[off:off + 4])[0]
-                    # Saturn MMIO: 0x25C00000..0x25FFFFFF or SH-2 on-chip MMIO: 0xFFFFFE00..0xFFFFFFFF
                     if (0x25C00000 <= val < 0x26000000) or (0xFFFFFE00 <= val <= 0xFFFFFFFF):
                         candidates.append(CandidateRange(
                             module=mod_name,
@@ -220,7 +211,7 @@ class StringDetector(CarverDetector):
                 cur_str_start = None
                 for i in range(s, e):
                     b = raw[i]
-                    if 32 <= b <= 126:  # Printable ASCII
+                    if 32 <= b <= 126:
                         if cur_str_start is None:
                             cur_str_start = i
                     elif b == 0:
@@ -267,7 +258,6 @@ class PaddingDetector(CarverDetector):
                 e = iv.offset_end_exclusive
                 if e - s < 8:
                     continue
-                # Check for runs of 0x00 or 0xFF
                 run_byte = None
                 run_start = None
                 for i in range(s, e):

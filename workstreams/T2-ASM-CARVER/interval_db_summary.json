@@ -4,82 +4,79 @@
       "size": 535552,
       "cpu": "MASTER_SH2",
       "vma_base": "0x06004000",
-      "ranges_count": 12938,
-      "confirmed_code_bytes": 56628,
-      "data_bytes": 43297,
-      "unknown_bytes": 434913,
-      "padding_bytes": 714,
-      "mnemonic_proven_bytes": 52050,
+      "ranges_count": 12350,
+      "confirmed_code_bytes": 55588,
+      "data_bytes": 42314,
+      "unknown_bytes": 437299,
+      "padding_bytes": 351,
+      "mnemonic_proven_bytes": 52856,
       "subclasses": {
-        "LITERAL_POOL": 6486,
-        "POINTER_TABLE": 33924,
+        "LITERAL_POOL": 7006,
+        "POINTER_TABLE": 34926,
         "MMIO_POINTER": 376,
-        "STRING_TABLE": 2511,
-        "ALIGNMENT_PADDING": 714
+        "ALIGNMENT_PADDING": 351,
+        "STRING_TABLE": 6
       }
     },
     "BGM.BIN": {
       "size": 673792,
       "cpu": "MC68EC000",
       "vma_base": "0x00000000",
-      "ranges_count": 6099,
+      "ranges_count": 664,
       "confirmed_code_bytes": 30,
-      "data_bytes": 15069,
-      "unknown_bytes": 626873,
-      "padding_bytes": 31820,
+      "data_bytes": 1576,
+      "unknown_bytes": 664652,
+      "padding_bytes": 7534,
       "mnemonic_proven_bytes": 30,
       "subclasses": {
-        "ALIGNMENT_PADDING": 31820,
-        "STRING_TABLE": 14060,
-        "POINTER_TABLE": 124,
-        "MMIO_POINTER": 885
+        "ALIGNMENT_PADDING": 7534,
+        "MMIO_POINTER": 1452,
+        "POINTER_TABLE": 124
       }
     },
     "SET07.BIN": {
       "size": 98304,
       "cpu": "MASTER_SH2",
       "vma_base": "0x060D8000",
-      "ranges_count": 538,
+      "ranges_count": 382,
       "confirmed_code_bytes": 14,
-      "data_bytes": 3647,
-      "unknown_bytes": 55045,
-      "padding_bytes": 39598,
+      "data_bytes": 2976,
+      "unknown_bytes": 61516,
+      "padding_bytes": 33798,
       "mnemonic_proven_bytes": 12,
       "subclasses": {
-        "LITERAL_POOL": 8,
+        "LITERAL_POOL": 12,
         "MMIO_POINTER": 244,
         "POINTER_TABLE": 2720,
-        "STRING_TABLE": 675,
-        "ALIGNMENT_PADDING": 39598
+        "ALIGNMENT_PADDING": 33798
       }
     },
     "TH2.LOW": {
       "size": 149504,
       "cpu": "MASTER_SH2",
       "vma_base": "0x002DA000",
-      "ranges_count": 2401,
-      "confirmed_code_bytes": 3436,
-      "data_bytes": 19422,
-      "unknown_bytes": 116216,
-      "padding_bytes": 10430,
-      "mnemonic_proven_bytes": 3250,
+      "ranges_count": 1176,
+      "confirmed_code_bytes": 3442,
+      "data_bytes": 8998,
+      "unknown_bytes": 127201,
+      "padding_bytes": 9863,
+      "mnemonic_proven_bytes": 3266,
       "subclasses": {
-        "STRING_TABLE": 10474,
-        "ALIGNMENT_PADDING": 10430,
-        "POINTER_TABLE": 8044,
+        "ALIGNMENT_PADDING": 9863,
+        "POINTER_TABLE": 8024,
         "MMIO_POINTER": 268,
-        "LITERAL_POOL": 636
+        "LITERAL_POOL": 706
       }
     }
   },
   "aggregate": {
     "total_bytes": 1457152,
-    "confirmed_code_bytes": 60108,
-    "data_bytes": 81435,
-    "unknown_bytes": 1233047,
-    "padding_bytes": 82562,
-    "mnemonic_proven_bytes": 55342,
-    "total_ranges": 21976,
+    "confirmed_code_bytes": 59074,
+    "data_bytes": 55864,
+    "unknown_bytes": 1290668,
+    "padding_bytes": 51546,
+    "mnemonic_proven_bytes": 56164,
+    "total_ranges": 14572,
     "conflicts_count": 0
   },
   "conflicts": []

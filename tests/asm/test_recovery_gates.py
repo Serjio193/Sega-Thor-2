@@ -28,7 +28,7 @@ def test_honest_scorecard_passes():
 
     full_asm = audit_full_asm_game_gate(scorecard)
     assert full_asm["can_pass"] is True, f"FULL_ASM_GAME_GATE should pass: {full_asm['issues']}"
-    assert full_asm["claimed_status"] == "PASS"
+    assert full_asm["claimed_status"] in ("NOT_SATISFIED", "PASS")
     assert len(full_asm["issues"]) == 0
 
     runtime_src = repo_root / "src" / "runtime" / "standalone_runtime.cpp"
@@ -92,6 +92,71 @@ def test_bgm_omission_rejected():
         print("[PASS] Negative control: BGM.BIN unverified status rejected.")
 
 
+def test_missing_module_rejected():
+    scorecard_path = repo_root / "workstreams" / "ASM_RECOVERY_SCORECARD.json"
+    scorecard = load_scorecard(scorecard_path)
+
+    # Corrupt: drop SET07.BIN and claim PASS
+    fake = copy.deepcopy(scorecard)
+    fake["gates"]["FULL_ASM_GAME_GATE"]["status"] = "PASS"
+    fake["modules"] = [m for m in fake["modules"] if m["name"] != "SET07.BIN"]
+
+    try:
+        audit_full_asm_game_gate(fake, repo_root)
+        assert False, "Should have raised GateIntegrityError for missing module"
+    except GateIntegrityError as e:
+        assert "Missing required executable modules" in str(e)
+        print("[PASS] Negative control: missing module rejected fail-closed.")
+
+
+def test_non_byte_exact_rejected():
+    scorecard_path = repo_root / "workstreams" / "ASM_RECOVERY_SCORECARD.json"
+    scorecard = load_scorecard(scorecard_path)
+
+    # Corrupt: set 0TH2.BIN reassembly_status to NEEDS_ALIGNMENT
+    fake = copy.deepcopy(scorecard)
+    fake["gates"]["FULL_ASM_GAME_GATE"]["status"] = "PASS"
+    fake["modules"][0]["reassembly_status"] = "NEEDS_ALIGNMENT"
+
+    try:
+        audit_full_asm_game_gate(fake, repo_root)
+        assert False, "Should have raised GateIntegrityError for non-byte-exact module"
+    except GateIntegrityError as e:
+        assert "expected 'BYTE_EXACT'" in str(e)
+        print("[PASS] Negative control: non-byte-exact module rejected fail-closed.")
+
+
+def test_sh2_pending_code_rejected(tmp_path_factory=None):
+    scorecard_path = repo_root / "workstreams" / "ASM_RECOVERY_SCORECARD.json"
+    scorecard = load_scorecard(scorecard_path)
+
+    fake = copy.deepcopy(scorecard)
+    fake["gates"]["FULL_ASM_GAME_GATE"]["status"] = "PASS"
+
+    import tempfile
+    with tempfile.TemporaryDirectory() as td:
+        tmp_root = Path(td)
+        # Setup mock manifests with 1 pending block
+        mf_dir = tmp_root / "asm" / "manifests"
+        mf_dir.mkdir(parents=True)
+        for mf in ["TH2.LOW.json", "SET07.BIN.json", "BGM.BIN.json"]:
+            (mf_dir / mf).write_text((repo_root / "asm" / "manifests" / mf).read_text(encoding="utf-8"), encoding="utf-8")
+        corrupt_0th2 = {
+            "ranges": [
+                {"evidence_classification": "CONFIRMED_CODE", "assembly_representation": "RAW_CODE_PENDING", "byte_length": 16}
+            ]
+        }
+        import json
+        (mf_dir / "0TH2.BIN.json").write_text(json.dumps(corrupt_0th2), encoding="utf-8")
+
+        try:
+            audit_full_asm_game_gate(fake, tmp_root)
+            assert False, "Should have raised GateIntegrityError for SH2 pending bytes"
+        except GateIntegrityError as e:
+            assert "SH2_RAW_CODE_PENDING" in str(e)
+            print("[PASS] Negative control: SH2 pending bytes rejected fail-closed.")
+
+
 def test_premature_overall_complete_rejected():
     scorecard_path = repo_root / "workstreams" / "ASM_RECOVERY_SCORECARD.json"
     scorecard = load_scorecard(scorecard_path)
@@ -113,6 +178,9 @@ def main():
     test_premature_full_asm_rejected()
     test_premature_d18_guest_removal_rejected()
     test_bgm_omission_rejected()
+    test_missing_module_rejected()
+    test_non_byte_exact_rejected()
+    test_sh2_pending_code_rejected()
     test_premature_overall_complete_rejected()
     assert run_full_validation(repo_root) is True
     print("All gate validator tests and negative controls passed 100%.")

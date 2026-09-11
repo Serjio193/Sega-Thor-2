@@ -76,4 +76,4 @@ The Gap Reporter clustered all remaining UNKNOWN intervals into campaigns:
 - **P3 (Control-flow reachability): 2,259 gaps**.
 - **P4 (Data consumer patterns): 1,994 gaps**.
 - **P5 (Heuristic gaps): 3,943 gaps**.
-Total Campaigns: 43 localized structural campaigns.
+Total Campaigns: 22 localized structural campaigns (canonical machine output from unknown_gap_report.json).

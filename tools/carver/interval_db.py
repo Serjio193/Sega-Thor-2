@@ -8,6 +8,7 @@ executable modules, enforcing the execution conflict invariant fail-closed.
 from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any, Dict, List, Optional
+import bisect
 import json
 
 
@@ -177,14 +178,24 @@ class IntervalDatabase:
             )
 
     def find_interval(self, module: str, offset: int) -> Optional[MemoryInterval]:
-        for iv in self.intervals.get(module, []):
+        ivs = self.intervals.get(module)
+        if not ivs:
+            return None
+        idx = bisect.bisect_right(ivs, offset, key=lambda x: x.offset_start) - 1
+        if 0 <= idx < len(ivs):
+            iv = ivs[idx]
             if iv.offset_start <= offset < iv.offset_end_exclusive:
                 return iv
         return None
 
     def find_intervals_overlapping(self, module: str, start: int, end: int) -> List[MemoryInterval]:
+        ivs = self.intervals.get(module)
+        if not ivs:
+            return []
+        s_idx = max(0, bisect.bisect_right(ivs, start, key=lambda x: x.offset_start) - 1)
+        e_idx = min(len(ivs), bisect.bisect_left(ivs, end, key=lambda x: x.offset_start) + 1)
         return [
-            iv for iv in self.intervals.get(module, [])
+            iv for iv in ivs[s_idx:e_idx]
             if not (iv.offset_end_exclusive <= start or iv.offset_start >= end)
         ]
 
@@ -202,6 +213,7 @@ class IntervalDatabase:
         block_id: Optional[str] = None,
         instruction_count: Optional[int] = None,
         instructions: Optional[List[str]] = None,
+        validate: bool = False,
     ) -> MemoryInterval:
         """Carves [start..end) out of existing interval(s), enforcing conflict rules."""
         if start >= end:
@@ -293,7 +305,8 @@ class IntervalDatabase:
 
         new_intervals.append(new_iv)
         self.intervals[module] = sorted(new_intervals, key=lambda x: x.offset_start)
-        self.validate_module(module)
+        if validate:
+            self.validate_module(module)
         return new_iv
 
     def export_summary(self) -> Dict[str, Any]:

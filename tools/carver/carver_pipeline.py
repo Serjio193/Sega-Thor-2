@@ -24,6 +24,7 @@ from .detectors_data import (
     PaddingDetector,
 )
 from .gap_reporter import GapReporter
+from .evidence_contracts import EvidenceContractEvaluator, PromotionStatus
 
 
 class CarverPipeline:
@@ -117,6 +118,9 @@ class CarverPipeline:
         self.import_all_manifests()
         ctx = self.load_context()
 
+        evaluator = EvidenceContractEvaluator(self.db, ctx)
+        integrity_records: List[Dict[str, Any]] = []
+
         pass_num = 1
         while pass_num <= self.max_passes:
             ctx.pass_number = pass_num
@@ -139,6 +143,27 @@ class CarverPipeline:
                 if fit_end <= cand.offset_start:
                     continue
 
+                # Formally evaluate candidate against typed evidence contract
+                decision = evaluator.evaluate(cand, self.dag)
+                record_entry = {
+                    "module": cand.module,
+                    "offset_start": cand.offset_start,
+                    "offset_end_exclusive": fit_end,
+                    "byte_length": fit_end - cand.offset_start,
+                    "detector": cand.detector_name,
+                    "contract_type": decision.contract_type.value,
+                    "status": decision.status.value,
+                    "classification": decision.classification,
+                    "representation": decision.representation,
+                    "subclass": decision.subclass,
+                    "reasons": decision.reasons,
+                    "pass": pass_num,
+                }
+                integrity_records.append(record_entry)
+
+                if not decision.can_commit_to_db:
+                    continue
+
                 try:
                     # Enforce Rule 5: Graph expansion parent check
                     if cand.parent_node_id and not self.dag.can_authoritatively_expand(cand.parent_node_id):
@@ -148,10 +173,10 @@ class CarverPipeline:
                         module=cand.module,
                         start=cand.offset_start,
                         end=fit_end,
-                        classification=cand.classification,
-                        representation=cand.representation,
-                        subclass=cand.subclass,
-                        evidence=cand.evidence,
+                        classification=decision.classification,
+                        representation=decision.representation,
+                        subclass=decision.subclass,
+                        evidence=cand.evidence + decision.reasons,
                         discovered_by=cand.detector_name,
                         discovery_pass=pass_num,
                         block_id=cand.block_id,
@@ -162,8 +187,8 @@ class CarverPipeline:
                     node_id = f"{cand.module}_{new_iv.offset_start:06X}"
                     self.dag.add_node(
                         node_id=node_id,
-                        node_type="CODE_BLOCK" if cand.classification == "CONFIRMED_CODE" else "DATA_BLOCK",
-                        status="CONFIRMED" if cand.confidence == "CONFIRMED" else "PROBABLE",
+                        node_type="CODE_BLOCK" if decision.classification == "CONFIRMED_CODE" else "DATA_BLOCK",
+                        status="CONFIRMED" if decision.status == PromotionStatus.CONFIRMED else "PROBABLE",
                         module=cand.module,
                         offset_start=new_iv.offset_start,
                         offset_end_exclusive=new_iv.offset_end_exclusive,
@@ -175,7 +200,7 @@ class CarverPipeline:
                             source_id=cand.parent_node_id,
                             target_id=node_id,
                             relation="EXPANSION_CHILD",
-                            confidence=cand.confidence,
+                            confidence=decision.confidence,
                             evidence_ref=cand.evidence[0] if cand.evidence else "EXPANSION",
                         )
                 except IntervalConflictError as e:
@@ -188,6 +213,8 @@ class CarverPipeline:
                 "conflicts": conflicts_this_pass,
             }
             self.pass_records.append(record)
+            for mod in self.db.modules:
+                self.db.validate_module(mod)
 
             # Fixed-point convergence criterion
             if promoted_this_pass == 0:
@@ -219,9 +246,35 @@ class CarverPipeline:
             json.dumps(dag_summary, indent=2) + "\n", encoding="utf-8"
         )
 
+        # Output formal audit log carver_integrity_diff.json
+        integrity_summary = {
+            "total_candidates_evaluated": len(integrity_records),
+            "keep_confirmed": sum(1 for r in integrity_records if r["status"] == "CONFIRMED"),
+            "demote_to_probable": sum(1 for r in integrity_records if r["status"] == "PROBABLE"),
+            "demote_to_candidate": sum(1 for r in integrity_records if r["status"] == "CANDIDATE"),
+            "rejected": sum(1 for r in integrity_records if r["status"] == "REJECTED"),
+            "decisions": integrity_records,
+        }
+        (evidence_dir / "carver_integrity_diff.json").write_text(
+            json.dumps(integrity_summary, indent=2) + "\n", encoding="utf-8"
+        )
+
         return {
             "passes": len(self.pass_records),
             "db_summary": db_summary,
             "dag_summary": dag_summary,
             "gap_summary": gap_summary,
+            "integrity_summary": integrity_summary,
         }
+
+
+if __name__ == "__main__":
+    repo_root = Path(__file__).resolve().parent.parent.parent
+    pipeline = CarverPipeline(repo_root)
+    results = pipeline.run_fixed_point_loop()
+    print(f"Carver pipeline finished in {results['passes']} passes.")
+    print(f"Candidates evaluated: {results['integrity_summary']['total_candidates_evaluated']}")
+    print(f"  KEEP_CONFIRMED: {results['integrity_summary']['keep_confirmed']}")
+    print(f"  DEMOTE_TO_PROBABLE: {results['integrity_summary']['demote_to_probable']}")
+    print(f"  DEMOTE_TO_CANDIDATE: {results['integrity_summary']['demote_to_candidate']}")
+    print(f"  REJECTED: {results['integrity_summary']['rejected']}")

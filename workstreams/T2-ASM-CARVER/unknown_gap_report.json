@@ -1,117 +1,183 @@
 {
-  "total_unknown_gaps": 8196,
-  "total_unknown_bytes": 1233047,
+  "total_unknown_gaps": 4659,
+  "total_unknown_bytes": 1290668,
   "gaps_by_priority": {
     "P1_EXECUTION": 0,
     "P2_PROVENANCE": 0,
-    "P3_CONTROL_FLOW": 2259,
-    "P4_DATA_CONSUMER": 1994,
-    "P5_HEURISTIC": 3943
+    "P3_CONTROL_FLOW": 2214,
+    "P4_DATA_CONSUMER": 1424,
+    "P5_HEURISTIC": 1021
   },
-  "total_campaigns": 25,
+  "total_campaigns": 22,
   "campaigns": {
     "0TH2.BIN_block_00": {
-      "count": 1149,
-      "bytes": 37438
+      "count": 1119,
+      "bytes": 37396
     },
     "0TH2.BIN_block_01": {
-      "count": 438,
-      "bytes": 56076
+      "count": 346,
+      "bytes": 56598
     },
     "0TH2.BIN_block_02": {
-      "count": 203,
-      "bytes": 61947
+      "count": 189,
+      "bytes": 62022
     },
     "0TH2.BIN_block_03": {
-      "count": 326,
-      "bytes": 57035
+      "count": 304,
+      "bytes": 57170
     },
     "0TH2.BIN_block_04": {
-      "count": 230,
-      "bytes": 61156
+      "count": 193,
+      "bytes": 61380
     },
     "0TH2.BIN_block_05": {
-      "count": 220,
-      "bytes": 61149
+      "count": 192,
+      "bytes": 61320
     },
     "0TH2.BIN_block_06": {
-      "count": 313,
-      "bytes": 58811
+      "count": 247,
+      "bytes": 59278
     },
     "0TH2.BIN_block_07": {
-      "count": 1295,
-      "bytes": 36238
+      "count": 1196,
+      "bytes": 36953
     },
     "0TH2.BIN_block_08": {
-      "count": 38,
-      "bytes": 5063
+      "count": 25,
+      "bytes": 5182
     },
     "BGM.BIN_block_00": {
-      "count": 176,
-      "bytes": 57791
+      "count": 56,
+      "bytes": 62626
     },
     "BGM.BIN_block_01": {
-      "count": 74,
-      "bytes": 80133
+      "count": 26,
+      "bytes": 99588
     },
     "BGM.BIN_block_02": {
-      "count": 187,
-      "bytes": 48129
+      "count": 15,
+      "bytes": 31372
     },
     "BGM.BIN_block_03": {
-      "count": 35,
-      "bytes": 71275
+      "count": 29,
+      "bytes": 71355
     },
     "BGM.BIN_block_04": {
-      "count": 111,
-      "bytes": 57111
+      "count": 98,
+      "bytes": 65438
     },
     "BGM.BIN_block_05": {
-      "count": 48,
-      "bytes": 63287
+      "count": 26,
+      "bytes": 57240
     },
     "BGM.BIN_block_06": {
-      "count": 403,
-      "bytes": 56034
+      "count": 10,
+      "bytes": 119336
     },
     "BGM.BIN_block_07": {
-      "count": 563,
-      "bytes": 59098
-    },
-    "BGM.BIN_block_08": {
-      "count": 405,
-      "bytes": 61354
-    },
-    "BGM.BIN_block_09": {
-      "count": 501,
-      "bytes": 57827
-    },
-    "BGM.BIN_block_0A": {
-      "count": 289,
-      "bytes": 14834
+      "count": 2,
+      "bytes": 157697
     },
     "SET07.BIN_block_00": {
-      "count": 227,
-      "bytes": 53852
+      "count": 167,
+      "bytes": 60076
     },
     "SET07.BIN_block_01": {
-      "count": 22,
-      "bytes": 1193
+      "count": 5,
+      "bytes": 1440
     },
     "TH2.LOW_block_00": {
-      "count": 426,
-      "bytes": 45943
+      "count": 219,
+      "bytes": 50968
     },
     "TH2.LOW_block_01": {
-      "count": 390,
-      "bytes": 57988
+      "count": 133,
+      "bytes": 62524
     },
     "TH2.LOW_block_02": {
-      "count": 127,
-      "bytes": 12285
+      "count": 62,
+      "bytes": 13709
     }
   },
   "top_gaps": [
+    {
+      "module": "0TH2.BIN",
+      "generation": "gen_0",
+      "offset_start": 450278,
+      "offset_end_exclusive": 453492,
+      "byte_length": 3214,
+      "runtime_start": "0x06071EE6",
+      "runtime_end_exclusive": "0x06072B74",
+      "left_neighbor": {
+        "class": "CONFIRMED_CODE",
+        "subclass": null,
+        "bytes": 36
+      },
+      "right_neighbor": {
+        "class": "DATA",
+        "subclass": "POINTER_TABLE",
+        "bytes": 32
+      },
+      "pointers_into_gap": 0,
+      "runtime_reads": 1458,
+      "runtime_executions": 0,
+      "literal_references": 0,
+      "candidate_subclasses": [],
+      "priority": "P3_CONTROL_FLOW",
+      "campaign_id": "0TH2.BIN_block_06"
+    },
+    {
+      "module": "0TH2.BIN",
+      "generation": "gen_0",
+      "offset_start": 41604,
+      "offset_end_exclusive": 43724,
+      "byte_length": 2120,
+      "runtime_start": "0x0600E284",
+      "runtime_end_exclusive": "0x0600EACC",
+      "left_neighbor": {
+        "class": "CONFIRMED_CODE",
+        "subclass": null,
+        "bytes": 42
+      },
+      "right_neighbor": {
+        "class": "DATA",
+        "subclass": "POINTER_TABLE",
+        "bytes": 32
+      },
+      "pointers_into_gap": 0,
+      "runtime_reads": 8,
+      "runtime_executions": 0,
+      "literal_references": 0,
+      "candidate_subclasses": [],
+      "priority": "P3_CONTROL_FLOW",
+      "campaign_id": "0TH2.BIN_block_00"
+    },
+    {
+      "module": "BGM.BIN",
+      "generation": "gen_0",
+      "offset_start": 4126,
+      "offset_end_exclusive": 5716,
+      "byte_length": 1590,
+      "runtime_start": "0x0000101E",
+      "runtime_end_exclusive": "0x00001654",
+      "left_neighbor": {
+        "class": "CONFIRMED_CODE",
+        "subclass": null,
+        "bytes": 30
+      },
+      "right_neighbor": {
+        "class": "DATA",
+        "subclass": "POINTER_TABLE",
+        "bytes": 12
+      },
+      "pointers_into_gap": 0,
+      "runtime_reads": 0,
+      "runtime_executions": 0,
+      "literal_references": 0,
+      "candidate_subclasses": [],
+      "priority": "P3_CONTROL_FLOW",
+      "campaign_id": "BGM.BIN_block_00"
+    },
     {
       "module": "0TH2.BIN",
       "generation": "gen_0",
@@ -219,54 +285,28 @@
     {
       "module": "0TH2.BIN",
       "generation": "gen_0",
-      "offset_start": 78246,
-      "offset_end_exclusive": 78798,
-      "byte_length": 552,
-      "runtime_start": "0x060171A6",
-      "runtime_end_exclusive": "0x060173CE",
+      "offset_start": 74994,
+      "offset_end_exclusive": 75428,
+      "byte_length": 434,
+      "runtime_start": "0x060164F2",
+      "runtime_end_exclusive": "0x060166A4",
       "left_neighbor": {
         "class": "CONFIRMED_CODE",
         "subclass": null,
-        "bytes": 2
+        "bytes": 16
       },
       "right_neighbor": {
         "class": "CONFIRMED_CODE",
         "subclass": null,
-        "bytes": 14
+        "bytes": 24
       },
       "pointers_into_gap": 0,
-      "runtime_reads": 552,
+      "runtime_reads": 434,
       "runtime_executions": 0,
       "literal_references": 0,
       "candidate_subclasses": [],
       "priority": "P3_CONTROL_FLOW",
       "campaign_id": "0TH2.BIN_block_01"
-    },
-    {
-      "module": "0TH2.BIN",
-      "generation": "gen_0",
-      "offset_start": 41604,
-      "offset_end_exclusive": 42015,
-      "byte_length": 411,
-      "runtime_start": "0x0600E284",
-      "runtime_end_exclusive": "0x0600E41F",
-      "left_neighbor": {
-        "class": "CONFIRMED_CODE",
-        "subclass": null,
-        "bytes": 42
-      },
-      "right_neighbor": {
-        "class": "DATA",
-        "subclass": "STRING_TABLE",
-        "bytes": 7
-      },
-      "pointers_into_gap": 0,
-      "runtime_reads": 4,
-      "runtime_executions": 0,
-      "literal_references": 0,
-      "candidate_subclasses": [],
-      "priority": "P3_CONTROL_FLOW",
-      "campaign_id": "0TH2.BIN_block_00"
     },
     {
       "module": "0TH2.BIN",
@@ -297,80 +337,28 @@
     {
       "module": "0TH2.BIN",
       "generation": "gen_0",
-      "offset_start": 7958,
-      "offset_end_exclusive": 8312,
-      "byte_length": 354,
-      "runtime_start": "0x06005F16",
-      "runtime_end_exclusive": "0x06006078",
+      "offset_start": 73776,
+      "offset_end_exclusive": 74120,
+      "byte_length": 344,
+      "runtime_start": "0x06016030",
+      "runtime_end_exclusive": "0x06016188",
       "left_neighbor": {
         "class": "CONFIRMED_CODE",
         "subclass": null,
         "bytes": 2
       },
       "right_neighbor": {
-        "class": "CONFIRMED_CODE",
-        "subclass": null,
-        "bytes": 2
+        "class": "DATA",
+        "subclass": "LITERAL_POOL",
+        "bytes": 4
       },
       "pointers_into_gap": 0,
-      "runtime_reads": 4,
+      "runtime_reads": 344,
       "runtime_executions": 0,
       "literal_references": 0,
       "candidate_subclasses": [],
       "priority": "P3_CONTROL_FLOW",
-      "campaign_id": "0TH2.BIN_block_00"
-    },
-    {
-      "module": "0TH2.BIN",
-      "generation": "gen_0",
-      "offset_start": 505676,
-      "offset_end_exclusive": 506026,
-      "byte_length": 350,
-      "runtime_start": "0x0607F74C",
-      "runtime_end_exclusive": "0x0607F8AA",
-      "left_neighbor": {
-        "class": "CONFIRMED_CODE",
-        "subclass": null,
-        "bytes": 8
-      },
-      "right_neighbor": {
-        "class": "CONFIRMED_CODE",
-        "subclass": null,
-        "bytes": 52
-      },
-      "pointers_into_gap": 0,
-      "runtime_reads": 8,
-      "runtime_executions": 0,
-      "literal_references": 0,
-      "candidate_subclasses": [],
-      "priority": "P3_CONTROL_FLOW",
-      "campaign_id": "0TH2.BIN_block_07"
-    },
-    {
-      "module": "0TH2.BIN",
-      "generation": "gen_0",
-      "offset_start": 461702,
-      "offset_end_exclusive": 462048,
-      "byte_length": 346,
-      "runtime_start": "0x06074B86",
-      "runtime_end_exclusive": "0x06074CE0",
-      "left_neighbor": {
-        "class": "CONFIRMED_CODE",
-        "subclass": null,
-        "bytes": 2
-      },
-      "right_neighbor": {
-        "class": "CONFIRMED_CODE",
-        "subclass": null,
-        "bytes": 2
-      },
-      "pointers_into_gap": 0,
-      "runtime_reads": 158,
-      "runtime_executions": 0,
-      "literal_references": 0,
-      "candidate_subclasses": [],
-      "priority": "P3_CONTROL_FLOW",
-      "campaign_id": "0TH2.BIN_block_07"
+      "campaign_id": "0TH2.BIN_block_01"
     },
     {
       "module": "TH2.LOW",
@@ -453,6 +441,32 @@
     {
       "module": "0TH2.BIN",
       "generation": "gen_0",
+      "offset_start": 461702,
+      "offset_end_exclusive": 462012,
+      "byte_length": 310,
+      "runtime_start": "0x06074B86",
+      "runtime_end_exclusive": "0x06074CBC",
+      "left_neighbor": {
+        "class": "CONFIRMED_CODE",
+        "subclass": null,
+        "bytes": 2
+      },
+      "right_neighbor": {
+        "class": "DATA",
+        "subclass": "LITERAL_POOL",
+        "bytes": 4
+      },
+      "pointers_into_gap": 0,
+      "runtime_reads": 143,
+      "runtime_executions": 0,
+      "literal_references": 0,
+      "candidate_subclasses": [],
+      "priority": "P3_CONTROL_FLOW",
+      "campaign_id": "0TH2.BIN_block_07"
+    },
+    {
+      "module": "0TH2.BIN",
+      "generation": "gen_0",
       "offset_start": 426348,
       "offset_end_exclusive": 426652,
       "byte_length": 304,
@@ -531,20 +545,20 @@
     {
       "module": "0TH2.BIN",
       "generation": "gen_0",
-      "offset_start": 74994,
-      "offset_end_exclusive": 75238,
+      "offset_start": 74430,
+      "offset_end_exclusive": 74674,
       "byte_length": 244,
-      "runtime_start": "0x060164F2",
-      "runtime_end_exclusive": "0x060165E6",
+      "runtime_start": "0x060162BE",
+      "runtime_end_exclusive": "0x060163B2",
       "left_neighbor": {
         "class": "CONFIRMED_CODE",
         "subclass": null,
-        "bytes": 16
+        "bytes": 48
       },
       "right_neighbor": {
-        "class": "DATA",
-        "subclass": "STRING_TABLE",
-        "bytes": 6
+        "class": "CONFIRMED_CODE",
+        "subclass": null,
+        "bytes": 2
       },
       "pointers_into_gap": 0,
       "runtime_reads": 244,
@@ -713,6 +727,32 @@
     {
       "module": "0TH2.BIN",
       "generation": "gen_0",
+      "offset_start": 7958,
+      "offset_end_exclusive": 8144,
+      "byte_length": 186,
+      "runtime_start": "0x06005F16",
+      "runtime_end_exclusive": "0x06005FD0",
+      "left_neighbor": {
+        "class": "CONFIRMED_CODE",
+        "subclass": null,
+        "bytes": 2
+      },
+      "right_neighbor": {
+        "class": "DATA",
+        "subclass": "LITERAL_POOL",
+        "bytes": 2
+      },
+      "pointers_into_gap": 0,
+      "runtime_reads": 0,
+      "runtime_executions": 0,
+      "literal_references": 0,
+      "candidate_subclasses": [],
+      "priority": "P3_CONTROL_FLOW",
+      "campaign_id": "0TH2.BIN_block_00"
+    },
+    {
+      "module": "0TH2.BIN",
+      "generation": "gen_0",
       "offset_start": 478526,
       "offset_end_exclusive": 478712,
       "byte_length": 186,
@@ -787,32 +827,6 @@
       "candidate_subclasses": [],
       "priority": "P3_CONTROL_FLOW",
       "campaign_id": "0TH2.BIN_block_03"
-    },
-    {
-      "module": "0TH2.BIN",
-      "generation": "gen_0",
-      "offset_start": 437510,
-      "offset_end_exclusive": 437690,
-      "byte_length": 180,
-      "runtime_start": "0x0606ED06",
-      "runtime_end_exclusive": "0x0606EDBA",
-      "left_neighbor": {
-        "class": "CONFIRMED_CODE",
-        "subclass": null,
-        "bytes": 4
-      },
-      "right_neighbor": {
-        "class": "CONFIRMED_CODE",
-        "subclass": null,
-        "bytes": 8
-      },
-      "pointers_into_gap": 0,
-      "runtime_reads": 98,
-      "runtime_executions": 0,
-      "literal_references": 0,
-      "candidate_subclasses": [],
-      "priority": "P3_CONTROL_FLOW",
-      "campaign_id": "0TH2.BIN_block_06"
     },
     {
       "module": "0TH2.BIN",
@@ -921,6 +935,32 @@
     {
       "module": "0TH2.BIN",
       "generation": "gen_0",
+      "offset_start": 78246,
+      "offset_end_exclusive": 78408,
+      "byte_length": 162,
+      "runtime_start": "0x060171A6",
+      "runtime_end_exclusive": "0x06017248",
+      "left_neighbor": {
+        "class": "CONFIRMED_CODE",
+        "subclass": null,
+        "bytes": 2
+      },
+      "right_neighbor": {
+        "class": "DATA",
+        "subclass": "LITERAL_POOL",
+        "bytes": 2
+      },
+      "pointers_into_gap": 0,
+      "runtime_reads": 162,
+      "runtime_executions": 0,
+      "literal_references": 0,
+      "candidate_subclasses": [],
+      "priority": "P3_CONTROL_FLOW",
+      "campaign_id": "0TH2.BIN_block_01"
+    },
+    {
+      "module": "0TH2.BIN",
+      "generation": "gen_0",
       "offset_start": 14420,
       "offset_end_exclusive": 14580,
       "byte_length": 160,
@@ -1021,6 +1061,32 @@
       "candidate_subclasses": [],
       "priority": "P3_CONTROL_FLOW",
       "campaign_id": "0TH2.BIN_block_00"
+    },
+    {
+      "module": "0TH2.BIN",
+      "generation": "gen_0",
+      "offset_start": 437698,
+      "offset_end_exclusive": 437850,
+      "byte_length": 152,
+      "runtime_start": "0x0606EDC2",
+      "runtime_end_exclusive": "0x0606EE5A",
+      "left_neighbor": {
+        "class": "CONFIRMED_CODE",
+        "subclass": null,
+        "bytes": 8
+      },
+      "right_neighbor": {
+        "class": "CONFIRMED_CODE",
+        "subclass": null,
+        "bytes": 6
+      },
+      "pointers_into_gap": 0,
+      "runtime_reads": 54,
+      "runtime_executions": 0,
+      "literal_references": 0,
+      "candidate_subclasses": [],
+      "priority": "P3_CONTROL_FLOW",
+      "campaign_id": "0TH2.BIN_block_06"
     },
     {
       "module": "0TH2.BIN",
@@ -1333,84 +1399,6 @@
       "candidate_subclasses": [],
       "priority": "P3_CONTROL_FLOW",
       "campaign_id": "0TH2.BIN_block_01"
-    },
-    {
-      "module": "0TH2.BIN",
-      "generation": "gen_0",
-      "offset_start": 225104,
-      "offset_end_exclusive": 225238,
-      "byte_length": 134,
-      "runtime_start": "0x0603AF50",
-      "runtime_end_exclusive": "0x0603AFD6",
-      "left_neighbor": {
-        "class": "CONFIRMED_CODE",
-        "subclass": null,
-        "bytes": 2
-      },
-      "right_neighbor": {
-        "class": "CONFIRMED_CODE",
-        "subclass": null,
-        "bytes": 2
-      },
-      "pointers_into_gap": 0,
-      "runtime_reads": 0,
-      "runtime_executions": 0,
-      "literal_references": 0,
-      "candidate_subclasses": [],
-      "priority": "P3_CONTROL_FLOW",
-      "campaign_id": "0TH2.BIN_block_03"
-    },
-    {
-      "module": "0TH2.BIN",
-      "generation": "gen_0",
-      "offset_start": 28942,
-      "offset_end_exclusive": 29072,
-      "byte_length": 130,
-      "runtime_start": "0x0600B10E",
-      "runtime_end_exclusive": "0x0600B190",
-      "left_neighbor": {
-        "class": "CONFIRMED_CODE",
-        "subclass": null,
-        "bytes": 36
-      },
-      "right_neighbor": {
-        "class": "CONFIRMED_CODE",
-        "subclass": null,
-        "bytes": 2
-      },
-      "pointers_into_gap": 0,
-      "runtime_reads": 0,
-      "runtime_executions": 0,
-      "literal_references": 0,
-      "candidate_subclasses": [],
-      "priority": "P3_CONTROL_FLOW",
-      "campaign_id": "0TH2.BIN_block_00"
-    },
-    {
-      "module": "0TH2.BIN",
-      "generation": "gen_0",
-      "offset_start": 459244,
-      "offset_end_exclusive": 459372,
-      "byte_length": 128,
-      "runtime_start": "0x060741EC",
-      "runtime_end_exclusive": "0x0607426C",
-      "left_neighbor": {
-        "class": "CONFIRMED_CODE",
-        "subclass": null,
-        "bytes": 8
-      },
-      "right_neighbor": {
-        "class": "DATA",
-        "subclass": "MMIO_POINTER",
-        "bytes": 4
-      },
-      "pointers_into_gap": 0,
-      "runtime_reads": 58,
-      "runtime_executions": 0,
-      "literal_references": 0,
-      "candidate_subclasses": [],
-      "priority": "P3_CONTROL_FLOW",
-      "campaign_id": "0TH2.BIN_block_07"
     }
   ]
 }

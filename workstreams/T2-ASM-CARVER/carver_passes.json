@@ -2,22 +2,28 @@
   "passes": [
     {
       "pass": 1,
-      "candidates_found": 11362,
-      "bytes_promoted": 166141,
+      "candidates_found": 11052,
+      "bytes_promoted": 79653,
       "conflicts": 0
     },
     {
       "pass": 2,
-      "candidates_found": 268,
-      "bytes_promoted": 698,
+      "candidates_found": 4465,
+      "bytes_promoted": 29459,
       "conflicts": 0
     },
     {
       "pass": 3,
-      "candidates_found": 214,
+      "candidates_found": 4189,
+      "bytes_promoted": 106,
+      "conflicts": 0
+    },
+    {
+      "pass": 4,
+      "candidates_found": 4177,
       "bytes_promoted": 0,
       "conflicts": 0
     }
   ],
-  "total_passes": 3
+  "total_passes": 4
 }
