@@ -145,18 +145,26 @@ class CarverPipeline:
 
                 # Formally evaluate candidate against typed evidence contract
                 decision = evaluator.evaluate(cand, self.dag)
+                final_status = decision.status.value
+                if final_status == "REJECTED":
+                    final_status = "CANDIDATE"
+
                 record_entry = {
                     "module": cand.module,
                     "offset_start": cand.offset_start,
                     "offset_end_exclusive": fit_end,
                     "byte_length": fit_end - cand.offset_start,
                     "detector": cand.detector_name,
+                    "previous_classification": target_iv.classification,
+                    "new_classification": decision.classification if decision.can_commit_to_db else target_iv.classification,
+                    "evidence_contract": decision.contract_type.value,
+                    "promotion_demotion_reason": "; ".join(decision.reasons),
                     "contract_type": decision.contract_type.value,
-                    "status": decision.status.value,
+                    "status": final_status,
                     "classification": decision.classification,
                     "representation": decision.representation,
                     "subclass": decision.subclass,
-                    "reasons": decision.reasons,
+                    "reasons": list(decision.reasons),
                     "pass": pass_num,
                 }
                 integrity_records.append(record_entry)
@@ -205,6 +213,9 @@ class CarverPipeline:
                         )
                 except IntervalConflictError as e:
                     conflicts_this_pass += 1
+                    record_entry["status"] = "CONFLICT"
+                    record_entry["reasons"].append(f"Interval conflict: {e}")
+                    record_entry["promotion_demotion_reason"] = "; ".join(record_entry["reasons"])
 
             record = {
                 "pass": pass_num,
@@ -247,12 +258,38 @@ class CarverPipeline:
         )
 
         # Output formal audit log carver_integrity_diff.json
+        confirmed_count = sum(1 for r in integrity_records if r["status"] == "CONFIRMED")
+        probable_count = sum(1 for r in integrity_records if r["status"] == "PROBABLE")
+        candidate_count = sum(1 for r in integrity_records if r["status"] == "CANDIDATE")
+        conflict_count = sum(1 for r in integrity_records if r["status"] == "CONFLICT")
+        input_candidate_total = len(integrity_records)
+
+        # Enforce exact category partition invariant:
+        assert (confirmed_count + probable_count + candidate_count + conflict_count) == input_candidate_total, (
+            f"Integrity category mismatch: {confirmed_count} + {probable_count} + {candidate_count} + "
+            f"{conflict_count} != {input_candidate_total}"
+        )
+
+        byte_totals = {
+            "CONFIRMED": sum(r["byte_length"] for r in integrity_records if r["status"] == "CONFIRMED"),
+            "PROBABLE": sum(r["byte_length"] for r in integrity_records if r["status"] == "PROBABLE"),
+            "CANDIDATE": sum(r["byte_length"] for r in integrity_records if r["status"] == "CANDIDATE"),
+            "CONFLICT": sum(r["byte_length"] for r in integrity_records if r["status"] == "CONFLICT"),
+            "total": sum(r["byte_length"] for r in integrity_records),
+        }
+
         integrity_summary = {
-            "total_candidates_evaluated": len(integrity_records),
-            "keep_confirmed": sum(1 for r in integrity_records if r["status"] == "CONFIRMED"),
-            "demote_to_probable": sum(1 for r in integrity_records if r["status"] == "PROBABLE"),
-            "demote_to_candidate": sum(1 for r in integrity_records if r["status"] == "CANDIDATE"),
-            "rejected": sum(1 for r in integrity_records if r["status"] == "REJECTED"),
+            "input_candidate_total": input_candidate_total,
+            "confirmed_count": confirmed_count,
+            "probable_count": probable_count,
+            "candidate_count": candidate_count,
+            "conflict_count": conflict_count,
+            "byte_totals": byte_totals,
+            "total_candidates_evaluated": input_candidate_total,
+            "keep_confirmed": confirmed_count,
+            "demote_to_probable": probable_count,
+            "demote_to_candidate": candidate_count,
+            "rejected": 0,
             "decisions": integrity_records,
         }
         (evidence_dir / "carver_integrity_diff.json").write_text(
@@ -273,8 +310,8 @@ if __name__ == "__main__":
     pipeline = CarverPipeline(repo_root)
     results = pipeline.run_fixed_point_loop()
     print(f"Carver pipeline finished in {results['passes']} passes.")
-    print(f"Candidates evaluated: {results['integrity_summary']['total_candidates_evaluated']}")
-    print(f"  KEEP_CONFIRMED: {results['integrity_summary']['keep_confirmed']}")
-    print(f"  DEMOTE_TO_PROBABLE: {results['integrity_summary']['demote_to_probable']}")
-    print(f"  DEMOTE_TO_CANDIDATE: {results['integrity_summary']['demote_to_candidate']}")
-    print(f"  REJECTED: {results['integrity_summary']['rejected']}")
+    print(f"Candidates evaluated: {results['integrity_summary']['input_candidate_total']}")
+    print(f"  KEEP_CONFIRMED: {results['integrity_summary']['confirmed_count']}")
+    print(f"  DEMOTE_TO_PROBABLE: {results['integrity_summary']['probable_count']}")
+    print(f"  DEMOTE_TO_CANDIDATE: {results['integrity_summary']['candidate_count']}")
+    print(f"  CONFLICT: {results['integrity_summary']['conflict_count']}")

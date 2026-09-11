@@ -134,13 +134,83 @@ def audit_full_asm_game_gate(scorecard: dict, repo_root: Optional[Path] = None) 
             if p1_execs > 0:
                 issues.append(f"UNKNOWN_EXECUTION_HITS == {p1_execs} (must be 0)")
 
+        # Independent carver integrity diff verification
+        diff_path = repo_root / "workstreams" / "T2-ASM-CARVER" / "carver_integrity_diff.json"
+        if not diff_path.exists() or diff_path.stat().st_size == 0:
+            issues.append(f"carver_integrity_diff.json is empty or missing: {diff_path}")
+        else:
+            try:
+                diff_data = json.loads(diff_path.read_text(encoding="utf-8"))
+                in_total = diff_data.get("input_candidate_total", 0)
+                conf_c = diff_data.get("confirmed_count", 0)
+                prob_c = diff_data.get("probable_count", 0)
+                cand_c = diff_data.get("candidate_count", 0)
+                confl_c = diff_data.get("conflict_count", 0)
+                if in_total == 0 or (conf_c + prob_c + cand_c + confl_c) != in_total:
+                    issues.append(f"carver_integrity_diff counts do not reconcile: {conf_c}+{prob_c}+{cand_c}+{confl_c} != {in_total}")
+                if confl_c > 0:
+                    issues.append(f"carver_integrity_diff has conflict_count == {confl_c} (must be 0)")
+                if len(diff_data.get("decisions", [])) != in_total:
+                    issues.append(f"carver_integrity_diff decisions count mismatch: {len(diff_data.get('decisions', []))} != {in_total}")
+            except Exception as e:
+                issues.append(f"carver_integrity_diff.json malformed: {e}")
+
+        # Independent P3 control flow resolution verification (must parse ALL records)
         p3_res_path = repo_root / "workstreams" / "T2-ASM-CARVER" / "p3_control_flow_resolution.json"
-        if p3_res_path.exists():
-            with open(p3_res_path, "r", encoding="utf-8") as fp:
-                p3_data = json.load(fp)
-            unres_p3 = p3_data.get("unresolved_control_flow_unknown", 0)
-            if unres_p3 > 0:
-                issues.append(f"UNRESOLVED_CONTROL_FLOW_UNKNOWN == {unres_p3} (must be 0)")
+        if not p3_res_path.exists():
+            issues.append(f"p3_control_flow_resolution.json missing: {p3_res_path}")
+        else:
+            try:
+                p3_data = json.loads(p3_res_path.read_text(encoding="utf-8"))
+                records = p3_data.get("records", [])
+                if not records:
+                    issues.append("p3_control_flow_resolution.json missing detailed records")
+                p3_unresolved = sum(
+                    1 for r in records
+                    if r.get("resolved_state") in ("UNRESOLVED_EXECUTABLE_CANDIDATE", "BLOCKED_WITH_EXACT_REASON")
+                )
+                p3_blocked = sum(1 for r in records if r.get("resolved_state") == "BLOCKED_WITH_EXACT_REASON")
+                p3_candidates = sum(1 for r in records if r.get("resolved_state") == "UNRESOLVED_EXECUTABLE_CANDIDATE")
+                summary_unres = p3_data.get("unresolved_control_flow_unknown", 0)
+
+                if summary_unres != p3_unresolved:
+                    issues.append(
+                        f"P3 summary claims {summary_unres} unresolved but records contain {p3_unresolved}"
+                    )
+                if p3_blocked > 0:
+                    issues.append(f"P3 has {p3_blocked} BLOCKED_WITH_EXACT_REASON records (must be 0)")
+                if p3_candidates > 0:
+                    issues.append(f"P3 has {p3_candidates} UNRESOLVED_EXECUTABLE_CANDIDATE records (must be 0)")
+
+                # Mandatory regression check: 0x0600428A must be CONFIRMED_CODE
+                r_428a = next((r for r in records if r.get("runtime_start") == "0x0600428A"), None)
+                if not r_428a:
+                    issues.append("Historical executed site 0x0600428A missing from P3 resolution records")
+                elif r_428a.get("resolved_state") != "CONFIRMED_CODE":
+                    issues.append(
+                        f"Historical executed site 0x0600428A is classified as non-code: {r_428a.get('resolved_state')}"
+                    )
+            except Exception as e:
+                issues.append(f"p3_control_flow_resolution.json parsing error: {e}")
+
+        # Check PROBABLE_DATA overlapping exact CFG targets
+        for mf_name in ["0TH2.BIN.json", "TH2.LOW.json", "SET07.BIN.json"]:
+            mf_path = manifest_dir / mf_name
+            if mf_path.exists():
+                try:
+                    mf_data = json.loads(mf_path.read_text(encoding="utf-8"))
+                    for r in mf_data.get("ranges", []):
+                        if r.get("evidence_classification") in ("DATA_PROBABLE", "PROBABLE_DATA"):
+                            if "EXACT_CFG_TARGET" in r.get("evidence_refs", []):
+                                issues.append(f"PROBABLE_DATA overlaps exact CFG target at {r.get('runtime_start')}")
+                except Exception:
+                    pass
+
+        # Confirmed vs proven byte parity check
+        total_conf_bytes = sum(m.get("confirmed_code_bytes", 0) for m in scorecard.get("modules", []))
+        total_prov_bytes = sum(m.get("proven_mnemonic_bytes", 0) for m in scorecard.get("modules", []))
+        if total_conf_bytes != total_prov_bytes:
+            issues.append(f"Confirmed vs proven byte mismatch: {total_conf_bytes} != {total_prov_bytes}")
 
         db_sum_path = repo_root / "workstreams" / "T2-ASM-CARVER" / "interval_db_summary.json"
         if db_sum_path.exists():

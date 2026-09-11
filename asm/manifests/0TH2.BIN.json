@@ -3,9 +3,9 @@
   "revision": "thor2_ntsc_patched_fe11d2fb",
   "module_runtime_base": "0x06004000",
   "module_size": 535552,
-  "confirmed_code_bytes": 52856,
-  "proven_mnemonic_bytes": 52856,
-  "raw_unknown_bytes": 481594,
+  "confirmed_code_bytes": 52858,
+  "proven_mnemonic_bytes": 52858,
+  "raw_unknown_bytes": 481592,
   "iso_sector_start": 24,
   "iso_sector_count": 262,
   "ranges": [
@@ -624,8 +624,17 @@
       "runtime_start": "0x0600428A",
       "runtime_end_exclusive": "0x0600428C",
       "byte_length": 2,
-      "evidence_classification": "UNKNOWN",
-      "assembly_representation": "RAW_UNKNOWN"
+      "evidence_classification": "CONFIRMED_CODE",
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "block_id": "bb_0600428A",
+      "instruction_count": 1,
+      "instructions": [
+        "mov.l   lit_0600435C, r6"
+      ],
+      "evidence_refs": [
+        "PROVEN_BY_THOR_SH2_DECODER",
+        "D9_CANONICAL_RETURN_SITE_CYCLE_337109623"
+      ]
     },
     {
       "offset_start": 652,

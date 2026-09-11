@@ -35,19 +35,19 @@ class TestNativeBlockCensusPipeline(unittest.TestCase):
         with open(os.path.join(REPO_ROOT, 'workstreams', 'T2-D17-native-scaling', 'block_census_summary.json'), 'r') as f:
             summary = json.load(f)
 
-        self.assertEqual(summary['total_harvested_blocks'], 3682)
+        self.assertEqual(summary['total_harvested_blocks'], 3683)
         states = summary['summary_by_state']
-        self.assertEqual(states['HARVESTED'], 3682)
+        self.assertEqual(states['HARVESTED'], 3683)
         self.assertEqual(states['MNEMONIC_PROVEN'], 3412)
-        self.assertEqual(states['CODEGEN_ELIGIBLE'], 270)
+        self.assertEqual(states['CODEGEN_ELIGIBLE'], 271)
         self.assertEqual(states['GENERATED'], 270)
         self.assertEqual(states['COMPILES'], 270)
         self.assertEqual(states['PROMOTED'], 1)
 
         # Check modules breakdown
         mods = summary['modules']
-        self.assertEqual(mods['0TH2.BIN']['total_proven_blocks'], 3498)
-        self.assertEqual(mods['0TH2.BIN']['codegen_eligible'], 243)
+        self.assertEqual(mods['0TH2.BIN']['total_proven_blocks'], 3499)
+        self.assertEqual(mods['0TH2.BIN']['codegen_eligible'], 244)
         self.assertEqual(mods['TH2.LOW']['total_proven_blocks'], 184)
         self.assertEqual(mods['TH2.LOW']['codegen_eligible'], 27)
 

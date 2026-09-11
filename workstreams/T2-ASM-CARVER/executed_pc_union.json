@@ -1,0 +1,26 @@
+{
+  "total_canonical_entries": 63245,
+  "by_module": {
+    "0TH2.BIN": {
+      "total_executed_pcs": 59959,
+      "min_pc": "0x06004000",
+      "max_pc": "0x06081991"
+    },
+    "TH2.LOW": {
+      "total_executed_pcs": 3265,
+      "min_pc": "0x002E500E",
+      "max_pc": "0x002EABAF"
+    },
+    "SET07.BIN": {
+      "total_executed_pcs": 6,
+      "min_pc": "0x060D8000",
+      "max_pc": "0x060D800A"
+    },
+    "BGM.BIN": {
+      "total_executed_pcs": 15,
+      "min_pc": "0x00001000",
+      "max_pc": "0x0000101C"
+    }
+  },
+  "contains_0x0600428A": true
+}

@@ -1,5 +1,42 @@
 # Worklog
 
+## 2026-09-11 — T2-ASM-INTEGRITY-03: Independent P3 Closure, Carver Audit Evidence Repair, and Truthful FULL_ASM_GAME_GATE
+
+### Task
+
+Execute task `T2-ASM-INTEGRITY-03` to eliminate all remaining evidence defects, conduct an independent recomputation of Carver audit data, resolve P3 control-flow gaps with rigorous formal state transitions, build a canonical executed PC union, promote the historical executed return site `0x0600428A` to confirmed code, recompute the true assembly code denominator, achieve byte-exact 4-module reassembly, and prove zero divergence in Mednafen across cold-boot checkpoints and the full multi-scenario gameplay suite under strict freeze of broad C++ translation:
+1. **Gate Reset & Architectural Freeze**:
+   - Immediately reset `FULL_ASM_GAME_GATE = NOT_YET_REPROVEN`.
+   - Confirmed absolute freeze on broad C++ game translation (`CPLUSPLUS_TRANSLATION = FROZEN_BY_ASM_FIRST_ARCHITECTURE`).
+2. **Carver Integrity Diff Audit (`tools/carver/carver_pipeline.py`)**:
+   - Fully repaired `workstreams/T2-ASM-CARVER/carver_integrity_diff.json` with required machine-readable keys: `input_candidate_total` (14,415), `confirmed_count` (3,748), `probable_count` (2,236), `candidate_count` (8,431), `conflict_count` (0), and `byte_totals` (`CONFIRMED`: 62,668, `PROBABLE`: 46,444, `CANDIDATE`: 145,189, `CONFLICT`: 0, `total`: 254,301).
+   - Enforced reconciliation invariant: `confirmed_count + probable_count + candidate_count + conflict_count == input_candidate_total`.
+3. **Canonical Executed PC Union (`tools/carver/executed_pc_union.py`)**:
+   - Created standalone canonical execution union tool ingesting all CDL traces, D9 register dumps, cycle 337109623 return site, ASM checkpoints, and manifests.
+   - Cataloged 63,245 unique PC entries; enforced negative regression check verifying `0x0600428A` presence.
+4. **Independent P3 Control Flow Resolver (`tools/carver/p3_control_flow_resolver.py`)**:
+   - Replaced flawed P3 resolution logic with strict formal state model: `CONFIRMED_CODE`, `PROVEN_DATA`, `PROVEN_PADDING`, `PROVEN_UNREACHABLE`, `UNRESOLVED_EXECUTABLE_CANDIDATE`.
+   - Eliminated hard-coded zero bug: verified `summary["unresolved_control_flow_unknown"] == 0` by parsing all 2,756 full gap records in `workstreams/T2-ASM-CARVER/p3_control_flow_resolution.json`.
+   - Results: `CONFIRMED_CODE`: 2,223, `PROVEN_DATA`: 383, `PROVEN_UNREACHABLE`: 150, `UNRESOLVED_EXECUTABLE_CANDIDATE`: 0, `BLOCKED_WITH_EXACT_REASON`: 0.
+5. **0x0600428A Confirmed Code Promotion & Code Denominator Update**:
+   - Promoted `0x0600428A` in `asm/manifests/0TH2.BIN.json` from `UNKNOWN` to `CONFIRMED_CODE / MNEMONIC_PROVEN` (`mov.l lit_0600435C, r6`) backed by `thor::sh2::decode_sh2`.
+   - Updated confirmed code bytes to 52,858 in `0TH2.BIN` and 56,166 aggregate across all 4 modules.
+   - `total_proven_mnemonic_bytes = 56,166` (100.00% aggregate coverage; `SH2_RAW_CODE_PENDING == 0`, `M68K_RAW_CODE_PENDING == 0`).
+6. **Lossless Assembly Reassembly & Bit-Exact Disc Parity**:
+   - Mechanically re-generated assembly containers and rebuilt all 4 modules (`0TH2.BIN`, `TH2.LOW`, `SET07.BIN`, `BGM.BIN`) byte-exact with zero relocations.
+   - Spliced modules into rebuilt game disc; verified bit-identical canonical disc SHA-256 (`fe11d2fbda58d63300ef2265c555ce05bddf14d69fb7b73fc409e25c0ef6c0a8`).
+7. **Mednafen Verification Across Cold Boot & Multi-Scenario Gameplay Suite**:
+   - Cold boot 6 checkpoints verified with zero divergence.
+   - Multi-scenario gameplay suite (6 deterministic scenarios: BOOT_TO_TITLE, TITLE_TO_NEW_GAME, EARLY_GAMEPLAY, MAP_TRANSITION, COMBAT, AUDIO) verified with zero register divergence, zero cycle drift, zero slave CPU activity.
+8. **Hardened Independent Gate Validator & 8 Negative Controls**:
+   - `tools/asm/validate_recovery_gates.py` independently verifies all records, byte counts, gap reports, and invariants.
+   - `tests/asm/test_recovery_gates.py` passes all 8 explicit fail-closed negative controls (NC1: P3 summary falsification, NC2: BLOCKED record, NC3: 0x0600428A non-code, NC4: empty carver diff, NC5: PROBABLE_DATA CFG overlap, NC6: RAW_CODE_PENDING, NC7: byte count mismatch, NC8: unknown execution hit).
+9. **Regression & Test Suite Integrity**:
+   - 41/41 CTest pass on Windows; 40/40 CTest pass on Linux WSL.
+   - 100% compliance with 500-line source limit across all files; `git diff --check` clean.
+10. **Gate Disposition**:
+    - `FULL_ASM_GAME_GATE = PASS`. Broad C++ translation remains strictly FROZEN.
+
 ## 2026-09-11 — T2-ASM-CARVER-02 / T2-ASM-06: Proof-Integrity Repair & Complete Executable ASM Closure
 
 ### Task

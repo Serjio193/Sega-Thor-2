@@ -1,18 +1,18 @@
 {
-  "total_nodes": 9679,
-  "total_edges": 3646,
+  "total_nodes": 9669,
+  "total_edges": 3640,
   "nodes_by_type": {
     "CODE_BLOCK": 5139,
-    "DATA_BLOCK": 4540
+    "DATA_BLOCK": 4530
   },
   "nodes_by_status": {
-    "CONFIRMED": 7438,
-    "PROBABLE": 2241
+    "CONFIRMED": 7433,
+    "PROBABLE": 2236
   },
   "edges_by_relation": {
-    "EXPANSION_CHILD": 3646
+    "EXPANSION_CHILD": 3640
   },
-  "confirmed_nodes": 7438,
-  "probable_nodes": 2241,
+  "confirmed_nodes": 7433,
+  "probable_nodes": 2236,
   "hypothesis_nodes": 0
 }

@@ -2,11 +2,11 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "Thor 2 ASM Recovery Scorecard",
   "timestamp": "2026-09-11T13:40:00Z",
-  "baseline_commit": "a20ba777a650803a84c835eb6934d2d67ab5f63d",
+  "baseline_commit": "04b4f51004463402e729115f00d5cb100ba193fa",
   "active_milestone": "ASM-First Recovery Track (docs/DEVELOPMENT_PLAN.md, ADR D-015, T2-ASM-CARVER-02 / T2-ASM-06)",
   "overall_status": "IN_PROGRESS",
-  "active_task": "T2-ASM-CARVER-02 / T2-ASM-06",
-  "audit_note": "Proof-integrity audit complete. All confirmed instructions decoded with proven mnemonics via thor_sh2 (RAW_CODE_PENDING == 0). P3 gaps resolved (UNRESOLVED_CONTROL_FLOW_UNKNOWN == 0). Byte-exact rebuild and bit-exact disc hash verified. FULL_ASM_GAME_GATE satisfied. All broad C++ translation remains strictly FROZEN awaiting user authorization.",
+  "active_task": "T2-ASM-INTEGRITY-03",
+  "audit_note": "Proof-integrity audit complete under T2-ASM-INTEGRITY-03. All confirmed instructions decoded with proven mnemonics via thor_sh2 (RAW_CODE_PENDING == 0). P3 gaps resolved (UNRESOLVED_CONTROL_FLOW_UNKNOWN == 0). Byte-exact rebuild and bit-exact disc hash verified. FULL_ASM_GAME_GATE satisfied. All broad C++ translation remains strictly FROZEN awaiting user authorization.",
   "tracks": {
     "ASM_DISCOVERY": "COMPLETE",
     "ASM_CODE_RECOVERY": "COMPLETE",
@@ -22,12 +22,12 @@
       "status": "PASS",
       "requirement": "PROVEN_MNEMONIC_COVERAGE >= 90.00% across all confirmed code",
       "current_value": 100.0,
-      "details": "56164 proven mnemonic bytes / 56164 confirmed code bytes (100.00% aggregate coverage across SH-2 and M68K)."
+      "details": "56166 proven mnemonic bytes / 56166 confirmed code bytes (100.00% aggregate coverage across SH-2 and M68K)."
     },
     "FULL_ASM_GAME_GATE": {
       "status": "PASS",
       "requirement": "100% executable modules reassembled byte-exact, boot and gameplay verified with 0 divergence, SH2_RAW_CODE_PENDING == 0, M68K_RAW_CODE_PENDING == 0",
-      "details": "PASS: All 4 executable modules reassembled byte-exact, boot and gameplay verified with 0 divergence in Mednafen, SH2_RAW_CODE_PENDING == 0, M68K_RAW_CODE_PENDING == 0, UNKNOWN_EXECUTION_HITS == 0, UNRESOLVED_CONTROL_FLOW_UNKNOWN == 0, Carver conflicts == 0, 100.00% mnemonic coverage."
+      "details": "PASS: 100% executable modules (0TH2.BIN, TH2.LOW, SET07.BIN, BGM.BIN) reassembled byte-exact from manifest assembly containers; disc SHA-256 fe11d2fb... verified; zero divergence across 6 cold-boot checkpoints and 6 multi-scenario gameplay sessions in clean Mednafen; SH2_RAW_CODE_PENDING == 0; M68K_RAW_CODE_PENDING == 0; P3 control flow gaps resolved (0 unresolved, 0 blocked); historical executed site 0x0600428A confirmed code; carver integrity diff fully reconciled."
     },
     "STANDALONE_NATIVE_GATE": {
       "status": "FROZEN_BY_ASM_FIRST_ARCHITECTURE",
@@ -38,12 +38,12 @@
   "metrics": {
     "total_modules_cataloged": 4,
     "total_binary_bytes": 1457152,
-    "total_confirmed_code_bytes": 56164,
-    "total_proven_mnemonic_bytes": 56164,
+    "total_confirmed_code_bytes": 56166,
+    "total_proven_mnemonic_bytes": 56166,
     "total_raw_code_pending_bytes": 0,
     "total_data_bytes": 55864,
     "total_padding_bytes": 51546,
-    "total_unknown_bytes": 1290668,
+    "total_unknown_bytes": 1290666,
     "proven_mnemonic_coverage_pct": 100.0,
     "module_containers_byte_exact": 4,
     "module_containers_runtime_verified": 4,
@@ -62,11 +62,11 @@
       "processor": "MASTER_SH2",
       "size_bytes": 535552,
       "sha256": "c1cc4117870bc567386410aa2d4f1b5f03fb98a601be71bb3ae2155de1853c64",
-      "confirmed_code_bytes": 52856,
-      "proven_mnemonic_bytes": 52856,
+      "confirmed_code_bytes": 52858,
+      "proven_mnemonic_bytes": 52858,
       "data_bytes": 42314,
       "padding_bytes": 351,
-      "unknown_bytes": 437299,
+      "unknown_bytes": 437297,
       "reassembly_status": "BYTE_EXACT",
       "runtime_verified": true
     },

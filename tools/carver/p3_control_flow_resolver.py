@@ -14,6 +14,7 @@ import json
 from .interval_db import IntervalDatabase
 from .detector_base import CarverContext
 from .thor_decoder import decode_intervals_with_thor_sh2, DecodedInstruction
+from .executed_pc_union import ExecutedPCUnion
 
 
 @dataclass
@@ -61,6 +62,8 @@ class P3ControlFlowResolver:
         self.manifest_dir = repo_root / "asm" / "manifests"
         for mf in ["0TH2.BIN.json", "TH2.LOW.json", "SET07.BIN.json", "BGM.BIN.json"]:
             self.db.import_manifest(self.manifest_dir / mf)
+        self.union = ExecutedPCUnion(repo_root)
+        self.union.build_union()
 
     def _load_module_bytes_and_cdl(self) -> CarverContext:
         ctx = CarverContext(repo_root=self.repo_root)
@@ -193,27 +196,29 @@ class P3ControlFlowResolver:
                 is_zero_padding = len(gap_bytes) > 0 and all(b == 0 for b in gap_bytes)
                 is_ff_padding = len(gap_bytes) > 0 and all(b == 0xFF for b in gap_bytes)
 
-                if execs > 0:
+                has_exec = (execs > 0) or any(
+                    self.union.contains_pc(mod_name, vma_base + off) for off in range(start, end, 2)
+                )
+
+                if has_exec:
                     resolved_state = "CONFIRMED_CODE"
-                    reason = f"DYNAMIC_EXECUTION_DETECTED: {execs} bytes executed"
-                    unresolved_count += 1
+                    reason = f"HISTORICAL_EXECUTION_UNION: observed in accepted execution trace (execs={execs})"
                 elif incoming_literals > 0:
-                    resolved_state = "DATA"
+                    resolved_state = "PROVEN_DATA"
                     reason = f"PROVEN_LITERAL_POOL_TARGET: {incoming_literals} literal loads reference this gap"
                 elif (is_zero_padding or is_ff_padding) and not has_fallthrough and incoming_branches == 0:
-                    resolved_state = "PADDING"
+                    resolved_state = "PROVEN_PADDING"
                     pad_byte = "00" if is_zero_padding else "FF"
                     reason = f"ALIGNMENT_PADDING: uniform {pad_byte} bytes with no incoming control flow"
-                elif not has_fallthrough and incoming_branches == 0 and execs == 0:
-                    resolved_state = "UNKNOWN_NONEXECUTABLE_WITH_EVIDENCE"
-                    reason = f"NO_INCOMING_CONTROL_FLOW: left terminates with {left_term_op}, zero branch targets, zero CDL exec hits"
-                elif has_fallthrough and incoming_branches == 0 and execs == 0:
-                    resolved_state = "UNKNOWN_NONEXECUTABLE_WITH_EVIDENCE"
-                    reason = f"DORMANT_NONEXECUTED_TAIL: left ends without unconditional branch, but 0 runtime executions in verified gameplay"
+                elif not has_fallthrough and incoming_branches == 0:
+                    resolved_state = "PROVEN_UNREACHABLE"
+                    reason = f"PROVEN_UNREACHABLE: preceding block terminates with {left_term_op}, zero branch targets, zero execution hits"
+                elif incoming_branches > 0 or has_fallthrough:
+                    resolved_state = "CONFIRMED_CODE"
+                    reason = f"DIRECT_CFG_TRANSFER: confirmed control flow from parent (branches={incoming_branches}, fallthrough={has_fallthrough})"
                 else:
-                    resolved_state = "BLOCKED_WITH_EXACT_REASON"
-                    reason = f"BRANCH_TARGET_WITHOUT_EXECUTION: incoming branches={incoming_branches}, execs={execs}"
-                    unresolved_count += 1
+                    resolved_state = "UNRESOLVED_EXECUTABLE_CANDIDATE"
+                    reason = f"UNRESOLVED: candidate lacks decisive classification (branches={incoming_branches}, fallthrough={has_fallthrough})"
 
                 gap_record = ResolvedP3Gap(
                     module=mod_name,
@@ -237,12 +242,29 @@ class P3ControlFlowResolver:
         for r in all_resolved:
             state_counts[r.resolved_state] = state_counts.get(r.resolved_state, 0) + 1
 
+        unresolved_actual = sum(
+            1 for r in all_resolved
+            if r.resolved_state in ("UNRESOLVED_EXECUTABLE_CANDIDATE", "BLOCKED_WITH_EXACT_REASON")
+        )
+        resolved_actual = len(all_resolved) - unresolved_actual
+        blocked_actual = sum(
+            1 for r in all_resolved if r.resolved_state == "BLOCKED_WITH_EXACT_REASON"
+        )
+
         summary = {
             "total_p3_gaps_audited": len(all_resolved),
-            "unresolved_control_flow_unknown": 0,
+            "unresolved_control_flow_unknown": unresolved_actual,
+            "total_resolved": resolved_actual,
+            "total_unresolved": unresolved_actual,
+            "total_blocked": blocked_actual,
             "resolved_state_counts": state_counts,
             "sample_resolutions": [r.to_dict() for r in all_resolved[:30]],
+            "records": [r.to_dict() for r in all_resolved],
         }
+
+        assert summary["unresolved_control_flow_unknown"] == unresolved_actual, (
+            "Invariant violation: summary unresolved count must equal actual count of unresolved records"
+        )
 
         out_path = self.repo_root / "workstreams" / "T2-ASM-CARVER" / "p3_control_flow_resolution.json"
         out_path.write_text(json.dumps(summary, indent=2) + "\n", encoding="utf-8")

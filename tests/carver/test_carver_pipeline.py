@@ -230,6 +230,47 @@ class TestCarverPipeline(unittest.TestCase):
         self.assertEqual(p3_data["unresolved_control_flow_unknown"], 0)
         self.assertGreater(p3_data["total_p3_gaps_audited"], 0)
 
+    def test_12_carver_integrity_diff_reconciliation(self) -> None:
+        diff_path = REPO_ROOT / "workstreams" / "T2-ASM-CARVER" / "carver_integrity_diff.json"
+        self.assertTrue(diff_path.exists(), "carver_integrity_diff.json must exist")
+        self.assertGreater(diff_path.stat().st_size, 0, "carver_integrity_diff.json must not be empty")
+
+        data = json.loads(diff_path.read_text(encoding="utf-8"))
+        self.assertIn("input_candidate_total", data)
+        self.assertIn("confirmed_count", data)
+        self.assertIn("probable_count", data)
+        self.assertIn("candidate_count", data)
+        self.assertIn("conflict_count", data)
+        self.assertIn("byte_totals", data)
+        self.assertIn("decisions", data)
+
+        total = data["input_candidate_total"]
+        conf = data["confirmed_count"]
+        prob = data["probable_count"]
+        cand = data["candidate_count"]
+        confl = data["conflict_count"]
+
+        # Counts must reconcile exactly
+        self.assertEqual(conf + prob + cand + confl, total)
+        self.assertEqual(total, len(data["decisions"]))
+        self.assertGreater(total, 0)
+
+        # Check byte totals
+        b_totals = data["byte_totals"]
+        self.assertEqual(
+            b_totals["CONFIRMED"] + b_totals["PROBABLE"] + b_totals["CANDIDATE"] + b_totals["CONFLICT"],
+            b_totals["total"],
+        )
+
+        # Check sample decision fields
+        sample = data["decisions"][0]
+        self.assertIn("previous_classification", sample)
+        self.assertIn("new_classification", sample)
+        self.assertIn("evidence_contract", sample)
+        self.assertIn("promotion_demotion_reason", sample)
+        self.assertIn("status", sample)
+        self.assertIn(sample["status"], ("CONFIRMED", "PROBABLE", "CANDIDATE", "CONFLICT"))
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -2,7 +2,7 @@
   "passes": [
     {
       "pass": 1,
-      "candidates_found": 11052,
+      "candidates_found": 11053,
       "bytes_promoted": 79653,
       "conflicts": 0
     },
@@ -11,19 +11,7 @@
       "candidates_found": 4465,
       "bytes_promoted": 29459,
       "conflicts": 0
-    },
-    {
-      "pass": 3,
-      "candidates_found": 4189,
-      "bytes_promoted": 106,
-      "conflicts": 0
-    },
-    {
-      "pass": 4,
-      "candidates_found": 4177,
-      "bytes_promoted": 0,
-      "conflicts": 0
     }
   ],
-  "total_passes": 4
+  "total_passes": 2
 }

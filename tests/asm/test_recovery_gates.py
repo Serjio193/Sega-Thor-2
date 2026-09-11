@@ -4,6 +4,7 @@ tests/asm/test_recovery_gates.py ? Unit Tests & Negative Controls for Gate Valid
 """
 
 import copy
+import json
 import sys
 from pathlib import Path
 
@@ -28,7 +29,7 @@ def test_honest_scorecard_passes():
 
     full_asm = audit_full_asm_game_gate(scorecard)
     assert full_asm["can_pass"] is True, f"FULL_ASM_GAME_GATE should pass: {full_asm['issues']}"
-    assert full_asm["claimed_status"] in ("NOT_SATISFIED", "PASS")
+    assert full_asm["claimed_status"] in ("NOT_SATISFIED", "NOT_YET_REPROVEN", "PASS")
     assert len(full_asm["issues"]) == 0
 
     runtime_src = repo_root / "src" / "runtime" / "standalone_runtime.cpp"
@@ -126,42 +127,174 @@ def test_non_byte_exact_rejected():
         print("[PASS] Negative control: non-byte-exact module rejected fail-closed.")
 
 
-def test_sh2_pending_code_rejected(tmp_path_factory=None):
-    scorecard_path = repo_root / "workstreams" / "ASM_RECOVERY_SCORECARD.json"
-    scorecard = load_scorecard(scorecard_path)
+def _setup_mock_tree():
+    import tempfile, shutil
+    td = tempfile.TemporaryDirectory()
+    tr = Path(td.name)
+    shutil.copytree(repo_root / "asm" / "manifests", tr / "asm" / "manifests")
+    shutil.copytree(repo_root / "workstreams" / "T2-ASM-CARVER", tr / "workstreams" / "T2-ASM-CARVER")
+    return td, tr
 
+
+def test_nc1_p3_hardcoded_zero_rejected():
+    scorecard = load_scorecard(repo_root / "workstreams" / "ASM_RECOVERY_SCORECARD.json")
     fake = copy.deepcopy(scorecard)
     fake["gates"]["FULL_ASM_GAME_GATE"]["status"] = "PASS"
+    td, tr = _setup_mock_tree()
+    p3_file = tr / "workstreams" / "T2-ASM-CARVER" / "p3_control_flow_resolution.json"
+    p3_data = json.loads(p3_file.read_text(encoding="utf-8"))
+    p3_data["unresolved_control_flow_unknown"] = 0
+    p3_data["records"][0]["resolved_state"] = "UNRESOLVED_EXECUTABLE_CANDIDATE"
+    p3_file.write_text(json.dumps(p3_data), encoding="utf-8")
+    try:
+        audit_full_asm_game_gate(fake, tr)
+        assert False, "Should have failed for hardcoded zero with unresolved record"
+    except GateIntegrityError as e:
+        assert "unresolved but records contain" in str(e) or "UNRESOLVED_EXECUTABLE_CANDIDATE" in str(e)
+        print("[PASS] NC1: hard-code P3 summary to zero while unresolved record exists rejected.")
+    finally:
+        td.cleanup()
 
-    import tempfile
-    with tempfile.TemporaryDirectory() as td:
-        tmp_root = Path(td)
-        # Setup mock manifests with 1 pending block
-        mf_dir = tmp_root / "asm" / "manifests"
-        mf_dir.mkdir(parents=True)
-        for mf in ["TH2.LOW.json", "SET07.BIN.json", "BGM.BIN.json"]:
-            (mf_dir / mf).write_text((repo_root / "asm" / "manifests" / mf).read_text(encoding="utf-8"), encoding="utf-8")
-        corrupt_0th2 = {
-            "ranges": [
-                {"evidence_classification": "CONFIRMED_CODE", "assembly_representation": "RAW_CODE_PENDING", "byte_length": 16}
-            ]
-        }
-        import json
-        (mf_dir / "0TH2.BIN.json").write_text(json.dumps(corrupt_0th2), encoding="utf-8")
 
-        try:
-            audit_full_asm_game_gate(fake, tmp_root)
-            assert False, "Should have raised GateIntegrityError for SH2 pending bytes"
-        except GateIntegrityError as e:
-            assert "SH2_RAW_CODE_PENDING" in str(e)
-            print("[PASS] Negative control: SH2 pending bytes rejected fail-closed.")
+def test_nc2_blocked_record_rejected():
+    scorecard = load_scorecard(repo_root / "workstreams" / "ASM_RECOVERY_SCORECARD.json")
+    fake = copy.deepcopy(scorecard)
+    fake["gates"]["FULL_ASM_GAME_GATE"]["status"] = "PASS"
+    td, tr = _setup_mock_tree()
+    p3_file = tr / "workstreams" / "T2-ASM-CARVER" / "p3_control_flow_resolution.json"
+    p3_data = json.loads(p3_file.read_text(encoding="utf-8"))
+    p3_data["records"][0]["resolved_state"] = "BLOCKED_WITH_EXACT_REASON"
+    p3_file.write_text(json.dumps(p3_data), encoding="utf-8")
+    try:
+        audit_full_asm_game_gate(fake, tr)
+        assert False, "Should have failed for BLOCKED_WITH_EXACT_REASON record"
+    except GateIntegrityError as e:
+        assert "BLOCKED_WITH_EXACT_REASON" in str(e)
+        print("[PASS] NC2: BLOCKED_WITH_EXACT_REASON record rejected fail-closed.")
+    finally:
+        td.cleanup()
+
+
+def test_nc3_executed_0600428a_noncode_rejected():
+    scorecard = load_scorecard(repo_root / "workstreams" / "ASM_RECOVERY_SCORECARD.json")
+    fake = copy.deepcopy(scorecard)
+    fake["gates"]["FULL_ASM_GAME_GATE"]["status"] = "PASS"
+    td, tr = _setup_mock_tree()
+    p3_file = tr / "workstreams" / "T2-ASM-CARVER" / "p3_control_flow_resolution.json"
+    p3_data = json.loads(p3_file.read_text(encoding="utf-8"))
+    for r in p3_data["records"]:
+        if r.get("runtime_start") == "0x0600428A":
+            r["resolved_state"] = "UNKNOWN_NONEXECUTABLE"
+    p3_file.write_text(json.dumps(p3_data), encoding="utf-8")
+    try:
+        audit_full_asm_game_gate(fake, tr)
+        assert False, "Should have failed when 0x0600428A is non-code"
+    except GateIntegrityError as e:
+        assert "0x0600428A" in str(e)
+        print("[PASS] NC3: historical executed site 0x0600428A marked non-code rejected fail-closed.")
+    finally:
+        td.cleanup()
+
+
+def test_nc4_empty_carver_diff_rejected():
+    scorecard = load_scorecard(repo_root / "workstreams" / "ASM_RECOVERY_SCORECARD.json")
+    fake = copy.deepcopy(scorecard)
+    fake["gates"]["FULL_ASM_GAME_GATE"]["status"] = "PASS"
+    td, tr = _setup_mock_tree()
+    diff_file = tr / "workstreams" / "T2-ASM-CARVER" / "carver_integrity_diff.json"
+    diff_file.write_text("", encoding="utf-8")
+    try:
+        audit_full_asm_game_gate(fake, tr)
+        assert False, "Should have failed for empty carver_integrity_diff.json"
+    except GateIntegrityError as e:
+        assert "carver_integrity_diff.json is empty" in str(e)
+        print("[PASS] NC4: empty carver_integrity_diff.json rejected fail-closed.")
+    finally:
+        td.cleanup()
+
+
+def test_nc5_probable_data_cfg_overlap_rejected():
+    scorecard = load_scorecard(repo_root / "workstreams" / "ASM_RECOVERY_SCORECARD.json")
+    fake = copy.deepcopy(scorecard)
+    fake["gates"]["FULL_ASM_GAME_GATE"]["status"] = "PASS"
+    td, tr = _setup_mock_tree()
+    mf_file = tr / "asm" / "manifests" / "0TH2.BIN.json"
+    mf_data = json.loads(mf_file.read_text(encoding="utf-8"))
+    mf_data["ranges"].append({
+        "offset_start": 100, "offset_end_exclusive": 104, "runtime_start": "0x06004064",
+        "byte_length": 4, "evidence_classification": "DATA_PROBABLE", "assembly_representation": "RAW_DATA",
+        "evidence_refs": ["EXACT_CFG_TARGET"],
+    })
+    mf_file.write_text(json.dumps(mf_data), encoding="utf-8")
+    try:
+        audit_full_asm_game_gate(fake, tr)
+        assert False, "Should have failed for PROBABLE_DATA overlapping exact CFG target"
+    except GateIntegrityError as e:
+        assert "PROBABLE_DATA overlaps exact CFG target" in str(e)
+        print("[PASS] NC5: PROBABLE_DATA overlapping exact CFG target rejected fail-closed.")
+    finally:
+        td.cleanup()
+
+
+def test_nc6_confirmed_code_raw_pending_rejected():
+    scorecard = load_scorecard(repo_root / "workstreams" / "ASM_RECOVERY_SCORECARD.json")
+    fake = copy.deepcopy(scorecard)
+    fake["gates"]["FULL_ASM_GAME_GATE"]["status"] = "PASS"
+    td, tr = _setup_mock_tree()
+    mf_file = tr / "asm" / "manifests" / "0TH2.BIN.json"
+    mf_data = json.loads(mf_file.read_text(encoding="utf-8"))
+    mf_data["ranges"].append({
+        "offset_start": 200, "offset_end_exclusive": 216, "runtime_start": "0x060040C8",
+        "byte_length": 16, "evidence_classification": "CONFIRMED_CODE",
+        "assembly_representation": "RAW_CODE_PENDING",
+    })
+    mf_file.write_text(json.dumps(mf_data), encoding="utf-8")
+    try:
+        audit_full_asm_game_gate(fake, tr)
+        assert False, "Should have failed for confirmed code with RAW_CODE_PENDING"
+    except GateIntegrityError as e:
+        assert "SH2_RAW_CODE_PENDING" in str(e)
+        print("[PASS] NC6: confirmed code represented RAW_CODE_PENDING rejected fail-closed.")
+    finally:
+        td.cleanup()
+
+
+def test_nc7_byte_mismatch_rejected():
+    scorecard = load_scorecard(repo_root / "workstreams" / "ASM_RECOVERY_SCORECARD.json")
+    fake = copy.deepcopy(scorecard)
+    fake["gates"]["FULL_ASM_GAME_GATE"]["status"] = "PASS"
+    fake["modules"][0]["confirmed_code_bytes"] += 100
+    try:
+        audit_full_asm_game_gate(fake, repo_root)
+        assert False, "Should have failed for confirmed vs proven byte mismatch"
+    except GateIntegrityError as e:
+        assert "Confirmed vs proven byte mismatch" in str(e)
+        print("[PASS] NC7: confirmed/proven byte mismatch rejected fail-closed.")
+
+
+def test_nc8_unknown_execution_hit_rejected():
+    scorecard = load_scorecard(repo_root / "workstreams" / "ASM_RECOVERY_SCORECARD.json")
+    fake = copy.deepcopy(scorecard)
+    fake["gates"]["FULL_ASM_GAME_GATE"]["status"] = "PASS"
+    td, tr = _setup_mock_tree()
+    gap_file = tr / "workstreams" / "T2-ASM-CARVER" / "unknown_gap_report.json"
+    gap_data = json.loads(gap_file.read_text(encoding="utf-8"))
+    gap_data["gaps_by_priority"]["P1_EXECUTION"] = 5
+    gap_file.write_text(json.dumps(gap_data), encoding="utf-8")
+    try:
+        audit_full_asm_game_gate(fake, tr)
+        assert False, "Should have failed for unknown execution hit"
+    except GateIntegrityError as e:
+        assert "UNKNOWN_EXECUTION_HITS" in str(e)
+        print("[PASS] NC8: unknown execution hit rejected fail-closed.")
+    finally:
+        td.cleanup()
 
 
 def test_premature_overall_complete_rejected():
     scorecard_path = repo_root / "workstreams" / "ASM_RECOVERY_SCORECARD.json"
     scorecard = load_scorecard(scorecard_path)
 
-    # Corrupt: claim overall_status = COMPLETE while guest fallback is present
     fake_scorecard = copy.deepcopy(scorecard)
     fake_scorecard["overall_status"] = "COMPLETE"
 
@@ -180,10 +313,17 @@ def main():
     test_bgm_omission_rejected()
     test_missing_module_rejected()
     test_non_byte_exact_rejected()
-    test_sh2_pending_code_rejected()
+    test_nc1_p3_hardcoded_zero_rejected()
+    test_nc2_blocked_record_rejected()
+    test_nc3_executed_0600428a_noncode_rejected()
+    test_nc4_empty_carver_diff_rejected()
+    test_nc5_probable_data_cfg_overlap_rejected()
+    test_nc6_confirmed_code_raw_pending_rejected()
+    test_nc7_byte_mismatch_rejected()
+    test_nc8_unknown_execution_hit_rejected()
     test_premature_overall_complete_rejected()
     assert run_full_validation(repo_root) is True
-    print("All gate validator tests and negative controls passed 100%.")
+    print("All 8 explicit negative controls and gate validator tests passed 100%.")
 
 
 if __name__ == "__main__":

@@ -1,18 +1,18 @@
 {
-  "total_unknown_gaps": 4659,
-  "total_unknown_bytes": 1290668,
+  "total_unknown_gaps": 4663,
+  "total_unknown_bytes": 1290772,
   "gaps_by_priority": {
     "P1_EXECUTION": 0,
     "P2_PROVENANCE": 0,
-    "P3_CONTROL_FLOW": 2214,
-    "P4_DATA_CONSUMER": 1424,
+    "P3_CONTROL_FLOW": 2215,
+    "P4_DATA_CONSUMER": 1427,
     "P5_HEURISTIC": 1021
   },
   "total_campaigns": 22,
   "campaigns": {
     "0TH2.BIN_block_00": {
-      "count": 1119,
-      "bytes": 37396
+      "count": 1118,
+      "bytes": 37446
     },
     "0TH2.BIN_block_01": {
       "count": 346,
@@ -24,7 +24,7 @@
     },
     "0TH2.BIN_block_03": {
       "count": 304,
-      "bytes": 57170
+      "bytes": 57182
     },
     "0TH2.BIN_block_04": {
       "count": 193,
@@ -35,12 +35,12 @@
       "bytes": 61320
     },
     "0TH2.BIN_block_06": {
-      "count": 247,
-      "bytes": 59278
+      "count": 248,
+      "bytes": 59286
     },
     "0TH2.BIN_block_07": {
-      "count": 1196,
-      "bytes": 36953
+      "count": 1200,
+      "bytes": 36987
     },
     "0TH2.BIN_block_08": {
       "count": 25,
