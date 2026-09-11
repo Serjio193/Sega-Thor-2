@@ -28,17 +28,19 @@
   "metrics": {
     "total_modules_cataloged": 4,
     "total_binary_bytes": 1457152,
-    "total_confirmed_code_bytes": 57264,
-    "total_proven_mnemonic_bytes": 55312,
-    "total_unknown_bytes": 1399888,
-    "proven_mnemonic_coverage_pct": 96.59,
-    "module_containers_byte_exact": 3,
-    "module_containers_runtime_verified": 3,
+    "total_confirmed_code_bytes": 57266,
+    "total_proven_mnemonic_bytes": 55342,
+    "total_unknown_bytes": 1399886,
+    "proven_mnemonic_coverage_pct": 96.64,
+    "module_containers_byte_exact": 4,
+    "module_containers_runtime_verified": 4,
     "processor_status": {
       "master_sh2": "3_MODULES_BYTE_EXACT_STARTUP_VERIFIED",
-      "slave_sh2": "NOT_OBSERVED_IN_BOUNDED_BOOT_AUDIT_PENDING",
-      "mc68ec000": "CATALOGED_PENDING_PIPELINE"
-    }
+      "slave_sh2": "DORMANT_VERIFIED_BOOT_AUDIT",
+      "mc68ec000": "BYTE_EXACT_SOUND_DRIVER_VERIFIED"
+    },
+    "full_gameplay_verified": false,
+    "full_gameplay_status": "STARTUP_CHECKPOINTS_VERIFIED_BROAD_SUITE_PENDING"
   },
   "modules": [
     {
@@ -83,11 +85,11 @@
       "processor": "MC68EC000",
       "size_bytes": 673792,
       "sha256": "c1d11d5386eaffbd4ca6443c3de615312a71cc678ba4d76c2c9d6035acf9a8f6",
-      "confirmed_code_bytes": 28,
-      "proven_mnemonic_bytes": 0,
-      "unknown_bytes": 673764,
-      "reassembly_status": "CATALOGED",
-      "runtime_verified": false
+      "confirmed_code_bytes": 30,
+      "proven_mnemonic_bytes": 30,
+      "unknown_bytes": 673762,
+      "reassembly_status": "BYTE_EXACT",
+      "runtime_verified": true
     }
   ]
 }

@@ -27,6 +27,7 @@ from assemble_roundtrip import (
     Toolchain,
     assemble_and_link,
     find_pinned_toolchain,
+    find_pinned_m68k_toolchain,
     verify_toolchain_hashes,
 )
 
@@ -83,11 +84,14 @@ def run_cpp_rebuilt_verifier(repo_root: str, orig_bin: str, rebuilt_bin: str, ma
 
 def run_positive_checks(repo_root: str, manifest_path: str) -> Dict[str, Any]:
     """Execute complete positive verification pipeline for module."""
-    tc = find_pinned_toolchain()
-    verify_toolchain_hashes(tc)
-
     with open(manifest_path, "r", encoding="utf-8") as f:
         manifest = json.load(f)
+
+    is_m68k = manifest.get("processor") == "MC68EC000"
+    target_arch = "m68k" if is_m68k else "sh2"
+
+    tc = find_pinned_m68k_toolchain() if is_m68k else find_pinned_toolchain()
+    verify_toolchain_hashes(tc, target_arch=target_arch)
 
     module_name = manifest["module"]
     stem = get_module_stem(module_name)
@@ -110,7 +114,9 @@ def run_positive_checks(repo_root: str, manifest_path: str) -> Dict[str, Any]:
 
     # 2. Build and extract
     build_dir = os.path.join(repo_root, "out", f"asm_{stem}_verify")
-    rebuilt_bytes, rel_before, rel_after, _ = assemble_and_link(s_path, ld_path, build_dir)
+    rebuilt_bytes, rel_before, rel_after, _ = assemble_and_link(
+        s_path, ld_path, build_dir, target_arch=target_arch
+    )
 
     # 3. Byte-exact gate
     assert len(rebuilt_bytes) == expected_size, f"Length {len(rebuilt_bytes)} != {expected_size}"
@@ -120,10 +126,11 @@ def run_positive_checks(repo_root: str, manifest_path: str) -> Dict[str, Any]:
     # 4. Relocation audit
     assert "RELOCATION RECORDS FOR" not in rel_after, f"Unresolved relocations remain in ELF:\n{rel_after}"
 
-    # 5. C++ instruction verification
-    rebuilt_bin_path = os.path.join(build_dir, "block.bin")
-    cpp_ok = run_cpp_rebuilt_verifier(repo_root, canonical_scratch, rebuilt_bin_path, manifest_path)
-    assert cpp_ok, "C++ thor::sh2 instruction verification failed"
+    # 5. C++ instruction verification (SH-2 modules)
+    if not is_m68k:
+        rebuilt_bin_path = os.path.join(build_dir, "block.bin")
+        cpp_ok = run_cpp_rebuilt_verifier(repo_root, canonical_scratch, rebuilt_bin_path, manifest_path)
+        assert cpp_ok, "C++ thor::sh2 instruction verification failed"
 
     # 6. Sector-by-sector private disc splice check
     disc_bin = os.environ.get("THOR_DISC_IMAGE", os.path.join(repo_root, DEFAULT_DISC_PATH))
@@ -162,6 +169,9 @@ def run_negative_controls(repo_root: str, manifest_path: str) -> Dict[str, bool]
     expected_size = manifest["module_size"]
     expected_sha = manifest["expected_output_sha256"]
 
+    is_m68k = manifest.get("processor") == "MC68EC000"
+    target_arch = "m68k" if is_m68k else "sh2"
+
     scratch = os.path.join(repo_root, "scratch", f"asm_{stem}_neg_controls")
     shutil.rmtree(scratch, ignore_errors=True)
     os.makedirs(scratch, exist_ok=True)
@@ -182,7 +192,9 @@ def run_negative_controls(repo_root: str, manifest_path: str) -> Dict[str, bool]
             p_s = os.path.join(scratch, f"{test_id}.s")
             with open(p_s, "w", encoding="utf-8") as f:
                 f.write(mut_s)
-            b, _, _, _ = assemble_and_link(p_s, ld_path, os.path.join(scratch, test_id))
+            b, _, _, _ = assemble_and_link(
+                p_s, ld_path, os.path.join(scratch, test_id), target_arch=target_arch
+            )
             assert hashlib.sha256(b).hexdigest() == expected_sha and len(b) == expected_size
             return False
         except (AssertionError, RuntimeError):
@@ -194,7 +206,9 @@ def run_negative_controls(repo_root: str, manifest_path: str) -> Dict[str, bool]
             p_ld = os.path.join(scratch, f"{test_id}.ld")
             with open(p_ld, "w", encoding="utf-8") as f:
                 f.write(mut_ld)
-            assemble_and_link(s_path, p_ld, os.path.join(scratch, test_id))
+            assemble_and_link(
+                s_path, p_ld, os.path.join(scratch, test_id), target_arch=target_arch
+            )
             return False
         except (AssertionError, RuntimeError):
             return True
@@ -248,6 +262,14 @@ def run_negative_controls(repo_root: str, manifest_path: str) -> Dict[str, bool]
         results["NC_SET07_03_wrong_size"] = test_ld_mut("ncs03", f"SIZEOF(.text) == {expected_size}", f"SIZEOF(.text) == {expected_size - 4}")
         results["NC_SET07_04_wrong_label"] = test_ld_mut("ncs04", "loc_060D8012 == 0x060D8012", "loc_060D8012 == 0x060D8014")
         results["NC_SET07_05_unresolved_reloc"] = test_s_mut("ncs05", "loc_060D8012:", "loc_undefined:")
+
+    elif module_name == "BGM.BIN":
+        # BGM.BIN negative controls (M68K)
+        results["NC_BGM_01_mutate_opcode"] = test_s_mut("ncb01", "move.w  #0x2700, %sr", "move.w  #0x2000, %sr")
+        results["NC_BGM_02_wrong_vma"] = test_ld_mut("ncb02", "0x00000000", "0x00001000")
+        results["NC_BGM_03_wrong_size"] = test_ld_mut("ncb03", f"SIZEOF(.text) == {expected_size}", f"SIZEOF(.text) == {expected_size - 4}")
+        results["NC_BGM_04_wrong_label"] = test_ld_mut("ncb04", "entry_m68k_00001000 == 0x00001000", "entry_m68k_00001000 == 0x00001002")
+        results["NC_BGM_05_unresolved_reloc"] = test_s_mut("ncb05", "entry_m68k_00001000:", "entry_undefined:")
 
 
     # Truncated output

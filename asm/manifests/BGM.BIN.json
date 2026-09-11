@@ -1,10 +1,11 @@
 {
   "module": "BGM.BIN",
+  "processor": "MC68EC000",
   "revision": "thor2_ntsc_patched_fe11d2fb",
   "module_runtime_base": "0x00000000",
   "module_size": 673792,
-  "confirmed_code_bytes": 28,
-  "raw_unknown_bytes": 673764,
+  "confirmed_code_bytes": 30,
+  "raw_unknown_bytes": 673762,
   "iso_sector_start": 353,
   "iso_sector_count": 329,
   "ranges": [
@@ -19,20 +20,36 @@
     },
     {
       "offset_start": 4096,
-      "offset_end_exclusive": 4124,
+      "offset_end_exclusive": 4126,
       "runtime_start": "0x00001000",
-      "runtime_end_exclusive": "0x0000101C",
-      "byte_length": 28,
+      "runtime_end_exclusive": "0x0000101E",
+      "byte_length": 30,
       "evidence_classification": "CONFIRMED_CODE",
-      "assembly_representation": "RAW_CODE_PENDING_DECODE",
-      "instruction_count": 14
+      "assembly_representation": "MNEMONIC_PROVEN",
+      "instruction_count": 14,
+      "instructions": [
+        "move.w  #0x2700, %sr",
+        "moveq   #0, %d0",
+        "move.l  %d0, %d1",
+        "move.l  %d0, %d2",
+        "move.l  %d0, %d3",
+        "move.l  %d0, %d4",
+        "move.l  %d0, %d5",
+        "move.l  %d0, %d6",
+        "move.l  %d0, %d7",
+        "movea.l %d0, %a0",
+        "movea.l %d0, %a1",
+        "movea.l %d0, %a2",
+        "movea.l %d0, %a3",
+        "movea.l %d0, %a4"
+      ]
     },
     {
-      "offset_start": 4124,
+      "offset_start": 4126,
       "offset_end_exclusive": 673792,
-      "runtime_start": "0x0000101C",
+      "runtime_start": "0x0000101E",
       "runtime_end_exclusive": "0x000A4800",
-      "byte_length": 669668,
+      "byte_length": 669666,
       "evidence_classification": "UNKNOWN",
       "assembly_representation": "RAW_UNKNOWN"
     }
@@ -41,8 +58,8 @@
     "entry_m68k_00001000"
   ],
   "expected_output_sha256": "c1d11d5386eaffbd4ca6443c3de615312a71cc678ba4d76c2c9d6035acf9a8f6",
-  "assembler_tool_identity": "Motorola 68000 / SCSP Driver Toolchain",
-  "linker_tool_identity": "Motorola 68000 Linker",
-  "provenance_identity": "T2-ASM-04",
-  "proven_mnemonic_bytes": 0
+  "assembler_tool_identity": "GNU assembler (binutils-m68k-linux-gnu 2.42)",
+  "linker_tool_identity": "GNU ld (binutils-m68k-linux-gnu 2.42)",
+  "provenance_identity": "T2-ASM-BGM",
+  "proven_mnemonic_bytes": 30
 }

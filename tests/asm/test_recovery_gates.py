@@ -75,9 +75,13 @@ def test_bgm_omission_rejected():
     scorecard_path = repo_root / "workstreams" / "ASM_RECOVERY_SCORECARD.json"
     scorecard = load_scorecard(scorecard_path)
 
-    # Corrupt: keep BGM.BIN with runtime_verified = false, claim PASS
+    # Corrupt: set BGM.BIN with runtime_verified = false, claim PASS
     fake_scorecard = copy.deepcopy(scorecard)
     fake_scorecard["gates"]["FULL_ASM_GAME_GATE"]["status"] = "PASS"
+    fake_scorecard["metrics"]["full_gameplay_verified"] = True
+    for mod in fake_scorecard["modules"]:
+        if mod["name"] == "BGM.BIN":
+            mod["runtime_verified"] = False
 
     try:
         audit_full_asm_game_gate(fake_scorecard)

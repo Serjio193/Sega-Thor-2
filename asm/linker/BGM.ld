@@ -1,6 +1,6 @@
 /* Linker script for BGM.BIN lossless assembly container */
-OUTPUT_FORMAT("elf32-sh")
-OUTPUT_ARCH(sh:sh2)
+OUTPUT_FORMAT("elf32-m68k")
+OUTPUT_ARCH(m68k)
 ENTRY(_start)
 
 SECTIONS

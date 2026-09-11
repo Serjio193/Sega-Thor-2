@@ -25,6 +25,7 @@ MODULE_SPECS = [
     ("0TH2.BIN", "asm/manifests/0TH2.BIN.json", 24, 535552, "c1cc4117870bc567386410aa2d4f1b5f03fb98a601be71bb3ae2155de1853c64"),
     ("TH2.LOW", "asm/manifests/TH2.LOW.json", 52123, 149504, "781396898191921b486be751163aea493ef9b1abcb55c0ab8698df9c69211224"),
     ("SET07.BIN", "asm/manifests/SET07.BIN.json", 52040, 98304, "bb6072222e19f8cb68934cbdb94e7d187c67680bb9e167524f85579ee6bc0af6"),
+    ("BGM.BIN", "asm/manifests/BGM.BIN.json", 353, 673792, "c1d11d5386eaffbd4ca6443c3de615312a71cc678ba4d76c2c9d6035acf9a8f6"),
 ]
 
 CHECKPOINTS = [
@@ -189,7 +190,7 @@ def main() -> int:
     try:
         print("=== FULL_ASM_GAME_GATE: VERIFYING REBUILT SATURN DISC ===")
         rebuilt_cue, rebuilt_bin = create_full_rebuilt_disc(repo_root, scratch)
-        print(f"  All 3 modules spliced into rebuilt disc: {rebuilt_bin}")
+        print(f"  All {len(MODULE_SPECS)} modules spliced into rebuilt disc: {rebuilt_bin}")
         print("  Disc SHA-256 verification: PASS (fe11d2fbda58d63300ef2265c555ce05bddf14d69fb7b73fc409e25c0ef6c0a8)")
 
         print("\n--- Running Baseline Retail Cold Boot in Mednafen ---")

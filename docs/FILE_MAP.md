@@ -170,6 +170,7 @@ tests/
     test_full_module_asm.py       CTest integration test for full 0TH2.BIN module round-trip
     test_th2_low_asm.py           CTest integration test for full TH2.LOW module round-trip
     test_set07_asm.py             CTest integration test for full SET07.BIN overlay round-trip
+    test_bgm_asm.py               CTest integration test for full BGM.BIN M68K sound driver round-trip
     test_manifest_schema.py       CTest integration test for module manifest schema & partition invariants
     test_full_game_disc.py        CTest integration test for FULL_ASM_GAME_GATE rebuilt disc verification
     test_recovery_gates.py        negative controls & validation for recovery gates

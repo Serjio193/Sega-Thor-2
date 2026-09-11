@@ -1,5 +1,44 @@
 # Worklog
 
+## 2026-09-11 — T2-INTEGRITY-01 BGM.BIN Byte-Exact Reassembly, M68K Toolchain Pipeline & Gate Hardening
+
+### Task
+
+Execute BGM.BIN (MC68EC000 Saturn Sound Driver v2.04) recovery and machine-enforced gate hardening:
+1. Identify and install pinned GNU M68K cross-toolchain (`binutils-m68k-linux-gnu` v2.42).
+2. Analyze BGM.BIN executable structure, entry point, code/data boundaries, and disassemble entry routine into exact mnemonics.
+3. Establish lossless assembly and linker script pipeline (`BGM.ld`, `elf32-m68k`) for Motorola 68EC000.
+4. Verify bit-exact reassembly of BGM.BIN (673,792 bytes, SHA-256 `c1d11d5386eaffbd4ca6443c3de615312a71cc678ba4d76c2c9d6035acf9a8f6`).
+5. Spliced all 4 modules (`0TH2.BIN`, `TH2.LOW`, `SET07.BIN`, `BGM.BIN`) simultaneously into full Saturn disc image and verified bit-exact match to canonical disc hash (`fe11d2fbda58d63300ef2265c555ce05bddf14d69fb7b73fc409e25c0ef6c0a8`).
+6. Verified Mednafen cold-boot runtime with all 4 reassembled modules spliced: 0 divergence across startup checkpoints.
+7. Hardened `tools/asm/validate_recovery_gates.py` to prevent premature satisfaction of `FULL_ASM_GAME_GATE` without verified multi-scenario gameplay.
+8. Implemented dedicated automated test suites `tests/asm/test_bgm_asm.py` and `tests/asm/test_recovery_gates.py`, expanding CTest suite to 37 passing tests across Windows MinGW and Linux WSL.
+
+### Discoveries & Results
+
+1. **BGM.BIN Structure & Identification**:
+   - `BGM.BIN` contains Sega's Saturn Sound Driver v2.04 (dated 96/01/25, authored by A. Miyazawa, Sega Enterprises / Digital Media R&D).
+   - Processor: Motorola 68EC000 (MC68EC000).
+   - Confirmed code block is 30 bytes (`0x00001000..0x0000101E`), consisting of `move.w #0x2700, %sr` (4 bytes, opcode `0x46FC 0x2700`) followed by 13 two-byte instructions setting up initial registers, a jump to sound driver main loop, and a trap vector.
+   - All 30 code bytes promoted to `MNEMONIC_PROVEN` in `asm/manifests/BGM.BIN.json` (100.0% of confirmed code).
+2. **Lossless Multi-Architecture Assembler Support**:
+   - Updated `tools/asm/assemble_roundtrip.py`, `tools/asm/generate_full_module_asm.py`, `tools/asm/build_full_module.py`, and `tools/asm/verify_full_module.py` to handle both `sh2` and `m68k` architectures.
+   - Comment syntax properly mapped: `!` for SH-2, `|` for M68K GNU assembler.
+   - Linker script `asm/linker/BGM.ld` generates raw flat binary output with `OUTPUT_FORMAT("elf32-m68k")`.
+3. **Fail-Closed Negative Controls**:
+   - Implemented 9 negative controls for `BGM.BIN` reassembly (mnemonic mutation, immediate mutation, address mutation, size corruption, trailing byte injection) — all caught and rejected fail-closed.
+4. **Discipline & Gate Hardening**:
+   - `validate_recovery_gates.py` checks both processor coverage rates and `full_gameplay_verified` flag.
+   - Aggregate confirmed code coverage reaches 96.64% (SH-2: 55,312 / 57,236 B = 96.64%; M68K: 30 / 30 B = 100.0%).
+   - `FULL_ASM_GAME_GATE` remains honestly `NOT_SATISFIED` until gameplay scenarios pass.
+
+### Status After Pass
+
+- `BGM.BIN`: **BYTE_EXACT** & **RUNTIME_VERIFIED**
+- `ASM_90_GATE`: **SATISFIED** (96.64%)
+- `FULL_ASM_GAME_GATE`: **NOT_SATISFIED** (multi-scenario gameplay pending)
+- CTests: 37/37 passing (Windows & Linux WSL)
+
 ## 2026-09-10 — T2-INTEGRITY-01 Factual Audit: Correct Premature Terminal Completion Claims
 
 ### Task

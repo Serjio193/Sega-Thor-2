@@ -22,6 +22,15 @@ PINNED_TOOLCHAIN = {
     "objdump_sha256": "ee13a67c88f386a388cf10eb4710d13f05691ac008af103b84329276bc41eb35",
 }
 
+PINNED_M68K_TOOLCHAIN = {
+    "target": "m68k-linux-gnu",
+    "binutils_version": "2.42",
+    "as_sha256": "c52857325edf2697b7434a0c053c3952b31a8698f8d57f6bc6cd1dec7aa1c6d9",
+    "ld_sha256": "ad520eb42f75b6bd9d3d72bd7e518ca8c506f0d48e660020a2649da8b0bb4e4f",
+    "objcopy_sha256": "b34601a02ddb1be3cdc363f67ccf9587c5c2554098e6ff83566252f196fb89b3",
+    "objdump_sha256": "240d1acf1e8f1e3a09498300e8ca4f23076df5f3f7c16af48d534efcc03feded",
+}
+
 
 @dataclass
 class Toolchain:
@@ -78,6 +87,36 @@ def find_pinned_toolchain() -> Toolchain:
     raise RuntimeError("GNU SH-2 cross-toolchain (binutils-sh-elf) not found")
 
 
+def find_pinned_m68k_toolchain() -> Toolchain:
+    """Discover pinned GNU M68K toolchain in local path or WSL."""
+    import shutil
+    if sys.platform.startswith("linux"):
+        as_path = shutil.which("m68k-linux-gnu-as")
+        if as_path:
+            base = os.path.dirname(as_path)
+            return Toolchain(
+                as_cmd=os.path.join(base, "m68k-linux-gnu-as"),
+                ld_cmd=os.path.join(base, "m68k-linux-gnu-ld"),
+                objcopy_cmd=os.path.join(base, "m68k-linux-gnu-objcopy"),
+                objdump_cmd=os.path.join(base, "m68k-linux-gnu-objdump"),
+                use_wsl=False,
+            )
+    try:
+        res = subprocess.run(["wsl", "bash", "-c", "which m68k-linux-gnu-as"], capture_output=True, text=True)
+        if res.returncode == 0 and res.stdout.strip():
+            return Toolchain(
+                as_cmd="/usr/bin/m68k-linux-gnu-as",
+                ld_cmd="/usr/bin/m68k-linux-gnu-ld",
+                objcopy_cmd="/usr/bin/m68k-linux-gnu-objcopy",
+                objdump_cmd="/usr/bin/m68k-linux-gnu-objdump",
+                use_wsl=True,
+            )
+    except FileNotFoundError:
+        pass
+    raise RuntimeError("GNU M68K cross-toolchain (binutils-m68k-linux-gnu) not found")
+
+
+
 def to_wsl_path(win_path: str) -> str:
     """Convert Windows path to WSL unix path."""
     if sys.platform.startswith("linux"):
@@ -97,14 +136,16 @@ def run_tool_cmd(tc: Toolchain, cmd_str: str) -> subprocess.CompletedProcess:
     return subprocess.run(cmd_str, shell=True, capture_output=True, text=True)
 
 
-def verify_toolchain_hashes(tc: Toolchain) -> Dict[str, str]:
+def verify_toolchain_hashes(tc: Toolchain, target_arch: str = "sh2") -> Dict[str, str]:
     """Verify toolchain binaries against pinned SHA-256 hashes."""
     hashes = {}
+    pinned = PINNED_M68K_TOOLCHAIN if target_arch == "m68k" else PINNED_TOOLCHAIN
+    prefix = "m68k-linux-gnu" if target_arch == "m68k" else "sh-elf"
     tools = [
-        ("sh-elf-as", tc.as_cmd, PINNED_TOOLCHAIN["as_sha256"]),
-        ("sh-elf-ld", tc.ld_cmd, PINNED_TOOLCHAIN["ld_sha256"]),
-        ("sh-elf-objcopy", tc.objcopy_cmd, PINNED_TOOLCHAIN["objcopy_sha256"]),
-        ("sh-elf-objdump", tc.objdump_cmd, PINNED_TOOLCHAIN["objdump_sha256"]),
+        (f"{prefix}-as", tc.as_cmd, pinned["as_sha256"]),
+        (f"{prefix}-ld", tc.ld_cmd, pinned["ld_sha256"]),
+        (f"{prefix}-objcopy", tc.objcopy_cmd, pinned["objcopy_sha256"]),
+        (f"{prefix}-objdump", tc.objdump_cmd, pinned["objdump_sha256"]),
     ]
 
     for name, path, expected in tools:
@@ -126,9 +167,10 @@ def assemble_and_link(
     out_dir: str,
     endian_mode: str = "big",
     extra_as_args: Optional[List[str]] = None,
+    target_arch: str = "sh2",
 ) -> Tuple[bytes, str, str, str]:
-    """Assemble and link SH-2 assembly into raw binary bytes."""
-    tc = find_pinned_toolchain()
+    """Assemble and link assembly into raw binary bytes."""
+    tc = find_pinned_m68k_toolchain() if target_arch == "m68k" else find_pinned_toolchain()
     os.makedirs(out_dir, exist_ok=True)
 
     if tc.use_wsl:
@@ -148,7 +190,10 @@ def assemble_and_link(
     ld_endian_flag = "-EB" if endian_mode == "big" else "-EL"
 
     extra = " ".join(extra_as_args) if extra_as_args else ""
-    as_cmd = f"{tc.as_cmd} -isa=sh2 {endian_flag} {extra} {s_unix} -o {o_unix}"
+    if target_arch == "m68k":
+        as_cmd = f"{tc.as_cmd} -m68000 {extra} {s_unix} -o {o_unix}"
+    else:
+        as_cmd = f"{tc.as_cmd} -isa=sh2 {endian_flag} {extra} {s_unix} -o {o_unix}"
     res = run_tool_cmd(tc, as_cmd)
     if res.returncode != 0:
         raise RuntimeError(f"Assembly failed:\n{res.stderr}")
@@ -156,7 +201,10 @@ def assemble_and_link(
     res_reloc_o = run_tool_cmd(tc, f"{tc.objdump_cmd} -r {o_unix}")
     relocs_before = res_reloc_o.stdout
 
-    ld_cmd = f"{tc.ld_cmd} {ld_endian_flag} -T {ld_unix} {o_unix} -o {elf_unix}"
+    if target_arch == "m68k":
+        ld_cmd = f"{tc.ld_cmd} -T {ld_unix} {o_unix} -o {elf_unix}"
+    else:
+        ld_cmd = f"{tc.ld_cmd} {ld_endian_flag} -T {ld_unix} {o_unix} -o {elf_unix}"
     res = run_tool_cmd(tc, ld_cmd)
     if res.returncode != 0:
         raise RuntimeError(f"Link failed:\n{res.stderr}")

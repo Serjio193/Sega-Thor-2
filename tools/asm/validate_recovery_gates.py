@@ -87,6 +87,10 @@ def audit_full_asm_game_gate(scorecard: dict) -> dict:
             unverified_modules.append(name)
             issues.append(f"Module '{name}' has runtime_verified = false")
 
+    gameplay_verified = scorecard.get("metrics", {}).get("full_gameplay_verified", False)
+    if not gameplay_verified:
+        issues.append("Full multi-scenario gameplay suite (menus, transitions, combat, audio) not yet verified")
+
     claimed_status = scorecard.get("gates", {}).get("FULL_ASM_GAME_GATE", {}).get("status")
     can_pass = (len(issues) == 0)
 

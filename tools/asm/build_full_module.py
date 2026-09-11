@@ -19,6 +19,7 @@ from assemble_roundtrip import (
     Toolchain,
     assemble_and_link,
     find_pinned_toolchain,
+    find_pinned_m68k_toolchain,
     verify_toolchain_hashes,
 )
 
@@ -37,10 +38,13 @@ def execute_build(
     ld_path: str,
     stem: str,
     build_label: str = "1",
+    target_arch: str = "sh2",
 ) -> Tuple[bytes, str, str]:
     """Execute a single build and return bytes and relocation reports."""
     out_dir = os.path.join(repo_root, "out", f"asm_{stem}_build_{build_label}")
-    raw_bytes, rel_before, rel_after, _ = assemble_and_link(s_path, ld_path, out_dir)
+    raw_bytes, rel_before, rel_after, _ = assemble_and_link(
+        s_path, ld_path, out_dir, target_arch=target_arch
+    )
     return raw_bytes, rel_before, rel_after
 
 
@@ -68,15 +72,21 @@ def main() -> int:
         if res_gen.returncode != 0:
             return res_gen.returncode
 
-    print(f"=== SH-2 FULL MODULE ROUND-TRIP BUILD: {module_name} ===")
-    tc = find_pinned_toolchain()
+    is_m68k = manifest.get("processor") == "MC68EC000"
+    target_arch = "m68k" if is_m68k else "sh2"
+    arch_title = "M68K" if is_m68k else "SH-2"
+
+    print(f"=== {arch_title} FULL MODULE ROUND-TRIP BUILD: {module_name} ===")
+    tc = find_pinned_m68k_toolchain() if is_m68k else find_pinned_toolchain()
     print("Verifying pinned GNU toolchain integrity...")
-    hashes = verify_toolchain_hashes(tc)
+    hashes = verify_toolchain_hashes(tc, target_arch=target_arch)
     for tool, h in hashes.items():
         print(f"  {tool}: {h} [MATCH]")
 
     print(f"\nExecuting Build 1 (out/asm_{stem}_build_1)...")
-    bytes_1, rel_before_1, rel_after_1 = execute_build(repo_root, s_path, ld_path, stem, "1")
+    bytes_1, rel_before_1, rel_after_1 = execute_build(
+        repo_root, s_path, ld_path, stem, "1", target_arch=target_arch
+    )
     sha_1 = hashlib.sha256(bytes_1).hexdigest()
     print(f"  Length: {len(bytes_1)} bytes")
     print(f"  SHA256: {sha_1}")
@@ -94,7 +104,9 @@ def main() -> int:
     print(f"  Byte-Exact Match: PASS ({len(bytes_1)} / {expected_size} bytes match original {module_name})")
 
     print(f"\nExecuting Build 2 (out/asm_{stem}_build_2) for determinism check...")
-    bytes_2, _, _ = execute_build(repo_root, s_path, ld_path, stem, "2")
+    bytes_2, _, _ = execute_build(
+        repo_root, s_path, ld_path, stem, "2", target_arch=target_arch
+    )
     sha_2 = hashlib.sha256(bytes_2).hexdigest()
 
     if bytes_1 != bytes_2:

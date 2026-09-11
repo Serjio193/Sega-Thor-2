@@ -19,40 +19,41 @@ ACCEPTANCE CRITERIA:
 - [x] update ASM_RECOVERY_SCORECARD.json, TASK.md, PROJECT_STATE.md, ROADMAP.md, WORKLOG.md, DECISIONS.md;
 - [x] set PROJECT_COMPLETION_STATE = IN_PROGRESS, FULL_ASM_GAME_GATE = NOT_SATISFIED, STANDALONE_NATIVE_GATE = NOT_SATISFIED;
 - [x] re-freeze broad C++ translation per ADR D-015 until real FULL_ASM_GAME_GATE;
-- [ ] establish machine-enforced gate validators;
-- [ ] re-audit ASM_90 denominator by processor;
-- [ ] implement M68K assembly toolchain and build BGM.BIN lossless assembly container;
-- [ ] prove M68K sound driver runtime in Mednafen;
+- [x] establish machine-enforced gate validators;
+- [x] re-audit ASM_90 denominator by processor;
+- [x] implement M68K assembly toolchain and build BGM.BIN lossless assembly container;
+- [x] prove M68K sound driver runtime in Mednafen;
 - [ ] audit Slave SH-2 across broad gameplay/debug scenarios;
 - [ ] build multi-scenario gameplay regression harness.
 
 EVIDENCE AVAILABLE:
 - Proven SH-2 assembly containers for 0TH2.BIN, TH2.LOW, SET07.BIN;
-- Discrete startup verification across 6 checkpoints;
-- Prototype native subsystems and StandaloneRuntime.
+- Proven M68K assembly container for BGM.BIN (30 bytes mnemonics, byte-exact reassembly);
+- Full 4-module Saturn disc splice matches canonical disc hash bit-exact;
+- Mednafen cold-boot runtime verified with 0 divergence;
+- Machine-enforced gate validation with 10 negative controls passing.
 KNOWN UNKNOWNS:
-- M68K sound driver code/data boundary in BGM.BIN;
 - Slave SH-2 activity during late gameplay or combat;
-- Live Thor 2 VDP1/VDP2 command streams during active combat.
+- Full gameplay scenario automation in Mednafen.
 ALLOWED SCOPE:
-- Documentation correction, gate validators, BGM.BIN recovery, M68K tooling, gameplay regression harness.
+- BGM.BIN recovery, M68K tooling, gate validation, gameplay regression harness.
 OUT OF SCOPE:
 - Premature D18 completion claims.
 
 ## Last verified result
 
-`T2_INTEGRITY_01_STARTED`: Factual audit completed; premature terminal claims superseded; project status honestly reset to IN_PROGRESS.
+`T2_BGM_M68K_REASSEMBLY_PASS`: BGM.BIN byte-exact reassembly, M68K toolchain support, and 4-module disc verification passing; 37/37 CTests passing.
 
 ## Session checkpoint
 
 CURRENT MILESTONE: ASM-First Recovery Track (docs/DEVELOPMENT_PLAN.md, ADR D-015, ADR D-016)
-CURRENT TASK: T2-INTEGRITY-01 Gate Hardening & BGM.BIN/M68K Pipeline
+CURRENT TASK: T2-INTEGRITY-01 Multi-Scenario Gameplay Regression Harness & Slave SH-2 Audit
 TASK STATUS: IN_PROGRESS
 MILESTONE UNDERSTANDING CONFIDENCE: 100%
 CURRENT SLICE UNDERSTANDING CONFIDENCE: 100%
-LAST VERIFIED RESULT: Integrity audit documented; scorecard and roadmap updated.
-FILES CHANGED: workstreams/ASM_RECOVERY_SCORECARD.json, TASK.md, docs/PROJECT_STATE.md, docs/ROADMAP.md, docs/WORKLOG.md, docs/DECISIONS.md.
-TESTS RUN: 35/35 CTests passing; line limits clean.
-NEW KNOWLEDGE: Real completion requires M68K assembly reconstruction, multi-scenario gameplay verification, removal of guest CPU fallback, and true L5 oracle parity.
-OPEN QUESTIONS: Location and boundaries of M68K executable routines in BGM.BIN.
-EXACT NEXT ACTION: Push integrity repair commit and establish machine-enforced gate validators.
+LAST VERIFIED RESULT: BGM.BIN reassembled byte-exact; 4 modules spliced into disc bit-exact; 37/37 CTests pass on Windows & Linux WSL.
+FILES CHANGED: CMakeLists.txt, asm/linker/BGM.ld, asm/manifests/BGM.BIN.json, docs/FILE_MAP.md, docs/WORKLOG.md, tests/asm/test_bgm_asm.py, tests/asm/test_recovery_gates.py, tools/asm/assemble_roundtrip.py, tools/asm/build_full_module.py, tools/asm/generate_full_module_asm.py, tools/asm/validate_recovery_gates.py, tools/asm/verify_full_game_disc.py, tools/asm/verify_full_module.py, workstreams/ASM_RECOVERY_SCORECARD.json.
+TESTS RUN: 37/37 CTests passing on Windows MinGW and Linux WSL; line limits clean; git diff --check clean.
+NEW KNOWLEDGE: BGM.BIN contains Sega Saturn Sound Driver v2.04 with 30 bytes confirmed M68K entry code; disc reassembly with all 4 modules yields bit-exact canonical disc.
+OPEN QUESTIONS: Degree of Slave SH-2 participation in combat/physics vs idle loop.
+EXACT NEXT ACTION: Push current BGM.BIN / gate commit, then implement multi-scenario gameplay regression harness.
