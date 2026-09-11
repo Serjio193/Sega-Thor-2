@@ -1,5 +1,50 @@
 # Worklog
 
+## 2026-09-11 — T2-ASM-INTEGRITY-05: Evidence Monotonicity, True Architectural-PC Evidence, Generation-Aware CFG Closure, and Non-Circular Unreachability Proof
+
+### Task
+
+Execute task `T2-ASM-INTEGRITY-05` to enforce true architectural-PC semantics, generation-aware identity keys, evidence monotonicity without silent data demotion, protected boundary guards in CFG closure, deletion of circular unreachability heuristics, and honest blocker accounting:
+1. **Dynamic Architectural-PC Evidence Purification (`tools/carver/executed_pc_union.py`)**:
+   - Strictly purified `executed_instruction_pcs` to contain ONLY actual architectural instruction-entry observations (7 unique entry PCs across `0TH2.BIN` and `TH2.LOW`).
+   - Mednafen debug hook presented PC (`PC+2`) quarantined in `debug_presented_entries` (70 entries).
+   - Register `PR` quarantined in `return_target_candidates` (37 entries); non-entry values never promoted to executed instruction PCs.
+   - All identities normalized to `(revision='RUS', cpu, module, generation=0, address/range)`.
+   - Maintained zero manifest-derived entries, zero unaligned PCs, zero unverified dynamic artifacts.
+2. **CFG Worklist Closure & Boundary Protection (`tools/carver/p3_control_flow_resolver.py`)**:
+   - Ingested guarded pre-pass DATA (57,722 bytes) and PADDING (52,145 bytes) from `carver_integrity_diff.json` and parent manifests.
+   - CFG worklist halts immediately upon reaching protected DATA or PADDING boundaries, preventing false opcode promotion.
+   - Removed fail-open hardcoded fallback for offset 650 / `0x0600428A`; presence verified from purified executed PC union backed by D9 evidence.
+   - Completely deleted circular unreachability heuristic: residual undecoded gaps remain `UNKNOWN` (`RESIDUAL_UNDECODED_GAP`, 2,206 records).
+   - Deleted module-name shortcuts (`SET07.BIN` / `BGM.BIN` classified strictly from evidence).
+   - Built full inventory of all indirect control-flow sites: 2,233 total, 2 resolved (`0x06004286` -> `0x0600A0F8`, `0x060042E0` -> `0x002E9910`), 2,231 unresolved.
+3. **Canonical Manifest Reconciliation & Evidence Monotonicity**:
+   - Updated all 4 manifests (`0TH2.BIN.json`, `TH2.LOW.json`, `SET07.BIN.json`, `BGM.BIN.json`) with exact non-overlapping partitions:
+     - `0TH2.BIN`: code 87,344, data 43,992, pad 673, unknown 403,543 (total 535,552).
+     - `TH2.LOW`: code 8,036, data 9,178, pad 10,129, unknown 122,161 (total 149,504).
+     - `SET07.BIN`: code 12, data 2,976, pad 33,798, unknown 61,518 (total 98,304).
+     - `BGM.BIN`: code 30, data 1,576, pad 7,545, unknown 664,641 (total 673,792).
+     - Aggregate: Code = 95,422 bytes (100% `MNEMONIC_PROVEN`), Data = 57,722 bytes, Padding = 52,145 bytes, Unknown = 1,251,863 bytes. Total = 1,457,152 bytes.
+   - Evidence monotonicity: `silent_evidence_demotions == 0` (zero demotions vs parent `4a03b83`).
+   - Manifest schema and tests updated to formally recognize `PADDING` alongside `DATA` and `CONFIRMED_CODE`.
+4. **Assembly Containers & Bit-Exact Disc Parity**:
+   - Rebuilt all 4 module assembly containers byte-exact with zero relocations.
+   - Spliced modules into rebuilt game disc; verified bit-identical canonical disc SHA-256 (`fe11d2fbda58d63300ef2265c555ce05bddf14d69fb7b73fc409e25c0ef6c0a8`).
+   - Verified 6 cold-boot architectural checkpoints in Mednafen pure interpreter mode with 0 divergence.
+5. **Negative Controls Suite (24/24 PASS)**:
+   - Implemented 8 new negative controls in `tests/asm/negative_controls_p4.py`: NC-I (valid-looking data inside proven DATA), NC-J (debug PC+2 presentation), NC-K (PR-only address), NC-L (silent data demotion), NC-M (fake unreachability without indirect closure), NC-N (generation alias), NC-O (module-name heuristic), NC-P (swallowed evidence error).
+   - All 24 negative controls (8 base + 8 P3 NC-A..NC-H + 8 P4 NC-I..NC-P) passed 100%.
+6. **Hardened Gate Validator**:
+   - `tools/asm/validate_recovery_gates.py` independently verifies all 14 gates and integrity checks.
+   - `FULL_ASM_GAME_GATE` truthfully reports `Claimed = 'NOT_YET_REPROVEN', Valid = False` with blocker: 2,206 residual undecoded gaps unproven as unreachable due to 2,231 unresolved indirect sites.
+7. **Regression Testing & Toolchain Checks**:
+   - Linux CTest in WSL: 40/40 tests passed 100%.
+   - 100% compliance with <= 500 lines policy across all touched human-maintained files.
+   - `git diff --check` clean.
+8. **Gate Disposition**:
+   - `FULL_ASM_GAME_GATE = NOT_YET_REPROVEN`.
+   - `CPLUSPLUS_TRANSLATION = FROZEN_BY_ASM_FIRST_ARCHITECTURE`.
+
 ## 2026-09-11 — T2-ASM-INTEGRITY-04: Purify Dynamic Execution Evidence, Instruction-Level P3 CFG Closure, and Canonical Manifest Reconciliation
 
 ### Task

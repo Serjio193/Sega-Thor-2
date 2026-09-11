@@ -23,6 +23,7 @@ from validate_recovery_gates import (
 )
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from negative_controls_p3 import run_all_p3_negative_controls
+from negative_controls_p4 import run_all_p4_negative_controls
 
 
 def test_honest_scorecard_passes():
@@ -30,9 +31,9 @@ def test_honest_scorecard_passes():
     scorecard = load_scorecard(scorecard_path)
 
     full_asm = audit_full_asm_game_gate(scorecard)
-    assert full_asm["can_pass"] is True, f"FULL_ASM_GAME_GATE should pass: {full_asm['issues']}"
-    assert full_asm["claimed_status"] in ("NOT_SATISFIED", "NOT_YET_REPROVEN", "PASS")
-    assert len(full_asm["issues"]) == 0
+    assert full_asm["claimed_status"] == "NOT_YET_REPROVEN"
+    assert full_asm["can_pass"] is False, "FULL_ASM_GAME_GATE must not pass while indirect sites remain unresolved"
+    assert any("P3 residual ambiguity" in issue for issue in full_asm["issues"])
 
     runtime_src = repo_root / "src" / "runtime" / "standalone_runtime.cpp"
     d18 = audit_d18_guest_removal(runtime_src, scorecard)
@@ -325,8 +326,9 @@ def main():
     test_nc8_unknown_execution_hit_rejected()
     test_premature_overall_complete_rejected()
     run_all_p3_negative_controls(repo_root)
+    run_all_p4_negative_controls(repo_root)
     assert run_full_validation(repo_root) is True
-    print("All 16 negative controls (8 base + 8 P3 NC-A..NC-H) and gate validator tests passed 100%.")
+    print("All 24 negative controls (8 base + 8 P3 NC-A..NC-H + 8 P4 NC-I..NC-P) and gate validator tests passed 100%.")
 
 
 if __name__ == "__main__":

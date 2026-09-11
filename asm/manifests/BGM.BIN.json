@@ -5,18 +5,68 @@
   "module_runtime_base": "0x00000000",
   "module_size": 673792,
   "confirmed_code_bytes": 30,
-  "raw_unknown_bytes": 673762,
+  "raw_unknown_bytes": 664641,
   "iso_sector_start": 353,
   "iso_sector_count": 329,
   "ranges": [
     {
       "offset_start": 0,
-      "offset_end_exclusive": 4096,
+      "offset_end_exclusive": 1111,
       "runtime_start": "0x00000000",
-      "runtime_end_exclusive": "0x00001000",
-      "byte_length": 4096,
+      "runtime_end_exclusive": "0x00000457",
+      "byte_length": 1111,
       "evidence_classification": "UNKNOWN",
-      "assembly_representation": "RAW_UNKNOWN"
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 1111,
+      "offset_end_exclusive": 1280,
+      "runtime_start": "0x00000457",
+      "runtime_end_exclusive": "0x00000500",
+      "byte_length": 169,
+      "evidence_classification": "PADDING",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 1280,
+      "offset_end_exclusive": 1408,
+      "runtime_start": "0x00000500",
+      "runtime_end_exclusive": "0x00000580",
+      "byte_length": 128,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 1408,
+      "offset_end_exclusive": 1536,
+      "runtime_start": "0x00000580",
+      "runtime_end_exclusive": "0x00000600",
+      "byte_length": 128,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 1536,
+      "offset_end_exclusive": 4096,
+      "runtime_start": "0x00000600",
+      "runtime_end_exclusive": "0x00001000",
+      "byte_length": 2560,
+      "evidence_classification": "PADDING",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
     },
     {
       "offset_start": 4096,
@@ -46,12 +96,6277 @@
     },
     {
       "offset_start": 4126,
-      "offset_end_exclusive": 673792,
+      "offset_end_exclusive": 5716,
       "runtime_start": "0x0000101E",
-      "runtime_end_exclusive": "0x000A4800",
-      "byte_length": 669666,
+      "runtime_end_exclusive": "0x00001654",
+      "byte_length": 1590,
       "evidence_classification": "UNKNOWN",
-      "assembly_representation": "RAW_UNKNOWN"
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 5716,
+      "offset_end_exclusive": 5728,
+      "runtime_start": "0x00001654",
+      "runtime_end_exclusive": "0x00001660",
+      "byte_length": 12,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 5728,
+      "offset_end_exclusive": 5740,
+      "runtime_start": "0x00001660",
+      "runtime_end_exclusive": "0x0000166C",
+      "byte_length": 12,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 5740,
+      "offset_end_exclusive": 5752,
+      "runtime_start": "0x0000166C",
+      "runtime_end_exclusive": "0x00001678",
+      "byte_length": 12,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 5752,
+      "offset_end_exclusive": 5772,
+      "runtime_start": "0x00001678",
+      "runtime_end_exclusive": "0x0000168C",
+      "byte_length": 20,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 5772,
+      "offset_end_exclusive": 5788,
+      "runtime_start": "0x0000168C",
+      "runtime_end_exclusive": "0x0000169C",
+      "byte_length": 16,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 5788,
+      "offset_end_exclusive": 5900,
+      "runtime_start": "0x0000169C",
+      "runtime_end_exclusive": "0x0000170C",
+      "byte_length": 112,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 5900,
+      "offset_end_exclusive": 5916,
+      "runtime_start": "0x0000170C",
+      "runtime_end_exclusive": "0x0000171C",
+      "byte_length": 16,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 5916,
+      "offset_end_exclusive": 18464,
+      "runtime_start": "0x0000171C",
+      "runtime_end_exclusive": "0x00004820",
+      "byte_length": 12548,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 18464,
+      "offset_end_exclusive": 18472,
+      "runtime_start": "0x00004820",
+      "runtime_end_exclusive": "0x00004828",
+      "byte_length": 8,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 18472,
+      "offset_end_exclusive": 19972,
+      "runtime_start": "0x00004828",
+      "runtime_end_exclusive": "0x00004E04",
+      "byte_length": 1500,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 19972,
+      "offset_end_exclusive": 19988,
+      "runtime_start": "0x00004E04",
+      "runtime_end_exclusive": "0x00004E14",
+      "byte_length": 16,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 19988,
+      "offset_end_exclusive": 20136,
+      "runtime_start": "0x00004E14",
+      "runtime_end_exclusive": "0x00004EA8",
+      "byte_length": 148,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 20136,
+      "offset_end_exclusive": 20152,
+      "runtime_start": "0x00004EA8",
+      "runtime_end_exclusive": "0x00004EB8",
+      "byte_length": 16,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 20152,
+      "offset_end_exclusive": 22476,
+      "runtime_start": "0x00004EB8",
+      "runtime_end_exclusive": "0x000057CC",
+      "byte_length": 2324,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 22476,
+      "offset_end_exclusive": 22488,
+      "runtime_start": "0x000057CC",
+      "runtime_end_exclusive": "0x000057D8",
+      "byte_length": 12,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 22488,
+      "offset_end_exclusive": 23784,
+      "runtime_start": "0x000057D8",
+      "runtime_end_exclusive": "0x00005CE8",
+      "byte_length": 1296,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 23784,
+      "offset_end_exclusive": 23796,
+      "runtime_start": "0x00005CE8",
+      "runtime_end_exclusive": "0x00005CF4",
+      "byte_length": 12,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 23796,
+      "offset_end_exclusive": 33440,
+      "runtime_start": "0x00005CF4",
+      "runtime_end_exclusive": "0x000082A0",
+      "byte_length": 9644,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 33440,
+      "offset_end_exclusive": 33460,
+      "runtime_start": "0x000082A0",
+      "runtime_end_exclusive": "0x000082B4",
+      "byte_length": 20,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 33460,
+      "offset_end_exclusive": 35052,
+      "runtime_start": "0x000082B4",
+      "runtime_end_exclusive": "0x000088EC",
+      "byte_length": 1592,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 35052,
+      "offset_end_exclusive": 35056,
+      "runtime_start": "0x000088EC",
+      "runtime_end_exclusive": "0x000088F0",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 35056,
+      "offset_end_exclusive": 36944,
+      "runtime_start": "0x000088F0",
+      "runtime_end_exclusive": "0x00009050",
+      "byte_length": 1888,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 36944,
+      "offset_end_exclusive": 36948,
+      "runtime_start": "0x00009050",
+      "runtime_end_exclusive": "0x00009054",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 36948,
+      "offset_end_exclusive": 37000,
+      "runtime_start": "0x00009054",
+      "runtime_end_exclusive": "0x00009088",
+      "byte_length": 52,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 37000,
+      "offset_end_exclusive": 37004,
+      "runtime_start": "0x00009088",
+      "runtime_end_exclusive": "0x0000908C",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 37004,
+      "offset_end_exclusive": 37020,
+      "runtime_start": "0x0000908C",
+      "runtime_end_exclusive": "0x0000909C",
+      "byte_length": 16,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 37020,
+      "offset_end_exclusive": 37024,
+      "runtime_start": "0x0000909C",
+      "runtime_end_exclusive": "0x000090A0",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 37024,
+      "offset_end_exclusive": 37052,
+      "runtime_start": "0x000090A0",
+      "runtime_end_exclusive": "0x000090BC",
+      "byte_length": 28,
+      "evidence_classification": "PADDING",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 37052,
+      "offset_end_exclusive": 37064,
+      "runtime_start": "0x000090BC",
+      "runtime_end_exclusive": "0x000090C8",
+      "byte_length": 12,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 37064,
+      "offset_end_exclusive": 37068,
+      "runtime_start": "0x000090C8",
+      "runtime_end_exclusive": "0x000090CC",
+      "byte_length": 4,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 37068,
+      "offset_end_exclusive": 37072,
+      "runtime_start": "0x000090CC",
+      "runtime_end_exclusive": "0x000090D0",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 37072,
+      "offset_end_exclusive": 40084,
+      "runtime_start": "0x000090D0",
+      "runtime_end_exclusive": "0x00009C94",
+      "byte_length": 3012,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 40084,
+      "offset_end_exclusive": 40088,
+      "runtime_start": "0x00009C94",
+      "runtime_end_exclusive": "0x00009C98",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 40088,
+      "offset_end_exclusive": 42336,
+      "runtime_start": "0x00009C98",
+      "runtime_end_exclusive": "0x0000A560",
+      "byte_length": 2248,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 42336,
+      "offset_end_exclusive": 42340,
+      "runtime_start": "0x0000A560",
+      "runtime_end_exclusive": "0x0000A564",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 42340,
+      "offset_end_exclusive": 42760,
+      "runtime_start": "0x0000A564",
+      "runtime_end_exclusive": "0x0000A708",
+      "byte_length": 420,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 42760,
+      "offset_end_exclusive": 42764,
+      "runtime_start": "0x0000A708",
+      "runtime_end_exclusive": "0x0000A70C",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 42764,
+      "offset_end_exclusive": 43368,
+      "runtime_start": "0x0000A70C",
+      "runtime_end_exclusive": "0x0000A968",
+      "byte_length": 604,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 43368,
+      "offset_end_exclusive": 43372,
+      "runtime_start": "0x0000A968",
+      "runtime_end_exclusive": "0x0000A96C",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 43372,
+      "offset_end_exclusive": 45032,
+      "runtime_start": "0x0000A96C",
+      "runtime_end_exclusive": "0x0000AFE8",
+      "byte_length": 1660,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 45032,
+      "offset_end_exclusive": 45036,
+      "runtime_start": "0x0000AFE8",
+      "runtime_end_exclusive": "0x0000AFEC",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 45036,
+      "offset_end_exclusive": 45376,
+      "runtime_start": "0x0000AFEC",
+      "runtime_end_exclusive": "0x0000B140",
+      "byte_length": 340,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 45376,
+      "offset_end_exclusive": 45380,
+      "runtime_start": "0x0000B140",
+      "runtime_end_exclusive": "0x0000B144",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 45380,
+      "offset_end_exclusive": 45468,
+      "runtime_start": "0x0000B144",
+      "runtime_end_exclusive": "0x0000B19C",
+      "byte_length": 88,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 45468,
+      "offset_end_exclusive": 45472,
+      "runtime_start": "0x0000B19C",
+      "runtime_end_exclusive": "0x0000B1A0",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 45472,
+      "offset_end_exclusive": 45628,
+      "runtime_start": "0x0000B1A0",
+      "runtime_end_exclusive": "0x0000B23C",
+      "byte_length": 156,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 45628,
+      "offset_end_exclusive": 45632,
+      "runtime_start": "0x0000B23C",
+      "runtime_end_exclusive": "0x0000B240",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 45632,
+      "offset_end_exclusive": 51540,
+      "runtime_start": "0x0000B240",
+      "runtime_end_exclusive": "0x0000C954",
+      "byte_length": 5908,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 51540,
+      "offset_end_exclusive": 51544,
+      "runtime_start": "0x0000C954",
+      "runtime_end_exclusive": "0x0000C958",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 51544,
+      "offset_end_exclusive": 51572,
+      "runtime_start": "0x0000C958",
+      "runtime_end_exclusive": "0x0000C974",
+      "byte_length": 28,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 51572,
+      "offset_end_exclusive": 51580,
+      "runtime_start": "0x0000C974",
+      "runtime_end_exclusive": "0x0000C97C",
+      "byte_length": 8,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 51580,
+      "offset_end_exclusive": 52564,
+      "runtime_start": "0x0000C97C",
+      "runtime_end_exclusive": "0x0000CD54",
+      "byte_length": 984,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 52564,
+      "offset_end_exclusive": 52568,
+      "runtime_start": "0x0000CD54",
+      "runtime_end_exclusive": "0x0000CD58",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 52568,
+      "offset_end_exclusive": 52848,
+      "runtime_start": "0x0000CD58",
+      "runtime_end_exclusive": "0x0000CE70",
+      "byte_length": 280,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 52848,
+      "offset_end_exclusive": 52852,
+      "runtime_start": "0x0000CE70",
+      "runtime_end_exclusive": "0x0000CE74",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 52852,
+      "offset_end_exclusive": 52976,
+      "runtime_start": "0x0000CE74",
+      "runtime_end_exclusive": "0x0000CEF0",
+      "byte_length": 124,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 52976,
+      "offset_end_exclusive": 52980,
+      "runtime_start": "0x0000CEF0",
+      "runtime_end_exclusive": "0x0000CEF4",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 52980,
+      "offset_end_exclusive": 53044,
+      "runtime_start": "0x0000CEF4",
+      "runtime_end_exclusive": "0x0000CF34",
+      "byte_length": 64,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 53044,
+      "offset_end_exclusive": 53048,
+      "runtime_start": "0x0000CF34",
+      "runtime_end_exclusive": "0x0000CF38",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 53048,
+      "offset_end_exclusive": 53088,
+      "runtime_start": "0x0000CF38",
+      "runtime_end_exclusive": "0x0000CF60",
+      "byte_length": 40,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 53088,
+      "offset_end_exclusive": 53092,
+      "runtime_start": "0x0000CF60",
+      "runtime_end_exclusive": "0x0000CF64",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 53092,
+      "offset_end_exclusive": 53140,
+      "runtime_start": "0x0000CF64",
+      "runtime_end_exclusive": "0x0000CF94",
+      "byte_length": 48,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 53140,
+      "offset_end_exclusive": 53144,
+      "runtime_start": "0x0000CF94",
+      "runtime_end_exclusive": "0x0000CF98",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 53144,
+      "offset_end_exclusive": 53196,
+      "runtime_start": "0x0000CF98",
+      "runtime_end_exclusive": "0x0000CFCC",
+      "byte_length": 52,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 53196,
+      "offset_end_exclusive": 53200,
+      "runtime_start": "0x0000CFCC",
+      "runtime_end_exclusive": "0x0000CFD0",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 53200,
+      "offset_end_exclusive": 53208,
+      "runtime_start": "0x0000CFD0",
+      "runtime_end_exclusive": "0x0000CFD8",
+      "byte_length": 8,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 53208,
+      "offset_end_exclusive": 53212,
+      "runtime_start": "0x0000CFD8",
+      "runtime_end_exclusive": "0x0000CFDC",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 53212,
+      "offset_end_exclusive": 53216,
+      "runtime_start": "0x0000CFDC",
+      "runtime_end_exclusive": "0x0000CFE0",
+      "byte_length": 4,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 53216,
+      "offset_end_exclusive": 53220,
+      "runtime_start": "0x0000CFE0",
+      "runtime_end_exclusive": "0x0000CFE4",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 53220,
+      "offset_end_exclusive": 53244,
+      "runtime_start": "0x0000CFE4",
+      "runtime_end_exclusive": "0x0000CFFC",
+      "byte_length": 24,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 53244,
+      "offset_end_exclusive": 53248,
+      "runtime_start": "0x0000CFFC",
+      "runtime_end_exclusive": "0x0000D000",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 53248,
+      "offset_end_exclusive": 53292,
+      "runtime_start": "0x0000D000",
+      "runtime_end_exclusive": "0x0000D02C",
+      "byte_length": 44,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 53292,
+      "offset_end_exclusive": 53296,
+      "runtime_start": "0x0000D02C",
+      "runtime_end_exclusive": "0x0000D030",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 53296,
+      "offset_end_exclusive": 55080,
+      "runtime_start": "0x0000D030",
+      "runtime_end_exclusive": "0x0000D728",
+      "byte_length": 1784,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 55080,
+      "offset_end_exclusive": 55084,
+      "runtime_start": "0x0000D728",
+      "runtime_end_exclusive": "0x0000D72C",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 55084,
+      "offset_end_exclusive": 55352,
+      "runtime_start": "0x0000D72C",
+      "runtime_end_exclusive": "0x0000D838",
+      "byte_length": 268,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 55352,
+      "offset_end_exclusive": 55356,
+      "runtime_start": "0x0000D838",
+      "runtime_end_exclusive": "0x0000D83C",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 55356,
+      "offset_end_exclusive": 55380,
+      "runtime_start": "0x0000D83C",
+      "runtime_end_exclusive": "0x0000D854",
+      "byte_length": 24,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 55380,
+      "offset_end_exclusive": 55384,
+      "runtime_start": "0x0000D854",
+      "runtime_end_exclusive": "0x0000D858",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 55384,
+      "offset_end_exclusive": 55393,
+      "runtime_start": "0x0000D858",
+      "runtime_end_exclusive": "0x0000D861",
+      "byte_length": 9,
+      "evidence_classification": "PADDING",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 55393,
+      "offset_end_exclusive": 56192,
+      "runtime_start": "0x0000D861",
+      "runtime_end_exclusive": "0x0000DB80",
+      "byte_length": 799,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 56192,
+      "offset_end_exclusive": 56196,
+      "runtime_start": "0x0000DB80",
+      "runtime_end_exclusive": "0x0000DB84",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 56196,
+      "offset_end_exclusive": 58356,
+      "runtime_start": "0x0000DB84",
+      "runtime_end_exclusive": "0x0000E3F4",
+      "byte_length": 2160,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 58356,
+      "offset_end_exclusive": 58364,
+      "runtime_start": "0x0000E3F4",
+      "runtime_end_exclusive": "0x0000E3FC",
+      "byte_length": 8,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 58364,
+      "offset_end_exclusive": 58380,
+      "runtime_start": "0x0000E3FC",
+      "runtime_end_exclusive": "0x0000E40C",
+      "byte_length": 16,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 58380,
+      "offset_end_exclusive": 58384,
+      "runtime_start": "0x0000E40C",
+      "runtime_end_exclusive": "0x0000E410",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 58384,
+      "offset_end_exclusive": 58388,
+      "runtime_start": "0x0000E410",
+      "runtime_end_exclusive": "0x0000E414",
+      "byte_length": 4,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 58388,
+      "offset_end_exclusive": 58396,
+      "runtime_start": "0x0000E414",
+      "runtime_end_exclusive": "0x0000E41C",
+      "byte_length": 8,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 58396,
+      "offset_end_exclusive": 59776,
+      "runtime_start": "0x0000E41C",
+      "runtime_end_exclusive": "0x0000E980",
+      "byte_length": 1380,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 59776,
+      "offset_end_exclusive": 59780,
+      "runtime_start": "0x0000E980",
+      "runtime_end_exclusive": "0x0000E984",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 59780,
+      "offset_end_exclusive": 59896,
+      "runtime_start": "0x0000E984",
+      "runtime_end_exclusive": "0x0000E9F8",
+      "byte_length": 116,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 59896,
+      "offset_end_exclusive": 59900,
+      "runtime_start": "0x0000E9F8",
+      "runtime_end_exclusive": "0x0000E9FC",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 59900,
+      "offset_end_exclusive": 60624,
+      "runtime_start": "0x0000E9FC",
+      "runtime_end_exclusive": "0x0000ECD0",
+      "byte_length": 724,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 60624,
+      "offset_end_exclusive": 60628,
+      "runtime_start": "0x0000ECD0",
+      "runtime_end_exclusive": "0x0000ECD4",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 60628,
+      "offset_end_exclusive": 60792,
+      "runtime_start": "0x0000ECD4",
+      "runtime_end_exclusive": "0x0000ED78",
+      "byte_length": 164,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 60792,
+      "offset_end_exclusive": 60796,
+      "runtime_start": "0x0000ED78",
+      "runtime_end_exclusive": "0x0000ED7C",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 60796,
+      "offset_end_exclusive": 61064,
+      "runtime_start": "0x0000ED7C",
+      "runtime_end_exclusive": "0x0000EE88",
+      "byte_length": 268,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 61064,
+      "offset_end_exclusive": 61068,
+      "runtime_start": "0x0000EE88",
+      "runtime_end_exclusive": "0x0000EE8C",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 61068,
+      "offset_end_exclusive": 61104,
+      "runtime_start": "0x0000EE8C",
+      "runtime_end_exclusive": "0x0000EEB0",
+      "byte_length": 36,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 61104,
+      "offset_end_exclusive": 61108,
+      "runtime_start": "0x0000EEB0",
+      "runtime_end_exclusive": "0x0000EEB4",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 61108,
+      "offset_end_exclusive": 61152,
+      "runtime_start": "0x0000EEB4",
+      "runtime_end_exclusive": "0x0000EEE0",
+      "byte_length": 44,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 61152,
+      "offset_end_exclusive": 61156,
+      "runtime_start": "0x0000EEE0",
+      "runtime_end_exclusive": "0x0000EEE4",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 61156,
+      "offset_end_exclusive": 61576,
+      "runtime_start": "0x0000EEE4",
+      "runtime_end_exclusive": "0x0000F088",
+      "byte_length": 420,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 61576,
+      "offset_end_exclusive": 61580,
+      "runtime_start": "0x0000F088",
+      "runtime_end_exclusive": "0x0000F08C",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 61580,
+      "offset_end_exclusive": 62180,
+      "runtime_start": "0x0000F08C",
+      "runtime_end_exclusive": "0x0000F2E4",
+      "byte_length": 600,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 62180,
+      "offset_end_exclusive": 62184,
+      "runtime_start": "0x0000F2E4",
+      "runtime_end_exclusive": "0x0000F2E8",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 62184,
+      "offset_end_exclusive": 65880,
+      "runtime_start": "0x0000F2E8",
+      "runtime_end_exclusive": "0x00010158",
+      "byte_length": 3696,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 65880,
+      "offset_end_exclusive": 65884,
+      "runtime_start": "0x00010158",
+      "runtime_end_exclusive": "0x0001015C",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 65884,
+      "offset_end_exclusive": 65952,
+      "runtime_start": "0x0001015C",
+      "runtime_end_exclusive": "0x000101A0",
+      "byte_length": 68,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 65952,
+      "offset_end_exclusive": 65956,
+      "runtime_start": "0x000101A0",
+      "runtime_end_exclusive": "0x000101A4",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 65956,
+      "offset_end_exclusive": 65992,
+      "runtime_start": "0x000101A4",
+      "runtime_end_exclusive": "0x000101C8",
+      "byte_length": 36,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 65992,
+      "offset_end_exclusive": 65996,
+      "runtime_start": "0x000101C8",
+      "runtime_end_exclusive": "0x000101CC",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 65996,
+      "offset_end_exclusive": 66072,
+      "runtime_start": "0x000101CC",
+      "runtime_end_exclusive": "0x00010218",
+      "byte_length": 76,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 66072,
+      "offset_end_exclusive": 66076,
+      "runtime_start": "0x00010218",
+      "runtime_end_exclusive": "0x0001021C",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 66076,
+      "offset_end_exclusive": 66132,
+      "runtime_start": "0x0001021C",
+      "runtime_end_exclusive": "0x00010254",
+      "byte_length": 56,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 66132,
+      "offset_end_exclusive": 66140,
+      "runtime_start": "0x00010254",
+      "runtime_end_exclusive": "0x0001025C",
+      "byte_length": 8,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 66140,
+      "offset_end_exclusive": 76204,
+      "runtime_start": "0x0001025C",
+      "runtime_end_exclusive": "0x000129AC",
+      "byte_length": 10064,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 76204,
+      "offset_end_exclusive": 76208,
+      "runtime_start": "0x000129AC",
+      "runtime_end_exclusive": "0x000129B0",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 76208,
+      "offset_end_exclusive": 76524,
+      "runtime_start": "0x000129B0",
+      "runtime_end_exclusive": "0x00012AEC",
+      "byte_length": 316,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 76524,
+      "offset_end_exclusive": 76528,
+      "runtime_start": "0x00012AEC",
+      "runtime_end_exclusive": "0x00012AF0",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 76528,
+      "offset_end_exclusive": 76844,
+      "runtime_start": "0x00012AF0",
+      "runtime_end_exclusive": "0x00012C2C",
+      "byte_length": 316,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 76844,
+      "offset_end_exclusive": 76848,
+      "runtime_start": "0x00012C2C",
+      "runtime_end_exclusive": "0x00012C30",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 76848,
+      "offset_end_exclusive": 80012,
+      "runtime_start": "0x00012C30",
+      "runtime_end_exclusive": "0x0001388C",
+      "byte_length": 3164,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 80012,
+      "offset_end_exclusive": 80016,
+      "runtime_start": "0x0001388C",
+      "runtime_end_exclusive": "0x00013890",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 80016,
+      "offset_end_exclusive": 81456,
+      "runtime_start": "0x00013890",
+      "runtime_end_exclusive": "0x00013E30",
+      "byte_length": 1440,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 81456,
+      "offset_end_exclusive": 81460,
+      "runtime_start": "0x00013E30",
+      "runtime_end_exclusive": "0x00013E34",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 81460,
+      "offset_end_exclusive": 85064,
+      "runtime_start": "0x00013E34",
+      "runtime_end_exclusive": "0x00014C48",
+      "byte_length": 3604,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 85064,
+      "offset_end_exclusive": 85068,
+      "runtime_start": "0x00014C48",
+      "runtime_end_exclusive": "0x00014C4C",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 85068,
+      "offset_end_exclusive": 85128,
+      "runtime_start": "0x00014C4C",
+      "runtime_end_exclusive": "0x00014C88",
+      "byte_length": 60,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 85128,
+      "offset_end_exclusive": 85132,
+      "runtime_start": "0x00014C88",
+      "runtime_end_exclusive": "0x00014C8C",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 85132,
+      "offset_end_exclusive": 86504,
+      "runtime_start": "0x00014C8C",
+      "runtime_end_exclusive": "0x000151E8",
+      "byte_length": 1372,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 86504,
+      "offset_end_exclusive": 86508,
+      "runtime_start": "0x000151E8",
+      "runtime_end_exclusive": "0x000151EC",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 86508,
+      "offset_end_exclusive": 87104,
+      "runtime_start": "0x000151EC",
+      "runtime_end_exclusive": "0x00015440",
+      "byte_length": 596,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 87104,
+      "offset_end_exclusive": 87108,
+      "runtime_start": "0x00015440",
+      "runtime_end_exclusive": "0x00015444",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 87108,
+      "offset_end_exclusive": 87120,
+      "runtime_start": "0x00015444",
+      "runtime_end_exclusive": "0x00015450",
+      "byte_length": 12,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 87120,
+      "offset_end_exclusive": 87124,
+      "runtime_start": "0x00015450",
+      "runtime_end_exclusive": "0x00015454",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 87124,
+      "offset_end_exclusive": 87836,
+      "runtime_start": "0x00015454",
+      "runtime_end_exclusive": "0x0001571C",
+      "byte_length": 712,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 87836,
+      "offset_end_exclusive": 87840,
+      "runtime_start": "0x0001571C",
+      "runtime_end_exclusive": "0x00015720",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 87840,
+      "offset_end_exclusive": 88488,
+      "runtime_start": "0x00015720",
+      "runtime_end_exclusive": "0x000159A8",
+      "byte_length": 648,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 88488,
+      "offset_end_exclusive": 88492,
+      "runtime_start": "0x000159A8",
+      "runtime_end_exclusive": "0x000159AC",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 88492,
+      "offset_end_exclusive": 88512,
+      "runtime_start": "0x000159AC",
+      "runtime_end_exclusive": "0x000159C0",
+      "byte_length": 20,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 88512,
+      "offset_end_exclusive": 88516,
+      "runtime_start": "0x000159C0",
+      "runtime_end_exclusive": "0x000159C4",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 88516,
+      "offset_end_exclusive": 97256,
+      "runtime_start": "0x000159C4",
+      "runtime_end_exclusive": "0x00017BE8",
+      "byte_length": 8740,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 97256,
+      "offset_end_exclusive": 97260,
+      "runtime_start": "0x00017BE8",
+      "runtime_end_exclusive": "0x00017BEC",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 97260,
+      "offset_end_exclusive": 99972,
+      "runtime_start": "0x00017BEC",
+      "runtime_end_exclusive": "0x00018684",
+      "byte_length": 2712,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 99972,
+      "offset_end_exclusive": 99976,
+      "runtime_start": "0x00018684",
+      "runtime_end_exclusive": "0x00018688",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 99976,
+      "offset_end_exclusive": 102720,
+      "runtime_start": "0x00018688",
+      "runtime_end_exclusive": "0x00019140",
+      "byte_length": 2744,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 102720,
+      "offset_end_exclusive": 102724,
+      "runtime_start": "0x00019140",
+      "runtime_end_exclusive": "0x00019144",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 102724,
+      "offset_end_exclusive": 103852,
+      "runtime_start": "0x00019144",
+      "runtime_end_exclusive": "0x000195AC",
+      "byte_length": 1128,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 103852,
+      "offset_end_exclusive": 103856,
+      "runtime_start": "0x000195AC",
+      "runtime_end_exclusive": "0x000195B0",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 103856,
+      "offset_end_exclusive": 103952,
+      "runtime_start": "0x000195B0",
+      "runtime_end_exclusive": "0x00019610",
+      "byte_length": 96,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 103952,
+      "offset_end_exclusive": 103956,
+      "runtime_start": "0x00019610",
+      "runtime_end_exclusive": "0x00019614",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 103956,
+      "offset_end_exclusive": 104324,
+      "runtime_start": "0x00019614",
+      "runtime_end_exclusive": "0x00019784",
+      "byte_length": 368,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 104324,
+      "offset_end_exclusive": 104328,
+      "runtime_start": "0x00019784",
+      "runtime_end_exclusive": "0x00019788",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 104328,
+      "offset_end_exclusive": 104400,
+      "runtime_start": "0x00019788",
+      "runtime_end_exclusive": "0x000197D0",
+      "byte_length": 72,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 104400,
+      "offset_end_exclusive": 104404,
+      "runtime_start": "0x000197D0",
+      "runtime_end_exclusive": "0x000197D4",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 104404,
+      "offset_end_exclusive": 108664,
+      "runtime_start": "0x000197D4",
+      "runtime_end_exclusive": "0x0001A878",
+      "byte_length": 4260,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 108664,
+      "offset_end_exclusive": 108668,
+      "runtime_start": "0x0001A878",
+      "runtime_end_exclusive": "0x0001A87C",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 108668,
+      "offset_end_exclusive": 165576,
+      "runtime_start": "0x0001A87C",
+      "runtime_end_exclusive": "0x000286C8",
+      "byte_length": 56908,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 165576,
+      "offset_end_exclusive": 165580,
+      "runtime_start": "0x000286C8",
+      "runtime_end_exclusive": "0x000286CC",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 165580,
+      "offset_end_exclusive": 170224,
+      "runtime_start": "0x000286CC",
+      "runtime_end_exclusive": "0x000298F0",
+      "byte_length": 4644,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 170224,
+      "offset_end_exclusive": 170228,
+      "runtime_start": "0x000298F0",
+      "runtime_end_exclusive": "0x000298F4",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 170228,
+      "offset_end_exclusive": 170608,
+      "runtime_start": "0x000298F4",
+      "runtime_end_exclusive": "0x00029A70",
+      "byte_length": 380,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 170608,
+      "offset_end_exclusive": 170612,
+      "runtime_start": "0x00029A70",
+      "runtime_end_exclusive": "0x00029A74",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 170612,
+      "offset_end_exclusive": 171084,
+      "runtime_start": "0x00029A74",
+      "runtime_end_exclusive": "0x00029C4C",
+      "byte_length": 472,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 171084,
+      "offset_end_exclusive": 171088,
+      "runtime_start": "0x00029C4C",
+      "runtime_end_exclusive": "0x00029C50",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 171088,
+      "offset_end_exclusive": 171940,
+      "runtime_start": "0x00029C50",
+      "runtime_end_exclusive": "0x00029FA4",
+      "byte_length": 852,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 171940,
+      "offset_end_exclusive": 171944,
+      "runtime_start": "0x00029FA4",
+      "runtime_end_exclusive": "0x00029FA8",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 171944,
+      "offset_end_exclusive": 175252,
+      "runtime_start": "0x00029FA8",
+      "runtime_end_exclusive": "0x0002AC94",
+      "byte_length": 3308,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 175252,
+      "offset_end_exclusive": 175256,
+      "runtime_start": "0x0002AC94",
+      "runtime_end_exclusive": "0x0002AC98",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 175256,
+      "offset_end_exclusive": 175568,
+      "runtime_start": "0x0002AC98",
+      "runtime_end_exclusive": "0x0002ADD0",
+      "byte_length": 312,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 175568,
+      "offset_end_exclusive": 175572,
+      "runtime_start": "0x0002ADD0",
+      "runtime_end_exclusive": "0x0002ADD4",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 175572,
+      "offset_end_exclusive": 175584,
+      "runtime_start": "0x0002ADD4",
+      "runtime_end_exclusive": "0x0002ADE0",
+      "byte_length": 12,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 175584,
+      "offset_end_exclusive": 175588,
+      "runtime_start": "0x0002ADE0",
+      "runtime_end_exclusive": "0x0002ADE4",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 175588,
+      "offset_end_exclusive": 175608,
+      "runtime_start": "0x0002ADE4",
+      "runtime_end_exclusive": "0x0002ADF8",
+      "byte_length": 20,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 175608,
+      "offset_end_exclusive": 175612,
+      "runtime_start": "0x0002ADF8",
+      "runtime_end_exclusive": "0x0002ADFC",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 175612,
+      "offset_end_exclusive": 175616,
+      "runtime_start": "0x0002ADFC",
+      "runtime_end_exclusive": "0x0002AE00",
+      "byte_length": 4,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 175616,
+      "offset_end_exclusive": 175620,
+      "runtime_start": "0x0002AE00",
+      "runtime_end_exclusive": "0x0002AE04",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 175620,
+      "offset_end_exclusive": 175692,
+      "runtime_start": "0x0002AE04",
+      "runtime_end_exclusive": "0x0002AE4C",
+      "byte_length": 72,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 175692,
+      "offset_end_exclusive": 175696,
+      "runtime_start": "0x0002AE4C",
+      "runtime_end_exclusive": "0x0002AE50",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 175696,
+      "offset_end_exclusive": 175912,
+      "runtime_start": "0x0002AE50",
+      "runtime_end_exclusive": "0x0002AF28",
+      "byte_length": 216,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 175912,
+      "offset_end_exclusive": 175916,
+      "runtime_start": "0x0002AF28",
+      "runtime_end_exclusive": "0x0002AF2C",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 175916,
+      "offset_end_exclusive": 175920,
+      "runtime_start": "0x0002AF2C",
+      "runtime_end_exclusive": "0x0002AF30",
+      "byte_length": 4,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 175920,
+      "offset_end_exclusive": 175924,
+      "runtime_start": "0x0002AF30",
+      "runtime_end_exclusive": "0x0002AF34",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 175924,
+      "offset_end_exclusive": 175940,
+      "runtime_start": "0x0002AF34",
+      "runtime_end_exclusive": "0x0002AF44",
+      "byte_length": 16,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 175940,
+      "offset_end_exclusive": 175944,
+      "runtime_start": "0x0002AF44",
+      "runtime_end_exclusive": "0x0002AF48",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 175944,
+      "offset_end_exclusive": 180368,
+      "runtime_start": "0x0002AF48",
+      "runtime_end_exclusive": "0x0002C090",
+      "byte_length": 4424,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 180368,
+      "offset_end_exclusive": 180372,
+      "runtime_start": "0x0002C090",
+      "runtime_end_exclusive": "0x0002C094",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 180372,
+      "offset_end_exclusive": 197008,
+      "runtime_start": "0x0002C094",
+      "runtime_end_exclusive": "0x00030190",
+      "byte_length": 16636,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 197008,
+      "offset_end_exclusive": 197020,
+      "runtime_start": "0x00030190",
+      "runtime_end_exclusive": "0x0003019C",
+      "byte_length": 12,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 197020,
+      "offset_end_exclusive": 203792,
+      "runtime_start": "0x0003019C",
+      "runtime_end_exclusive": "0x00031C10",
+      "byte_length": 6772,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 203792,
+      "offset_end_exclusive": 203796,
+      "runtime_start": "0x00031C10",
+      "runtime_end_exclusive": "0x00031C14",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 203796,
+      "offset_end_exclusive": 209272,
+      "runtime_start": "0x00031C14",
+      "runtime_end_exclusive": "0x00033178",
+      "byte_length": 5476,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 209272,
+      "offset_end_exclusive": 209276,
+      "runtime_start": "0x00033178",
+      "runtime_end_exclusive": "0x0003317C",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 209276,
+      "offset_end_exclusive": 212076,
+      "runtime_start": "0x0003317C",
+      "runtime_end_exclusive": "0x00033C6C",
+      "byte_length": 2800,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 212076,
+      "offset_end_exclusive": 212080,
+      "runtime_start": "0x00033C6C",
+      "runtime_end_exclusive": "0x00033C70",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 212080,
+      "offset_end_exclusive": 212264,
+      "runtime_start": "0x00033C70",
+      "runtime_end_exclusive": "0x00033D28",
+      "byte_length": 184,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 212264,
+      "offset_end_exclusive": 212268,
+      "runtime_start": "0x00033D28",
+      "runtime_end_exclusive": "0x00033D2C",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 212268,
+      "offset_end_exclusive": 214840,
+      "runtime_start": "0x00033D2C",
+      "runtime_end_exclusive": "0x00034738",
+      "byte_length": 2572,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 214840,
+      "offset_end_exclusive": 214844,
+      "runtime_start": "0x00034738",
+      "runtime_end_exclusive": "0x0003473C",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 214844,
+      "offset_end_exclusive": 215608,
+      "runtime_start": "0x0003473C",
+      "runtime_end_exclusive": "0x00034A38",
+      "byte_length": 764,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 215608,
+      "offset_end_exclusive": 215612,
+      "runtime_start": "0x00034A38",
+      "runtime_end_exclusive": "0x00034A3C",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 215612,
+      "offset_end_exclusive": 216680,
+      "runtime_start": "0x00034A3C",
+      "runtime_end_exclusive": "0x00034E68",
+      "byte_length": 1068,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 216680,
+      "offset_end_exclusive": 216684,
+      "runtime_start": "0x00034E68",
+      "runtime_end_exclusive": "0x00034E6C",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 216684,
+      "offset_end_exclusive": 219592,
+      "runtime_start": "0x00034E6C",
+      "runtime_end_exclusive": "0x000359C8",
+      "byte_length": 2908,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 219592,
+      "offset_end_exclusive": 219596,
+      "runtime_start": "0x000359C8",
+      "runtime_end_exclusive": "0x000359CC",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 219596,
+      "offset_end_exclusive": 219608,
+      "runtime_start": "0x000359CC",
+      "runtime_end_exclusive": "0x000359D8",
+      "byte_length": 12,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 219608,
+      "offset_end_exclusive": 219612,
+      "runtime_start": "0x000359D8",
+      "runtime_end_exclusive": "0x000359DC",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 219612,
+      "offset_end_exclusive": 219632,
+      "runtime_start": "0x000359DC",
+      "runtime_end_exclusive": "0x000359F0",
+      "byte_length": 20,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 219632,
+      "offset_end_exclusive": 219636,
+      "runtime_start": "0x000359F0",
+      "runtime_end_exclusive": "0x000359F4",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 219636,
+      "offset_end_exclusive": 228684,
+      "runtime_start": "0x000359F4",
+      "runtime_end_exclusive": "0x00037D4C",
+      "byte_length": 9048,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 228684,
+      "offset_end_exclusive": 228696,
+      "runtime_start": "0x00037D4C",
+      "runtime_end_exclusive": "0x00037D58",
+      "byte_length": 12,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 228696,
+      "offset_end_exclusive": 230752,
+      "runtime_start": "0x00037D58",
+      "runtime_end_exclusive": "0x00038560",
+      "byte_length": 2056,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 230752,
+      "offset_end_exclusive": 230756,
+      "runtime_start": "0x00038560",
+      "runtime_end_exclusive": "0x00038564",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 230756,
+      "offset_end_exclusive": 234100,
+      "runtime_start": "0x00038564",
+      "runtime_end_exclusive": "0x00039274",
+      "byte_length": 3344,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 234100,
+      "offset_end_exclusive": 234104,
+      "runtime_start": "0x00039274",
+      "runtime_end_exclusive": "0x00039278",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 234104,
+      "offset_end_exclusive": 239060,
+      "runtime_start": "0x00039278",
+      "runtime_end_exclusive": "0x0003A5D4",
+      "byte_length": 4956,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 239060,
+      "offset_end_exclusive": 239064,
+      "runtime_start": "0x0003A5D4",
+      "runtime_end_exclusive": "0x0003A5D8",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 239064,
+      "offset_end_exclusive": 240376,
+      "runtime_start": "0x0003A5D8",
+      "runtime_end_exclusive": "0x0003AAF8",
+      "byte_length": 1312,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 240376,
+      "offset_end_exclusive": 240380,
+      "runtime_start": "0x0003AAF8",
+      "runtime_end_exclusive": "0x0003AAFC",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 240380,
+      "offset_end_exclusive": 240576,
+      "runtime_start": "0x0003AAFC",
+      "runtime_end_exclusive": "0x0003ABC0",
+      "byte_length": 196,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 240576,
+      "offset_end_exclusive": 240580,
+      "runtime_start": "0x0003ABC0",
+      "runtime_end_exclusive": "0x0003ABC4",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 240580,
+      "offset_end_exclusive": 241092,
+      "runtime_start": "0x0003ABC4",
+      "runtime_end_exclusive": "0x0003ADC4",
+      "byte_length": 512,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 241092,
+      "offset_end_exclusive": 241096,
+      "runtime_start": "0x0003ADC4",
+      "runtime_end_exclusive": "0x0003ADC8",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 241096,
+      "offset_end_exclusive": 241280,
+      "runtime_start": "0x0003ADC8",
+      "runtime_end_exclusive": "0x0003AE80",
+      "byte_length": 184,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 241280,
+      "offset_end_exclusive": 241292,
+      "runtime_start": "0x0003AE80",
+      "runtime_end_exclusive": "0x0003AE8C",
+      "byte_length": 12,
+      "evidence_classification": "PADDING",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 241292,
+      "offset_end_exclusive": 241296,
+      "runtime_start": "0x0003AE8C",
+      "runtime_end_exclusive": "0x0003AE90",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 241296,
+      "offset_end_exclusive": 249108,
+      "runtime_start": "0x0003AE90",
+      "runtime_end_exclusive": "0x0003CD14",
+      "byte_length": 7812,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 249108,
+      "offset_end_exclusive": 249136,
+      "runtime_start": "0x0003CD14",
+      "runtime_end_exclusive": "0x0003CD30",
+      "byte_length": 28,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 249136,
+      "offset_end_exclusive": 249176,
+      "runtime_start": "0x0003CD30",
+      "runtime_end_exclusive": "0x0003CD58",
+      "byte_length": 40,
+      "evidence_classification": "PADDING",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 249176,
+      "offset_end_exclusive": 249204,
+      "runtime_start": "0x0003CD58",
+      "runtime_end_exclusive": "0x0003CD74",
+      "byte_length": 28,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 249204,
+      "offset_end_exclusive": 249215,
+      "runtime_start": "0x0003CD74",
+      "runtime_end_exclusive": "0x0003CD7F",
+      "byte_length": 11,
+      "evidence_classification": "PADDING",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 249215,
+      "offset_end_exclusive": 249220,
+      "runtime_start": "0x0003CD7F",
+      "runtime_end_exclusive": "0x0003CD84",
+      "byte_length": 5,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 249220,
+      "offset_end_exclusive": 249224,
+      "runtime_start": "0x0003CD84",
+      "runtime_end_exclusive": "0x0003CD88",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 249224,
+      "offset_end_exclusive": 249244,
+      "runtime_start": "0x0003CD88",
+      "runtime_end_exclusive": "0x0003CD9C",
+      "byte_length": 20,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 249244,
+      "offset_end_exclusive": 249248,
+      "runtime_start": "0x0003CD9C",
+      "runtime_end_exclusive": "0x0003CDA0",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 249248,
+      "offset_end_exclusive": 249308,
+      "runtime_start": "0x0003CDA0",
+      "runtime_end_exclusive": "0x0003CDDC",
+      "byte_length": 60,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 249308,
+      "offset_end_exclusive": 249316,
+      "runtime_start": "0x0003CDDC",
+      "runtime_end_exclusive": "0x0003CDE4",
+      "byte_length": 8,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 249316,
+      "offset_end_exclusive": 249336,
+      "runtime_start": "0x0003CDE4",
+      "runtime_end_exclusive": "0x0003CDF8",
+      "byte_length": 20,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 249336,
+      "offset_end_exclusive": 249340,
+      "runtime_start": "0x0003CDF8",
+      "runtime_end_exclusive": "0x0003CDFC",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 249340,
+      "offset_end_exclusive": 249356,
+      "runtime_start": "0x0003CDFC",
+      "runtime_end_exclusive": "0x0003CE0C",
+      "byte_length": 16,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 249356,
+      "offset_end_exclusive": 249360,
+      "runtime_start": "0x0003CE0C",
+      "runtime_end_exclusive": "0x0003CE10",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 249360,
+      "offset_end_exclusive": 249444,
+      "runtime_start": "0x0003CE10",
+      "runtime_end_exclusive": "0x0003CE64",
+      "byte_length": 84,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 249444,
+      "offset_end_exclusive": 249448,
+      "runtime_start": "0x0003CE64",
+      "runtime_end_exclusive": "0x0003CE68",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 249448,
+      "offset_end_exclusive": 249496,
+      "runtime_start": "0x0003CE68",
+      "runtime_end_exclusive": "0x0003CE98",
+      "byte_length": 48,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 249496,
+      "offset_end_exclusive": 249500,
+      "runtime_start": "0x0003CE98",
+      "runtime_end_exclusive": "0x0003CE9C",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 249500,
+      "offset_end_exclusive": 249576,
+      "runtime_start": "0x0003CE9C",
+      "runtime_end_exclusive": "0x0003CEE8",
+      "byte_length": 76,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 249576,
+      "offset_end_exclusive": 249580,
+      "runtime_start": "0x0003CEE8",
+      "runtime_end_exclusive": "0x0003CEEC",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 249580,
+      "offset_end_exclusive": 268608,
+      "runtime_start": "0x0003CEEC",
+      "runtime_end_exclusive": "0x00041940",
+      "byte_length": 19028,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 268608,
+      "offset_end_exclusive": 268616,
+      "runtime_start": "0x00041940",
+      "runtime_end_exclusive": "0x00041948",
+      "byte_length": 8,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 268616,
+      "offset_end_exclusive": 270820,
+      "runtime_start": "0x00041948",
+      "runtime_end_exclusive": "0x000421E4",
+      "byte_length": 2204,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 270820,
+      "offset_end_exclusive": 270824,
+      "runtime_start": "0x000421E4",
+      "runtime_end_exclusive": "0x000421E8",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 270824,
+      "offset_end_exclusive": 274328,
+      "runtime_start": "0x000421E8",
+      "runtime_end_exclusive": "0x00042F98",
+      "byte_length": 3504,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 274328,
+      "offset_end_exclusive": 274336,
+      "runtime_start": "0x00042F98",
+      "runtime_end_exclusive": "0x00042FA0",
+      "byte_length": 8,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 274336,
+      "offset_end_exclusive": 274524,
+      "runtime_start": "0x00042FA0",
+      "runtime_end_exclusive": "0x0004305C",
+      "byte_length": 188,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 274524,
+      "offset_end_exclusive": 274528,
+      "runtime_start": "0x0004305C",
+      "runtime_end_exclusive": "0x00043060",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 274528,
+      "offset_end_exclusive": 274552,
+      "runtime_start": "0x00043060",
+      "runtime_end_exclusive": "0x00043078",
+      "byte_length": 24,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 274552,
+      "offset_end_exclusive": 274556,
+      "runtime_start": "0x00043078",
+      "runtime_end_exclusive": "0x0004307C",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 274556,
+      "offset_end_exclusive": 274588,
+      "runtime_start": "0x0004307C",
+      "runtime_end_exclusive": "0x0004309C",
+      "byte_length": 32,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 274588,
+      "offset_end_exclusive": 274592,
+      "runtime_start": "0x0004309C",
+      "runtime_end_exclusive": "0x000430A0",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 274592,
+      "offset_end_exclusive": 274832,
+      "runtime_start": "0x000430A0",
+      "runtime_end_exclusive": "0x00043190",
+      "byte_length": 240,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 274832,
+      "offset_end_exclusive": 274836,
+      "runtime_start": "0x00043190",
+      "runtime_end_exclusive": "0x00043194",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 274836,
+      "offset_end_exclusive": 274872,
+      "runtime_start": "0x00043194",
+      "runtime_end_exclusive": "0x000431B8",
+      "byte_length": 36,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 274872,
+      "offset_end_exclusive": 274876,
+      "runtime_start": "0x000431B8",
+      "runtime_end_exclusive": "0x000431BC",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 274876,
+      "offset_end_exclusive": 275184,
+      "runtime_start": "0x000431BC",
+      "runtime_end_exclusive": "0x000432F0",
+      "byte_length": 308,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 275184,
+      "offset_end_exclusive": 275188,
+      "runtime_start": "0x000432F0",
+      "runtime_end_exclusive": "0x000432F4",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 275188,
+      "offset_end_exclusive": 275244,
+      "runtime_start": "0x000432F4",
+      "runtime_end_exclusive": "0x0004332C",
+      "byte_length": 56,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 275244,
+      "offset_end_exclusive": 275248,
+      "runtime_start": "0x0004332C",
+      "runtime_end_exclusive": "0x00043330",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 275248,
+      "offset_end_exclusive": 275259,
+      "runtime_start": "0x00043330",
+      "runtime_end_exclusive": "0x0004333B",
+      "byte_length": 11,
+      "evidence_classification": "PADDING",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 275259,
+      "offset_end_exclusive": 275280,
+      "runtime_start": "0x0004333B",
+      "runtime_end_exclusive": "0x00043350",
+      "byte_length": 21,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 275280,
+      "offset_end_exclusive": 275288,
+      "runtime_start": "0x00043350",
+      "runtime_end_exclusive": "0x00043358",
+      "byte_length": 8,
+      "evidence_classification": "PADDING",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 275288,
+      "offset_end_exclusive": 275292,
+      "runtime_start": "0x00043358",
+      "runtime_end_exclusive": "0x0004335C",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 275292,
+      "offset_end_exclusive": 275316,
+      "runtime_start": "0x0004335C",
+      "runtime_end_exclusive": "0x00043374",
+      "byte_length": 24,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 275316,
+      "offset_end_exclusive": 275320,
+      "runtime_start": "0x00043374",
+      "runtime_end_exclusive": "0x00043378",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 275320,
+      "offset_end_exclusive": 275328,
+      "runtime_start": "0x00043378",
+      "runtime_end_exclusive": "0x00043380",
+      "byte_length": 8,
+      "evidence_classification": "PADDING",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 275328,
+      "offset_end_exclusive": 275344,
+      "runtime_start": "0x00043380",
+      "runtime_end_exclusive": "0x00043390",
+      "byte_length": 16,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 275344,
+      "offset_end_exclusive": 275356,
+      "runtime_start": "0x00043390",
+      "runtime_end_exclusive": "0x0004339C",
+      "byte_length": 12,
+      "evidence_classification": "PADDING",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 275356,
+      "offset_end_exclusive": 275368,
+      "runtime_start": "0x0004339C",
+      "runtime_end_exclusive": "0x000433A8",
+      "byte_length": 12,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 275368,
+      "offset_end_exclusive": 275404,
+      "runtime_start": "0x000433A8",
+      "runtime_end_exclusive": "0x000433CC",
+      "byte_length": 36,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 275404,
+      "offset_end_exclusive": 275408,
+      "runtime_start": "0x000433CC",
+      "runtime_end_exclusive": "0x000433D0",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 275408,
+      "offset_end_exclusive": 275464,
+      "runtime_start": "0x000433D0",
+      "runtime_end_exclusive": "0x00043408",
+      "byte_length": 56,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 275464,
+      "offset_end_exclusive": 275468,
+      "runtime_start": "0x00043408",
+      "runtime_end_exclusive": "0x0004340C",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 275468,
+      "offset_end_exclusive": 275510,
+      "runtime_start": "0x0004340C",
+      "runtime_end_exclusive": "0x00043436",
+      "byte_length": 42,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 275510,
+      "offset_end_exclusive": 275536,
+      "runtime_start": "0x00043436",
+      "runtime_end_exclusive": "0x00043450",
+      "byte_length": 26,
+      "evidence_classification": "PADDING",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 275536,
+      "offset_end_exclusive": 275544,
+      "runtime_start": "0x00043450",
+      "runtime_end_exclusive": "0x00043458",
+      "byte_length": 8,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 275544,
+      "offset_end_exclusive": 275552,
+      "runtime_start": "0x00043458",
+      "runtime_end_exclusive": "0x00043460",
+      "byte_length": 8,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 275552,
+      "offset_end_exclusive": 275556,
+      "runtime_start": "0x00043460",
+      "runtime_end_exclusive": "0x00043464",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 275556,
+      "offset_end_exclusive": 275621,
+      "runtime_start": "0x00043464",
+      "runtime_end_exclusive": "0x000434A5",
+      "byte_length": 65,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 275621,
+      "offset_end_exclusive": 275636,
+      "runtime_start": "0x000434A5",
+      "runtime_end_exclusive": "0x000434B4",
+      "byte_length": 15,
+      "evidence_classification": "PADDING",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 275636,
+      "offset_end_exclusive": 275648,
+      "runtime_start": "0x000434B4",
+      "runtime_end_exclusive": "0x000434C0",
+      "byte_length": 12,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 275648,
+      "offset_end_exclusive": 275656,
+      "runtime_start": "0x000434C0",
+      "runtime_end_exclusive": "0x000434C8",
+      "byte_length": 8,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 275656,
+      "offset_end_exclusive": 275668,
+      "runtime_start": "0x000434C8",
+      "runtime_end_exclusive": "0x000434D4",
+      "byte_length": 12,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 275668,
+      "offset_end_exclusive": 275708,
+      "runtime_start": "0x000434D4",
+      "runtime_end_exclusive": "0x000434FC",
+      "byte_length": 40,
+      "evidence_classification": "PADDING",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 275708,
+      "offset_end_exclusive": 275728,
+      "runtime_start": "0x000434FC",
+      "runtime_end_exclusive": "0x00043510",
+      "byte_length": 20,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 275728,
+      "offset_end_exclusive": 275756,
+      "runtime_start": "0x00043510",
+      "runtime_end_exclusive": "0x0004352C",
+      "byte_length": 28,
+      "evidence_classification": "PADDING",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 275756,
+      "offset_end_exclusive": 275760,
+      "runtime_start": "0x0004352C",
+      "runtime_end_exclusive": "0x00043530",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 275760,
+      "offset_end_exclusive": 275772,
+      "runtime_start": "0x00043530",
+      "runtime_end_exclusive": "0x0004353C",
+      "byte_length": 12,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 275772,
+      "offset_end_exclusive": 275776,
+      "runtime_start": "0x0004353C",
+      "runtime_end_exclusive": "0x00043540",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 275776,
+      "offset_end_exclusive": 275785,
+      "runtime_start": "0x00043540",
+      "runtime_end_exclusive": "0x00043549",
+      "byte_length": 9,
+      "evidence_classification": "PADDING",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 275785,
+      "offset_end_exclusive": 275812,
+      "runtime_start": "0x00043549",
+      "runtime_end_exclusive": "0x00043564",
+      "byte_length": 27,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 275812,
+      "offset_end_exclusive": 275844,
+      "runtime_start": "0x00043564",
+      "runtime_end_exclusive": "0x00043584",
+      "byte_length": 32,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 275844,
+      "offset_end_exclusive": 275873,
+      "runtime_start": "0x00043584",
+      "runtime_end_exclusive": "0x000435A1",
+      "byte_length": 29,
+      "evidence_classification": "PADDING",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 275873,
+      "offset_end_exclusive": 275892,
+      "runtime_start": "0x000435A1",
+      "runtime_end_exclusive": "0x000435B4",
+      "byte_length": 19,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 275892,
+      "offset_end_exclusive": 275896,
+      "runtime_start": "0x000435B4",
+      "runtime_end_exclusive": "0x000435B8",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 275896,
+      "offset_end_exclusive": 275932,
+      "runtime_start": "0x000435B8",
+      "runtime_end_exclusive": "0x000435DC",
+      "byte_length": 36,
+      "evidence_classification": "PADDING",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 275932,
+      "offset_end_exclusive": 275940,
+      "runtime_start": "0x000435DC",
+      "runtime_end_exclusive": "0x000435E4",
+      "byte_length": 8,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 275940,
+      "offset_end_exclusive": 275944,
+      "runtime_start": "0x000435E4",
+      "runtime_end_exclusive": "0x000435E8",
+      "byte_length": 4,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 275944,
+      "offset_end_exclusive": 275952,
+      "runtime_start": "0x000435E8",
+      "runtime_end_exclusive": "0x000435F0",
+      "byte_length": 8,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 275952,
+      "offset_end_exclusive": 275964,
+      "runtime_start": "0x000435F0",
+      "runtime_end_exclusive": "0x000435FC",
+      "byte_length": 12,
+      "evidence_classification": "PADDING",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 275964,
+      "offset_end_exclusive": 275988,
+      "runtime_start": "0x000435FC",
+      "runtime_end_exclusive": "0x00043614",
+      "byte_length": 24,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 275988,
+      "offset_end_exclusive": 276008,
+      "runtime_start": "0x00043614",
+      "runtime_end_exclusive": "0x00043628",
+      "byte_length": 20,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 276008,
+      "offset_end_exclusive": 279556,
+      "runtime_start": "0x00043628",
+      "runtime_end_exclusive": "0x00044404",
+      "byte_length": 3548,
+      "evidence_classification": "PADDING",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 279556,
+      "offset_end_exclusive": 279560,
+      "runtime_start": "0x00044404",
+      "runtime_end_exclusive": "0x00044408",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 279560,
+      "offset_end_exclusive": 279572,
+      "runtime_start": "0x00044408",
+      "runtime_end_exclusive": "0x00044414",
+      "byte_length": 12,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 279572,
+      "offset_end_exclusive": 279576,
+      "runtime_start": "0x00044414",
+      "runtime_end_exclusive": "0x00044418",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 279576,
+      "offset_end_exclusive": 279600,
+      "runtime_start": "0x00044418",
+      "runtime_end_exclusive": "0x00044430",
+      "byte_length": 24,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 279600,
+      "offset_end_exclusive": 279604,
+      "runtime_start": "0x00044430",
+      "runtime_end_exclusive": "0x00044434",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 279604,
+      "offset_end_exclusive": 279624,
+      "runtime_start": "0x00044434",
+      "runtime_end_exclusive": "0x00044448",
+      "byte_length": 20,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 279624,
+      "offset_end_exclusive": 279644,
+      "runtime_start": "0x00044448",
+      "runtime_end_exclusive": "0x0004445C",
+      "byte_length": 20,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 279644,
+      "offset_end_exclusive": 279680,
+      "runtime_start": "0x0004445C",
+      "runtime_end_exclusive": "0x00044480",
+      "byte_length": 36,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 279680,
+      "offset_end_exclusive": 279684,
+      "runtime_start": "0x00044480",
+      "runtime_end_exclusive": "0x00044484",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 279684,
+      "offset_end_exclusive": 279704,
+      "runtime_start": "0x00044484",
+      "runtime_end_exclusive": "0x00044498",
+      "byte_length": 20,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 279704,
+      "offset_end_exclusive": 279716,
+      "runtime_start": "0x00044498",
+      "runtime_end_exclusive": "0x000444A4",
+      "byte_length": 12,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 279716,
+      "offset_end_exclusive": 279748,
+      "runtime_start": "0x000444A4",
+      "runtime_end_exclusive": "0x000444C4",
+      "byte_length": 32,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 279748,
+      "offset_end_exclusive": 279752,
+      "runtime_start": "0x000444C4",
+      "runtime_end_exclusive": "0x000444C8",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 279752,
+      "offset_end_exclusive": 279760,
+      "runtime_start": "0x000444C8",
+      "runtime_end_exclusive": "0x000444D0",
+      "byte_length": 8,
+      "evidence_classification": "PADDING",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 279760,
+      "offset_end_exclusive": 279788,
+      "runtime_start": "0x000444D0",
+      "runtime_end_exclusive": "0x000444EC",
+      "byte_length": 28,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 279788,
+      "offset_end_exclusive": 279792,
+      "runtime_start": "0x000444EC",
+      "runtime_end_exclusive": "0x000444F0",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 279792,
+      "offset_end_exclusive": 279828,
+      "runtime_start": "0x000444F0",
+      "runtime_end_exclusive": "0x00044514",
+      "byte_length": 36,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 279828,
+      "offset_end_exclusive": 279832,
+      "runtime_start": "0x00044514",
+      "runtime_end_exclusive": "0x00044518",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 279832,
+      "offset_end_exclusive": 279880,
+      "runtime_start": "0x00044518",
+      "runtime_end_exclusive": "0x00044548",
+      "byte_length": 48,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 279880,
+      "offset_end_exclusive": 279888,
+      "runtime_start": "0x00044548",
+      "runtime_end_exclusive": "0x00044550",
+      "byte_length": 8,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 279888,
+      "offset_end_exclusive": 279895,
+      "runtime_start": "0x00044550",
+      "runtime_end_exclusive": "0x00044557",
+      "byte_length": 7,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 279895,
+      "offset_end_exclusive": 279904,
+      "runtime_start": "0x00044557",
+      "runtime_end_exclusive": "0x00044560",
+      "byte_length": 9,
+      "evidence_classification": "PADDING",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 279904,
+      "offset_end_exclusive": 279916,
+      "runtime_start": "0x00044560",
+      "runtime_end_exclusive": "0x0004456C",
+      "byte_length": 12,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 279916,
+      "offset_end_exclusive": 280168,
+      "runtime_start": "0x0004456C",
+      "runtime_end_exclusive": "0x00044668",
+      "byte_length": 252,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 280168,
+      "offset_end_exclusive": 280172,
+      "runtime_start": "0x00044668",
+      "runtime_end_exclusive": "0x0004466C",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 280172,
+      "offset_end_exclusive": 280576,
+      "runtime_start": "0x0004466C",
+      "runtime_end_exclusive": "0x00044800",
+      "byte_length": 404,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 280576,
+      "offset_end_exclusive": 280580,
+      "runtime_start": "0x00044800",
+      "runtime_end_exclusive": "0x00044804",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 280580,
+      "offset_end_exclusive": 280840,
+      "runtime_start": "0x00044804",
+      "runtime_end_exclusive": "0x00044908",
+      "byte_length": 260,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 280840,
+      "offset_end_exclusive": 280844,
+      "runtime_start": "0x00044908",
+      "runtime_end_exclusive": "0x0004490C",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 280844,
+      "offset_end_exclusive": 280976,
+      "runtime_start": "0x0004490C",
+      "runtime_end_exclusive": "0x00044990",
+      "byte_length": 132,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 280976,
+      "offset_end_exclusive": 280980,
+      "runtime_start": "0x00044990",
+      "runtime_end_exclusive": "0x00044994",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 280980,
+      "offset_end_exclusive": 281112,
+      "runtime_start": "0x00044994",
+      "runtime_end_exclusive": "0x00044A18",
+      "byte_length": 132,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 281112,
+      "offset_end_exclusive": 281116,
+      "runtime_start": "0x00044A18",
+      "runtime_end_exclusive": "0x00044A1C",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 281116,
+      "offset_end_exclusive": 281232,
+      "runtime_start": "0x00044A1C",
+      "runtime_end_exclusive": "0x00044A90",
+      "byte_length": 116,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 281232,
+      "offset_end_exclusive": 281236,
+      "runtime_start": "0x00044A90",
+      "runtime_end_exclusive": "0x00044A94",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 281236,
+      "offset_end_exclusive": 281244,
+      "runtime_start": "0x00044A94",
+      "runtime_end_exclusive": "0x00044A9C",
+      "byte_length": 8,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 281244,
+      "offset_end_exclusive": 281248,
+      "runtime_start": "0x00044A9C",
+      "runtime_end_exclusive": "0x00044AA0",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 281248,
+      "offset_end_exclusive": 281856,
+      "runtime_start": "0x00044AA0",
+      "runtime_end_exclusive": "0x00044D00",
+      "byte_length": 608,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 281856,
+      "offset_end_exclusive": 281860,
+      "runtime_start": "0x00044D00",
+      "runtime_end_exclusive": "0x00044D04",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 281860,
+      "offset_end_exclusive": 281992,
+      "runtime_start": "0x00044D04",
+      "runtime_end_exclusive": "0x00044D88",
+      "byte_length": 132,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 281992,
+      "offset_end_exclusive": 281996,
+      "runtime_start": "0x00044D88",
+      "runtime_end_exclusive": "0x00044D8C",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 281996,
+      "offset_end_exclusive": 282016,
+      "runtime_start": "0x00044D8C",
+      "runtime_end_exclusive": "0x00044DA0",
+      "byte_length": 20,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 282016,
+      "offset_end_exclusive": 282020,
+      "runtime_start": "0x00044DA0",
+      "runtime_end_exclusive": "0x00044DA4",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 282020,
+      "offset_end_exclusive": 282056,
+      "runtime_start": "0x00044DA4",
+      "runtime_end_exclusive": "0x00044DC8",
+      "byte_length": 36,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 282056,
+      "offset_end_exclusive": 282060,
+      "runtime_start": "0x00044DC8",
+      "runtime_end_exclusive": "0x00044DCC",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 282060,
+      "offset_end_exclusive": 282332,
+      "runtime_start": "0x00044DCC",
+      "runtime_end_exclusive": "0x00044EDC",
+      "byte_length": 272,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 282332,
+      "offset_end_exclusive": 282336,
+      "runtime_start": "0x00044EDC",
+      "runtime_end_exclusive": "0x00044EE0",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 282336,
+      "offset_end_exclusive": 282588,
+      "runtime_start": "0x00044EE0",
+      "runtime_end_exclusive": "0x00044FDC",
+      "byte_length": 252,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 282588,
+      "offset_end_exclusive": 282592,
+      "runtime_start": "0x00044FDC",
+      "runtime_end_exclusive": "0x00044FE0",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 282592,
+      "offset_end_exclusive": 283804,
+      "runtime_start": "0x00044FE0",
+      "runtime_end_exclusive": "0x0004549C",
+      "byte_length": 1212,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 283804,
+      "offset_end_exclusive": 283808,
+      "runtime_start": "0x0004549C",
+      "runtime_end_exclusive": "0x000454A0",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 283808,
+      "offset_end_exclusive": 284220,
+      "runtime_start": "0x000454A0",
+      "runtime_end_exclusive": "0x0004563C",
+      "byte_length": 412,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 284220,
+      "offset_end_exclusive": 284224,
+      "runtime_start": "0x0004563C",
+      "runtime_end_exclusive": "0x00045640",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 284224,
+      "offset_end_exclusive": 284256,
+      "runtime_start": "0x00045640",
+      "runtime_end_exclusive": "0x00045660",
+      "byte_length": 32,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 284256,
+      "offset_end_exclusive": 284260,
+      "runtime_start": "0x00045660",
+      "runtime_end_exclusive": "0x00045664",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 284260,
+      "offset_end_exclusive": 285428,
+      "runtime_start": "0x00045664",
+      "runtime_end_exclusive": "0x00045AF4",
+      "byte_length": 1168,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 285428,
+      "offset_end_exclusive": 285432,
+      "runtime_start": "0x00045AF4",
+      "runtime_end_exclusive": "0x00045AF8",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 285432,
+      "offset_end_exclusive": 285440,
+      "runtime_start": "0x00045AF8",
+      "runtime_end_exclusive": "0x00045B00",
+      "byte_length": 8,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 285440,
+      "offset_end_exclusive": 285444,
+      "runtime_start": "0x00045B00",
+      "runtime_end_exclusive": "0x00045B04",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 285444,
+      "offset_end_exclusive": 285576,
+      "runtime_start": "0x00045B04",
+      "runtime_end_exclusive": "0x00045B88",
+      "byte_length": 132,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 285576,
+      "offset_end_exclusive": 285580,
+      "runtime_start": "0x00045B88",
+      "runtime_end_exclusive": "0x00045B8C",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 285580,
+      "offset_end_exclusive": 285832,
+      "runtime_start": "0x00045B8C",
+      "runtime_end_exclusive": "0x00045C88",
+      "byte_length": 252,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 285832,
+      "offset_end_exclusive": 285836,
+      "runtime_start": "0x00045C88",
+      "runtime_end_exclusive": "0x00045C8C",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 285836,
+      "offset_end_exclusive": 286372,
+      "runtime_start": "0x00045C8C",
+      "runtime_end_exclusive": "0x00045EA4",
+      "byte_length": 536,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 286372,
+      "offset_end_exclusive": 286376,
+      "runtime_start": "0x00045EA4",
+      "runtime_end_exclusive": "0x00045EA8",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 286376,
+      "offset_end_exclusive": 286524,
+      "runtime_start": "0x00045EA8",
+      "runtime_end_exclusive": "0x00045F3C",
+      "byte_length": 148,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 286524,
+      "offset_end_exclusive": 286528,
+      "runtime_start": "0x00045F3C",
+      "runtime_end_exclusive": "0x00045F40",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 286528,
+      "offset_end_exclusive": 288860,
+      "runtime_start": "0x00045F40",
+      "runtime_end_exclusive": "0x0004685C",
+      "byte_length": 2332,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 288860,
+      "offset_end_exclusive": 288864,
+      "runtime_start": "0x0004685C",
+      "runtime_end_exclusive": "0x00046860",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 288864,
+      "offset_end_exclusive": 288996,
+      "runtime_start": "0x00046860",
+      "runtime_end_exclusive": "0x000468E4",
+      "byte_length": 132,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 288996,
+      "offset_end_exclusive": 289000,
+      "runtime_start": "0x000468E4",
+      "runtime_end_exclusive": "0x000468E8",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 289000,
+      "offset_end_exclusive": 289416,
+      "runtime_start": "0x000468E8",
+      "runtime_end_exclusive": "0x00046A88",
+      "byte_length": 416,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 289416,
+      "offset_end_exclusive": 289420,
+      "runtime_start": "0x00046A88",
+      "runtime_end_exclusive": "0x00046A8C",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 289420,
+      "offset_end_exclusive": 291640,
+      "runtime_start": "0x00046A8C",
+      "runtime_end_exclusive": "0x00047338",
+      "byte_length": 2220,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 291640,
+      "offset_end_exclusive": 291644,
+      "runtime_start": "0x00047338",
+      "runtime_end_exclusive": "0x0004733C",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 291644,
+      "offset_end_exclusive": 293304,
+      "runtime_start": "0x0004733C",
+      "runtime_end_exclusive": "0x000479B8",
+      "byte_length": 1660,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 293304,
+      "offset_end_exclusive": 293308,
+      "runtime_start": "0x000479B8",
+      "runtime_end_exclusive": "0x000479BC",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 293308,
+      "offset_end_exclusive": 295404,
+      "runtime_start": "0x000479BC",
+      "runtime_end_exclusive": "0x000481EC",
+      "byte_length": 2096,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 295404,
+      "offset_end_exclusive": 295408,
+      "runtime_start": "0x000481EC",
+      "runtime_end_exclusive": "0x000481F0",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 295408,
+      "offset_end_exclusive": 296152,
+      "runtime_start": "0x000481F0",
+      "runtime_end_exclusive": "0x000484D8",
+      "byte_length": 744,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 296152,
+      "offset_end_exclusive": 296156,
+      "runtime_start": "0x000484D8",
+      "runtime_end_exclusive": "0x000484DC",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 296156,
+      "offset_end_exclusive": 296488,
+      "runtime_start": "0x000484DC",
+      "runtime_end_exclusive": "0x00048628",
+      "byte_length": 332,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 296488,
+      "offset_end_exclusive": 296492,
+      "runtime_start": "0x00048628",
+      "runtime_end_exclusive": "0x0004862C",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 296492,
+      "offset_end_exclusive": 297452,
+      "runtime_start": "0x0004862C",
+      "runtime_end_exclusive": "0x000489EC",
+      "byte_length": 960,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 297452,
+      "offset_end_exclusive": 297456,
+      "runtime_start": "0x000489EC",
+      "runtime_end_exclusive": "0x000489F0",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 297456,
+      "offset_end_exclusive": 299552,
+      "runtime_start": "0x000489F0",
+      "runtime_end_exclusive": "0x00049220",
+      "byte_length": 2096,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 299552,
+      "offset_end_exclusive": 299556,
+      "runtime_start": "0x00049220",
+      "runtime_end_exclusive": "0x00049224",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 299556,
+      "offset_end_exclusive": 299780,
+      "runtime_start": "0x00049224",
+      "runtime_end_exclusive": "0x00049304",
+      "byte_length": 224,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 299780,
+      "offset_end_exclusive": 299784,
+      "runtime_start": "0x00049304",
+      "runtime_end_exclusive": "0x00049308",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 299784,
+      "offset_end_exclusive": 299800,
+      "runtime_start": "0x00049308",
+      "runtime_end_exclusive": "0x00049318",
+      "byte_length": 16,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 299800,
+      "offset_end_exclusive": 299804,
+      "runtime_start": "0x00049318",
+      "runtime_end_exclusive": "0x0004931C",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 299804,
+      "offset_end_exclusive": 299812,
+      "runtime_start": "0x0004931C",
+      "runtime_end_exclusive": "0x00049324",
+      "byte_length": 8,
+      "evidence_classification": "PADDING",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 299812,
+      "offset_end_exclusive": 299824,
+      "runtime_start": "0x00049324",
+      "runtime_end_exclusive": "0x00049330",
+      "byte_length": 12,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 299824,
+      "offset_end_exclusive": 299828,
+      "runtime_start": "0x00049330",
+      "runtime_end_exclusive": "0x00049334",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 299828,
+      "offset_end_exclusive": 302700,
+      "runtime_start": "0x00049334",
+      "runtime_end_exclusive": "0x00049E6C",
+      "byte_length": 2872,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 302700,
+      "offset_end_exclusive": 302704,
+      "runtime_start": "0x00049E6C",
+      "runtime_end_exclusive": "0x00049E70",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 302704,
+      "offset_end_exclusive": 302716,
+      "runtime_start": "0x00049E70",
+      "runtime_end_exclusive": "0x00049E7C",
+      "byte_length": 12,
+      "evidence_classification": "PADDING",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 302716,
+      "offset_end_exclusive": 302732,
+      "runtime_start": "0x00049E7C",
+      "runtime_end_exclusive": "0x00049E8C",
+      "byte_length": 16,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 302732,
+      "offset_end_exclusive": 302736,
+      "runtime_start": "0x00049E8C",
+      "runtime_end_exclusive": "0x00049E90",
+      "byte_length": 4,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 302736,
+      "offset_end_exclusive": 302744,
+      "runtime_start": "0x00049E90",
+      "runtime_end_exclusive": "0x00049E98",
+      "byte_length": 8,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 302744,
+      "offset_end_exclusive": 302748,
+      "runtime_start": "0x00049E98",
+      "runtime_end_exclusive": "0x00049E9C",
+      "byte_length": 4,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 302748,
+      "offset_end_exclusive": 302760,
+      "runtime_start": "0x00049E9C",
+      "runtime_end_exclusive": "0x00049EA8",
+      "byte_length": 12,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 302760,
+      "offset_end_exclusive": 302796,
+      "runtime_start": "0x00049EA8",
+      "runtime_end_exclusive": "0x00049ECC",
+      "byte_length": 36,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 302796,
+      "offset_end_exclusive": 302804,
+      "runtime_start": "0x00049ECC",
+      "runtime_end_exclusive": "0x00049ED4",
+      "byte_length": 8,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 302804,
+      "offset_end_exclusive": 302880,
+      "runtime_start": "0x00049ED4",
+      "runtime_end_exclusive": "0x00049F20",
+      "byte_length": 76,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 302880,
+      "offset_end_exclusive": 302884,
+      "runtime_start": "0x00049F20",
+      "runtime_end_exclusive": "0x00049F24",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 302884,
+      "offset_end_exclusive": 303172,
+      "runtime_start": "0x00049F24",
+      "runtime_end_exclusive": "0x0004A044",
+      "byte_length": 288,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 303172,
+      "offset_end_exclusive": 303176,
+      "runtime_start": "0x0004A044",
+      "runtime_end_exclusive": "0x0004A048",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 303176,
+      "offset_end_exclusive": 305196,
+      "runtime_start": "0x0004A048",
+      "runtime_end_exclusive": "0x0004A82C",
+      "byte_length": 2020,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 305196,
+      "offset_end_exclusive": 305208,
+      "runtime_start": "0x0004A82C",
+      "runtime_end_exclusive": "0x0004A838",
+      "byte_length": 12,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 305208,
+      "offset_end_exclusive": 305276,
+      "runtime_start": "0x0004A838",
+      "runtime_end_exclusive": "0x0004A87C",
+      "byte_length": 68,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 305276,
+      "offset_end_exclusive": 305280,
+      "runtime_start": "0x0004A87C",
+      "runtime_end_exclusive": "0x0004A880",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 305280,
+      "offset_end_exclusive": 305328,
+      "runtime_start": "0x0004A880",
+      "runtime_end_exclusive": "0x0004A8B0",
+      "byte_length": 48,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 305328,
+      "offset_end_exclusive": 305332,
+      "runtime_start": "0x0004A8B0",
+      "runtime_end_exclusive": "0x0004A8B4",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 305332,
+      "offset_end_exclusive": 305340,
+      "runtime_start": "0x0004A8B4",
+      "runtime_end_exclusive": "0x0004A8BC",
+      "byte_length": 8,
+      "evidence_classification": "PADDING",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 305340,
+      "offset_end_exclusive": 305368,
+      "runtime_start": "0x0004A8BC",
+      "runtime_end_exclusive": "0x0004A8D8",
+      "byte_length": 28,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 305368,
+      "offset_end_exclusive": 305376,
+      "runtime_start": "0x0004A8D8",
+      "runtime_end_exclusive": "0x0004A8E0",
+      "byte_length": 8,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 305376,
+      "offset_end_exclusive": 305392,
+      "runtime_start": "0x0004A8E0",
+      "runtime_end_exclusive": "0x0004A8F0",
+      "byte_length": 16,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 305392,
+      "offset_end_exclusive": 305396,
+      "runtime_start": "0x0004A8F0",
+      "runtime_end_exclusive": "0x0004A8F4",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 305396,
+      "offset_end_exclusive": 305408,
+      "runtime_start": "0x0004A8F4",
+      "runtime_end_exclusive": "0x0004A900",
+      "byte_length": 12,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 305408,
+      "offset_end_exclusive": 305412,
+      "runtime_start": "0x0004A900",
+      "runtime_end_exclusive": "0x0004A904",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 305412,
+      "offset_end_exclusive": 305416,
+      "runtime_start": "0x0004A904",
+      "runtime_end_exclusive": "0x0004A908",
+      "byte_length": 4,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 305416,
+      "offset_end_exclusive": 305420,
+      "runtime_start": "0x0004A908",
+      "runtime_end_exclusive": "0x0004A90C",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 305420,
+      "offset_end_exclusive": 305432,
+      "runtime_start": "0x0004A90C",
+      "runtime_end_exclusive": "0x0004A918",
+      "byte_length": 12,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 305432,
+      "offset_end_exclusive": 305436,
+      "runtime_start": "0x0004A918",
+      "runtime_end_exclusive": "0x0004A91C",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 305436,
+      "offset_end_exclusive": 307564,
+      "runtime_start": "0x0004A91C",
+      "runtime_end_exclusive": "0x0004B16C",
+      "byte_length": 2128,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 307564,
+      "offset_end_exclusive": 307568,
+      "runtime_start": "0x0004B16C",
+      "runtime_end_exclusive": "0x0004B170",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 307568,
+      "offset_end_exclusive": 309832,
+      "runtime_start": "0x0004B170",
+      "runtime_end_exclusive": "0x0004BA48",
+      "byte_length": 2264,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 309832,
+      "offset_end_exclusive": 309836,
+      "runtime_start": "0x0004BA48",
+      "runtime_end_exclusive": "0x0004BA4C",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 309836,
+      "offset_end_exclusive": 309856,
+      "runtime_start": "0x0004BA4C",
+      "runtime_end_exclusive": "0x0004BA60",
+      "byte_length": 20,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 309856,
+      "offset_end_exclusive": 309864,
+      "runtime_start": "0x0004BA60",
+      "runtime_end_exclusive": "0x0004BA68",
+      "byte_length": 8,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 309864,
+      "offset_end_exclusive": 309872,
+      "runtime_start": "0x0004BA68",
+      "runtime_end_exclusive": "0x0004BA70",
+      "byte_length": 8,
+      "evidence_classification": "PADDING",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 309872,
+      "offset_end_exclusive": 309888,
+      "runtime_start": "0x0004BA70",
+      "runtime_end_exclusive": "0x0004BA80",
+      "byte_length": 16,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 309888,
+      "offset_end_exclusive": 309898,
+      "runtime_start": "0x0004BA80",
+      "runtime_end_exclusive": "0x0004BA8A",
+      "byte_length": 10,
+      "evidence_classification": "PADDING",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 309898,
+      "offset_end_exclusive": 309904,
+      "runtime_start": "0x0004BA8A",
+      "runtime_end_exclusive": "0x0004BA90",
+      "byte_length": 6,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 309904,
+      "offset_end_exclusive": 309912,
+      "runtime_start": "0x0004BA90",
+      "runtime_end_exclusive": "0x0004BA98",
+      "byte_length": 8,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 309912,
+      "offset_end_exclusive": 309932,
+      "runtime_start": "0x0004BA98",
+      "runtime_end_exclusive": "0x0004BAAC",
+      "byte_length": 20,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 309932,
+      "offset_end_exclusive": 309940,
+      "runtime_start": "0x0004BAAC",
+      "runtime_end_exclusive": "0x0004BAB4",
+      "byte_length": 8,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 309940,
+      "offset_end_exclusive": 309956,
+      "runtime_start": "0x0004BAB4",
+      "runtime_end_exclusive": "0x0004BAC4",
+      "byte_length": 16,
+      "evidence_classification": "PADDING",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 309956,
+      "offset_end_exclusive": 309964,
+      "runtime_start": "0x0004BAC4",
+      "runtime_end_exclusive": "0x0004BACC",
+      "byte_length": 8,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 309964,
+      "offset_end_exclusive": 309980,
+      "runtime_start": "0x0004BACC",
+      "runtime_end_exclusive": "0x0004BADC",
+      "byte_length": 16,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 309980,
+      "offset_end_exclusive": 309984,
+      "runtime_start": "0x0004BADC",
+      "runtime_end_exclusive": "0x0004BAE0",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 309984,
+      "offset_end_exclusive": 310012,
+      "runtime_start": "0x0004BAE0",
+      "runtime_end_exclusive": "0x0004BAFC",
+      "byte_length": 28,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 310012,
+      "offset_end_exclusive": 310016,
+      "runtime_start": "0x0004BAFC",
+      "runtime_end_exclusive": "0x0004BB00",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 310016,
+      "offset_end_exclusive": 322068,
+      "runtime_start": "0x0004BB00",
+      "runtime_end_exclusive": "0x0004EA14",
+      "byte_length": 12052,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 322068,
+      "offset_end_exclusive": 322072,
+      "runtime_start": "0x0004EA14",
+      "runtime_end_exclusive": "0x0004EA18",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 322072,
+      "offset_end_exclusive": 322160,
+      "runtime_start": "0x0004EA18",
+      "runtime_end_exclusive": "0x0004EA70",
+      "byte_length": 88,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 322160,
+      "offset_end_exclusive": 322164,
+      "runtime_start": "0x0004EA70",
+      "runtime_end_exclusive": "0x0004EA74",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 322164,
+      "offset_end_exclusive": 322624,
+      "runtime_start": "0x0004EA74",
+      "runtime_end_exclusive": "0x0004EC40",
+      "byte_length": 460,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 322624,
+      "offset_end_exclusive": 322628,
+      "runtime_start": "0x0004EC40",
+      "runtime_end_exclusive": "0x0004EC44",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 322628,
+      "offset_end_exclusive": 338508,
+      "runtime_start": "0x0004EC44",
+      "runtime_end_exclusive": "0x00052A4C",
+      "byte_length": 15880,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 338508,
+      "offset_end_exclusive": 338512,
+      "runtime_start": "0x00052A4C",
+      "runtime_end_exclusive": "0x00052A50",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 338512,
+      "offset_end_exclusive": 338532,
+      "runtime_start": "0x00052A50",
+      "runtime_end_exclusive": "0x00052A64",
+      "byte_length": 20,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 338532,
+      "offset_end_exclusive": 338536,
+      "runtime_start": "0x00052A64",
+      "runtime_end_exclusive": "0x00052A68",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 338536,
+      "offset_end_exclusive": 339576,
+      "runtime_start": "0x00052A68",
+      "runtime_end_exclusive": "0x00052E78",
+      "byte_length": 1040,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 339576,
+      "offset_end_exclusive": 339580,
+      "runtime_start": "0x00052E78",
+      "runtime_end_exclusive": "0x00052E7C",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 339580,
+      "offset_end_exclusive": 342072,
+      "runtime_start": "0x00052E7C",
+      "runtime_end_exclusive": "0x00053838",
+      "byte_length": 2492,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 342072,
+      "offset_end_exclusive": 342076,
+      "runtime_start": "0x00053838",
+      "runtime_end_exclusive": "0x0005383C",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 342076,
+      "offset_end_exclusive": 343048,
+      "runtime_start": "0x0005383C",
+      "runtime_end_exclusive": "0x00053C08",
+      "byte_length": 972,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 343048,
+      "offset_end_exclusive": 343052,
+      "runtime_start": "0x00053C08",
+      "runtime_end_exclusive": "0x00053C0C",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 343052,
+      "offset_end_exclusive": 349268,
+      "runtime_start": "0x00053C0C",
+      "runtime_end_exclusive": "0x00055454",
+      "byte_length": 6216,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 349268,
+      "offset_end_exclusive": 349272,
+      "runtime_start": "0x00055454",
+      "runtime_end_exclusive": "0x00055458",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 349272,
+      "offset_end_exclusive": 350656,
+      "runtime_start": "0x00055458",
+      "runtime_end_exclusive": "0x000559C0",
+      "byte_length": 1384,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 350656,
+      "offset_end_exclusive": 350660,
+      "runtime_start": "0x000559C0",
+      "runtime_end_exclusive": "0x000559C4",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 350660,
+      "offset_end_exclusive": 352204,
+      "runtime_start": "0x000559C4",
+      "runtime_end_exclusive": "0x00055FCC",
+      "byte_length": 1544,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 352204,
+      "offset_end_exclusive": 352208,
+      "runtime_start": "0x00055FCC",
+      "runtime_end_exclusive": "0x00055FD0",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 352208,
+      "offset_end_exclusive": 352956,
+      "runtime_start": "0x00055FD0",
+      "runtime_end_exclusive": "0x000562BC",
+      "byte_length": 748,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 352956,
+      "offset_end_exclusive": 352960,
+      "runtime_start": "0x000562BC",
+      "runtime_end_exclusive": "0x000562C0",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 352960,
+      "offset_end_exclusive": 355888,
+      "runtime_start": "0x000562C0",
+      "runtime_end_exclusive": "0x00056E30",
+      "byte_length": 2928,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 355888,
+      "offset_end_exclusive": 355892,
+      "runtime_start": "0x00056E30",
+      "runtime_end_exclusive": "0x00056E34",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 355892,
+      "offset_end_exclusive": 364608,
+      "runtime_start": "0x00056E34",
+      "runtime_end_exclusive": "0x00059040",
+      "byte_length": 8716,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 364608,
+      "offset_end_exclusive": 364612,
+      "runtime_start": "0x00059040",
+      "runtime_end_exclusive": "0x00059044",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 364612,
+      "offset_end_exclusive": 366676,
+      "runtime_start": "0x00059044",
+      "runtime_end_exclusive": "0x00059854",
+      "byte_length": 2064,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 366676,
+      "offset_end_exclusive": 366680,
+      "runtime_start": "0x00059854",
+      "runtime_end_exclusive": "0x00059858",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 366680,
+      "offset_end_exclusive": 369200,
+      "runtime_start": "0x00059858",
+      "runtime_end_exclusive": "0x0005A230",
+      "byte_length": 2520,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 369200,
+      "offset_end_exclusive": 369204,
+      "runtime_start": "0x0005A230",
+      "runtime_end_exclusive": "0x0005A234",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 369204,
+      "offset_end_exclusive": 372684,
+      "runtime_start": "0x0005A234",
+      "runtime_end_exclusive": "0x0005AFCC",
+      "byte_length": 3480,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 372684,
+      "offset_end_exclusive": 372688,
+      "runtime_start": "0x0005AFCC",
+      "runtime_end_exclusive": "0x0005AFD0",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 372688,
+      "offset_end_exclusive": 372704,
+      "runtime_start": "0x0005AFD0",
+      "runtime_end_exclusive": "0x0005AFE0",
+      "byte_length": 16,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 372704,
+      "offset_end_exclusive": 372712,
+      "runtime_start": "0x0005AFE0",
+      "runtime_end_exclusive": "0x0005AFE8",
+      "byte_length": 8,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 372712,
+      "offset_end_exclusive": 372720,
+      "runtime_start": "0x0005AFE8",
+      "runtime_end_exclusive": "0x0005AFF0",
+      "byte_length": 8,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 372720,
+      "offset_end_exclusive": 372724,
+      "runtime_start": "0x0005AFF0",
+      "runtime_end_exclusive": "0x0005AFF4",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 372724,
+      "offset_end_exclusive": 372732,
+      "runtime_start": "0x0005AFF4",
+      "runtime_end_exclusive": "0x0005AFFC",
+      "byte_length": 8,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 372732,
+      "offset_end_exclusive": 372736,
+      "runtime_start": "0x0005AFFC",
+      "runtime_end_exclusive": "0x0005B000",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 372736,
+      "offset_end_exclusive": 372752,
+      "runtime_start": "0x0005B000",
+      "runtime_end_exclusive": "0x0005B010",
+      "byte_length": 16,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 372752,
+      "offset_end_exclusive": 372756,
+      "runtime_start": "0x0005B010",
+      "runtime_end_exclusive": "0x0005B014",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 372756,
+      "offset_end_exclusive": 381156,
+      "runtime_start": "0x0005B014",
+      "runtime_end_exclusive": "0x0005D0E4",
+      "byte_length": 8400,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 381156,
+      "offset_end_exclusive": 381160,
+      "runtime_start": "0x0005D0E4",
+      "runtime_end_exclusive": "0x0005D0E8",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 381160,
+      "offset_end_exclusive": 381712,
+      "runtime_start": "0x0005D0E8",
+      "runtime_end_exclusive": "0x0005D310",
+      "byte_length": 552,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 381712,
+      "offset_end_exclusive": 381716,
+      "runtime_start": "0x0005D310",
+      "runtime_end_exclusive": "0x0005D314",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 381716,
+      "offset_end_exclusive": 386944,
+      "runtime_start": "0x0005D314",
+      "runtime_end_exclusive": "0x0005E780",
+      "byte_length": 5228,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 386944,
+      "offset_end_exclusive": 386948,
+      "runtime_start": "0x0005E780",
+      "runtime_end_exclusive": "0x0005E784",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 386948,
+      "offset_end_exclusive": 386956,
+      "runtime_start": "0x0005E784",
+      "runtime_end_exclusive": "0x0005E78C",
+      "byte_length": 8,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 386956,
+      "offset_end_exclusive": 386960,
+      "runtime_start": "0x0005E78C",
+      "runtime_end_exclusive": "0x0005E790",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 386960,
+      "offset_end_exclusive": 386976,
+      "runtime_start": "0x0005E790",
+      "runtime_end_exclusive": "0x0005E7A0",
+      "byte_length": 16,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 386976,
+      "offset_end_exclusive": 386980,
+      "runtime_start": "0x0005E7A0",
+      "runtime_end_exclusive": "0x0005E7A4",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 386980,
+      "offset_end_exclusive": 386992,
+      "runtime_start": "0x0005E7A4",
+      "runtime_end_exclusive": "0x0005E7B0",
+      "byte_length": 12,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 386992,
+      "offset_end_exclusive": 386996,
+      "runtime_start": "0x0005E7B0",
+      "runtime_end_exclusive": "0x0005E7B4",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 386996,
+      "offset_end_exclusive": 387420,
+      "runtime_start": "0x0005E7B4",
+      "runtime_end_exclusive": "0x0005E95C",
+      "byte_length": 424,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 387420,
+      "offset_end_exclusive": 387424,
+      "runtime_start": "0x0005E95C",
+      "runtime_end_exclusive": "0x0005E960",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 387424,
+      "offset_end_exclusive": 392692,
+      "runtime_start": "0x0005E960",
+      "runtime_end_exclusive": "0x0005FDF4",
+      "byte_length": 5268,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 392692,
+      "offset_end_exclusive": 392696,
+      "runtime_start": "0x0005FDF4",
+      "runtime_end_exclusive": "0x0005FDF8",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 392696,
+      "offset_end_exclusive": 395856,
+      "runtime_start": "0x0005FDF8",
+      "runtime_end_exclusive": "0x00060A50",
+      "byte_length": 3160,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 395856,
+      "offset_end_exclusive": 395860,
+      "runtime_start": "0x00060A50",
+      "runtime_end_exclusive": "0x00060A54",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 395860,
+      "offset_end_exclusive": 396832,
+      "runtime_start": "0x00060A54",
+      "runtime_end_exclusive": "0x00060E20",
+      "byte_length": 972,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 396832,
+      "offset_end_exclusive": 396836,
+      "runtime_start": "0x00060E20",
+      "runtime_end_exclusive": "0x00060E24",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 396836,
+      "offset_end_exclusive": 397176,
+      "runtime_start": "0x00060E24",
+      "runtime_end_exclusive": "0x00060F78",
+      "byte_length": 340,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 397176,
+      "offset_end_exclusive": 397180,
+      "runtime_start": "0x00060F78",
+      "runtime_end_exclusive": "0x00060F7C",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 397180,
+      "offset_end_exclusive": 398472,
+      "runtime_start": "0x00060F7C",
+      "runtime_end_exclusive": "0x00061488",
+      "byte_length": 1292,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 398472,
+      "offset_end_exclusive": 398476,
+      "runtime_start": "0x00061488",
+      "runtime_end_exclusive": "0x0006148C",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 398476,
+      "offset_end_exclusive": 400428,
+      "runtime_start": "0x0006148C",
+      "runtime_end_exclusive": "0x00061C2C",
+      "byte_length": 1952,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 400428,
+      "offset_end_exclusive": 400432,
+      "runtime_start": "0x00061C2C",
+      "runtime_end_exclusive": "0x00061C30",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 400432,
+      "offset_end_exclusive": 401940,
+      "runtime_start": "0x00061C30",
+      "runtime_end_exclusive": "0x00062214",
+      "byte_length": 1508,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 401940,
+      "offset_end_exclusive": 401944,
+      "runtime_start": "0x00062214",
+      "runtime_end_exclusive": "0x00062218",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 401944,
+      "offset_end_exclusive": 402072,
+      "runtime_start": "0x00062218",
+      "runtime_end_exclusive": "0x00062298",
+      "byte_length": 128,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 402072,
+      "offset_end_exclusive": 402076,
+      "runtime_start": "0x00062298",
+      "runtime_end_exclusive": "0x0006229C",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 402076,
+      "offset_end_exclusive": 407944,
+      "runtime_start": "0x0006229C",
+      "runtime_end_exclusive": "0x00063988",
+      "byte_length": 5868,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 407944,
+      "offset_end_exclusive": 407948,
+      "runtime_start": "0x00063988",
+      "runtime_end_exclusive": "0x0006398C",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 407948,
+      "offset_end_exclusive": 408312,
+      "runtime_start": "0x0006398C",
+      "runtime_end_exclusive": "0x00063AF8",
+      "byte_length": 364,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 408312,
+      "offset_end_exclusive": 408316,
+      "runtime_start": "0x00063AF8",
+      "runtime_end_exclusive": "0x00063AFC",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 408316,
+      "offset_end_exclusive": 408740,
+      "runtime_start": "0x00063AFC",
+      "runtime_end_exclusive": "0x00063CA4",
+      "byte_length": 424,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 408740,
+      "offset_end_exclusive": 408744,
+      "runtime_start": "0x00063CA4",
+      "runtime_end_exclusive": "0x00063CA8",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 408744,
+      "offset_end_exclusive": 515232,
+      "runtime_start": "0x00063CA8",
+      "runtime_end_exclusive": "0x0007DCA0",
+      "byte_length": 106488,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 515232,
+      "offset_end_exclusive": 515236,
+      "runtime_start": "0x0007DCA0",
+      "runtime_end_exclusive": "0x0007DCA4",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 515236,
+      "offset_end_exclusive": 517604,
+      "runtime_start": "0x0007DCA4",
+      "runtime_end_exclusive": "0x0007E5E4",
+      "byte_length": 2368,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 517604,
+      "offset_end_exclusive": 517608,
+      "runtime_start": "0x0007E5E4",
+      "runtime_end_exclusive": "0x0007E5E8",
+      "byte_length": 4,
+      "evidence_classification": "DATA",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
+    },
+    {
+      "offset_start": 517608,
+      "offset_end_exclusive": 672937,
+      "runtime_start": "0x0007E5E8",
+      "runtime_end_exclusive": "0x000A44A9",
+      "byte_length": 155329,
+      "evidence_classification": "UNKNOWN",
+      "assembly_representation": "RAW_UNKNOWN",
+      "evidence_refs": []
+    },
+    {
+      "offset_start": 672937,
+      "offset_end_exclusive": 673792,
+      "runtime_start": "0x000A44A9",
+      "runtime_end_exclusive": "0x000A4800",
+      "byte_length": 855,
+      "evidence_classification": "PADDING",
+      "assembly_representation": "RAW_DATA",
+      "evidence_refs": [
+        "CARVER_PREPASS",
+        "P3_EVIDENCE"
+      ]
     }
   ],
   "labels": [
@@ -61,5 +6376,8 @@
   "assembler_tool_identity": "GNU assembler (binutils-m68k-linux-gnu 2.42)",
   "linker_tool_identity": "GNU ld (binutils-m68k-linux-gnu 2.42)",
   "provenance_identity": "T2-ASM-BGM",
-  "proven_mnemonic_bytes": 30
+  "proven_mnemonic_bytes": 30,
+  "data_bytes": 1576,
+  "padding_bytes": 7545,
+  "raw_code_pending_bytes": 0
 }

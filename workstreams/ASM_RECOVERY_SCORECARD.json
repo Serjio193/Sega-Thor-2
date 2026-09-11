@@ -5,12 +5,12 @@
   "baseline_commit": "4a03b83bd3d8dfee02cd59c051b5bdd1ab832b3d",
   "active_milestone": "ASM-First Recovery Track (docs/DEVELOPMENT_PLAN.md, ADR D-015, T2-ASM-CARVER-02 / T2-ASM-06)",
   "overall_status": "IN_PROGRESS",
-  "active_task": "T2-ASM-INTEGRITY-04",
-  "audit_note": "Proof-integrity audit complete under T2-ASM-INTEGRITY-03. All confirmed instructions decoded with proven mnemonics via thor_sh2 (RAW_CODE_PENDING == 0). P3 gaps resolved (UNRESOLVED_CONTROL_FLOW_UNKNOWN == 0). Byte-exact rebuild and bit-exact disc hash verified. FULL_ASM_GAME_GATE satisfied. All broad C++ translation remains strictly FROZEN awaiting user authorization.",
+  "active_task": "T2-ASM-INTEGRITY-05",
+  "audit_note": "T2-ASM-INTEGRITY-05 audit: Purified architectural-PC ingestion (7 entry PCs), zero silent evidence demotions from 4a03b83, P3 DATA and PADDING reconciled into canonical manifests, CFG guarded against pre-pass DATA/PADDING, circular unreachability removed (2206 residual undecoded gaps remain UNKNOWN due to 2231 unresolved indirect sites), FULL_ASM_GAME_GATE = NOT_YET_REPROVEN.",
   "tracks": {
     "ASM_DISCOVERY": "COMPLETE",
-    "ASM_CODE_RECOVERY": "COMPLETE",
-    "ASM_DATA_CLASSIFICATION": "AUDITED_AND_RESOLVED",
+    "ASM_CODE_RECOVERY": "IN_PROGRESS",
+    "ASM_DATA_CLASSIFICATION": "IN_PROGRESS",
     "ASM_MODULE_REASSEMBLY": "BYTE_EXACT_VERIFIED",
     "ASM_RUNTIME_GAMEPLAY": "FULL_GAMEPLAY_SUITE_VERIFIED_ZERO_DIVERGENCE",
     "CPLUSPLUS_TRANSLATION": "FROZEN_BY_ASM_FIRST_ARCHITECTURE",
@@ -22,12 +22,12 @@
       "status": "PASS",
       "requirement": "PROVEN_MNEMONIC_COVERAGE >= 90.00% across all confirmed code",
       "current_value": 100.0,
-      "details": "95422 proven mnemonic bytes / 95422 confirmed code bytes (100.00% aggregate coverage across SH-2 and M68K)."
+      "details": "95422 proven mnemonic bytes / 95422 confirmed code bytes (100.00%)"
     },
     "FULL_ASM_GAME_GATE": {
-      "status": "PASS",
-      "requirement": "100% executable modules reassembled byte-exact, boot and gameplay verified with 0 divergence, SH2_RAW_CODE_PENDING == 0, M68K_RAW_CODE_PENDING == 0",
-      "details": "PASS: All 4 executable modules reassembled byte-exact, all 95,422 confirmed code bytes (87,344 in 0TH2.BIN, 8,036 in TH2.LOW, 12 in SET07.BIN, 30 in BGM.BIN) decoded with proven mnemonics (0 raw code pending). P3 CFG closed with 0 unresolved gaps and 0 conflicts. Full multi-scenario Mednafen gameplay verified bit-for-bit with 0 cycle drift."
+      "status": "NOT_YET_REPROVEN",
+      "requirement": "Zero unresolved control-flow unknowns, byte-exact module reassembly, canonical disc SHA-256 parity, and clean Mednafen zero-divergence gameplay",
+      "details": "All 4 modules byte-exact, full disc fe11d2fb bit-identical, Mednafen zero divergence across 6 gameplay scenarios. Gate held at NOT_YET_REPROVEN because 2206 residual undecoded gaps cannot be proven unreachable while 2231 indirect sites remain statically unresolved."
     },
     "STANDALONE_NATIVE_GATE": {
       "status": "FROZEN_BY_ASM_FIRST_ARCHITECTURE",
@@ -41,9 +41,9 @@
     "total_confirmed_code_bytes": 95422,
     "total_proven_mnemonic_bytes": 95422,
     "total_raw_code_pending_bytes": 0,
-    "total_data_bytes": 0,
-    "total_padding_bytes": 0,
-    "total_unknown_bytes": 1361730,
+    "total_data_bytes": 57722,
+    "total_padding_bytes": 52145,
+    "total_unknown_bytes": 1251863,
     "proven_mnemonic_coverage_pct": 100.0,
     "module_containers_byte_exact": 4,
     "module_containers_runtime_verified": 4,
@@ -53,7 +53,11 @@
       "mc68ec000": "BYTE_EXACT_SOUND_DRIVER_VERIFIED"
     },
     "full_gameplay_verified": true,
-    "full_gameplay_status": "FULL_GAMEPLAY_SUITE_VERIFIED_ZERO_DIVERGENCE"
+    "full_gameplay_status": "FULL_GAMEPLAY_SUITE_VERIFIED_ZERO_DIVERGENCE",
+    "indirect_sites_total": 2233,
+    "indirect_sites_resolved": 2,
+    "indirect_sites_unresolved": 2231,
+    "silent_evidence_demotions": 0
   },
   "modules": [
     {
@@ -64,9 +68,11 @@
       "sha256": "c1cc4117870bc567386410aa2d4f1b5f03fb98a601be71bb3ae2155de1853c64",
       "confirmed_code_bytes": 87344,
       "proven_mnemonic_bytes": 87344,
-      "data_bytes": 0,
-      "padding_bytes": 0,
-      "unknown_bytes": 448208,
+      "raw_code_pending_bytes": 0,
+      "data_bytes": 43992,
+      "padding_bytes": 673,
+      "unknown_bytes": 403543,
+      "code_blocks_count": 6007,
       "reassembly_status": "BYTE_EXACT",
       "runtime_verified": true
     },
@@ -78,9 +84,11 @@
       "sha256": "781396898191921b486be751163aea493ef9b1abcb55c0ab8698df9c69211224",
       "confirmed_code_bytes": 8036,
       "proven_mnemonic_bytes": 8036,
-      "data_bytes": 0,
-      "padding_bytes": 0,
-      "unknown_bytes": 141468,
+      "raw_code_pending_bytes": 0,
+      "data_bytes": 9178,
+      "padding_bytes": 10129,
+      "unknown_bytes": 122161,
+      "code_blocks_count": 360,
       "reassembly_status": "BYTE_EXACT",
       "runtime_verified": true
     },
@@ -92,9 +100,11 @@
       "sha256": "bb6072222e19f8cb68934cbdb94e7d187c67680bb9e167524f85579ee6bc0af6",
       "confirmed_code_bytes": 12,
       "proven_mnemonic_bytes": 12,
-      "data_bytes": 0,
-      "padding_bytes": 0,
-      "unknown_bytes": 98292,
+      "raw_code_pending_bytes": 0,
+      "data_bytes": 2976,
+      "padding_bytes": 33798,
+      "unknown_bytes": 61518,
+      "code_blocks_count": 1,
       "reassembly_status": "BYTE_EXACT",
       "runtime_verified": true
     },
@@ -106,9 +116,11 @@
       "sha256": "c1d11d5386eaffbd4ca6443c3de615312a71cc678ba4d76c2c9d6035acf9a8f6",
       "confirmed_code_bytes": 30,
       "proven_mnemonic_bytes": 30,
-      "data_bytes": 0,
-      "padding_bytes": 0,
-      "unknown_bytes": 673762,
+      "raw_code_pending_bytes": 0,
+      "data_bytes": 1576,
+      "padding_bytes": 7545,
+      "unknown_bytes": 664641,
+      "code_blocks_count": 1,
       "reassembly_status": "BYTE_EXACT",
       "runtime_verified": true
     }

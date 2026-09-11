@@ -77,7 +77,7 @@
           "byte_length": { "type": "integer", "minimum": 1 },
           "evidence_classification": {
             "type": "string",
-            "enum": ["CONFIRMED_CODE", "PROBABLE_CODE", "DATA", "UNKNOWN"]
+            "enum": ["CONFIRMED_CODE", "PROBABLE_CODE", "DATA", "PADDING", "UNKNOWN"]
           },
           "assembly_representation": {
             "type": "string",

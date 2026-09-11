@@ -29,7 +29,7 @@ def validate_manifest(manifest: Dict[str, Any]) -> None:
     code_bytes = 0
     unknown_bytes = 0
 
-    valid_classifications = {"CONFIRMED_CODE", "PROBABLE_CODE", "DATA", "UNKNOWN"}
+    valid_classifications = {"CONFIRMED_CODE", "PROBABLE_CODE", "DATA", "PADDING", "UNKNOWN"}
     valid_representations = {"MNEMONIC_PROVEN", "RAW_CODE_PENDING_DECODE", "RAW_DATA", "RAW_UNKNOWN"}
 
     for idx, r in enumerate(ranges):
