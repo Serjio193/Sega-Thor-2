@@ -62,6 +62,8 @@ include/
       guest_address.hpp           D13 strongly-typed guest address & pointer wrapper with provenance
       guest_view.hpp              D13 big-endian typed memory view with alignment & bounds enforcement
       saturn_runtime_table.hpp    D13 proven Saturn startup memory table & file load descriptor
+    resource/
+      sprite_archive.hpp          D14 Ancient character/spirit sprite package container declaration
     hw/
       vdp1_types.hpp              D15 VDP1 command, jump, color mode, and vertex types
       vdp1.hpp                    D15 VDP1 sprite, clipping, and display list engine declaration
@@ -98,6 +100,8 @@ src/
     vdp2.cpp                      D15 VDP2 color decode, RBG0 rotation matrix, and pixel arbitration
     scsp.cpp                      D15 SCSP sound command queue processing, slot configuration, and mailbox
     native_system.cpp             D16 unified Saturn hardware subsystem coordinator implementation
+  resource/
+    sprite_archive.cpp            D14 Ancient character/spirit sprite package decode & encode
   runtime/
     standalone_runtime.cpp        D17 progressive standalone runtime and execution loop implementation
 
@@ -165,6 +169,8 @@ tests/
     test_d9_plan.py               D9 indirect plan and artifact validator with 19 negative controls
   provenance/
     test_guest_provenance.cpp     D13 guest-address & type provenance test suite (Gate V-09)
+  resource/
+    test_resource_roundtrip.cpp   D14 resource byte-accurate round-trip proof (Gate V-11)
   hw/
     test_vdp1.cpp                 D15 VDP1 command decoding, jump modes, clipping, and coordinate tests
     test_vdp2.cpp                 D15 VDP2 color decode, CRAM, RBG0 matrix, and pixel arbitration tests

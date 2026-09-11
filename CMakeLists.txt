@@ -179,6 +179,13 @@ add_library(thor_runtime STATIC
 target_link_libraries(thor_runtime PUBLIC thor_native thor_hw thor_recomp thor_sh2)
 target_include_directories(thor_runtime PUBLIC include "${GENERATED_DIR}")
 
+# D14 Resource decoding and reencoding library
+add_library(thor_resource STATIC
+    src/resource/sprite_archive.cpp
+)
+target_include_directories(thor_resource PUBLIC include)
+
+
 # V-07C native dispatcher and fail-closed fallback test suite
 add_executable(test_native_dispatcher tests/recomp/test_native_dispatcher.cpp)
 target_link_libraries(test_native_dispatcher PRIVATE thor_native)
@@ -221,6 +228,12 @@ add_test(NAME test_function_boundary COMMAND test_function_boundary)
 add_executable(test_guest_provenance tests/provenance/test_guest_provenance.cpp)
 target_link_libraries(test_guest_provenance PRIVATE thor_sh2)
 add_test(NAME test_guest_provenance COMMAND test_guest_provenance)
+
+# D14 resource round-trip proof test suite (Gate V-11)
+add_executable(test_resource_roundtrip tests/resource/test_resource_roundtrip.cpp)
+target_link_libraries(test_resource_roundtrip PRIVATE thor_resource)
+add_test(NAME test_resource_roundtrip COMMAND test_resource_roundtrip)
+
 
 # D15 hardware subsystem contracts test suite
 add_executable(test_vdp1 tests/hw/test_vdp1.cpp)

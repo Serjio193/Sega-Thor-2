@@ -1,48 +1,47 @@
 # Current task
 
-TASK: T2-D13-01 Implement Guest-Address & Native-Type Provenance Model (Milestone D13 / Gate V-09)
-WHY: Moving toward native C++20 recovery requires typed data structures, but raw pointer conversions or ad-hoc host structures discard original Saturn VMA provenance and prevent differential verification. Gate V-09 establishes a strongly-typed `GuestAddress<T>`, `GuestPtr<T>`, and `GuestView` type system preserving original guest addresses (e.g. `0x06081C04..0x06081C18` BSS/Data init table), enforcing bounds/alignment fail-closed, and verifying 100% equivalence against flat memory.
+TASK: T2-D17-01 Progressive Standalone Native Execution Scaling & Metrics Hardening (Milestone D17 / Gate V-14)
+WHY: With FULL_ASM_GAME_GATE, D13, and D14 satisfied, broad C++ translation is fully unblocked. StandaloneRuntime currently only dispatches bb_06004000 and bb_06004280, with hardcoded instruction count metric (6) and relies on guest fallback interpreter `step_sh2` for unmapped instructions. D17 requires scaling native block registration, accurate per-block metric tracking, and expanding native execution to eliminate guest CPU fallback on proven execution paths.
 
-CURRENT MILESTONE: Milestone D13 (docs/DEVELOPMENT_PLAN.md, Gate V-09 in docs/PIPELINE_VALIDATION_PLAN.md)
+CURRENT MILESTONE: Milestone D17 (docs/DEVELOPMENT_PLAN.md, Gate V-14 in docs/PIPELINE_VALIDATION_PLAN.md)
 TASK STATUS: IN_PROGRESS
 MILESTONE UNDERSTANDING CONFIDENCE: 100%
 CURRENT SLICE UNDERSTANDING CONFIDENCE: 100%
-SLICE CONFIDENCE EVIDENCE: Saturn application startup descriptor table at `0x06081C04..0x06081C18` is proven by dynamic watchpoint traces (V-01, V-02a) and mechanical execution of `bb_06004000` (D8) to contain `_data_rom_start`, `_data_ram_start`, `_data_ram_end`, `_bss_start` (`0x060917DC`), and `_bss_end`.
+SLICE CONFIDENCE EVIDENCE: 3,302 proven code blocks and 96.59% mnemonic coverage established in ASM-first track; NativeDispatcher and StandaloneRuntime are operational with verified shadow qualification and MMIO routing.
 ACCEPTANCE CRITERIA:
-- [x] Define type-safe `GuestAddress<T>`, `GuestPtr<T>`, and provenance tags in `include/thor/provenance/guest_address.hpp`;
-- [x] Define `GuestView` with big-endian reading/writing and range validation in `include/thor/provenance/guest_view.hpp`;
-- [x] Define proven Saturn application init layout `SaturnStartupTable` with evidence-backed guest offsets in `include/thor/provenance/saturn_runtime_table.hpp`;
-- [x] Implement comprehensive test suite `tests/provenance/test_guest_provenance.cpp` verifying type safety, VMA preservation, alignment enforcement, negative controls (out of bounds, misalignment, null), and differential equivalence vs `ISh2Memory`;
-- [x] Register test in `CMakeLists.txt` and verify 100% pass across Windows MinGW and Linux WSL;
-- [x] Update `docs/WORKLOG.md`, `docs/FILE_MAP.md`, `docs/PROJECT_STATE.md`, `docs/ROADMAP.md`, and `TASK.md`;
-- [x] Ensure all modified/new files adhere strictly to the <= 500 lines limit;
-- [x] Maintain legal repository hygiene (zero commercial bytes in git).
+- [ ] Fix hardcoded native instruction count (+6) in StandaloneRuntime::step() to dynamically query registered block instruction count;
+- [ ] Expand native dispatcher registration and integration in StandaloneRuntime;
+- [ ] Implement multi-block native execution tests in `tests/runtime/test_standalone_runtime.cpp`;
+- [ ] Verify measured dependency reduction (`has_measured_dependency_reduction()`) and increased native execution ratio;
+- [ ] Run full dual-platform CI across Windows MinGW and Linux WSL;
+- [ ] Update project records: WORKLOG.md, FILE_MAP.md, PROJECT_STATE.md, ROADMAP.md, and TASK.md;
+- [ ] Maintain <= 500 lines limit and legal hygiene.
 
 EVIDENCE AVAILABLE:
-- Dynamic watchpoint and trace logs for `0x06081C04..0x06081C18`;
-- Mechanical execution records of `bb_06004000` and `0x06004012` boot loop;
-- Authoritative `thor::sh2::ISh2Memory` big-endian bus semantics.
+- D13 GuestAddress/GuestView and D14 SpriteArchive;
+- Proven native blocks bb_06004000 and bb_06004280;
+- StandaloneRuntime and NativeSaturnSystem unified hardware bridge.
 KNOWN UNKNOWNS:
-- Extended stage overlay data structure field mappings (reserved for D14 / stage loading).
+- Standalone CD-ROM block emulation for runtime file streaming.
 ALLOWED SCOPE:
-- Provenance type system (`include/thor/provenance/`), test suite (`tests/provenance/`), build scripts, and documentation.
+- Runtime libraries (`include/thor/runtime/`, `src/runtime/`), unit tests (`tests/runtime/`), documentation.
 OUT OF SCOPE:
-- Premature abstraction of unproven game structures or speculative renaming.
+- Wholesale emulator replacement without block-level proof.
 
 ## Last verified result
 
-`V-09_GUEST_PROVENANCE_PASS`: Strongly typed `GuestAddress<T>`, `GuestPtr<T>`, `GuestView`, and `SaturnStartupTable` implemented; 100% test pass on Windows MinGW and Linux WSL (`test_guest_provenance`).
+`D14_RESOURCE_ROUNDTRIP_PASS`: Recovered Ancient Sprite Package format (`SpriteArchive`); verified 100% bit-exact re-encoding (`BYTE_ROUNDTRIP_EXACT`, 0 byte differences) across 6 retail disc assets (`BAW.BIN`, `DIT.BIN`, `SHADE.BIN`, `ARELE.BIN`, `EFREET.BIN`, `BRAS.BIN`, 503,504 bytes); 6/6 negative controls pass; 38/38 unit tests passing on Windows MinGW and Linux WSL.
 
 ## Session checkpoint
 
-CURRENT MILESTONE: Milestone D13 (Guest-Address/Type Provenance, Gate V-09)
-CURRENT TASK: T2-D13-01 Implement Guest-Address & Native-Type Provenance Model
-TASK STATUS: COMPLETE
+CURRENT MILESTONE: Milestone D17 (Progressive Standalone Runtime, Gate V-14)
+CURRENT TASK: T2-D17-01 Progressive Standalone Native Execution Scaling & Metrics Hardening
+TASK STATUS: IN_PROGRESS
 MILESTONE UNDERSTANDING CONFIDENCE: 100%
 CURRENT SLICE UNDERSTANDING CONFIDENCE: 100%
-LAST VERIFIED RESULT: Gate V-09 satisfied with 5/5 sub-tests passing; dual-platform green.
-FILES CHANGED: CMakeLists.txt, TASK.md, include/thor/provenance/guest_address.hpp, include/thor/provenance/guest_view.hpp, include/thor/provenance/saturn_runtime_table.hpp, tests/provenance/test_guest_provenance.cpp.
-TESTS RUN: test_guest_provenance passing on Windows MinGW and Linux WSL; 37/37 unit tests passing on Windows & Linux WSL.
-NEW KNOWLEDGE: Confirmed Saturn startup descriptor layout at 0x06081C04..0x06081C18; verified big-endian typed view with fail-closed bounds and alignment checking.
-OPEN QUESTIONS: Resource decode/re-encode toolchain for stage overlays and sprites (D14).
-EXACT NEXT ACTION: Update documentation (WORKLOG, FILE_MAP, PROJECT_STATE, ROADMAP), commit and push D13, then proceed to D14 / D17.
+LAST VERIFIED RESULT: Milestones D13 (Gate V-09) and D14 (Gate V-11) satisfied with zero divergence; 38/38 unit tests passing across Windows and Linux WSL.
+FILES CHANGED: CMakeLists.txt, docs/FILE_MAP.md, docs/PROJECT_STATE.md, docs/ROADMAP.md, docs/WORKLOG.md, include/thor/resource/sprite_archive.hpp, src/resource/sprite_archive.cpp, tests/resource/test_resource_roundtrip.cpp.
+TESTS RUN: 38/38 unit tests passing on Windows MinGW and Linux WSL; test_resource_roundtrip passing on both.
+NEW KNOWLEDGE: Ancient Sprite Package archive format fully decoded and proven byte-roundtrip exact; 12-byte header with 16-bit animation offset table, animation scripts, and 4bpp sprite pixel data.
+OPEN QUESTIONS: None for D17 runtime scaling slice.
+EXACT NEXT ACTION: Update StandaloneRuntime::step() metrics and expand native block integration.

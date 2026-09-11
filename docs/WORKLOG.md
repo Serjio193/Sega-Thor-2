@@ -1,6 +1,42 @@
 # Worklog
 
+## 2026-09-11 — Milestone D14 / Gate V-11: Ancient Sprite Package Byte-Accurate Round-Trip Proof
+
+### Task
+
+Implement Milestone D14 (Gate V-11) establishing byte-accurate game resource decode and reencode:
+1. Recovered Ancient Character/Spirit Sprite Archive container specification (`SpriteArchiveHeader`, 16-bit offset table, animation scripts, and 4bpp VDP1 sprite graphics).
+2. Implemented `SpriteArchive` decoder, encoder, and size calculation in `include/thor/resource/sprite_archive.hpp` and `src/resource/sprite_archive.cpp`.
+3. Created unit test suite `tests/resource/test_resource_roundtrip.cpp` verifying synthetic round-trips, 6 fault-injection negative controls, and real retail disc asset round-trips.
+4. Tested 6 distinct retail game resource files (`BAW.BIN`, `DIT.BIN`, `SHADE.BIN`, `ARELE.BIN`, `EFREET.BIN`, `BRAS.BIN`) totaling 503,504 bytes.
+5. Registered `test_resource_roundtrip` in `CMakeLists.txt` and verified 100% test pass across Windows MinGW and Linux WSL.
+
+### Discoveries & Results
+
+1. **Sprite Container Structure**:
+   - All spirit/character packages share a uniform 12-byte header:
+     - `header_size`: 0x0000000C (12)
+     - `anim_script_offset`: start offset of animation scripting data
+     - `sprite_data_offset`: start offset of 4-bpp Saturn VDP1 sprite pixel character data
+   - Between header and `anim_script_offset` is a contiguous table of 16-bit big-endian animation/frame offsets.
+2. **BYTE_ROUNDTRIP_EXACT Verified**:
+   - 100% bit-exact re-encoding (0 byte differences) across all 6 tested files:
+     - `BAW.BIN`: 72,540 bytes -> 0 byte diff
+     - `DIT.BIN`: 63,244 bytes -> 0 byte diff
+     - `SHADE.BIN`: 69,844 bytes -> 0 byte diff
+     - `ARELE.BIN`: 62,344 bytes -> 0 byte diff
+     - `EFREET.BIN`: 130,352 bytes -> 0 byte diff
+     - `BRAS.BIN`: 105,180 bytes -> 0 byte diff
+3. **Negative Controls**:
+   - 6/6 negative fault injection controls pass fail-closed (corrupted header sizes, inverted offsets, out-of-bounds offsets, odd offset counts).
+
+### Status After Pass
+
+- Milestone D14: **PASS** (Gate V-11: PASS / BYTE_ROUNDTRIP_EXACT)
+- CTests: 40 tests registered; unit test suite 38/38 passing
+
 ## 2026-09-11 — Milestone D13 / Gate V-09: Guest-Address & Native-Type Provenance Model
+
 
 ### Task
 

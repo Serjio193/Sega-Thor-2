@@ -307,6 +307,18 @@ Capabilities proven:
 - Verified 100% bit-exact equivalence against raw `ISh2Memory::read32` with zero divergence across synthetic and live Thor 2 memory patterns;
 - Dedicated unit test suite `test_guest_provenance` (CTest #21) passing 100% on Windows MinGW and Linux WSL.
 
+### D14 — Resource Decoding & Reencoding (Gate V-11)
+
+Status: **PASS (Gate V-11: PASS / BYTE_ROUNDTRIP_EXACT)**
+
+Capabilities proven:
+- Recovered Ancient Character/Spirit Sprite Archive container specification (`SpriteArchiveHeader`, 16-bit offset table, animation scripts, and 4bpp VDP1 sprite graphics);
+- Implemented `SpriteArchive` decoder, encoder, and size calculation in `include/thor/resource/sprite_archive.hpp` and `src/resource/sprite_archive.cpp`;
+- Verified 100% bit-exact re-encoding (`BYTE_ROUNDTRIP_EXACT`, 0 byte differences) across real Saturn retail disc assets `BAW.BIN` (72,540 B), `DIT.BIN` (63,244 B), `SHADE.BIN` (69,844 B), `ARELE.BIN` (62,344 B), `EFREET.BIN` (130,352 B), and `BRAS.BIN` (105,180 B) totaling 503,504 bytes;
+- 6/6 negative fault injection controls pass fail-closed;
+- Dedicated unit test suite `test_resource_roundtrip` (CTest #22) passing 100% on Windows MinGW and Linux WSL.
+
+
 
 ### D15 — Hardware Subsystem Contracts (VDP1, VDP2, SCSP)
 
@@ -380,7 +392,7 @@ Capabilities proven to date:
 | **D11** | **Overlay/generation identity** | **Multi-generation descriptor & isolation** | **BOUNDED_PROOF / PASS** |
 | **D12** | **Structural recovery** | **Function boundary catalog & call graph** | **PASS** |
 | **D13** | **Guest-address/type provenance** | **V-09 (Azel address model)** | **PASS** |
-| D14 | Resource decode/reencode | V-11 (exact round-trip), V-12 (diff locator) | PROPOSED |
+| **D14** | **Resource decode/reencode** | **V-11 (exact round-trip)** | **PASS (BYTE_ROUNDTRIP_EXACT)** |
 | **D15** | **HW-subsystem contracts** | **V-08 (SaturnRecomp component tests a–h)** | **BOUNDED_PROTOTYPE** |
 | **D16** | **Native subsystem replacement** | **V-08 (components passing differential test)** | **BOUNDED_PROTOTYPE** |
 | **D17** | **Progressive standalone runtime** | **V-14 (isolated, integrated, measured)** | **BOUNDED_PROTOTYPE** |
