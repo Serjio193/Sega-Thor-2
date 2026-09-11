@@ -221,7 +221,8 @@ bool StandaloneRuntime::step() {
 
     uint32_t target_pc = 0;
     uint32_t cycles_adv = 0;
-    bool handled = native_dispatcher_.dispatch_step(master_cpu_.pc, live_regs, target_pc, cycles_adv, cb);
+    uint32_t instrs_adv = 0;
+    bool handled = native_dispatcher_.dispatch_step(master_cpu_.pc, live_regs, target_pc, cycles_adv, instrs_adv, cb);
     if (handled) {
         for (int i = 0; i < 16; ++i) master_cpu_.r[i] = live_regs.r[i];
         master_cpu_.pc = target_pc;
@@ -232,7 +233,7 @@ bool StandaloneRuntime::step() {
         master_cpu_.mach = live_regs.mach;
         master_cpu_.macl = live_regs.macl;
 
-        metrics_.native_instructions += 6;
+        metrics_.native_instructions += instrs_adv;
         metrics_.native_cycles += cycles_adv;
         metrics_.total_cycles += cycles_adv;
         return true;

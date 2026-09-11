@@ -103,6 +103,67 @@ static void test_runtime_native_block_execution() {
     THOR_ASSERT(m.native_instruction_ratio() == 1.0);
 }
 
+static void test_runtime_multi_block_execution() {
+    thor::runtime::StandaloneRuntime rt;
+    rt.boot();
+
+    // 1. Setup bb_06004000
+    const uint8_t startup_code[] = {
+        0x66, 0x11, // MOV.W @R1, R6
+        0x6F, 0x03, // MOV R0, R15
+        0xD4, 0x17, // MOV.L @(0x5C, PC), R4
+        0x64, 0x42, // MOV.L @R4, R4
+        0xA0, 0x03, // BRA 0x06004012
+        0x00, 0x09  // NOP
+    };
+    bool loaded0 = rt.load_module(0x06004000u, startup_code, sizeof(startup_code));
+    THOR_ASSERT(loaded0);
+    rt.write32(0x06004064u, 0x06081C10u);
+    rt.write32(0x06081C10u, 0x060917DCu);
+
+    // 2. Setup bb_06004280
+    const uint8_t block2_code[] = {
+        0xD5, 0x36, // MOV.L @(0xD8, PC), R5
+        0xD4, 0x37, // MOV.L @(0xDC, PC), R4
+        0xD3, 0x37, // MOV.L @(0xDC, PC), R3
+        0x43, 0x0B, // JSR @R3
+        0x00, 0x09  // NOP
+    };
+    bool loaded1 = rt.load_module(0x06004280u, block2_code, sizeof(block2_code));
+    THOR_ASSERT(loaded1);
+    rt.write32(0x0600435Cu, 0x002DA000u);
+    rt.write32(0x06004360u, 0x06081C20u);
+    rt.write32(0x06004364u, 0x0600A0F8u);
+
+    // Step 1: execute bb_06004000 (6 instrs, 27 cycles)
+    bool step1_ok = rt.step();
+    THOR_ASSERT(step1_ok);
+    THOR_ASSERT(rt.master_cpu().pc == 0x06004012u);
+    THOR_ASSERT(rt.metrics().native_instructions == 6);
+    THOR_ASSERT(rt.metrics().native_cycles == 27);
+
+    // Point PC to bb_06004280
+    rt.master_cpu().pc = 0x06004280u;
+
+    // Step 2: execute bb_06004280 (5 instrs, 20 cycles)
+    bool step2_ok = rt.step();
+    THOR_ASSERT(step2_ok);
+    THOR_ASSERT(rt.master_cpu().pc == 0x0600A0F8u);
+    THOR_ASSERT(rt.master_cpu().pr == 0x0600428Au);
+    THOR_ASSERT(rt.master_cpu().r[5] == 0x002DA000u);
+    THOR_ASSERT(rt.master_cpu().r[4] == 0x06081C20u);
+    THOR_ASSERT(rt.master_cpu().r[3] == 0x0600A0F8u);
+
+    // Check combined metrics
+    const auto& m = rt.metrics();
+    THOR_ASSERT(m.native_instructions == 11);
+    THOR_ASSERT(m.native_cycles == 47);
+    THOR_ASSERT(m.total_cycles == 47);
+    THOR_ASSERT(m.fallback_instructions == 0);
+    THOR_ASSERT(m.has_measured_dependency_reduction());
+    THOR_ASSERT(m.native_instruction_ratio() == 1.0);
+}
+
 static void test_runtime_fallback_interpreter() {
     thor::runtime::StandaloneRuntime rt;
     rt.boot();
@@ -135,6 +196,7 @@ int main() {
     test_runtime_memory_and_modules();
     test_runtime_mmio_dispatch();
     test_runtime_native_block_execution();
+    test_runtime_multi_block_execution();
     test_runtime_fallback_interpreter();
     test_runtime_frame_and_audio();
     std::cout << "[TEST] D17 Standalone Runtime Tests PASSED.\n";

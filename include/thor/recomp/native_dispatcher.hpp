@@ -86,6 +86,17 @@ public:
         const ThorHardwareCallbacks& hw_cb
     );
 
+    bool dispatch_step(
+        uint32_t pc,
+        ThorCpuRegs& live_regs,
+        uint32_t& out_target_pc,
+        uint32_t& out_cycles_advanced,
+        uint32_t& out_instructions_executed,
+        const ThorHardwareCallbacks& hw_cb
+    );
+
+    [[nodiscard]] size_t get_block_instruction_count(uint32_t pc) const noexcept;
+
     void set_block_mask(uint32_t mask) noexcept { m_block_mask = mask; }
     [[nodiscard]] uint32_t get_block_mask() const noexcept { return m_block_mask; }
 

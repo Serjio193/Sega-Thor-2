@@ -345,16 +345,17 @@ Capabilities proven:
 
 ### D17 — Progressive Standalone Runtime (Native Execution Loop & Subsystem Binding)
 
-Status: **PASS**
+Status: **PASS (Gate V-14: PASS)**
 
 Capabilities proven:
 - Implemented `StandaloneRuntime` coordinating Work RAM, native hardware subsystems, native block dispatch, and fallback SH-2 instruction execution in `include/thor/runtime/standalone_runtime.hpp` and `src/runtime/standalone_runtime.cpp`;
 - Verified isolated compilation and linking without external emulator libraries;
-- Verified integrated bounded runtime loop driving native blocks (`bb_06004000`) and fallback instructions;
-- Proved measured dependency reduction via runtime metrics (`has_measured_dependency_reduction() == true`, 100% native execution ratio on proven block);
+- Hardened dynamic instruction count and cycle accounting per executed native block in `NativeDispatcher`;
+- Verified sequential multi-block native execution (`bb_06004000` + `bb_06004280`) retiring 11 native instructions over 47 cycles with zero fallback instructions;
+- Proved measured dependency reduction via runtime metrics (`has_measured_dependency_reduction() == true`, 100% native execution ratio across proven blocks);
 - Verified native video frame presentation (320x224 RGBA8888) and stereo audio sample generation;
-- Verified with dedicated unit test suite `test_standalone_runtime` (CTest #25);
-- 34/34 CTests pass across Windows MinGW and Linux WSL.
+- Verified with dedicated unit test suite `test_standalone_runtime` (CTest #27);
+- 38/38 CTests pass across Windows MinGW and Linux WSL.
 
 ### D18 — Guest Dependency Removal & Standalone Game Executable Target
 

@@ -1,5 +1,31 @@
 # Worklog
 
+## 2026-09-11 — Milestone D17 / Gate V-14: Progressive Standalone Native Execution Scaling & Metrics Hardening
+
+### Task
+
+Harden Milestone D17 (Gate V-14) progressive standalone runtime execution and metrics tracking:
+1. Updated `NativeDispatcher::dispatch_step` with dynamic `out_instructions_executed` reporting and `get_block_instruction_count(pc)` in `include/thor/recomp/native_dispatcher.hpp` and `src/recomp/native_dispatcher.cpp`.
+2. Updated `StandaloneRuntime::step()` in `src/runtime/standalone_runtime.cpp` to dynamically accumulate exact instruction counts per block instead of hardcoded `+= 6`.
+3. Added multi-block native sequence test `test_runtime_multi_block_execution` in `tests/runtime/test_standalone_runtime.cpp` executing both `bb_06004000` (6 instructions, 27 cycles) and `bb_06004280` (5 instructions, 20 cycles) with combined metrics verification (11 instructions, 47 cycles, 0 fallback instructions, `native_instruction_ratio() == 1.0`).
+4. Verified all 38/38 CTests passing across Windows MinGW and Linux WSL.
+
+### Discoveries & Results
+
+1. **Exact Block Instruction Metrics**:
+   - `NativeDispatcher` now exposes the true basic block instruction count from its underlying `oracle_block.instructions.size()`.
+   - `StandaloneRuntime` step loop accurately tracks instructions retired across variable-length blocks (e.g., 6 instructions for `bb_06004000`, 5 instructions for `bb_06004280`).
+2. **Deterministic Multi-Block Execution**:
+   - Sequential execution of `bb_06004000` followed by `bb_06004280` in `StandaloneRuntime` transitions register state deterministically:
+     - `bb_06004000`: PC -> `0x06004012`, R6 -> `0x00006611`, R15 -> `0x06002EDC`, R4 -> `0x060917DC`.
+     - `bb_06004280`: PC -> `0x0600A0F8`, PR -> `0x0600428A`, R5 -> `0x002DA000`, R4 -> `0x06081C20`, R3 -> `0x0600A0F8`.
+   - Aggregate metrics: 11 native instructions, 47 native cycles, 0 fallback instructions, `has_measured_dependency_reduction() == true`.
+
+### Status After Pass
+
+- Milestone D17 / Gate V-14: **ADVANCED / HARDENED**
+- Unit test suite: 38/38 passing on Windows MinGW and Linux WSL
+
 ## 2026-09-11 — Milestone D14 / Gate V-11: Ancient Sprite Package Byte-Accurate Round-Trip Proof
 
 ### Task

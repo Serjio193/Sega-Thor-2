@@ -193,6 +193,19 @@ bool NativeDispatcher::dispatch_step(
     uint32_t& out_cycles_advanced,
     const ThorHardwareCallbacks& hw_cb
 ) {
+    uint32_t dummy_instrs = 0;
+    return dispatch_step(pc, live_regs, out_target_pc, out_cycles_advanced, dummy_instrs, hw_cb);
+}
+
+bool NativeDispatcher::dispatch_step(
+    uint32_t pc,
+    ThorCpuRegs& live_regs,
+    uint32_t& out_target_pc,
+    uint32_t& out_cycles_advanced,
+    uint32_t& out_instructions_executed,
+    const ThorHardwareCallbacks& hw_cb
+) {
+    out_instructions_executed = 0;
     auto it = m_blocks.find(pc);
     if (it == m_blocks.end()) {
         return false;
@@ -362,9 +375,16 @@ bool NativeDispatcher::dispatch_step(
 
     out_target_pc = resolved_exit->target_pc;
     out_cycles_advanced = block.cycle_cost;
+    out_instructions_executed = static_cast<uint32_t>(block.oracle_block.instructions.size());
     m_stats.native_executed_count++;
     m_block_stats[pc].native_executed_count++;
     return true;
+}
+
+size_t NativeDispatcher::get_block_instruction_count(uint32_t pc) const noexcept {
+    auto it = m_blocks.find(pc);
+    if (it == m_blocks.end()) return 0;
+    return it->second.oracle_block.instructions.size();
 }
 
 bool NativeDispatcher::get_block_stats(uint32_t pc, uint64_t* out_executed, uint64_t* out_fallback) const noexcept {
