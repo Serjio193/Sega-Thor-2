@@ -2,6 +2,7 @@
 #include <sstream>
 #include <iomanip>
 #include "bb_06004000.hpp"
+#include "bb_002E500E.hpp"
 #include "thor/sh2/sh2_block.hpp"
 #include "thor/sh2/sh2_memory.hpp"
 #include "tests/sh2/test_framework.hpp"
@@ -258,11 +259,46 @@ static void test_negative_control_post_state_corruption() {
     THOR_ASSERT(report.has_divergence);
 }
 
+static void test_batch_candidate_transition() {
+    // Verify differential transition proof for newly generated candidate bb_002E500E (TH2.LOW)
+    // Range: 0x002E500E..0x002E5014 (3 instructions: MOV.L @(disp,PC), R3; JSR @R3; NOP)
+    Sh2FlatMemory mem_interp;
+    mem_interp.write16(0x002E500Eu, 0xD328u); // MOV.L @(0xA0, PC), R3 -> 0x002E50B0
+    mem_interp.write16(0x002E5010u, 0x430Bu); // JSR @R3
+    mem_interp.write16(0x002E5012u, 0x0009u); // NOP
+    mem_interp.write32(0x002E50B0u, 0x002E9910u); // Target address in TH2.LOW
+
+    Sh2FlatMemory mem_gen = mem_interp;
+
+    Sh2CpuState state_interp{};
+    state_interp.pc = 0x002E500Eu;
+    state_interp.sr = 0x00000001u;
+
+    Sh2CpuState state_gen = state_interp;
+
+    const auto block = discover_basic_block(0x002E500Eu, mem_interp, "TH2.LOW", "MASTER_SH2", "none", 6u);
+    THOR_ASSERT(block.instruction_count == 3);
+
+    mem_interp.clear_log();
+    const auto res = execute_basic_block(block, state_interp, mem_interp);
+    THOR_ASSERT(res == ExecutionResult::SUCCESS);
+
+    mem_gen.clear_log();
+    thor::generated::bb_002E500E(state_gen, mem_gen);
+
+    const auto report = compare_cpu_and_memory(state_interp, mem_interp, state_gen, mem_gen);
+    THOR_ASSERT(!report.has_divergence);
+    THOR_ASSERT(state_gen.pc == 0x002E9910u);
+    THOR_ASSERT(state_gen.pr == 0x002E5014u);
+    THOR_ASSERT(state_gen.r[3] == 0x002E9910u);
+}
+
 int main() {
     std::cout << "Running test_v07a_transition...\n";
     test_synthetic_vector_a();
     test_synthetic_vector_sign_extension();
     test_real_thor2_oracle_replay();
+    test_batch_candidate_transition();
     test_negative_control_post_state_corruption();
     std::cout << "All V-07A transition tests passed with 0 divergences!\n";
     return 0;

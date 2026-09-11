@@ -132,8 +132,13 @@ NativeDispatcher::NativeDispatcher() {
         bb1.memory_contract = *mem_contract1;
     }
 
-    // Hit 2 arrival at 316309169 -> target 0x0600A0F8 entry at 316309189 (delta 20 cycles)
-    bb1.cycle_cost = 20u;
+    // Canonical D9 evidence:
+    // ARCHITECTURAL_BLOCK_DURATION = 21 cycles:
+    // Entry at 0x06004280 (cycle 316309168) through delay-slot completion to target entry at 0x0600A0F8 (cycle 316309189).
+    // Note: In Mednafen emulator integration (NativeBranchTo), the hook consumes 1 cycle during pipeline refill
+    // (CPU[0].timestamp++), requiring a 20-cycle advance at that point for zero-drift target arrival.
+    // For standalone runtime / architectural accounting, the full block duration is 21 cycles.
+    bb1.cycle_cost = 21u;
     bb1.expected_event_meta = BoundedEventMetadata{
         .mmio_accessed = false,
         .irq_accepted = false,
@@ -220,9 +225,13 @@ bool NativeDispatcher::dispatch_step(
         m_block_stats[pc].fallback_count++;
     };
 
-    // Mask gating
+    // Mask gating: legacy bitmask takes precedence if set, otherwise check scalable enabled set
     uint32_t mask_bit = get_block_mask_bit(pc);
     if (mask_bit != 0 && (m_block_mask & mask_bit) == 0) {
+        record_fallback();
+        return false;
+    }
+    if (m_block_mask == THOR_BLOCK_MASK_ALL && !is_pc_enabled(pc)) {
         record_fallback();
         return false;
     }
@@ -450,6 +459,26 @@ bool thor_native_dispatch_step(
     }
     return thor::recomp::NativeDispatcher::instance().dispatch_step(
         pc, *live_regs, *out_target_pc, *out_cycles_advanced, *hw_cb);
+}
+
+void thor_native_enable_pc(uint32_t pc) {
+    thor::recomp::NativeDispatcher::instance().enable_pc(pc);
+}
+
+void thor_native_disable_pc(uint32_t pc) {
+    thor::recomp::NativeDispatcher::instance().disable_pc(pc);
+}
+
+bool thor_native_is_pc_enabled(uint32_t pc) {
+    return thor::recomp::NativeDispatcher::instance().is_pc_enabled(pc);
+}
+
+void thor_native_enable_all_proven(void) {
+    thor::recomp::NativeDispatcher::instance().enable_all_proven();
+}
+
+void thor_native_disable_all(void) {
+    thor::recomp::NativeDispatcher::instance().disable_all();
 }
 
 } // extern "C"

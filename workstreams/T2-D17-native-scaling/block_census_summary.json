@@ -1,0 +1,36 @@
+{
+  "total_harvested_blocks": 3302,
+  "summary_by_state": {
+    "HARVESTED": 3302,
+    "MNEMONIC_PROVEN": 3032,
+    "CODEGEN_ELIGIBLE": 270,
+    "GENERATED": 270,
+    "COMPILES": 270,
+    "SHADOW_ELIGIBLE": 1,
+    "NATIVE_PROMOTION_ELIGIBLE": 1,
+    "PROMOTED": 1
+  },
+  "summary_by_reason": {
+    "UNSUPPORTED_EMITTER_OPCODE": 3015,
+    "INVALID_BLOCK_BOUNDARY": 14,
+    "UNSUPPORTED_CONTROL_FLOW": 3
+  },
+  "modules": {
+    "0TH2.BIN": {
+      "total_proven_blocks": 3126,
+      "codegen_eligible": 243,
+      "rejection_reasons": {
+        "UNSUPPORTED_EMITTER_OPCODE": 2866,
+        "UNSUPPORTED_CONTROL_FLOW": 3,
+        "INVALID_BLOCK_BOUNDARY": 14
+      }
+    },
+    "TH2.LOW": {
+      "total_proven_blocks": 176,
+      "codegen_eligible": 27,
+      "rejection_reasons": {
+        "UNSUPPORTED_EMITTER_OPCODE": 149
+      }
+    }
+  }
+}

@@ -70,6 +70,13 @@ bool thor_native_dispatch_step(
     const ThorHardwareCallbacks* hw_cb
 );
 
+/* Scalable candidate block gating API */
+void thor_native_enable_pc(uint32_t pc);
+void thor_native_disable_pc(uint32_t pc);
+bool thor_native_is_pc_enabled(uint32_t pc);
+void thor_native_enable_all_proven(void);
+void thor_native_disable_all(void);
+
 #ifdef __cplusplus
 }
 #endif

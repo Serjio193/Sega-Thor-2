@@ -1,5 +1,60 @@
 # Worklog
 
+## 2026-09-11 — Milestone D17 / Gate V-14: Scalable Native Candidate Pipeline (Timing Integrity Repair + 3,302-Block Census + Manifest-Driven Batch C++ Generation)
+
+### Task
+
+Implement task T2-D17-02 to scale the mechanical C++ recompilation pipeline without lowering admission standards:
+1. **Timing Integrity Repair**:
+   - Reconciled `bb_06004280` cycle accounting: documented distinction between architectural block duration (21 cycles: 316309168 -> 316309189 in canonical D9 telemetry) and Mednafen `NativeBranchTo` hook refill (20 cycles due to internal 1-cycle pipeline advance).
+   - Set `cycle_cost = 21u` in `src/recomp/native_dispatcher.cpp` for architectural standalone execution.
+   - Updated multi-block sequential test in `tests/runtime/test_standalone_runtime.cpp` to expect 48 cycles (27 + 21).
+   - Corrected MACL typographical transcription error in `workstreams/T2-D9-indirect/d9_4_native_indirect_evidence.md` (exact `0x00000000`).
+2. **Project Status Normalization**:
+   - Explicitly normalized `docs/ROADMAP.md` and `docs/PROJECT_STATE.md`: D17 is `ADVANCED_PROTOTYPE / IN_PROGRESS`, Gate V-14 is `NOT_YET_PASSED`, and D18 is `NOT_PROVEN`.
+3. **3,302-Block Eligibility Census**:
+   - Created `tools/recomp/build_native_block_census.py` performing a fail-closed census over all 3,302 harvested ASM blocks (`0TH2.BIN`: 3,126, `TH2.LOW`: 176).
+   - Evaluated eligibility against the 7-opcode mechanical compiler (`MOV`, `MOV.L`, `JSR`, `NOP`, `LDC`, `BRA`, `RTS`).
+   - Categorized blocks into 8 mutually exclusive states:
+     - `HARVESTED`: 3,302
+     - `MNEMONIC_PROVEN`: 3,032
+     - `CODEGEN_ELIGIBLE`: 270 (243 in `0TH2.BIN`, 27 in `TH2.LOW`)
+     - `GENERATED`: 270 (100% of eligible)
+     - `COMPILES`: 270 (100% of eligible)
+     - `SHADOW_ELIGIBLE`: 1 (`bb_06004000` / `bb_06004280`)
+     - `NATIVE_PROMOTION_ELIGIBLE`: 1
+     - `PROMOTED`: 1 (`bb_06004000` and `bb_06004280`)
+   - Rejection reasons: `UNSUPPORTED_EMITTER_OPCODE`: 3,015; `INVALID_BLOCK_BOUNDARY`: 14; `UNSUPPORTED_CONTROL_FLOW`: 3.
+4. **Generic Block Generator CLI & Batch Generation**:
+   - Expanded `tools/recomp/generate_sh2_block.cpp` with generic flags (`--block-name`, `--module`, `--start-pc`, `--length`, `--offset`, `--out-header`, `--out-source`) while preserving backward-compatible 3-positional argument mode.
+   - Added bounded discovery (`max_bytes`) in `include/thor/sh2/sh2_block.hpp` and `src/sh2/sh2_block.cpp` to correctly terminate fallthrough blocks without cross-block overrun.
+   - Added `(void)mem;` suppression in `src/recomp/block_compiler.cpp` for zero-memory blocks.
+   - Created `tools/recomp/generate_batch_native_blocks.py` which emits all 270 candidate blocks into `build/generated/native_blocks/`, structured across 6 compilation shards (`native_blocks_shard_00.cpp` .. `_05.cpp`), a master catalog (`native_block_catalog.hpp` / `.cpp`), and master header `native_blocks_all.hpp`.
+5. **Sharded Link-Isolated Build Target & Differential Transition**:
+   - Added `thor_generated_batch_candidates` static library target in `CMakeLists.txt` with zero emulator/interpreter dependencies.
+   - Added `tests/recomp/test_native_pipeline.py` verifying census invariants, dual-run bit determinism, shard catalog integrity, and negative controls (CTest #41).
+   - Added differential transition test `test_batch_candidate_transition()` in `tests/recomp/test_v07a_transition.cpp` proving transition equivalence against `thor_sh2` interpreter for batch candidates (e.g. `bb_002E500E`).
+   - Extended `tests/recomp/test_generated_link_isolation.cpp` to verify candidate registration catalog.
+6. **Scalable Per-PC Enable/Disable Gating**:
+   - Implemented `enable_pc`, `disable_pc`, `is_pc_enabled`, `enable_all_proven`, `disable_all` in `NativeDispatcher` and exported to C ABI via `native_bridge.h`. Tested under `test_standalone_runtime.cpp`.
+7. **Strict Promotion Isolation**:
+   - Exactly 2 blocks (`bb_06004000` and `bb_06004280`) remain promoted to live runtime execution. All other 268 candidates remain isolated in candidate library without runtime promotion.
+
+### Discoveries & Results
+
+1. **Architectural vs Integration Hook Cycles**:
+   - Standalone architectural simulation steps through the block retiring exactly 21 cycles.
+   - Mednafen integration hook advances 20 cycles because `NativeBranchTo` internally refills the pipeline with 1 cycle (`CPU[0].timestamp++`). Documenting and decoupling both ensures zero drift in Mednafen and exact cycle matching in StandaloneRuntime.
+2. **Batch Generation Scale**:
+   - 270 blocks successfully compile with zero warnings or errors. Sharding into 6 translation units avoids compiler heap pressure and enables parallel compilation.
+3. **Census Reproducibility**:
+   - 100% deterministic output across multiple runs; verified via CTest `test_native_pipeline`.
+
+### Status After Pass
+
+- Milestone D17 / Gate V-14: **ADVANCED_PROTOTYPE / IN_PROGRESS (Gate V-14: NOT_YET_PASSED)**
+- Unit test suite: 41/41 passing on Windows MinGW
+
 ## 2026-09-11 — Milestone D17 / Gate V-14: Progressive Standalone Native Execution Scaling & Metrics Hardening
 
 ### Task

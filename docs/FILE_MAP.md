@@ -124,6 +124,8 @@ tools/
     census_saturn_cd.py           CUE/raw-sector/Saturn-header/ISO9660 census
   recomp/
     generate_sh2_block.cpp        build-time mechanical C++20 block generator CLI
+    build_native_block_census.py  fail-closed 3,302-block mechanical compilation eligibility census
+    generate_batch_native_blocks.py manifest-driven batch C++20 block generator & sharded catalog builder
     mutation_harness.py           live Mednafen IPC mutation and non-contamination harness
     saturnrecomp_adapter.py       external SaturnRecomp decoder probe adapter
   asm/
@@ -167,6 +169,7 @@ tests/
     test_m07_reference.py         SaturnRecomp reference manifest validation & negative control tests
     test_post_d8_closure.py       canonical POST-D8 closure audit validator with 9 negative controls
     test_d9_plan.py               D9 indirect plan and artifact validator with 19 negative controls
+    test_native_pipeline.py       census, batch generator determinism, and shard catalog integrity test suite
   provenance/
     test_guest_provenance.cpp     D13 guest-address & type provenance test suite (Gate V-09)
   resource/
@@ -261,6 +264,11 @@ workstreams/
     README.md                     T2-ASM-04 workstream record and executable inventory summary
     experiment_evidence.md        detailed disc census, processor ownership, and SET07 proof
     experiment_evidence.json      machine-readable inventory, co-processor, and round-trip evidence
+  T2-D17-native-scaling/
+    README.md                     T2-D17-02 workstream record and scaling pipeline summary
+    batch_codegen_evidence.md     detailed 3,302-block census and 270-block batch codegen evidence
+    batch_codegen_evidence.json   machine-readable census, compiler, and shard telemetry
+    block_census_summary.json     8-state census breakdown across 0TH2.BIN and TH2.LOW
 
 asm/                              assembly reconstruction layout (ADR D-015)
   schema/

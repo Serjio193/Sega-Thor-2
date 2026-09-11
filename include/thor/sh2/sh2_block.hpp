@@ -36,13 +36,15 @@ struct Sh2BasicBlock {
 };
 
 /// Discovers and builds an evidence-backed basic block starting at start_pc.
-/// Fetches instructions until the first control-flow terminator and its delay slot.
+/// Fetches instructions until the first control-flow terminator and its delay slot,
+/// or until max_bytes is reached (if max_bytes > 0).
 [[nodiscard]] Sh2BasicBlock discover_basic_block(
     uint32_t start_pc,
     ISh2Memory& mem,
     const std::string& module_id = "0TH2.BIN",
     const std::string& cpu_id = "MASTER_SH2",
-    const std::string& evidence_link = "workstreams/T2-D4-D5-block0/block_06004000.md");
+    const std::string& evidence_link = "workstreams/T2-D4-D5-block0/block_06004000.md",
+    uint32_t max_bytes = 0);
 
 /// Executes an entire basic block sequentially against CPU state and memory.
 [[nodiscard]] ExecutionResult execute_basic_block(

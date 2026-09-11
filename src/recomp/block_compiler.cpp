@@ -69,7 +69,8 @@ std::optional<GeneratedBlockCode> compile_block_to_cpp(
         << std::dec
         << "#include \"" << function_name << ".hpp\"\n\n"
         << "namespace thor::generated {\n\n"
-        << "void " << function_name << "(thor::sh2::Sh2CpuState& state, thor::sh2::ISh2Memory& mem) {\n";
+        << "void " << function_name << "(thor::sh2::Sh2CpuState& state, thor::sh2::ISh2Memory& mem) {\n"
+        << "    (void)mem;\n";
 
     const size_t total_ins = block.instructions.size();
     const size_t straight_ins_count = has_delay_slot ? (total_ins - 2) : total_ins;

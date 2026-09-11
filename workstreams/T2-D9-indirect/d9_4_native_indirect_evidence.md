@@ -53,7 +53,7 @@ Raw telemetry recorded in `workstreams/T2-D9-indirect/d9_4_native_indirect_evide
 | **PR** | `0x0600428A` | `0x0600428A` | EXACT |
 | **SR** | `0x00000001` | `0x00000001` | EXACT |
 | **GBR / VBR** | `0x00000000` / `0x06000000` | `0x00000000` / `0x06000000` | EXACT |
-| **MACH / MACL** | `0x00000000` / `0x00000000` | `0x00000000` / `0x06000000` | EXACT |
+| **MACH / MACL** | `0x00000000` / `0x00000000` | `0x00000000` / `0x00000000` | EXACT |
 
 Result: **23 / 23 registers match identically (100.0%)**.
 

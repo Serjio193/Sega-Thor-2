@@ -7,6 +7,8 @@
 // If the generated code referenced decode_sh2, execute_sh2_instruction, step_sh2,
 // or execute_basic_block, linking this binary would fail with undefined symbol errors.
 
+#include "native_block_catalog.hpp"
+
 int main() {
     // 1. Direct block bb_06004000
     {
@@ -31,6 +33,20 @@ int main() {
         if (state.pc != 0x0600A0F8u || state.pr != 0x0600428Au || state.has_delayed_branch()) {
             std::cerr << "Unexpected execution state for bb_06004280: PC=0x"
                       << std::hex << state.pc << " PR=0x" << state.pr << "\n";
+            return 1;
+        }
+    }
+
+    // 3. Batch candidate catalog verification
+    {
+        if (thor::generated::TOTAL_NATIVE_CANDIDATE_BLOCKS != 270) {
+            std::cerr << "Unexpected TOTAL_NATIVE_CANDIDATE_BLOCKS: "
+                      << thor::generated::TOTAL_NATIVE_CANDIDATE_BLOCKS << "\n";
+            return 1;
+        }
+        if (std::string(thor::generated::NATIVE_CANDIDATE_CATALOG[0].block_id) != "bb_06004000") {
+            std::cerr << "Unexpected first catalog entry: "
+                      << thor::generated::NATIVE_CANDIDATE_CATALOG[0].block_id << "\n";
             return 1;
         }
     }

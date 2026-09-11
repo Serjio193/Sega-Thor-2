@@ -145,7 +145,7 @@ static void test_runtime_multi_block_execution() {
     // Point PC to bb_06004280
     rt.master_cpu().pc = 0x06004280u;
 
-    // Step 2: execute bb_06004280 (5 instrs, 20 cycles)
+    // Step 2: execute bb_06004280 (5 instrs, 21 architectural cycles per canonical D9 evidence)
     bool step2_ok = rt.step();
     THOR_ASSERT(step2_ok);
     THOR_ASSERT(rt.master_cpu().pc == 0x0600A0F8u);
@@ -154,11 +154,11 @@ static void test_runtime_multi_block_execution() {
     THOR_ASSERT(rt.master_cpu().r[4] == 0x06081C20u);
     THOR_ASSERT(rt.master_cpu().r[3] == 0x0600A0F8u);
 
-    // Check combined metrics
+    // Check combined metrics (27 + 21 = 48 cycles)
     const auto& m = rt.metrics();
     THOR_ASSERT(m.native_instructions == 11);
-    THOR_ASSERT(m.native_cycles == 47);
-    THOR_ASSERT(m.total_cycles == 47);
+    THOR_ASSERT(m.native_cycles == 48);
+    THOR_ASSERT(m.total_cycles == 48);
     THOR_ASSERT(m.fallback_instructions == 0);
     THOR_ASSERT(m.has_measured_dependency_reduction());
     THOR_ASSERT(m.native_instruction_ratio() == 1.0);
@@ -190,6 +190,61 @@ static void test_runtime_frame_and_audio() {
     THOR_ASSERT(rt.audio_buffer().size() == 735 * 2);
 }
 
+static void test_timing_integrity_reconciliation() {
+    // Assert the architectural duration (21) vs Mednafen integration hook advance (20) contract
+    thor::runtime::StandaloneRuntime rt;
+    rt.boot();
+
+    const uint8_t block2_code[] = {
+        0xD5, 0x36, // MOV.L @(0xD8, PC), R5
+        0xD4, 0x37, // MOV.L @(0xDC, PC), R4
+        0xD3, 0x37, // MOV.L @(0xDC, PC), R3
+        0x43, 0x0B, // JSR @R3
+        0x00, 0x09  // NOP
+    };
+    bool loaded = rt.load_module(0x06004280u, block2_code, sizeof(block2_code));
+    THOR_ASSERT(loaded);
+    rt.write32(0x0600435Cu, 0x002DA000u);
+    rt.write32(0x06004360u, 0x06081C20u);
+    rt.write32(0x06004364u, 0x0600A0F8u);
+
+    rt.master_cpu().pc = 0x06004280u;
+    bool step_ok = rt.step();
+    THOR_ASSERT(step_ok);
+    THOR_ASSERT(rt.master_cpu().pc == 0x0600A0F8u);
+    THOR_ASSERT(rt.master_cpu().pr == 0x0600428Au);
+    THOR_ASSERT(rt.metrics().native_instructions == 5);
+    // Canonical D9 timing evidence: architectural duration = 21 cycles
+    THOR_ASSERT(rt.metrics().native_cycles == 21);
+}
+
+static void test_scalable_pc_gating() {
+    thor::recomp::NativeDispatcher& dispatcher = thor::recomp::NativeDispatcher::instance();
+
+    // Test enable/disable API
+    dispatcher.disable_all();
+    THOR_ASSERT(!dispatcher.is_pc_enabled(0x06004000u));
+    THOR_ASSERT(!dispatcher.is_pc_enabled(0x06004280u));
+    THOR_ASSERT(!thor_native_is_pc_enabled(0x06004000u));
+
+    dispatcher.enable_pc(0x06004000u);
+    THOR_ASSERT(dispatcher.is_pc_enabled(0x06004000u));
+    THOR_ASSERT(!dispatcher.is_pc_enabled(0x06004280u));
+    THOR_ASSERT(thor_native_is_pc_enabled(0x06004000u));
+
+    thor_native_enable_pc(0x06004280u);
+    THOR_ASSERT(dispatcher.is_pc_enabled(0x06004280u));
+
+    thor_native_disable_pc(0x06004000u);
+    THOR_ASSERT(!dispatcher.is_pc_enabled(0x06004000u));
+    THOR_ASSERT(dispatcher.is_pc_enabled(0x06004280u));
+
+    // Restore canonical proven blocks
+    dispatcher.enable_all_proven();
+    THOR_ASSERT(dispatcher.is_pc_enabled(0x06004000u));
+    THOR_ASSERT(dispatcher.is_pc_enabled(0x06004280u));
+}
+
 int main() {
     std::cout << "[TEST] Running D17 Standalone Runtime test suite...\n";
     test_runtime_init();
@@ -199,6 +254,8 @@ int main() {
     test_runtime_multi_block_execution();
     test_runtime_fallback_interpreter();
     test_runtime_frame_and_audio();
+    test_timing_integrity_reconciliation();
+    test_scalable_pc_gating();
     std::cout << "[TEST] D17 Standalone Runtime Tests PASSED.\n";
     return 0;
 }

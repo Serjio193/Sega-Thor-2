@@ -7,7 +7,8 @@ Sh2BasicBlock discover_basic_block(
     ISh2Memory& mem,
     const std::string& module_id,
     const std::string& cpu_id,
-    const std::string& evidence_link) {
+    const std::string& evidence_link,
+    uint32_t max_bytes) {
 
     Sh2BasicBlock block;
     block.start_address = start_pc;
@@ -44,7 +45,14 @@ Sh2BasicBlock discover_basic_block(
             }
             break;
         }
+
         curr_pc += 2;
+        if (max_bytes > 0 && (curr_pc - start_pc) >= max_bytes) {
+            // Block ends on fallthrough boundary
+            block.terminator = ins;
+            block.fallthrough = curr_pc;
+            break;
+        }
     }
 
     block.end_address = block.instructions.back().pc;

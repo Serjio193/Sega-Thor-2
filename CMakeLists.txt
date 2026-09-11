@@ -92,6 +92,14 @@ add_library(thor_generated_bb_06004280 STATIC
 )
 target_include_directories(thor_generated_bb_06004280 PUBLIC include "${GENERATED_DIR}")
 
+# Sharded compilation target for mechanically compiled batch native blocks
+file(GLOB NATIVE_BLOCK_SHARDS "${GENERATED_DIR}/native_blocks/native_blocks_shard_*.cpp")
+add_library(thor_generated_batch_candidates STATIC
+    "${GENERATED_DIR}/native_blocks/native_block_catalog.cpp"
+    ${NATIVE_BLOCK_SHARDS}
+)
+target_include_directories(thor_generated_batch_candidates PUBLIC include "${GENERATED_DIR}/native_blocks")
+
 enable_testing()
 
 add_executable(test_sh2_decoder tests/sh2/test_sh2_decoder.cpp)
@@ -130,14 +138,14 @@ add_test(NAME test_sh2_block_compiler COMMAND test_sh2_block_compiler)
 
 # Link isolation verification: links ONLY against generated library
 add_executable(test_generated_link_isolation tests/recomp/test_generated_link_isolation.cpp)
-target_link_libraries(test_generated_link_isolation PRIVATE thor_generated_bb_06004000 thor_generated_bb_06004280)
-target_include_directories(test_generated_link_isolation PRIVATE "${GENERATED_DIR}")
+target_link_libraries(test_generated_link_isolation PRIVATE thor_generated_bb_06004000 thor_generated_bb_06004280 thor_generated_batch_candidates)
+target_include_directories(test_generated_link_isolation PRIVATE "${GENERATED_DIR}" "${GENERATED_DIR}/native_blocks")
 add_test(NAME test_generated_link_isolation COMMAND test_generated_link_isolation)
 
 # V-07A transition proof test suite
 add_executable(test_v07a_transition tests/recomp/test_v07a_transition.cpp)
-target_link_libraries(test_v07a_transition PRIVATE thor_generated_bb_06004000 thor_recomp thor_sh2)
-target_include_directories(test_v07a_transition PRIVATE "${GENERATED_DIR}")
+target_link_libraries(test_v07a_transition PRIVATE thor_generated_bb_06004000 thor_generated_batch_candidates thor_recomp thor_sh2)
+target_include_directories(test_v07a_transition PRIVATE "${GENERATED_DIR}" "${GENERATED_DIR}/native_blocks")
 add_test(NAME test_v07a_transition COMMAND test_v07a_transition)
 
 # V-07B positive shadow comparison test suite
@@ -282,4 +290,5 @@ if (Python3_Interpreter_FOUND)
     add_test(NAME test_full_game_disc COMMAND Python3::Interpreter "${CMAKE_CURRENT_SOURCE_DIR}/tests/asm/test_full_game_disc.py")
     add_test(NAME test_gameplay_scenarios COMMAND Python3::Interpreter "${CMAKE_CURRENT_SOURCE_DIR}/tests/asm/test_gameplay_scenarios.py")
     add_test(NAME test_recovery_gates COMMAND Python3::Interpreter "${CMAKE_CURRENT_SOURCE_DIR}/tests/asm/test_recovery_gates.py")
+    add_test(NAME test_native_pipeline COMMAND Python3::Interpreter "${CMAKE_CURRENT_SOURCE_DIR}/tests/recomp/test_native_pipeline.py")
 endif()

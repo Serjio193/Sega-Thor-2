@@ -6,6 +6,7 @@
 #include <optional>
 #include <string>
 #include <unordered_map>
+#include <unordered_set>
 #include <vector>
 
 #include "thor/recomp/block_exit.hpp"
@@ -100,6 +101,18 @@ public:
     void set_block_mask(uint32_t mask) noexcept { m_block_mask = mask; }
     [[nodiscard]] uint32_t get_block_mask() const noexcept { return m_block_mask; }
 
+    /// Scalable per-PC enable/disable API
+    void enable_pc(uint32_t pc) { m_enabled_pcs.insert(pc); }
+    void disable_pc(uint32_t pc) { m_enabled_pcs.erase(pc); }
+    [[nodiscard]] bool is_pc_enabled(uint32_t pc) const noexcept {
+        return m_enabled_pcs.find(pc) != m_enabled_pcs.end();
+    }
+    void enable_all_proven() {
+        m_enabled_pcs.insert(0x06004000u);
+        m_enabled_pcs.insert(0x06004280u);
+    }
+    void disable_all() noexcept { m_enabled_pcs.clear(); }
+
     bool get_block_stats(uint32_t pc, uint64_t* out_executed, uint64_t* out_fallback) const noexcept;
 
     /// Testing injection hooks
@@ -118,6 +131,7 @@ private:
 
     ThorNativeMode m_mode = THOR_NATIVE_MODE_INTERPRETER;
     uint32_t m_block_mask = THOR_BLOCK_MASK_ALL;
+    std::unordered_set<uint32_t> m_enabled_pcs{0x06004000u, 0x06004280u};
     ThorNativeStats m_stats{};
     std::unordered_map<uint32_t, RegisteredNativeBlock> m_blocks{};
     mutable std::unordered_map<uint32_t, BlockExecutionStats> m_block_stats{};
