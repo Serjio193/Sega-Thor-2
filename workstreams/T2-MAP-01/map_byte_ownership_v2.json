@@ -1,0 +1,996 @@
+{
+  "file_name": "MAP.BIN",
+  "total_bytes": 4036608,
+  "total_intervals": 107,
+  "unknown_bytes_v1": 708608,
+  "unknown_bytes_v2": 0,
+  "unknown_reduction_bytes": 708608,
+  "reduction_percentage": 100.0,
+  "breakdown": {
+    "ROOM_COMPRESSED_GRAPHICS": 928872,
+    "PADDING": 48024,
+    "SECONDARY_VDP2_PLANE": 153600,
+    "COLLISION_HEIGHTFIELD": 401408,
+    "ROOM_COLLISION_HEIGHTFIELD": 153600,
+    "VDP2_TILEMAP_PLANE_MATRIX": 2351104
+  },
+  "intervals": [
+    {
+      "type": "ROOM_COMPRESSED_GRAPHICS",
+      "start": 0,
+      "end": 21317,
+      "size": 21317,
+      "tag": "DS",
+      "room_index": 0,
+      "decompressed_size": 49152,
+      "provenance": "Decompresses via sub_4108 to 48KB VDP2 tiles/patterns"
+    },
+    {
+      "type": "PADDING",
+      "start": 21317,
+      "end": 22528,
+      "size": 1211,
+      "provenance": "Zero padding to sector boundary"
+    },
+    {
+      "type": "ROOM_COMPRESSED_GRAPHICS",
+      "start": 22528,
+      "end": 43349,
+      "size": 20821,
+      "tag": "TQ",
+      "room_index": 1,
+      "decompressed_size": 49152,
+      "provenance": "Decompresses via sub_4108 to 48KB VDP2 tiles/patterns"
+    },
+    {
+      "type": "PADDING",
+      "start": 43349,
+      "end": 45056,
+      "size": 1707,
+      "provenance": "Zero padding to sector boundary"
+    },
+    {
+      "type": "ROOM_COMPRESSED_GRAPHICS",
+      "start": 45056,
+      "end": 64579,
+      "size": 19523,
+      "tag": "BL",
+      "room_index": 2,
+      "decompressed_size": 49152,
+      "provenance": "Decompresses via sub_4108 to 48KB VDP2 tiles/patterns"
+    },
+    {
+      "type": "PADDING",
+      "start": 64579,
+      "end": 65536,
+      "size": 957,
+      "provenance": "Zero padding to sector boundary"
+    },
+    {
+      "type": "SECONDARY_VDP2_PLANE",
+      "start": 65536,
+      "end": 86016,
+      "size": 20480,
+      "start_hex": "0x010000",
+      "end_hex": "0x015000",
+      "interval_id": "map_unk_00",
+      "streams_count": 1,
+      "dominant_stride": 8,
+      "provenance": "0TH2.BIN runtime 0x0600B7F4..0x0600B8C0 (sub_4108 -> VDP2 / VDP1 / High Work RAM 0x060D3D34)",
+      "confidence": "HIGH"
+    },
+    {
+      "type": "ROOM_COMPRESSED_GRAPHICS",
+      "start": 86016,
+      "end": 103763,
+      "size": 17747,
+      "tag": "RE",
+      "room_index": 3,
+      "decompressed_size": 49152,
+      "provenance": "Decompresses via sub_4108 to 48KB VDP2 tiles/patterns"
+    },
+    {
+      "type": "PADDING",
+      "start": 103763,
+      "end": 104448,
+      "size": 685,
+      "provenance": "Zero padding to sector boundary"
+    },
+    {
+      "type": "ROOM_COMPRESSED_GRAPHICS",
+      "start": 104448,
+      "end": 125244,
+      "size": 20796,
+      "tag": ";Q",
+      "room_index": 4,
+      "decompressed_size": 49152,
+      "provenance": "Decompresses via sub_4108 to 48KB VDP2 tiles/patterns"
+    },
+    {
+      "type": "PADDING",
+      "start": 125244,
+      "end": 126976,
+      "size": 1732,
+      "provenance": "Zero padding to sector boundary"
+    },
+    {
+      "type": "SECONDARY_VDP2_PLANE",
+      "start": 126976,
+      "end": 149504,
+      "size": 22528,
+      "start_hex": "0x01F000",
+      "end_hex": "0x024800",
+      "interval_id": "map_unk_01",
+      "streams_count": 1,
+      "dominant_stride": 8,
+      "provenance": "0TH2.BIN runtime 0x0600B7F4..0x0600B8C0 (sub_4108 -> VDP2 / VDP1 / High Work RAM 0x060D3D34)",
+      "confidence": "HIGH"
+    },
+    {
+      "type": "ROOM_COMPRESSED_GRAPHICS",
+      "start": 149504,
+      "end": 171097,
+      "size": 21593,
+      "tag": "XT",
+      "room_index": 5,
+      "decompressed_size": 49152,
+      "provenance": "Decompresses via sub_4108 to 48KB VDP2 tiles/patterns"
+    },
+    {
+      "type": "PADDING",
+      "start": 171097,
+      "end": 172032,
+      "size": 935,
+      "provenance": "Zero padding to sector boundary"
+    },
+    {
+      "type": "ROOM_COMPRESSED_GRAPHICS",
+      "start": 172032,
+      "end": 191585,
+      "size": 19553,
+      "tag": "`L",
+      "room_index": 6,
+      "decompressed_size": 49152,
+      "provenance": "Decompresses via sub_4108 to 48KB VDP2 tiles/patterns"
+    },
+    {
+      "type": "PADDING",
+      "start": 191585,
+      "end": 192512,
+      "size": 927,
+      "provenance": "Zero padding to sector boundary"
+    },
+    {
+      "type": "ROOM_COMPRESSED_GRAPHICS",
+      "start": 192512,
+      "end": 210055,
+      "size": 17543,
+      "tag": "\u0086D",
+      "room_index": 7,
+      "decompressed_size": 49152,
+      "provenance": "Decompresses via sub_4108 to 48KB VDP2 tiles/patterns"
+    },
+    {
+      "type": "PADDING",
+      "start": 210055,
+      "end": 210944,
+      "size": 889,
+      "provenance": "Zero padding to sector boundary"
+    },
+    {
+      "type": "ROOM_COMPRESSED_GRAPHICS",
+      "start": 210944,
+      "end": 232929,
+      "size": 21985,
+      "tag": "\u00e0U",
+      "room_index": 8,
+      "decompressed_size": 49152,
+      "provenance": "Decompresses via sub_4108 to 48KB VDP2 tiles/patterns"
+    },
+    {
+      "type": "PADDING",
+      "start": 232929,
+      "end": 233472,
+      "size": 543,
+      "provenance": "Zero padding to sector boundary"
+    },
+    {
+      "type": "ROOM_COMPRESSED_GRAPHICS",
+      "start": 233472,
+      "end": 253378,
+      "size": 19906,
+      "tag": "\u00c1M",
+      "room_index": 9,
+      "decompressed_size": 49152,
+      "provenance": "Decompresses via sub_4108 to 48KB VDP2 tiles/patterns"
+    },
+    {
+      "type": "PADDING",
+      "start": 253378,
+      "end": 253952,
+      "size": 574,
+      "provenance": "Zero padding to sector boundary"
+    },
+    {
+      "type": "ROOM_COMPRESSED_GRAPHICS",
+      "start": 253952,
+      "end": 271640,
+      "size": 17688,
+      "tag": "\u0017E",
+      "room_index": 10,
+      "decompressed_size": 49152,
+      "provenance": "Decompresses via sub_4108 to 48KB VDP2 tiles/patterns"
+    },
+    {
+      "type": "PADDING",
+      "start": 271640,
+      "end": 272384,
+      "size": 744,
+      "provenance": "Zero padding to sector boundary"
+    },
+    {
+      "type": "ROOM_COMPRESSED_GRAPHICS",
+      "start": 272384,
+      "end": 290141,
+      "size": 17757,
+      "tag": "\\E",
+      "room_index": 11,
+      "decompressed_size": 49152,
+      "provenance": "Decompresses via sub_4108 to 48KB VDP2 tiles/patterns"
+    },
+    {
+      "type": "PADDING",
+      "start": 290141,
+      "end": 290816,
+      "size": 675,
+      "provenance": "Zero padding to sector boundary"
+    },
+    {
+      "type": "COLLISION_HEIGHTFIELD",
+      "start": 290816,
+      "end": 337920,
+      "size": 47104,
+      "start_hex": "0x047000",
+      "end_hex": "0x052800",
+      "interval_id": "map_unk_02",
+      "streams_count": 2,
+      "dominant_stride": 8,
+      "provenance": "0TH2.BIN runtime 0x0600B7F4..0x0600B8C0 (sub_4108 -> VDP2 / VDP1 / High Work RAM 0x060D3D34)",
+      "confidence": "HIGH"
+    },
+    {
+      "type": "ROOM_COMPRESSED_GRAPHICS",
+      "start": 337920,
+      "end": 364849,
+      "size": 26929,
+      "tag": "0i",
+      "room_index": 12,
+      "decompressed_size": 49152,
+      "provenance": "Decompresses via sub_4108 to 48KB VDP2 tiles/patterns"
+    },
+    {
+      "type": "PADDING",
+      "start": 364849,
+      "end": 366592,
+      "size": 1743,
+      "provenance": "Zero padding to sector boundary"
+    },
+    {
+      "type": "ROOM_COMPRESSED_GRAPHICS",
+      "start": 366592,
+      "end": 385420,
+      "size": 18828,
+      "tag": "\u008bI",
+      "room_index": 13,
+      "decompressed_size": 49152,
+      "provenance": "Decompresses via sub_4108 to 48KB VDP2 tiles/patterns"
+    },
+    {
+      "type": "PADDING",
+      "start": 385420,
+      "end": 387072,
+      "size": 1652,
+      "provenance": "Zero padding to sector boundary"
+    },
+    {
+      "type": "ROOM_COMPRESSED_GRAPHICS",
+      "start": 387072,
+      "end": 411338,
+      "size": 24266,
+      "tag": "\u00c9^",
+      "room_index": 14,
+      "decompressed_size": 49152,
+      "provenance": "Decompresses via sub_4108 to 48KB VDP2 tiles/patterns"
+    },
+    {
+      "type": "PADDING",
+      "start": 411338,
+      "end": 411648,
+      "size": 310,
+      "provenance": "Zero padding to sector boundary"
+    },
+    {
+      "type": "COLLISION_HEIGHTFIELD",
+      "start": 411648,
+      "end": 456704,
+      "size": 45056,
+      "start_hex": "0x064800",
+      "end_hex": "0x06F800",
+      "interval_id": "map_unk_03",
+      "streams_count": 2,
+      "dominant_stride": 8,
+      "provenance": "0TH2.BIN runtime 0x0600B7F4..0x0600B8C0 (sub_4108 -> VDP2 / VDP1 / High Work RAM 0x060D3D34)",
+      "confidence": "HIGH"
+    },
+    {
+      "type": "ROOM_COMPRESSED_GRAPHICS",
+      "start": 456704,
+      "end": 478431,
+      "size": 21727,
+      "tag": "\u00deT",
+      "room_index": 15,
+      "decompressed_size": 49152,
+      "provenance": "Decompresses via sub_4108 to 48KB VDP2 tiles/patterns"
+    },
+    {
+      "type": "PADDING",
+      "start": 478431,
+      "end": 479232,
+      "size": 801,
+      "provenance": "Zero padding to sector boundary"
+    },
+    {
+      "type": "COLLISION_HEIGHTFIELD",
+      "start": 479232,
+      "end": 524288,
+      "size": 45056,
+      "start_hex": "0x075000",
+      "end_hex": "0x080000",
+      "interval_id": "map_unk_04",
+      "streams_count": 2,
+      "dominant_stride": 8,
+      "provenance": "0TH2.BIN runtime 0x0600B7F4..0x0600B8C0 (sub_4108 -> VDP2 / VDP1 / High Work RAM 0x060D3D34)",
+      "confidence": "HIGH"
+    },
+    {
+      "type": "ROOM_COMPRESSED_GRAPHICS",
+      "start": 524288,
+      "end": 545231,
+      "size": 20943,
+      "tag": "\u00ceQ",
+      "room_index": 16,
+      "decompressed_size": 49152,
+      "provenance": "Decompresses via sub_4108 to 48KB VDP2 tiles/patterns"
+    },
+    {
+      "type": "PADDING",
+      "start": 545231,
+      "end": 546816,
+      "size": 1585,
+      "provenance": "Zero padding to sector boundary"
+    },
+    {
+      "type": "COLLISION_HEIGHTFIELD",
+      "start": 546816,
+      "end": 585728,
+      "size": 38912,
+      "start_hex": "0x085800",
+      "end_hex": "0x08F000",
+      "interval_id": "map_unk_05",
+      "streams_count": 2,
+      "dominant_stride": 8,
+      "provenance": "0TH2.BIN runtime 0x0600B7F4..0x0600B8C0 (sub_4108 -> VDP2 / VDP1 / High Work RAM 0x060D3D34)",
+      "confidence": "HIGH"
+    },
+    {
+      "type": "ROOM_COMPRESSED_GRAPHICS",
+      "start": 585728,
+      "end": 606556,
+      "size": 20828,
+      "tag": "[Q",
+      "room_index": 17,
+      "decompressed_size": 49152,
+      "provenance": "Decompresses via sub_4108 to 48KB VDP2 tiles/patterns"
+    },
+    {
+      "type": "PADDING",
+      "start": 606556,
+      "end": 608256,
+      "size": 1700,
+      "provenance": "Zero padding to sector boundary"
+    },
+    {
+      "type": "ROOM_COMPRESSED_GRAPHICS",
+      "start": 608256,
+      "end": 631615,
+      "size": 23359,
+      "tag": ">[",
+      "room_index": 18,
+      "decompressed_size": 49152,
+      "provenance": "Decompresses via sub_4108 to 48KB VDP2 tiles/patterns"
+    },
+    {
+      "type": "PADDING",
+      "start": 631615,
+      "end": 632832,
+      "size": 1217,
+      "provenance": "Zero padding to sector boundary"
+    },
+    {
+      "type": "COLLISION_HEIGHTFIELD",
+      "start": 632832,
+      "end": 655360,
+      "size": 22528,
+      "start_hex": "0x09A800",
+      "end_hex": "0x0A0000",
+      "interval_id": "map_unk_06",
+      "streams_count": 1,
+      "dominant_stride": 8,
+      "provenance": "0TH2.BIN runtime 0x0600B7F4..0x0600B8C0 (sub_4108 -> VDP2 / VDP1 / High Work RAM 0x060D3D34)",
+      "confidence": "HIGH"
+    },
+    {
+      "type": "ROOM_COMPRESSED_GRAPHICS",
+      "start": 655360,
+      "end": 675825,
+      "size": 20465,
+      "tag": "\u00f0O",
+      "room_index": 19,
+      "decompressed_size": 49152,
+      "provenance": "Decompresses via sub_4108 to 48KB VDP2 tiles/patterns"
+    },
+    {
+      "type": "PADDING",
+      "start": 675825,
+      "end": 675840,
+      "size": 15,
+      "provenance": "Zero padding to sector boundary"
+    },
+    {
+      "type": "SECONDARY_VDP2_PLANE",
+      "start": 675840,
+      "end": 696320,
+      "size": 20480,
+      "start_hex": "0x0A5000",
+      "end_hex": "0x0AA000",
+      "interval_id": "map_unk_07",
+      "streams_count": 1,
+      "dominant_stride": 8,
+      "provenance": "0TH2.BIN runtime 0x0600B7F4..0x0600B8C0 (sub_4108 -> VDP2 / VDP1 / High Work RAM 0x060D3D34)",
+      "confidence": "HIGH"
+    },
+    {
+      "type": "ROOM_COMPRESSED_GRAPHICS",
+      "start": 696320,
+      "end": 721453,
+      "size": 25133,
+      "tag": ",b",
+      "room_index": 20,
+      "decompressed_size": 49152,
+      "provenance": "Decompresses via sub_4108 to 48KB VDP2 tiles/patterns"
+    },
+    {
+      "type": "PADDING",
+      "start": 721453,
+      "end": 722944,
+      "size": 1491,
+      "provenance": "Zero padding to sector boundary"
+    },
+    {
+      "type": "COLLISION_HEIGHTFIELD",
+      "start": 722944,
+      "end": 747520,
+      "size": 24576,
+      "start_hex": "0x0B0800",
+      "end_hex": "0x0B6800",
+      "interval_id": "map_unk_08",
+      "streams_count": 1,
+      "dominant_stride": 8,
+      "provenance": "0TH2.BIN runtime 0x0600B7F4..0x0600B8C0 (sub_4108 -> VDP2 / VDP1 / High Work RAM 0x060D3D34)",
+      "confidence": "HIGH"
+    },
+    {
+      "type": "ROOM_COMPRESSED_GRAPHICS",
+      "start": 747520,
+      "end": 767993,
+      "size": 20473,
+      "tag": "\u00f8O",
+      "room_index": 21,
+      "decompressed_size": 49152,
+      "provenance": "Decompresses via sub_4108 to 48KB VDP2 tiles/patterns"
+    },
+    {
+      "type": "PADDING",
+      "start": 767993,
+      "end": 768000,
+      "size": 7,
+      "provenance": "Zero padding to sector boundary"
+    },
+    {
+      "type": "ROOM_COMPRESSED_GRAPHICS",
+      "start": 768000,
+      "end": 791478,
+      "size": 23478,
+      "tag": "\u00b5[",
+      "room_index": 22,
+      "decompressed_size": 49152,
+      "provenance": "Decompresses via sub_4108 to 48KB VDP2 tiles/patterns"
+    },
+    {
+      "type": "PADDING",
+      "start": 791478,
+      "end": 792576,
+      "size": 1098,
+      "provenance": "Zero padding to sector boundary"
+    },
+    {
+      "type": "ROOM_COMPRESSED_GRAPHICS",
+      "start": 792576,
+      "end": 817015,
+      "size": 24439,
+      "tag": "v_",
+      "room_index": 23,
+      "decompressed_size": 49152,
+      "provenance": "Decompresses via sub_4108 to 48KB VDP2 tiles/patterns"
+    },
+    {
+      "type": "PADDING",
+      "start": 817015,
+      "end": 817152,
+      "size": 137,
+      "provenance": "Zero padding to sector boundary"
+    },
+    {
+      "type": "ROOM_COMPRESSED_GRAPHICS",
+      "start": 817152,
+      "end": 839829,
+      "size": 22677,
+      "tag": "\u0094X",
+      "room_index": 24,
+      "decompressed_size": 49152,
+      "provenance": "Decompresses via sub_4108 to 48KB VDP2 tiles/patterns"
+    },
+    {
+      "type": "PADDING",
+      "start": 839829,
+      "end": 841728,
+      "size": 1899,
+      "provenance": "Zero padding to sector boundary"
+    },
+    {
+      "type": "COLLISION_HEIGHTFIELD",
+      "start": 841728,
+      "end": 880640,
+      "size": 38912,
+      "start_hex": "0x0CD800",
+      "end_hex": "0x0D7000",
+      "interval_id": "map_unk_09",
+      "streams_count": 2,
+      "dominant_stride": 8,
+      "provenance": "0TH2.BIN runtime 0x0600B7F4..0x0600B8C0 (sub_4108 -> VDP2 / VDP1 / High Work RAM 0x060D3D34)",
+      "confidence": "HIGH"
+    },
+    {
+      "type": "ROOM_COMPRESSED_GRAPHICS",
+      "start": 880640,
+      "end": 905655,
+      "size": 25015,
+      "tag": "\u00b6a",
+      "room_index": 25,
+      "decompressed_size": 49152,
+      "provenance": "Decompresses via sub_4108 to 48KB VDP2 tiles/patterns"
+    },
+    {
+      "type": "PADDING",
+      "start": 905655,
+      "end": 907264,
+      "size": 1609,
+      "provenance": "Zero padding to sector boundary"
+    },
+    {
+      "type": "ROOM_COMPRESSED_GRAPHICS",
+      "start": 907264,
+      "end": 926343,
+      "size": 19079,
+      "tag": "\u0086J",
+      "room_index": 26,
+      "decompressed_size": 49152,
+      "provenance": "Decompresses via sub_4108 to 48KB VDP2 tiles/patterns"
+    },
+    {
+      "type": "PADDING",
+      "start": 926343,
+      "end": 927744,
+      "size": 1401,
+      "provenance": "Zero padding to sector boundary"
+    },
+    {
+      "type": "COLLISION_HEIGHTFIELD",
+      "start": 927744,
+      "end": 997376,
+      "size": 69632,
+      "start_hex": "0x0E2800",
+      "end_hex": "0x0F3800",
+      "interval_id": "map_unk_10",
+      "streams_count": 3,
+      "dominant_stride": 8,
+      "provenance": "0TH2.BIN runtime 0x0600B7F4..0x0600B8C0 (sub_4108 -> VDP2 / VDP1 / High Work RAM 0x060D3D34)",
+      "confidence": "HIGH"
+    },
+    {
+      "type": "ROOM_COMPRESSED_GRAPHICS",
+      "start": 997376,
+      "end": 1014280,
+      "size": 16904,
+      "tag": "\u0007B",
+      "room_index": 27,
+      "decompressed_size": 49152,
+      "provenance": "Decompresses via sub_4108 to 48KB VDP2 tiles/patterns"
+    },
+    {
+      "type": "PADDING",
+      "start": 1014280,
+      "end": 1015808,
+      "size": 1528,
+      "provenance": "Zero padding to sector boundary"
+    },
+    {
+      "type": "ROOM_COMPRESSED_GRAPHICS",
+      "start": 1015808,
+      "end": 1036842,
+      "size": 21034,
+      "tag": ")R",
+      "room_index": 28,
+      "decompressed_size": 49152,
+      "provenance": "Decompresses via sub_4108 to 48KB VDP2 tiles/patterns"
+    },
+    {
+      "type": "PADDING",
+      "start": 1036842,
+      "end": 1038336,
+      "size": 1494,
+      "provenance": "Zero padding to sector boundary"
+    },
+    {
+      "type": "ROOM_COMPRESSED_GRAPHICS",
+      "start": 1038336,
+      "end": 1058661,
+      "size": 20325,
+      "tag": "dO",
+      "room_index": 29,
+      "decompressed_size": 49152,
+      "provenance": "Decompresses via sub_4108 to 48KB VDP2 tiles/patterns"
+    },
+    {
+      "type": "PADDING",
+      "start": 1058661,
+      "end": 1058816,
+      "size": 155,
+      "provenance": "Zero padding to sector boundary"
+    },
+    {
+      "type": "SECONDARY_VDP2_PLANE",
+      "start": 1058816,
+      "end": 1079296,
+      "size": 20480,
+      "start_hex": "0x102800",
+      "end_hex": "0x107800",
+      "interval_id": "map_unk_11",
+      "streams_count": 1,
+      "dominant_stride": 8,
+      "provenance": "0TH2.BIN runtime 0x0600B7F4..0x0600B8C0 (sub_4108 -> VDP2 / VDP1 / High Work RAM 0x060D3D34)",
+      "confidence": "HIGH"
+    },
+    {
+      "type": "ROOM_COMPRESSED_GRAPHICS",
+      "start": 1079296,
+      "end": 1095571,
+      "size": 16275,
+      "tag": "\u0092?",
+      "room_index": 30,
+      "decompressed_size": 49152,
+      "provenance": "Decompresses via sub_4108 to 48KB VDP2 tiles/patterns"
+    },
+    {
+      "type": "PADDING",
+      "start": 1095571,
+      "end": 1095680,
+      "size": 109,
+      "provenance": "Zero padding to sector boundary"
+    },
+    {
+      "type": "ROOM_COMPRESSED_GRAPHICS",
+      "start": 1095680,
+      "end": 1110212,
+      "size": 14532,
+      "tag": "\u00c38",
+      "room_index": 31,
+      "decompressed_size": 49152,
+      "provenance": "Decompresses via sub_4108 to 48KB VDP2 tiles/patterns"
+    },
+    {
+      "type": "PADDING",
+      "start": 1110212,
+      "end": 1112064,
+      "size": 1852,
+      "provenance": "Zero padding to sector boundary"
+    },
+    {
+      "type": "ROOM_COMPRESSED_GRAPHICS",
+      "start": 1112064,
+      "end": 1133396,
+      "size": 21332,
+      "tag": "SS",
+      "room_index": 32,
+      "decompressed_size": 49152,
+      "provenance": "Decompresses via sub_4108 to 48KB VDP2 tiles/patterns"
+    },
+    {
+      "type": "PADDING",
+      "start": 1133396,
+      "end": 1134592,
+      "size": 1196,
+      "provenance": "Zero padding to sector boundary"
+    },
+    {
+      "type": "ROOM_COMPRESSED_GRAPHICS",
+      "start": 1134592,
+      "end": 1160310,
+      "size": 25718,
+      "tag": "ud",
+      "room_index": 33,
+      "decompressed_size": 49152,
+      "provenance": "Decompresses via sub_4108 to 48KB VDP2 tiles/patterns"
+    },
+    {
+      "type": "PADDING",
+      "start": 1160310,
+      "end": 1161216,
+      "size": 906,
+      "provenance": "Zero padding to sector boundary"
+    },
+    {
+      "type": "COLLISION_HEIGHTFIELD",
+      "start": 1161216,
+      "end": 1179648,
+      "size": 18432,
+      "start_hex": "0x11B800",
+      "end_hex": "0x120000",
+      "interval_id": "map_unk_12",
+      "streams_count": 1,
+      "dominant_stride": 8,
+      "provenance": "0TH2.BIN runtime 0x0600B7F4..0x0600B8C0 (sub_4108 -> VDP2 / VDP1 / High Work RAM 0x060D3D34)",
+      "confidence": "HIGH"
+    },
+    {
+      "type": "ROOM_COMPRESSED_GRAPHICS",
+      "start": 1179648,
+      "end": 1206376,
+      "size": 26728,
+      "tag": "gh",
+      "room_index": 34,
+      "decompressed_size": 49152,
+      "provenance": "Decompresses via sub_4108 to 48KB VDP2 tiles/patterns"
+    },
+    {
+      "type": "PADDING",
+      "start": 1206376,
+      "end": 1208320,
+      "size": 1944,
+      "provenance": "Zero padding to sector boundary"
+    },
+    {
+      "type": "ROOM_COMPRESSED_GRAPHICS",
+      "start": 1208320,
+      "end": 1231879,
+      "size": 23559,
+      "tag": "\u0006\\",
+      "room_index": 35,
+      "decompressed_size": 49152,
+      "provenance": "Decompresses via sub_4108 to 48KB VDP2 tiles/patterns"
+    },
+    {
+      "type": "PADDING",
+      "start": 1231879,
+      "end": 1232896,
+      "size": 1017,
+      "provenance": "Zero padding to sector boundary"
+    },
+    {
+      "type": "ROOM_COLLISION_HEIGHTFIELD",
+      "start": 1232896,
+      "end": 1386496,
+      "size": 153600,
+      "start_hex": "0x12D000",
+      "end_hex": "0x152800",
+      "confidence": "HIGH",
+      "provenance": "Ancient LZSS companion stream decompressing to 48KB collision buffer"
+    },
+    {
+      "type": "ROOM_COMPRESSED_GRAPHICS",
+      "start": 1386496,
+      "end": 1406842,
+      "size": 20346,
+      "tag": "yO",
+      "room_index": 36,
+      "decompressed_size": 49152,
+      "provenance": "Decompresses via sub_4108 to 48KB VDP2 tiles/patterns"
+    },
+    {
+      "type": "PADDING",
+      "start": 1406842,
+      "end": 1406976,
+      "size": 134,
+      "provenance": "Zero padding to sector boundary"
+    },
+    {
+      "type": "ROOM_COMPRESSED_GRAPHICS",
+      "start": 1406976,
+      "end": 1429176,
+      "size": 22200,
+      "tag": "\u00b7V",
+      "room_index": 37,
+      "decompressed_size": 49152,
+      "provenance": "Decompresses via sub_4108 to 48KB VDP2 tiles/patterns"
+    },
+    {
+      "type": "PADDING",
+      "start": 1429176,
+      "end": 1429504,
+      "size": 328,
+      "provenance": "Zero padding to sector boundary"
+    },
+    {
+      "type": "ROOM_COMPRESSED_GRAPHICS",
+      "start": 1429504,
+      "end": 1443873,
+      "size": 14369,
+      "tag": " 8",
+      "room_index": 38,
+      "decompressed_size": 49152,
+      "provenance": "Decompresses via sub_4108 to 48KB VDP2 tiles/patterns"
+    },
+    {
+      "type": "PADDING",
+      "start": 1443873,
+      "end": 1445888,
+      "size": 2015,
+      "provenance": "Zero padding to sector boundary"
+    },
+    {
+      "type": "COLLISION_HEIGHTFIELD",
+      "start": 1445888,
+      "end": 1497088,
+      "size": 51200,
+      "start_hex": "0x161000",
+      "end_hex": "0x16D800",
+      "interval_id": "map_unk_15",
+      "streams_count": 3,
+      "dominant_stride": 8,
+      "provenance": "0TH2.BIN runtime 0x0600B7F4..0x0600B8C0 (sub_4108 -> VDP2 / VDP1 / High Work RAM 0x060D3D34)",
+      "confidence": "HIGH"
+    },
+    {
+      "type": "ROOM_COMPRESSED_GRAPHICS",
+      "start": 1497088,
+      "end": 1514664,
+      "size": 17576,
+      "tag": "\u00a7D",
+      "room_index": 39,
+      "decompressed_size": 49152,
+      "provenance": "Decompresses via sub_4108 to 48KB VDP2 tiles/patterns"
+    },
+    {
+      "type": "PADDING",
+      "start": 1514664,
+      "end": 1515520,
+      "size": 856,
+      "provenance": "Zero padding to sector boundary"
+    },
+    {
+      "type": "ROOM_COMPRESSED_GRAPHICS",
+      "start": 1515520,
+      "end": 1532902,
+      "size": 17382,
+      "tag": "\u00e5C",
+      "room_index": 40,
+      "decompressed_size": 49152,
+      "provenance": "Decompresses via sub_4108 to 48KB VDP2 tiles/patterns"
+    },
+    {
+      "type": "PADDING",
+      "start": 1532902,
+      "end": 1533952,
+      "size": 1050,
+      "provenance": "Zero padding to sector boundary"
+    },
+    {
+      "type": "ROOM_COMPRESSED_GRAPHICS",
+      "start": 1533952,
+      "end": 1549002,
+      "size": 15050,
+      "tag": "\u00c9:",
+      "room_index": 41,
+      "decompressed_size": 49152,
+      "provenance": "Decompresses via sub_4108 to 48KB VDP2 tiles/patterns"
+    },
+    {
+      "type": "PADDING",
+      "start": 1549002,
+      "end": 1550336,
+      "size": 1334,
+      "provenance": "Zero padding to sector boundary"
+    },
+    {
+      "type": "SECONDARY_VDP2_PLANE",
+      "start": 1550336,
+      "end": 1619968,
+      "size": 69632,
+      "start_hex": "0x17A800",
+      "end_hex": "0x18B800",
+      "interval_id": "map_unk_16",
+      "streams_count": 3,
+      "dominant_stride": 8,
+      "provenance": "0TH2.BIN runtime 0x0600B7F4..0x0600B8C0 (sub_4108 -> VDP2 / VDP1 / High Work RAM 0x060D3D34)",
+      "confidence": "HIGH"
+    },
+    {
+      "type": "ROOM_COMPRESSED_GRAPHICS",
+      "start": 1619968,
+      "end": 1642017,
+      "size": 22049,
+      "tag": " V",
+      "room_index": 42,
+      "decompressed_size": 49152,
+      "provenance": "Decompresses via sub_4108 to 48KB VDP2 tiles/patterns"
+    },
+    {
+      "type": "PADDING",
+      "start": 1642017,
+      "end": 1642496,
+      "size": 479,
+      "provenance": "Zero padding to sector boundary"
+    },
+    {
+      "type": "ROOM_COMPRESSED_GRAPHICS",
+      "start": 1642496,
+      "end": 1669257,
+      "size": 26761,
+      "tag": "\u0088h",
+      "room_index": 43,
+      "decompressed_size": 49152,
+      "provenance": "Decompresses via sub_4108 to 48KB VDP2 tiles/patterns"
+    },
+    {
+      "type": "PADDING",
+      "start": 1669257,
+      "end": 1671168,
+      "size": 1911,
+      "provenance": "Zero padding to sector boundary"
+    },
+    {
+      "type": "ROOM_COMPRESSED_GRAPHICS",
+      "start": 1671168,
+      "end": 1684032,
+      "size": 12864,
+      "tag": "?2",
+      "room_index": 44,
+      "decompressed_size": 49152,
+      "provenance": "Decompresses via sub_4108 to 48KB VDP2 tiles/patterns"
+    },
+    {
+      "type": "PADDING",
+      "start": 1684032,
+      "end": 1685504,
+      "size": 1472,
+      "provenance": "Zero padding to sector boundary"
+    },
+    {
+      "type": "VDP2_TILEMAP_PLANE_MATRIX",
+      "start": 1685504,
+      "end": 4036608,
+      "size": 2351104,
+      "provenance": "Global VDP2 16-bit pattern-name tilemaps and plane grids (tile ID + flip/palette flags)"
+    }
+  ]
+}

@@ -1,0 +1,6864 @@
+{
+  "total_transitions": 527,
+  "consumer_pc": "0x0600A416 (room_warp_validation)",
+  "warp_type_meanings": {
+    "0x08xx": "DOOR_OR_DIRECT_TRANSITION",
+    "0x10xx": "STAIRS_LADDER_ELEVATION_CHANGE",
+    "0x20xx": "SEAMLESS_SCREEN_EDGE_WARP",
+    "0x30xx": "DUNGEON_CHEST_OR_SECRET_PASSAGE",
+    "0x40xx": "SCRIPTED_CUTSCENE_WARP"
+  },
+  "exits": [
+    {
+      "exit_id": 0,
+      "source_room_id": 0,
+      "sector_index": 834,
+      "record_index": 1,
+      "warp_type": "0x4780",
+      "target_room_id": 9,
+      "trigger_coords": {
+        "x": 0,
+        "y": 416
+      },
+      "flags": "0xF98F"
+    },
+    {
+      "exit_id": 1,
+      "source_room_id": 0,
+      "sector_index": 834,
+      "record_index": 2,
+      "warp_type": "0x2001",
+      "target_room_id": 1,
+      "trigger_coords": {
+        "x": 2176,
+        "y": 8320
+      },
+      "flags": "0x2001"
+    },
+    {
+      "exit_id": 2,
+      "source_room_id": 0,
+      "sector_index": 834,
+      "record_index": 4,
+      "warp_type": "0x0800",
+      "target_room_id": 0,
+      "trigger_coords": {
+        "x": 6152,
+        "y": 4225
+      },
+      "flags": "0xC002"
+    },
+    {
+      "exit_id": 3,
+      "source_room_id": 0,
+      "sector_index": 834,
+      "record_index": 5,
+      "warp_type": "0x09FF",
+      "target_room_id": 2,
+      "trigger_coords": {
+        "x": 2301,
+        "y": -28927
+      },
+      "flags": "0xC402"
+    },
+    {
+      "exit_id": 4,
+      "source_room_id": 0,
+      "sector_index": 834,
+      "record_index": 8,
+      "warp_type": "0x0801",
+      "target_room_id": 1,
+      "trigger_coords": {
+        "x": 640,
+        "y": 4101
+      },
+      "flags": "0x1001"
+    },
+    {
+      "exit_id": 5,
+      "source_room_id": 0,
+      "sector_index": 834,
+      "record_index": 10,
+      "warp_type": "0x02FD",
+      "target_room_id": 45,
+      "trigger_coords": {
+        "x": -640,
+        "y": 57
+      },
+      "flags": "0x1002"
+    },
+    {
+      "exit_id": 6,
+      "source_room_id": 1,
+      "sector_index": 845,
+      "record_index": 3,
+      "warp_type": "0x0020",
+      "target_room_id": 25,
+      "trigger_coords": {
+        "x": -14176,
+        "y": -16893
+      },
+      "flags": "0x803F"
+    },
+    {
+      "exit_id": 7,
+      "source_room_id": 1,
+      "sector_index": 845,
+      "record_index": 4,
+      "warp_type": "0x02E0",
+      "target_room_id": 1,
+      "trigger_coords": {
+        "x": 14048,
+        "y": 22211
+      },
+      "flags": "0x0380"
+    },
+    {
+      "exit_id": 8,
+      "source_room_id": 1,
+      "sector_index": 845,
+      "record_index": 5,
+      "warp_type": "0x0801",
+      "target_room_id": 0,
+      "trigger_coords": {
+        "x": 16128,
+        "y": 26593
+      },
+      "flags": "0x1290"
+    },
+    {
+      "exit_id": 9,
+      "source_room_id": 1,
+      "sector_index": 845,
+      "record_index": 8,
+      "warp_type": "0x4000",
+      "target_room_id": 0,
+      "trigger_coords": {
+        "x": 6112,
+        "y": -25479
+      },
+      "flags": "0x1F00"
+    },
+    {
+      "exit_id": 10,
+      "source_room_id": 1,
+      "sector_index": 845,
+      "record_index": 9,
+      "warp_type": "0x0520",
+      "target_room_id": 0,
+      "trigger_coords": {
+        "x": -18839,
+        "y": -7746
+      },
+      "flags": "0x47E4"
+    },
+    {
+      "exit_id": 11,
+      "source_room_id": 1,
+      "sector_index": 845,
+      "record_index": 11,
+      "warp_type": "0x0000",
+      "target_room_id": 0,
+      "trigger_coords": {
+        "x": 0,
+        "y": 0
+      },
+      "flags": "0x0000"
+    },
+    {
+      "exit_id": 12,
+      "source_room_id": 1,
+      "sector_index": 845,
+      "record_index": 12,
+      "warp_type": "0x0000",
+      "target_room_id": 0,
+      "trigger_coords": {
+        "x": 0,
+        "y": 0
+      },
+      "flags": "0x0000"
+    },
+    {
+      "exit_id": 13,
+      "source_room_id": 1,
+      "sector_index": 845,
+      "record_index": 13,
+      "warp_type": "0x0000",
+      "target_room_id": 0,
+      "trigger_coords": {
+        "x": 0,
+        "y": 0
+      },
+      "flags": "0x0000"
+    },
+    {
+      "exit_id": 14,
+      "source_room_id": 1,
+      "sector_index": 845,
+      "record_index": 14,
+      "warp_type": "0x0000",
+      "target_room_id": 0,
+      "trigger_coords": {
+        "x": 0,
+        "y": 0
+      },
+      "flags": "0x0000"
+    },
+    {
+      "exit_id": 15,
+      "source_room_id": 1,
+      "sector_index": 845,
+      "record_index": 15,
+      "warp_type": "0x0000",
+      "target_room_id": 0,
+      "trigger_coords": {
+        "x": 0,
+        "y": 0
+      },
+      "flags": "0x0000"
+    },
+    {
+      "exit_id": 16,
+      "source_room_id": 1,
+      "sector_index": 845,
+      "record_index": 16,
+      "warp_type": "0x0000",
+      "target_room_id": 0,
+      "trigger_coords": {
+        "x": 0,
+        "y": 0
+      },
+      "flags": "0x0000"
+    },
+    {
+      "exit_id": 17,
+      "source_room_id": 1,
+      "sector_index": 845,
+      "record_index": 17,
+      "warp_type": "0x0000",
+      "target_room_id": 0,
+      "trigger_coords": {
+        "x": 0,
+        "y": 0
+      },
+      "flags": "0x0000"
+    },
+    {
+      "exit_id": 18,
+      "source_room_id": 2,
+      "sector_index": 856,
+      "record_index": 1,
+      "warp_type": "0x0661",
+      "target_room_id": 54,
+      "trigger_coords": {
+        "x": 1184,
+        "y": 264
+      },
+      "flags": "0xA10E"
+    },
+    {
+      "exit_id": 19,
+      "source_room_id": 2,
+      "sector_index": 856,
+      "record_index": 2,
+      "warp_type": "0x038F",
+      "target_room_id": 0,
+      "trigger_coords": {
+        "x": 1278,
+        "y": -28926
+      },
+      "flags": "0x80E6"
+    },
+    {
+      "exit_id": 20,
+      "source_room_id": 2,
+      "sector_index": 856,
+      "record_index": 3,
+      "warp_type": "0x02AC",
+      "target_room_id": 68,
+      "trigger_coords": {
+        "x": -16384,
+        "y": 2080
+      },
+      "flags": "0x9204"
+    },
+    {
+      "exit_id": 21,
+      "source_room_id": 2,
+      "sector_index": 856,
+      "record_index": 4,
+      "warp_type": "0x021C",
+      "target_room_id": 28,
+      "trigger_coords": {
+        "x": -29183,
+        "y": 928
+      },
+      "flags": "0x1A80"
+    },
+    {
+      "exit_id": 22,
+      "source_room_id": 2,
+      "sector_index": 856,
+      "record_index": 5,
+      "warp_type": "0x1CA5",
+      "target_room_id": 61,
+      "trigger_coords": {
+        "x": -19967,
+        "y": 16838
+      },
+      "flags": "0xA2C1"
+    },
+    {
+      "exit_id": 23,
+      "source_room_id": 2,
+      "sector_index": 856,
+      "record_index": 9,
+      "warp_type": "0x01A0",
+      "target_room_id": 10,
+      "trigger_coords": {
+        "x": -7524,
+        "y": 25574
+      },
+      "flags": "0x1007"
+    },
+    {
+      "exit_id": 24,
+      "source_room_id": 2,
+      "sector_index": 856,
+      "record_index": 10,
+      "warp_type": "0x0861",
+      "target_room_id": 97,
+      "trigger_coords": {
+        "x": -32680,
+        "y": -16376
+      },
+      "flags": "0x01FD"
+    },
+    {
+      "exit_id": 25,
+      "source_room_id": 3,
+      "sector_index": 866,
+      "record_index": 1,
+      "warp_type": "0x02FD",
+      "target_room_id": 45,
+      "trigger_coords": {
+        "x": -241,
+        "y": 96
+      },
+      "flags": "0x9612"
+    },
+    {
+      "exit_id": 26,
+      "source_room_id": 3,
+      "sector_index": 866,
+      "record_index": 2,
+      "warp_type": "0x00E0",
+      "target_room_id": 60,
+      "trigger_coords": {
+        "x": -32564,
+        "y": 4098
+      },
+      "flags": "0x808E"
+    },
+    {
+      "exit_id": 27,
+      "source_room_id": 3,
+      "sector_index": 866,
+      "record_index": 3,
+      "warp_type": "0x00C0",
+      "target_room_id": 31,
+      "trigger_coords": {
+        "x": 448,
+        "y": 9
+      },
+      "flags": "0xFC00"
+    },
+    {
+      "exit_id": 28,
+      "source_room_id": 3,
+      "sector_index": 866,
+      "record_index": 4,
+      "warp_type": "0x04FA",
+      "target_room_id": 0,
+      "trigger_coords": {
+        "x": -24568,
+        "y": -1536
+      },
+      "flags": "0x2081"
+    },
+    {
+      "exit_id": 29,
+      "source_room_id": 3,
+      "sector_index": 866,
+      "record_index": 5,
+      "warp_type": "0x0EE0",
+      "target_room_id": 1,
+      "trigger_coords": {
+        "x": 24288,
+        "y": 2049
+      },
+      "flags": "0x8EE0"
+    },
+    {
+      "exit_id": 30,
+      "source_room_id": 3,
+      "sector_index": 866,
+      "record_index": 8,
+      "warp_type": "0x1661",
+      "target_room_id": 97,
+      "trigger_coords": {
+        "x": 27364,
+        "y": 27872
+      },
+      "flags": "0x79A6"
+    },
+    {
+      "exit_id": 31,
+      "source_room_id": 3,
+      "sector_index": 866,
+      "record_index": 9,
+      "warp_type": "0x4861",
+      "target_room_id": 97,
+      "trigger_coords": {
+        "x": -23974,
+        "y": 1176
+      },
+      "flags": "0xE15C"
+    },
+    {
+      "exit_id": 32,
+      "source_room_id": 3,
+      "sector_index": 866,
+      "record_index": 11,
+      "warp_type": "0x01FE",
+      "target_room_id": 16,
+      "trigger_coords": {
+        "x": -8168,
+        "y": 2044
+      },
+      "flags": "0x01FD"
+    },
+    {
+      "exit_id": 33,
+      "source_room_id": 3,
+      "sector_index": 866,
+      "record_index": 15,
+      "warp_type": "0x4074",
+      "target_room_id": 12,
+      "trigger_coords": {
+        "x": 9216,
+        "y": -6548
+      },
+      "flags": "0x8850"
+    },
+    {
+      "exit_id": 34,
+      "source_room_id": 4,
+      "sector_index": 885,
+      "record_index": 4,
+      "warp_type": "0x0208",
+      "target_room_id": 8,
+      "trigger_coords": {
+        "x": -544,
+        "y": 6145
+      },
+      "flags": "0x1801"
+    },
+    {
+      "exit_id": 35,
+      "source_room_id": 4,
+      "sector_index": 885,
+      "record_index": 5,
+      "warp_type": "0x0400",
+      "target_room_id": 8,
+      "trigger_coords": {
+        "x": -29694,
+        "y": 1
+      },
+      "flags": "0x0180"
+    },
+    {
+      "exit_id": 36,
+      "source_room_id": 4,
+      "sector_index": 885,
+      "record_index": 6,
+      "warp_type": "0x4001",
+      "target_room_id": 1,
+      "trigger_coords": {
+        "x": 256,
+        "y": -32502
+      },
+      "flags": "0x5002"
+    },
+    {
+      "exit_id": 37,
+      "source_room_id": 4,
+      "sector_index": 885,
+      "record_index": 7,
+      "warp_type": "0x08FC",
+      "target_room_id": 44,
+      "trigger_coords": {
+        "x": 704,
+        "y": 27650
+      },
+      "flags": "0x02B4"
+    },
+    {
+      "exit_id": 38,
+      "source_room_id": 4,
+      "sector_index": 885,
+      "record_index": 8,
+      "warp_type": "0x0302",
+      "target_room_id": 2,
+      "trigger_coords": {
+        "x": 508,
+        "y": -8034
+      },
+      "flags": "0xA08E"
+    },
+    {
+      "exit_id": 39,
+      "source_room_id": 4,
+      "sector_index": 885,
+      "record_index": 11,
+      "warp_type": "0x0394",
+      "target_room_id": 16,
+      "trigger_coords": {
+        "x": 128,
+        "y": 924
+      },
+      "flags": "0x0200"
+    },
+    {
+      "exit_id": 40,
+      "source_room_id": 4,
+      "sector_index": 885,
+      "record_index": 12,
+      "warp_type": "0x0380",
+      "target_room_id": 64,
+      "trigger_coords": {
+        "x": 258,
+        "y": -32132
+      },
+      "flags": "0x83EC"
+    },
+    {
+      "exit_id": 41,
+      "source_room_id": 4,
+      "sector_index": 885,
+      "record_index": 13,
+      "warp_type": "0x0015",
+      "target_room_id": 63,
+      "trigger_coords": {
+        "x": -7796,
+        "y": 32619
+      },
+      "flags": "0x4057"
+    },
+    {
+      "exit_id": 42,
+      "source_room_id": 4,
+      "sector_index": 885,
+      "record_index": 14,
+      "warp_type": "0x3A61",
+      "target_room_id": 97,
+      "trigger_coords": {
+        "x": 1275,
+        "y": 0
+      },
+      "flags": "0xE0B6"
+    },
+    {
+      "exit_id": 43,
+      "source_room_id": 4,
+      "sector_index": 885,
+      "record_index": 15,
+      "warp_type": "0x4C89",
+      "target_room_id": 1,
+      "trigger_coords": {
+        "x": -31132,
+        "y": -30280
+      },
+      "flags": "0xFBE7"
+    },
+    {
+      "exit_id": 44,
+      "source_room_id": 4,
+      "sector_index": 885,
+      "record_index": 16,
+      "warp_type": "0x0440",
+      "target_room_id": 78,
+      "trigger_coords": {
+        "x": -31134,
+        "y": -29894
+      },
+      "flags": "0x64E6"
+    },
+    {
+      "exit_id": 45,
+      "source_room_id": 4,
+      "sector_index": 885,
+      "record_index": 18,
+      "warp_type": "0x0003",
+      "target_room_id": 63,
+      "trigger_coords": {
+        "x": -6290,
+        "y": -21020
+      },
+      "flags": "0x005F"
+    },
+    {
+      "exit_id": 46,
+      "source_room_id": 5,
+      "sector_index": 915,
+      "record_index": 3,
+      "warp_type": "0x0881",
+      "target_room_id": 3,
+      "trigger_coords": {
+        "x": -8064,
+        "y": 32260
+      },
+      "flags": "0x8F00"
+    },
+    {
+      "exit_id": 47,
+      "source_room_id": 5,
+      "sector_index": 915,
+      "record_index": 4,
+      "warp_type": "0x08FE",
+      "target_room_id": 0,
+      "trigger_coords": {
+        "x": 11424,
+        "y": 11777
+      },
+      "flags": "0x0004"
+    },
+    {
+      "exit_id": 48,
+      "source_room_id": 5,
+      "sector_index": 915,
+      "record_index": 5,
+      "warp_type": "0x0020",
+      "target_room_id": 76,
+      "trigger_coords": {
+        "x": 1760,
+        "y": 2059
+      },
+      "flags": "0x0340"
+    },
+    {
+      "exit_id": 49,
+      "source_room_id": 5,
+      "sector_index": 915,
+      "record_index": 7,
+      "warp_type": "0x0220",
+      "target_room_id": 32,
+      "trigger_coords": {
+        "x": -31872,
+        "y": 506
+      },
+      "flags": "0x01A0"
+    },
+    {
+      "exit_id": 50,
+      "source_room_id": 5,
+      "sector_index": 915,
+      "record_index": 9,
+      "warp_type": "0x0103",
+      "target_room_id": 3,
+      "trigger_coords": {
+        "x": 4127,
+        "y": -15534
+      },
+      "flags": "0x0308"
+    },
+    {
+      "exit_id": 51,
+      "source_room_id": 5,
+      "sector_index": 915,
+      "record_index": 11,
+      "warp_type": "0x24E0",
+      "target_room_id": 97,
+      "trigger_coords": {
+        "x": -7254,
+        "y": -24266
+      },
+      "flags": "0x0100"
+    },
+    {
+      "exit_id": 52,
+      "source_room_id": 6,
+      "sector_index": 931,
+      "record_index": 1,
+      "warp_type": "0x4110",
+      "target_room_id": 5,
+      "trigger_coords": {
+        "x": 326,
+        "y": -24458
+      },
+      "flags": "0x80EE"
+    },
+    {
+      "exit_id": 53,
+      "source_room_id": 6,
+      "sector_index": 931,
+      "record_index": 2,
+      "warp_type": "0x0FFF",
+      "target_room_id": 4,
+      "trigger_coords": {
+        "x": 4348,
+        "y": -28736
+      },
+      "flags": "0xF808"
+    },
+    {
+      "exit_id": 54,
+      "source_room_id": 6,
+      "sector_index": 931,
+      "record_index": 3,
+      "warp_type": "0x00C0",
+      "target_room_id": 88,
+      "trigger_coords": {
+        "x": -3583,
+        "y": 640
+      },
+      "flags": "0xD6E0"
+    },
+    {
+      "exit_id": 55,
+      "source_room_id": 6,
+      "sector_index": 931,
+      "record_index": 4,
+      "warp_type": "0x0460",
+      "target_room_id": 8,
+      "trigger_coords": {
+        "x": 14337,
+        "y": -288
+      },
+      "flags": "0xFDE0"
+    },
+    {
+      "exit_id": 56,
+      "source_room_id": 6,
+      "sector_index": 931,
+      "record_index": 6,
+      "warp_type": "0x0538",
+      "target_room_id": 24,
+      "trigger_coords": {
+        "x": -20476,
+        "y": -369
+      },
+      "flags": "0x5784"
+    },
+    {
+      "exit_id": 57,
+      "source_room_id": 6,
+      "sector_index": 931,
+      "record_index": 8,
+      "warp_type": "0x3205",
+      "target_room_id": 0,
+      "trigger_coords": {
+        "x": 4257,
+        "y": -1019
+      },
+      "flags": "0xB401"
+    },
+    {
+      "exit_id": 58,
+      "source_room_id": 6,
+      "sector_index": 931,
+      "record_index": 17,
+      "warp_type": "0x0000",
+      "target_room_id": 0,
+      "trigger_coords": {
+        "x": 0,
+        "y": 0
+      },
+      "flags": "0x0000"
+    },
+    {
+      "exit_id": 59,
+      "source_room_id": 7,
+      "sector_index": 948,
+      "record_index": 2,
+      "warp_type": "0x4C01",
+      "target_room_id": 7,
+      "trigger_coords": {
+        "x": 1152,
+        "y": 288
+      },
+      "flags": "0x813E"
+    },
+    {
+      "exit_id": 60,
+      "source_room_id": 7,
+      "sector_index": 948,
+      "record_index": 4,
+      "warp_type": "0x0060",
+      "target_room_id": 31,
+      "trigger_coords": {
+        "x": 143,
+        "y": -24380
+      },
+      "flags": "0x3887"
+    },
+    {
+      "exit_id": 61,
+      "source_room_id": 7,
+      "sector_index": 948,
+      "record_index": 5,
+      "warp_type": "0x0A06",
+      "target_room_id": 2,
+      "trigger_coords": {
+        "x": 7264,
+        "y": 16128
+      },
+      "flags": "0x0000"
+    },
+    {
+      "exit_id": 62,
+      "source_room_id": 7,
+      "sector_index": 948,
+      "record_index": 6,
+      "warp_type": "0x0200",
+      "target_room_id": 0,
+      "trigger_coords": {
+        "x": -32254,
+        "y": 1144
+      },
+      "flags": "0x0103"
+    },
+    {
+      "exit_id": 63,
+      "source_room_id": 7,
+      "sector_index": 948,
+      "record_index": 13,
+      "warp_type": "0x0000",
+      "target_room_id": 0,
+      "trigger_coords": {
+        "x": 0,
+        "y": 0
+      },
+      "flags": "0x0000"
+    },
+    {
+      "exit_id": 64,
+      "source_room_id": 7,
+      "sector_index": 948,
+      "record_index": 14,
+      "warp_type": "0x0000",
+      "target_room_id": 0,
+      "trigger_coords": {
+        "x": 0,
+        "y": 0
+      },
+      "flags": "0x0000"
+    },
+    {
+      "exit_id": 65,
+      "source_room_id": 7,
+      "sector_index": 948,
+      "record_index": 15,
+      "warp_type": "0x0000",
+      "target_room_id": 0,
+      "trigger_coords": {
+        "x": 0,
+        "y": 0
+      },
+      "flags": "0x0000"
+    },
+    {
+      "exit_id": 66,
+      "source_room_id": 8,
+      "sector_index": 961,
+      "record_index": 1,
+      "warp_type": "0x2000",
+      "target_room_id": 88,
+      "trigger_coords": {
+        "x": 1996,
+        "y": 280
+      },
+      "flags": "0x806E"
+    },
+    {
+      "exit_id": 67,
+      "source_room_id": 8,
+      "sector_index": 961,
+      "record_index": 2,
+      "warp_type": "0x0740",
+      "target_room_id": 64,
+      "trigger_coords": {
+        "x": 910,
+        "y": -7892
+      },
+      "flags": "0x0208"
+    },
+    {
+      "exit_id": 68,
+      "source_room_id": 8,
+      "sector_index": 961,
+      "record_index": 3,
+      "warp_type": "0x4000",
+      "target_room_id": 40,
+      "trigger_coords": {
+        "x": 18180,
+        "y": 19460
+      },
+      "flags": "0x2708"
+    },
+    {
+      "exit_id": 69,
+      "source_room_id": 8,
+      "sector_index": 961,
+      "record_index": 5,
+      "warp_type": "0x0100",
+      "target_room_id": 0,
+      "trigger_coords": {
+        "x": -28928,
+        "y": 8416
+      },
+      "flags": "0x0401"
+    },
+    {
+      "exit_id": 70,
+      "source_room_id": 8,
+      "sector_index": 961,
+      "record_index": 7,
+      "warp_type": "0x3601",
+      "target_room_id": 1,
+      "trigger_coords": {
+        "x": 4033,
+        "y": 25099
+      },
+      "flags": "0x6A01"
+    },
+    {
+      "exit_id": 71,
+      "source_room_id": 8,
+      "sector_index": 961,
+      "record_index": 9,
+      "warp_type": "0x0700",
+      "target_room_id": 2,
+      "trigger_coords": {
+        "x": 7,
+        "y": -31930
+      },
+      "flags": "0x006F"
+    },
+    {
+      "exit_id": 72,
+      "source_room_id": 8,
+      "sector_index": 961,
+      "record_index": 15,
+      "warp_type": "0x0000",
+      "target_room_id": 0,
+      "trigger_coords": {
+        "x": 0,
+        "y": 0
+      },
+      "flags": "0x0000"
+    },
+    {
+      "exit_id": 73,
+      "source_room_id": 9,
+      "sector_index": 982,
+      "record_index": 2,
+      "warp_type": "0x0000",
+      "target_room_id": 0,
+      "trigger_coords": {
+        "x": -369,
+        "y": -128
+      },
+      "flags": "0x4620"
+    },
+    {
+      "exit_id": 74,
+      "source_room_id": 9,
+      "sector_index": 982,
+      "record_index": 4,
+      "warp_type": "0x02A2",
+      "target_room_id": 58,
+      "trigger_coords": {
+        "x": 1504,
+        "y": 10401
+      },
+      "flags": "0x4E01"
+    },
+    {
+      "exit_id": 75,
+      "source_room_id": 9,
+      "sector_index": 982,
+      "record_index": 5,
+      "warp_type": "0x0100",
+      "target_room_id": 0,
+      "trigger_coords": {
+        "x": 1032,
+        "y": -895
+      },
+      "flags": "0x0478"
+    },
+    {
+      "exit_id": 76,
+      "source_room_id": 9,
+      "sector_index": 982,
+      "record_index": 7,
+      "warp_type": "0x0681",
+      "target_room_id": 4,
+      "trigger_coords": {
+        "x": 2050,
+        "y": -7996
+      },
+      "flags": "0x7804"
+    },
+    {
+      "exit_id": 77,
+      "source_room_id": 9,
+      "sector_index": 982,
+      "record_index": 11,
+      "warp_type": "0x2837",
+      "target_room_id": 55,
+      "trigger_coords": {
+        "x": -6232,
+        "y": 25058
+      },
+      "flags": "0xE7A0"
+    },
+    {
+      "exit_id": 78,
+      "source_room_id": 9,
+      "sector_index": 982,
+      "record_index": 12,
+      "warp_type": "0x20A4",
+      "target_room_id": 60,
+      "trigger_coords": {
+        "x": 8168,
+        "y": -26515
+      },
+      "flags": "0x2601"
+    },
+    {
+      "exit_id": 79,
+      "source_room_id": 9,
+      "sector_index": 982,
+      "record_index": 15,
+      "warp_type": "0x0380",
+      "target_room_id": 0,
+      "trigger_coords": {
+        "x": 5727,
+        "y": -1144
+      },
+      "flags": "0x00CD"
+    },
+    {
+      "exit_id": 80,
+      "source_room_id": 10,
+      "sector_index": 991,
+      "record_index": 3,
+      "warp_type": "0x1803",
+      "target_room_id": 16,
+      "trigger_coords": {
+        "x": 16000,
+        "y": 13952
+      },
+      "flags": "0x0FC0"
+    },
+    {
+      "exit_id": 81,
+      "source_room_id": 10,
+      "sector_index": 991,
+      "record_index": 5,
+      "warp_type": "0x0810",
+      "target_room_id": 48,
+      "trigger_coords": {
+        "x": -28925,
+        "y": -26621
+      },
+      "flags": "0x5708"
+    },
+    {
+      "exit_id": 82,
+      "source_room_id": 10,
+      "sector_index": 991,
+      "record_index": 6,
+      "warp_type": "0x1801",
+      "target_room_id": 1,
+      "trigger_coords": {
+        "x": 480,
+        "y": 6273
+      },
+      "flags": "0x1801"
+    },
+    {
+      "exit_id": 83,
+      "source_room_id": 10,
+      "sector_index": 991,
+      "record_index": 8,
+      "warp_type": "0x0494",
+      "target_room_id": 8,
+      "trigger_coords": {
+        "x": -5628,
+        "y": -17404
+      },
+      "flags": "0xFC81"
+    },
+    {
+      "exit_id": 84,
+      "source_room_id": 10,
+      "sector_index": 991,
+      "record_index": 11,
+      "warp_type": "0x4003",
+      "target_room_id": 3,
+      "trigger_coords": {
+        "x": 17540,
+        "y": -12669
+      },
+      "flags": "0x1884"
+    },
+    {
+      "exit_id": 85,
+      "source_room_id": 10,
+      "sector_index": 991,
+      "record_index": 12,
+      "warp_type": "0x0F00",
+      "target_room_id": 0,
+      "trigger_coords": {
+        "x": 23650,
+        "y": 416
+      },
+      "flags": "0x82E0"
+    },
+    {
+      "exit_id": 86,
+      "source_room_id": 10,
+      "sector_index": 991,
+      "record_index": 14,
+      "warp_type": "0x0000",
+      "target_room_id": 0,
+      "trigger_coords": {
+        "x": 0,
+        "y": 0
+      },
+      "flags": "0x0000"
+    },
+    {
+      "exit_id": 87,
+      "source_room_id": 10,
+      "sector_index": 991,
+      "record_index": 15,
+      "warp_type": "0x0000",
+      "target_room_id": 0,
+      "trigger_coords": {
+        "x": 0,
+        "y": 0
+      },
+      "flags": "0x0000"
+    },
+    {
+      "exit_id": 88,
+      "source_room_id": 11,
+      "sector_index": 1006,
+      "record_index": 1,
+      "warp_type": "0x28FE",
+      "target_room_id": 6,
+      "trigger_coords": {
+        "x": 1072,
+        "y": -800
+      },
+      "flags": "0x0460"
+    },
+    {
+      "exit_id": 89,
+      "source_room_id": 11,
+      "sector_index": 1006,
+      "record_index": 3,
+      "warp_type": "0x04CC",
+      "target_room_id": 40,
+      "trigger_coords": {
+        "x": -24570,
+        "y": 17456
+      },
+      "flags": "0x09A0"
+    },
+    {
+      "exit_id": 90,
+      "source_room_id": 11,
+      "sector_index": 1006,
+      "record_index": 5,
+      "warp_type": "0x0060",
+      "target_room_id": 9,
+      "trigger_coords": {
+        "x": 103,
+        "y": -32540
+      },
+      "flags": "0x201F"
+    },
+    {
+      "exit_id": 91,
+      "source_room_id": 11,
+      "sector_index": 1006,
+      "record_index": 6,
+      "warp_type": "0x0410",
+      "target_room_id": 0,
+      "trigger_coords": {
+        "x": -7164,
+        "y": -256
+      },
+      "flags": "0x01A0"
+    },
+    {
+      "exit_id": 92,
+      "source_room_id": 11,
+      "sector_index": 1006,
+      "record_index": 7,
+      "warp_type": "0x0000",
+      "target_room_id": 0,
+      "trigger_coords": {
+        "x": -32768,
+        "y": -32638
+      },
+      "flags": "0x0A03"
+    },
+    {
+      "exit_id": 93,
+      "source_room_id": 11,
+      "sector_index": 1006,
+      "record_index": 8,
+      "warp_type": "0x0100",
+      "target_room_id": 0,
+      "trigger_coords": {
+        "x": -32616,
+        "y": 1180
+      },
+      "flags": "0x01FC"
+    },
+    {
+      "exit_id": 94,
+      "source_room_id": 11,
+      "sector_index": 1006,
+      "record_index": 12,
+      "warp_type": "0x0846",
+      "target_room_id": 1,
+      "trigger_coords": {
+        "x": 7524,
+        "y": -8175
+      },
+      "flags": "0x80E0"
+    },
+    {
+      "exit_id": 95,
+      "source_room_id": 12,
+      "sector_index": 1024,
+      "record_index": 1,
+      "warp_type": "0x4441",
+      "target_room_id": 65,
+      "trigger_coords": {
+        "x": -32544,
+        "y": -20895
+      },
+      "flags": "0x8C01"
+    },
+    {
+      "exit_id": 96,
+      "source_room_id": 12,
+      "sector_index": 1024,
+      "record_index": 4,
+      "warp_type": "0x0948",
+      "target_room_id": 0,
+      "trigger_coords": {
+        "x": 30329,
+        "y": 1028
+      },
+      "flags": "0x57E0"
+    },
+    {
+      "exit_id": 97,
+      "source_room_id": 12,
+      "sector_index": 1024,
+      "record_index": 6,
+      "warp_type": "0x0140",
+      "target_room_id": 48,
+      "trigger_coords": {
+        "x": -16328,
+        "y": 513
+      },
+      "flags": "0x0100"
+    },
+    {
+      "exit_id": 98,
+      "source_room_id": 12,
+      "sector_index": 1024,
+      "record_index": 8,
+      "warp_type": "0x3C41",
+      "target_room_id": 1,
+      "trigger_coords": {
+        "x": 1796,
+        "y": 528
+      },
+      "flags": "0x80A4"
+    },
+    {
+      "exit_id": 99,
+      "source_room_id": 12,
+      "sector_index": 1024,
+      "record_index": 12,
+      "warp_type": "0x0040",
+      "target_room_id": 36,
+      "trigger_coords": {
+        "x": 1793,
+        "y": 16390
+      },
+      "flags": "0x8008"
+    },
+    {
+      "exit_id": 100,
+      "source_room_id": 13,
+      "sector_index": 1040,
+      "record_index": 1,
+      "warp_type": "0x20FF",
+      "target_room_id": 0,
+      "trigger_coords": {
+        "x": 2368,
+        "y": 18368
+      },
+      "flags": "0x0000"
+    },
+    {
+      "exit_id": 101,
+      "source_room_id": 13,
+      "sector_index": 1040,
+      "record_index": 4,
+      "warp_type": "0x03FD",
+      "target_room_id": 1,
+      "trigger_coords": {
+        "x": 513,
+        "y": 1984
+      },
+      "flags": "0xA04E"
+    },
+    {
+      "exit_id": 102,
+      "source_room_id": 13,
+      "sector_index": 1040,
+      "record_index": 5,
+      "warp_type": "0x2000",
+      "target_room_id": 24,
+      "trigger_coords": {
+        "x": 1056,
+        "y": -896
+      },
+      "flags": "0x0738"
+    },
+    {
+      "exit_id": 103,
+      "source_room_id": 13,
+      "sector_index": 1040,
+      "record_index": 7,
+      "warp_type": "0x0108",
+      "target_room_id": 8,
+      "trigger_coords": {
+        "x": -9215,
+        "y": -32246
+      },
+      "flags": "0x0802"
+    },
+    {
+      "exit_id": 104,
+      "source_room_id": 13,
+      "sector_index": 1040,
+      "record_index": 8,
+      "warp_type": "0x0840",
+      "target_room_id": 5,
+      "trigger_coords": {
+        "x": -32760,
+        "y": 1026
+      },
+      "flags": "0x0020"
+    },
+    {
+      "exit_id": 105,
+      "source_room_id": 13,
+      "sector_index": 1040,
+      "record_index": 10,
+      "warp_type": "0x080B",
+      "target_room_id": 4,
+      "trigger_coords": {
+        "x": 2297,
+        "y": -31487
+      },
+      "flags": "0x0401"
+    },
+    {
+      "exit_id": 106,
+      "source_room_id": 13,
+      "sector_index": 1040,
+      "record_index": 17,
+      "warp_type": "0x0000",
+      "target_room_id": 0,
+      "trigger_coords": {
+        "x": 0,
+        "y": 0
+      },
+      "flags": "0x0000"
+    },
+    {
+      "exit_id": 107,
+      "source_room_id": 13,
+      "sector_index": 1040,
+      "record_index": 18,
+      "warp_type": "0x0000",
+      "target_room_id": 0,
+      "trigger_coords": {
+        "x": 0,
+        "y": 0
+      },
+      "flags": "0x0000"
+    },
+    {
+      "exit_id": 108,
+      "source_room_id": 13,
+      "sector_index": 1040,
+      "record_index": 19,
+      "warp_type": "0x0000",
+      "target_room_id": 0,
+      "trigger_coords": {
+        "x": 0,
+        "y": 0
+      },
+      "flags": "0x0000"
+    },
+    {
+      "exit_id": 109,
+      "source_room_id": 14,
+      "sector_index": 1054,
+      "record_index": 1,
+      "warp_type": "0x01D0",
+      "target_room_id": 32,
+      "trigger_coords": {
+        "x": 0,
+        "y": 136
+      },
+      "flags": "0x040F"
+    },
+    {
+      "exit_id": 110,
+      "source_room_id": 14,
+      "sector_index": 1054,
+      "record_index": 2,
+      "warp_type": "0x000F",
+      "target_room_id": 32,
+      "trigger_coords": {
+        "x": 257,
+        "y": -24568
+      },
+      "flags": "0xC0F8"
+    },
+    {
+      "exit_id": 111,
+      "source_room_id": 14,
+      "sector_index": 1054,
+      "record_index": 3,
+      "warp_type": "0x0102",
+      "target_room_id": 24,
+      "trigger_coords": {
+        "x": 776,
+        "y": 655
+      },
+      "flags": "0x07C4"
+    },
+    {
+      "exit_id": 112,
+      "source_room_id": 14,
+      "sector_index": 1054,
+      "record_index": 4,
+      "warp_type": "0x0503",
+      "target_room_id": 3,
+      "trigger_coords": {
+        "x": -32752,
+        "y": 775
+      },
+      "flags": "0x10FF"
+    },
+    {
+      "exit_id": 113,
+      "source_room_id": 14,
+      "sector_index": 1054,
+      "record_index": 8,
+      "warp_type": "0x0FC0",
+      "target_room_id": 12,
+      "trigger_coords": {
+        "x": 352,
+        "y": 188
+      },
+      "flags": "0x040F"
+    },
+    {
+      "exit_id": 114,
+      "source_room_id": 14,
+      "sector_index": 1054,
+      "record_index": 10,
+      "warp_type": "0x08FD",
+      "target_room_id": 45,
+      "trigger_coords": {
+        "x": 4,
+        "y": -6079
+      },
+      "flags": "0x6304"
+    },
+    {
+      "exit_id": 115,
+      "source_room_id": 14,
+      "sector_index": 1054,
+      "record_index": 11,
+      "warp_type": "0x010F",
+      "target_room_id": 0,
+      "trigger_coords": {
+        "x": 10279,
+        "y": 79
+      },
+      "flags": "0x0005"
+    },
+    {
+      "exit_id": 116,
+      "source_room_id": 14,
+      "sector_index": 1054,
+      "record_index": 13,
+      "warp_type": "0x08C7",
+      "target_room_id": 95,
+      "trigger_coords": {
+        "x": -18206,
+        "y": -9089
+      },
+      "flags": "0xC786"
+    },
+    {
+      "exit_id": 117,
+      "source_room_id": 14,
+      "sector_index": 1054,
+      "record_index": 14,
+      "warp_type": "0x0000",
+      "target_room_id": 0,
+      "trigger_coords": {
+        "x": 0,
+        "y": 0
+      },
+      "flags": "0x0000"
+    },
+    {
+      "exit_id": 118,
+      "source_room_id": 14,
+      "sector_index": 1054,
+      "record_index": 15,
+      "warp_type": "0x0000",
+      "target_room_id": 0,
+      "trigger_coords": {
+        "x": 0,
+        "y": 0
+      },
+      "flags": "0x0000"
+    },
+    {
+      "exit_id": 119,
+      "source_room_id": 15,
+      "sector_index": 1081,
+      "record_index": 1,
+      "warp_type": "0x3EC0",
+      "target_room_id": 1,
+      "trigger_coords": {
+        "x": -31231,
+        "y": 640
+      },
+      "flags": "0xA080"
+    },
+    {
+      "exit_id": 120,
+      "source_room_id": 15,
+      "sector_index": 1081,
+      "record_index": 2,
+      "warp_type": "0x000B",
+      "target_room_id": 15,
+      "trigger_coords": {
+        "x": -32174,
+        "y": 256
+      },
+      "flags": "0x1027"
+    },
+    {
+      "exit_id": 121,
+      "source_room_id": 15,
+      "sector_index": 1081,
+      "record_index": 3,
+      "warp_type": "0x0204",
+      "target_room_id": 4,
+      "trigger_coords": {
+        "x": -14686,
+        "y": -30719
+      },
+      "flags": "0x80A0"
+    },
+    {
+      "exit_id": 122,
+      "source_room_id": 15,
+      "sector_index": 1081,
+      "record_index": 5,
+      "warp_type": "0x01FC",
+      "target_room_id": 44,
+      "trigger_coords": {
+        "x": 1056,
+        "y": -1312
+      },
+      "flags": "0x0438"
+    },
+    {
+      "exit_id": 123,
+      "source_room_id": 15,
+      "sector_index": 1081,
+      "record_index": 8,
+      "warp_type": "0x008F",
+      "target_room_id": 39,
+      "trigger_coords": {
+        "x": -15135,
+        "y": -412
+      },
+      "flags": "0x9AA5"
+    },
+    {
+      "exit_id": 124,
+      "source_room_id": 15,
+      "sector_index": 1081,
+      "record_index": 9,
+      "warp_type": "0x18FA",
+      "target_room_id": 30,
+      "trigger_coords": {
+        "x": -8036,
+        "y": -24042
+      },
+      "flags": "0x8690"
+    },
+    {
+      "exit_id": 125,
+      "source_room_id": 15,
+      "sector_index": 1081,
+      "record_index": 10,
+      "warp_type": "0x0809",
+      "target_room_id": 9,
+      "trigger_coords": {
+        "x": 5,
+        "y": 4111
+      },
+      "flags": "0x00E0"
+    },
+    {
+      "exit_id": 126,
+      "source_room_id": 16,
+      "sector_index": 1095,
+      "record_index": 1,
+      "warp_type": "0x0820",
+      "target_room_id": 1,
+      "trigger_coords": {
+        "x": -16384,
+        "y": -26621
+      },
+      "flags": "0x8F00"
+    },
+    {
+      "exit_id": 127,
+      "source_room_id": 16,
+      "sector_index": 1095,
+      "record_index": 3,
+      "warp_type": "0x4EA2",
+      "target_room_id": 5,
+      "trigger_coords": {
+        "x": 5888,
+        "y": -26750
+      },
+      "flags": "0x0A10"
+    },
+    {
+      "exit_id": 128,
+      "source_room_id": 16,
+      "sector_index": 1095,
+      "record_index": 4,
+      "warp_type": "0x0102",
+      "target_room_id": 66,
+      "trigger_coords": {
+        "x": 512,
+        "y": 8325
+      },
+      "flags": "0xC0BE"
+    },
+    {
+      "exit_id": 129,
+      "source_room_id": 16,
+      "sector_index": 1095,
+      "record_index": 5,
+      "warp_type": "0x0103",
+      "target_room_id": 38,
+      "trigger_coords": {
+        "x": -32458,
+        "y": 1289
+      },
+      "flags": "0x0105"
+    },
+    {
+      "exit_id": 130,
+      "source_room_id": 16,
+      "sector_index": 1095,
+      "record_index": 7,
+      "warp_type": "0x0000",
+      "target_room_id": 0,
+      "trigger_coords": {
+        "x": 18179,
+        "y": 17606
+      },
+      "flags": "0x4F00"
+    },
+    {
+      "exit_id": 131,
+      "source_room_id": 16,
+      "sector_index": 1095,
+      "record_index": 8,
+      "warp_type": "0x0801",
+      "target_room_id": 1,
+      "trigger_coords": {
+        "x": -1913,
+        "y": 2567
+      },
+      "flags": "0x1001"
+    },
+    {
+      "exit_id": 132,
+      "source_room_id": 16,
+      "sector_index": 1095,
+      "record_index": 9,
+      "warp_type": "0x0801",
+      "target_room_id": 1,
+      "trigger_coords": {
+        "x": -125,
+        "y": 28292
+      },
+      "flags": "0x3201"
+    },
+    {
+      "exit_id": 133,
+      "source_room_id": 16,
+      "sector_index": 1095,
+      "record_index": 10,
+      "warp_type": "0x0202",
+      "target_room_id": 2,
+      "trigger_coords": {
+        "x": 18119,
+        "y": -13823
+      },
+      "flags": "0x5681"
+    },
+    {
+      "exit_id": 134,
+      "source_room_id": 17,
+      "sector_index": 1107,
+      "record_index": 2,
+      "warp_type": "0x01FF",
+      "target_room_id": 86,
+      "trigger_coords": {
+        "x": 3840,
+        "y": 16512
+      },
+      "flags": "0x04FF"
+    },
+    {
+      "exit_id": 135,
+      "source_room_id": 17,
+      "sector_index": 1107,
+      "record_index": 3,
+      "warp_type": "0x02E0",
+      "target_room_id": 9,
+      "trigger_coords": {
+        "x": 320,
+        "y": 584
+      },
+      "flags": "0x040F"
+    },
+    {
+      "exit_id": 136,
+      "source_room_id": 17,
+      "sector_index": 1107,
+      "record_index": 5,
+      "warp_type": "0x0067",
+      "target_room_id": 102,
+      "trigger_coords": {
+        "x": 440,
+        "y": -24114
+      },
+      "flags": "0xA23C"
+    },
+    {
+      "exit_id": 137,
+      "source_room_id": 17,
+      "sector_index": 1107,
+      "record_index": 6,
+      "warp_type": "0x01A0",
+      "target_room_id": 1,
+      "trigger_coords": {
+        "x": 2242,
+        "y": -25952
+      },
+      "flags": "0xFF80"
+    },
+    {
+      "exit_id": 138,
+      "source_room_id": 17,
+      "sector_index": 1107,
+      "record_index": 7,
+      "warp_type": "0x4210",
+      "target_room_id": 16,
+      "trigger_coords": {
+        "x": 5186,
+        "y": 6145
+      },
+      "flags": "0x0A05"
+    },
+    {
+      "exit_id": 139,
+      "source_room_id": 17,
+      "sector_index": 1107,
+      "record_index": 10,
+      "warp_type": "0x0210",
+      "target_room_id": 15,
+      "trigger_coords": {
+        "x": -32736,
+        "y": -31894
+      },
+      "flags": "0x0080"
+    },
+    {
+      "exit_id": 140,
+      "source_room_id": 17,
+      "sector_index": 1107,
+      "record_index": 18,
+      "warp_type": "0x367A",
+      "target_room_id": 18,
+      "trigger_coords": {
+        "x": -8287,
+        "y": 4865
+      },
+      "flags": "0x1301"
+    },
+    {
+      "exit_id": 141,
+      "source_room_id": 18,
+      "sector_index": 1123,
+      "record_index": 1,
+      "warp_type": "0x20C0",
+      "target_room_id": 22,
+      "trigger_coords": {
+        "x": 816,
+        "y": 1032
+      },
+      "flags": "0x0020"
+    },
+    {
+      "exit_id": 142,
+      "source_room_id": 18,
+      "sector_index": 1123,
+      "record_index": 2,
+      "warp_type": "0x01F8",
+      "target_room_id": 30,
+      "trigger_coords": {
+        "x": -16322,
+        "y": 1016
+      },
+      "flags": "0xA018"
+    },
+    {
+      "exit_id": 143,
+      "source_room_id": 18,
+      "sector_index": 1123,
+      "record_index": 6,
+      "warp_type": "0x40C4",
+      "target_room_id": 2,
+      "trigger_coords": {
+        "x": -15226,
+        "y": 766
+      },
+      "flags": "0xFE60"
+    },
+    {
+      "exit_id": 144,
+      "source_room_id": 18,
+      "sector_index": 1123,
+      "record_index": 16,
+      "warp_type": "0x0201",
+      "target_room_id": 1,
+      "trigger_coords": {
+        "x": 10367,
+        "y": 32639
+      },
+      "flags": "0x24E0"
+    },
+    {
+      "exit_id": 145,
+      "source_room_id": 19,
+      "sector_index": 1134,
+      "record_index": 1,
+      "warp_type": "0x0000",
+      "target_room_id": 0,
+      "trigger_coords": {
+        "x": -499,
+        "y": 160
+      },
+      "flags": "0x0128"
+    },
+    {
+      "exit_id": 146,
+      "source_room_id": 19,
+      "sector_index": 1134,
+      "record_index": 2,
+      "warp_type": "0x38FE",
+      "target_room_id": 0,
+      "trigger_coords": {
+        "x": 2050,
+        "y": 15
+      },
+      "flags": "0x4080"
+    },
+    {
+      "exit_id": 147,
+      "source_room_id": 19,
+      "sector_index": 1134,
+      "record_index": 4,
+      "warp_type": "0x1700",
+      "target_room_id": 0,
+      "trigger_coords": {
+        "x": 25312,
+        "y": 18017
+      },
+      "flags": "0x847F"
+    },
+    {
+      "exit_id": 148,
+      "source_room_id": 19,
+      "sector_index": 1134,
+      "record_index": 6,
+      "warp_type": "0x01FC",
+      "target_room_id": 54,
+      "trigger_coords": {
+        "x": -32194,
+        "y": 1285
+      },
+      "flags": "0x01F8"
+    },
+    {
+      "exit_id": 149,
+      "source_room_id": 19,
+      "sector_index": 1134,
+      "record_index": 8,
+      "warp_type": "0x0047",
+      "target_room_id": 71,
+      "trigger_coords": {
+        "x": 472,
+        "y": -8034
+      },
+      "flags": "0xE08E"
+    },
+    {
+      "exit_id": 150,
+      "source_room_id": 19,
+      "sector_index": 1134,
+      "record_index": 9,
+      "warp_type": "0x0007",
+      "target_room_id": 71,
+      "trigger_coords": {
+        "x": -32722,
+        "y": -8090
+      },
+      "flags": "0x0047"
+    },
+    {
+      "exit_id": 151,
+      "source_room_id": 19,
+      "sector_index": 1134,
+      "record_index": 11,
+      "warp_type": "0x0101",
+      "target_room_id": 16,
+      "trigger_coords": {
+        "x": 25089,
+        "y": -32640
+      },
+      "flags": "0xE008"
+    },
+    {
+      "exit_id": 152,
+      "source_room_id": 19,
+      "sector_index": 1134,
+      "record_index": 13,
+      "warp_type": "0x1900",
+      "target_room_id": 0,
+      "trigger_coords": {
+        "x": -8188,
+        "y": 25601
+      },
+      "flags": "0x0162"
+    },
+    {
+      "exit_id": 153,
+      "source_room_id": 19,
+      "sector_index": 1134,
+      "record_index": 16,
+      "warp_type": "0x0000",
+      "target_room_id": 0,
+      "trigger_coords": {
+        "x": 0,
+        "y": 0
+      },
+      "flags": "0x0000"
+    },
+    {
+      "exit_id": 154,
+      "source_room_id": 19,
+      "sector_index": 1134,
+      "record_index": 17,
+      "warp_type": "0x0000",
+      "target_room_id": 0,
+      "trigger_coords": {
+        "x": 0,
+        "y": 0
+      },
+      "flags": "0x0000"
+    },
+    {
+      "exit_id": 155,
+      "source_room_id": 20,
+      "sector_index": 1154,
+      "record_index": 1,
+      "warp_type": "0x0005",
+      "target_room_id": 64,
+      "trigger_coords": {
+        "x": 769,
+        "y": 30792
+      },
+      "flags": "0xC026"
+    },
+    {
+      "exit_id": 156,
+      "source_room_id": 20,
+      "sector_index": 1154,
+      "record_index": 2,
+      "warp_type": "0x0410",
+      "target_room_id": 15,
+      "trigger_coords": {
+        "x": 1064,
+        "y": 1040
+      },
+      "flags": "0x0000"
+    },
+    {
+      "exit_id": 157,
+      "source_room_id": 20,
+      "sector_index": 1154,
+      "record_index": 3,
+      "warp_type": "0x00A0",
+      "target_room_id": 1,
+      "trigger_coords": {
+        "x": 10400,
+        "y": 26113
+      },
+      "flags": "0xA0E0"
+    },
+    {
+      "exit_id": 158,
+      "source_room_id": 20,
+      "sector_index": 1154,
+      "record_index": 4,
+      "warp_type": "0x209F",
+      "target_room_id": 103,
+      "trigger_coords": {
+        "x": -24166,
+        "y": 1536
+      },
+      "flags": "0x0568"
+    },
+    {
+      "exit_id": 159,
+      "source_room_id": 20,
+      "sector_index": 1154,
+      "record_index": 5,
+      "warp_type": "0x050C",
+      "target_room_id": 63,
+      "trigger_coords": {
+        "x": -7946,
+        "y": 31203
+      },
+      "flags": "0x0047"
+    },
+    {
+      "exit_id": 160,
+      "source_room_id": 20,
+      "sector_index": 1154,
+      "record_index": 9,
+      "warp_type": "0x0605",
+      "target_room_id": 102,
+      "trigger_coords": {
+        "x": 24656,
+        "y": 5376
+      },
+      "flags": "0x6666"
+    },
+    {
+      "exit_id": 161,
+      "source_room_id": 20,
+      "sector_index": 1154,
+      "record_index": 10,
+      "warp_type": "0x1C6E",
+      "target_room_id": 87,
+      "trigger_coords": {
+        "x": -25925,
+        "y": -17546
+      },
+      "flags": "0x7888"
+    },
+    {
+      "exit_id": 162,
+      "source_room_id": 20,
+      "sector_index": 1154,
+      "record_index": 11,
+      "warp_type": "0x2265",
+      "target_room_id": 32,
+      "trigger_coords": {
+        "x": 1143,
+        "y": 26196
+      },
+      "flags": "0x6910"
+    },
+    {
+      "exit_id": 163,
+      "source_room_id": 20,
+      "sector_index": 1154,
+      "record_index": 12,
+      "warp_type": "0x40CC",
+      "target_room_id": 100,
+      "trigger_coords": {
+        "x": -26536,
+        "y": -26234
+      },
+      "flags": "0xBBBA"
+    },
+    {
+      "exit_id": 164,
+      "source_room_id": 21,
+      "sector_index": 1168,
+      "record_index": 1,
+      "warp_type": "0x0005",
+      "target_room_id": 96,
+      "trigger_coords": {
+        "x": 14407,
+        "y": 26631
+      },
+      "flags": "0x0003"
+    },
+    {
+      "exit_id": 165,
+      "source_room_id": 21,
+      "sector_index": 1168,
+      "record_index": 2,
+      "warp_type": "0x0085",
+      "target_room_id": 96,
+      "trigger_coords": {
+        "x": 24703,
+        "y": 79
+      },
+      "flags": "0x0014"
+    },
+    {
+      "exit_id": 166,
+      "source_room_id": 21,
+      "sector_index": 1168,
+      "record_index": 5,
+      "warp_type": "0x40E1",
+      "target_room_id": 97,
+      "trigger_coords": {
+        "x": 399,
+        "y": 16384
+      },
+      "flags": "0xC0C4"
+    },
+    {
+      "exit_id": 167,
+      "source_room_id": 21,
+      "sector_index": 1168,
+      "record_index": 8,
+      "warp_type": "0x050E",
+      "target_room_id": 15,
+      "trigger_coords": {
+        "x": -31790,
+        "y": -23590
+      },
+      "flags": "0x0047"
+    },
+    {
+      "exit_id": 168,
+      "source_room_id": 21,
+      "sector_index": 1168,
+      "record_index": 9,
+      "warp_type": "0x0108",
+      "target_room_id": 8,
+      "trigger_coords": {
+        "x": 1432,
+        "y": 272
+      },
+      "flags": "0x0060"
+    },
+    {
+      "exit_id": 169,
+      "source_room_id": 21,
+      "sector_index": 1168,
+      "record_index": 11,
+      "warp_type": "0x005F",
+      "target_room_id": 95,
+      "trigger_coords": {
+        "x": -16376,
+        "y": -22614
+      },
+      "flags": "0x4000"
+    },
+    {
+      "exit_id": 170,
+      "source_room_id": 21,
+      "sector_index": 1168,
+      "record_index": 13,
+      "warp_type": "0x0844",
+      "target_room_id": 68,
+      "trigger_coords": {
+        "x": 8740,
+        "y": 22348
+      },
+      "flags": "0x8754"
+    },
+    {
+      "exit_id": 171,
+      "source_room_id": 21,
+      "sector_index": 1168,
+      "record_index": 15,
+      "warp_type": "0x4200",
+      "target_room_id": 67,
+      "trigger_coords": {
+        "x": 323,
+        "y": 16435
+      },
+      "flags": "0x4033"
+    },
+    {
+      "exit_id": 172,
+      "source_room_id": 22,
+      "sector_index": 1183,
+      "record_index": 1,
+      "warp_type": "0x18FE",
+      "target_room_id": 0,
+      "trigger_coords": {
+        "x": 12120,
+        "y": 1795
+      },
+      "flags": "0x0930"
+    },
+    {
+      "exit_id": 173,
+      "source_room_id": 22,
+      "sector_index": 1183,
+      "record_index": 2,
+      "warp_type": "0x0088",
+      "target_room_id": 40,
+      "trigger_coords": {
+        "x": -64,
+        "y": 216
+      },
+      "flags": "0xFF0E"
+    },
+    {
+      "exit_id": 174,
+      "source_room_id": 22,
+      "sector_index": 1183,
+      "record_index": 3,
+      "warp_type": "0x0740",
+      "target_room_id": 8,
+      "trigger_coords": {
+        "x": -32,
+        "y": 1884
+      },
+      "flags": "0xFF05"
+    },
+    {
+      "exit_id": 175,
+      "source_room_id": 22,
+      "sector_index": 1183,
+      "record_index": 4,
+      "warp_type": "0x0004",
+      "target_room_id": 16,
+      "trigger_coords": {
+        "x": 0,
+        "y": -32760
+      },
+      "flags": "0xFE8F"
+    },
+    {
+      "exit_id": 176,
+      "source_room_id": 22,
+      "sector_index": 1183,
+      "record_index": 5,
+      "warp_type": "0x0458",
+      "target_room_id": 64,
+      "trigger_coords": {
+        "x": 32,
+        "y": 2676
+      },
+      "flags": "0xFE0F"
+    },
+    {
+      "exit_id": 177,
+      "source_room_id": 22,
+      "sector_index": 1183,
+      "record_index": 6,
+      "warp_type": "0x04FE",
+      "target_room_id": 0,
+      "trigger_coords": {
+        "x": 10242,
+        "y": 288
+      },
+      "flags": "0x00C0"
+    },
+    {
+      "exit_id": 178,
+      "source_room_id": 22,
+      "sector_index": 1183,
+      "record_index": 8,
+      "warp_type": "0x01FD",
+      "target_room_id": 45,
+      "trigger_coords": {
+        "x": -7716,
+        "y": 1020
+      },
+      "flags": "0x01F9"
+    },
+    {
+      "exit_id": 179,
+      "source_room_id": 22,
+      "sector_index": 1183,
+      "record_index": 10,
+      "warp_type": "0x01FA",
+      "target_room_id": 42,
+      "trigger_coords": {
+        "x": -32314,
+        "y": 1298
+      },
+      "flags": "0x01F9"
+    },
+    {
+      "exit_id": 180,
+      "source_room_id": 22,
+      "sector_index": 1183,
+      "record_index": 13,
+      "warp_type": "0x02FF",
+      "target_room_id": 47,
+      "trigger_coords": {
+        "x": -241,
+        "y": -224
+      },
+      "flags": "0x1004"
+    },
+    {
+      "exit_id": 181,
+      "source_room_id": 22,
+      "sector_index": 1183,
+      "record_index": 14,
+      "warp_type": "0x40C5",
+      "target_room_id": 1,
+      "trigger_coords": {
+        "x": 4100,
+        "y": -497
+      },
+      "flags": "0xFFA6"
+    },
+    {
+      "exit_id": 182,
+      "source_room_id": 22,
+      "sector_index": 1183,
+      "record_index": 15,
+      "warp_type": "0x0A00",
+      "target_room_id": 0,
+      "trigger_coords": {
+        "x": 568,
+        "y": 1792
+      },
+      "flags": "0xE000"
+    },
+    {
+      "exit_id": 183,
+      "source_room_id": 22,
+      "sector_index": 1183,
+      "record_index": 17,
+      "warp_type": "0x4121",
+      "target_room_id": 49,
+      "trigger_coords": {
+        "x": -32736,
+        "y": 1587
+      },
+      "flags": "0x3412"
+    },
+    {
+      "exit_id": 184,
+      "source_room_id": 22,
+      "sector_index": 1183,
+      "record_index": 18,
+      "warp_type": "0x4132",
+      "target_room_id": 19,
+      "trigger_coords": {
+        "x": -8611,
+        "y": 8465
+      },
+      "flags": "0x3449"
+    },
+    {
+      "exit_id": 185,
+      "source_room_id": 23,
+      "sector_index": 1210,
+      "record_index": 1,
+      "warp_type": "0x18FE",
+      "target_room_id": 0,
+      "trigger_coords": {
+        "x": 12120,
+        "y": 1795
+      },
+      "flags": "0x0930"
+    },
+    {
+      "exit_id": 186,
+      "source_room_id": 23,
+      "sector_index": 1210,
+      "record_index": 2,
+      "warp_type": "0x0088",
+      "target_room_id": 40,
+      "trigger_coords": {
+        "x": -64,
+        "y": 216
+      },
+      "flags": "0xFF0E"
+    },
+    {
+      "exit_id": 187,
+      "source_room_id": 23,
+      "sector_index": 1210,
+      "record_index": 3,
+      "warp_type": "0x0740",
+      "target_room_id": 8,
+      "trigger_coords": {
+        "x": -32,
+        "y": 1884
+      },
+      "flags": "0xFF05"
+    },
+    {
+      "exit_id": 188,
+      "source_room_id": 23,
+      "sector_index": 1210,
+      "record_index": 4,
+      "warp_type": "0x090C",
+      "target_room_id": 8,
+      "trigger_coords": {
+        "x": 0,
+        "y": 2156
+      },
+      "flags": "0xFE8F"
+    },
+    {
+      "exit_id": 189,
+      "source_room_id": 23,
+      "sector_index": 1210,
+      "record_index": 5,
+      "warp_type": "0x0004",
+      "target_room_id": 4,
+      "trigger_coords": {
+        "x": -32760,
+        "y": 1024
+      },
+      "flags": "0x0100"
+    },
+    {
+      "exit_id": 190,
+      "source_room_id": 23,
+      "sector_index": 1210,
+      "record_index": 7,
+      "warp_type": "0x0F00",
+      "target_room_id": 0,
+      "trigger_coords": {
+        "x": 32,
+        "y": -32450
+      },
+      "flags": "0x3602"
+    },
+    {
+      "exit_id": 191,
+      "source_room_id": 23,
+      "sector_index": 1210,
+      "record_index": 16,
+      "warp_type": "0x203A",
+      "target_room_id": 13,
+      "trigger_coords": {
+        "x": -24030,
+        "y": 8770
+      },
+      "flags": "0x6433"
+    },
+    {
+      "exit_id": 192,
+      "source_room_id": 23,
+      "sector_index": 1210,
+      "record_index": 17,
+      "warp_type": "0x1113",
+      "target_room_id": 68,
+      "trigger_coords": {
+        "x": 8738,
+        "y": 16673
+      },
+      "flags": "0xD044"
+    },
+    {
+      "exit_id": 193,
+      "source_room_id": 23,
+      "sector_index": 1210,
+      "record_index": 18,
+      "warp_type": "0x400B",
+      "target_room_id": 34,
+      "trigger_coords": {
+        "x": 13385,
+        "y": -8726
+      },
+      "flags": "0x1122"
+    },
+    {
+      "exit_id": 194,
+      "source_room_id": 23,
+      "sector_index": 1210,
+      "record_index": 19,
+      "warp_type": "0x12DD",
+      "target_room_id": 13,
+      "trigger_coords": {
+        "x": 12946,
+        "y": 4370
+      },
+      "flags": "0x5EAA"
+    },
+    {
+      "exit_id": 195,
+      "source_room_id": 24,
+      "sector_index": 1235,
+      "record_index": 2,
+      "warp_type": "0x0863",
+      "target_room_id": 99,
+      "trigger_coords": {
+        "x": 3839,
+        "y": -24574
+      },
+      "flags": "0xC13A"
+    },
+    {
+      "exit_id": 196,
+      "source_room_id": 24,
+      "sector_index": 1235,
+      "record_index": 3,
+      "warp_type": "0x0503",
+      "target_room_id": 3,
+      "trigger_coords": {
+        "x": -7996,
+        "y": 24960
+      },
+      "flags": "0x003F"
+    },
+    {
+      "exit_id": 197,
+      "source_room_id": 24,
+      "sector_index": 1235,
+      "record_index": 4,
+      "warp_type": "0x0420",
+      "target_room_id": 32,
+      "trigger_coords": {
+        "x": -24310,
+        "y": 256
+      },
+      "flags": "0x0863"
+    },
+    {
+      "exit_id": 198,
+      "source_room_id": 24,
+      "sector_index": 1235,
+      "record_index": 6,
+      "warp_type": "0x0307",
+      "target_room_id": 2,
+      "trigger_coords": {
+        "x": 263,
+        "y": -32594
+      },
+      "flags": "0xA1B0"
+    },
+    {
+      "exit_id": 199,
+      "source_room_id": 24,
+      "sector_index": 1235,
+      "record_index": 7,
+      "warp_type": "0x0109",
+      "target_room_id": 82,
+      "trigger_coords": {
+        "x": -8184,
+        "y": 25506
+      },
+      "flags": "0x0108"
+    },
+    {
+      "exit_id": 200,
+      "source_room_id": 24,
+      "sector_index": 1235,
+      "record_index": 8,
+      "warp_type": "0x0420",
+      "target_room_id": 32,
+      "trigger_coords": {
+        "x": 25760,
+        "y": -9052
+      },
+      "flags": "0xE1C0"
+    },
+    {
+      "exit_id": 201,
+      "source_room_id": 24,
+      "sector_index": 1235,
+      "record_index": 9,
+      "warp_type": "0x0180",
+      "target_room_id": 2,
+      "trigger_coords": {
+        "x": 95,
+        "y": -16172
+      },
+      "flags": "0x100F"
+    },
+    {
+      "exit_id": 202,
+      "source_room_id": 24,
+      "sector_index": 1235,
+      "record_index": 10,
+      "warp_type": "0x48A6",
+      "target_room_id": 62,
+      "trigger_coords": {
+        "x": 8326,
+        "y": -32255
+      },
+      "flags": "0x7601"
+    },
+    {
+      "exit_id": 203,
+      "source_room_id": 24,
+      "sector_index": 1235,
+      "record_index": 14,
+      "warp_type": "0x0000",
+      "target_room_id": 0,
+      "trigger_coords": {
+        "x": 0,
+        "y": 0
+      },
+      "flags": "0x0000"
+    },
+    {
+      "exit_id": 204,
+      "source_room_id": 24,
+      "sector_index": 1235,
+      "record_index": 15,
+      "warp_type": "0x0000",
+      "target_room_id": 0,
+      "trigger_coords": {
+        "x": 0,
+        "y": 0
+      },
+      "flags": "0x0000"
+    },
+    {
+      "exit_id": 205,
+      "source_room_id": 24,
+      "sector_index": 1235,
+      "record_index": 16,
+      "warp_type": "0x0000",
+      "target_room_id": 0,
+      "trigger_coords": {
+        "x": 0,
+        "y": 0
+      },
+      "flags": "0x0000"
+    },
+    {
+      "exit_id": 206,
+      "source_room_id": 24,
+      "sector_index": 1235,
+      "record_index": 17,
+      "warp_type": "0x0000",
+      "target_room_id": 0,
+      "trigger_coords": {
+        "x": 0,
+        "y": 0
+      },
+      "flags": "0x0000"
+    },
+    {
+      "exit_id": 207,
+      "source_room_id": 24,
+      "sector_index": 1235,
+      "record_index": 18,
+      "warp_type": "0x0000",
+      "target_room_id": 0,
+      "trigger_coords": {
+        "x": 0,
+        "y": 0
+      },
+      "flags": "0x0000"
+    },
+    {
+      "exit_id": 208,
+      "source_room_id": 24,
+      "sector_index": 1235,
+      "record_index": 19,
+      "warp_type": "0x0000",
+      "target_room_id": 0,
+      "trigger_coords": {
+        "x": 0,
+        "y": 0
+      },
+      "flags": "0x0000"
+    },
+    {
+      "exit_id": 209,
+      "source_room_id": 25,
+      "sector_index": 1245,
+      "record_index": 1,
+      "warp_type": "0x3F00",
+      "target_room_id": 4,
+      "trigger_coords": {
+        "x": 16636,
+        "y": -28928
+      },
+      "flags": "0x1808"
+    },
+    {
+      "exit_id": 210,
+      "source_room_id": 25,
+      "sector_index": 1245,
+      "record_index": 2,
+      "warp_type": "0x0F00",
+      "target_room_id": 0,
+      "trigger_coords": {
+        "x": 19584,
+        "y": 4097
+      },
+      "flags": "0x0880"
+    },
+    {
+      "exit_id": 211,
+      "source_room_id": 25,
+      "sector_index": 1245,
+      "record_index": 5,
+      "warp_type": "0x4EC0",
+      "target_room_id": 88,
+      "trigger_coords": {
+        "x": 18533,
+        "y": -7816
+      },
+      "flags": "0x7EE1"
+    },
+    {
+      "exit_id": 212,
+      "source_room_id": 25,
+      "sector_index": 1245,
+      "record_index": 7,
+      "warp_type": "0x01FD",
+      "target_room_id": 45,
+      "trigger_coords": {
+        "x": -32344,
+        "y": 1080
+      },
+      "flags": "0x01FD"
+    },
+    {
+      "exit_id": 213,
+      "source_room_id": 25,
+      "sector_index": 1245,
+      "record_index": 8,
+      "warp_type": "0x0881",
+      "target_room_id": 25,
+      "trigger_coords": {
+        "x": 14208,
+        "y": 3
+      },
+      "flags": "0x0820"
+    },
+    {
+      "exit_id": 214,
+      "source_room_id": 25,
+      "sector_index": 1245,
+      "record_index": 10,
+      "warp_type": "0x02E0",
+      "target_room_id": 16,
+      "trigger_coords": {
+        "x": 259,
+        "y": -8026
+      },
+      "flags": "0x0861"
+    },
+    {
+      "exit_id": 215,
+      "source_room_id": 25,
+      "sector_index": 1245,
+      "record_index": 12,
+      "warp_type": "0x0610",
+      "target_room_id": 16,
+      "trigger_coords": {
+        "x": 2264,
+        "y": 1544
+      },
+      "flags": "0x0020"
+    },
+    {
+      "exit_id": 216,
+      "source_room_id": 25,
+      "sector_index": 1245,
+      "record_index": 13,
+      "warp_type": "0x0320",
+      "target_room_id": 8,
+      "trigger_coords": {
+        "x": 9729,
+        "y": 16608
+      },
+      "flags": "0x27E0"
+    },
+    {
+      "exit_id": 217,
+      "source_room_id": 25,
+      "sector_index": 1245,
+      "record_index": 19,
+      "warp_type": "0x0005",
+      "target_room_id": 0,
+      "trigger_coords": {
+        "x": 17536,
+        "y": -24574
+      },
+      "flags": "0x0004"
+    },
+    {
+      "exit_id": 218,
+      "source_room_id": 25,
+      "sector_index": 1245,
+      "record_index": 23,
+      "warp_type": "0x2002",
+      "target_room_id": 2,
+      "trigger_coords": {
+        "x": 2473,
+        "y": 17817
+      },
+      "flags": "0xC020"
+    },
+    {
+      "exit_id": 219,
+      "source_room_id": 26,
+      "sector_index": 1260,
+      "record_index": 1,
+      "warp_type": "0x18FE",
+      "target_room_id": 0,
+      "trigger_coords": {
+        "x": 12120,
+        "y": 1795
+      },
+      "flags": "0x0930"
+    },
+    {
+      "exit_id": 220,
+      "source_room_id": 26,
+      "sector_index": 1260,
+      "record_index": 2,
+      "warp_type": "0x0088",
+      "target_room_id": 40,
+      "trigger_coords": {
+        "x": -64,
+        "y": 216
+      },
+      "flags": "0xFF0E"
+    },
+    {
+      "exit_id": 221,
+      "source_room_id": 26,
+      "sector_index": 1260,
+      "record_index": 3,
+      "warp_type": "0x0740",
+      "target_room_id": 8,
+      "trigger_coords": {
+        "x": -32,
+        "y": 1884
+      },
+      "flags": "0xFF05"
+    },
+    {
+      "exit_id": 222,
+      "source_room_id": 26,
+      "sector_index": 1260,
+      "record_index": 4,
+      "warp_type": "0x0458",
+      "target_room_id": 64,
+      "trigger_coords": {
+        "x": 480,
+        "y": -32760
+      },
+      "flags": "0xFB8F"
+    },
+    {
+      "exit_id": 223,
+      "source_room_id": 26,
+      "sector_index": 1260,
+      "record_index": 7,
+      "warp_type": "0x01FC",
+      "target_room_id": 44,
+      "trigger_coords": {
+        "x": 14383,
+        "y": 2127
+      },
+      "flags": "0x0503"
+    },
+    {
+      "exit_id": 224,
+      "source_room_id": 26,
+      "sector_index": 1260,
+      "record_index": 8,
+      "warp_type": "0x08E0",
+      "target_room_id": 8,
+      "trigger_coords": {
+        "x": 224,
+        "y": 1
+      },
+      "flags": "0x088F"
+    },
+    {
+      "exit_id": 225,
+      "source_room_id": 26,
+      "sector_index": 1260,
+      "record_index": 9,
+      "warp_type": "0x0208",
+      "target_room_id": 8,
+      "trigger_coords": {
+        "x": 120,
+        "y": 1032
+      },
+      "flags": "0x0000"
+    },
+    {
+      "exit_id": 226,
+      "source_room_id": 26,
+      "sector_index": 1260,
+      "record_index": 11,
+      "warp_type": "0x04A0",
+      "target_room_id": 56,
+      "trigger_coords": {
+        "x": -32,
+        "y": 30209
+      },
+      "flags": "0x7601"
+    },
+    {
+      "exit_id": 227,
+      "source_room_id": 26,
+      "sector_index": 1260,
+      "record_index": 12,
+      "warp_type": "0x0908",
+      "target_room_id": 8,
+      "trigger_coords": {
+        "x": 769,
+        "y": 2048
+      },
+      "flags": "0x5665"
+    },
+    {
+      "exit_id": 228,
+      "source_room_id": 26,
+      "sector_index": 1260,
+      "record_index": 13,
+      "warp_type": "0x2067",
+      "target_room_id": 34,
+      "trigger_coords": {
+        "x": -24302,
+        "y": 911
+      },
+      "flags": "0x8198"
+    },
+    {
+      "exit_id": 229,
+      "source_room_id": 27,
+      "sector_index": 1287,
+      "record_index": 1,
+      "warp_type": "0x18FE",
+      "target_room_id": 0,
+      "trigger_coords": {
+        "x": 12120,
+        "y": 1795
+      },
+      "flags": "0x0930"
+    },
+    {
+      "exit_id": 230,
+      "source_room_id": 27,
+      "sector_index": 1287,
+      "record_index": 2,
+      "warp_type": "0x0088",
+      "target_room_id": 40,
+      "trigger_coords": {
+        "x": -64,
+        "y": 216
+      },
+      "flags": "0xFF0E"
+    },
+    {
+      "exit_id": 231,
+      "source_room_id": 27,
+      "sector_index": 1287,
+      "record_index": 3,
+      "warp_type": "0x0740",
+      "target_room_id": 8,
+      "trigger_coords": {
+        "x": -32,
+        "y": 1884
+      },
+      "flags": "0xFF05"
+    },
+    {
+      "exit_id": 232,
+      "source_room_id": 27,
+      "sector_index": 1287,
+      "record_index": 4,
+      "warp_type": "0x083C",
+      "target_room_id": 8,
+      "trigger_coords": {
+        "x": 0,
+        "y": -32760
+      },
+      "flags": "0xFE0F"
+    },
+    {
+      "exit_id": 233,
+      "source_room_id": 27,
+      "sector_index": 1287,
+      "record_index": 7,
+      "warp_type": "0x20A0",
+      "target_room_id": 3,
+      "trigger_coords": {
+        "x": 128,
+        "y": -17918
+      },
+      "flags": "0x8F00"
+    },
+    {
+      "exit_id": 234,
+      "source_room_id": 27,
+      "sector_index": 1287,
+      "record_index": 8,
+      "warp_type": "0x01C0",
+      "target_room_id": 16,
+      "trigger_coords": {
+        "x": 16384,
+        "y": 1026
+      },
+      "flags": "0x0A01"
+    },
+    {
+      "exit_id": 235,
+      "source_room_id": 27,
+      "sector_index": 1287,
+      "record_index": 11,
+      "warp_type": "0x3362",
+      "target_room_id": 98,
+      "trigger_coords": {
+        "x": -12947,
+        "y": -4691
+      },
+      "flags": "0xACDD"
+    },
+    {
+      "exit_id": 236,
+      "source_room_id": 27,
+      "sector_index": 1287,
+      "record_index": 13,
+      "warp_type": "0x0ADA",
+      "target_room_id": 10,
+      "trigger_coords": {
+        "x": 19113,
+        "y": -21302
+      },
+      "flags": "0xCAAA"
+    },
+    {
+      "exit_id": 237,
+      "source_room_id": 27,
+      "sector_index": 1287,
+      "record_index": 14,
+      "warp_type": "0x4433",
+      "target_room_id": 70,
+      "trigger_coords": {
+        "x": 26217,
+        "y": -21843
+      },
+      "flags": "0x3344"
+    },
+    {
+      "exit_id": 238,
+      "source_room_id": 27,
+      "sector_index": 1287,
+      "record_index": 15,
+      "warp_type": "0x2311",
+      "target_room_id": 52,
+      "trigger_coords": {
+        "x": 2338,
+        "y": 8850
+      },
+      "flags": "0xADD0"
+    },
+    {
+      "exit_id": 239,
+      "source_room_id": 28,
+      "sector_index": 1313,
+      "record_index": 1,
+      "warp_type": "0x0005",
+      "target_room_id": 96,
+      "trigger_coords": {
+        "x": 18575,
+        "y": 2087
+      },
+      "flags": "0x0006"
+    },
+    {
+      "exit_id": 240,
+      "source_room_id": 28,
+      "sector_index": 1313,
+      "record_index": 3,
+      "warp_type": "0x07C0",
+      "target_room_id": 1,
+      "trigger_coords": {
+        "x": 2049,
+        "y": -896
+      },
+      "flags": "0xFEE0"
+    },
+    {
+      "exit_id": 241,
+      "source_room_id": 28,
+      "sector_index": 1313,
+      "record_index": 5,
+      "warp_type": "0x0801",
+      "target_room_id": 1,
+      "trigger_coords": {
+        "x": 992,
+        "y": 4195
+      },
+      "flags": "0x1001"
+    },
+    {
+      "exit_id": 242,
+      "source_room_id": 28,
+      "sector_index": 1313,
+      "record_index": 6,
+      "warp_type": "0x0A1C",
+      "target_room_id": 64,
+      "trigger_coords": {
+        "x": 160,
+        "y": -32760
+      },
+      "flags": "0xFE0F"
+    },
+    {
+      "exit_id": 243,
+      "source_room_id": 28,
+      "sector_index": 1313,
+      "record_index": 7,
+      "warp_type": "0x2E09",
+      "target_room_id": 8,
+      "trigger_coords": {
+        "x": 224,
+        "y": 2952
+      },
+      "flags": "0xFF06"
+    },
+    {
+      "exit_id": 244,
+      "source_room_id": 28,
+      "sector_index": 1313,
+      "record_index": 8,
+      "warp_type": "0x0308",
+      "target_room_id": 8,
+      "trigger_coords": {
+        "x": 3116,
+        "y": 1808
+      },
+      "flags": "0xFFE0"
+    },
+    {
+      "exit_id": 245,
+      "source_room_id": 28,
+      "sector_index": 1313,
+      "record_index": 9,
+      "warp_type": "0x0C64",
+      "target_room_id": 8,
+      "trigger_coords": {
+        "x": 160,
+        "y": 7
+      },
+      "flags": "0xFF85"
+    },
+    {
+      "exit_id": 246,
+      "source_room_id": 28,
+      "sector_index": 1313,
+      "record_index": 13,
+      "warp_type": "0x2201",
+      "target_room_id": 1,
+      "trigger_coords": {
+        "x": -1393,
+        "y": -16078
+      },
+      "flags": "0x0802"
+    },
+    {
+      "exit_id": 247,
+      "source_room_id": 28,
+      "sector_index": 1313,
+      "record_index": 14,
+      "warp_type": "0x080D",
+      "target_room_id": 1,
+      "trigger_coords": {
+        "x": 3841,
+        "y": 130
+      },
+      "flags": "0x20FE"
+    },
+    {
+      "exit_id": 248,
+      "source_room_id": 28,
+      "sector_index": 1313,
+      "record_index": 15,
+      "warp_type": "0x1804",
+      "target_room_id": 4,
+      "trigger_coords": {
+        "x": -24544,
+        "y": 352
+      },
+      "flags": "0x0D38"
+    },
+    {
+      "exit_id": 249,
+      "source_room_id": 28,
+      "sector_index": 1313,
+      "record_index": 16,
+      "warp_type": "0x01FD",
+      "target_room_id": 76,
+      "trigger_coords": {
+        "x": 3841,
+        "y": 129
+      },
+      "flags": "0x04FD"
+    },
+    {
+      "exit_id": 250,
+      "source_room_id": 28,
+      "sector_index": 1313,
+      "record_index": 17,
+      "warp_type": "0x0438",
+      "target_room_id": 32,
+      "trigger_coords": {
+        "x": 25701,
+        "y": 1028
+      },
+      "flags": "0xFDE1"
+    },
+    {
+      "exit_id": 251,
+      "source_room_id": 28,
+      "sector_index": 1313,
+      "record_index": 19,
+      "warp_type": "0x03FC",
+      "target_room_id": 1,
+      "trigger_coords": {
+        "x": 506,
+        "y": -8160
+      },
+      "flags": "0xA438"
+    },
+    {
+      "exit_id": 252,
+      "source_room_id": 28,
+      "sector_index": 1313,
+      "record_index": 20,
+      "warp_type": "0x0D59",
+      "target_room_id": 89,
+      "trigger_coords": {
+        "x": -17477,
+        "y": -18245
+      },
+      "flags": "0x9ABB"
+    },
+    {
+      "exit_id": 253,
+      "source_room_id": 28,
+      "sector_index": 1313,
+      "record_index": 21,
+      "warp_type": "0x4440",
+      "target_room_id": 6,
+      "trigger_coords": {
+        "x": 29764,
+        "y": 8805
+      },
+      "flags": "0x4488"
+    },
+    {
+      "exit_id": 254,
+      "source_room_id": 28,
+      "sector_index": 1313,
+      "record_index": 23,
+      "warp_type": "0x4677",
+      "target_room_id": 15,
+      "trigger_coords": {
+        "x": -26506,
+        "y": 30380
+      },
+      "flags": "0x9999"
+    },
+    {
+      "exit_id": 255,
+      "source_room_id": 29,
+      "sector_index": 1331,
+      "record_index": 1,
+      "warp_type": "0x0005",
+      "target_room_id": 96,
+      "trigger_coords": {
+        "x": 10271,
+        "y": 2079
+      },
+      "flags": "0x0002"
+    },
+    {
+      "exit_id": 256,
+      "source_room_id": 29,
+      "sector_index": 1331,
+      "record_index": 4,
+      "warp_type": "0x07FF",
+      "target_room_id": 7,
+      "trigger_coords": {
+        "x": 16384,
+        "y": 2047
+      },
+      "flags": "0xD004"
+    },
+    {
+      "exit_id": 257,
+      "source_room_id": 29,
+      "sector_index": 1331,
+      "record_index": 6,
+      "warp_type": "0x0280",
+      "target_room_id": 11,
+      "trigger_coords": {
+        "x": 63,
+        "y": 56
+      },
+      "flags": "0x605F"
+    },
+    {
+      "exit_id": 258,
+      "source_room_id": 29,
+      "sector_index": 1331,
+      "record_index": 7,
+      "warp_type": "0x02E0",
+      "target_room_id": 1,
+      "trigger_coords": {
+        "x": 10241,
+        "y": 1248
+      },
+      "flags": "0x02E0"
+    },
+    {
+      "exit_id": 259,
+      "source_room_id": 29,
+      "sector_index": 1331,
+      "record_index": 8,
+      "warp_type": "0x00E0",
+      "target_room_id": 97,
+      "trigger_coords": {
+        "x": 19457,
+        "y": 2302
+      },
+      "flags": "0x0A0D"
+    },
+    {
+      "exit_id": 260,
+      "source_room_id": 29,
+      "sector_index": 1331,
+      "record_index": 13,
+      "warp_type": "0x02C3",
+      "target_room_id": 5,
+      "trigger_coords": {
+        "x": 1856,
+        "y": -16411
+      },
+      "flags": "0x4000"
+    },
+    {
+      "exit_id": 261,
+      "source_room_id": 29,
+      "sector_index": 1331,
+      "record_index": 18,
+      "warp_type": "0x4828",
+      "target_room_id": 18,
+      "trigger_coords": {
+        "x": 8482,
+        "y": 6216
+      },
+      "flags": "0x212A"
+    },
+    {
+      "exit_id": 262,
+      "source_room_id": 29,
+      "sector_index": 1331,
+      "record_index": 21,
+      "warp_type": "0x1111",
+      "target_room_id": 17,
+      "trigger_coords": {
+        "x": 9282,
+        "y": 10990
+      },
+      "flags": "0xAFFF"
+    },
+    {
+      "exit_id": 263,
+      "source_room_id": 29,
+      "sector_index": 1331,
+      "record_index": 22,
+      "warp_type": "0x422E",
+      "target_room_id": 30,
+      "trigger_coords": {
+        "x": -12374,
+        "y": 5188
+      },
+      "flags": "0xCAEE"
+    },
+    {
+      "exit_id": 264,
+      "source_room_id": 29,
+      "sector_index": 1331,
+      "record_index": 23,
+      "warp_type": "0x221A",
+      "target_room_id": 26,
+      "trigger_coords": {
+        "x": 4641,
+        "y": 8474
+      },
+      "flags": "0xE12A"
+    },
+    {
+      "exit_id": 265,
+      "source_room_id": 30,
+      "sector_index": 1349,
+      "record_index": 1,
+      "warp_type": "0x2601",
+      "target_room_id": 1,
+      "trigger_coords": {
+        "x": -497,
+        "y": 256
+      },
+      "flags": "0x260B"
+    },
+    {
+      "exit_id": 266,
+      "source_room_id": 30,
+      "sector_index": 1349,
+      "record_index": 3,
+      "warp_type": "0x0040",
+      "target_room_id": 64,
+      "trigger_coords": {
+        "x": 15,
+        "y": 64
+      },
+      "flags": "0x4310"
+    },
+    {
+      "exit_id": 267,
+      "source_room_id": 30,
+      "sector_index": 1349,
+      "record_index": 4,
+      "warp_type": "0x0F00",
+      "target_room_id": 2,
+      "trigger_coords": {
+        "x": 4349,
+        "y": -28673
+      },
+      "flags": "0x1808"
+    },
+    {
+      "exit_id": 268,
+      "source_room_id": 30,
+      "sector_index": 1349,
+      "record_index": 5,
+      "warp_type": "0x02C4",
+      "target_room_id": 8,
+      "trigger_coords": {
+        "x": 416,
+        "y": 2052
+      },
+      "flags": "0xFD8F"
+    },
+    {
+      "exit_id": 269,
+      "source_room_id": 30,
+      "sector_index": 1349,
+      "record_index": 6,
+      "warp_type": "0x0807",
+      "target_room_id": 7,
+      "trigger_coords": {
+        "x": 13953,
+        "y": 20993
+      },
+      "flags": "0x5280"
+    },
+    {
+      "exit_id": 270,
+      "source_room_id": 30,
+      "sector_index": 1349,
+      "record_index": 7,
+      "warp_type": "0x1700",
+      "target_room_id": 0,
+      "trigger_coords": {
+        "x": 1024,
+        "y": 2952
+      },
+      "flags": "0x1E69"
+    },
+    {
+      "exit_id": 271,
+      "source_room_id": 30,
+      "sector_index": 1349,
+      "record_index": 8,
+      "warp_type": "0x04FE",
+      "target_room_id": 46,
+      "trigger_coords": {
+        "x": 12289,
+        "y": 385
+      },
+      "flags": "0x8080"
+    },
+    {
+      "exit_id": 272,
+      "source_room_id": 30,
+      "sector_index": 1349,
+      "record_index": 9,
+      "warp_type": "0x1002",
+      "target_room_id": 2,
+      "trigger_coords": {
+        "x": 260,
+        "y": -32262
+      },
+      "flags": "0x8298"
+    },
+    {
+      "exit_id": 273,
+      "source_room_id": 30,
+      "sector_index": 1349,
+      "record_index": 10,
+      "warp_type": "0x00C0",
+      "target_room_id": 52,
+      "trigger_coords": {
+        "x": 15496,
+        "y": 3495
+      },
+      "flags": "0x045C"
+    },
+    {
+      "exit_id": 274,
+      "source_room_id": 31,
+      "sector_index": 1359,
+      "record_index": 1,
+      "warp_type": "0x1801",
+      "target_room_id": 1,
+      "trigger_coords": {
+        "x": 2052,
+        "y": 655
+      },
+      "flags": "0x8080"
+    },
+    {
+      "exit_id": 275,
+      "source_room_id": 31,
+      "sector_index": 1359,
+      "record_index": 3,
+      "warp_type": "0x0EC0",
+      "target_room_id": 3,
+      "trigger_coords": {
+        "x": -288,
+        "y": 4097
+      },
+      "flags": "0xFC0F"
+    },
+    {
+      "exit_id": 276,
+      "source_room_id": 31,
+      "sector_index": 1359,
+      "record_index": 6,
+      "warp_type": "0x000F",
+      "target_room_id": 15,
+      "trigger_coords": {
+        "x": 1760,
+        "y": 2049
+      },
+      "flags": "0x2E81"
+    },
+    {
+      "exit_id": 277,
+      "source_room_id": 31,
+      "sector_index": 1359,
+      "record_index": 7,
+      "warp_type": "0x01FE",
+      "target_room_id": 40,
+      "trigger_coords": {
+        "x": -24182,
+        "y": 448
+      },
+      "flags": "0x0190"
+    },
+    {
+      "exit_id": 278,
+      "source_room_id": 32,
+      "sector_index": 1380,
+      "record_index": 2,
+      "warp_type": "0x0001",
+      "target_room_id": 3,
+      "trigger_coords": {
+        "x": 24704,
+        "y": -15359
+      },
+      "flags": "0x0F00"
+    },
+    {
+      "exit_id": 279,
+      "source_room_id": 32,
+      "sector_index": 1380,
+      "record_index": 3,
+      "warp_type": "0x01FA",
+      "target_room_id": 32,
+      "trigger_coords": {
+        "x": 904,
+        "y": 2112
+      },
+      "flags": "0xA084"
+    },
+    {
+      "exit_id": 280,
+      "source_room_id": 32,
+      "sector_index": 1380,
+      "record_index": 10,
+      "warp_type": "0x1286",
+      "target_room_id": 30,
+      "trigger_coords": {
+        "x": -1310,
+        "y": 18530
+      },
+      "flags": "0x2A01"
+    },
+    {
+      "exit_id": 281,
+      "source_room_id": 32,
+      "sector_index": 1380,
+      "record_index": 11,
+      "warp_type": "0x2CC2",
+      "target_room_id": 90,
+      "trigger_coords": {
+        "x": -21787,
+        "y": 21157
+      },
+      "flags": "0x3086"
+    },
+    {
+      "exit_id": 282,
+      "source_room_id": 32,
+      "sector_index": 1380,
+      "record_index": 12,
+      "warp_type": "0x0180",
+      "target_room_id": 24,
+      "trigger_coords": {
+        "x": -22582,
+        "y": 767
+      },
+      "flags": "0xFC69"
+    },
+    {
+      "exit_id": 283,
+      "source_room_id": 32,
+      "sector_index": 1380,
+      "record_index": 13,
+      "warp_type": "0x0080",
+      "target_room_id": 12,
+      "trigger_coords": {
+        "x": 2302,
+        "y": -29184
+      },
+      "flags": "0x6C02"
+    },
+    {
+      "exit_id": 284,
+      "source_room_id": 32,
+      "sector_index": 1380,
+      "record_index": 15,
+      "warp_type": "0x02FE",
+      "target_room_id": 0,
+      "trigger_coords": {
+        "x": 23612,
+        "y": -30656
+      },
+      "flags": "0x1E06"
+    },
+    {
+      "exit_id": 285,
+      "source_room_id": 32,
+      "sector_index": 1380,
+      "record_index": 16,
+      "warp_type": "0x4900",
+      "target_room_id": 14,
+      "trigger_coords": {
+        "x": 29264,
+        "y": 12544
+      },
+      "flags": "0xE01D"
+    },
+    {
+      "exit_id": 286,
+      "source_room_id": 32,
+      "sector_index": 1380,
+      "record_index": 18,
+      "warp_type": "0x0180",
+      "target_room_id": 24,
+      "trigger_coords": {
+        "x": 163,
+        "y": -15229
+      },
+      "flags": "0x0200"
+    },
+    {
+      "exit_id": 287,
+      "source_room_id": 33,
+      "sector_index": 1392,
+      "record_index": 1,
+      "warp_type": "0x0FFF",
+      "target_room_id": 47,
+      "trigger_coords": {
+        "x": -128,
+        "y": 2049
+      },
+      "flags": "0x6E01"
+    },
+    {
+      "exit_id": 288,
+      "source_room_id": 33,
+      "sector_index": 1392,
+      "record_index": 2,
+      "warp_type": "0x0FFE",
+      "target_room_id": 46,
+      "trigger_coords": {
+        "x": 1152,
+        "y": 2055
+      },
+      "flags": "0xEC01"
+    },
+    {
+      "exit_id": 289,
+      "source_room_id": 33,
+      "sector_index": 1392,
+      "record_index": 3,
+      "warp_type": "0x2001",
+      "target_room_id": 1,
+      "trigger_coords": {
+        "x": 1026,
+        "y": 4350
+      },
+      "flags": "0x4804"
+    },
+    {
+      "exit_id": 290,
+      "source_room_id": 33,
+      "sector_index": 1392,
+      "record_index": 5,
+      "warp_type": "0x22A4",
+      "target_room_id": 60,
+      "trigger_coords": {
+        "x": -10622,
+        "y": -29052
+      },
+      "flags": "0x78C2"
+    },
+    {
+      "exit_id": 291,
+      "source_room_id": 33,
+      "sector_index": 1392,
+      "record_index": 7,
+      "warp_type": "0x0018",
+      "target_room_id": 95,
+      "trigger_coords": {
+        "x": -32514,
+        "y": 256
+      },
+      "flags": "0x2847"
+    },
+    {
+      "exit_id": 292,
+      "source_room_id": 33,
+      "sector_index": 1392,
+      "record_index": 9,
+      "warp_type": "0x018F",
+      "target_room_id": 39,
+      "trigger_coords": {
+        "x": -32760,
+        "y": 736
+      },
+      "flags": "0x01FD"
+    },
+    {
+      "exit_id": 293,
+      "source_room_id": 33,
+      "sector_index": 1392,
+      "record_index": 11,
+      "warp_type": "0x1204",
+      "target_room_id": 15,
+      "trigger_coords": {
+        "x": -30636,
+        "y": 264
+      },
+      "flags": "0xFEC0"
+    },
+    {
+      "exit_id": 294,
+      "source_room_id": 34,
+      "sector_index": 1404,
+      "record_index": 1,
+      "warp_type": "0x2000",
+      "target_room_id": 32,
+      "trigger_coords": {
+        "x": 22496,
+        "y": 13827
+      },
+      "flags": "0x2F70"
+    },
+    {
+      "exit_id": 295,
+      "source_room_id": 34,
+      "sector_index": 1404,
+      "record_index": 2,
+      "warp_type": "0x0108",
+      "target_room_id": 62,
+      "trigger_coords": {
+        "x": -24448,
+        "y": -13308
+      },
+      "flags": "0x02FF"
+    },
+    {
+      "exit_id": 296,
+      "source_room_id": 34,
+      "sector_index": 1404,
+      "record_index": 3,
+      "warp_type": "0x2402",
+      "target_room_id": 2,
+      "trigger_coords": {
+        "x": 130,
+        "y": 16900
+      },
+      "flags": "0x0F00"
+    },
+    {
+      "exit_id": 297,
+      "source_room_id": 34,
+      "sector_index": 1404,
+      "record_index": 6,
+      "warp_type": "0x01FE",
+      "target_room_id": 46,
+      "trigger_coords": {
+        "x": -32112,
+        "y": 1809
+      },
+      "flags": "0x0101"
+    },
+    {
+      "exit_id": 298,
+      "source_room_id": 34,
+      "sector_index": 1404,
+      "record_index": 10,
+      "warp_type": "0x17A5",
+      "target_room_id": 1,
+      "trigger_coords": {
+        "x": 744,
+        "y": 10241
+      },
+      "flags": "0x8FEB"
+    },
+    {
+      "exit_id": 299,
+      "source_room_id": 35,
+      "sector_index": 1416,
+      "record_index": 5,
+      "warp_type": "0x04F9",
+      "target_room_id": 1,
+      "trigger_coords": {
+        "x": 6145,
+        "y": -1056
+      },
+      "flags": "0x6080"
+    },
+    {
+      "exit_id": 300,
+      "source_room_id": 35,
+      "sector_index": 1416,
+      "record_index": 6,
+      "warp_type": "0x36E1",
+      "target_room_id": 17,
+      "trigger_coords": {
+        "x": 1,
+        "y": -32728
+      },
+      "flags": "0x3602"
+    },
+    {
+      "exit_id": 301,
+      "source_room_id": 35,
+      "sector_index": 1416,
+      "record_index": 8,
+      "warp_type": "0x0008",
+      "target_room_id": 63,
+      "trigger_coords": {
+        "x": -30330,
+        "y": -6894
+      },
+      "flags": "0x006F"
+    },
+    {
+      "exit_id": 302,
+      "source_room_id": 35,
+      "sector_index": 1416,
+      "record_index": 10,
+      "warp_type": "0x187F",
+      "target_room_id": 99,
+      "trigger_coords": {
+        "x": 32639,
+        "y": 31713
+      },
+      "flags": "0xE0C0"
+    },
+    {
+      "exit_id": 303,
+      "source_room_id": 36,
+      "sector_index": 1428,
+      "record_index": 1,
+      "warp_type": "0x08FF",
+      "target_room_id": 8,
+      "trigger_coords": {
+        "x": -8176,
+        "y": 1027
+      },
+      "flags": "0x0101"
+    },
+    {
+      "exit_id": 304,
+      "source_room_id": 36,
+      "sector_index": 1428,
+      "record_index": 2,
+      "warp_type": "0x4A80",
+      "target_room_id": 24,
+      "trigger_coords": {
+        "x": -20991,
+        "y": 385
+      },
+      "flags": "0x4CE0"
+    },
+    {
+      "exit_id": 305,
+      "source_room_id": 36,
+      "sector_index": 1428,
+      "record_index": 3,
+      "warp_type": "0x0102",
+      "target_room_id": 8,
+      "trigger_coords": {
+        "x": 26369,
+        "y": 482
+      },
+      "flags": "0xE222"
+    },
+    {
+      "exit_id": 306,
+      "source_room_id": 36,
+      "sector_index": 1428,
+      "record_index": 6,
+      "warp_type": "0x01A2",
+      "target_room_id": 58,
+      "trigger_coords": {
+        "x": 227,
+        "y": -23549
+      },
+      "flags": "0xAE01"
+    },
+    {
+      "exit_id": 307,
+      "source_room_id": 37,
+      "sector_index": 1440,
+      "record_index": 1,
+      "warp_type": "0x40FE",
+      "target_room_id": 46,
+      "trigger_coords": {
+        "x": 2112,
+        "y": 640
+      },
+      "flags": "0x04D8"
+    },
+    {
+      "exit_id": 308,
+      "source_room_id": 37,
+      "sector_index": 1440,
+      "record_index": 3,
+      "warp_type": "0x010F",
+      "target_room_id": 96,
+      "trigger_coords": {
+        "x": 1026,
+        "y": 4095
+      },
+      "flags": "0x82D0"
+    },
+    {
+      "exit_id": 309,
+      "source_room_id": 37,
+      "sector_index": 1440,
+      "record_index": 4,
+      "warp_type": "0x0803",
+      "target_room_id": 0,
+      "trigger_coords": {
+        "x": 12450,
+        "y": 14852
+      },
+      "flags": "0x00A0"
+    },
+    {
+      "exit_id": 310,
+      "source_room_id": 37,
+      "sector_index": 1440,
+      "record_index": 5,
+      "warp_type": "0x0480",
+      "target_room_id": 3,
+      "trigger_coords": {
+        "x": 4260,
+        "y": -29694
+      },
+      "flags": "0x9006"
+    },
+    {
+      "exit_id": 311,
+      "source_room_id": 37,
+      "sector_index": 1440,
+      "record_index": 10,
+      "warp_type": "0x4001",
+      "target_room_id": 1,
+      "trigger_coords": {
+        "x": 384,
+        "y": 8196
+      },
+      "flags": "0xF401"
+    },
+    {
+      "exit_id": 312,
+      "source_room_id": 37,
+      "sector_index": 1440,
+      "record_index": 11,
+      "warp_type": "0x0107",
+      "target_room_id": 7,
+      "trigger_coords": {
+        "x": -5362,
+        "y": 30123
+      },
+      "flags": "0x0107"
+    },
+    {
+      "exit_id": 313,
+      "source_room_id": 38,
+      "sector_index": 1453,
+      "record_index": 2,
+      "warp_type": "0x1403",
+      "target_room_id": 0,
+      "trigger_coords": {
+        "x": -24448,
+        "y": 2052
+      },
+      "flags": "0x0F00"
+    },
+    {
+      "exit_id": 314,
+      "source_room_id": 38,
+      "sector_index": 1453,
+      "record_index": 4,
+      "warp_type": "0x020F",
+      "target_room_id": 32,
+      "trigger_coords": {
+        "x": 552,
+        "y": -32462
+      },
+      "flags": "0x0238"
+    },
+    {
+      "exit_id": 315,
+      "source_room_id": 38,
+      "sector_index": 1453,
+      "record_index": 6,
+      "warp_type": "0x0402",
+      "target_room_id": 2,
+      "trigger_coords": {
+        "x": 1026,
+        "y": 4347
+      },
+      "flags": "0x7E04"
+    },
+    {
+      "exit_id": 316,
+      "source_room_id": 38,
+      "sector_index": 1453,
+      "record_index": 7,
+      "warp_type": "0x1077",
+      "target_room_id": 64,
+      "trigger_coords": {
+        "x": 4095,
+        "y": -16253
+      },
+      "flags": "0x04FF"
+    },
+    {
+      "exit_id": 317,
+      "source_room_id": 38,
+      "sector_index": 1453,
+      "record_index": 9,
+      "warp_type": "0x0684",
+      "target_room_id": 28,
+      "trigger_coords": {
+        "x": -18943,
+        "y": 1667
+      },
+      "flags": "0x10A0"
+    },
+    {
+      "exit_id": 318,
+      "source_room_id": 38,
+      "sector_index": 1453,
+      "record_index": 10,
+      "warp_type": "0x3AC3",
+      "target_room_id": 3,
+      "trigger_coords": {
+        "x": 7364,
+        "y": 6272
+      },
+      "flags": "0xC003"
+    },
+    {
+      "exit_id": 319,
+      "source_room_id": 38,
+      "sector_index": 1453,
+      "record_index": 11,
+      "warp_type": "0x2C01",
+      "target_room_id": 1,
+      "trigger_coords": {
+        "x": -28445,
+        "y": 15971
+      },
+      "flags": "0x3E01"
+    },
+    {
+      "exit_id": 320,
+      "source_room_id": 38,
+      "sector_index": 1453,
+      "record_index": 12,
+      "warp_type": "0x0438",
+      "target_room_id": 32,
+      "trigger_coords": {
+        "x": -26494,
+        "y": -2046
+      },
+      "flags": "0xFC80"
+    },
+    {
+      "exit_id": 321,
+      "source_room_id": 39,
+      "sector_index": 1464,
+      "record_index": 3,
+      "warp_type": "0x0020",
+      "target_room_id": 64,
+      "trigger_coords": {
+        "x": -7954,
+        "y": 257
+      },
+      "flags": "0x0101"
+    },
+    {
+      "exit_id": 322,
+      "source_room_id": 39,
+      "sector_index": 1464,
+      "record_index": 5,
+      "warp_type": "0x0F01",
+      "target_room_id": 44,
+      "trigger_coords": {
+        "x": 8321,
+        "y": 30945
+      },
+      "flags": "0x6101"
+    },
+    {
+      "exit_id": 323,
+      "source_room_id": 39,
+      "sector_index": 1464,
+      "record_index": 6,
+      "warp_type": "0x0420",
+      "target_room_id": 32,
+      "trigger_coords": {
+        "x": 258,
+        "y": -22758
+      },
+      "flags": "0x1062"
+    },
+    {
+      "exit_id": 324,
+      "source_room_id": 39,
+      "sector_index": 1464,
+      "record_index": 7,
+      "warp_type": "0x18E0",
+      "target_room_id": 1,
+      "trigger_coords": {
+        "x": 10464,
+        "y": 12289
+      },
+      "flags": "0x08E0"
+    },
+    {
+      "exit_id": 325,
+      "source_room_id": 39,
+      "sector_index": 1464,
+      "record_index": 10,
+      "warp_type": "0x0000",
+      "target_room_id": 0,
+      "trigger_coords": {
+        "x": 0,
+        "y": 0
+      },
+      "flags": "0x0000"
+    },
+    {
+      "exit_id": 326,
+      "source_room_id": 39,
+      "sector_index": 1464,
+      "record_index": 11,
+      "warp_type": "0x0000",
+      "target_room_id": 0,
+      "trigger_coords": {
+        "x": 0,
+        "y": 0
+      },
+      "flags": "0x0000"
+    },
+    {
+      "exit_id": 327,
+      "source_room_id": 40,
+      "sector_index": 1473,
+      "record_index": 1,
+      "warp_type": "0x205F",
+      "target_room_id": 46,
+      "trigger_coords": {
+        "x": -28673,
+        "y": -32767
+      },
+      "flags": "0x0F01"
+    },
+    {
+      "exit_id": 328,
+      "source_room_id": 40,
+      "sector_index": 1473,
+      "record_index": 6,
+      "warp_type": "0x2803",
+      "target_room_id": 15,
+      "trigger_coords": {
+        "x": -31105,
+        "y": 25623
+      },
+      "flags": "0x00E0"
+    },
+    {
+      "exit_id": 329,
+      "source_room_id": 40,
+      "sector_index": 1473,
+      "record_index": 7,
+      "warp_type": "0x38FF",
+      "target_room_id": 0,
+      "trigger_coords": {
+        "x": -4988,
+        "y": 29186
+      },
+      "flags": "0x2002"
+    },
+    {
+      "exit_id": 330,
+      "source_room_id": 40,
+      "sector_index": 1473,
+      "record_index": 8,
+      "warp_type": "0x2710",
+      "target_room_id": 16,
+      "trigger_coords": {
+        "x": -8114,
+        "y": 25056
+      },
+      "flags": "0x7661"
+    },
+    {
+      "exit_id": 331,
+      "source_room_id": 40,
+      "sector_index": 1473,
+      "record_index": 10,
+      "warp_type": "0x20F9",
+      "target_room_id": 41,
+      "trigger_coords": {
+        "x": 24833,
+        "y": -1661
+      },
+      "flags": "0xE5EC"
+    },
+    {
+      "exit_id": 332,
+      "source_room_id": 40,
+      "sector_index": 1473,
+      "record_index": 11,
+      "warp_type": "0x0108",
+      "target_room_id": 8,
+      "trigger_coords": {
+        "x": 18529,
+        "y": -8184
+      },
+      "flags": "0x68E0"
+    },
+    {
+      "exit_id": 333,
+      "source_room_id": 40,
+      "sector_index": 1473,
+      "record_index": 12,
+      "warp_type": "0x0FE0",
+      "target_room_id": 16,
+      "trigger_coords": {
+        "x": 20504,
+        "y": 3
+      },
+      "flags": "0x7F63"
+    },
+    {
+      "exit_id": 334,
+      "source_room_id": 40,
+      "sector_index": 1473,
+      "record_index": 15,
+      "warp_type": "0x107F",
+      "target_room_id": 23,
+      "trigger_coords": {
+        "x": -8176,
+        "y": 32635
+      },
+      "flags": "0xA069"
+    },
+    {
+      "exit_id": 335,
+      "source_room_id": 41,
+      "sector_index": 1484,
+      "record_index": 1,
+      "warp_type": "0x0188",
+      "target_room_id": 8,
+      "trigger_coords": {
+        "x": 0,
+        "y": 400
+      },
+      "flags": "0xFF0F"
+    },
+    {
+      "exit_id": 336,
+      "source_room_id": 41,
+      "sector_index": 1484,
+      "record_index": 4,
+      "warp_type": "0x205F",
+      "target_room_id": 95,
+      "trigger_coords": {
+        "x": -23970,
+        "y": 480
+      },
+      "flags": "0x803E"
+    },
+    {
+      "exit_id": 337,
+      "source_room_id": 41,
+      "sector_index": 1484,
+      "record_index": 5,
+      "warp_type": "0x09E1",
+      "target_room_id": 1,
+      "trigger_coords": {
+        "x": -19967,
+        "y": 3041
+      },
+      "flags": "0x0AE1"
+    },
+    {
+      "exit_id": 338,
+      "source_room_id": 41,
+      "sector_index": 1484,
+      "record_index": 7,
+      "warp_type": "0x2000",
+      "target_room_id": 40,
+      "trigger_coords": {
+        "x": 26597,
+        "y": -9630
+      },
+      "flags": "0x2700"
+    },
+    {
+      "exit_id": 339,
+      "source_room_id": 41,
+      "sector_index": 1484,
+      "record_index": 10,
+      "warp_type": "0x051A",
+      "target_room_id": 26,
+      "trigger_coords": {
+        "x": -6730,
+        "y": 26087
+      },
+      "flags": "0x00C7"
+    },
+    {
+      "exit_id": 340,
+      "source_room_id": 41,
+      "sector_index": 1484,
+      "record_index": 12,
+      "warp_type": "0x4200",
+      "target_room_id": 0,
+      "trigger_coords": {
+        "x": -24563,
+        "y": 17288
+      },
+      "flags": "0x8800"
+    },
+    {
+      "exit_id": 341,
+      "source_room_id": 42,
+      "sector_index": 1497,
+      "record_index": 1,
+      "warp_type": "0x0408",
+      "target_room_id": 8,
+      "trigger_coords": {
+        "x": -5951,
+        "y": -29504
+      },
+      "flags": "0x8C01"
+    },
+    {
+      "exit_id": 342,
+      "source_room_id": 42,
+      "sector_index": 1497,
+      "record_index": 3,
+      "warp_type": "0x1006",
+      "target_room_id": 1,
+      "trigger_coords": {
+        "x": 2049,
+        "y": 16513
+      },
+      "flags": "0x00E0"
+    },
+    {
+      "exit_id": 343,
+      "source_room_id": 42,
+      "sector_index": 1497,
+      "record_index": 4,
+      "warp_type": "0x0101",
+      "target_room_id": 48,
+      "trigger_coords": {
+        "x": -8144,
+        "y": 259
+      },
+      "flags": "0x0102"
+    },
+    {
+      "exit_id": 344,
+      "source_room_id": 42,
+      "sector_index": 1497,
+      "record_index": 5,
+      "warp_type": "0x0B08",
+      "target_room_id": 8,
+      "trigger_coords": {
+        "x": -1020,
+        "y": -113
+      },
+      "flags": "0x6F82"
+    },
+    {
+      "exit_id": 345,
+      "source_room_id": 42,
+      "sector_index": 1497,
+      "record_index": 7,
+      "warp_type": "0x1D50",
+      "target_room_id": 80,
+      "trigger_coords": {
+        "x": -6406,
+        "y": 28902
+      },
+      "flags": "0x01C8"
+    },
+    {
+      "exit_id": 346,
+      "source_room_id": 42,
+      "sector_index": 1497,
+      "record_index": 10,
+      "warp_type": "0x0003",
+      "target_room_id": 95,
+      "trigger_coords": {
+        "x": -22210,
+        "y": -32118
+      },
+      "flags": "0x106F"
+    },
+    {
+      "exit_id": 347,
+      "source_room_id": 43,
+      "sector_index": 1518,
+      "record_index": 4,
+      "warp_type": "0x0402",
+      "target_room_id": 2,
+      "trigger_coords": {
+        "x": -24442,
+        "y": 1282
+      },
+      "flags": "0xE008"
+    },
+    {
+      "exit_id": 348,
+      "source_room_id": 43,
+      "sector_index": 1518,
+      "record_index": 6,
+      "warp_type": "0x3503",
+      "target_room_id": 3,
+      "trigger_coords": {
+        "x": 4064,
+        "y": -16257
+      },
+      "flags": "0x88E0"
+    },
+    {
+      "exit_id": 349,
+      "source_room_id": 43,
+      "sector_index": 1518,
+      "record_index": 9,
+      "warp_type": "0x0465",
+      "target_room_id": 101,
+      "trigger_coords": {
+        "x": -21404,
+        "y": -8072
+      },
+      "flags": "0x6BE0"
+    },
+    {
+      "exit_id": 350,
+      "source_room_id": 44,
+      "sector_index": 1529,
+      "record_index": 1,
+      "warp_type": "0x2667",
+      "target_room_id": 30,
+      "trigger_coords": {
+        "x": 11270,
+        "y": 12416
+      },
+      "flags": "0x0404"
+    },
+    {
+      "exit_id": 351,
+      "source_room_id": 44,
+      "sector_index": 1529,
+      "record_index": 2,
+      "warp_type": "0x403F",
+      "target_room_id": 63,
+      "trigger_coords": {
+        "x": 18656,
+        "y": -28159
+      },
+      "flags": "0x0088"
+    },
+    {
+      "exit_id": 352,
+      "source_room_id": 44,
+      "sector_index": 1529,
+      "record_index": 8,
+      "warp_type": "0x0FE0",
+      "target_room_id": 97,
+      "trigger_coords": {
+        "x": 16387,
+        "y": -25594
+      },
+      "flags": "0x07FF"
+    },
+    {
+      "exit_id": 353,
+      "source_room_id": 44,
+      "sector_index": 1529,
+      "record_index": 9,
+      "warp_type": "0x0FFF",
+      "target_room_id": 47,
+      "trigger_coords": {
+        "x": -288,
+        "y": 2050
+      },
+      "flags": "0x0001"
+    },
+    {
+      "exit_id": 354,
+      "source_room_id": 44,
+      "sector_index": 1529,
+      "record_index": 13,
+      "warp_type": "0x05CC",
+      "target_room_id": 32,
+      "trigger_coords": {
+        "x": -15674,
+        "y": 511
+      },
+      "flags": "0xFB00"
+    },
+    {
+      "exit_id": 355,
+      "source_room_id": 44,
+      "sector_index": 1529,
+      "record_index": 15,
+      "warp_type": "0x0444",
+      "target_room_id": 16,
+      "trigger_coords": {
+        "x": 16544,
+        "y": 4098
+      },
+      "flags": "0x0244"
+    },
+    {
+      "exit_id": 356,
+      "source_room_id": 44,
+      "sector_index": 1529,
+      "record_index": 16,
+      "warp_type": "0x11E0",
+      "target_room_id": 103,
+      "trigger_coords": {
+        "x": -8176,
+        "y": 32639
+      },
+      "flags": "0x0111"
+    },
+    {
+      "exit_id": 357,
+      "source_room_id": 45,
+      "sector_index": 1539,
+      "record_index": 1,
+      "warp_type": "0x036C",
+      "target_room_id": 4,
+      "trigger_coords": {
+        "x": 8320,
+        "y": 30212
+      },
+      "flags": "0x6E01"
+    },
+    {
+      "exit_id": 358,
+      "source_room_id": 45,
+      "sector_index": 1539,
+      "record_index": 4,
+      "warp_type": "0x06FC",
+      "target_room_id": 0,
+      "trigger_coords": {
+        "x": 16512,
+        "y": -18816
+      },
+      "flags": "0x8808"
+    },
+    {
+      "exit_id": 359,
+      "source_room_id": 45,
+      "sector_index": 1539,
+      "record_index": 6,
+      "warp_type": "0x38E3",
+      "target_room_id": 98,
+      "trigger_coords": {
+        "x": -31770,
+        "y": 1820
+      },
+      "flags": "0x81A8"
+    },
+    {
+      "exit_id": 360,
+      "source_room_id": 45,
+      "sector_index": 1539,
+      "record_index": 13,
+      "warp_type": "0x0013",
+      "target_room_id": 71,
+      "trigger_coords": {
+        "x": -30316,
+        "y": 259
+      },
+      "flags": "0x087F"
+    },
+    {
+      "exit_id": 361,
+      "source_room_id": 45,
+      "sector_index": 1539,
+      "record_index": 14,
+      "warp_type": "0x01FB",
+      "target_room_id": 8,
+      "trigger_coords": {
+        "x": -16124,
+        "y": 2811
+      },
+      "flags": "0xA010"
+    },
+    {
+      "exit_id": 362,
+      "source_room_id": 46,
+      "sector_index": 1550,
+      "record_index": 1,
+      "warp_type": "0x0180",
+      "target_room_id": 1,
+      "trigger_coords": {
+        "x": 6148,
+        "y": 1167
+      },
+      "flags": "0x4080"
+    },
+    {
+      "exit_id": 363,
+      "source_room_id": 46,
+      "sector_index": 1550,
+      "record_index": 2,
+      "warp_type": "0x04E0",
+      "target_room_id": 16,
+      "trigger_coords": {
+        "x": 20993,
+        "y": 736
+      },
+      "flags": "0xFA82"
+    },
+    {
+      "exit_id": 364,
+      "source_room_id": 46,
+      "sector_index": 1550,
+      "record_index": 4,
+      "warp_type": "0x2E01",
+      "target_room_id": 1,
+      "trigger_coords": {
+        "x": 29697,
+        "y": -23950
+      },
+      "flags": "0x3002"
+    },
+    {
+      "exit_id": 365,
+      "source_room_id": 46,
+      "sector_index": 1550,
+      "record_index": 8,
+      "warp_type": "0x01FA",
+      "target_room_id": 98,
+      "trigger_coords": {
+        "x": -32170,
+        "y": 528
+      },
+      "flags": "0x01FA"
+    },
+    {
+      "exit_id": 366,
+      "source_room_id": 47,
+      "sector_index": 1562,
+      "record_index": 3,
+      "warp_type": "0x0105",
+      "target_room_id": 5,
+      "trigger_coords": {
+        "x": -7982,
+        "y": 257
+      },
+      "flags": "0x0105"
+    },
+    {
+      "exit_id": 367,
+      "source_room_id": 47,
+      "sector_index": 1562,
+      "record_index": 4,
+      "warp_type": "0x03E1",
+      "target_room_id": 1,
+      "trigger_coords": {
+        "x": 6145,
+        "y": 898
+      },
+      "flags": "0x03E0"
+    },
+    {
+      "exit_id": 368,
+      "source_room_id": 47,
+      "sector_index": 1562,
+      "record_index": 7,
+      "warp_type": "0x01C8",
+      "target_room_id": 96,
+      "trigger_coords": {
+        "x": 26017,
+        "y": 16897
+      },
+      "flags": "0xE15A"
+    },
+    {
+      "exit_id": 369,
+      "source_room_id": 47,
+      "sector_index": 1562,
+      "record_index": 9,
+      "warp_type": "0x00A1",
+      "target_room_id": 1,
+      "trigger_coords": {
+        "x": 2053,
+        "y": 5144
+      },
+      "flags": "0x0280"
+    },
+    {
+      "exit_id": 370,
+      "source_room_id": 47,
+      "sector_index": 1562,
+      "record_index": 11,
+      "warp_type": "0x3700",
+      "target_room_id": 2,
+      "trigger_coords": {
+        "x": 9730,
+        "y": 636
+      },
+      "flags": "0x68C4"
+    },
+    {
+      "exit_id": 371,
+      "source_room_id": 47,
+      "sector_index": 1562,
+      "record_index": 14,
+      "warp_type": "0x0468",
+      "target_room_id": 0,
+      "trigger_coords": {
+        "x": -24448,
+        "y": 2052
+      },
+      "flags": "0x2001"
+    },
+    {
+      "exit_id": 372,
+      "source_room_id": 47,
+      "sector_index": 1562,
+      "record_index": 15,
+      "warp_type": "0x0408",
+      "target_room_id": 0,
+      "trigger_coords": {
+        "x": -4095,
+        "y": 6144
+      },
+      "flags": "0x3703"
+    },
+    {
+      "exit_id": 373,
+      "source_room_id": 47,
+      "sector_index": 1562,
+      "record_index": 16,
+      "warp_type": "0x04C3",
+      "target_room_id": 91,
+      "trigger_coords": {
+        "x": -12669,
+        "y": -14712
+      },
+      "flags": "0xC683"
+    },
+    {
+      "exit_id": 374,
+      "source_room_id": 48,
+      "sector_index": 1573,
+      "record_index": 1,
+      "warp_type": "0x0F00",
+      "target_room_id": 0,
+      "trigger_coords": {
+        "x": 128,
+        "y": 2054
+      },
+      "flags": "0x6601"
+    },
+    {
+      "exit_id": 375,
+      "source_room_id": 48,
+      "sector_index": 1573,
+      "record_index": 2,
+      "warp_type": "0x0400",
+      "target_room_id": 8,
+      "trigger_coords": {
+        "x": -21503,
+        "y": -543
+      },
+      "flags": "0xFCE1"
+    },
+    {
+      "exit_id": 376,
+      "source_room_id": 48,
+      "sector_index": 1573,
+      "record_index": 4,
+      "warp_type": "0x02FE",
+      "target_room_id": 46,
+      "trigger_coords": {
+        "x": -640,
+        "y": 17
+      },
+      "flags": "0x1014"
+    },
+    {
+      "exit_id": 377,
+      "source_room_id": 48,
+      "sector_index": 1573,
+      "record_index": 10,
+      "warp_type": "0x0000",
+      "target_room_id": 0,
+      "trigger_coords": {
+        "x": 0,
+        "y": 0
+      },
+      "flags": "0x0000"
+    },
+    {
+      "exit_id": 378,
+      "source_room_id": 48,
+      "sector_index": 1573,
+      "record_index": 11,
+      "warp_type": "0x0000",
+      "target_room_id": 0,
+      "trigger_coords": {
+        "x": 0,
+        "y": 0
+      },
+      "flags": "0x0000"
+    },
+    {
+      "exit_id": 379,
+      "source_room_id": 49,
+      "sector_index": 1584,
+      "record_index": 3,
+      "warp_type": "0x0180",
+      "target_room_id": 34,
+      "trigger_coords": {
+        "x": 1024,
+        "y": 3840
+      },
+      "flags": "0xA102"
+    },
+    {
+      "exit_id": 380,
+      "source_room_id": 49,
+      "sector_index": 1584,
+      "record_index": 4,
+      "warp_type": "0x0103",
+      "target_room_id": 66,
+      "trigger_coords": {
+        "x": -8082,
+        "y": 507
+      },
+      "flags": "0x0103"
+    },
+    {
+      "exit_id": 381,
+      "source_room_id": 49,
+      "sector_index": 1584,
+      "record_index": 7,
+      "warp_type": "0x30C0",
+      "target_room_id": 88,
+      "trigger_coords": {
+        "x": -29467,
+        "y": 10241
+      },
+      "flags": "0x6601"
+    },
+    {
+      "exit_id": 382,
+      "source_room_id": 49,
+      "sector_index": 1584,
+      "record_index": 8,
+      "warp_type": "0x01D8",
+      "target_room_id": 56,
+      "trigger_coords": {
+        "x": -32760,
+        "y": -31202
+      },
+      "flags": "0x87B2"
+    },
+    {
+      "exit_id": 383,
+      "source_room_id": 49,
+      "sector_index": 1584,
+      "record_index": 11,
+      "warp_type": "0x019C",
+      "target_room_id": 52,
+      "trigger_coords": {
+        "x": 505,
+        "y": -6504
+      },
+      "flags": "0x83AE"
+    },
+    {
+      "exit_id": 384,
+      "source_room_id": 49,
+      "sector_index": 1584,
+      "record_index": 13,
+      "warp_type": "0x0002",
+      "target_room_id": 2,
+      "trigger_coords": {
+        "x": -32749,
+        "y": 264
+      },
+      "flags": "0xE008"
+    },
+    {
+      "exit_id": 385,
+      "source_room_id": 49,
+      "sector_index": 1584,
+      "record_index": 14,
+      "warp_type": "0x0C65",
+      "target_room_id": 35,
+      "trigger_coords": {
+        "x": 3186,
+        "y": 20580
+      },
+      "flags": "0x64E0"
+    },
+    {
+      "exit_id": 386,
+      "source_room_id": 50,
+      "sector_index": 1594,
+      "record_index": 2,
+      "warp_type": "0x030F",
+      "target_room_id": 32,
+      "trigger_coords": {
+        "x": 16904,
+        "y": -864
+      },
+      "flags": "0x0268"
+    },
+    {
+      "exit_id": 387,
+      "source_room_id": 50,
+      "sector_index": 1594,
+      "record_index": 5,
+      "warp_type": "0x0278",
+      "target_room_id": 16,
+      "trigger_coords": {
+        "x": -23551,
+        "y": -32
+      },
+      "flags": "0x5EA4"
+    },
+    {
+      "exit_id": 388,
+      "source_room_id": 50,
+      "sector_index": 1594,
+      "record_index": 6,
+      "warp_type": "0x0380",
+      "target_room_id": 24,
+      "trigger_coords": {
+        "x": 24706,
+        "y": -26108
+      },
+      "flags": "0x0801"
+    },
+    {
+      "exit_id": 389,
+      "source_room_id": 50,
+      "sector_index": 1594,
+      "record_index": 7,
+      "warp_type": "0x0420",
+      "target_room_id": 15,
+      "trigger_coords": {
+        "x": -15359,
+        "y": -126
+      },
+      "flags": "0x00A4"
+    },
+    {
+      "exit_id": 390,
+      "source_room_id": 50,
+      "sector_index": 1594,
+      "record_index": 8,
+      "warp_type": "0x0200",
+      "target_room_id": 11,
+      "trigger_coords": {
+        "x": 160,
+        "y": 11910
+      },
+      "flags": "0x703F"
+    },
+    {
+      "exit_id": 391,
+      "source_room_id": 50,
+      "sector_index": 1594,
+      "record_index": 9,
+      "warp_type": "0x0188",
+      "target_room_id": 32,
+      "trigger_coords": {
+        "x": 3841,
+        "y": -30496
+      },
+      "flags": "0x61E0"
+    },
+    {
+      "exit_id": 392,
+      "source_room_id": 50,
+      "sector_index": 1594,
+      "record_index": 10,
+      "warp_type": "0x0000",
+      "target_room_id": 0,
+      "trigger_coords": {
+        "x": 0,
+        "y": 0
+      },
+      "flags": "0x0000"
+    },
+    {
+      "exit_id": 393,
+      "source_room_id": 50,
+      "sector_index": 1594,
+      "record_index": 11,
+      "warp_type": "0x0000",
+      "target_room_id": 0,
+      "trigger_coords": {
+        "x": 0,
+        "y": 0
+      },
+      "flags": "0x0000"
+    },
+    {
+      "exit_id": 394,
+      "source_room_id": 50,
+      "sector_index": 1594,
+      "record_index": 12,
+      "warp_type": "0x0000",
+      "target_room_id": 0,
+      "trigger_coords": {
+        "x": 0,
+        "y": 0
+      },
+      "flags": "0x0000"
+    },
+    {
+      "exit_id": 395,
+      "source_room_id": 50,
+      "sector_index": 1594,
+      "record_index": 13,
+      "warp_type": "0x0000",
+      "target_room_id": 0,
+      "trigger_coords": {
+        "x": 0,
+        "y": 0
+      },
+      "flags": "0x0000"
+    },
+    {
+      "exit_id": 396,
+      "source_room_id": 51,
+      "sector_index": 1603,
+      "record_index": 2,
+      "warp_type": "0x30A0",
+      "target_room_id": 4,
+      "trigger_coords": {
+        "x": 2053,
+        "y": -8120
+      },
+      "flags": "0x7804"
+    },
+    {
+      "exit_id": 397,
+      "source_room_id": 51,
+      "sector_index": 1603,
+      "record_index": 4,
+      "warp_type": "0x0801",
+      "target_room_id": 1,
+      "trigger_coords": {
+        "x": 16,
+        "y": 3840
+      },
+      "flags": "0x1005"
+    },
+    {
+      "exit_id": 398,
+      "source_room_id": 51,
+      "sector_index": 1603,
+      "record_index": 6,
+      "warp_type": "0x0260",
+      "target_room_id": 20,
+      "trigger_coords": {
+        "x": 26881,
+        "y": 26816
+      },
+      "flags": "0xE05E"
+    },
+    {
+      "exit_id": 399,
+      "source_room_id": 51,
+      "sector_index": 1603,
+      "record_index": 11,
+      "warp_type": "0x0000",
+      "target_room_id": 0,
+      "trigger_coords": {
+        "x": 0,
+        "y": 0
+      },
+      "flags": "0x0000"
+    },
+    {
+      "exit_id": 400,
+      "source_room_id": 51,
+      "sector_index": 1603,
+      "record_index": 12,
+      "warp_type": "0x0000",
+      "target_room_id": 0,
+      "trigger_coords": {
+        "x": 0,
+        "y": 0
+      },
+      "flags": "0x0000"
+    },
+    {
+      "exit_id": 401,
+      "source_room_id": 51,
+      "sector_index": 1603,
+      "record_index": 13,
+      "warp_type": "0x0000",
+      "target_room_id": 0,
+      "trigger_coords": {
+        "x": 0,
+        "y": 0
+      },
+      "flags": "0x0000"
+    },
+    {
+      "exit_id": 402,
+      "source_room_id": 51,
+      "sector_index": 1603,
+      "record_index": 14,
+      "warp_type": "0x0000",
+      "target_room_id": 0,
+      "trigger_coords": {
+        "x": 0,
+        "y": 0
+      },
+      "flags": "0x0000"
+    },
+    {
+      "exit_id": 403,
+      "source_room_id": 51,
+      "sector_index": 1603,
+      "record_index": 15,
+      "warp_type": "0x0000",
+      "target_room_id": 0,
+      "trigger_coords": {
+        "x": 0,
+        "y": 0
+      },
+      "flags": "0x0000"
+    },
+    {
+      "exit_id": 404,
+      "source_room_id": 51,
+      "sector_index": 1603,
+      "record_index": 16,
+      "warp_type": "0x0000",
+      "target_room_id": 0,
+      "trigger_coords": {
+        "x": 0,
+        "y": 0
+      },
+      "flags": "0x0000"
+    },
+    {
+      "exit_id": 405,
+      "source_room_id": 51,
+      "sector_index": 1603,
+      "record_index": 17,
+      "warp_type": "0x0000",
+      "target_room_id": 0,
+      "trigger_coords": {
+        "x": 0,
+        "y": 0
+      },
+      "flags": "0x0000"
+    },
+    {
+      "exit_id": 406,
+      "source_room_id": 52,
+      "sector_index": 1611,
+      "record_index": 2,
+      "warp_type": "0x0005",
+      "target_room_id": 15,
+      "trigger_coords": {
+        "x": -32568,
+        "y": -32670
+      },
+      "flags": "0x007F"
+    },
+    {
+      "exit_id": 407,
+      "source_room_id": 52,
+      "sector_index": 1611,
+      "record_index": 3,
+      "warp_type": "0x0101",
+      "target_room_id": 24,
+      "trigger_coords": {
+        "x": 2447,
+        "y": 256
+      },
+      "flags": "0xE008"
+    },
+    {
+      "exit_id": 408,
+      "source_room_id": 52,
+      "sector_index": 1611,
+      "record_index": 9,
+      "warp_type": "0x0C03",
+      "target_room_id": 15,
+      "trigger_coords": {
+        "x": -12287,
+        "y": 2787
+      },
+      "flags": "0x01A1"
+    },
+    {
+      "exit_id": 409,
+      "source_room_id": 52,
+      "sector_index": 1611,
+      "record_index": 13,
+      "warp_type": "0x02CE",
+      "target_room_id": 102,
+      "trigger_coords": {
+        "x": 512,
+        "y": -8480
+      },
+      "flags": "0x1762"
+    },
+    {
+      "exit_id": 410,
+      "source_room_id": 53,
+      "sector_index": 1629,
+      "record_index": 5,
+      "warp_type": "0x010F",
+      "target_room_id": 86,
+      "trigger_coords": {
+        "x": 25094,
+        "y": -28927
+      },
+      "flags": "0xE376"
+    },
+    {
+      "exit_id": 411,
+      "source_room_id": 54,
+      "sector_index": 1639,
+      "record_index": 2,
+      "warp_type": "0x0381",
+      "target_room_id": 3,
+      "trigger_coords": {
+        "x": 8352,
+        "y": -3068
+      },
+      "flags": "0x3804"
+    },
+    {
+      "exit_id": 412,
+      "source_room_id": 54,
+      "sector_index": 1639,
+      "record_index": 4,
+      "warp_type": "0x2201",
+      "target_room_id": 1,
+      "trigger_coords": {
+        "x": 482,
+        "y": 12801
+      },
+      "flags": "0x2A01"
+    },
+    {
+      "exit_id": 413,
+      "source_room_id": 54,
+      "sector_index": 1639,
+      "record_index": 8,
+      "warp_type": "0x3A84",
+      "target_room_id": 28,
+      "trigger_coords": {
+        "x": 768,
+        "y": -160
+      },
+      "flags": "0x4404"
+    },
+    {
+      "exit_id": 414,
+      "source_room_id": 54,
+      "sector_index": 1639,
+      "record_index": 9,
+      "warp_type": "0x4081",
+      "target_room_id": 1,
+      "trigger_coords": {
+        "x": 2050,
+        "y": 17416
+      },
+      "flags": "0x04A0"
+    },
+    {
+      "exit_id": 415,
+      "source_room_id": 54,
+      "sector_index": 1639,
+      "record_index": 10,
+      "warp_type": "0x00E0",
+      "target_room_id": 16,
+      "trigger_coords": {
+        "x": 18559,
+        "y": 31456
+      },
+      "flags": "0x7AE0"
+    },
+    {
+      "exit_id": 416,
+      "source_room_id": 55,
+      "sector_index": 1647,
+      "record_index": 1,
+      "warp_type": "0x4F01",
+      "target_room_id": 3,
+      "trigger_coords": {
+        "x": -28928,
+        "y": 128
+      },
+      "flags": "0x40FE"
+    },
+    {
+      "exit_id": 417,
+      "source_room_id": 55,
+      "sector_index": 1647,
+      "record_index": 2,
+      "warp_type": "0x0630",
+      "target_room_id": 46,
+      "trigger_coords": {
+        "x": 448,
+        "y": -16368
+      },
+      "flags": "0xE008"
+    },
+    {
+      "exit_id": 418,
+      "source_room_id": 55,
+      "sector_index": 1647,
+      "record_index": 4,
+      "warp_type": "0x0408",
+      "target_room_id": 0,
+      "trigger_coords": {
+        "x": 25091,
+        "y": -30464
+      },
+      "flags": "0x00A0"
+    },
+    {
+      "exit_id": 419,
+      "source_room_id": 55,
+      "sector_index": 1647,
+      "record_index": 7,
+      "warp_type": "0x4C03",
+      "target_room_id": 3,
+      "trigger_coords": {
+        "x": 14849,
+        "y": -1917
+      },
+      "flags": "0xFEA3"
+    },
+    {
+      "exit_id": 420,
+      "source_room_id": 55,
+      "sector_index": 1647,
+      "record_index": 9,
+      "warp_type": "0x03CD",
+      "target_room_id": 101,
+      "trigger_coords": {
+        "x": 718,
+        "y": -4896
+      },
+      "flags": "0x4500"
+    },
+    {
+      "exit_id": 421,
+      "source_room_id": 56,
+      "sector_index": 1655,
+      "record_index": 1,
+      "warp_type": "0x0F00",
+      "target_room_id": 0,
+      "trigger_coords": {
+        "x": -32,
+        "y": 7684
+      },
+      "flags": "0x1E01"
+    },
+    {
+      "exit_id": 422,
+      "source_room_id": 56,
+      "sector_index": 1655,
+      "record_index": 2,
+      "warp_type": "0x01FC",
+      "target_room_id": 16,
+      "trigger_coords": {
+        "x": 18551,
+        "y": -1929
+      },
+      "flags": "0x0B16"
+    },
+    {
+      "exit_id": 423,
+      "source_room_id": 56,
+      "sector_index": 1655,
+      "record_index": 4,
+      "warp_type": "0x0788",
+      "target_room_id": 64,
+      "trigger_coords": {
+        "x": 32,
+        "y": -32672
+      },
+      "flags": "0x060F"
+    },
+    {
+      "exit_id": 424,
+      "source_room_id": 56,
+      "sector_index": 1655,
+      "record_index": 5,
+      "warp_type": "0x4C63",
+      "target_room_id": 99,
+      "trigger_coords": {
+        "x": 161,
+        "y": 26628
+      },
+      "flags": "0x6101"
+    },
+    {
+      "exit_id": 425,
+      "source_room_id": 56,
+      "sector_index": 1655,
+      "record_index": 7,
+      "warp_type": "0x0118",
+      "target_room_id": 0,
+      "trigger_coords": {
+        "x": 4100,
+        "y": -369
+      },
+      "flags": "0x3F83"
+    },
+    {
+      "exit_id": 426,
+      "source_room_id": 57,
+      "sector_index": 1664,
+      "record_index": 1,
+      "warp_type": "0x0000",
+      "target_room_id": 16,
+      "trigger_coords": {
+        "x": -28925,
+        "y": -27644
+      },
+      "flags": "0x0F00"
+    },
+    {
+      "exit_id": 427,
+      "source_room_id": 57,
+      "sector_index": 1664,
+      "record_index": 2,
+      "warp_type": "0x01CC",
+      "target_room_id": 48,
+      "trigger_coords": {
+        "x": 0,
+        "y": -8184
+      },
+      "flags": "0xFE8F"
+    },
+    {
+      "exit_id": 428,
+      "source_room_id": 57,
+      "sector_index": 1664,
+      "record_index": 3,
+      "warp_type": "0x00C0",
+      "target_room_id": 6,
+      "trigger_coords": {
+        "x": 3,
+        "y": 16447
+      },
+      "flags": "0x0100"
+    },
+    {
+      "exit_id": 429,
+      "source_room_id": 57,
+      "sector_index": 1664,
+      "record_index": 5,
+      "warp_type": "0x0402",
+      "target_room_id": 8,
+      "trigger_coords": {
+        "x": 19584,
+        "y": 2176
+      },
+      "flags": "0x1080"
+    },
+    {
+      "exit_id": 430,
+      "source_room_id": 57,
+      "sector_index": 1664,
+      "record_index": 6,
+      "warp_type": "0x07E0",
+      "target_room_id": 1,
+      "trigger_coords": {
+        "x": 26117,
+        "y": 560
+      },
+      "flags": "0x0780"
+    },
+    {
+      "exit_id": 431,
+      "source_room_id": 57,
+      "sector_index": 1664,
+      "record_index": 7,
+      "warp_type": "0x040E",
+      "target_room_id": 14,
+      "trigger_coords": {
+        "x": 21508,
+        "y": 783
+      },
+      "flags": "0xC081"
+    },
+    {
+      "exit_id": 432,
+      "source_room_id": 57,
+      "sector_index": 1664,
+      "record_index": 9,
+      "warp_type": "0x3804",
+      "target_room_id": 4,
+      "trigger_coords": {
+        "x": 772,
+        "y": 528
+      },
+      "flags": "0x8158"
+    },
+    {
+      "exit_id": 433,
+      "source_room_id": 57,
+      "sector_index": 1664,
+      "record_index": 10,
+      "warp_type": "0x028D",
+      "target_room_id": 42,
+      "trigger_coords": {
+        "x": -32760,
+        "y": 1297
+      },
+      "flags": "0x0106"
+    },
+    {
+      "exit_id": 434,
+      "source_room_id": 57,
+      "sector_index": 1664,
+      "record_index": 11,
+      "warp_type": "0x0740",
+      "target_room_id": 64,
+      "trigger_coords": {
+        "x": 1039,
+        "y": -16298
+      },
+      "flags": "0x0408"
+    },
+    {
+      "exit_id": 435,
+      "source_room_id": 58,
+      "sector_index": 1684,
+      "record_index": 1,
+      "warp_type": "0x01FE",
+      "target_room_id": 38,
+      "trigger_coords": {
+        "x": 3841,
+        "y": 1
+      },
+      "flags": "0x0BFE"
+    },
+    {
+      "exit_id": 436,
+      "source_room_id": 58,
+      "sector_index": 1684,
+      "record_index": 3,
+      "warp_type": "0x1001",
+      "target_room_id": 1,
+      "trigger_coords": {
+        "x": 6016,
+        "y": 600
+      },
+      "flags": "0x0863"
+    },
+    {
+      "exit_id": 437,
+      "source_room_id": 58,
+      "sector_index": 1684,
+      "record_index": 5,
+      "warp_type": "0x018F",
+      "target_room_id": 46,
+      "trigger_coords": {
+        "x": -24412,
+        "y": -32760
+      },
+      "flags": "0x01F8"
+    },
+    {
+      "exit_id": 438,
+      "source_room_id": 58,
+      "sector_index": 1684,
+      "record_index": 7,
+      "warp_type": "0x00E0",
+      "target_room_id": 16,
+      "trigger_coords": {
+        "x": 448,
+        "y": -10747
+      },
+      "flags": "0x6701"
+    },
+    {
+      "exit_id": 439,
+      "source_room_id": 58,
+      "sector_index": 1684,
+      "record_index": 8,
+      "warp_type": "0x3404",
+      "target_room_id": 0,
+      "trigger_coords": {
+        "x": -24568,
+        "y": 513
+      },
+      "flags": "0x81DE"
+    },
+    {
+      "exit_id": 440,
+      "source_room_id": 58,
+      "sector_index": 1684,
+      "record_index": 9,
+      "warp_type": "0x02B8",
+      "target_room_id": 8,
+      "trigger_coords": {
+        "x": -16373,
+        "y": 9220
+      },
+      "flags": "0xFC80"
+    },
+    {
+      "exit_id": 441,
+      "source_room_id": 58,
+      "sector_index": 1684,
+      "record_index": 10,
+      "warp_type": "0x01C0",
+      "target_room_id": 40,
+      "trigger_coords": {
+        "x": 8,
+        "y": 22615
+      },
+      "flags": "0x14C0"
+    },
+    {
+      "exit_id": 442,
+      "source_room_id": 58,
+      "sector_index": 1684,
+      "record_index": 12,
+      "warp_type": "0x0804",
+      "target_room_id": 4,
+      "trigger_coords": {
+        "x": -15820,
+        "y": -16344
+      },
+      "flags": "0x0140"
+    },
+    {
+      "exit_id": 443,
+      "source_room_id": 59,
+      "sector_index": 1694,
+      "record_index": 2,
+      "warp_type": "0x0C8F",
+      "target_room_id": 39,
+      "trigger_coords": {
+        "x": 256,
+        "y": -16368
+      },
+      "flags": "0xE008"
+    },
+    {
+      "exit_id": 444,
+      "source_room_id": 59,
+      "sector_index": 1694,
+      "record_index": 3,
+      "warp_type": "0x01FC",
+      "target_room_id": 8,
+      "trigger_coords": {
+        "x": 4093,
+        "y": -8136
+      },
+      "flags": "0x03F5"
+    },
+    {
+      "exit_id": 445,
+      "source_room_id": 59,
+      "sector_index": 1694,
+      "record_index": 4,
+      "warp_type": "0x0020",
+      "target_room_id": 32,
+      "trigger_coords": {
+        "x": -32760,
+        "y": 1912
+      },
+      "flags": "0x01F9"
+    },
+    {
+      "exit_id": 446,
+      "source_room_id": 59,
+      "sector_index": 1694,
+      "record_index": 6,
+      "warp_type": "0x0405",
+      "target_room_id": 0,
+      "trigger_coords": {
+        "x": 2241,
+        "y": 2583
+      },
+      "flags": "0xC0C0"
+    },
+    {
+      "exit_id": 447,
+      "source_room_id": 59,
+      "sector_index": 1694,
+      "record_index": 9,
+      "warp_type": "0x0408",
+      "target_room_id": 8,
+      "trigger_coords": {
+        "x": 2786,
+        "y": 11265
+      },
+      "flags": "0x1C01"
+    },
+    {
+      "exit_id": 448,
+      "source_room_id": 59,
+      "sector_index": 1694,
+      "record_index": 12,
+      "warp_type": "0x02CE",
+      "target_room_id": 102,
+      "trigger_coords": {
+        "x": 512,
+        "y": -8480
+      },
+      "flags": "0x1762"
+    },
+    {
+      "exit_id": 449,
+      "source_room_id": 59,
+      "sector_index": 1694,
+      "record_index": 13,
+      "warp_type": "0x0000",
+      "target_room_id": 0,
+      "trigger_coords": {
+        "x": 0,
+        "y": 0
+      },
+      "flags": "0x0000"
+    },
+    {
+      "exit_id": 450,
+      "source_room_id": 59,
+      "sector_index": 1694,
+      "record_index": 14,
+      "warp_type": "0x0000",
+      "target_room_id": 0,
+      "trigger_coords": {
+        "x": 0,
+        "y": 0
+      },
+      "flags": "0x0000"
+    },
+    {
+      "exit_id": 451,
+      "source_room_id": 59,
+      "sector_index": 1694,
+      "record_index": 15,
+      "warp_type": "0x0000",
+      "target_room_id": 0,
+      "trigger_coords": {
+        "x": 0,
+        "y": 0
+      },
+      "flags": "0x0000"
+    },
+    {
+      "exit_id": 452,
+      "source_room_id": 59,
+      "sector_index": 1694,
+      "record_index": 16,
+      "warp_type": "0x0000",
+      "target_room_id": 0,
+      "trigger_coords": {
+        "x": 0,
+        "y": 0
+      },
+      "flags": "0x0000"
+    },
+    {
+      "exit_id": 453,
+      "source_room_id": 59,
+      "sector_index": 1694,
+      "record_index": 17,
+      "warp_type": "0x0000",
+      "target_room_id": 0,
+      "trigger_coords": {
+        "x": 0,
+        "y": 0
+      },
+      "flags": "0x0000"
+    },
+    {
+      "exit_id": 454,
+      "source_room_id": 60,
+      "sector_index": 1705,
+      "record_index": 7,
+      "warp_type": "0x0B50",
+      "target_room_id": 0,
+      "trigger_coords": {
+        "x": -13187,
+        "y": 259
+      },
+      "flags": "0x0FE0"
+    },
+    {
+      "exit_id": 455,
+      "source_room_id": 60,
+      "sector_index": 1705,
+      "record_index": 10,
+      "warp_type": "0x0561",
+      "target_room_id": 86,
+      "trigger_coords": {
+        "x": 9319,
+        "y": -7952
+      },
+      "flags": "0x63E1"
+    },
+    {
+      "exit_id": 456,
+      "source_room_id": 61,
+      "sector_index": 1717,
+      "record_index": 3,
+      "warp_type": "0x0803",
+      "target_room_id": 0,
+      "trigger_coords": {
+        "x": 21090,
+        "y": -7918
+      },
+      "flags": "0xA0E1"
+    },
+    {
+      "exit_id": 457,
+      "source_room_id": 61,
+      "sector_index": 1717,
+      "record_index": 5,
+      "warp_type": "0x008F",
+      "target_room_id": 39,
+      "trigger_coords": {
+        "x": 256,
+        "y": -31342
+      },
+      "flags": "0xA198"
+    },
+    {
+      "exit_id": 458,
+      "source_room_id": 61,
+      "sector_index": 1717,
+      "record_index": 6,
+      "warp_type": "0x0087",
+      "target_room_id": 31,
+      "trigger_coords": {
+        "x": 12290,
+        "y": -3068
+      },
+      "flags": "0x04C5"
+    },
+    {
+      "exit_id": 459,
+      "source_room_id": 61,
+      "sector_index": 1717,
+      "record_index": 7,
+      "warp_type": "0x403F",
+      "target_room_id": 63,
+      "trigger_coords": {
+        "x": -32246,
+        "y": 1279
+      },
+      "flags": "0x0228"
+    },
+    {
+      "exit_id": 460,
+      "source_room_id": 61,
+      "sector_index": 1717,
+      "record_index": 9,
+      "warp_type": "0x03E0",
+      "target_room_id": 16,
+      "trigger_coords": {
+        "x": -32470,
+        "y": -8188
+      },
+      "flags": "0xE136"
+    },
+    {
+      "exit_id": 461,
+      "source_room_id": 61,
+      "sector_index": 1717,
+      "record_index": 10,
+      "warp_type": "0x2176",
+      "target_room_id": 14,
+      "trigger_coords": {
+        "x": 160,
+        "y": -10749
+      },
+      "flags": "0x0280"
+    },
+    {
+      "exit_id": 462,
+      "source_room_id": 61,
+      "sector_index": 1717,
+      "record_index": 14,
+      "warp_type": "0x0000",
+      "target_room_id": 0,
+      "trigger_coords": {
+        "x": 0,
+        "y": 0
+      },
+      "flags": "0x0000"
+    },
+    {
+      "exit_id": 463,
+      "source_room_id": 61,
+      "sector_index": 1717,
+      "record_index": 15,
+      "warp_type": "0x0000",
+      "target_room_id": 0,
+      "trigger_coords": {
+        "x": 0,
+        "y": 0
+      },
+      "flags": "0x0000"
+    },
+    {
+      "exit_id": 464,
+      "source_room_id": 62,
+      "sector_index": 1738,
+      "record_index": 1,
+      "warp_type": "0x2609",
+      "target_room_id": 15,
+      "trigger_coords": {
+        "x": 976,
+        "y": 1072
+      },
+      "flags": "0x0000"
+    },
+    {
+      "exit_id": 465,
+      "source_room_id": 62,
+      "sector_index": 1738,
+      "record_index": 5,
+      "warp_type": "0x1807",
+      "target_room_id": 64,
+      "trigger_coords": {
+        "x": 576,
+        "y": -1152
+      },
+      "flags": "0x04B0"
+    },
+    {
+      "exit_id": 466,
+      "source_room_id": 62,
+      "sector_index": 1738,
+      "record_index": 8,
+      "warp_type": "0x0081",
+      "target_room_id": 4,
+      "trigger_coords": {
+        "x": 2050,
+        "y": -32336
+      },
+      "flags": "0x0001"
+    },
+    {
+      "exit_id": 467,
+      "source_room_id": 63,
+      "sector_index": 1750,
+      "record_index": 2,
+      "warp_type": "0x01FD",
+      "target_room_id": 32,
+      "trigger_coords": {
+        "x": -32728,
+        "y": 1303
+      },
+      "flags": "0x01FF"
+    },
+    {
+      "exit_id": 468,
+      "source_room_id": 63,
+      "sector_index": 1750,
+      "record_index": 3,
+      "warp_type": "0x032C",
+      "target_room_id": 56,
+      "trigger_coords": {
+        "x": -24428,
+        "y": -8184
+      },
+      "flags": "0x836C"
+    },
+    {
+      "exit_id": 469,
+      "source_room_id": 63,
+      "sector_index": 1750,
+      "record_index": 5,
+      "warp_type": "0x4801",
+      "target_room_id": 1,
+      "trigger_coords": {
+        "x": 1248,
+        "y": -31231
+      },
+      "flags": "0x9601"
+    },
+    {
+      "exit_id": 470,
+      "source_room_id": 63,
+      "sector_index": 1750,
+      "record_index": 8,
+      "warp_type": "0x0200",
+      "target_room_id": 0,
+      "trigger_coords": {
+        "x": -2047,
+        "y": -1401
+      },
+      "flags": "0xF0A6"
+    },
+    {
+      "exit_id": 471,
+      "source_room_id": 64,
+      "sector_index": 1759,
+      "record_index": 1,
+      "warp_type": "0x0601",
+      "target_room_id": 1,
+      "trigger_coords": {
+        "x": -1567,
+        "y": 1537
+      },
+      "flags": "0x1601"
+    },
+    {
+      "exit_id": 472,
+      "source_room_id": 64,
+      "sector_index": 1759,
+      "record_index": 2,
+      "warp_type": "0x20A0",
+      "target_room_id": 1,
+      "trigger_coords": {
+        "x": -30709,
+        "y": -800
+      },
+      "flags": "0xFDE0"
+    },
+    {
+      "exit_id": 473,
+      "source_room_id": 64,
+      "sector_index": 1759,
+      "record_index": 6,
+      "warp_type": "0x0030",
+      "target_room_id": 3,
+      "trigger_coords": {
+        "x": -31084,
+        "y": -7474
+      },
+      "flags": "0x9001"
+    },
+    {
+      "exit_id": 474,
+      "source_room_id": 64,
+      "sector_index": 1759,
+      "record_index": 9,
+      "warp_type": "0x0862",
+      "target_room_id": 98,
+      "trigger_coords": {
+        "x": -14170,
+        "y": 500
+      },
+      "flags": "0xE010"
+    },
+    {
+      "exit_id": 475,
+      "source_room_id": 64,
+      "sector_index": 1759,
+      "record_index": 11,
+      "warp_type": "0x2861",
+      "target_room_id": 96,
+      "trigger_coords": {
+        "x": 12495,
+        "y": 103
+      },
+      "flags": "0x0011"
+    },
+    {
+      "exit_id": 476,
+      "source_room_id": 65,
+      "sector_index": 1769,
+      "record_index": 1,
+      "warp_type": "0x4037",
+      "target_room_id": 55,
+      "trigger_coords": {
+        "x": 2112,
+        "y": -1009
+      },
+      "flags": "0x0088"
+    },
+    {
+      "exit_id": 477,
+      "source_room_id": 66,
+      "sector_index": 1779,
+      "record_index": 1,
+      "warp_type": "0x0000",
+      "target_room_id": 64,
+      "trigger_coords": {
+        "x": 10176,
+        "y": 5664
+      },
+      "flags": "0x3F70"
+    },
+    {
+      "exit_id": 478,
+      "source_room_id": 66,
+      "sector_index": 1779,
+      "record_index": 3,
+      "warp_type": "0x06A0",
+      "target_room_id": 4,
+      "trigger_coords": {
+        "x": 18495,
+        "y": -16120
+      },
+      "flags": "0x0005"
+    },
+    {
+      "exit_id": 479,
+      "source_room_id": 66,
+      "sector_index": 1779,
+      "record_index": 4,
+      "warp_type": "0x4705",
+      "target_room_id": 2,
+      "trigger_coords": {
+        "x": -32384,
+        "y": 26891
+      },
+      "flags": "0x08FE"
+    },
+    {
+      "exit_id": 480,
+      "source_room_id": 66,
+      "sector_index": 1779,
+      "record_index": 5,
+      "warp_type": "0x0180",
+      "target_room_id": 4,
+      "trigger_coords": {
+        "x": 87,
+        "y": -32698
+      },
+      "flags": "0x100F"
+    },
+    {
+      "exit_id": 481,
+      "source_room_id": 66,
+      "sector_index": 1779,
+      "record_index": 7,
+      "warp_type": "0x07C0",
+      "target_room_id": 1,
+      "trigger_coords": {
+        "x": 79,
+        "y": -24390
+      },
+      "flags": "0x100F"
+    },
+    {
+      "exit_id": 482,
+      "source_room_id": 67,
+      "sector_index": 1788,
+      "record_index": 2,
+      "warp_type": "0x2000",
+      "target_room_id": 95,
+      "trigger_coords": {
+        "x": 1072,
+        "y": -497
+      },
+      "flags": "0x03D0"
+    },
+    {
+      "exit_id": 483,
+      "source_room_id": 67,
+      "sector_index": 1788,
+      "record_index": 4,
+      "warp_type": "0x0108",
+      "target_room_id": 8,
+      "trigger_coords": {
+        "x": -8082,
+        "y": 264
+      },
+      "flags": "0x0104"
+    },
+    {
+      "exit_id": 484,
+      "source_room_id": 67,
+      "sector_index": 1788,
+      "record_index": 5,
+      "warp_type": "0x0008",
+      "target_room_id": 55,
+      "trigger_coords": {
+        "x": -30591,
+        "y": -24896
+      },
+      "flags": "0xF0A1"
+    },
+    {
+      "exit_id": 485,
+      "source_room_id": 67,
+      "sector_index": 1788,
+      "record_index": 6,
+      "warp_type": "0x0FFC",
+      "target_room_id": 0,
+      "trigger_coords": {
+        "x": 4095,
+        "y": -24054
+      },
+      "flags": "0x0610"
+    },
+    {
+      "exit_id": 486,
+      "source_room_id": 67,
+      "sector_index": 1788,
+      "record_index": 9,
+      "warp_type": "0x01C2",
+      "target_room_id": 10,
+      "trigger_coords": {
+        "x": 160,
+        "y": 3
+      },
+      "flags": "0xFE81"
+    },
+    {
+      "exit_id": 487,
+      "source_room_id": 67,
+      "sector_index": 1788,
+      "record_index": 13,
+      "warp_type": "0x0340",
+      "target_room_id": 0,
+      "trigger_coords": {
+        "x": -21919,
+        "y": -31666
+      },
+      "flags": "0x3FE3"
+    },
+    {
+      "exit_id": 488,
+      "source_room_id": 67,
+      "sector_index": 1788,
+      "record_index": 14,
+      "warp_type": "0x4080",
+      "target_room_id": 4,
+      "trigger_coords": {
+        "x": 224,
+        "y": -31572
+      },
+      "flags": "0xFE8F"
+    },
+    {
+      "exit_id": 489,
+      "source_room_id": 68,
+      "sector_index": 1800,
+      "record_index": 1,
+      "warp_type": "0x0200",
+      "target_room_id": 0,
+      "trigger_coords": {
+        "x": 259,
+        "y": -8184
+      },
+      "flags": "0xA675"
+    },
+    {
+      "exit_id": 490,
+      "source_room_id": 68,
+      "sector_index": 1800,
+      "record_index": 2,
+      "warp_type": "0x0100",
+      "target_room_id": 8,
+      "trigger_coords": {
+        "x": -32752,
+        "y": 1848
+      },
+      "flags": "0x0104"
+    },
+    {
+      "exit_id": 491,
+      "source_room_id": 68,
+      "sector_index": 1800,
+      "record_index": 3,
+      "warp_type": "0x01FB",
+      "target_room_id": 43,
+      "trigger_coords": {
+        "x": -32562,
+        "y": -32048
+      },
+      "flags": "0x0111"
+    },
+    {
+      "exit_id": 492,
+      "source_room_id": 68,
+      "sector_index": 1800,
+      "record_index": 11,
+      "warp_type": "0x22C0",
+      "target_room_id": 88,
+      "trigger_coords": {
+        "x": 1551,
+        "y": 384
+      },
+      "flags": "0x1207"
+    },
+    {
+      "exit_id": 493,
+      "source_room_id": 68,
+      "sector_index": 1800,
+      "record_index": 12,
+      "warp_type": "0x0002",
+      "target_room_id": 2,
+      "trigger_coords": {
+        "x": -32749,
+        "y": 264
+      },
+      "flags": "0xE008"
+    },
+    {
+      "exit_id": 494,
+      "source_room_id": 69,
+      "sector_index": 1811,
+      "record_index": 3,
+      "warp_type": "0x3E16",
+      "target_room_id": 22,
+      "trigger_coords": {
+        "x": 664,
+        "y": 816
+      },
+      "flags": "0x0020"
+    },
+    {
+      "exit_id": 495,
+      "source_room_id": 69,
+      "sector_index": 1811,
+      "record_index": 4,
+      "warp_type": "0x2F20",
+      "target_room_id": 4,
+      "trigger_coords": {
+        "x": 4350,
+        "y": -28928
+      },
+      "flags": "0x4803"
+    },
+    {
+      "exit_id": 496,
+      "source_room_id": 70,
+      "sector_index": 1837,
+      "record_index": 1,
+      "warp_type": "0x0000",
+      "target_room_id": 64,
+      "trigger_coords": {
+        "x": 5633,
+        "y": -800
+      },
+      "flags": "0x3FC0"
+    },
+    {
+      "exit_id": 497,
+      "source_room_id": 70,
+      "sector_index": 1837,
+      "record_index": 3,
+      "warp_type": "0x0100",
+      "target_room_id": 80,
+      "trigger_coords": {
+        "x": 15,
+        "y": 160
+      },
+      "flags": "0x0818"
+    },
+    {
+      "exit_id": 498,
+      "source_room_id": 70,
+      "sector_index": 1837,
+      "record_index": 5,
+      "warp_type": "0x1EE0",
+      "target_room_id": 97,
+      "trigger_coords": {
+        "x": 27141,
+        "y": 272
+      },
+      "flags": "0xE026"
+    },
+    {
+      "exit_id": 499,
+      "source_room_id": 71,
+      "sector_index": 1847,
+      "record_index": 1,
+      "warp_type": "0x07FF",
+      "target_room_id": 47,
+      "trigger_coords": {
+        "x": -1312,
+        "y": 2056
+      },
+      "flags": "0x0801"
+    },
+    {
+      "exit_id": 500,
+      "source_room_id": 71,
+      "sector_index": 1847,
+      "record_index": 2,
+      "warp_type": "0x0188",
+      "target_room_id": 52,
+      "trigger_coords": {
+        "x": -16340,
+        "y": -32752
+      },
+      "flags": "0x0188"
+    },
+    {
+      "exit_id": 501,
+      "source_room_id": 71,
+      "sector_index": 1847,
+      "record_index": 3,
+      "warp_type": "0x0120",
+      "target_room_id": 0,
+      "trigger_coords": {
+        "x": -14847,
+        "y": 224
+      },
+      "flags": "0x67E0"
+    },
+    {
+      "exit_id": 502,
+      "source_room_id": 71,
+      "sector_index": 1847,
+      "record_index": 4,
+      "warp_type": "0x01F8",
+      "target_room_id": 16,
+      "trigger_coords": {
+        "x": -8146,
+        "y": 1016
+      },
+      "flags": "0x0104"
+    },
+    {
+      "exit_id": 503,
+      "source_room_id": 71,
+      "sector_index": 1847,
+      "record_index": 5,
+      "warp_type": "0x01FC",
+      "target_room_id": 8,
+      "trigger_coords": {
+        "x": -8176,
+        "y": 260
+      },
+      "flags": "0x0100"
+    },
+    {
+      "exit_id": 504,
+      "source_room_id": 72,
+      "sector_index": 1858,
+      "record_index": 1,
+      "warp_type": "0x4100",
+      "target_room_id": 2,
+      "trigger_coords": {
+        "x": 135,
+        "y": 872
+      },
+      "flags": "0x0800"
+    },
+    {
+      "exit_id": 505,
+      "source_room_id": 72,
+      "sector_index": 1858,
+      "record_index": 2,
+      "warp_type": "0x0001",
+      "target_room_id": 0,
+      "trigger_coords": {
+        "x": 908,
+        "y": 576
+      },
+      "flags": "0x007F"
+    },
+    {
+      "exit_id": 506,
+      "source_room_id": 72,
+      "sector_index": 1858,
+      "record_index": 3,
+      "warp_type": "0x0218",
+      "target_room_id": 0,
+      "trigger_coords": {
+        "x": -13309,
+        "y": 10494
+      },
+      "flags": "0x6703"
+    },
+    {
+      "exit_id": 507,
+      "source_room_id": 72,
+      "sector_index": 1858,
+      "record_index": 4,
+      "warp_type": "0x0818",
+      "target_room_id": 0,
+      "trigger_coords": {
+        "x": 136,
+        "y": 2176
+      },
+      "flags": "0xFFA0"
+    },
+    {
+      "exit_id": 508,
+      "source_room_id": 72,
+      "sector_index": 1858,
+      "record_index": 5,
+      "warp_type": "0x2641",
+      "target_room_id": 65,
+      "trigger_coords": {
+        "x": 416,
+        "y": 27151
+      },
+      "flags": "0x0801"
+    },
+    {
+      "exit_id": 509,
+      "source_room_id": 72,
+      "sector_index": 1858,
+      "record_index": 7,
+      "warp_type": "0x0847",
+      "target_room_id": 1,
+      "trigger_coords": {
+        "x": -24522,
+        "y": 256
+      },
+      "flags": "0x00FF"
+    },
+    {
+      "exit_id": 510,
+      "source_room_id": 72,
+      "sector_index": 1858,
+      "record_index": 8,
+      "warp_type": "0x01E0",
+      "target_room_id": 2,
+      "trigger_coords": {
+        "x": 25345,
+        "y": 16800
+      },
+      "flags": "0xE0FA"
+    },
+    {
+      "exit_id": 511,
+      "source_room_id": 72,
+      "sector_index": 1858,
+      "record_index": 9,
+      "warp_type": "0x4C61",
+      "target_room_id": 3,
+      "trigger_coords": {
+        "x": -24228,
+        "y": -7778
+      },
+      "flags": "0x8C42"
+    },
+    {
+      "exit_id": 512,
+      "source_room_id": 72,
+      "sector_index": 1858,
+      "record_index": 11,
+      "warp_type": "0x2224",
+      "target_room_id": 3,
+      "trigger_coords": {
+        "x": -8188,
+        "y": 27653
+      },
+      "flags": "0x2223"
+    },
+    {
+      "exit_id": 513,
+      "source_room_id": 73,
+      "sector_index": 1893,
+      "record_index": 1,
+      "warp_type": "0x0661",
+      "target_room_id": 54,
+      "trigger_coords": {
+        "x": 1184,
+        "y": 264
+      },
+      "flags": "0xA10E"
+    },
+    {
+      "exit_id": 514,
+      "source_room_id": 73,
+      "sector_index": 1893,
+      "record_index": 2,
+      "warp_type": "0x038F",
+      "target_room_id": 0,
+      "trigger_coords": {
+        "x": 1278,
+        "y": -28926
+      },
+      "flags": "0x80E6"
+    },
+    {
+      "exit_id": 515,
+      "source_room_id": 73,
+      "sector_index": 1893,
+      "record_index": 3,
+      "warp_type": "0x02AC",
+      "target_room_id": 68,
+      "trigger_coords": {
+        "x": -16384,
+        "y": 2080
+      },
+      "flags": "0x9204"
+    },
+    {
+      "exit_id": 516,
+      "source_room_id": 73,
+      "sector_index": 1893,
+      "record_index": 4,
+      "warp_type": "0x021C",
+      "target_room_id": 28,
+      "trigger_coords": {
+        "x": -29183,
+        "y": 928
+      },
+      "flags": "0x1A80"
+    },
+    {
+      "exit_id": 517,
+      "source_room_id": 73,
+      "sector_index": 1893,
+      "record_index": 5,
+      "warp_type": "0x1CA5",
+      "target_room_id": 61,
+      "trigger_coords": {
+        "x": -19967,
+        "y": 16838
+      },
+      "flags": "0xA2C1"
+    },
+    {
+      "exit_id": 518,
+      "source_room_id": 73,
+      "sector_index": 1893,
+      "record_index": 10,
+      "warp_type": "0x3201",
+      "target_room_id": 1,
+      "trigger_coords": {
+        "x": -16108,
+        "y": 763
+      },
+      "flags": "0x2862"
+    },
+    {
+      "exit_id": 519,
+      "source_room_id": 74,
+      "sector_index": 1956,
+      "record_index": 1,
+      "warp_type": "0x02E0",
+      "target_room_id": 98,
+      "trigger_coords": {
+        "x": -24560,
+        "y": 510
+      },
+      "flags": "0x0100"
+    },
+    {
+      "exit_id": 520,
+      "source_room_id": 74,
+      "sector_index": 1956,
+      "record_index": 7,
+      "warp_type": "0x10FF",
+      "target_room_id": 0,
+      "trigger_coords": {
+        "x": 2060,
+        "y": -881
+      },
+      "flags": "0x8080"
+    },
+    {
+      "exit_id": 521,
+      "source_room_id": 74,
+      "sector_index": 1956,
+      "record_index": 11,
+      "warp_type": "0x01FB",
+      "target_room_id": 86,
+      "trigger_coords": {
+        "x": 387,
+        "y": -32093
+      },
+      "flags": "0x0200"
+    },
+    {
+      "exit_id": 522,
+      "source_room_id": 75,
+      "sector_index": 1961,
+      "record_index": 1,
+      "warp_type": "0x3C01",
+      "target_room_id": 1,
+      "trigger_coords": {
+        "x": -22399,
+        "y": 15362
+      },
+      "flags": "0x0801"
+    },
+    {
+      "exit_id": 523,
+      "source_room_id": 76,
+      "sector_index": 1970,
+      "record_index": 1,
+      "warp_type": "0x0403",
+      "target_room_id": 3,
+      "trigger_coords": {
+        "x": -23039,
+        "y": 640
+      },
+      "flags": "0xC080"
+    },
+    {
+      "exit_id": 524,
+      "source_room_id": 76,
+      "sector_index": 1970,
+      "record_index": 8,
+      "warp_type": "0x4E01",
+      "target_room_id": 1,
+      "trigger_coords": {
+        "x": -29079,
+        "y": -23724
+      },
+      "flags": "0x4EE2"
+    },
+    {
+      "exit_id": 525,
+      "source_room_id": 76,
+      "sector_index": 1970,
+      "record_index": 11,
+      "warp_type": "0x0000",
+      "target_room_id": 0,
+      "trigger_coords": {
+        "x": 0,
+        "y": 0
+      },
+      "flags": "0x0000"
+    },
+    {
+      "exit_id": 526,
+      "source_room_id": 76,
+      "sector_index": 1970,
+      "record_index": 12,
+      "warp_type": "0x0000",
+      "target_room_id": 0,
+      "trigger_coords": {
+        "x": 0,
+        "y": 0
+      },
+      "flags": "0x0000"
+    }
+  ]
+}

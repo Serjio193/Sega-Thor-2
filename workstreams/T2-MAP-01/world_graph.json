@@ -1,0 +1,6694 @@
+{
+  "total_rooms": 104,
+  "total_edges": 527,
+  "connected_rooms": 77,
+  "total_entities": 1273,
+  "total_triggers": 79,
+  "rooms": [
+    {
+      "room_id": 0,
+      "sector_lba": 834,
+      "disc_offset": "0x1A1000",
+      "room_dimensions": {
+        "width_px": 1134,
+        "height_px": 1164,
+        "unbounded_y": false
+      },
+      "camera_constraints": {
+        "mode_flags": "0x403F",
+        "min_x": 127,
+        "min_y": 136,
+        "max_x": 2112,
+        "max_y": -1009,
+        "deadzone_width": 1985,
+        "deadzone_height": 0
+      },
+      "entities_count": 3,
+      "exits_count": 6,
+      "triggers_count": 2,
+      "outgoing_edges": [
+        {
+          "target_room_id": 9,
+          "warp_type": "0x4780",
+          "coords": {
+            "x": 0,
+            "y": 416
+          }
+        },
+        {
+          "target_room_id": 1,
+          "warp_type": "0x2001",
+          "coords": {
+            "x": 2176,
+            "y": 8320
+          }
+        },
+        {
+          "target_room_id": 0,
+          "warp_type": "0x0800",
+          "coords": {
+            "x": 6152,
+            "y": 4225
+          }
+        },
+        {
+          "target_room_id": 2,
+          "warp_type": "0x09FF",
+          "coords": {
+            "x": 2301,
+            "y": -28927
+          }
+        },
+        {
+          "target_room_id": 1,
+          "warp_type": "0x0801",
+          "coords": {
+            "x": 640,
+            "y": 4101
+          }
+        },
+        {
+          "target_room_id": 45,
+          "warp_type": "0x02FD",
+          "coords": {
+            "x": -640,
+            "y": 57
+          }
+        }
+      ]
+    },
+    {
+      "room_id": 1,
+      "sector_lba": 845,
+      "disc_offset": "0x1A6800",
+      "room_dimensions": {
+        "width_px": 2174,
+        "height_px": 4096,
+        "unbounded_y": true
+      },
+      "camera_constraints": {
+        "mode_flags": "0x605F",
+        "min_x": -4049,
+        "min_y": 472,
+        "max_x": 520,
+        "max_y": -497,
+        "deadzone_width": 4569,
+        "deadzone_height": 0
+      },
+      "entities_count": 0,
+      "exits_count": 12,
+      "triggers_count": 0,
+      "outgoing_edges": [
+        {
+          "target_room_id": 25,
+          "warp_type": "0x0020",
+          "coords": {
+            "x": -14176,
+            "y": -16893
+          }
+        },
+        {
+          "target_room_id": 1,
+          "warp_type": "0x02E0",
+          "coords": {
+            "x": 14048,
+            "y": 22211
+          }
+        },
+        {
+          "target_room_id": 0,
+          "warp_type": "0x0801",
+          "coords": {
+            "x": 16128,
+            "y": 26593
+          }
+        },
+        {
+          "target_room_id": 0,
+          "warp_type": "0x4000",
+          "coords": {
+            "x": 6112,
+            "y": -25479
+          }
+        },
+        {
+          "target_room_id": 0,
+          "warp_type": "0x0520",
+          "coords": {
+            "x": -18839,
+            "y": -7746
+          }
+        },
+        {
+          "target_room_id": 0,
+          "warp_type": "0x0000",
+          "coords": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "target_room_id": 0,
+          "warp_type": "0x0000",
+          "coords": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "target_room_id": 0,
+          "warp_type": "0x0000",
+          "coords": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "target_room_id": 0,
+          "warp_type": "0x0000",
+          "coords": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "target_room_id": 0,
+          "warp_type": "0x0000",
+          "coords": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "target_room_id": 0,
+          "warp_type": "0x0000",
+          "coords": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "target_room_id": 0,
+          "warp_type": "0x0000",
+          "coords": {
+            "x": 0,
+            "y": 0
+          }
+        }
+      ]
+    },
+    {
+      "room_id": 2,
+      "sector_lba": 856,
+      "disc_offset": "0x1AC000",
+      "room_dimensions": {
+        "width_px": 3054,
+        "height_px": 3164,
+        "unbounded_y": false
+      },
+      "camera_constraints": {
+        "mode_flags": "0x5847",
+        "min_x": 151,
+        "min_y": 120,
+        "max_x": 1032,
+        "max_y": 527,
+        "deadzone_width": 881,
+        "deadzone_height": 407
+      },
+      "entities_count": 18,
+      "exits_count": 7,
+      "triggers_count": 3,
+      "outgoing_edges": [
+        {
+          "target_room_id": 54,
+          "warp_type": "0x0661",
+          "coords": {
+            "x": 1184,
+            "y": 264
+          }
+        },
+        {
+          "target_room_id": 0,
+          "warp_type": "0x038F",
+          "coords": {
+            "x": 1278,
+            "y": -28926
+          }
+        },
+        {
+          "target_room_id": 68,
+          "warp_type": "0x02AC",
+          "coords": {
+            "x": -16384,
+            "y": 2080
+          }
+        },
+        {
+          "target_room_id": 28,
+          "warp_type": "0x021C",
+          "coords": {
+            "x": -29183,
+            "y": 928
+          }
+        },
+        {
+          "target_room_id": 61,
+          "warp_type": "0x1CA5",
+          "coords": {
+            "x": -19967,
+            "y": 16838
+          }
+        },
+        {
+          "target_room_id": 10,
+          "warp_type": "0x01A0",
+          "coords": {
+            "x": -7524,
+            "y": 25574
+          }
+        },
+        {
+          "target_room_id": 97,
+          "warp_type": "0x0861",
+          "coords": {
+            "x": -32680,
+            "y": -16376
+          }
+        }
+      ]
+    },
+    {
+      "room_id": 3,
+      "sector_lba": 866,
+      "disc_offset": "0x1B1000",
+      "room_dimensions": {
+        "width_px": 2910,
+        "height_px": 4096,
+        "unbounded_y": true
+      },
+      "camera_constraints": {
+        "mode_flags": "0xA09F",
+        "min_x": 159,
+        "min_y": 996,
+        "max_x": 1072,
+        "max_y": -1010,
+        "deadzone_width": 913,
+        "deadzone_height": 0
+      },
+      "entities_count": 36,
+      "exits_count": 9,
+      "triggers_count": 0,
+      "outgoing_edges": [
+        {
+          "target_room_id": 45,
+          "warp_type": "0x02FD",
+          "coords": {
+            "x": -241,
+            "y": 96
+          }
+        },
+        {
+          "target_room_id": 60,
+          "warp_type": "0x00E0",
+          "coords": {
+            "x": -32564,
+            "y": 4098
+          }
+        },
+        {
+          "target_room_id": 31,
+          "warp_type": "0x00C0",
+          "coords": {
+            "x": 448,
+            "y": 9
+          }
+        },
+        {
+          "target_room_id": 0,
+          "warp_type": "0x04FA",
+          "coords": {
+            "x": -24568,
+            "y": -1536
+          }
+        },
+        {
+          "target_room_id": 1,
+          "warp_type": "0x0EE0",
+          "coords": {
+            "x": 24288,
+            "y": 2049
+          }
+        },
+        {
+          "target_room_id": 97,
+          "warp_type": "0x1661",
+          "coords": {
+            "x": 27364,
+            "y": 27872
+          }
+        },
+        {
+          "target_room_id": 97,
+          "warp_type": "0x4861",
+          "coords": {
+            "x": -23974,
+            "y": 1176
+          }
+        },
+        {
+          "target_room_id": 16,
+          "warp_type": "0x01FE",
+          "coords": {
+            "x": -8168,
+            "y": 2044
+          }
+        },
+        {
+          "target_room_id": 12,
+          "warp_type": "0x4074",
+          "coords": {
+            "x": 9216,
+            "y": -6548
+          }
+        }
+      ]
+    },
+    {
+      "room_id": 4,
+      "sector_lba": 885,
+      "disc_offset": "0x1BA800",
+      "room_dimensions": {
+        "width_px": 5414,
+        "height_px": 4096,
+        "unbounded_y": true
+      },
+      "camera_constraints": {
+        "mode_flags": "0x201F",
+        "min_x": 111,
+        "min_y": 280,
+        "max_x": 2112,
+        "max_y": -512,
+        "deadzone_width": 2001,
+        "deadzone_height": 0
+      },
+      "entities_count": 29,
+      "exits_count": 12,
+      "triggers_count": 0,
+      "outgoing_edges": [
+        {
+          "target_room_id": 8,
+          "warp_type": "0x0208",
+          "coords": {
+            "x": -544,
+            "y": 6145
+          }
+        },
+        {
+          "target_room_id": 8,
+          "warp_type": "0x0400",
+          "coords": {
+            "x": -29694,
+            "y": 1
+          }
+        },
+        {
+          "target_room_id": 1,
+          "warp_type": "0x4001",
+          "coords": {
+            "x": 256,
+            "y": -32502
+          }
+        },
+        {
+          "target_room_id": 44,
+          "warp_type": "0x08FC",
+          "coords": {
+            "x": 704,
+            "y": 27650
+          }
+        },
+        {
+          "target_room_id": 2,
+          "warp_type": "0x0302",
+          "coords": {
+            "x": 508,
+            "y": -8034
+          }
+        },
+        {
+          "target_room_id": 16,
+          "warp_type": "0x0394",
+          "coords": {
+            "x": 128,
+            "y": 924
+          }
+        },
+        {
+          "target_room_id": 64,
+          "warp_type": "0x0380",
+          "coords": {
+            "x": 258,
+            "y": -32132
+          }
+        },
+        {
+          "target_room_id": 63,
+          "warp_type": "0x0015",
+          "coords": {
+            "x": -7796,
+            "y": 32619
+          }
+        },
+        {
+          "target_room_id": 97,
+          "warp_type": "0x3A61",
+          "coords": {
+            "x": 1275,
+            "y": 0
+          }
+        },
+        {
+          "target_room_id": 1,
+          "warp_type": "0x4C89",
+          "coords": {
+            "x": -31132,
+            "y": -30280
+          }
+        },
+        {
+          "target_room_id": 78,
+          "warp_type": "0x0440",
+          "coords": {
+            "x": -31134,
+            "y": -29894
+          }
+        },
+        {
+          "target_room_id": 63,
+          "warp_type": "0x0003",
+          "coords": {
+            "x": -6290,
+            "y": -21020
+          }
+        }
+      ]
+    },
+    {
+      "room_id": 5,
+      "sector_lba": 899,
+      "disc_offset": "0x1C1800",
+      "room_dimensions": {
+        "width_px": 58368,
+        "height_px": 24633,
+        "unbounded_y": false
+      },
+      "camera_constraints": {
+        "mode_flags": "0xE3F0",
+        "min_x": 24613,
+        "min_y": -7104,
+        "max_x": 24587,
+        "max_y": -23464,
+        "deadzone_width": 0,
+        "deadzone_height": 0
+      },
+      "entities_count": 0,
+      "exits_count": 6,
+      "triggers_count": 2,
+      "outgoing_edges": [
+        {
+          "target_room_id": 3,
+          "warp_type": "0x0881",
+          "coords": {
+            "x": -8064,
+            "y": 32260
+          }
+        },
+        {
+          "target_room_id": 0,
+          "warp_type": "0x08FE",
+          "coords": {
+            "x": 11424,
+            "y": 11777
+          }
+        },
+        {
+          "target_room_id": 76,
+          "warp_type": "0x0020",
+          "coords": {
+            "x": 1760,
+            "y": 2059
+          }
+        },
+        {
+          "target_room_id": 32,
+          "warp_type": "0x0220",
+          "coords": {
+            "x": -31872,
+            "y": 506
+          }
+        },
+        {
+          "target_room_id": 3,
+          "warp_type": "0x0103",
+          "coords": {
+            "x": 4127,
+            "y": -15534
+          }
+        },
+        {
+          "target_room_id": 97,
+          "warp_type": "0x24E0",
+          "coords": {
+            "x": -7254,
+            "y": -24266
+          }
+        }
+      ]
+    },
+    {
+      "room_id": 6,
+      "sector_lba": 915,
+      "disc_offset": "0x1C9800",
+      "room_dimensions": {
+        "width_px": 2376,
+        "height_px": 2406,
+        "unbounded_y": false
+      },
+      "camera_constraints": {
+        "mode_flags": "0x3057",
+        "min_x": 127,
+        "min_y": 844,
+        "max_x": 816,
+        "max_y": -635,
+        "deadzone_width": 689,
+        "deadzone_height": 0
+      },
+      "entities_count": 0,
+      "exits_count": 7,
+      "triggers_count": 0,
+      "outgoing_edges": [
+        {
+          "target_room_id": 5,
+          "warp_type": "0x4110",
+          "coords": {
+            "x": 326,
+            "y": -24458
+          }
+        },
+        {
+          "target_room_id": 4,
+          "warp_type": "0x0FFF",
+          "coords": {
+            "x": 4348,
+            "y": -28736
+          }
+        },
+        {
+          "target_room_id": 88,
+          "warp_type": "0x00C0",
+          "coords": {
+            "x": -3583,
+            "y": 640
+          }
+        },
+        {
+          "target_room_id": 8,
+          "warp_type": "0x0460",
+          "coords": {
+            "x": 14337,
+            "y": -288
+          }
+        },
+        {
+          "target_room_id": 24,
+          "warp_type": "0x0538",
+          "coords": {
+            "x": -20476,
+            "y": -369
+          }
+        },
+        {
+          "target_room_id": 0,
+          "warp_type": "0x3205",
+          "coords": {
+            "x": 4257,
+            "y": -1019
+          }
+        },
+        {
+          "target_room_id": 0,
+          "warp_type": "0x0000",
+          "coords": {
+            "x": 0,
+            "y": 0
+          }
+        }
+      ]
+    },
+    {
+      "room_id": 7,
+      "sector_lba": 931,
+      "disc_offset": "0x1D1800",
+      "room_dimensions": {
+        "width_px": 2230,
+        "height_px": 2276,
+        "unbounded_y": false
+      },
+      "camera_constraints": {
+        "mode_flags": "0xD887",
+        "min_x": 127,
+        "min_y": 920,
+        "max_x": 1584,
+        "max_y": -1147,
+        "deadzone_width": 1457,
+        "deadzone_height": 0
+      },
+      "entities_count": 17,
+      "exits_count": 7,
+      "triggers_count": 1,
+      "outgoing_edges": [
+        {
+          "target_room_id": 7,
+          "warp_type": "0x4C01",
+          "coords": {
+            "x": 1152,
+            "y": 288
+          }
+        },
+        {
+          "target_room_id": 31,
+          "warp_type": "0x0060",
+          "coords": {
+            "x": 143,
+            "y": -24380
+          }
+        },
+        {
+          "target_room_id": 2,
+          "warp_type": "0x0A06",
+          "coords": {
+            "x": 7264,
+            "y": 16128
+          }
+        },
+        {
+          "target_room_id": 0,
+          "warp_type": "0x0200",
+          "coords": {
+            "x": -32254,
+            "y": 1144
+          }
+        },
+        {
+          "target_room_id": 0,
+          "warp_type": "0x0000",
+          "coords": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "target_room_id": 0,
+          "warp_type": "0x0000",
+          "coords": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "target_room_id": 0,
+          "warp_type": "0x0000",
+          "coords": {
+            "x": 0,
+            "y": 0
+          }
+        }
+      ]
+    },
+    {
+      "room_id": 8,
+      "sector_lba": 948,
+      "disc_offset": "0x1DA000",
+      "room_dimensions": {
+        "width_px": 1934,
+        "height_px": 1948,
+        "unbounded_y": false
+      },
+      "camera_constraints": {
+        "mode_flags": "0x8037",
+        "min_x": 167,
+        "min_y": 912,
+        "max_x": 1072,
+        "max_y": -1280,
+        "deadzone_width": 905,
+        "deadzone_height": 0
+      },
+      "entities_count": 22,
+      "exits_count": 7,
+      "triggers_count": 1,
+      "outgoing_edges": [
+        {
+          "target_room_id": 88,
+          "warp_type": "0x2000",
+          "coords": {
+            "x": 1996,
+            "y": 280
+          }
+        },
+        {
+          "target_room_id": 64,
+          "warp_type": "0x0740",
+          "coords": {
+            "x": 910,
+            "y": -7892
+          }
+        },
+        {
+          "target_room_id": 40,
+          "warp_type": "0x4000",
+          "coords": {
+            "x": 18180,
+            "y": 19460
+          }
+        },
+        {
+          "target_room_id": 0,
+          "warp_type": "0x0100",
+          "coords": {
+            "x": -28928,
+            "y": 8416
+          }
+        },
+        {
+          "target_room_id": 1,
+          "warp_type": "0x3601",
+          "coords": {
+            "x": 4033,
+            "y": 25099
+          }
+        },
+        {
+          "target_room_id": 2,
+          "warp_type": "0x0700",
+          "coords": {
+            "x": 7,
+            "y": -31930
+          }
+        },
+        {
+          "target_room_id": 0,
+          "warp_type": "0x0000",
+          "coords": {
+            "x": 0,
+            "y": 0
+          }
+        }
+      ]
+    },
+    {
+      "room_id": 9,
+      "sector_lba": 961,
+      "disc_offset": "0x1E0800",
+      "room_dimensions": {
+        "width_px": 7429,
+        "height_px": 6144,
+        "unbounded_y": false
+      },
+      "camera_constraints": {
+        "mode_flags": "0x4700",
+        "min_x": -22781,
+        "min_y": 21509,
+        "max_x": 12539,
+        "max_y": -29696,
+        "deadzone_width": 35320,
+        "deadzone_height": 0
+      },
+      "entities_count": 12,
+      "exits_count": 7,
+      "triggers_count": 1,
+      "outgoing_edges": [
+        {
+          "target_room_id": 0,
+          "warp_type": "0x0000",
+          "coords": {
+            "x": -369,
+            "y": -128
+          }
+        },
+        {
+          "target_room_id": 58,
+          "warp_type": "0x02A2",
+          "coords": {
+            "x": 1504,
+            "y": 10401
+          }
+        },
+        {
+          "target_room_id": 0,
+          "warp_type": "0x0100",
+          "coords": {
+            "x": 1032,
+            "y": -895
+          }
+        },
+        {
+          "target_room_id": 4,
+          "warp_type": "0x0681",
+          "coords": {
+            "x": 2050,
+            "y": -7996
+          }
+        },
+        {
+          "target_room_id": 55,
+          "warp_type": "0x2837",
+          "coords": {
+            "x": -6232,
+            "y": 25058
+          }
+        },
+        {
+          "target_room_id": 60,
+          "warp_type": "0x20A4",
+          "coords": {
+            "x": 8168,
+            "y": -26515
+          }
+        },
+        {
+          "target_room_id": 0,
+          "warp_type": "0x0380",
+          "coords": {
+            "x": 5727,
+            "y": -1144
+          }
+        }
+      ]
+    },
+    {
+      "room_id": 10,
+      "sector_lba": 973,
+      "disc_offset": "0x1E6800",
+      "room_dimensions": {
+        "width_px": 65116,
+        "height_px": 24583,
+        "unbounded_y": false
+      },
+      "camera_constraints": {
+        "mode_flags": "0xE030",
+        "min_x": 24581,
+        "min_y": -8536,
+        "max_x": 8195,
+        "max_y": 16400,
+        "deadzone_width": 0,
+        "deadzone_height": 24936
+      },
+      "entities_count": 0,
+      "exits_count": 8,
+      "triggers_count": 2,
+      "outgoing_edges": [
+        {
+          "target_room_id": 16,
+          "warp_type": "0x1803",
+          "coords": {
+            "x": 16000,
+            "y": 13952
+          }
+        },
+        {
+          "target_room_id": 48,
+          "warp_type": "0x0810",
+          "coords": {
+            "x": -28925,
+            "y": -26621
+          }
+        },
+        {
+          "target_room_id": 1,
+          "warp_type": "0x1801",
+          "coords": {
+            "x": 480,
+            "y": 6273
+          }
+        },
+        {
+          "target_room_id": 8,
+          "warp_type": "0x0494",
+          "coords": {
+            "x": -5628,
+            "y": -17404
+          }
+        },
+        {
+          "target_room_id": 3,
+          "warp_type": "0x4003",
+          "coords": {
+            "x": 17540,
+            "y": -12669
+          }
+        },
+        {
+          "target_room_id": 0,
+          "warp_type": "0x0F00",
+          "coords": {
+            "x": 23650,
+            "y": 416
+          }
+        },
+        {
+          "target_room_id": 0,
+          "warp_type": "0x0000",
+          "coords": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "target_room_id": 0,
+          "warp_type": "0x0000",
+          "coords": {
+            "x": 0,
+            "y": 0
+          }
+        }
+      ]
+    },
+    {
+      "room_id": 11,
+      "sector_lba": 982,
+      "disc_offset": "0x1EB000",
+      "room_dimensions": {
+        "width_px": 3422,
+        "height_px": 4096,
+        "unbounded_y": true
+      },
+      "camera_constraints": {
+        "mode_flags": "0x606F",
+        "min_x": 143,
+        "min_y": 136,
+        "max_x": 2112,
+        "max_y": -497,
+        "deadzone_width": 1969,
+        "deadzone_height": 0
+      },
+      "entities_count": 9,
+      "exits_count": 7,
+      "triggers_count": 0,
+      "outgoing_edges": [
+        {
+          "target_room_id": 6,
+          "warp_type": "0x28FE",
+          "coords": {
+            "x": 1072,
+            "y": -800
+          }
+        },
+        {
+          "target_room_id": 40,
+          "warp_type": "0x04CC",
+          "coords": {
+            "x": -24570,
+            "y": 17456
+          }
+        },
+        {
+          "target_room_id": 9,
+          "warp_type": "0x0060",
+          "coords": {
+            "x": 103,
+            "y": -32540
+          }
+        },
+        {
+          "target_room_id": 0,
+          "warp_type": "0x0410",
+          "coords": {
+            "x": -7164,
+            "y": -256
+          }
+        },
+        {
+          "target_room_id": 0,
+          "warp_type": "0x0000",
+          "coords": {
+            "x": -32768,
+            "y": -32638
+          }
+        },
+        {
+          "target_room_id": 0,
+          "warp_type": "0x0100",
+          "coords": {
+            "x": -32616,
+            "y": 1180
+          }
+        },
+        {
+          "target_room_id": 1,
+          "warp_type": "0x0846",
+          "coords": {
+            "x": 7524,
+            "y": -8175
+          }
+        }
+      ]
+    },
+    {
+      "room_id": 12,
+      "sector_lba": 991,
+      "disc_offset": "0x1EF800",
+      "room_dimensions": {
+        "width_px": 1496,
+        "height_px": 1574,
+        "unbounded_y": false
+      },
+      "camera_constraints": {
+        "mode_flags": "0x403F",
+        "min_x": 55,
+        "min_y": 460,
+        "max_x": 2080,
+        "max_y": -1009,
+        "deadzone_width": 2025,
+        "deadzone_height": 0
+      },
+      "entities_count": 19,
+      "exits_count": 5,
+      "triggers_count": 2,
+      "outgoing_edges": [
+        {
+          "target_room_id": 65,
+          "warp_type": "0x4441",
+          "coords": {
+            "x": -32544,
+            "y": -20895
+          }
+        },
+        {
+          "target_room_id": 0,
+          "warp_type": "0x0948",
+          "coords": {
+            "x": 30329,
+            "y": 1028
+          }
+        },
+        {
+          "target_room_id": 48,
+          "warp_type": "0x0140",
+          "coords": {
+            "x": -16328,
+            "y": 513
+          }
+        },
+        {
+          "target_room_id": 1,
+          "warp_type": "0x3C41",
+          "coords": {
+            "x": 1796,
+            "y": 528
+          }
+        },
+        {
+          "target_room_id": 36,
+          "warp_type": "0x0040",
+          "coords": {
+            "x": 1793,
+            "y": 16390
+          }
+        }
+      ]
+    },
+    {
+      "room_id": 13,
+      "sector_lba": 1006,
+      "disc_offset": "0x1F7000",
+      "room_dimensions": {
+        "width_px": 2550,
+        "height_px": 4096,
+        "unbounded_y": true
+      },
+      "camera_constraints": {
+        "mode_flags": "0xB857",
+        "min_x": 167,
+        "min_y": 960,
+        "max_x": 280,
+        "max_y": -2034,
+        "deadzone_width": 113,
+        "deadzone_height": 0
+      },
+      "entities_count": 22,
+      "exits_count": 9,
+      "triggers_count": 0,
+      "outgoing_edges": [
+        {
+          "target_room_id": 0,
+          "warp_type": "0x20FF",
+          "coords": {
+            "x": 2368,
+            "y": 18368
+          }
+        },
+        {
+          "target_room_id": 1,
+          "warp_type": "0x03FD",
+          "coords": {
+            "x": 513,
+            "y": 1984
+          }
+        },
+        {
+          "target_room_id": 24,
+          "warp_type": "0x2000",
+          "coords": {
+            "x": 1056,
+            "y": -896
+          }
+        },
+        {
+          "target_room_id": 8,
+          "warp_type": "0x0108",
+          "coords": {
+            "x": -9215,
+            "y": -32246
+          }
+        },
+        {
+          "target_room_id": 5,
+          "warp_type": "0x0840",
+          "coords": {
+            "x": -32760,
+            "y": 1026
+          }
+        },
+        {
+          "target_room_id": 4,
+          "warp_type": "0x080B",
+          "coords": {
+            "x": 2297,
+            "y": -31487
+          }
+        },
+        {
+          "target_room_id": 0,
+          "warp_type": "0x0000",
+          "coords": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "target_room_id": 0,
+          "warp_type": "0x0000",
+          "coords": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "target_room_id": 0,
+          "warp_type": "0x0000",
+          "coords": {
+            "x": 0,
+            "y": 0
+          }
+        }
+      ]
+    },
+    {
+      "room_id": 14,
+      "sector_lba": 1024,
+      "disc_offset": "0x200000",
+      "room_dimensions": {
+        "width_px": 2966,
+        "height_px": 4096,
+        "unbounded_y": true
+      },
+      "camera_constraints": {
+        "mode_flags": "0x601F",
+        "min_x": 167,
+        "min_y": 864,
+        "max_x": 17456,
+        "max_y": -244,
+        "deadzone_width": 17289,
+        "deadzone_height": 0
+      },
+      "entities_count": 14,
+      "exits_count": 10,
+      "triggers_count": 1,
+      "outgoing_edges": [
+        {
+          "target_room_id": 32,
+          "warp_type": "0x01D0",
+          "coords": {
+            "x": 0,
+            "y": 136
+          }
+        },
+        {
+          "target_room_id": 32,
+          "warp_type": "0x000F",
+          "coords": {
+            "x": 257,
+            "y": -24568
+          }
+        },
+        {
+          "target_room_id": 24,
+          "warp_type": "0x0102",
+          "coords": {
+            "x": 776,
+            "y": 655
+          }
+        },
+        {
+          "target_room_id": 3,
+          "warp_type": "0x0503",
+          "coords": {
+            "x": -32752,
+            "y": 775
+          }
+        },
+        {
+          "target_room_id": 12,
+          "warp_type": "0x0FC0",
+          "coords": {
+            "x": 352,
+            "y": 188
+          }
+        },
+        {
+          "target_room_id": 45,
+          "warp_type": "0x08FD",
+          "coords": {
+            "x": 4,
+            "y": -6079
+          }
+        },
+        {
+          "target_room_id": 0,
+          "warp_type": "0x010F",
+          "coords": {
+            "x": 10279,
+            "y": 79
+          }
+        },
+        {
+          "target_room_id": 95,
+          "warp_type": "0x08C7",
+          "coords": {
+            "x": -18206,
+            "y": -9089
+          }
+        },
+        {
+          "target_room_id": 0,
+          "warp_type": "0x0000",
+          "coords": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "target_room_id": 0,
+          "warp_type": "0x0000",
+          "coords": {
+            "x": 0,
+            "y": 0
+          }
+        }
+      ]
+    },
+    {
+      "room_id": 15,
+      "sector_lba": 1040,
+      "disc_offset": "0x208000",
+      "room_dimensions": {
+        "width_px": 65280,
+        "height_px": 2904,
+        "unbounded_y": false
+      },
+      "camera_constraints": {
+        "mode_flags": "0x3701",
+        "min_x": -8184,
+        "min_y": 8442,
+        "max_x": -31488,
+        "max_y": 128,
+        "deadzone_width": 0,
+        "deadzone_height": 0
+      },
+      "entities_count": 20,
+      "exits_count": 7,
+      "triggers_count": 1,
+      "outgoing_edges": [
+        {
+          "target_room_id": 1,
+          "warp_type": "0x3EC0",
+          "coords": {
+            "x": -31231,
+            "y": 640
+          }
+        },
+        {
+          "target_room_id": 15,
+          "warp_type": "0x000B",
+          "coords": {
+            "x": -32174,
+            "y": 256
+          }
+        },
+        {
+          "target_room_id": 4,
+          "warp_type": "0x0204",
+          "coords": {
+            "x": -14686,
+            "y": -30719
+          }
+        },
+        {
+          "target_room_id": 44,
+          "warp_type": "0x01FC",
+          "coords": {
+            "x": 1056,
+            "y": -1312
+          }
+        },
+        {
+          "target_room_id": 39,
+          "warp_type": "0x008F",
+          "coords": {
+            "x": -15135,
+            "y": -412
+          }
+        },
+        {
+          "target_room_id": 30,
+          "warp_type": "0x18FA",
+          "coords": {
+            "x": -8036,
+            "y": -24042
+          }
+        },
+        {
+          "target_room_id": 9,
+          "warp_type": "0x0809",
+          "coords": {
+            "x": 5,
+            "y": 4111
+          }
+        }
+      ]
+    },
+    {
+      "room_id": 16,
+      "sector_lba": 1054,
+      "disc_offset": "0x20F000",
+      "room_dimensions": {
+        "width_px": 1886,
+        "height_px": 4096,
+        "unbounded_y": true
+      },
+      "camera_constraints": {
+        "mode_flags": "0x403F",
+        "min_x": 55,
+        "min_y": 480,
+        "max_x": 2080,
+        "max_y": -1009,
+        "deadzone_width": 2025,
+        "deadzone_height": 0
+      },
+      "entities_count": 19,
+      "exits_count": 8,
+      "triggers_count": 1,
+      "outgoing_edges": [
+        {
+          "target_room_id": 1,
+          "warp_type": "0x0820",
+          "coords": {
+            "x": -16384,
+            "y": -26621
+          }
+        },
+        {
+          "target_room_id": 5,
+          "warp_type": "0x4EA2",
+          "coords": {
+            "x": 5888,
+            "y": -26750
+          }
+        },
+        {
+          "target_room_id": 66,
+          "warp_type": "0x0102",
+          "coords": {
+            "x": 512,
+            "y": 8325
+          }
+        },
+        {
+          "target_room_id": 38,
+          "warp_type": "0x0103",
+          "coords": {
+            "x": -32458,
+            "y": 1289
+          }
+        },
+        {
+          "target_room_id": 0,
+          "warp_type": "0x0000",
+          "coords": {
+            "x": 18179,
+            "y": 17606
+          }
+        },
+        {
+          "target_room_id": 1,
+          "warp_type": "0x0801",
+          "coords": {
+            "x": -1913,
+            "y": 2567
+          }
+        },
+        {
+          "target_room_id": 1,
+          "warp_type": "0x0801",
+          "coords": {
+            "x": -125,
+            "y": 28292
+          }
+        },
+        {
+          "target_room_id": 2,
+          "warp_type": "0x0202",
+          "coords": {
+            "x": 18119,
+            "y": -13823
+          }
+        }
+      ]
+    },
+    {
+      "room_id": 17,
+      "sector_lba": 1065,
+      "disc_offset": "0x214800",
+      "room_dimensions": {
+        "width_px": 24587,
+        "height_px": 8195,
+        "unbounded_y": false
+      },
+      "camera_constraints": {
+        "mode_flags": "0x0010",
+        "min_x": 9762,
+        "min_y": -8032,
+        "max_x": 24608,
+        "max_y": -4096,
+        "deadzone_width": 14846,
+        "deadzone_height": 3936
+      },
+      "entities_count": 0,
+      "exits_count": 7,
+      "triggers_count": 1,
+      "outgoing_edges": [
+        {
+          "target_room_id": 86,
+          "warp_type": "0x01FF",
+          "coords": {
+            "x": 3840,
+            "y": 16512
+          }
+        },
+        {
+          "target_room_id": 9,
+          "warp_type": "0x02E0",
+          "coords": {
+            "x": 320,
+            "y": 584
+          }
+        },
+        {
+          "target_room_id": 102,
+          "warp_type": "0x0067",
+          "coords": {
+            "x": 440,
+            "y": -24114
+          }
+        },
+        {
+          "target_room_id": 1,
+          "warp_type": "0x01A0",
+          "coords": {
+            "x": 2242,
+            "y": -25952
+          }
+        },
+        {
+          "target_room_id": 16,
+          "warp_type": "0x4210",
+          "coords": {
+            "x": 5186,
+            "y": 6145
+          }
+        },
+        {
+          "target_room_id": 15,
+          "warp_type": "0x0210",
+          "coords": {
+            "x": -32736,
+            "y": -31894
+          }
+        },
+        {
+          "target_room_id": 18,
+          "warp_type": "0x367A",
+          "coords": {
+            "x": -8287,
+            "y": 4865
+          }
+        }
+      ]
+    },
+    {
+      "room_id": 18,
+      "sector_lba": 1074,
+      "disc_offset": "0x219000",
+      "room_dimensions": {
+        "width_px": 63548,
+        "height_px": 24585,
+        "unbounded_y": false
+      },
+      "camera_constraints": {
+        "mode_flags": "0xDF74",
+        "min_x": -24748,
+        "min_y": -9004,
+        "max_x": -24700,
+        "max_y": -1932,
+        "deadzone_width": 48,
+        "deadzone_height": 7072
+      },
+      "entities_count": 0,
+      "exits_count": 4,
+      "triggers_count": 3,
+      "outgoing_edges": [
+        {
+          "target_room_id": 22,
+          "warp_type": "0x20C0",
+          "coords": {
+            "x": 816,
+            "y": 1032
+          }
+        },
+        {
+          "target_room_id": 30,
+          "warp_type": "0x01F8",
+          "coords": {
+            "x": -16322,
+            "y": 1016
+          }
+        },
+        {
+          "target_room_id": 2,
+          "warp_type": "0x40C4",
+          "coords": {
+            "x": -15226,
+            "y": 766
+          }
+        },
+        {
+          "target_room_id": 1,
+          "warp_type": "0x0201",
+          "coords": {
+            "x": 10367,
+            "y": 32639
+          }
+        }
+      ]
+    },
+    {
+      "room_id": 19,
+      "sector_lba": 1075,
+      "disc_offset": "0x219800",
+      "room_dimensions": {
+        "width_px": 24581,
+        "height_px": 58088,
+        "unbounded_y": false
+      },
+      "camera_constraints": {
+        "mode_flags": "0xE114",
+        "min_x": 24579,
+        "min_y": -4712,
+        "max_x": 24577,
+        "max_y": 8193,
+        "deadzone_width": 0,
+        "deadzone_height": 12905
+      },
+      "entities_count": 0,
+      "exits_count": 10,
+      "triggers_count": 0,
+      "outgoing_edges": [
+        {
+          "target_room_id": 0,
+          "warp_type": "0x0000",
+          "coords": {
+            "x": -499,
+            "y": 160
+          }
+        },
+        {
+          "target_room_id": 0,
+          "warp_type": "0x38FE",
+          "coords": {
+            "x": 2050,
+            "y": 15
+          }
+        },
+        {
+          "target_room_id": 0,
+          "warp_type": "0x1700",
+          "coords": {
+            "x": 25312,
+            "y": 18017
+          }
+        },
+        {
+          "target_room_id": 54,
+          "warp_type": "0x01FC",
+          "coords": {
+            "x": -32194,
+            "y": 1285
+          }
+        },
+        {
+          "target_room_id": 71,
+          "warp_type": "0x0047",
+          "coords": {
+            "x": 472,
+            "y": -8034
+          }
+        },
+        {
+          "target_room_id": 71,
+          "warp_type": "0x0007",
+          "coords": {
+            "x": -32722,
+            "y": -8090
+          }
+        },
+        {
+          "target_room_id": 16,
+          "warp_type": "0x0101",
+          "coords": {
+            "x": 25089,
+            "y": -32640
+          }
+        },
+        {
+          "target_room_id": 0,
+          "warp_type": "0x1900",
+          "coords": {
+            "x": -8188,
+            "y": 25601
+          }
+        },
+        {
+          "target_room_id": 0,
+          "warp_type": "0x0000",
+          "coords": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "target_room_id": 0,
+          "warp_type": "0x0000",
+          "coords": {
+            "x": 0,
+            "y": 0
+          }
+        }
+      ]
+    },
+    {
+      "room_id": 20,
+      "sector_lba": 1081,
+      "disc_offset": "0x21C800",
+      "room_dimensions": {
+        "width_px": 3110,
+        "height_px": 3180,
+        "unbounded_y": false
+      },
+      "camera_constraints": {
+        "mode_flags": "0x206F",
+        "min_x": 16487,
+        "min_y": 544,
+        "max_x": 520,
+        "max_y": -497,
+        "deadzone_width": 0,
+        "deadzone_height": 0
+      },
+      "entities_count": 9,
+      "exits_count": 9,
+      "triggers_count": 0,
+      "outgoing_edges": [
+        {
+          "target_room_id": 64,
+          "warp_type": "0x0005",
+          "coords": {
+            "x": 769,
+            "y": 30792
+          }
+        },
+        {
+          "target_room_id": 15,
+          "warp_type": "0x0410",
+          "coords": {
+            "x": 1064,
+            "y": 1040
+          }
+        },
+        {
+          "target_room_id": 1,
+          "warp_type": "0x00A0",
+          "coords": {
+            "x": 10400,
+            "y": 26113
+          }
+        },
+        {
+          "target_room_id": 103,
+          "warp_type": "0x209F",
+          "coords": {
+            "x": -24166,
+            "y": 1536
+          }
+        },
+        {
+          "target_room_id": 63,
+          "warp_type": "0x050C",
+          "coords": {
+            "x": -7946,
+            "y": 31203
+          }
+        },
+        {
+          "target_room_id": 102,
+          "warp_type": "0x0605",
+          "coords": {
+            "x": 24656,
+            "y": 5376
+          }
+        },
+        {
+          "target_room_id": 87,
+          "warp_type": "0x1C6E",
+          "coords": {
+            "x": -25925,
+            "y": -17546
+          }
+        },
+        {
+          "target_room_id": 32,
+          "warp_type": "0x2265",
+          "coords": {
+            "x": 1143,
+            "y": 26196
+          }
+        },
+        {
+          "target_room_id": 100,
+          "warp_type": "0x40CC",
+          "coords": {
+            "x": -26536,
+            "y": -26234
+          }
+        }
+      ]
+    },
+    {
+      "room_id": 21,
+      "sector_lba": 1085,
+      "disc_offset": "0x21E800",
+      "room_dimensions": {
+        "width_px": 24579,
+        "height_px": 58112,
+        "unbounded_y": false
+      },
+      "camera_constraints": {
+        "mode_flags": "0x2008",
+        "min_x": 16,
+        "min_y": 14016,
+        "max_x": 16,
+        "max_y": 14018,
+        "deadzone_width": 0,
+        "deadzone_height": 2
+      },
+      "entities_count": 0,
+      "exits_count": 8,
+      "triggers_count": 1,
+      "outgoing_edges": [
+        {
+          "target_room_id": 96,
+          "warp_type": "0x0005",
+          "coords": {
+            "x": 14407,
+            "y": 26631
+          }
+        },
+        {
+          "target_room_id": 96,
+          "warp_type": "0x0085",
+          "coords": {
+            "x": 24703,
+            "y": 79
+          }
+        },
+        {
+          "target_room_id": 97,
+          "warp_type": "0x40E1",
+          "coords": {
+            "x": 399,
+            "y": 16384
+          }
+        },
+        {
+          "target_room_id": 15,
+          "warp_type": "0x050E",
+          "coords": {
+            "x": -31790,
+            "y": -23590
+          }
+        },
+        {
+          "target_room_id": 8,
+          "warp_type": "0x0108",
+          "coords": {
+            "x": 1432,
+            "y": 272
+          }
+        },
+        {
+          "target_room_id": 95,
+          "warp_type": "0x005F",
+          "coords": {
+            "x": -16376,
+            "y": -22614
+          }
+        },
+        {
+          "target_room_id": 68,
+          "warp_type": "0x0844",
+          "coords": {
+            "x": 8740,
+            "y": 22348
+          }
+        },
+        {
+          "target_room_id": 67,
+          "warp_type": "0x4200",
+          "coords": {
+            "x": 323,
+            "y": 16435
+          }
+        }
+      ]
+    },
+    {
+      "room_id": 22,
+      "sector_lba": 1095,
+      "disc_offset": "0x223800",
+      "room_dimensions": {
+        "width_px": 2990,
+        "height_px": 3236,
+        "unbounded_y": false
+      },
+      "camera_constraints": {
+        "mode_flags": "0x7877",
+        "min_x": 6271,
+        "min_y": 248,
+        "max_x": 17416,
+        "max_y": -497,
+        "deadzone_width": 11145,
+        "deadzone_height": 0
+      },
+      "entities_count": 13,
+      "exits_count": 13,
+      "triggers_count": 4,
+      "outgoing_edges": [
+        {
+          "target_room_id": 0,
+          "warp_type": "0x18FE",
+          "coords": {
+            "x": 12120,
+            "y": 1795
+          }
+        },
+        {
+          "target_room_id": 40,
+          "warp_type": "0x0088",
+          "coords": {
+            "x": -64,
+            "y": 216
+          }
+        },
+        {
+          "target_room_id": 8,
+          "warp_type": "0x0740",
+          "coords": {
+            "x": -32,
+            "y": 1884
+          }
+        },
+        {
+          "target_room_id": 16,
+          "warp_type": "0x0004",
+          "coords": {
+            "x": 0,
+            "y": -32760
+          }
+        },
+        {
+          "target_room_id": 64,
+          "warp_type": "0x0458",
+          "coords": {
+            "x": 32,
+            "y": 2676
+          }
+        },
+        {
+          "target_room_id": 0,
+          "warp_type": "0x04FE",
+          "coords": {
+            "x": 10242,
+            "y": 288
+          }
+        },
+        {
+          "target_room_id": 45,
+          "warp_type": "0x01FD",
+          "coords": {
+            "x": -7716,
+            "y": 1020
+          }
+        },
+        {
+          "target_room_id": 42,
+          "warp_type": "0x01FA",
+          "coords": {
+            "x": -32314,
+            "y": 1298
+          }
+        },
+        {
+          "target_room_id": 47,
+          "warp_type": "0x02FF",
+          "coords": {
+            "x": -241,
+            "y": -224
+          }
+        },
+        {
+          "target_room_id": 1,
+          "warp_type": "0x40C5",
+          "coords": {
+            "x": 4100,
+            "y": -497
+          }
+        },
+        {
+          "target_room_id": 0,
+          "warp_type": "0x0A00",
+          "coords": {
+            "x": 568,
+            "y": 1792
+          }
+        },
+        {
+          "target_room_id": 49,
+          "warp_type": "0x4121",
+          "coords": {
+            "x": -32736,
+            "y": 1587
+          }
+        },
+        {
+          "target_room_id": 19,
+          "warp_type": "0x4132",
+          "coords": {
+            "x": -8611,
+            "y": 8465
+          }
+        }
+      ]
+    },
+    {
+      "room_id": 23,
+      "sector_lba": 1105,
+      "disc_offset": "0x228800",
+      "room_dimensions": {
+        "width_px": 37716,
+        "height_px": 39560,
+        "unbounded_y": false
+      },
+      "camera_constraints": {
+        "mode_flags": "0x383E",
+        "min_x": 16400,
+        "min_y": 14396,
+        "max_x": 16400,
+        "max_y": 14394,
+        "deadzone_width": 0,
+        "deadzone_height": 0
+      },
+      "entities_count": 0,
+      "exits_count": 10,
+      "triggers_count": 0,
+      "outgoing_edges": [
+        {
+          "target_room_id": 0,
+          "warp_type": "0x18FE",
+          "coords": {
+            "x": 12120,
+            "y": 1795
+          }
+        },
+        {
+          "target_room_id": 40,
+          "warp_type": "0x0088",
+          "coords": {
+            "x": -64,
+            "y": 216
+          }
+        },
+        {
+          "target_room_id": 8,
+          "warp_type": "0x0740",
+          "coords": {
+            "x": -32,
+            "y": 1884
+          }
+        },
+        {
+          "target_room_id": 8,
+          "warp_type": "0x090C",
+          "coords": {
+            "x": 0,
+            "y": 2156
+          }
+        },
+        {
+          "target_room_id": 4,
+          "warp_type": "0x0004",
+          "coords": {
+            "x": -32760,
+            "y": 1024
+          }
+        },
+        {
+          "target_room_id": 0,
+          "warp_type": "0x0F00",
+          "coords": {
+            "x": 32,
+            "y": -32450
+          }
+        },
+        {
+          "target_room_id": 13,
+          "warp_type": "0x203A",
+          "coords": {
+            "x": -24030,
+            "y": 8770
+          }
+        },
+        {
+          "target_room_id": 68,
+          "warp_type": "0x1113",
+          "coords": {
+            "x": 8738,
+            "y": 16673
+          }
+        },
+        {
+          "target_room_id": 34,
+          "warp_type": "0x400B",
+          "coords": {
+            "x": 13385,
+            "y": -8726
+          }
+        },
+        {
+          "target_room_id": 13,
+          "warp_type": "0x12DD",
+          "coords": {
+            "x": 12946,
+            "y": 4370
+          }
+        }
+      ]
+    },
+    {
+      "room_id": 24,
+      "sector_lba": 1107,
+      "disc_offset": "0x229800",
+      "room_dimensions": {
+        "width_px": 2406,
+        "height_px": 4096,
+        "unbounded_y": true
+      },
+      "camera_constraints": {
+        "mode_flags": "0x1817",
+        "min_x": -26609,
+        "min_y": 744,
+        "max_x": 1592,
+        "max_y": -372,
+        "deadzone_width": 28201,
+        "deadzone_height": 0
+      },
+      "entities_count": 27,
+      "exits_count": 14,
+      "triggers_count": 0,
+      "outgoing_edges": [
+        {
+          "target_room_id": 99,
+          "warp_type": "0x0863",
+          "coords": {
+            "x": 3839,
+            "y": -24574
+          }
+        },
+        {
+          "target_room_id": 3,
+          "warp_type": "0x0503",
+          "coords": {
+            "x": -7996,
+            "y": 24960
+          }
+        },
+        {
+          "target_room_id": 32,
+          "warp_type": "0x0420",
+          "coords": {
+            "x": -24310,
+            "y": 256
+          }
+        },
+        {
+          "target_room_id": 2,
+          "warp_type": "0x0307",
+          "coords": {
+            "x": 263,
+            "y": -32594
+          }
+        },
+        {
+          "target_room_id": 82,
+          "warp_type": "0x0109",
+          "coords": {
+            "x": -8184,
+            "y": 25506
+          }
+        },
+        {
+          "target_room_id": 32,
+          "warp_type": "0x0420",
+          "coords": {
+            "x": 25760,
+            "y": -9052
+          }
+        },
+        {
+          "target_room_id": 2,
+          "warp_type": "0x0180",
+          "coords": {
+            "x": 95,
+            "y": -16172
+          }
+        },
+        {
+          "target_room_id": 62,
+          "warp_type": "0x48A6",
+          "coords": {
+            "x": 8326,
+            "y": -32255
+          }
+        },
+        {
+          "target_room_id": 0,
+          "warp_type": "0x0000",
+          "coords": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "target_room_id": 0,
+          "warp_type": "0x0000",
+          "coords": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "target_room_id": 0,
+          "warp_type": "0x0000",
+          "coords": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "target_room_id": 0,
+          "warp_type": "0x0000",
+          "coords": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "target_room_id": 0,
+          "warp_type": "0x0000",
+          "coords": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "target_room_id": 0,
+          "warp_type": "0x0000",
+          "coords": {
+            "x": 0,
+            "y": 0
+          }
+        }
+      ]
+    },
+    {
+      "room_id": 25,
+      "sector_lba": 1123,
+      "disc_offset": "0x231800",
+      "room_dimensions": {
+        "width_px": 2590,
+        "height_px": 4096,
+        "unbounded_y": true
+      },
+      "camera_constraints": {
+        "mode_flags": "0x2827",
+        "min_x": 16487,
+        "min_y": 848,
+        "max_x": 520,
+        "max_y": -241,
+        "deadzone_width": 0,
+        "deadzone_height": 0
+      },
+      "entities_count": 39,
+      "exits_count": 10,
+      "triggers_count": 0,
+      "outgoing_edges": [
+        {
+          "target_room_id": 4,
+          "warp_type": "0x3F00",
+          "coords": {
+            "x": 16636,
+            "y": -28928
+          }
+        },
+        {
+          "target_room_id": 0,
+          "warp_type": "0x0F00",
+          "coords": {
+            "x": 19584,
+            "y": 4097
+          }
+        },
+        {
+          "target_room_id": 88,
+          "warp_type": "0x4EC0",
+          "coords": {
+            "x": 18533,
+            "y": -7816
+          }
+        },
+        {
+          "target_room_id": 45,
+          "warp_type": "0x01FD",
+          "coords": {
+            "x": -32344,
+            "y": 1080
+          }
+        },
+        {
+          "target_room_id": 25,
+          "warp_type": "0x0881",
+          "coords": {
+            "x": 14208,
+            "y": 3
+          }
+        },
+        {
+          "target_room_id": 16,
+          "warp_type": "0x02E0",
+          "coords": {
+            "x": 259,
+            "y": -8026
+          }
+        },
+        {
+          "target_room_id": 16,
+          "warp_type": "0x0610",
+          "coords": {
+            "x": 2264,
+            "y": 1544
+          }
+        },
+        {
+          "target_room_id": 8,
+          "warp_type": "0x0320",
+          "coords": {
+            "x": 9729,
+            "y": 16608
+          }
+        },
+        {
+          "target_room_id": 0,
+          "warp_type": "0x0005",
+          "coords": {
+            "x": 17536,
+            "y": -24574
+          }
+        },
+        {
+          "target_room_id": 2,
+          "warp_type": "0x2002",
+          "coords": {
+            "x": 2473,
+            "y": 17817
+          }
+        }
+      ]
+    },
+    {
+      "room_id": 26,
+      "sector_lba": 1134,
+      "disc_offset": "0x237000",
+      "room_dimensions": {
+        "width_px": 1558,
+        "height_px": 4096,
+        "unbounded_y": true
+      },
+      "camera_constraints": {
+        "mode_flags": "0xB807",
+        "min_x": 135,
+        "min_y": 432,
+        "max_x": 776,
+        "max_y": -369,
+        "deadzone_width": 641,
+        "deadzone_height": 0
+      },
+      "entities_count": 11,
+      "exits_count": 10,
+      "triggers_count": 1,
+      "outgoing_edges": [
+        {
+          "target_room_id": 0,
+          "warp_type": "0x18FE",
+          "coords": {
+            "x": 12120,
+            "y": 1795
+          }
+        },
+        {
+          "target_room_id": 40,
+          "warp_type": "0x0088",
+          "coords": {
+            "x": -64,
+            "y": 216
+          }
+        },
+        {
+          "target_room_id": 8,
+          "warp_type": "0x0740",
+          "coords": {
+            "x": -32,
+            "y": 1884
+          }
+        },
+        {
+          "target_room_id": 64,
+          "warp_type": "0x0458",
+          "coords": {
+            "x": 480,
+            "y": -32760
+          }
+        },
+        {
+          "target_room_id": 44,
+          "warp_type": "0x01FC",
+          "coords": {
+            "x": 14383,
+            "y": 2127
+          }
+        },
+        {
+          "target_room_id": 8,
+          "warp_type": "0x08E0",
+          "coords": {
+            "x": 224,
+            "y": 1
+          }
+        },
+        {
+          "target_room_id": 8,
+          "warp_type": "0x0208",
+          "coords": {
+            "x": 120,
+            "y": 1032
+          }
+        },
+        {
+          "target_room_id": 56,
+          "warp_type": "0x04A0",
+          "coords": {
+            "x": -32,
+            "y": 30209
+          }
+        },
+        {
+          "target_room_id": 8,
+          "warp_type": "0x0908",
+          "coords": {
+            "x": 769,
+            "y": 2048
+          }
+        },
+        {
+          "target_room_id": 34,
+          "warp_type": "0x2067",
+          "coords": {
+            "x": -24302,
+            "y": 911
+          }
+        }
+      ]
+    },
+    {
+      "room_id": 27,
+      "sector_lba": 1154,
+      "disc_offset": "0x241000",
+      "room_dimensions": {
+        "width_px": 2430,
+        "height_px": 4096,
+        "unbounded_y": true
+      },
+      "camera_constraints": {
+        "mode_flags": "0x403F",
+        "min_x": 28672,
+        "min_y": 120,
+        "max_x": 2112,
+        "max_y": -1019,
+        "deadzone_width": 0,
+        "deadzone_height": 0
+      },
+      "entities_count": 1,
+      "exits_count": 10,
+      "triggers_count": 2,
+      "outgoing_edges": [
+        {
+          "target_room_id": 0,
+          "warp_type": "0x18FE",
+          "coords": {
+            "x": 12120,
+            "y": 1795
+          }
+        },
+        {
+          "target_room_id": 40,
+          "warp_type": "0x0088",
+          "coords": {
+            "x": -64,
+            "y": 216
+          }
+        },
+        {
+          "target_room_id": 8,
+          "warp_type": "0x0740",
+          "coords": {
+            "x": -32,
+            "y": 1884
+          }
+        },
+        {
+          "target_room_id": 8,
+          "warp_type": "0x083C",
+          "coords": {
+            "x": 0,
+            "y": -32760
+          }
+        },
+        {
+          "target_room_id": 3,
+          "warp_type": "0x20A0",
+          "coords": {
+            "x": 128,
+            "y": -17918
+          }
+        },
+        {
+          "target_room_id": 16,
+          "warp_type": "0x01C0",
+          "coords": {
+            "x": 16384,
+            "y": 1026
+          }
+        },
+        {
+          "target_room_id": 98,
+          "warp_type": "0x3362",
+          "coords": {
+            "x": -12947,
+            "y": -4691
+          }
+        },
+        {
+          "target_room_id": 10,
+          "warp_type": "0x0ADA",
+          "coords": {
+            "x": 19113,
+            "y": -21302
+          }
+        },
+        {
+          "target_room_id": 70,
+          "warp_type": "0x4433",
+          "coords": {
+            "x": 26217,
+            "y": -21843
+          }
+        },
+        {
+          "target_room_id": 52,
+          "warp_type": "0x2311",
+          "coords": {
+            "x": 2338,
+            "y": 8850
+          }
+        }
+      ]
+    },
+    {
+      "room_id": 28,
+      "sector_lba": 1168,
+      "disc_offset": "0x248000",
+      "room_dimensions": {
+        "width_px": 2438,
+        "height_px": 2628,
+        "unbounded_y": false
+      },
+      "camera_constraints": {
+        "mode_flags": "0x403F",
+        "min_x": 26631,
+        "min_y": 120,
+        "max_x": 2112,
+        "max_y": -1019,
+        "deadzone_width": 0,
+        "deadzone_height": 0
+      },
+      "entities_count": 18,
+      "exits_count": 16,
+      "triggers_count": 0,
+      "outgoing_edges": [
+        {
+          "target_room_id": 96,
+          "warp_type": "0x0005",
+          "coords": {
+            "x": 18575,
+            "y": 2087
+          }
+        },
+        {
+          "target_room_id": 1,
+          "warp_type": "0x07C0",
+          "coords": {
+            "x": 2049,
+            "y": -896
+          }
+        },
+        {
+          "target_room_id": 1,
+          "warp_type": "0x0801",
+          "coords": {
+            "x": 992,
+            "y": 4195
+          }
+        },
+        {
+          "target_room_id": 64,
+          "warp_type": "0x0A1C",
+          "coords": {
+            "x": 160,
+            "y": -32760
+          }
+        },
+        {
+          "target_room_id": 8,
+          "warp_type": "0x2E09",
+          "coords": {
+            "x": 224,
+            "y": 2952
+          }
+        },
+        {
+          "target_room_id": 8,
+          "warp_type": "0x0308",
+          "coords": {
+            "x": 3116,
+            "y": 1808
+          }
+        },
+        {
+          "target_room_id": 8,
+          "warp_type": "0x0C64",
+          "coords": {
+            "x": 160,
+            "y": 7
+          }
+        },
+        {
+          "target_room_id": 1,
+          "warp_type": "0x2201",
+          "coords": {
+            "x": -1393,
+            "y": -16078
+          }
+        },
+        {
+          "target_room_id": 1,
+          "warp_type": "0x080D",
+          "coords": {
+            "x": 3841,
+            "y": 130
+          }
+        },
+        {
+          "target_room_id": 4,
+          "warp_type": "0x1804",
+          "coords": {
+            "x": -24544,
+            "y": 352
+          }
+        },
+        {
+          "target_room_id": 76,
+          "warp_type": "0x01FD",
+          "coords": {
+            "x": 3841,
+            "y": 129
+          }
+        },
+        {
+          "target_room_id": 32,
+          "warp_type": "0x0438",
+          "coords": {
+            "x": 25701,
+            "y": 1028
+          }
+        },
+        {
+          "target_room_id": 1,
+          "warp_type": "0x03FC",
+          "coords": {
+            "x": 506,
+            "y": -8160
+          }
+        },
+        {
+          "target_room_id": 89,
+          "warp_type": "0x0D59",
+          "coords": {
+            "x": -17477,
+            "y": -18245
+          }
+        },
+        {
+          "target_room_id": 6,
+          "warp_type": "0x4440",
+          "coords": {
+            "x": 29764,
+            "y": 8805
+          }
+        },
+        {
+          "target_room_id": 15,
+          "warp_type": "0x4677",
+          "coords": {
+            "x": -26506,
+            "y": 30380
+          }
+        }
+      ]
+    },
+    {
+      "room_id": 29,
+      "sector_lba": 1171,
+      "disc_offset": "0x249800",
+      "room_dimensions": {
+        "width_px": 59832,
+        "height_px": 26868,
+        "unbounded_y": false
+      },
+      "camera_constraints": {
+        "mode_flags": "0xF546",
+        "min_x": 25076,
+        "min_y": -14493,
+        "max_x": -11091,
+        "max_y": -2906,
+        "deadzone_width": 0,
+        "deadzone_height": 11587
+      },
+      "entities_count": 0,
+      "exits_count": 10,
+      "triggers_count": 1,
+      "outgoing_edges": [
+        {
+          "target_room_id": 96,
+          "warp_type": "0x0005",
+          "coords": {
+            "x": 10271,
+            "y": 2079
+          }
+        },
+        {
+          "target_room_id": 7,
+          "warp_type": "0x07FF",
+          "coords": {
+            "x": 16384,
+            "y": 2047
+          }
+        },
+        {
+          "target_room_id": 11,
+          "warp_type": "0x0280",
+          "coords": {
+            "x": 63,
+            "y": 56
+          }
+        },
+        {
+          "target_room_id": 1,
+          "warp_type": "0x02E0",
+          "coords": {
+            "x": 10241,
+            "y": 1248
+          }
+        },
+        {
+          "target_room_id": 97,
+          "warp_type": "0x00E0",
+          "coords": {
+            "x": 19457,
+            "y": 2302
+          }
+        },
+        {
+          "target_room_id": 5,
+          "warp_type": "0x02C3",
+          "coords": {
+            "x": 1856,
+            "y": -16411
+          }
+        },
+        {
+          "target_room_id": 18,
+          "warp_type": "0x4828",
+          "coords": {
+            "x": 8482,
+            "y": 6216
+          }
+        },
+        {
+          "target_room_id": 17,
+          "warp_type": "0x1111",
+          "coords": {
+            "x": 9282,
+            "y": 10990
+          }
+        },
+        {
+          "target_room_id": 30,
+          "warp_type": "0x422E",
+          "coords": {
+            "x": -12374,
+            "y": 5188
+          }
+        },
+        {
+          "target_room_id": 26,
+          "warp_type": "0x221A",
+          "coords": {
+            "x": 4641,
+            "y": 8474
+          }
+        }
+      ]
+    },
+    {
+      "room_id": 30,
+      "sector_lba": 1178,
+      "disc_offset": "0x24D000",
+      "room_dimensions": {
+        "width_px": 61356,
+        "height_px": 24581,
+        "unbounded_y": false
+      },
+      "camera_constraints": {
+        "mode_flags": "0x6005",
+        "min_x": -2952,
+        "min_y": 24588,
+        "max_x": -22264,
+        "max_y": 8197,
+        "deadzone_width": 0,
+        "deadzone_height": 0
+      },
+      "entities_count": 0,
+      "exits_count": 9,
+      "triggers_count": 4,
+      "outgoing_edges": [
+        {
+          "target_room_id": 1,
+          "warp_type": "0x2601",
+          "coords": {
+            "x": -497,
+            "y": 256
+          }
+        },
+        {
+          "target_room_id": 64,
+          "warp_type": "0x0040",
+          "coords": {
+            "x": 15,
+            "y": 64
+          }
+        },
+        {
+          "target_room_id": 2,
+          "warp_type": "0x0F00",
+          "coords": {
+            "x": 4349,
+            "y": -28673
+          }
+        },
+        {
+          "target_room_id": 8,
+          "warp_type": "0x02C4",
+          "coords": {
+            "x": 416,
+            "y": 2052
+          }
+        },
+        {
+          "target_room_id": 7,
+          "warp_type": "0x0807",
+          "coords": {
+            "x": 13953,
+            "y": 20993
+          }
+        },
+        {
+          "target_room_id": 0,
+          "warp_type": "0x1700",
+          "coords": {
+            "x": 1024,
+            "y": 2952
+          }
+        },
+        {
+          "target_room_id": 46,
+          "warp_type": "0x04FE",
+          "coords": {
+            "x": 12289,
+            "y": 385
+          }
+        },
+        {
+          "target_room_id": 2,
+          "warp_type": "0x1002",
+          "coords": {
+            "x": 260,
+            "y": -32262
+          }
+        },
+        {
+          "target_room_id": 52,
+          "warp_type": "0x00C0",
+          "coords": {
+            "x": 15496,
+            "y": 3495
+          }
+        }
+      ]
+    },
+    {
+      "room_id": 31,
+      "sector_lba": 1183,
+      "disc_offset": "0x24F800",
+      "room_dimensions": {
+        "width_px": 2006,
+        "height_px": 2060,
+        "unbounded_y": false
+      },
+      "camera_constraints": {
+        "mode_flags": "0x403F",
+        "min_x": 24583,
+        "min_y": 476,
+        "max_x": 1600,
+        "max_y": -372,
+        "deadzone_width": 0,
+        "deadzone_height": 0
+      },
+      "entities_count": 29,
+      "exits_count": 4,
+      "triggers_count": 0,
+      "outgoing_edges": [
+        {
+          "target_room_id": 1,
+          "warp_type": "0x1801",
+          "coords": {
+            "x": 2052,
+            "y": 655
+          }
+        },
+        {
+          "target_room_id": 3,
+          "warp_type": "0x0EC0",
+          "coords": {
+            "x": -288,
+            "y": 4097
+          }
+        },
+        {
+          "target_room_id": 15,
+          "warp_type": "0x000F",
+          "coords": {
+            "x": 1760,
+            "y": 2049
+          }
+        },
+        {
+          "target_room_id": 40,
+          "warp_type": "0x01FE",
+          "coords": {
+            "x": -24182,
+            "y": 448
+          }
+        }
+      ]
+    },
+    {
+      "room_id": 32,
+      "sector_lba": 1210,
+      "disc_offset": "0x25D000",
+      "room_dimensions": {
+        "width_px": 1550,
+        "height_px": 4096,
+        "unbounded_y": true
+      },
+      "camera_constraints": {
+        "mode_flags": "0x403F",
+        "min_x": 24583,
+        "min_y": 476,
+        "max_x": 1600,
+        "max_y": -372,
+        "deadzone_width": 0,
+        "deadzone_height": 0
+      },
+      "entities_count": 47,
+      "exits_count": 9,
+      "triggers_count": 0,
+      "outgoing_edges": [
+        {
+          "target_room_id": 3,
+          "warp_type": "0x0001",
+          "coords": {
+            "x": 24704,
+            "y": -15359
+          }
+        },
+        {
+          "target_room_id": 32,
+          "warp_type": "0x01FA",
+          "coords": {
+            "x": 904,
+            "y": 2112
+          }
+        },
+        {
+          "target_room_id": 30,
+          "warp_type": "0x1286",
+          "coords": {
+            "x": -1310,
+            "y": 18530
+          }
+        },
+        {
+          "target_room_id": 90,
+          "warp_type": "0x2CC2",
+          "coords": {
+            "x": -21787,
+            "y": 21157
+          }
+        },
+        {
+          "target_room_id": 24,
+          "warp_type": "0x0180",
+          "coords": {
+            "x": -22582,
+            "y": 767
+          }
+        },
+        {
+          "target_room_id": 12,
+          "warp_type": "0x0080",
+          "coords": {
+            "x": 2302,
+            "y": -29184
+          }
+        },
+        {
+          "target_room_id": 0,
+          "warp_type": "0x02FE",
+          "coords": {
+            "x": 23612,
+            "y": -30656
+          }
+        },
+        {
+          "target_room_id": 14,
+          "warp_type": "0x4900",
+          "coords": {
+            "x": 29264,
+            "y": 12544
+          }
+        },
+        {
+          "target_room_id": 24,
+          "warp_type": "0x0180",
+          "coords": {
+            "x": 163,
+            "y": -15229
+          }
+        }
+      ]
+    },
+    {
+      "room_id": 33,
+      "sector_lba": 1235,
+      "disc_offset": "0x269800",
+      "room_dimensions": {
+        "width_px": 1814,
+        "height_px": 4096,
+        "unbounded_y": true
+      },
+      "camera_constraints": {
+        "mode_flags": "0x1817",
+        "min_x": 159,
+        "min_y": 392,
+        "max_x": 1568,
+        "max_y": -369,
+        "deadzone_width": 1409,
+        "deadzone_height": 0
+      },
+      "entities_count": 24,
+      "exits_count": 7,
+      "triggers_count": 0,
+      "outgoing_edges": [
+        {
+          "target_room_id": 47,
+          "warp_type": "0x0FFF",
+          "coords": {
+            "x": -128,
+            "y": 2049
+          }
+        },
+        {
+          "target_room_id": 46,
+          "warp_type": "0x0FFE",
+          "coords": {
+            "x": 1152,
+            "y": 2055
+          }
+        },
+        {
+          "target_room_id": 1,
+          "warp_type": "0x2001",
+          "coords": {
+            "x": 1026,
+            "y": 4350
+          }
+        },
+        {
+          "target_room_id": 60,
+          "warp_type": "0x22A4",
+          "coords": {
+            "x": -10622,
+            "y": -29052
+          }
+        },
+        {
+          "target_room_id": 95,
+          "warp_type": "0x0018",
+          "coords": {
+            "x": -32514,
+            "y": 256
+          }
+        },
+        {
+          "target_room_id": 39,
+          "warp_type": "0x018F",
+          "coords": {
+            "x": -32760,
+            "y": 736
+          }
+        },
+        {
+          "target_room_id": 15,
+          "warp_type": "0x1204",
+          "coords": {
+            "x": -30636,
+            "y": 264
+          }
+        }
+      ]
+    },
+    {
+      "room_id": 34,
+      "sector_lba": 1245,
+      "disc_offset": "0x26E800",
+      "room_dimensions": {
+        "width_px": 1830,
+        "height_px": 1876,
+        "unbounded_y": false
+      },
+      "camera_constraints": {
+        "mode_flags": "0x100F",
+        "min_x": 95,
+        "min_y": 56,
+        "max_x": 1056,
+        "max_y": -241,
+        "deadzone_width": 961,
+        "deadzone_height": 0
+      },
+      "entities_count": 7,
+      "exits_count": 5,
+      "triggers_count": 3,
+      "outgoing_edges": [
+        {
+          "target_room_id": 32,
+          "warp_type": "0x2000",
+          "coords": {
+            "x": 22496,
+            "y": 13827
+          }
+        },
+        {
+          "target_room_id": 62,
+          "warp_type": "0x0108",
+          "coords": {
+            "x": -24448,
+            "y": -13308
+          }
+        },
+        {
+          "target_room_id": 2,
+          "warp_type": "0x2402",
+          "coords": {
+            "x": 130,
+            "y": 16900
+          }
+        },
+        {
+          "target_room_id": 46,
+          "warp_type": "0x01FE",
+          "coords": {
+            "x": -32112,
+            "y": 1809
+          }
+        },
+        {
+          "target_room_id": 1,
+          "warp_type": "0x17A5",
+          "coords": {
+            "x": 744,
+            "y": 10241
+          }
+        }
+      ]
+    },
+    {
+      "room_id": 35,
+      "sector_lba": 1260,
+      "disc_offset": "0x276000",
+      "room_dimensions": {
+        "width_px": 1382,
+        "height_px": 4096,
+        "unbounded_y": true
+      },
+      "camera_constraints": {
+        "mode_flags": "0x403F",
+        "min_x": 24583,
+        "min_y": 476,
+        "max_x": 1600,
+        "max_y": -372,
+        "deadzone_width": 0,
+        "deadzone_height": 0
+      },
+      "entities_count": 11,
+      "exits_count": 4,
+      "triggers_count": 0,
+      "outgoing_edges": [
+        {
+          "target_room_id": 1,
+          "warp_type": "0x04F9",
+          "coords": {
+            "x": 6145,
+            "y": -1056
+          }
+        },
+        {
+          "target_room_id": 17,
+          "warp_type": "0x36E1",
+          "coords": {
+            "x": 1,
+            "y": -32728
+          }
+        },
+        {
+          "target_room_id": 63,
+          "warp_type": "0x0008",
+          "coords": {
+            "x": -30330,
+            "y": -6894
+          }
+        },
+        {
+          "target_room_id": 99,
+          "warp_type": "0x187F",
+          "coords": {
+            "x": 32639,
+            "y": 31713
+          }
+        }
+      ]
+    },
+    {
+      "room_id": 36,
+      "sector_lba": 1287,
+      "disc_offset": "0x283800",
+      "room_dimensions": {
+        "width_px": 1358,
+        "height_px": 1420,
+        "unbounded_y": false
+      },
+      "camera_constraints": {
+        "mode_flags": "0x403F",
+        "min_x": 24583,
+        "min_y": 476,
+        "max_x": 1600,
+        "max_y": -372,
+        "deadzone_width": 0,
+        "deadzone_height": 0
+      },
+      "entities_count": 6,
+      "exits_count": 4,
+      "triggers_count": 0,
+      "outgoing_edges": [
+        {
+          "target_room_id": 8,
+          "warp_type": "0x08FF",
+          "coords": {
+            "x": -8176,
+            "y": 1027
+          }
+        },
+        {
+          "target_room_id": 24,
+          "warp_type": "0x4A80",
+          "coords": {
+            "x": -20991,
+            "y": 385
+          }
+        },
+        {
+          "target_room_id": 8,
+          "warp_type": "0x0102",
+          "coords": {
+            "x": 26369,
+            "y": 482
+          }
+        },
+        {
+          "target_room_id": 58,
+          "warp_type": "0x01A2",
+          "coords": {
+            "x": 227,
+            "y": -23549
+          }
+        }
+      ]
+    },
+    {
+      "room_id": 37,
+      "sector_lba": 1313,
+      "disc_offset": "0x290800",
+      "room_dimensions": {
+        "width_px": 1822,
+        "height_px": 1876,
+        "unbounded_y": false
+      },
+      "camera_constraints": {
+        "mode_flags": "0x403F",
+        "min_x": 26631,
+        "min_y": 120,
+        "max_x": 2112,
+        "max_y": -1019,
+        "deadzone_width": 0,
+        "deadzone_height": 0
+      },
+      "entities_count": 19,
+      "exits_count": 6,
+      "triggers_count": 2,
+      "outgoing_edges": [
+        {
+          "target_room_id": 46,
+          "warp_type": "0x40FE",
+          "coords": {
+            "x": 2112,
+            "y": 640
+          }
+        },
+        {
+          "target_room_id": 96,
+          "warp_type": "0x010F",
+          "coords": {
+            "x": 1026,
+            "y": 4095
+          }
+        },
+        {
+          "target_room_id": 0,
+          "warp_type": "0x0803",
+          "coords": {
+            "x": 12450,
+            "y": 14852
+          }
+        },
+        {
+          "target_room_id": 3,
+          "warp_type": "0x0480",
+          "coords": {
+            "x": 4260,
+            "y": -29694
+          }
+        },
+        {
+          "target_room_id": 1,
+          "warp_type": "0x4001",
+          "coords": {
+            "x": 384,
+            "y": 8196
+          }
+        },
+        {
+          "target_room_id": 7,
+          "warp_type": "0x0107",
+          "coords": {
+            "x": -5362,
+            "y": 30123
+          }
+        }
+      ]
+    },
+    {
+      "room_id": 38,
+      "sector_lba": 1331,
+      "disc_offset": "0x299800",
+      "room_dimensions": {
+        "width_px": 2046,
+        "height_px": 4096,
+        "unbounded_y": true
+      },
+      "camera_constraints": {
+        "mode_flags": "0x403F",
+        "min_x": 26631,
+        "min_y": 292,
+        "max_x": 2112,
+        "max_y": -1019,
+        "deadzone_width": 0,
+        "deadzone_height": 0
+      },
+      "entities_count": 44,
+      "exits_count": 8,
+      "triggers_count": 0,
+      "outgoing_edges": [
+        {
+          "target_room_id": 0,
+          "warp_type": "0x1403",
+          "coords": {
+            "x": -24448,
+            "y": 2052
+          }
+        },
+        {
+          "target_room_id": 32,
+          "warp_type": "0x020F",
+          "coords": {
+            "x": 552,
+            "y": -32462
+          }
+        },
+        {
+          "target_room_id": 2,
+          "warp_type": "0x0402",
+          "coords": {
+            "x": 1026,
+            "y": 4347
+          }
+        },
+        {
+          "target_room_id": 64,
+          "warp_type": "0x1077",
+          "coords": {
+            "x": 4095,
+            "y": -16253
+          }
+        },
+        {
+          "target_room_id": 28,
+          "warp_type": "0x0684",
+          "coords": {
+            "x": -18943,
+            "y": 1667
+          }
+        },
+        {
+          "target_room_id": 3,
+          "warp_type": "0x3AC3",
+          "coords": {
+            "x": 7364,
+            "y": 6272
+          }
+        },
+        {
+          "target_room_id": 1,
+          "warp_type": "0x2C01",
+          "coords": {
+            "x": -28445,
+            "y": 15971
+          }
+        },
+        {
+          "target_room_id": 32,
+          "warp_type": "0x0438",
+          "coords": {
+            "x": -26494,
+            "y": -2046
+          }
+        }
+      ]
+    },
+    {
+      "room_id": 39,
+      "sector_lba": 1349,
+      "disc_offset": "0x2A2800",
+      "room_dimensions": {
+        "width_px": 822,
+        "height_px": 980,
+        "unbounded_y": false
+      },
+      "camera_constraints": {
+        "mode_flags": "0x403F",
+        "min_x": 127,
+        "min_y": 136,
+        "max_x": 2112,
+        "max_y": -1009,
+        "deadzone_width": 1985,
+        "deadzone_height": 0
+      },
+      "entities_count": 13,
+      "exits_count": 6,
+      "triggers_count": 1,
+      "outgoing_edges": [
+        {
+          "target_room_id": 64,
+          "warp_type": "0x0020",
+          "coords": {
+            "x": -7954,
+            "y": 257
+          }
+        },
+        {
+          "target_room_id": 44,
+          "warp_type": "0x0F01",
+          "coords": {
+            "x": 8321,
+            "y": 30945
+          }
+        },
+        {
+          "target_room_id": 32,
+          "warp_type": "0x0420",
+          "coords": {
+            "x": 258,
+            "y": -22758
+          }
+        },
+        {
+          "target_room_id": 1,
+          "warp_type": "0x18E0",
+          "coords": {
+            "x": 10464,
+            "y": 12289
+          }
+        },
+        {
+          "target_room_id": 0,
+          "warp_type": "0x0000",
+          "coords": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "target_room_id": 0,
+          "warp_type": "0x0000",
+          "coords": {
+            "x": 0,
+            "y": 0
+          }
+        }
+      ]
+    },
+    {
+      "room_id": 40,
+      "sector_lba": 1359,
+      "disc_offset": "0x2A7800",
+      "room_dimensions": {
+        "width_px": 3398,
+        "height_px": 3484,
+        "unbounded_y": false
+      },
+      "camera_constraints": {
+        "mode_flags": "0x705F",
+        "min_x": 26631,
+        "min_y": 620,
+        "max_x": 520,
+        "max_y": -1265,
+        "deadzone_width": 0,
+        "deadzone_height": 0
+      },
+      "entities_count": 26,
+      "exits_count": 8,
+      "triggers_count": 1,
+      "outgoing_edges": [
+        {
+          "target_room_id": 46,
+          "warp_type": "0x205F",
+          "coords": {
+            "x": -28673,
+            "y": -32767
+          }
+        },
+        {
+          "target_room_id": 15,
+          "warp_type": "0x2803",
+          "coords": {
+            "x": -31105,
+            "y": 25623
+          }
+        },
+        {
+          "target_room_id": 0,
+          "warp_type": "0x38FF",
+          "coords": {
+            "x": -4988,
+            "y": 29186
+          }
+        },
+        {
+          "target_room_id": 16,
+          "warp_type": "0x2710",
+          "coords": {
+            "x": -8114,
+            "y": 25056
+          }
+        },
+        {
+          "target_room_id": 41,
+          "warp_type": "0x20F9",
+          "coords": {
+            "x": 24833,
+            "y": -1661
+          }
+        },
+        {
+          "target_room_id": 8,
+          "warp_type": "0x0108",
+          "coords": {
+            "x": 18529,
+            "y": -8184
+          }
+        },
+        {
+          "target_room_id": 16,
+          "warp_type": "0x0FE0",
+          "coords": {
+            "x": 20504,
+            "y": 3
+          }
+        },
+        {
+          "target_room_id": 23,
+          "warp_type": "0x107F",
+          "coords": {
+            "x": -8176,
+            "y": 32635
+          }
+        }
+      ]
+    },
+    {
+      "room_id": 41,
+      "sector_lba": 1380,
+      "disc_offset": "0x2B2000",
+      "room_dimensions": {
+        "width_px": 2750,
+        "height_px": 4096,
+        "unbounded_y": true
+      },
+      "camera_constraints": {
+        "mode_flags": "0x407F",
+        "min_x": 135,
+        "min_y": 424,
+        "max_x": 1032,
+        "max_y": -1009,
+        "deadzone_width": 897,
+        "deadzone_height": 0
+      },
+      "entities_count": 27,
+      "exits_count": 6,
+      "triggers_count": 1,
+      "outgoing_edges": [
+        {
+          "target_room_id": 8,
+          "warp_type": "0x0188",
+          "coords": {
+            "x": 0,
+            "y": 400
+          }
+        },
+        {
+          "target_room_id": 95,
+          "warp_type": "0x205F",
+          "coords": {
+            "x": -23970,
+            "y": 480
+          }
+        },
+        {
+          "target_room_id": 1,
+          "warp_type": "0x09E1",
+          "coords": {
+            "x": -19967,
+            "y": 3041
+          }
+        },
+        {
+          "target_room_id": 40,
+          "warp_type": "0x2000",
+          "coords": {
+            "x": 26597,
+            "y": -9630
+          }
+        },
+        {
+          "target_room_id": 26,
+          "warp_type": "0x051A",
+          "coords": {
+            "x": -6730,
+            "y": 26087
+          }
+        },
+        {
+          "target_room_id": 0,
+          "warp_type": "0x4200",
+          "coords": {
+            "x": -24563,
+            "y": 17288
+          }
+        }
+      ]
+    },
+    {
+      "room_id": 42,
+      "sector_lba": 1392,
+      "disc_offset": "0x2B8000",
+      "room_dimensions": {
+        "width_px": 3078,
+        "height_px": 3092,
+        "unbounded_y": false
+      },
+      "camera_constraints": {
+        "mode_flags": "0x501F",
+        "min_x": 10279,
+        "min_y": 480,
+        "max_x": 520,
+        "max_y": -241,
+        "deadzone_width": 0,
+        "deadzone_height": 0
+      },
+      "entities_count": 14,
+      "exits_count": 6,
+      "triggers_count": 1,
+      "outgoing_edges": [
+        {
+          "target_room_id": 8,
+          "warp_type": "0x0408",
+          "coords": {
+            "x": -5951,
+            "y": -29504
+          }
+        },
+        {
+          "target_room_id": 1,
+          "warp_type": "0x1006",
+          "coords": {
+            "x": 2049,
+            "y": 16513
+          }
+        },
+        {
+          "target_room_id": 48,
+          "warp_type": "0x0101",
+          "coords": {
+            "x": -8144,
+            "y": 259
+          }
+        },
+        {
+          "target_room_id": 8,
+          "warp_type": "0x0B08",
+          "coords": {
+            "x": -1020,
+            "y": -113
+          }
+        },
+        {
+          "target_room_id": 80,
+          "warp_type": "0x1D50",
+          "coords": {
+            "x": -6406,
+            "y": 28902
+          }
+        },
+        {
+          "target_room_id": 95,
+          "warp_type": "0x0003",
+          "coords": {
+            "x": -22210,
+            "y": -32118
+          }
+        }
+      ]
+    },
+    {
+      "room_id": 43,
+      "sector_lba": 1402,
+      "disc_offset": "0x2BD000",
+      "room_dimensions": {
+        "width_px": 64376,
+        "height_px": 24581,
+        "unbounded_y": false
+      },
+      "camera_constraints": {
+        "mode_flags": "0x6003",
+        "min_x": -27344,
+        "min_y": -7980,
+        "max_x": 24577,
+        "max_y": -15896,
+        "deadzone_width": 51921,
+        "deadzone_height": 0
+      },
+      "entities_count": 0,
+      "exits_count": 3,
+      "triggers_count": 1,
+      "outgoing_edges": [
+        {
+          "target_room_id": 2,
+          "warp_type": "0x0402",
+          "coords": {
+            "x": -24442,
+            "y": 1282
+          }
+        },
+        {
+          "target_room_id": 3,
+          "warp_type": "0x3503",
+          "coords": {
+            "x": 4064,
+            "y": -16257
+          }
+        },
+        {
+          "target_room_id": 101,
+          "warp_type": "0x0465",
+          "coords": {
+            "x": -21404,
+            "y": -8072
+          }
+        }
+      ]
+    },
+    {
+      "room_id": 44,
+      "sector_lba": 1404,
+      "disc_offset": "0x2BE000",
+      "room_dimensions": {
+        "width_px": 3766,
+        "height_px": 3796,
+        "unbounded_y": false
+      },
+      "camera_constraints": {
+        "mode_flags": "0x1817",
+        "min_x": 4151,
+        "min_y": 504,
+        "max_x": 520,
+        "max_y": -241,
+        "deadzone_width": 0,
+        "deadzone_height": 0
+      },
+      "entities_count": 26,
+      "exits_count": 7,
+      "triggers_count": 3,
+      "outgoing_edges": [
+        {
+          "target_room_id": 30,
+          "warp_type": "0x2667",
+          "coords": {
+            "x": 11270,
+            "y": 12416
+          }
+        },
+        {
+          "target_room_id": 63,
+          "warp_type": "0x403F",
+          "coords": {
+            "x": 18656,
+            "y": -28159
+          }
+        },
+        {
+          "target_room_id": 97,
+          "warp_type": "0x0FE0",
+          "coords": {
+            "x": 16387,
+            "y": -25594
+          }
+        },
+        {
+          "target_room_id": 47,
+          "warp_type": "0x0FFF",
+          "coords": {
+            "x": -288,
+            "y": 2050
+          }
+        },
+        {
+          "target_room_id": 32,
+          "warp_type": "0x05CC",
+          "coords": {
+            "x": -15674,
+            "y": 511
+          }
+        },
+        {
+          "target_room_id": 16,
+          "warp_type": "0x0444",
+          "coords": {
+            "x": 16544,
+            "y": 4098
+          }
+        },
+        {
+          "target_room_id": 103,
+          "warp_type": "0x11E0",
+          "coords": {
+            "x": -8176,
+            "y": 32639
+          }
+        }
+      ]
+    },
+    {
+      "room_id": 45,
+      "sector_lba": 1416,
+      "disc_offset": "0x2C4000",
+      "room_dimensions": {
+        "width_px": 2552,
+        "height_px": 2606,
+        "unbounded_y": false
+      },
+      "camera_constraints": {
+        "mode_flags": "0x686F",
+        "min_x": 2191,
+        "min_y": 136,
+        "max_x": 2112,
+        "max_y": -1536,
+        "deadzone_width": 0,
+        "deadzone_height": 0
+      },
+      "entities_count": 17,
+      "exits_count": 5,
+      "triggers_count": 0,
+      "outgoing_edges": [
+        {
+          "target_room_id": 4,
+          "warp_type": "0x036C",
+          "coords": {
+            "x": 8320,
+            "y": 30212
+          }
+        },
+        {
+          "target_room_id": 0,
+          "warp_type": "0x06FC",
+          "coords": {
+            "x": 16512,
+            "y": -18816
+          }
+        },
+        {
+          "target_room_id": 98,
+          "warp_type": "0x38E3",
+          "coords": {
+            "x": -31770,
+            "y": 1820
+          }
+        },
+        {
+          "target_room_id": 71,
+          "warp_type": "0x0013",
+          "coords": {
+            "x": -30316,
+            "y": 259
+          }
+        },
+        {
+          "target_room_id": 8,
+          "warp_type": "0x01FB",
+          "coords": {
+            "x": -16124,
+            "y": 2811
+          }
+        }
+      ]
+    },
+    {
+      "room_id": 46,
+      "sector_lba": 1423,
+      "disc_offset": "0x2C7800",
+      "room_dimensions": {
+        "width_px": 33792,
+        "height_px": 61392,
+        "unbounded_y": false
+      },
+      "camera_constraints": {
+        "mode_flags": "0xDE00",
+        "min_x": 8199,
+        "min_y": 13136,
+        "max_x": 16,
+        "max_y": 13138,
+        "deadzone_width": 0,
+        "deadzone_height": 2
+      },
+      "entities_count": 0,
+      "exits_count": 4,
+      "triggers_count": 0,
+      "outgoing_edges": [
+        {
+          "target_room_id": 1,
+          "warp_type": "0x0180",
+          "coords": {
+            "x": 6148,
+            "y": 1167
+          }
+        },
+        {
+          "target_room_id": 16,
+          "warp_type": "0x04E0",
+          "coords": {
+            "x": 20993,
+            "y": 736
+          }
+        },
+        {
+          "target_room_id": 1,
+          "warp_type": "0x2E01",
+          "coords": {
+            "x": 29697,
+            "y": -23950
+          }
+        },
+        {
+          "target_room_id": 98,
+          "warp_type": "0x01FA",
+          "coords": {
+            "x": -32170,
+            "y": 528
+          }
+        }
+      ]
+    },
+    {
+      "room_id": 47,
+      "sector_lba": 1428,
+      "disc_offset": "0x2CA000",
+      "room_dimensions": {
+        "width_px": 5110,
+        "height_px": 4096,
+        "unbounded_y": true
+      },
+      "camera_constraints": {
+        "mode_flags": "0x686F",
+        "min_x": 2191,
+        "min_y": 136,
+        "max_x": 2112,
+        "max_y": -1521,
+        "deadzone_width": 0,
+        "deadzone_height": 0
+      },
+      "entities_count": 17,
+      "exits_count": 8,
+      "triggers_count": 2,
+      "outgoing_edges": [
+        {
+          "target_room_id": 5,
+          "warp_type": "0x0105",
+          "coords": {
+            "x": -7982,
+            "y": 257
+          }
+        },
+        {
+          "target_room_id": 1,
+          "warp_type": "0x03E1",
+          "coords": {
+            "x": 6145,
+            "y": 898
+          }
+        },
+        {
+          "target_room_id": 96,
+          "warp_type": "0x01C8",
+          "coords": {
+            "x": 26017,
+            "y": 16897
+          }
+        },
+        {
+          "target_room_id": 1,
+          "warp_type": "0x00A1",
+          "coords": {
+            "x": 2053,
+            "y": 5144
+          }
+        },
+        {
+          "target_room_id": 2,
+          "warp_type": "0x3700",
+          "coords": {
+            "x": 9730,
+            "y": 636
+          }
+        },
+        {
+          "target_room_id": 0,
+          "warp_type": "0x0468",
+          "coords": {
+            "x": -24448,
+            "y": 2052
+          }
+        },
+        {
+          "target_room_id": 0,
+          "warp_type": "0x0408",
+          "coords": {
+            "x": -4095,
+            "y": 6144
+          }
+        },
+        {
+          "target_room_id": 91,
+          "warp_type": "0x04C3",
+          "coords": {
+            "x": -12669,
+            "y": -14712
+          }
+        }
+      ]
+    },
+    {
+      "room_id": 48,
+      "sector_lba": 1440,
+      "disc_offset": "0x2D0000",
+      "room_dimensions": {
+        "width_px": 6086,
+        "height_px": 4096,
+        "unbounded_y": true
+      },
+      "camera_constraints": {
+        "mode_flags": "0x600F",
+        "min_x": -26553,
+        "min_y": 216,
+        "max_x": 2112,
+        "max_y": -753,
+        "deadzone_width": 28665,
+        "deadzone_height": 0
+      },
+      "entities_count": 72,
+      "exits_count": 5,
+      "triggers_count": 0,
+      "outgoing_edges": [
+        {
+          "target_room_id": 0,
+          "warp_type": "0x0F00",
+          "coords": {
+            "x": 128,
+            "y": 2054
+          }
+        },
+        {
+          "target_room_id": 8,
+          "warp_type": "0x0400",
+          "coords": {
+            "x": -21503,
+            "y": -543
+          }
+        },
+        {
+          "target_room_id": 46,
+          "warp_type": "0x02FE",
+          "coords": {
+            "x": -640,
+            "y": 17
+          }
+        },
+        {
+          "target_room_id": 0,
+          "warp_type": "0x0000",
+          "coords": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "target_room_id": 0,
+          "warp_type": "0x0000",
+          "coords": {
+            "x": 0,
+            "y": 0
+          }
+        }
+      ]
+    },
+    {
+      "room_id": 49,
+      "sector_lba": 1446,
+      "disc_offset": "0x2D3000",
+      "room_dimensions": {
+        "width_px": 61964,
+        "height_px": 24585,
+        "unbounded_y": false
+      },
+      "camera_constraints": {
+        "mode_flags": "0x6005",
+        "min_x": 8193,
+        "min_y": 13078,
+        "max_x": -3072,
+        "max_y": 24596,
+        "deadzone_width": 0,
+        "deadzone_height": 11518
+      },
+      "entities_count": 0,
+      "exits_count": 7,
+      "triggers_count": 1,
+      "outgoing_edges": [
+        {
+          "target_room_id": 34,
+          "warp_type": "0x0180",
+          "coords": {
+            "x": 1024,
+            "y": 3840
+          }
+        },
+        {
+          "target_room_id": 66,
+          "warp_type": "0x0103",
+          "coords": {
+            "x": -8082,
+            "y": 507
+          }
+        },
+        {
+          "target_room_id": 88,
+          "warp_type": "0x30C0",
+          "coords": {
+            "x": -29467,
+            "y": 10241
+          }
+        },
+        {
+          "target_room_id": 56,
+          "warp_type": "0x01D8",
+          "coords": {
+            "x": -32760,
+            "y": -31202
+          }
+        },
+        {
+          "target_room_id": 52,
+          "warp_type": "0x019C",
+          "coords": {
+            "x": 505,
+            "y": -6504
+          }
+        },
+        {
+          "target_room_id": 2,
+          "warp_type": "0x0002",
+          "coords": {
+            "x": -32749,
+            "y": 264
+          }
+        },
+        {
+          "target_room_id": 35,
+          "warp_type": "0x0C65",
+          "coords": {
+            "x": 3186,
+            "y": 20580
+          }
+        }
+      ]
+    },
+    {
+      "room_id": 50,
+      "sector_lba": 1453,
+      "disc_offset": "0x2D6800",
+      "room_dimensions": {
+        "width_px": 4526,
+        "height_px": 4096,
+        "unbounded_y": true
+      },
+      "camera_constraints": {
+        "mode_flags": "0x203F",
+        "min_x": 79,
+        "min_y": 136,
+        "max_x": 2112,
+        "max_y": -497,
+        "deadzone_width": 2033,
+        "deadzone_height": 0
+      },
+      "entities_count": 14,
+      "exits_count": 10,
+      "triggers_count": 5,
+      "outgoing_edges": [
+        {
+          "target_room_id": 32,
+          "warp_type": "0x030F",
+          "coords": {
+            "x": 16904,
+            "y": -864
+          }
+        },
+        {
+          "target_room_id": 16,
+          "warp_type": "0x0278",
+          "coords": {
+            "x": -23551,
+            "y": -32
+          }
+        },
+        {
+          "target_room_id": 24,
+          "warp_type": "0x0380",
+          "coords": {
+            "x": 24706,
+            "y": -26108
+          }
+        },
+        {
+          "target_room_id": 15,
+          "warp_type": "0x0420",
+          "coords": {
+            "x": -15359,
+            "y": -126
+          }
+        },
+        {
+          "target_room_id": 11,
+          "warp_type": "0x0200",
+          "coords": {
+            "x": 160,
+            "y": 11910
+          }
+        },
+        {
+          "target_room_id": 32,
+          "warp_type": "0x0188",
+          "coords": {
+            "x": 3841,
+            "y": -30496
+          }
+        },
+        {
+          "target_room_id": 0,
+          "warp_type": "0x0000",
+          "coords": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "target_room_id": 0,
+          "warp_type": "0x0000",
+          "coords": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "target_room_id": 0,
+          "warp_type": "0x0000",
+          "coords": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "target_room_id": 0,
+          "warp_type": "0x0000",
+          "coords": {
+            "x": 0,
+            "y": 0
+          }
+        }
+      ]
+    },
+    {
+      "room_id": 51,
+      "sector_lba": 1464,
+      "disc_offset": "0x2DC000",
+      "room_dimensions": {
+        "width_px": 1966,
+        "height_px": 2044,
+        "unbounded_y": false
+      },
+      "camera_constraints": {
+        "mode_flags": "0x18A7",
+        "min_x": 8303,
+        "min_y": 632,
+        "max_x": 528,
+        "max_y": -369,
+        "deadzone_width": 0,
+        "deadzone_height": 0
+      },
+      "entities_count": 17,
+      "exits_count": 10,
+      "triggers_count": 0,
+      "outgoing_edges": [
+        {
+          "target_room_id": 4,
+          "warp_type": "0x30A0",
+          "coords": {
+            "x": 2053,
+            "y": -8120
+          }
+        },
+        {
+          "target_room_id": 1,
+          "warp_type": "0x0801",
+          "coords": {
+            "x": 16,
+            "y": 3840
+          }
+        },
+        {
+          "target_room_id": 20,
+          "warp_type": "0x0260",
+          "coords": {
+            "x": 26881,
+            "y": 26816
+          }
+        },
+        {
+          "target_room_id": 0,
+          "warp_type": "0x0000",
+          "coords": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "target_room_id": 0,
+          "warp_type": "0x0000",
+          "coords": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "target_room_id": 0,
+          "warp_type": "0x0000",
+          "coords": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "target_room_id": 0,
+          "warp_type": "0x0000",
+          "coords": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "target_room_id": 0,
+          "warp_type": "0x0000",
+          "coords": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "target_room_id": 0,
+          "warp_type": "0x0000",
+          "coords": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "target_room_id": 0,
+          "warp_type": "0x0000",
+          "coords": {
+            "x": 0,
+            "y": 0
+          }
+        }
+      ]
+    },
+    {
+      "room_id": 52,
+      "sector_lba": 1473,
+      "disc_offset": "0x2E0800",
+      "room_dimensions": {
+        "width_px": 1854,
+        "height_px": 1908,
+        "unbounded_y": false
+      },
+      "camera_constraints": {
+        "mode_flags": "0x2007",
+        "min_x": 103,
+        "min_y": 692,
+        "max_x": 16648,
+        "max_y": 15,
+        "deadzone_width": 16545,
+        "deadzone_height": 0
+      },
+      "entities_count": 5,
+      "exits_count": 4,
+      "triggers_count": 0,
+      "outgoing_edges": [
+        {
+          "target_room_id": 15,
+          "warp_type": "0x0005",
+          "coords": {
+            "x": -32568,
+            "y": -32670
+          }
+        },
+        {
+          "target_room_id": 24,
+          "warp_type": "0x0101",
+          "coords": {
+            "x": 2447,
+            "y": 256
+          }
+        },
+        {
+          "target_room_id": 15,
+          "warp_type": "0x0C03",
+          "coords": {
+            "x": -12287,
+            "y": 2787
+          }
+        },
+        {
+          "target_room_id": 102,
+          "warp_type": "0x02CE",
+          "coords": {
+            "x": 512,
+            "y": -8480
+          }
+        }
+      ]
+    },
+    {
+      "room_id": 53,
+      "sector_lba": 1484,
+      "disc_offset": "0x2E6000",
+      "room_dimensions": {
+        "width_px": 3670,
+        "height_px": 4096,
+        "unbounded_y": true
+      },
+      "camera_constraints": {
+        "mode_flags": "0x4027",
+        "min_x": 135,
+        "min_y": 512,
+        "max_x": 1544,
+        "max_y": -369,
+        "deadzone_width": 1409,
+        "deadzone_height": 0
+      },
+      "entities_count": 5,
+      "exits_count": 1,
+      "triggers_count": 0,
+      "outgoing_edges": [
+        {
+          "target_room_id": 86,
+          "warp_type": "0x010F",
+          "coords": {
+            "x": 25094,
+            "y": -28927
+          }
+        }
+      ]
+    },
+    {
+      "room_id": 54,
+      "sector_lba": 1491,
+      "disc_offset": "0x2E9800",
+      "room_dimensions": {
+        "width_px": 24583,
+        "height_px": 58368,
+        "unbounded_y": false
+      },
+      "camera_constraints": {
+        "mode_flags": "0xBF90",
+        "min_x": -24724,
+        "min_y": -24,
+        "max_x": 24579,
+        "max_y": -1088,
+        "deadzone_width": 49303,
+        "deadzone_height": 0
+      },
+      "entities_count": 0,
+      "exits_count": 5,
+      "triggers_count": 0,
+      "outgoing_edges": [
+        {
+          "target_room_id": 3,
+          "warp_type": "0x0381",
+          "coords": {
+            "x": 8352,
+            "y": -3068
+          }
+        },
+        {
+          "target_room_id": 1,
+          "warp_type": "0x2201",
+          "coords": {
+            "x": 482,
+            "y": 12801
+          }
+        },
+        {
+          "target_room_id": 28,
+          "warp_type": "0x3A84",
+          "coords": {
+            "x": 768,
+            "y": -160
+          }
+        },
+        {
+          "target_room_id": 1,
+          "warp_type": "0x4081",
+          "coords": {
+            "x": 2050,
+            "y": 17416
+          }
+        },
+        {
+          "target_room_id": 16,
+          "warp_type": "0x00E0",
+          "coords": {
+            "x": 18559,
+            "y": 31456
+          }
+        }
+      ]
+    },
+    {
+      "room_id": 55,
+      "sector_lba": 1497,
+      "disc_offset": "0x2EC800",
+      "room_dimensions": {
+        "width_px": 2806,
+        "height_px": 4096,
+        "unbounded_y": true
+      },
+      "camera_constraints": {
+        "mode_flags": "0x70CF",
+        "min_x": 135,
+        "min_y": 472,
+        "max_x": 520,
+        "max_y": -1265,
+        "deadzone_width": 385,
+        "deadzone_height": 0
+      },
+      "entities_count": 24,
+      "exits_count": 5,
+      "triggers_count": 4,
+      "outgoing_edges": [
+        {
+          "target_room_id": 3,
+          "warp_type": "0x4F01",
+          "coords": {
+            "x": -28928,
+            "y": 128
+          }
+        },
+        {
+          "target_room_id": 46,
+          "warp_type": "0x0630",
+          "coords": {
+            "x": 448,
+            "y": -16368
+          }
+        },
+        {
+          "target_room_id": 0,
+          "warp_type": "0x0408",
+          "coords": {
+            "x": 25091,
+            "y": -30464
+          }
+        },
+        {
+          "target_room_id": 3,
+          "warp_type": "0x4C03",
+          "coords": {
+            "x": 14849,
+            "y": -1917
+          }
+        },
+        {
+          "target_room_id": 101,
+          "warp_type": "0x03CD",
+          "coords": {
+            "x": 718,
+            "y": -4896
+          }
+        }
+      ]
+    },
+    {
+      "room_id": 56,
+      "sector_lba": 1515,
+      "disc_offset": "0x2F5800",
+      "room_dimensions": {
+        "width_px": 24578,
+        "height_px": 8197,
+        "unbounded_y": false
+      },
+      "camera_constraints": {
+        "mode_flags": "0x0010",
+        "min_x": 10978,
+        "min_y": 16,
+        "max_x": 10980,
+        "max_y": -23636,
+        "deadzone_width": 2,
+        "deadzone_height": 0
+      },
+      "entities_count": 0,
+      "exits_count": 5,
+      "triggers_count": 0,
+      "outgoing_edges": [
+        {
+          "target_room_id": 0,
+          "warp_type": "0x0F00",
+          "coords": {
+            "x": -32,
+            "y": 7684
+          }
+        },
+        {
+          "target_room_id": 16,
+          "warp_type": "0x01FC",
+          "coords": {
+            "x": 18551,
+            "y": -1929
+          }
+        },
+        {
+          "target_room_id": 64,
+          "warp_type": "0x0788",
+          "coords": {
+            "x": 32,
+            "y": -32672
+          }
+        },
+        {
+          "target_room_id": 99,
+          "warp_type": "0x4C63",
+          "coords": {
+            "x": 161,
+            "y": 26628
+          }
+        },
+        {
+          "target_room_id": 0,
+          "warp_type": "0x0118",
+          "coords": {
+            "x": 4100,
+            "y": -369
+          }
+        }
+      ]
+    },
+    {
+      "room_id": 57,
+      "sector_lba": 1518,
+      "disc_offset": "0x2F7000",
+      "room_dimensions": {
+        "width_px": 1662,
+        "height_px": 4096,
+        "unbounded_y": true
+      },
+      "camera_constraints": {
+        "mode_flags": "0x1887",
+        "min_x": 103,
+        "min_y": 644,
+        "max_x": 272,
+        "max_y": -369,
+        "deadzone_width": 169,
+        "deadzone_height": 0
+      },
+      "entities_count": 0,
+      "exits_count": 9,
+      "triggers_count": 0,
+      "outgoing_edges": [
+        {
+          "target_room_id": 16,
+          "warp_type": "0x0000",
+          "coords": {
+            "x": -28925,
+            "y": -27644
+          }
+        },
+        {
+          "target_room_id": 48,
+          "warp_type": "0x01CC",
+          "coords": {
+            "x": 0,
+            "y": -8184
+          }
+        },
+        {
+          "target_room_id": 6,
+          "warp_type": "0x00C0",
+          "coords": {
+            "x": 3,
+            "y": 16447
+          }
+        },
+        {
+          "target_room_id": 8,
+          "warp_type": "0x0402",
+          "coords": {
+            "x": 19584,
+            "y": 2176
+          }
+        },
+        {
+          "target_room_id": 1,
+          "warp_type": "0x07E0",
+          "coords": {
+            "x": 26117,
+            "y": 560
+          }
+        },
+        {
+          "target_room_id": 14,
+          "warp_type": "0x040E",
+          "coords": {
+            "x": 21508,
+            "y": 783
+          }
+        },
+        {
+          "target_room_id": 4,
+          "warp_type": "0x3804",
+          "coords": {
+            "x": 772,
+            "y": 528
+          }
+        },
+        {
+          "target_room_id": 42,
+          "warp_type": "0x028D",
+          "coords": {
+            "x": -32760,
+            "y": 1297
+          }
+        },
+        {
+          "target_room_id": 64,
+          "warp_type": "0x0740",
+          "coords": {
+            "x": 1039,
+            "y": -16298
+          }
+        }
+      ]
+    },
+    {
+      "room_id": 58,
+      "sector_lba": 1521,
+      "disc_offset": "0x2F8800",
+      "room_dimensions": {
+        "width_px": 10322,
+        "height_px": 16,
+        "unbounded_y": false
+      },
+      "camera_constraints": {
+        "mode_flags": "0x0010",
+        "min_x": 10326,
+        "min_y": 16,
+        "max_x": 10328,
+        "max_y": 16,
+        "deadzone_width": 2,
+        "deadzone_height": 0
+      },
+      "entities_count": 0,
+      "exits_count": 8,
+      "triggers_count": 0,
+      "outgoing_edges": [
+        {
+          "target_room_id": 38,
+          "warp_type": "0x01FE",
+          "coords": {
+            "x": 3841,
+            "y": 1
+          }
+        },
+        {
+          "target_room_id": 1,
+          "warp_type": "0x1001",
+          "coords": {
+            "x": 6016,
+            "y": 600
+          }
+        },
+        {
+          "target_room_id": 46,
+          "warp_type": "0x018F",
+          "coords": {
+            "x": -24412,
+            "y": -32760
+          }
+        },
+        {
+          "target_room_id": 16,
+          "warp_type": "0x00E0",
+          "coords": {
+            "x": 448,
+            "y": -10747
+          }
+        },
+        {
+          "target_room_id": 0,
+          "warp_type": "0x3404",
+          "coords": {
+            "x": -24568,
+            "y": 513
+          }
+        },
+        {
+          "target_room_id": 8,
+          "warp_type": "0x02B8",
+          "coords": {
+            "x": -16373,
+            "y": 9220
+          }
+        },
+        {
+          "target_room_id": 40,
+          "warp_type": "0x01C0",
+          "coords": {
+            "x": 8,
+            "y": 22615
+          }
+        },
+        {
+          "target_room_id": 4,
+          "warp_type": "0x0804",
+          "coords": {
+            "x": -15820,
+            "y": -16344
+          }
+        }
+      ]
+    },
+    {
+      "room_id": 59,
+      "sector_lba": 1529,
+      "disc_offset": "0x2FC800",
+      "room_dimensions": {
+        "width_px": 1070,
+        "height_px": 4096,
+        "unbounded_y": true
+      },
+      "camera_constraints": {
+        "mode_flags": "0x403F",
+        "min_x": 127,
+        "min_y": 136,
+        "max_x": 2112,
+        "max_y": -1009,
+        "deadzone_width": 1985,
+        "deadzone_height": 0
+      },
+      "entities_count": 13,
+      "exits_count": 11,
+      "triggers_count": 2,
+      "outgoing_edges": [
+        {
+          "target_room_id": 39,
+          "warp_type": "0x0C8F",
+          "coords": {
+            "x": 256,
+            "y": -16368
+          }
+        },
+        {
+          "target_room_id": 8,
+          "warp_type": "0x01FC",
+          "coords": {
+            "x": 4093,
+            "y": -8136
+          }
+        },
+        {
+          "target_room_id": 32,
+          "warp_type": "0x0020",
+          "coords": {
+            "x": -32760,
+            "y": 1912
+          }
+        },
+        {
+          "target_room_id": 0,
+          "warp_type": "0x0405",
+          "coords": {
+            "x": 2241,
+            "y": 2583
+          }
+        },
+        {
+          "target_room_id": 8,
+          "warp_type": "0x0408",
+          "coords": {
+            "x": 2786,
+            "y": 11265
+          }
+        },
+        {
+          "target_room_id": 102,
+          "warp_type": "0x02CE",
+          "coords": {
+            "x": 512,
+            "y": -8480
+          }
+        },
+        {
+          "target_room_id": 0,
+          "warp_type": "0x0000",
+          "coords": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "target_room_id": 0,
+          "warp_type": "0x0000",
+          "coords": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "target_room_id": 0,
+          "warp_type": "0x0000",
+          "coords": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "target_room_id": 0,
+          "warp_type": "0x0000",
+          "coords": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "target_room_id": 0,
+          "warp_type": "0x0000",
+          "coords": {
+            "x": 0,
+            "y": 0
+          }
+        }
+      ]
+    },
+    {
+      "room_id": 60,
+      "sector_lba": 1531,
+      "disc_offset": "0x2FD800",
+      "room_dimensions": {
+        "width_px": 59552,
+        "height_px": 24579,
+        "unbounded_y": false
+      },
+      "camera_constraints": {
+        "mode_flags": "0x2D98",
+        "min_x": -22020,
+        "min_y": -14328,
+        "max_x": 8195,
+        "max_y": 9576,
+        "deadzone_width": 30215,
+        "deadzone_height": 23904
+      },
+      "entities_count": 0,
+      "exits_count": 2,
+      "triggers_count": 0,
+      "outgoing_edges": [
+        {
+          "target_room_id": 0,
+          "warp_type": "0x0B50",
+          "coords": {
+            "x": -13187,
+            "y": 259
+          }
+        },
+        {
+          "target_room_id": 86,
+          "warp_type": "0x0561",
+          "coords": {
+            "x": 9319,
+            "y": -7952
+          }
+        }
+      ]
+    },
+    {
+      "room_id": 61,
+      "sector_lba": 1539,
+      "disc_offset": "0x301800",
+      "room_dimensions": {
+        "width_px": 5318,
+        "height_px": 4096,
+        "unbounded_y": true
+      },
+      "camera_constraints": {
+        "mode_flags": "0x1027",
+        "min_x": 8311,
+        "min_y": 812,
+        "max_x": 776,
+        "max_y": -241,
+        "deadzone_width": 0,
+        "deadzone_height": 0
+      },
+      "entities_count": 39,
+      "exits_count": 8,
+      "triggers_count": 2,
+      "outgoing_edges": [
+        {
+          "target_room_id": 0,
+          "warp_type": "0x0803",
+          "coords": {
+            "x": 21090,
+            "y": -7918
+          }
+        },
+        {
+          "target_room_id": 39,
+          "warp_type": "0x008F",
+          "coords": {
+            "x": 256,
+            "y": -31342
+          }
+        },
+        {
+          "target_room_id": 31,
+          "warp_type": "0x0087",
+          "coords": {
+            "x": 12290,
+            "y": -3068
+          }
+        },
+        {
+          "target_room_id": 63,
+          "warp_type": "0x403F",
+          "coords": {
+            "x": -32246,
+            "y": 1279
+          }
+        },
+        {
+          "target_room_id": 16,
+          "warp_type": "0x03E0",
+          "coords": {
+            "x": -32470,
+            "y": -8188
+          }
+        },
+        {
+          "target_room_id": 14,
+          "warp_type": "0x2176",
+          "coords": {
+            "x": 160,
+            "y": -10749
+          }
+        },
+        {
+          "target_room_id": 0,
+          "warp_type": "0x0000",
+          "coords": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "target_room_id": 0,
+          "warp_type": "0x0000",
+          "coords": {
+            "x": 0,
+            "y": 0
+          }
+        }
+      ]
+    },
+    {
+      "room_id": 62,
+      "sector_lba": 1550,
+      "disc_offset": "0x307000",
+      "room_dimensions": {
+        "width_px": 2774,
+        "height_px": 2828,
+        "unbounded_y": false
+      },
+      "camera_constraints": {
+        "mode_flags": "0x6857",
+        "min_x": -22441,
+        "min_y": 852,
+        "max_x": 280,
+        "max_y": -1137,
+        "deadzone_width": 22721,
+        "deadzone_height": 0
+      },
+      "entities_count": 39,
+      "exits_count": 3,
+      "triggers_count": 0,
+      "outgoing_edges": [
+        {
+          "target_room_id": 15,
+          "warp_type": "0x2609",
+          "coords": {
+            "x": 976,
+            "y": 1072
+          }
+        },
+        {
+          "target_room_id": 64,
+          "warp_type": "0x1807",
+          "coords": {
+            "x": 576,
+            "y": -1152
+          }
+        },
+        {
+          "target_room_id": 4,
+          "warp_type": "0x0081",
+          "coords": {
+            "x": 2050,
+            "y": -32336
+          }
+        }
+      ]
+    },
+    {
+      "room_id": 63,
+      "sector_lba": 1562,
+      "disc_offset": "0x30D000",
+      "room_dimensions": {
+        "width_px": 3734,
+        "height_px": 4096,
+        "unbounded_y": true
+      },
+      "camera_constraints": {
+        "mode_flags": "0xA09F",
+        "min_x": 2175,
+        "min_y": 136,
+        "max_x": 2112,
+        "max_y": -497,
+        "deadzone_width": 0,
+        "deadzone_height": 0
+      },
+      "entities_count": 23,
+      "exits_count": 4,
+      "triggers_count": 2,
+      "outgoing_edges": [
+        {
+          "target_room_id": 32,
+          "warp_type": "0x01FD",
+          "coords": {
+            "x": -32728,
+            "y": 1303
+          }
+        },
+        {
+          "target_room_id": 56,
+          "warp_type": "0x032C",
+          "coords": {
+            "x": -24428,
+            "y": -8184
+          }
+        },
+        {
+          "target_room_id": 1,
+          "warp_type": "0x4801",
+          "coords": {
+            "x": 1248,
+            "y": -31231
+          }
+        },
+        {
+          "target_room_id": 0,
+          "warp_type": "0x0200",
+          "coords": {
+            "x": -2047,
+            "y": -1401
+          }
+        }
+      ]
+    },
+    {
+      "room_id": 64,
+      "sector_lba": 1573,
+      "disc_offset": "0x312800",
+      "room_dimensions": {
+        "width_px": 2334,
+        "height_px": 2372,
+        "unbounded_y": false
+      },
+      "camera_constraints": {
+        "mode_flags": "0x20BF",
+        "min_x": -26521,
+        "min_y": 136,
+        "max_x": 2112,
+        "max_y": -497,
+        "deadzone_width": 28633,
+        "deadzone_height": 0
+      },
+      "entities_count": 22,
+      "exits_count": 5,
+      "triggers_count": 0,
+      "outgoing_edges": [
+        {
+          "target_room_id": 1,
+          "warp_type": "0x0601",
+          "coords": {
+            "x": -1567,
+            "y": 1537
+          }
+        },
+        {
+          "target_room_id": 1,
+          "warp_type": "0x20A0",
+          "coords": {
+            "x": -30709,
+            "y": -800
+          }
+        },
+        {
+          "target_room_id": 3,
+          "warp_type": "0x0030",
+          "coords": {
+            "x": -31084,
+            "y": -7474
+          }
+        },
+        {
+          "target_room_id": 98,
+          "warp_type": "0x0862",
+          "coords": {
+            "x": -14170,
+            "y": 500
+          }
+        },
+        {
+          "target_room_id": 96,
+          "warp_type": "0x2861",
+          "coords": {
+            "x": 12495,
+            "y": 103
+          }
+        }
+      ]
+    },
+    {
+      "room_id": 65,
+      "sector_lba": 1581,
+      "disc_offset": "0x316800",
+      "room_dimensions": {
+        "width_px": 12418,
+        "height_px": 58112,
+        "unbounded_y": false
+      },
+      "camera_constraints": {
+        "mode_flags": "0x6013",
+        "min_x": 8193,
+        "min_y": 12386,
+        "max_x": -8104,
+        "max_y": 24584,
+        "deadzone_width": 0,
+        "deadzone_height": 12198
+      },
+      "entities_count": 0,
+      "exits_count": 1,
+      "triggers_count": 4,
+      "outgoing_edges": [
+        {
+          "target_room_id": 55,
+          "warp_type": "0x4037",
+          "coords": {
+            "x": 2112,
+            "y": -1009
+          }
+        }
+      ]
+    },
+    {
+      "room_id": 66,
+      "sector_lba": 1584,
+      "disc_offset": "0x318000",
+      "room_dimensions": {
+        "width_px": 3118,
+        "height_px": 4096,
+        "unbounded_y": true
+      },
+      "camera_constraints": {
+        "mode_flags": "0x5867",
+        "min_x": 103,
+        "min_y": 612,
+        "max_x": 520,
+        "max_y": -1393,
+        "deadzone_width": 417,
+        "deadzone_height": 0
+      },
+      "entities_count": 34,
+      "exits_count": 5,
+      "triggers_count": 0,
+      "outgoing_edges": [
+        {
+          "target_room_id": 64,
+          "warp_type": "0x0000",
+          "coords": {
+            "x": 10176,
+            "y": 5664
+          }
+        },
+        {
+          "target_room_id": 4,
+          "warp_type": "0x06A0",
+          "coords": {
+            "x": 18495,
+            "y": -16120
+          }
+        },
+        {
+          "target_room_id": 2,
+          "warp_type": "0x4705",
+          "coords": {
+            "x": -32384,
+            "y": 26891
+          }
+        },
+        {
+          "target_room_id": 4,
+          "warp_type": "0x0180",
+          "coords": {
+            "x": 87,
+            "y": -32698
+          }
+        },
+        {
+          "target_room_id": 1,
+          "warp_type": "0x07C0",
+          "coords": {
+            "x": 79,
+            "y": -24390
+          }
+        }
+      ]
+    },
+    {
+      "room_id": 67,
+      "sector_lba": 1586,
+      "disc_offset": "0x319000",
+      "room_dimensions": {
+        "width_px": 8198,
+        "height_px": 15328,
+        "unbounded_y": false
+      },
+      "camera_constraints": {
+        "mode_flags": "0x2A4E",
+        "min_x": 16,
+        "min_y": 14074,
+        "max_x": 16,
+        "max_y": -32760,
+        "deadzone_width": 0,
+        "deadzone_height": 0
+      },
+      "entities_count": 0,
+      "exits_count": 7,
+      "triggers_count": 0,
+      "outgoing_edges": [
+        {
+          "target_room_id": 95,
+          "warp_type": "0x2000",
+          "coords": {
+            "x": 1072,
+            "y": -497
+          }
+        },
+        {
+          "target_room_id": 8,
+          "warp_type": "0x0108",
+          "coords": {
+            "x": -8082,
+            "y": 264
+          }
+        },
+        {
+          "target_room_id": 55,
+          "warp_type": "0x0008",
+          "coords": {
+            "x": -30591,
+            "y": -24896
+          }
+        },
+        {
+          "target_room_id": 0,
+          "warp_type": "0x0FFC",
+          "coords": {
+            "x": 4095,
+            "y": -24054
+          }
+        },
+        {
+          "target_room_id": 10,
+          "warp_type": "0x01C2",
+          "coords": {
+            "x": 160,
+            "y": 3
+          }
+        },
+        {
+          "target_room_id": 0,
+          "warp_type": "0x0340",
+          "coords": {
+            "x": -21919,
+            "y": -31666
+          }
+        },
+        {
+          "target_room_id": 4,
+          "warp_type": "0x4080",
+          "coords": {
+            "x": 224,
+            "y": -31572
+          }
+        }
+      ]
+    },
+    {
+      "room_id": 68,
+      "sector_lba": 1594,
+      "disc_offset": "0x31D000",
+      "room_dimensions": {
+        "width_px": 1846,
+        "height_px": 1892,
+        "unbounded_y": false
+      },
+      "camera_constraints": {
+        "mode_flags": "0x6017",
+        "min_x": 199,
+        "min_y": 600,
+        "max_x": 520,
+        "max_y": -1521,
+        "deadzone_width": 321,
+        "deadzone_height": 0
+      },
+      "entities_count": 2,
+      "exits_count": 5,
+      "triggers_count": 0,
+      "outgoing_edges": [
+        {
+          "target_room_id": 0,
+          "warp_type": "0x0200",
+          "coords": {
+            "x": 259,
+            "y": -8184
+          }
+        },
+        {
+          "target_room_id": 8,
+          "warp_type": "0x0100",
+          "coords": {
+            "x": -32752,
+            "y": 1848
+          }
+        },
+        {
+          "target_room_id": 43,
+          "warp_type": "0x01FB",
+          "coords": {
+            "x": -32562,
+            "y": -32048
+          }
+        },
+        {
+          "target_room_id": 88,
+          "warp_type": "0x22C0",
+          "coords": {
+            "x": 1551,
+            "y": 384
+          }
+        },
+        {
+          "target_room_id": 2,
+          "warp_type": "0x0002",
+          "coords": {
+            "x": -32749,
+            "y": 264
+          }
+        }
+      ]
+    },
+    {
+      "room_id": 69,
+      "sector_lba": 1603,
+      "disc_offset": "0x321800",
+      "room_dimensions": {
+        "width_px": 2110,
+        "height_px": 2140,
+        "unbounded_y": false
+      },
+      "camera_constraints": {
+        "mode_flags": "0xA897",
+        "min_x": 135,
+        "min_y": 592,
+        "max_x": 520,
+        "max_y": -2161,
+        "deadzone_width": 385,
+        "deadzone_height": 0
+      },
+      "entities_count": 6,
+      "exits_count": 2,
+      "triggers_count": 2,
+      "outgoing_edges": [
+        {
+          "target_room_id": 22,
+          "warp_type": "0x3E16",
+          "coords": {
+            "x": 664,
+            "y": 816
+          }
+        },
+        {
+          "target_room_id": 4,
+          "warp_type": "0x2F20",
+          "coords": {
+            "x": 4350,
+            "y": -28928
+          }
+        }
+      ]
+    },
+    {
+      "room_id": 70,
+      "sector_lba": 1611,
+      "disc_offset": "0x325800",
+      "room_dimensions": {
+        "width_px": 1230,
+        "height_px": 1268,
+        "unbounded_y": false
+      },
+      "camera_constraints": {
+        "mode_flags": "0x403F",
+        "min_x": 127,
+        "min_y": 136,
+        "max_x": 2112,
+        "max_y": -1009,
+        "deadzone_width": 1985,
+        "deadzone_height": 0
+      },
+      "entities_count": 34,
+      "exits_count": 3,
+      "triggers_count": 0,
+      "outgoing_edges": [
+        {
+          "target_room_id": 64,
+          "warp_type": "0x0000",
+          "coords": {
+            "x": 5633,
+            "y": -800
+          }
+        },
+        {
+          "target_room_id": 80,
+          "warp_type": "0x0100",
+          "coords": {
+            "x": 15,
+            "y": 160
+          }
+        },
+        {
+          "target_room_id": 97,
+          "warp_type": "0x1EE0",
+          "coords": {
+            "x": 27141,
+            "y": 272
+          }
+        }
+      ]
+    },
+    {
+      "room_id": 71,
+      "sector_lba": 1627,
+      "disc_offset": "0x32D800",
+      "room_dimensions": {
+        "width_px": 10320,
+        "height_px": 16,
+        "unbounded_y": false
+      },
+      "camera_constraints": {
+        "mode_flags": "0x0010",
+        "min_x": 10324,
+        "min_y": 16,
+        "max_x": 10326,
+        "max_y": 16,
+        "deadzone_width": 2,
+        "deadzone_height": 0
+      },
+      "entities_count": 0,
+      "exits_count": 5,
+      "triggers_count": 5,
+      "outgoing_edges": [
+        {
+          "target_room_id": 47,
+          "warp_type": "0x07FF",
+          "coords": {
+            "x": -1312,
+            "y": 2056
+          }
+        },
+        {
+          "target_room_id": 52,
+          "warp_type": "0x0188",
+          "coords": {
+            "x": -16340,
+            "y": -32752
+          }
+        },
+        {
+          "target_room_id": 0,
+          "warp_type": "0x0120",
+          "coords": {
+            "x": -14847,
+            "y": 224
+          }
+        },
+        {
+          "target_room_id": 16,
+          "warp_type": "0x01F8",
+          "coords": {
+            "x": -8146,
+            "y": 1016
+          }
+        },
+        {
+          "target_room_id": 8,
+          "warp_type": "0x01FC",
+          "coords": {
+            "x": -8176,
+            "y": 260
+          }
+        }
+      ]
+    },
+    {
+      "room_id": 72,
+      "sector_lba": 1629,
+      "disc_offset": "0x32E800",
+      "room_dimensions": {
+        "width_px": 2446,
+        "height_px": 4096,
+        "unbounded_y": true
+      },
+      "camera_constraints": {
+        "mode_flags": "0x482F",
+        "min_x": 4191,
+        "min_y": 600,
+        "max_x": 520,
+        "max_y": 527,
+        "deadzone_width": 0,
+        "deadzone_height": 0
+      },
+      "entities_count": 14,
+      "exits_count": 9,
+      "triggers_count": 0,
+      "outgoing_edges": [
+        {
+          "target_room_id": 2,
+          "warp_type": "0x4100",
+          "coords": {
+            "x": 135,
+            "y": 872
+          }
+        },
+        {
+          "target_room_id": 0,
+          "warp_type": "0x0001",
+          "coords": {
+            "x": 908,
+            "y": 576
+          }
+        },
+        {
+          "target_room_id": 0,
+          "warp_type": "0x0218",
+          "coords": {
+            "x": -13309,
+            "y": 10494
+          }
+        },
+        {
+          "target_room_id": 0,
+          "warp_type": "0x0818",
+          "coords": {
+            "x": 136,
+            "y": 2176
+          }
+        },
+        {
+          "target_room_id": 65,
+          "warp_type": "0x2641",
+          "coords": {
+            "x": 416,
+            "y": 27151
+          }
+        },
+        {
+          "target_room_id": 1,
+          "warp_type": "0x0847",
+          "coords": {
+            "x": -24522,
+            "y": 256
+          }
+        },
+        {
+          "target_room_id": 2,
+          "warp_type": "0x01E0",
+          "coords": {
+            "x": 25345,
+            "y": 16800
+          }
+        },
+        {
+          "target_room_id": 3,
+          "warp_type": "0x4C61",
+          "coords": {
+            "x": -24228,
+            "y": -7778
+          }
+        },
+        {
+          "target_room_id": 3,
+          "warp_type": "0x2224",
+          "coords": {
+            "x": -8188,
+            "y": 27653
+          }
+        }
+      ]
+    },
+    {
+      "room_id": 73,
+      "sector_lba": 1637,
+      "disc_offset": "0x332800",
+      "room_dimensions": {
+        "width_px": 14872,
+        "height_px": 16,
+        "unbounded_y": false
+      },
+      "camera_constraints": {
+        "mode_flags": "0xF290",
+        "min_x": 24582,
+        "min_y": -25328,
+        "max_x": -24544,
+        "max_y": -1024,
+        "deadzone_width": 0,
+        "deadzone_height": 24304
+      },
+      "entities_count": 0,
+      "exits_count": 6,
+      "triggers_count": 0,
+      "outgoing_edges": [
+        {
+          "target_room_id": 54,
+          "warp_type": "0x0661",
+          "coords": {
+            "x": 1184,
+            "y": 264
+          }
+        },
+        {
+          "target_room_id": 0,
+          "warp_type": "0x038F",
+          "coords": {
+            "x": 1278,
+            "y": -28926
+          }
+        },
+        {
+          "target_room_id": 68,
+          "warp_type": "0x02AC",
+          "coords": {
+            "x": -16384,
+            "y": 2080
+          }
+        },
+        {
+          "target_room_id": 28,
+          "warp_type": "0x021C",
+          "coords": {
+            "x": -29183,
+            "y": 928
+          }
+        },
+        {
+          "target_room_id": 61,
+          "warp_type": "0x1CA5",
+          "coords": {
+            "x": -19967,
+            "y": 16838
+          }
+        },
+        {
+          "target_room_id": 1,
+          "warp_type": "0x3201",
+          "coords": {
+            "x": -16108,
+            "y": 763
+          }
+        }
+      ]
+    },
+    {
+      "room_id": 74,
+      "sector_lba": 1639,
+      "disc_offset": "0x333800",
+      "room_dimensions": {
+        "width_px": 3150,
+        "height_px": 3268,
+        "unbounded_y": false
+      },
+      "camera_constraints": {
+        "mode_flags": "0x5857",
+        "min_x": 10335,
+        "min_y": 608,
+        "max_x": 264,
+        "max_y": -1152,
+        "deadzone_width": 0,
+        "deadzone_height": 0
+      },
+      "entities_count": 11,
+      "exits_count": 3,
+      "triggers_count": 0,
+      "outgoing_edges": [
+        {
+          "target_room_id": 98,
+          "warp_type": "0x02E0",
+          "coords": {
+            "x": -24560,
+            "y": 510
+          }
+        },
+        {
+          "target_room_id": 0,
+          "warp_type": "0x10FF",
+          "coords": {
+            "x": 2060,
+            "y": -881
+          }
+        },
+        {
+          "target_room_id": 86,
+          "warp_type": "0x01FB",
+          "coords": {
+            "x": 387,
+            "y": -32093
+          }
+        }
+      ]
+    },
+    {
+      "room_id": 75,
+      "sector_lba": 1647,
+      "disc_offset": "0x337800",
+      "room_dimensions": {
+        "width_px": 1062,
+        "height_px": 4096,
+        "unbounded_y": true
+      },
+      "camera_constraints": {
+        "mode_flags": "0x403F",
+        "min_x": 127,
+        "min_y": 136,
+        "max_x": 2112,
+        "max_y": -1009,
+        "deadzone_width": 1985,
+        "deadzone_height": 0
+      },
+      "entities_count": 3,
+      "exits_count": 1,
+      "triggers_count": 0,
+      "outgoing_edges": [
+        {
+          "target_room_id": 1,
+          "warp_type": "0x3C01",
+          "coords": {
+            "x": -22399,
+            "y": 15362
+          }
+        }
+      ]
+    },
+    {
+      "room_id": 76,
+      "sector_lba": 1655,
+      "disc_offset": "0x33B800",
+      "room_dimensions": {
+        "width_px": 982,
+        "height_px": 4096,
+        "unbounded_y": true
+      },
+      "camera_constraints": {
+        "mode_flags": "0x203F",
+        "min_x": 127,
+        "min_y": 136,
+        "max_x": 2112,
+        "max_y": -497,
+        "deadzone_width": 1985,
+        "deadzone_height": 0
+      },
+      "entities_count": 14,
+      "exits_count": 4,
+      "triggers_count": 3,
+      "outgoing_edges": [
+        {
+          "target_room_id": 3,
+          "warp_type": "0x0403",
+          "coords": {
+            "x": -23039,
+            "y": 640
+          }
+        },
+        {
+          "target_room_id": 1,
+          "warp_type": "0x4E01",
+          "coords": {
+            "x": -29079,
+            "y": -23724
+          }
+        },
+        {
+          "target_room_id": 0,
+          "warp_type": "0x0000",
+          "coords": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "target_room_id": 0,
+          "warp_type": "0x0000",
+          "coords": {
+            "x": 0,
+            "y": 0
+          }
+        }
+      ]
+    },
+    {
+      "room_id": 77,
+      "sector_lba": 1664,
+      "disc_offset": "0x340000",
+      "room_dimensions": {
+        "width_px": 1054,
+        "height_px": 4096,
+        "unbounded_y": true
+      },
+      "camera_constraints": {
+        "mode_flags": "0x0807",
+        "min_x": 127,
+        "min_y": 1120,
+        "max_x": 576,
+        "max_y": -113,
+        "deadzone_width": 449,
+        "deadzone_height": 0
+      },
+      "entities_count": 1,
+      "exits_count": 0,
+      "triggers_count": 0,
+      "outgoing_edges": []
+    },
+    {
+      "room_id": 78,
+      "sector_lba": 1681,
+      "disc_offset": "0x348800",
+      "room_dimensions": {
+        "width_px": 24587,
+        "height_px": 55296,
+        "unbounded_y": false
+      },
+      "camera_constraints": {
+        "mode_flags": "0x2003",
+        "min_x": 9796,
+        "min_y": 16,
+        "max_x": 9798,
+        "max_y": -18272,
+        "deadzone_width": 2,
+        "deadzone_height": 0
+      },
+      "entities_count": 0,
+      "exits_count": 0,
+      "triggers_count": 0,
+      "outgoing_edges": []
+    },
+    {
+      "room_id": 79,
+      "sector_lba": 1684,
+      "disc_offset": "0x34A000",
+      "room_dimensions": {
+        "width_px": 822,
+        "height_px": 892,
+        "unbounded_y": false
+      },
+      "camera_constraints": {
+        "mode_flags": "0x403F",
+        "min_x": 127,
+        "min_y": 136,
+        "max_x": 2112,
+        "max_y": -1009,
+        "deadzone_width": 1985,
+        "deadzone_height": 0
+      },
+      "entities_count": 9,
+      "exits_count": 0,
+      "triggers_count": 0,
+      "outgoing_edges": []
+    },
+    {
+      "room_id": 80,
+      "sector_lba": 1687,
+      "disc_offset": "0x34B800",
+      "room_dimensions": {
+        "width_px": 24609,
+        "height_px": 8199,
+        "unbounded_y": false
+      },
+      "camera_constraints": {
+        "mode_flags": "0x0010",
+        "min_x": 13666,
+        "min_y": 16,
+        "max_x": 13668,
+        "max_y": 16,
+        "deadzone_width": 2,
+        "deadzone_height": 0
+      },
+      "entities_count": 0,
+      "exits_count": 0,
+      "triggers_count": 0,
+      "outgoing_edges": []
+    },
+    {
+      "room_id": 81,
+      "sector_lba": 1694,
+      "disc_offset": "0x34F000",
+      "room_dimensions": {
+        "width_px": 1750,
+        "height_px": 1796,
+        "unbounded_y": false
+      },
+      "camera_constraints": {
+        "mode_flags": "0x80C7",
+        "min_x": -18377,
+        "min_y": 136,
+        "max_x": 2112,
+        "max_y": -625,
+        "deadzone_width": 20489,
+        "deadzone_height": 0
+      },
+      "entities_count": 5,
+      "exits_count": 0,
+      "triggers_count": 0,
+      "outgoing_edges": []
+    },
+    {
+      "room_id": 82,
+      "sector_lba": 1705,
+      "disc_offset": "0x354800",
+      "room_dimensions": {
+        "width_px": 3406,
+        "height_px": 4096,
+        "unbounded_y": true
+      },
+      "camera_constraints": {
+        "mode_flags": "0x607F",
+        "min_x": -217,
+        "min_y": 612,
+        "max_x": 520,
+        "max_y": -1009,
+        "deadzone_width": 737,
+        "deadzone_height": 0
+      },
+      "entities_count": 0,
+      "exits_count": 0,
+      "triggers_count": 0,
+      "outgoing_edges": []
+    },
+    {
+      "room_id": 83,
+      "sector_lba": 1717,
+      "disc_offset": "0x35A800",
+      "room_dimensions": {
+        "width_px": 2398,
+        "height_px": 2436,
+        "unbounded_y": false
+      },
+      "camera_constraints": {
+        "mode_flags": "0x209F",
+        "min_x": 135,
+        "min_y": 136,
+        "max_x": 2112,
+        "max_y": -497,
+        "deadzone_width": 1977,
+        "deadzone_height": 0
+      },
+      "entities_count": 34,
+      "exits_count": 0,
+      "triggers_count": 0,
+      "outgoing_edges": []
+    },
+    {
+      "room_id": 84,
+      "sector_lba": 1738,
+      "disc_offset": "0x365000",
+      "room_dimensions": {
+        "width_px": 1182,
+        "height_px": 4096,
+        "unbounded_y": true
+      },
+      "camera_constraints": {
+        "mode_flags": "0x403F",
+        "min_x": 127,
+        "min_y": 136,
+        "max_x": 2112,
+        "max_y": -1009,
+        "deadzone_width": 1985,
+        "deadzone_height": 0
+      },
+      "entities_count": 18,
+      "exits_count": 0,
+      "triggers_count": 0,
+      "outgoing_edges": []
+    },
+    {
+      "room_id": 85,
+      "sector_lba": 1750,
+      "disc_offset": "0x36B000",
+      "room_dimensions": {
+        "width_px": 2350,
+        "height_px": 4096,
+        "unbounded_y": true
+      },
+      "camera_constraints": {
+        "mode_flags": "0x706F",
+        "min_x": 28719,
+        "min_y": 612,
+        "max_x": 520,
+        "max_y": -1265,
+        "deadzone_width": 0,
+        "deadzone_height": 0
+      },
+      "entities_count": 0,
+      "exits_count": 0,
+      "triggers_count": 0,
+      "outgoing_edges": []
+    },
+    {
+      "room_id": 86,
+      "sector_lba": 1759,
+      "disc_offset": "0x36F800",
+      "room_dimensions": {
+        "width_px": 3158,
+        "height_px": 3308,
+        "unbounded_y": false
+      },
+      "camera_constraints": {
+        "mode_flags": "0x209F",
+        "min_x": -193,
+        "min_y": 864,
+        "max_x": 520,
+        "max_y": -241,
+        "deadzone_width": 713,
+        "deadzone_height": 0
+      },
+      "entities_count": 5,
+      "exits_count": 0,
+      "triggers_count": 0,
+      "outgoing_edges": []
+    },
+    {
+      "room_id": 87,
+      "sector_lba": 1769,
+      "disc_offset": "0x374800",
+      "room_dimensions": {
+        "width_px": 230,
+        "height_px": 4096,
+        "unbounded_y": true
+      },
+      "camera_constraints": {
+        "mode_flags": "0x180F",
+        "min_x": 135,
+        "min_y": 1216,
+        "max_x": 1064,
+        "max_y": -241,
+        "deadzone_width": 929,
+        "deadzone_height": 0
+      },
+      "entities_count": 6,
+      "exits_count": 0,
+      "triggers_count": 0,
+      "outgoing_edges": []
+    },
+    {
+      "room_id": 88,
+      "sector_lba": 1779,
+      "disc_offset": "0x379800",
+      "room_dimensions": {
+        "width_px": 1062,
+        "height_px": 1124,
+        "unbounded_y": false
+      },
+      "camera_constraints": {
+        "mode_flags": "0x201F",
+        "min_x": 127,
+        "min_y": 136,
+        "max_x": 2112,
+        "max_y": -497,
+        "deadzone_width": 1985,
+        "deadzone_height": 0
+      },
+      "entities_count": 24,
+      "exits_count": 0,
+      "triggers_count": 0,
+      "outgoing_edges": []
+    },
+    {
+      "room_id": 89,
+      "sector_lba": 1788,
+      "disc_offset": "0x37E000",
+      "room_dimensions": {
+        "width_px": 1478,
+        "height_px": 4096,
+        "unbounded_y": true
+      },
+      "camera_constraints": {
+        "mode_flags": "0x180F",
+        "min_x": 2079,
+        "min_y": 1576,
+        "max_x": 296,
+        "max_y": -383,
+        "deadzone_width": 0,
+        "deadzone_height": 0
+      },
+      "entities_count": 10,
+      "exits_count": 0,
+      "triggers_count": 0,
+      "outgoing_edges": []
+    },
+    {
+      "room_id": 90,
+      "sector_lba": 1800,
+      "disc_offset": "0x384000",
+      "room_dimensions": {
+        "width_px": 3206,
+        "height_px": 4096,
+        "unbounded_y": true
+      },
+      "camera_constraints": {
+        "mode_flags": "0x502F",
+        "min_x": -6057,
+        "min_y": 636,
+        "max_x": 520,
+        "max_y": 527,
+        "deadzone_width": 6577,
+        "deadzone_height": 0
+      },
+      "entities_count": 0,
+      "exits_count": 0,
+      "triggers_count": 0,
+      "outgoing_edges": []
+    },
+    {
+      "room_id": 91,
+      "sector_lba": 1811,
+      "disc_offset": "0x389800",
+      "room_dimensions": {
+        "width_px": 446,
+        "height_px": 4096,
+        "unbounded_y": true
+      },
+      "camera_constraints": {
+        "mode_flags": "0x3837",
+        "min_x": 4207,
+        "min_y": 1244,
+        "max_x": 528,
+        "max_y": 271,
+        "deadzone_width": 0,
+        "deadzone_height": 0
+      },
+      "entities_count": 0,
+      "exits_count": 0,
+      "triggers_count": 0,
+      "outgoing_edges": []
+    },
+    {
+      "room_id": 92,
+      "sector_lba": 1814,
+      "disc_offset": "0x38B000",
+      "room_dimensions": {
+        "width_px": 24583,
+        "height_px": 57432,
+        "unbounded_y": false
+      },
+      "camera_constraints": {
+        "mode_flags": "0x8078",
+        "min_x": 8193,
+        "min_y": 11842,
+        "max_x": -7168,
+        "max_y": 24584,
+        "deadzone_width": 0,
+        "deadzone_height": 12742
+      },
+      "entities_count": 0,
+      "exits_count": 0,
+      "triggers_count": 0,
+      "outgoing_edges": []
+    },
+    {
+      "room_id": 93,
+      "sector_lba": 1834,
+      "disc_offset": "0x395000",
+      "room_dimensions": {
+        "width_px": 32796,
+        "height_px": 64656,
+        "unbounded_y": false
+      },
+      "camera_constraints": {
+        "mode_flags": "0x200F",
+        "min_x": 11240,
+        "min_y": 16,
+        "max_x": 11242,
+        "max_y": 16,
+        "deadzone_width": 2,
+        "deadzone_height": 0
+      },
+      "entities_count": 0,
+      "exits_count": 0,
+      "triggers_count": 0,
+      "outgoing_edges": []
+    },
+    {
+      "room_id": 94,
+      "sector_lba": 1837,
+      "disc_offset": "0x396800",
+      "room_dimensions": {
+        "width_px": 374,
+        "height_px": 412,
+        "unbounded_y": false
+      },
+      "camera_constraints": {
+        "mode_flags": "0x201F",
+        "min_x": 127,
+        "min_y": 136,
+        "max_x": 2112,
+        "max_y": -497,
+        "deadzone_width": 1985,
+        "deadzone_height": 0
+      },
+      "entities_count": 0,
+      "exits_count": 0,
+      "triggers_count": 0,
+      "outgoing_edges": []
+    },
+    {
+      "room_id": 95,
+      "sector_lba": 1847,
+      "disc_offset": "0x39B800",
+      "room_dimensions": {
+        "width_px": 310,
+        "height_px": 348,
+        "unbounded_y": false
+      },
+      "camera_constraints": {
+        "mode_flags": "0x605F",
+        "min_x": 2223,
+        "min_y": 216,
+        "max_x": 2112,
+        "max_y": -511,
+        "deadzone_width": 0,
+        "deadzone_height": 0
+      },
+      "entities_count": 2,
+      "exits_count": 0,
+      "triggers_count": 0,
+      "outgoing_edges": []
+    },
+    {
+      "room_id": 96,
+      "sector_lba": 1858,
+      "disc_offset": "0x3A1000",
+      "room_dimensions": {
+        "width_px": 446,
+        "height_px": 4096,
+        "unbounded_y": true
+      },
+      "camera_constraints": {
+        "mode_flags": "0x0007",
+        "min_x": 95,
+        "min_y": 456,
+        "max_x": 320,
+        "max_y": 0,
+        "deadzone_width": 225,
+        "deadzone_height": 0
+      },
+      "entities_count": 1,
+      "exits_count": 0,
+      "triggers_count": 0,
+      "outgoing_edges": []
+    },
+    {
+      "room_id": 97,
+      "sector_lba": 1861,
+      "disc_offset": "0x3A2800",
+      "room_dimensions": {
+        "width_px": 24579,
+        "height_px": 32828,
+        "unbounded_y": false
+      },
+      "camera_constraints": {
+        "mode_flags": "0x2CBA",
+        "min_x": 16,
+        "min_y": 12966,
+        "max_x": 16,
+        "max_y": 12968,
+        "deadzone_width": 0,
+        "deadzone_height": 2
+      },
+      "entities_count": 0,
+      "exits_count": 0,
+      "triggers_count": 0,
+      "outgoing_edges": []
+    },
+    {
+      "room_id": 98,
+      "sector_lba": 1893,
+      "disc_offset": "0x3B2800",
+      "room_dimensions": {
+        "width_px": 2726,
+        "height_px": 2940,
+        "unbounded_y": false
+      },
+      "camera_constraints": {
+        "mode_flags": "0x5847",
+        "min_x": 151,
+        "min_y": 120,
+        "max_x": 1032,
+        "max_y": 527,
+        "deadzone_width": 881,
+        "deadzone_height": 407
+      },
+      "entities_count": 24,
+      "exits_count": 0,
+      "triggers_count": 0,
+      "outgoing_edges": []
+    },
+    {
+      "room_id": 99,
+      "sector_lba": 1896,
+      "disc_offset": "0x3B4000",
+      "room_dimensions": {
+        "width_px": 14028,
+        "height_px": 16400,
+        "unbounded_y": false
+      },
+      "camera_constraints": {
+        "mode_flags": "0x4010",
+        "min_x": -32740,
+        "min_y": 8195,
+        "max_x": 11368,
+        "max_y": 16,
+        "deadzone_width": 44108,
+        "deadzone_height": 0
+      },
+      "entities_count": 0,
+      "exits_count": 0,
+      "triggers_count": 0,
+      "outgoing_edges": []
+    },
+    {
+      "room_id": 100,
+      "sector_lba": 1903,
+      "disc_offset": "0x3B7800",
+      "room_dimensions": {
+        "width_px": 12284,
+        "height_px": 16,
+        "unbounded_y": false
+      },
+      "camera_constraints": {
+        "mode_flags": "0x0010",
+        "min_x": 13026,
+        "min_y": -7944,
+        "max_x": 24578,
+        "max_y": -7928,
+        "deadzone_width": 11552,
+        "deadzone_height": 16
+      },
+      "entities_count": 0,
+      "exits_count": 0,
+      "triggers_count": 0,
+      "outgoing_edges": []
+    },
+    {
+      "room_id": 101,
+      "sector_lba": 1956,
+      "disc_offset": "0x3D2000",
+      "room_dimensions": {
+        "width_px": 1688,
+        "height_px": 1774,
+        "unbounded_y": false
+      },
+      "camera_constraints": {
+        "mode_flags": "0x409F",
+        "min_x": 127,
+        "min_y": 872,
+        "max_x": 2112,
+        "max_y": -1009,
+        "deadzone_width": 1985,
+        "deadzone_height": 0
+      },
+      "entities_count": 18,
+      "exits_count": 0,
+      "triggers_count": 0,
+      "outgoing_edges": []
+    },
+    {
+      "room_id": 102,
+      "sector_lba": 1961,
+      "disc_offset": "0x3D4800",
+      "room_dimensions": {
+        "width_px": 886,
+        "height_px": 4096,
+        "unbounded_y": true
+      },
+      "camera_constraints": {
+        "mode_flags": "0xA09F",
+        "min_x": -256,
+        "min_y": 432,
+        "max_x": 520,
+        "max_y": 271,
+        "deadzone_width": 776,
+        "deadzone_height": 0
+      },
+      "entities_count": 5,
+      "exits_count": 0,
+      "triggers_count": 0,
+      "outgoing_edges": []
+    },
+    {
+      "room_id": 103,
+      "sector_lba": 1970,
+      "disc_offset": "0x3D9000",
+      "room_dimensions": {
+        "width_px": 2470,
+        "height_px": 2540,
+        "unbounded_y": false
+      },
+      "camera_constraints": {
+        "mode_flags": "0x403F",
+        "min_x": -24576,
+        "min_y": 416,
+        "max_x": 520,
+        "max_y": -1009,
+        "deadzone_width": 25096,
+        "deadzone_height": 0
+      },
+      "entities_count": 35,
+      "exits_count": 0,
+      "triggers_count": 0,
+      "outgoing_edges": []
+    }
+  ]
+}

@@ -32,6 +32,7 @@ docs/
   reports/
     GFX_RUS_USA_DIFFERENTIAL_T2_GFX_01.md comprehensive technical report for RUS/USA graphics differential
     FULL_GRAPHICS_RECOVERY_T2_GFX_02.md   comprehensive technical report for CHR/MAP/ED full recovery
+    MAP_METADATA_RECOVERY_T2_MAP_01.md    comprehensive technical report for MAP metadata and room logic recovery
 
 
 config/
@@ -167,6 +168,11 @@ tools/
     chr_decompressor.py           fail-closed Ancient LZSS variant graphics decompressor (sub_4108)
     map_renderer.py               VDP2 room package decoder and 48KB tile pattern extractor
     ed_extractor.py               uncompressed 8bpp ending illustration decoder and exporter
+  map/
+    map_collision.py              48KB collision heightfield and passability matrix decoder
+    map_entities.py               entity spawn definitions and coordinate extractor
+    map_triggers.py               trigger volume bounding boxes and exit warp extractor
+    map_metadata_parser.py        master MAP.BIN disc sector and room header parser
 
 tests/
   test_census_saturn_cd.py        synthetic tests for census parser
@@ -203,6 +209,7 @@ tests/
     test_gfx_differential.py      regression tests and negative controls for graphics tools
     test_vdp1_provenance.py       regression tests and negative controls for VDP1 sprite provenance
     test_gfx_recovery.py          regression tests and negative controls for T2-GFX-02 graphics recovery
+    test_map_metadata.py          regression tests and negative controls for T2-MAP-01 map metadata recovery
   hw/
     test_vdp1.cpp                 D15 VDP1 command decoding, jump modes, clipping, and coordinate tests
     test_vdp2.cpp                 D15 VDP2 color decode, CRAM, RBG0 matrix, and pixel arbitration tests
@@ -336,6 +343,19 @@ workstreams/
     byte_ownership.json           whole-file byte ownership classifications across all resource files
     asset_census_v3.json          audited resource breakdown, UNKNOWN reduction, and completeness metrics
     graphics_database.json        unified central index of all recovered graphics assets
+  T2-MAP-01/
+    map_unknown_intervals.json    17 frozen metadata intervals totaling 708,608 bytes
+    map_metadata_structure_candidates.json 34 compressed sub-stream candidate decompositions
+    map_metadata_runtime_provenance.json disc -> RAM -> consumer routine provenance traces
+    room_bounds.json              104 room headers with camera boundaries and scroll deadzones
+    entity_spawn_tables.json      1,277 entity spawn records across 104 rooms
+    room_adjacency.json           527 exit and warp transitions connecting rooms
+    trigger_tables.json           79 trigger volume bounding boxes and conditions
+    map_event_references.json     79 event script dispatcher links (0x0601CA56)
+    scu_dsp_map_program.json      128-instruction SCU DSP microcode specification for VDP2 RBG0
+    collision_model.json          48KB collision heightfield and passability matrix model
+    world_graph.json              complete topological graph of rooms, edges, and triggers
+    map_byte_ownership_v2.json    100% whole-file interval ownership (UNKNOWN bytes: 0)
 
 
 asm/                              assembly reconstruction layout (ADR D-015)

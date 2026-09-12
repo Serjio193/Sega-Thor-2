@@ -1,0 +1,1191 @@
+{
+  "total_triggers": 79,
+  "consumer_pc": "0x0604B070 (trigger_volume_evaluator)",
+  "triggers": [
+    {
+      "trigger_id": 0,
+      "room_id": 0,
+      "sector_index": 834,
+      "record_index": 4,
+      "bounds": {
+        "x_min": 2048,
+        "y_min": 3840,
+        "x_max": -16382,
+        "y_max": 6152
+      },
+      "trigger_type": "0x1081",
+      "event_id": 20672,
+      "one_shot": false
+    },
+    {
+      "trigger_id": 1,
+      "room_id": 0,
+      "sector_index": 834,
+      "record_index": 8,
+      "bounds": {
+        "x_min": 2049,
+        "y_min": 736,
+        "x_max": 4097,
+        "y_max": 640
+      },
+      "trigger_type": "0x1005",
+      "event_id": 4184,
+      "one_shot": false
+    },
+    {
+      "trigger_id": 2,
+      "room_id": 2,
+      "sector_index": 845,
+      "record_index": 5,
+      "bounds": {
+        "x_min": 2049,
+        "y_min": 8192,
+        "x_max": 4752,
+        "y_max": 16128
+      },
+      "trigger_type": "0x67E1",
+      "event_id": 17001,
+      "one_shot": false
+    },
+    {
+      "trigger_id": 3,
+      "room_id": 2,
+      "sector_index": 845,
+      "record_index": 12,
+      "bounds": {
+        "x_min": 0,
+        "y_min": 0,
+        "x_max": 0,
+        "y_max": 0
+      },
+      "trigger_type": "0x0000",
+      "event_id": 0,
+      "one_shot": false
+    },
+    {
+      "trigger_id": 4,
+      "room_id": 2,
+      "sector_index": 845,
+      "record_index": 17,
+      "bounds": {
+        "x_min": 0,
+        "y_min": 0,
+        "x_max": 0,
+        "y_max": 0
+      },
+      "trigger_type": "0x0000",
+      "event_id": 0,
+      "one_shot": false
+    },
+    {
+      "trigger_id": 5,
+      "room_id": 5,
+      "sector_index": 885,
+      "record_index": 1,
+      "bounds": {
+        "x_min": -512,
+        "y_min": 384,
+        "x_max": 3,
+        "y_max": 24703
+      },
+      "trigger_type": "0x001F",
+      "event_id": 56,
+      "one_shot": false
+    },
+    {
+      "trigger_id": 6,
+      "room_id": 5,
+      "sector_index": 885,
+      "record_index": 5,
+      "bounds": {
+        "x_min": 1024,
+        "y_min": 264,
+        "x_max": 384,
+        "y_max": -29694
+      },
+      "trigger_type": "0x0001",
+      "event_id": -16220,
+      "one_shot": false
+    },
+    {
+      "trigger_id": 7,
+      "room_id": 7,
+      "sector_index": 931,
+      "record_index": 17,
+      "bounds": {
+        "x_min": 0,
+        "y_min": 0,
+        "x_max": 0,
+        "y_max": 0
+      },
+      "trigger_type": "0x0000",
+      "event_id": 0,
+      "one_shot": false
+    },
+    {
+      "trigger_id": 8,
+      "room_id": 8,
+      "sector_index": 948,
+      "record_index": 11,
+      "bounds": {
+        "x_min": -6248,
+        "y_min": -6260,
+        "x_max": 28385,
+        "y_max": 16511
+      },
+      "trigger_type": "0x7B50",
+      "event_id": 9472,
+      "one_shot": false
+    },
+    {
+      "trigger_id": 9,
+      "room_id": 9,
+      "sector_index": 961,
+      "record_index": 14,
+      "bounds": {
+        "x_min": -415,
+        "y_min": -8184,
+        "x_max": 26948,
+        "y_max": -30720
+      },
+      "trigger_type": "0x0000",
+      "event_id": 0,
+      "one_shot": false
+    },
+    {
+      "trigger_id": 10,
+      "room_id": 10,
+      "sector_index": 991,
+      "record_index": 3,
+      "bounds": {
+        "x_min": 6147,
+        "y_min": 528,
+        "x_max": 4032,
+        "y_max": 16000
+      },
+      "trigger_type": "0x3680",
+      "event_id": -20479,
+      "one_shot": false
+    },
+    {
+      "trigger_id": 11,
+      "room_id": 10,
+      "sector_index": 991,
+      "record_index": 5,
+      "bounds": {
+        "x_min": 2064,
+        "y_min": 4144,
+        "x_max": 22280,
+        "y_max": -28925
+      },
+      "trigger_type": "0x9803",
+      "event_id": 2302,
+      "one_shot": true
+    },
+    {
+      "trigger_id": 12,
+      "room_id": 12,
+      "sector_index": 1040,
+      "record_index": 7,
+      "bounds": {
+        "x_min": 264,
+        "y_min": 128,
+        "x_max": 2050,
+        "y_max": -9215
+      },
+      "trigger_type": "0x820A",
+      "event_id": -24568,
+      "one_shot": true
+    },
+    {
+      "trigger_id": 13,
+      "room_id": 12,
+      "sector_index": 1040,
+      "record_index": 10,
+      "bounds": {
+        "x_min": 2059,
+        "y_min": -8188,
+        "x_max": 1025,
+        "y_max": 2297
+      },
+      "trigger_type": "0x8501",
+      "event_id": 16388,
+      "one_shot": true
+    },
+    {
+      "trigger_id": 14,
+      "room_id": 14,
+      "sector_index": 1054,
+      "record_index": 2,
+      "bounds": {
+        "x_min": 15,
+        "y_min": 32,
+        "x_max": -16136,
+        "y_max": 257
+      },
+      "trigger_type": "0xA008",
+      "event_id": 1024,
+      "one_shot": true
+    },
+    {
+      "trigger_id": 15,
+      "room_id": 15,
+      "sector_index": 1081,
+      "record_index": 10,
+      "bounds": {
+        "x_min": 2057,
+        "y_min": 399,
+        "x_max": 224,
+        "y_max": 5
+      },
+      "trigger_type": "0x100F",
+      "event_id": -16157,
+      "one_shot": false
+    },
+    {
+      "trigger_id": 16,
+      "room_id": 16,
+      "sector_index": 1154,
+      "record_index": 1,
+      "bounds": {
+        "x_min": 5,
+        "y_min": -448,
+        "x_max": -16346,
+        "y_max": 769
+      },
+      "trigger_type": "0x7848",
+      "event_id": -24538,
+      "one_shot": false
+    },
+    {
+      "trigger_id": 17,
+      "room_id": 17,
+      "sector_index": 1168,
+      "record_index": 1,
+      "bounds": {
+        "x_min": 5,
+        "y_min": -416,
+        "x_max": 3,
+        "y_max": 14407
+      },
+      "trigger_type": "0x6807",
+      "event_id": 376,
+      "one_shot": false
+    },
+    {
+      "trigger_id": 18,
+      "room_id": 18,
+      "sector_index": 1183,
+      "record_index": 2,
+      "bounds": {
+        "x_min": 136,
+        "y_min": 1064,
+        "x_max": -242,
+        "y_max": -64
+      },
+      "trigger_type": "0x00D8",
+      "event_id": -32760,
+      "one_shot": false
+    },
+    {
+      "trigger_id": 19,
+      "room_id": 18,
+      "sector_index": 1183,
+      "record_index": 5,
+      "bounds": {
+        "x_min": 1112,
+        "y_min": 2112,
+        "x_max": -497,
+        "y_max": 32
+      },
+      "trigger_type": "0x0A74",
+      "event_id": 520,
+      "one_shot": false
+    },
+    {
+      "trigger_id": 20,
+      "room_id": 18,
+      "sector_index": 1183,
+      "record_index": 8,
+      "bounds": {
+        "x_min": 509,
+        "y_min": -8082,
+        "x_max": 505,
+        "y_max": -7716
+      },
+      "trigger_type": "0x03FC",
+      "event_id": -28927,
+      "one_shot": false
+    },
+    {
+      "trigger_id": 21,
+      "room_id": 21,
+      "sector_index": 1210,
+      "record_index": 2,
+      "bounds": {
+        "x_min": 136,
+        "y_min": 1064,
+        "x_max": -242,
+        "y_max": -64
+      },
+      "trigger_type": "0x00D8",
+      "event_id": -32760,
+      "one_shot": false
+    },
+    {
+      "trigger_id": 22,
+      "room_id": 22,
+      "sector_index": 1235,
+      "record_index": 4,
+      "bounds": {
+        "x_min": 1056,
+        "y_min": 2272,
+        "x_max": 2147,
+        "y_max": -24310
+      },
+      "trigger_type": "0x0100",
+      "event_id": -32376,
+      "one_shot": false
+    },
+    {
+      "trigger_id": 23,
+      "room_id": 22,
+      "sector_index": 1235,
+      "record_index": 15,
+      "bounds": {
+        "x_min": 0,
+        "y_min": 0,
+        "x_max": 0,
+        "y_max": 0
+      },
+      "trigger_type": "0x0000",
+      "event_id": 0,
+      "one_shot": false
+    },
+    {
+      "trigger_id": 24,
+      "room_id": 22,
+      "sector_index": 1235,
+      "record_index": 16,
+      "bounds": {
+        "x_min": 0,
+        "y_min": 0,
+        "x_max": 0,
+        "y_max": 0
+      },
+      "trigger_type": "0x0000",
+      "event_id": 0,
+      "one_shot": false
+    },
+    {
+      "trigger_id": 25,
+      "room_id": 22,
+      "sector_index": 1235,
+      "record_index": 17,
+      "bounds": {
+        "x_min": 0,
+        "y_min": 0,
+        "x_max": 0,
+        "y_max": 0
+      },
+      "trigger_type": "0x0000",
+      "event_id": 0,
+      "one_shot": false
+    },
+    {
+      "trigger_id": 26,
+      "room_id": 26,
+      "sector_index": 1245,
+      "record_index": 12,
+      "bounds": {
+        "x_min": 1552,
+        "y_min": -379,
+        "x_max": 32,
+        "y_max": 2264
+      },
+      "trigger_type": "0x0608",
+      "event_id": -379,
+      "one_shot": false
+    },
+    {
+      "trigger_id": 27,
+      "room_id": 27,
+      "sector_index": 1260,
+      "record_index": 2,
+      "bounds": {
+        "x_min": 136,
+        "y_min": 1064,
+        "x_max": -242,
+        "y_max": -64
+      },
+      "trigger_type": "0x00D8",
+      "event_id": -32760,
+      "one_shot": false
+    },
+    {
+      "trigger_id": 28,
+      "room_id": 27,
+      "sector_index": 1260,
+      "record_index": 9,
+      "bounds": {
+        "x_min": 520,
+        "y_min": -369,
+        "x_max": 0,
+        "y_max": 120
+      },
+      "trigger_type": "0x0408",
+      "event_id": -128,
+      "one_shot": false
+    },
+    {
+      "trigger_id": 29,
+      "room_id": 29,
+      "sector_index": 1287,
+      "record_index": 2,
+      "bounds": {
+        "x_min": 136,
+        "y_min": 1064,
+        "x_max": -242,
+        "y_max": -64
+      },
+      "trigger_type": "0x00D8",
+      "event_id": -32760,
+      "one_shot": false
+    },
+    {
+      "trigger_id": 30,
+      "room_id": 30,
+      "sector_index": 1313,
+      "record_index": 5,
+      "bounds": {
+        "x_min": 2049,
+        "y_min": 736,
+        "x_max": 4097,
+        "y_max": 992
+      },
+      "trigger_type": "0x1063",
+      "event_id": 352,
+      "one_shot": false
+    },
+    {
+      "trigger_id": 31,
+      "room_id": 30,
+      "sector_index": 1313,
+      "record_index": 8,
+      "bounds": {
+        "x_min": 776,
+        "y_min": -379,
+        "x_max": -32,
+        "y_max": 3116
+      },
+      "trigger_type": "0x0710",
+      "event_id": -507,
+      "one_shot": false
+    },
+    {
+      "trigger_id": 32,
+      "room_id": 30,
+      "sector_index": 1313,
+      "record_index": 9,
+      "bounds": {
+        "x_min": 3172,
+        "y_min": 520,
+        "x_max": -123,
+        "y_max": 160
+      },
+      "trigger_type": "0x0007",
+      "event_id": 20527,
+      "one_shot": false
+    },
+    {
+      "trigger_id": 33,
+      "room_id": 30,
+      "sector_index": 1313,
+      "record_index": 16,
+      "bounds": {
+        "x_min": 509,
+        "y_min": -7860,
+        "x_max": 1277,
+        "y_max": 3841
+      },
+      "trigger_type": "0x0081",
+      "event_id": 19457,
+      "one_shot": false
+    },
+    {
+      "trigger_id": 34,
+      "room_id": 34,
+      "sector_index": 1331,
+      "record_index": 1,
+      "bounds": {
+        "x_min": 5,
+        "y_min": -416,
+        "x_max": 2,
+        "y_max": 10271
+      },
+      "trigger_type": "0x081F",
+      "event_id": 200,
+      "one_shot": false
+    },
+    {
+      "trigger_id": 35,
+      "room_id": 34,
+      "sector_index": 1331,
+      "record_index": 6,
+      "bounds": {
+        "x_min": 640,
+        "y_min": 11,
+        "x_max": 24671,
+        "y_max": 63
+      },
+      "trigger_type": "0x0038",
+      "event_id": 1056,
+      "one_shot": false
+    },
+    {
+      "trigger_id": 36,
+      "room_id": 34,
+      "sector_index": 1331,
+      "record_index": 21,
+      "bounds": {
+        "x_min": 4369,
+        "y_min": 7406,
+        "x_max": -20481,
+        "y_max": 9282
+      },
+      "trigger_type": "0x2AEE",
+      "event_id": -7775,
+      "one_shot": false
+    },
+    {
+      "trigger_id": 37,
+      "room_id": 37,
+      "sector_index": 1349,
+      "record_index": 3,
+      "bounds": {
+        "x_min": 64,
+        "y_min": 392,
+        "x_max": 17168,
+        "y_max": 15
+      },
+      "trigger_type": "0x0040",
+      "event_id": 716,
+      "one_shot": false
+    },
+    {
+      "trigger_id": 38,
+      "room_id": 37,
+      "sector_index": 1349,
+      "record_index": 10,
+      "bounds": {
+        "x_min": 192,
+        "y_min": 52,
+        "x_max": 1116,
+        "y_max": 15496
+      },
+      "trigger_type": "0x0DA7",
+      "event_id": 31401,
+      "one_shot": false
+    },
+    {
+      "trigger_id": 39,
+      "room_id": 39,
+      "sector_index": 1380,
+      "record_index": 2,
+      "bounds": {
+        "x_min": 1,
+        "y_min": 2051,
+        "x_max": 3840,
+        "y_max": 24704
+      },
+      "trigger_type": "0xC401",
+      "event_id": -896,
+      "one_shot": true
+    },
+    {
+      "trigger_id": 40,
+      "room_id": 40,
+      "sector_index": 1473,
+      "record_index": 11,
+      "bounds": {
+        "x_min": 264,
+        "y_min": -8184,
+        "x_max": 26848,
+        "y_max": 18529
+      },
+      "trigger_type": "0xE008",
+      "event_id": 28800,
+      "one_shot": true
+    },
+    {
+      "trigger_id": 41,
+      "room_id": 41,
+      "sector_index": 1518,
+      "record_index": 7,
+      "bounds": {
+        "x_min": -7456,
+        "y_min": 1121,
+        "x_max": -32530,
+        "y_max": -8188
+      },
+      "trigger_type": "0x61A2",
+      "event_id": -24608,
+      "one_shot": false
+    },
+    {
+      "trigger_id": 42,
+      "room_id": 42,
+      "sector_index": 1529,
+      "record_index": 8,
+      "bounds": {
+        "x_min": 4064,
+        "y_min": 2145,
+        "x_max": 2047,
+        "y_max": 16387
+      },
+      "trigger_type": "0x9C06",
+      "event_id": 4350,
+      "one_shot": true
+    },
+    {
+      "trigger_id": 43,
+      "room_id": 43,
+      "sector_index": 1594,
+      "record_index": 5,
+      "bounds": {
+        "x_min": 632,
+        "y_min": 1156,
+        "x_max": 24228,
+        "y_max": -23551
+      },
+      "trigger_type": "0xFFE0",
+      "event_id": 4097,
+      "one_shot": true
+    },
+    {
+      "trigger_id": 44,
+      "room_id": 44,
+      "sector_index": 1603,
+      "record_index": 6,
+      "bounds": {
+        "x_min": 608,
+        "y_min": -7148,
+        "x_max": -8098,
+        "y_max": 26881
+      },
+      "trigger_type": "0x68C0",
+      "event_id": 24288,
+      "one_shot": false
+    },
+    {
+      "trigger_id": 45,
+      "room_id": 44,
+      "sector_index": 1603,
+      "record_index": 12,
+      "bounds": {
+        "x_min": 0,
+        "y_min": 0,
+        "x_max": 0,
+        "y_max": 0
+      },
+      "trigger_type": "0x0000",
+      "event_id": 0,
+      "one_shot": false
+    },
+    {
+      "trigger_id": 46,
+      "room_id": 44,
+      "sector_index": 1603,
+      "record_index": 17,
+      "bounds": {
+        "x_min": 0,
+        "y_min": 0,
+        "x_max": 0,
+        "y_max": 0
+      },
+      "trigger_type": "0x0000",
+      "event_id": 0,
+      "one_shot": false
+    },
+    {
+      "trigger_id": 47,
+      "room_id": 47,
+      "sector_index": 1611,
+      "record_index": 2,
+      "bounds": {
+        "x_min": 5,
+        "y_min": 6159,
+        "x_max": 127,
+        "y_max": -32568
+      },
+      "trigger_type": "0x8062",
+      "event_id": 769,
+      "one_shot": true
+    },
+    {
+      "trigger_id": 48,
+      "room_id": 47,
+      "sector_index": 1611,
+      "record_index": 3,
+      "bounds": {
+        "x_min": 257,
+        "y_min": -8168,
+        "x_max": -8184,
+        "y_max": 2447
+      },
+      "trigger_type": "0x0100",
+      "event_id": 1,
+      "one_shot": false
+    },
+    {
+      "trigger_id": 49,
+      "room_id": 49,
+      "sector_index": 1647,
+      "record_index": 9,
+      "bounds": {
+        "x_min": 973,
+        "y_min": -4407,
+        "x_max": 17664,
+        "y_max": 718
+      },
+      "trigger_type": "0xECE0",
+      "event_id": 5986,
+      "one_shot": true
+    },
+    {
+      "trigger_id": 50,
+      "room_id": 50,
+      "sector_index": 1664,
+      "record_index": 1,
+      "bounds": {
+        "x_min": 0,
+        "y_min": 528,
+        "x_max": 3840,
+        "y_max": -28925
+      },
+      "trigger_type": "0x9404",
+      "event_id": 12543,
+      "one_shot": true
+    },
+    {
+      "trigger_id": 51,
+      "room_id": 50,
+      "sector_index": 1664,
+      "record_index": 2,
+      "bounds": {
+        "x_min": 460,
+        "y_min": 1584,
+        "x_max": -369,
+        "y_max": 0
+      },
+      "trigger_type": "0xE008",
+      "event_id": 448,
+      "one_shot": true
+    },
+    {
+      "trigger_id": 52,
+      "room_id": 50,
+      "sector_index": 1664,
+      "record_index": 3,
+      "bounds": {
+        "x_min": 192,
+        "y_min": 2054,
+        "x_max": 256,
+        "y_max": 3
+      },
+      "trigger_type": "0x403F",
+      "event_id": -16362,
+      "one_shot": false
+    },
+    {
+      "trigger_id": 53,
+      "room_id": 50,
+      "sector_index": 1664,
+      "record_index": 7,
+      "bounds": {
+        "x_min": 1038,
+        "y_min": 4095,
+        "x_max": -16255,
+        "y_max": 21508
+      },
+      "trigger_type": "0x030F",
+      "event_id": 64,
+      "one_shot": false
+    },
+    {
+      "trigger_id": 54,
+      "room_id": 50,
+      "sector_index": 1664,
+      "record_index": 11,
+      "bounds": {
+        "x_min": 1856,
+        "y_min": 120,
+        "x_max": 1032,
+        "y_max": 1039
+      },
+      "trigger_type": "0xC056",
+      "event_id": 262,
+      "one_shot": true
+    },
+    {
+      "trigger_id": 55,
+      "room_id": 55,
+      "sector_index": 1684,
+      "record_index": 3,
+      "bounds": {
+        "x_min": 4097,
+        "y_min": 480,
+        "x_max": 2147,
+        "y_max": 6016
+      },
+      "trigger_type": "0x0258",
+      "event_id": 1040,
+      "one_shot": false
+    },
+    {
+      "trigger_id": 56,
+      "room_id": 55,
+      "sector_index": 1684,
+      "record_index": 7,
+      "bounds": {
+        "x_min": 224,
+        "y_min": -7574,
+        "x_max": 26369,
+        "y_max": 448
+      },
+      "trigger_type": "0xD605",
+      "event_id": 30470,
+      "one_shot": true
+    },
+    {
+      "trigger_id": 57,
+      "room_id": 55,
+      "sector_index": 1684,
+      "record_index": 10,
+      "bounds": {
+        "x_min": 448,
+        "y_min": -8152,
+        "x_max": 5312,
+        "y_max": 8
+      },
+      "trigger_type": "0x5857",
+      "event_id": 10335,
+      "one_shot": false
+    },
+    {
+      "trigger_id": 58,
+      "room_id": 55,
+      "sector_index": 1684,
+      "record_index": 11,
+      "bounds": {
+        "x_min": -96,
+        "y_min": 2050,
+        "x_max": -1393,
+        "y_max": -16368
+      },
+      "trigger_type": "0x0C01",
+      "event_id": -28928,
+      "one_shot": false
+    },
+    {
+      "trigger_id": 59,
+      "room_id": 59,
+      "sector_index": 1694,
+      "record_index": 14,
+      "bounds": {
+        "x_min": 0,
+        "y_min": 0,
+        "x_max": 0,
+        "y_max": 0
+      },
+      "trigger_type": "0x0000",
+      "event_id": 0,
+      "one_shot": false
+    },
+    {
+      "trigger_id": 60,
+      "room_id": 59,
+      "sector_index": 1694,
+      "record_index": 16,
+      "bounds": {
+        "x_min": 0,
+        "y_min": 0,
+        "x_max": 0,
+        "y_max": 0
+      },
+      "trigger_type": "0x0000",
+      "event_id": 0,
+      "one_shot": false
+    },
+    {
+      "trigger_id": 61,
+      "room_id": 61,
+      "sector_index": 1717,
+      "record_index": 9,
+      "bounds": {
+        "x_min": 992,
+        "y_min": 2162,
+        "x_max": -7882,
+        "y_max": -32470
+      },
+      "trigger_type": "0xE004",
+      "event_id": 25056,
+      "one_shot": true
+    },
+    {
+      "trigger_id": 62,
+      "room_id": 61,
+      "sector_index": 1717,
+      "record_index": 15,
+      "bounds": {
+        "x_min": 0,
+        "y_min": 0,
+        "x_max": 0,
+        "y_max": 0
+      },
+      "trigger_type": "0x0000",
+      "event_id": 0,
+      "one_shot": false
+    },
+    {
+      "trigger_id": 63,
+      "room_id": 63,
+      "sector_index": 1779,
+      "record_index": 10,
+      "bounds": {
+        "x_min": -753,
+        "y_min": -32,
+        "x_max": -32196,
+        "y_max": 508
+      },
+      "trigger_type": "0x8020",
+      "event_id": 828,
+      "one_shot": true
+    },
+    {
+      "trigger_id": 64,
+      "room_id": 63,
+      "sector_index": 1779,
+      "record_index": 11,
+      "bounds": {
+        "x_min": -7240,
+        "y_min": 507,
+        "x_max": -32504,
+        "y_max": -16052
+      },
+      "trigger_type": "0x0120",
+      "event_id": -32026,
+      "one_shot": false
+    },
+    {
+      "trigger_id": 65,
+      "room_id": 65,
+      "sector_index": 1788,
+      "record_index": 1,
+      "bounds": {
+        "x_min": -255,
+        "y_min": -32,
+        "x_max": 0,
+        "y_max": 4224
+      },
+      "trigger_type": "0x16E0",
+      "event_id": 3681,
+      "one_shot": false
+    },
+    {
+      "trigger_id": 66,
+      "room_id": 65,
+      "sector_index": 1788,
+      "record_index": 2,
+      "bounds": {
+        "x_min": 8192,
+        "y_min": 95,
+        "x_max": 976,
+        "y_max": 1072
+      },
+      "trigger_type": "0xFE0F",
+      "event_id": 0,
+      "one_shot": true
+    },
+    {
+      "trigger_id": 67,
+      "room_id": 65,
+      "sector_index": 1788,
+      "record_index": 8,
+      "bounds": {
+        "x_min": -255,
+        "y_min": 0,
+        "x_max": 1680,
+        "y_max": 264
+      },
+      "trigger_type": "0xA30E",
+      "event_id": 916,
+      "one_shot": true
+    },
+    {
+      "trigger_id": 68,
+      "room_id": 65,
+      "sector_index": 1788,
+      "record_index": 16,
+      "bounds": {
+        "x_min": -128,
+        "y_min": -32,
+        "x_max": -24136,
+        "y_max": 256
+      },
+      "trigger_type": "0xE1C0",
+      "event_id": 2304,
+      "one_shot": true
+    },
+    {
+      "trigger_id": 69,
+      "room_id": 69,
+      "sector_index": 1837,
+      "record_index": 1,
+      "bounds": {
+        "x_min": 0,
+        "y_min": 832,
+        "x_max": 16320,
+        "y_max": 5633
+      },
+      "trigger_type": "0xFCE0",
+      "event_id": 5633,
+      "one_shot": true
+    },
+    {
+      "trigger_id": 70,
+      "room_id": 69,
+      "sector_index": 1837,
+      "record_index": 2,
+      "bounds": {
+        "x_min": -8184,
+        "y_min": 448,
+        "x_max": -16368,
+        "y_max": 1793
+      },
+      "trigger_type": "0x8000",
+      "event_id": 2880,
+      "one_shot": true
+    },
+    {
+      "trigger_id": 71,
+      "room_id": 71,
+      "sector_index": 1847,
+      "record_index": 1,
+      "bounds": {
+        "x_min": 2047,
+        "y_min": -8064,
+        "x_max": 2049,
+        "y_max": -1312
+      },
+      "trigger_type": "0x0808",
+      "event_id": 519,
+      "one_shot": false
+    },
+    {
+      "trigger_id": 72,
+      "room_id": 71,
+      "sector_index": 1847,
+      "record_index": 2,
+      "bounds": {
+        "x_min": 392,
+        "y_min": -8140,
+        "x_max": 392,
+        "y_max": -16340
+      },
+      "trigger_type": "0x8010",
+      "event_id": -32708,
+      "one_shot": true
+    },
+    {
+      "trigger_id": 73,
+      "room_id": 71,
+      "sector_index": 1847,
+      "record_index": 3,
+      "bounds": {
+        "x_min": 288,
+        "y_min": 7936,
+        "x_max": 26592,
+        "y_max": -14847
+      },
+      "trigger_type": "0x00E0",
+      "event_id": -27131,
+      "one_shot": false
+    },
+    {
+      "trigger_id": 74,
+      "room_id": 71,
+      "sector_index": 1847,
+      "record_index": 4,
+      "bounds": {
+        "x_min": 504,
+        "y_min": -8176,
+        "x_max": 260,
+        "y_max": -8146
+      },
+      "trigger_type": "0x03F8",
+      "event_id": 257,
+      "one_shot": false
+    },
+    {
+      "trigger_id": 75,
+      "room_id": 71,
+      "sector_index": 1847,
+      "record_index": 5,
+      "bounds": {
+        "x_min": 508,
+        "y_min": -8184,
+        "x_max": 256,
+        "y_max": -8176
+      },
+      "trigger_type": "0x0104",
+      "event_id": -32698,
+      "one_shot": false
+    },
+    {
+      "trigger_id": 76,
+      "room_id": 76,
+      "sector_index": 1858,
+      "record_index": 2,
+      "bounds": {
+        "x_min": 1,
+        "y_min": 4096,
+        "x_max": 127,
+        "y_max": 908
+      },
+      "trigger_type": "0x0240",
+      "event_id": -256,
+      "one_shot": false
+    },
+    {
+      "trigger_id": 77,
+      "room_id": 76,
+      "sector_index": 1858,
+      "record_index": 3,
+      "bounds": {
+        "x_min": 536,
+        "y_min": 1792,
+        "x_max": 26371,
+        "y_max": -13309
+      },
+      "trigger_type": "0x28FE",
+      "event_id": -32768,
+      "one_shot": false
+    },
+    {
+      "trigger_id": 78,
+      "room_id": 76,
+      "sector_index": 1858,
+      "record_index": 4,
+      "bounds": {
+        "x_min": 2072,
+        "y_min": -512,
+        "x_max": -96,
+        "y_max": 136
+      },
+      "trigger_type": "0x0880",
+      "event_id": 7808,
+      "one_shot": false
+    }
+  ]
+}

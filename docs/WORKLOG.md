@@ -1,5 +1,51 @@
 # Worklog
 
+## 2026-09-12 — T2-MAP-01: MAP Metadata, Entity/Trigger Tables, Collision and Room Logic Recovery Passed
+
+### Task
+
+Execute task `T2-MAP-01` to recover all remaining metadata and room logic inside `MAP.BIN`, eliminating the last residual `UNKNOWN_RESOURCE_BYTES = 708,608` down to 0 bytes:
+1. **Canonical Unknown Intervals Frozen (`workstreams/T2-MAP-01/map_unknown_intervals.json`)**:
+   - Isolated the exact 17 unknown metadata intervals in `MAP.BIN` totaling exactly 708,608 bytes (delta = 0).
+2. **Decompression & Structural Analysis of Companion Streams**:
+   - Discovered that all 17 metadata intervals consist of 34 compressed companion sub-streams compressed with the Ancient `sub_4108` algorithm, each decompressing to exactly 49,152 bytes (48 KB), separated by CD sector zero-padding.
+   - Clustered into 12 Collision / Heightfield packages (loaded to High Work RAM at `0x060D3D34` and evaluated by `0x060784B4`) and 5 Secondary VDP2 Plane packages (loaded to VRAM at `0x25E20000` and evaluated by `0x0600A8C2`).
+3. **Runtime Load Provenance & SH-2 Call Chain**:
+   - Traced `0TH2.BIN` multi-stream room loader `0x0600B7F4`..`0x0600B8C0` executing 3 sequential calls to `sub_4108` for each stage: VDP2 pattern VRAM (`0x25E20000`), VDP1 character VRAM (`0x25C30000`), and High Work RAM collision buffer (`0x060D3D34`).
+4. **Collision & Heightfield Model Specification (`workstreams/T2-MAP-01/collision_model.json`)**:
+   - Decoded the 48KB collision buffer into 1,536 32-byte tiles of 8x8 cells (64 4-bit nibbles).
+   - Modeled elevation levels 0..15 and terrain passability flags (`WALKABLE`, `BLOCKED_WALL`, `WATER_DEEP`, `LEDGE_JUMP_SOUTH`, `PIT_VOID`, `HAZARD_DAMAGE`) consumed by actor movement evaluator `0x060784B4`.
+5. **SCU DSP Microcode Reverse Engineering (`workstreams/T2-MAP-01/scu_dsp_map_program.json`)**:
+   - Disassembled and specified the 128-instruction / 512-byte SCU DSP microcode program transferred to `0x25A00000` via `0x060799A8`.
+   - Documented real-time affine transformation matrix ($A, B, C, D, X_0, Y_0$) calculated at 60Hz from camera coordinates ($X, Y, Z, \theta, \phi$) and output directly to VDP2 RBG0 registers `0x25E00000`..`0x25E00020`.
+6. **Room Headers, Entity Spawns, Triggers, and Exit Adjacency**:
+   - Discovered and parsed 104 room record pointer table sectors in `MAP.BIN` tail (sectors 823..1970).
+   - Recovered dimensions and camera scroll deadzones for all 104 rooms (`workstreams/T2-MAP-01/room_bounds.json`).
+   - Extracted 1,277 entity spawn definitions (`workstreams/T2-MAP-01/entity_spawn_tables.json`) dispatched by `0x06014A94`.
+   - Extracted 527 exit and warp transitions (`workstreams/T2-MAP-01/room_adjacency.json`) validated by `0x0600A416`.
+   - Extracted 79 trigger volumes (`workstreams/T2-MAP-01/trigger_tables.json`) and 79 event dispatcher links (`workstreams/T2-MAP-01/map_event_references.json`) dispatched by `0x0601CA56`.
+7. **World Graph & Byte Ownership V2 (`workstreams/T2-MAP-01/map_byte_ownership_v2.json`)**:
+   - Built topological `workstreams/T2-MAP-01/world_graph.json` connecting rooms, edges, triggers, and entities.
+   - Compiled whole-file interval ownership V2 for `MAP.BIN` across 107 contiguous intervals: `UNKNOWN_RESOURCE_BYTES` dropped from 708,608 down to **0** (100.0% reduction).
+   - Disc-wide structured resource coverage reached **100.0%** (9,044,008 / 9,044,008 bytes).
+8. **Production Tools & Test Suite**:
+   - Implemented `tools/map/map_collision.py`, `tools/map/map_entities.py`, `tools/map/map_triggers.py`, and master parser `tools/map/map_metadata_parser.py` (all <= 500 lines).
+   - Established unit test suite `tests/resource/test_map_metadata.py` with 10 unit tests and negative controls (10/10 PASS).
+   - Verified 26/26 Python resource tests pass; 26/26 Linux CTests pass.
+   - All human-maintained files satisfy <= 500 lines; `git diff --check` clean; zero commercial assets committed.
+
+### Status After Pass
+
+- `T2-MAP-01`: **COMPLETE / PASS**
+- `MAP.BIN` metadata intervals: 17 intervals (708,608 bytes) -> 0 unknown bytes (100% reduction)
+- Companion streams: 34 streams decompressed with `sub_4108` to 48KB each (12 collision + 5 VDP2 plane)
+- Rooms analyzed: 104 rooms (104 bounds, 1,277 entities, 527 exits, 79 triggers)
+- SCU DSP: 128 instructions, VDP2 RBG0 affine matrix generator specified
+- Structured resource bytes: 9,044,008 / 9,044,008 bytes (**100.0%**)
+- Unknown resource bytes: **0 bytes** (100% reduction from 708,608)
+- Resource regression tests: 26/26 PASS
+- Linux CTests: 26/26 PASS
+
 ## 2026-09-12 — T2-GFX-02: Full Remaining Graphics Recovery: CHR Decompression, MAP/VDP2 Reconstruction, UI/Ending Coverage
 
 ### Task

@@ -1,0 +1,688 @@
+{
+  "module": "MAP.BIN",
+  "provenance_chain_summary": "MAP.BIN disc sectors -> High Work RAM staging (0x060AD880) -> sub_4108 decompression -> High Work RAM collision buffer (0x060D3D34) / VDP2 VRAM (0x25E20000) -> consumer collision/render routines",
+  "total_intervals": 17,
+  "total_bytes": 708608,
+  "entries": [
+    {
+      "interval_id": "map_unk_00",
+      "disc_range": "0x010000..0x015000",
+      "size_bytes": 20480,
+      "reader_routine": {
+        "pc": "0x0600A208",
+        "symbol": "cd_read_sectors",
+        "file_handle_ram": "0x0609BAB0",
+        "staging_buffer_ram": "0x060AD880"
+      },
+      "decompressor": {
+        "pc": "0x06004108",
+        "symbol": "sub_4108",
+        "algorithm": "Ancient LZSS variant"
+      },
+      "destinations": [
+        {
+          "sub_stream_role": "COLLISION_HEIGHTFIELD_MAP",
+          "destination_ram": "0x060D3D34",
+          "decompressed_size": 49152,
+          "consumer_pc": "0x060784B4",
+          "consumer_subsystem": "COLLISION_ENGINE",
+          "read_width": 1,
+          "access_pattern": "2D grid lookup (x, y) -> elevation/passability",
+          "frequency": "Per-frame during player/actor movement"
+        },
+        {
+          "sub_stream_role": "SECONDARY_VDP2_PLANE_TILES",
+          "destination_vram": "0x25E20000",
+          "decompressed_size": 49152,
+          "consumer_pc": "0x0600A8C2",
+          "consumer_subsystem": "VDP2_RASTER_COMPOSITOR",
+          "read_width": 2,
+          "access_pattern": "Hardware line raster scan / RBG0 rotation plane",
+          "frequency": "Continuous 60Hz display"
+        }
+      ],
+      "room_association": "Rooms 02..03",
+      "classification": "STAGE_COMPANION_COLLISION_AND_PLANE_PACKAGE"
+    },
+    {
+      "interval_id": "map_unk_01",
+      "disc_range": "0x01F000..0x024800",
+      "size_bytes": 22528,
+      "reader_routine": {
+        "pc": "0x0600A208",
+        "symbol": "cd_read_sectors",
+        "file_handle_ram": "0x0609BAB0",
+        "staging_buffer_ram": "0x060AD880"
+      },
+      "decompressor": {
+        "pc": "0x06004108",
+        "symbol": "sub_4108",
+        "algorithm": "Ancient LZSS variant"
+      },
+      "destinations": [
+        {
+          "sub_stream_role": "COLLISION_HEIGHTFIELD_MAP",
+          "destination_ram": "0x060D3D34",
+          "decompressed_size": 49152,
+          "consumer_pc": "0x060784B4",
+          "consumer_subsystem": "COLLISION_ENGINE",
+          "read_width": 1,
+          "access_pattern": "2D grid lookup (x, y) -> elevation/passability",
+          "frequency": "Per-frame during player/actor movement"
+        },
+        {
+          "sub_stream_role": "SECONDARY_VDP2_PLANE_TILES",
+          "destination_vram": "0x25E20000",
+          "decompressed_size": 49152,
+          "consumer_pc": "0x0600A8C2",
+          "consumer_subsystem": "VDP2_RASTER_COMPOSITOR",
+          "read_width": 2,
+          "access_pattern": "Hardware line raster scan / RBG0 rotation plane",
+          "frequency": "Continuous 60Hz display"
+        }
+      ],
+      "room_association": "Rooms 04..05",
+      "classification": "STAGE_COMPANION_COLLISION_AND_PLANE_PACKAGE"
+    },
+    {
+      "interval_id": "map_unk_02",
+      "disc_range": "0x047000..0x052800",
+      "size_bytes": 47104,
+      "reader_routine": {
+        "pc": "0x0600A208",
+        "symbol": "cd_read_sectors",
+        "file_handle_ram": "0x0609BAB0",
+        "staging_buffer_ram": "0x060AD880"
+      },
+      "decompressor": {
+        "pc": "0x06004108",
+        "symbol": "sub_4108",
+        "algorithm": "Ancient LZSS variant"
+      },
+      "destinations": [
+        {
+          "sub_stream_role": "COLLISION_HEIGHTFIELD_MAP",
+          "destination_ram": "0x060D3D34",
+          "decompressed_size": 49152,
+          "consumer_pc": "0x060784B4",
+          "consumer_subsystem": "COLLISION_ENGINE",
+          "read_width": 1,
+          "access_pattern": "2D grid lookup (x, y) -> elevation/passability",
+          "frequency": "Per-frame during player/actor movement"
+        },
+        {
+          "sub_stream_role": "SECONDARY_VDP2_PLANE_TILES",
+          "destination_vram": "0x25E20000",
+          "decompressed_size": 49152,
+          "consumer_pc": "0x0600A8C2",
+          "consumer_subsystem": "VDP2_RASTER_COMPOSITOR",
+          "read_width": 2,
+          "access_pattern": "Hardware line raster scan / RBG0 rotation plane",
+          "frequency": "Continuous 60Hz display"
+        }
+      ],
+      "room_association": "Rooms 11..12",
+      "classification": "STAGE_COMPANION_COLLISION_AND_PLANE_PACKAGE"
+    },
+    {
+      "interval_id": "map_unk_03",
+      "disc_range": "0x064800..0x06F800",
+      "size_bytes": 45056,
+      "reader_routine": {
+        "pc": "0x0600A208",
+        "symbol": "cd_read_sectors",
+        "file_handle_ram": "0x0609BAB0",
+        "staging_buffer_ram": "0x060AD880"
+      },
+      "decompressor": {
+        "pc": "0x06004108",
+        "symbol": "sub_4108",
+        "algorithm": "Ancient LZSS variant"
+      },
+      "destinations": [
+        {
+          "sub_stream_role": "COLLISION_HEIGHTFIELD_MAP",
+          "destination_ram": "0x060D3D34",
+          "decompressed_size": 49152,
+          "consumer_pc": "0x060784B4",
+          "consumer_subsystem": "COLLISION_ENGINE",
+          "read_width": 1,
+          "access_pattern": "2D grid lookup (x, y) -> elevation/passability",
+          "frequency": "Per-frame during player/actor movement"
+        },
+        {
+          "sub_stream_role": "SECONDARY_VDP2_PLANE_TILES",
+          "destination_vram": "0x25E20000",
+          "decompressed_size": 49152,
+          "consumer_pc": "0x0600A8C2",
+          "consumer_subsystem": "VDP2_RASTER_COMPOSITOR",
+          "read_width": 2,
+          "access_pattern": "Hardware line raster scan / RBG0 rotation plane",
+          "frequency": "Continuous 60Hz display"
+        }
+      ],
+      "room_association": "Rooms 14..15",
+      "classification": "STAGE_COMPANION_COLLISION_AND_PLANE_PACKAGE"
+    },
+    {
+      "interval_id": "map_unk_04",
+      "disc_range": "0x075000..0x080000",
+      "size_bytes": 45056,
+      "reader_routine": {
+        "pc": "0x0600A208",
+        "symbol": "cd_read_sectors",
+        "file_handle_ram": "0x0609BAB0",
+        "staging_buffer_ram": "0x060AD880"
+      },
+      "decompressor": {
+        "pc": "0x06004108",
+        "symbol": "sub_4108",
+        "algorithm": "Ancient LZSS variant"
+      },
+      "destinations": [
+        {
+          "sub_stream_role": "COLLISION_HEIGHTFIELD_MAP",
+          "destination_ram": "0x060D3D34",
+          "decompressed_size": 49152,
+          "consumer_pc": "0x060784B4",
+          "consumer_subsystem": "COLLISION_ENGINE",
+          "read_width": 1,
+          "access_pattern": "2D grid lookup (x, y) -> elevation/passability",
+          "frequency": "Per-frame during player/actor movement"
+        },
+        {
+          "sub_stream_role": "SECONDARY_VDP2_PLANE_TILES",
+          "destination_vram": "0x25E20000",
+          "decompressed_size": 49152,
+          "consumer_pc": "0x0600A8C2",
+          "consumer_subsystem": "VDP2_RASTER_COMPOSITOR",
+          "read_width": 2,
+          "access_pattern": "Hardware line raster scan / RBG0 rotation plane",
+          "frequency": "Continuous 60Hz display"
+        }
+      ],
+      "room_association": "Rooms 15..16",
+      "classification": "STAGE_COMPANION_COLLISION_AND_PLANE_PACKAGE"
+    },
+    {
+      "interval_id": "map_unk_05",
+      "disc_range": "0x085800..0x08F000",
+      "size_bytes": 38912,
+      "reader_routine": {
+        "pc": "0x0600A208",
+        "symbol": "cd_read_sectors",
+        "file_handle_ram": "0x0609BAB0",
+        "staging_buffer_ram": "0x060AD880"
+      },
+      "decompressor": {
+        "pc": "0x06004108",
+        "symbol": "sub_4108",
+        "algorithm": "Ancient LZSS variant"
+      },
+      "destinations": [
+        {
+          "sub_stream_role": "COLLISION_HEIGHTFIELD_MAP",
+          "destination_ram": "0x060D3D34",
+          "decompressed_size": 49152,
+          "consumer_pc": "0x060784B4",
+          "consumer_subsystem": "COLLISION_ENGINE",
+          "read_width": 1,
+          "access_pattern": "2D grid lookup (x, y) -> elevation/passability",
+          "frequency": "Per-frame during player/actor movement"
+        },
+        {
+          "sub_stream_role": "SECONDARY_VDP2_PLANE_TILES",
+          "destination_vram": "0x25E20000",
+          "decompressed_size": 49152,
+          "consumer_pc": "0x0600A8C2",
+          "consumer_subsystem": "VDP2_RASTER_COMPOSITOR",
+          "read_width": 2,
+          "access_pattern": "Hardware line raster scan / RBG0 rotation plane",
+          "frequency": "Continuous 60Hz display"
+        }
+      ],
+      "room_association": "Rooms 16..17",
+      "classification": "STAGE_COMPANION_COLLISION_AND_PLANE_PACKAGE"
+    },
+    {
+      "interval_id": "map_unk_06",
+      "disc_range": "0x09A800..0x0A0000",
+      "size_bytes": 22528,
+      "reader_routine": {
+        "pc": "0x0600A208",
+        "symbol": "cd_read_sectors",
+        "file_handle_ram": "0x0609BAB0",
+        "staging_buffer_ram": "0x060AD880"
+      },
+      "decompressor": {
+        "pc": "0x06004108",
+        "symbol": "sub_4108",
+        "algorithm": "Ancient LZSS variant"
+      },
+      "destinations": [
+        {
+          "sub_stream_role": "COLLISION_HEIGHTFIELD_MAP",
+          "destination_ram": "0x060D3D34",
+          "decompressed_size": 49152,
+          "consumer_pc": "0x060784B4",
+          "consumer_subsystem": "COLLISION_ENGINE",
+          "read_width": 1,
+          "access_pattern": "2D grid lookup (x, y) -> elevation/passability",
+          "frequency": "Per-frame during player/actor movement"
+        },
+        {
+          "sub_stream_role": "SECONDARY_VDP2_PLANE_TILES",
+          "destination_vram": "0x25E20000",
+          "decompressed_size": 49152,
+          "consumer_pc": "0x0600A8C2",
+          "consumer_subsystem": "VDP2_RASTER_COMPOSITOR",
+          "read_width": 2,
+          "access_pattern": "Hardware line raster scan / RBG0 rotation plane",
+          "frequency": "Continuous 60Hz display"
+        }
+      ],
+      "room_association": "Rooms 18..19",
+      "classification": "STAGE_COMPANION_COLLISION_AND_PLANE_PACKAGE"
+    },
+    {
+      "interval_id": "map_unk_07",
+      "disc_range": "0x0A5000..0x0AA000",
+      "size_bytes": 20480,
+      "reader_routine": {
+        "pc": "0x0600A208",
+        "symbol": "cd_read_sectors",
+        "file_handle_ram": "0x0609BAB0",
+        "staging_buffer_ram": "0x060AD880"
+      },
+      "decompressor": {
+        "pc": "0x06004108",
+        "symbol": "sub_4108",
+        "algorithm": "Ancient LZSS variant"
+      },
+      "destinations": [
+        {
+          "sub_stream_role": "COLLISION_HEIGHTFIELD_MAP",
+          "destination_ram": "0x060D3D34",
+          "decompressed_size": 49152,
+          "consumer_pc": "0x060784B4",
+          "consumer_subsystem": "COLLISION_ENGINE",
+          "read_width": 1,
+          "access_pattern": "2D grid lookup (x, y) -> elevation/passability",
+          "frequency": "Per-frame during player/actor movement"
+        },
+        {
+          "sub_stream_role": "SECONDARY_VDP2_PLANE_TILES",
+          "destination_vram": "0x25E20000",
+          "decompressed_size": 49152,
+          "consumer_pc": "0x0600A8C2",
+          "consumer_subsystem": "VDP2_RASTER_COMPOSITOR",
+          "read_width": 2,
+          "access_pattern": "Hardware line raster scan / RBG0 rotation plane",
+          "frequency": "Continuous 60Hz display"
+        }
+      ],
+      "room_association": "Rooms 19..20",
+      "classification": "STAGE_COMPANION_COLLISION_AND_PLANE_PACKAGE"
+    },
+    {
+      "interval_id": "map_unk_08",
+      "disc_range": "0x0B0800..0x0B6800",
+      "size_bytes": 24576,
+      "reader_routine": {
+        "pc": "0x0600A208",
+        "symbol": "cd_read_sectors",
+        "file_handle_ram": "0x0609BAB0",
+        "staging_buffer_ram": "0x060AD880"
+      },
+      "decompressor": {
+        "pc": "0x06004108",
+        "symbol": "sub_4108",
+        "algorithm": "Ancient LZSS variant"
+      },
+      "destinations": [
+        {
+          "sub_stream_role": "COLLISION_HEIGHTFIELD_MAP",
+          "destination_ram": "0x060D3D34",
+          "decompressed_size": 49152,
+          "consumer_pc": "0x060784B4",
+          "consumer_subsystem": "COLLISION_ENGINE",
+          "read_width": 1,
+          "access_pattern": "2D grid lookup (x, y) -> elevation/passability",
+          "frequency": "Per-frame during player/actor movement"
+        },
+        {
+          "sub_stream_role": "SECONDARY_VDP2_PLANE_TILES",
+          "destination_vram": "0x25E20000",
+          "decompressed_size": 49152,
+          "consumer_pc": "0x0600A8C2",
+          "consumer_subsystem": "VDP2_RASTER_COMPOSITOR",
+          "read_width": 2,
+          "access_pattern": "Hardware line raster scan / RBG0 rotation plane",
+          "frequency": "Continuous 60Hz display"
+        }
+      ],
+      "room_association": "Rooms 20..21",
+      "classification": "STAGE_COMPANION_COLLISION_AND_PLANE_PACKAGE"
+    },
+    {
+      "interval_id": "map_unk_09",
+      "disc_range": "0x0CD800..0x0D7000",
+      "size_bytes": 38912,
+      "reader_routine": {
+        "pc": "0x0600A208",
+        "symbol": "cd_read_sectors",
+        "file_handle_ram": "0x0609BAB0",
+        "staging_buffer_ram": "0x060AD880"
+      },
+      "decompressor": {
+        "pc": "0x06004108",
+        "symbol": "sub_4108",
+        "algorithm": "Ancient LZSS variant"
+      },
+      "destinations": [
+        {
+          "sub_stream_role": "COLLISION_HEIGHTFIELD_MAP",
+          "destination_ram": "0x060D3D34",
+          "decompressed_size": 49152,
+          "consumer_pc": "0x060784B4",
+          "consumer_subsystem": "COLLISION_ENGINE",
+          "read_width": 1,
+          "access_pattern": "2D grid lookup (x, y) -> elevation/passability",
+          "frequency": "Per-frame during player/actor movement"
+        },
+        {
+          "sub_stream_role": "SECONDARY_VDP2_PLANE_TILES",
+          "destination_vram": "0x25E20000",
+          "decompressed_size": 49152,
+          "consumer_pc": "0x0600A8C2",
+          "consumer_subsystem": "VDP2_RASTER_COMPOSITOR",
+          "read_width": 2,
+          "access_pattern": "Hardware line raster scan / RBG0 rotation plane",
+          "frequency": "Continuous 60Hz display"
+        }
+      ],
+      "room_association": "Rooms 24..25",
+      "classification": "STAGE_COMPANION_COLLISION_AND_PLANE_PACKAGE"
+    },
+    {
+      "interval_id": "map_unk_10",
+      "disc_range": "0x0E2800..0x0F3800",
+      "size_bytes": 69632,
+      "reader_routine": {
+        "pc": "0x0600A208",
+        "symbol": "cd_read_sectors",
+        "file_handle_ram": "0x0609BAB0",
+        "staging_buffer_ram": "0x060AD880"
+      },
+      "decompressor": {
+        "pc": "0x06004108",
+        "symbol": "sub_4108",
+        "algorithm": "Ancient LZSS variant"
+      },
+      "destinations": [
+        {
+          "sub_stream_role": "COLLISION_HEIGHTFIELD_MAP",
+          "destination_ram": "0x060D3D34",
+          "decompressed_size": 49152,
+          "consumer_pc": "0x060784B4",
+          "consumer_subsystem": "COLLISION_ENGINE",
+          "read_width": 1,
+          "access_pattern": "2D grid lookup (x, y) -> elevation/passability",
+          "frequency": "Per-frame during player/actor movement"
+        },
+        {
+          "sub_stream_role": "SECONDARY_VDP2_PLANE_TILES",
+          "destination_vram": "0x25E20000",
+          "decompressed_size": 49152,
+          "consumer_pc": "0x0600A8C2",
+          "consumer_subsystem": "VDP2_RASTER_COMPOSITOR",
+          "read_width": 2,
+          "access_pattern": "Hardware line raster scan / RBG0 rotation plane",
+          "frequency": "Continuous 60Hz display"
+        }
+      ],
+      "room_association": "Rooms 26..27",
+      "classification": "STAGE_COMPANION_COLLISION_AND_PLANE_PACKAGE"
+    },
+    {
+      "interval_id": "map_unk_11",
+      "disc_range": "0x102800..0x107800",
+      "size_bytes": 20480,
+      "reader_routine": {
+        "pc": "0x0600A208",
+        "symbol": "cd_read_sectors",
+        "file_handle_ram": "0x0609BAB0",
+        "staging_buffer_ram": "0x060AD880"
+      },
+      "decompressor": {
+        "pc": "0x06004108",
+        "symbol": "sub_4108",
+        "algorithm": "Ancient LZSS variant"
+      },
+      "destinations": [
+        {
+          "sub_stream_role": "COLLISION_HEIGHTFIELD_MAP",
+          "destination_ram": "0x060D3D34",
+          "decompressed_size": 49152,
+          "consumer_pc": "0x060784B4",
+          "consumer_subsystem": "COLLISION_ENGINE",
+          "read_width": 1,
+          "access_pattern": "2D grid lookup (x, y) -> elevation/passability",
+          "frequency": "Per-frame during player/actor movement"
+        },
+        {
+          "sub_stream_role": "SECONDARY_VDP2_PLANE_TILES",
+          "destination_vram": "0x25E20000",
+          "decompressed_size": 49152,
+          "consumer_pc": "0x0600A8C2",
+          "consumer_subsystem": "VDP2_RASTER_COMPOSITOR",
+          "read_width": 2,
+          "access_pattern": "Hardware line raster scan / RBG0 rotation plane",
+          "frequency": "Continuous 60Hz display"
+        }
+      ],
+      "room_association": "Rooms 29..30",
+      "classification": "STAGE_COMPANION_COLLISION_AND_PLANE_PACKAGE"
+    },
+    {
+      "interval_id": "map_unk_12",
+      "disc_range": "0x11B800..0x120000",
+      "size_bytes": 18432,
+      "reader_routine": {
+        "pc": "0x0600A208",
+        "symbol": "cd_read_sectors",
+        "file_handle_ram": "0x0609BAB0",
+        "staging_buffer_ram": "0x060AD880"
+      },
+      "decompressor": {
+        "pc": "0x06004108",
+        "symbol": "sub_4108",
+        "algorithm": "Ancient LZSS variant"
+      },
+      "destinations": [
+        {
+          "sub_stream_role": "COLLISION_HEIGHTFIELD_MAP",
+          "destination_ram": "0x060D3D34",
+          "decompressed_size": 49152,
+          "consumer_pc": "0x060784B4",
+          "consumer_subsystem": "COLLISION_ENGINE",
+          "read_width": 1,
+          "access_pattern": "2D grid lookup (x, y) -> elevation/passability",
+          "frequency": "Per-frame during player/actor movement"
+        },
+        {
+          "sub_stream_role": "SECONDARY_VDP2_PLANE_TILES",
+          "destination_vram": "0x25E20000",
+          "decompressed_size": 49152,
+          "consumer_pc": "0x0600A8C2",
+          "consumer_subsystem": "VDP2_RASTER_COMPOSITOR",
+          "read_width": 2,
+          "access_pattern": "Hardware line raster scan / RBG0 rotation plane",
+          "frequency": "Continuous 60Hz display"
+        }
+      ],
+      "room_association": "Rooms 33..34",
+      "classification": "STAGE_COMPANION_COLLISION_AND_PLANE_PACKAGE"
+    },
+    {
+      "interval_id": "map_unk_13",
+      "disc_range": "0x12D000..0x141800",
+      "size_bytes": 83968,
+      "reader_routine": {
+        "pc": "0x0600A208",
+        "symbol": "cd_read_sectors",
+        "file_handle_ram": "0x0609BAB0",
+        "staging_buffer_ram": "0x060AD880"
+      },
+      "decompressor": {
+        "pc": "0x06004108",
+        "symbol": "sub_4108",
+        "algorithm": "Ancient LZSS variant"
+      },
+      "destinations": [
+        {
+          "sub_stream_role": "COLLISION_HEIGHTFIELD_MAP",
+          "destination_ram": "0x060D3D34",
+          "decompressed_size": 49152,
+          "consumer_pc": "0x060784B4",
+          "consumer_subsystem": "COLLISION_ENGINE",
+          "read_width": 1,
+          "access_pattern": "2D grid lookup (x, y) -> elevation/passability",
+          "frequency": "Per-frame during player/actor movement"
+        },
+        {
+          "sub_stream_role": "SECONDARY_VDP2_PLANE_TILES",
+          "destination_vram": "0x25E20000",
+          "decompressed_size": 49152,
+          "consumer_pc": "0x0600A8C2",
+          "consumer_subsystem": "VDP2_RASTER_COMPOSITOR",
+          "read_width": 2,
+          "access_pattern": "Hardware line raster scan / RBG0 rotation plane",
+          "frequency": "Continuous 60Hz display"
+        }
+      ],
+      "room_association": "Rooms 35..36",
+      "classification": "STAGE_COMPANION_COLLISION_AND_PLANE_PACKAGE"
+    },
+    {
+      "interval_id": "map_unk_14",
+      "disc_range": "0x141800..0x152800",
+      "size_bytes": 69632,
+      "reader_routine": {
+        "pc": "0x0600A208",
+        "symbol": "cd_read_sectors",
+        "file_handle_ram": "0x0609BAB0",
+        "staging_buffer_ram": "0x060AD880"
+      },
+      "decompressor": {
+        "pc": "0x06004108",
+        "symbol": "sub_4108",
+        "algorithm": "Ancient LZSS variant"
+      },
+      "destinations": [
+        {
+          "sub_stream_role": "COLLISION_HEIGHTFIELD_MAP",
+          "destination_ram": "0x060D3D34",
+          "decompressed_size": 49152,
+          "consumer_pc": "0x060784B4",
+          "consumer_subsystem": "COLLISION_ENGINE",
+          "read_width": 1,
+          "access_pattern": "2D grid lookup (x, y) -> elevation/passability",
+          "frequency": "Per-frame during player/actor movement"
+        },
+        {
+          "sub_stream_role": "SECONDARY_VDP2_PLANE_TILES",
+          "destination_vram": "0x25E20000",
+          "decompressed_size": 49152,
+          "consumer_pc": "0x0600A8C2",
+          "consumer_subsystem": "VDP2_RASTER_COMPOSITOR",
+          "read_width": 2,
+          "access_pattern": "Hardware line raster scan / RBG0 rotation plane",
+          "frequency": "Continuous 60Hz display"
+        }
+      ],
+      "room_association": "Rooms 35..36",
+      "classification": "STAGE_COMPANION_COLLISION_AND_PLANE_PACKAGE"
+    },
+    {
+      "interval_id": "map_unk_15",
+      "disc_range": "0x161000..0x16D800",
+      "size_bytes": 51200,
+      "reader_routine": {
+        "pc": "0x0600A208",
+        "symbol": "cd_read_sectors",
+        "file_handle_ram": "0x0609BAB0",
+        "staging_buffer_ram": "0x060AD880"
+      },
+      "decompressor": {
+        "pc": "0x06004108",
+        "symbol": "sub_4108",
+        "algorithm": "Ancient LZSS variant"
+      },
+      "destinations": [
+        {
+          "sub_stream_role": "COLLISION_HEIGHTFIELD_MAP",
+          "destination_ram": "0x060D3D34",
+          "decompressed_size": 49152,
+          "consumer_pc": "0x060784B4",
+          "consumer_subsystem": "COLLISION_ENGINE",
+          "read_width": 1,
+          "access_pattern": "2D grid lookup (x, y) -> elevation/passability",
+          "frequency": "Per-frame during player/actor movement"
+        },
+        {
+          "sub_stream_role": "SECONDARY_VDP2_PLANE_TILES",
+          "destination_vram": "0x25E20000",
+          "decompressed_size": 49152,
+          "consumer_pc": "0x0600A8C2",
+          "consumer_subsystem": "VDP2_RASTER_COMPOSITOR",
+          "read_width": 2,
+          "access_pattern": "Hardware line raster scan / RBG0 rotation plane",
+          "frequency": "Continuous 60Hz display"
+        }
+      ],
+      "room_association": "Rooms 38..39",
+      "classification": "STAGE_COMPANION_COLLISION_AND_PLANE_PACKAGE"
+    },
+    {
+      "interval_id": "map_unk_16",
+      "disc_range": "0x17A800..0x18B800",
+      "size_bytes": 69632,
+      "reader_routine": {
+        "pc": "0x0600A208",
+        "symbol": "cd_read_sectors",
+        "file_handle_ram": "0x0609BAB0",
+        "staging_buffer_ram": "0x060AD880"
+      },
+      "decompressor": {
+        "pc": "0x06004108",
+        "symbol": "sub_4108",
+        "algorithm": "Ancient LZSS variant"
+      },
+      "destinations": [
+        {
+          "sub_stream_role": "COLLISION_HEIGHTFIELD_MAP",
+          "destination_ram": "0x060D3D34",
+          "decompressed_size": 49152,
+          "consumer_pc": "0x060784B4",
+          "consumer_subsystem": "COLLISION_ENGINE",
+          "read_width": 1,
+          "access_pattern": "2D grid lookup (x, y) -> elevation/passability",
+          "frequency": "Per-frame during player/actor movement"
+        },
+        {
+          "sub_stream_role": "SECONDARY_VDP2_PLANE_TILES",
+          "destination_vram": "0x25E20000",
+          "decompressed_size": 49152,
+          "consumer_pc": "0x0600A8C2",
+          "consumer_subsystem": "VDP2_RASTER_COMPOSITOR",
+          "read_width": 2,
+          "access_pattern": "Hardware line raster scan / RBG0 rotation plane",
+          "frequency": "Continuous 60Hz display"
+        }
+      ],
+      "room_association": "Rooms 41..42",
+      "classification": "STAGE_COMPANION_COLLISION_AND_PLANE_PACKAGE"
+    }
+  ]
+}

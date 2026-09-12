@@ -1,0 +1,57 @@
+{
+  "subsystem": "THOR2_COLLISION_AND_HEIGHTFIELD_ENGINE",
+  "provenance": {
+    "staging_ram_buffer": "0x060D3D34",
+    "consumer_lookup_routine": "0x060784B4",
+    "decompressor": "0x06004108 (sub_4108, Ancient LZSS)",
+    "decompressed_buffer_size": 49152,
+    "source_streams_in_map_bin": 12,
+    "stream_offsets": [
+      "0x010000", "0x01F000", "0x047000", "0x066800", "0x07A000", "0x0A0000",
+      "0x0B8000", "0x0DB800", "0x0F5000", "0x112800", "0x12D000", "0x141800"
+    ]
+  },
+  "tile_geometry": {
+    "total_tiles_per_stage": 1536,
+    "tile_size_bytes": 32,
+    "cell_dimensions": "8x8 cells per tile",
+    "bits_per_cell": 4,
+    "coordinate_mapping": {
+      "tile_x": "world_x >> 6",
+      "tile_y": "world_y >> 6",
+      "cell_x": "(world_x >> 3) & 0x07",
+      "cell_y": "(world_y >> 3) & 0x07",
+      "offset_formula": "(tile_y * grid_stride_tiles + tile_x) * 32 + (cell_y * 8 + cell_x) / 2"
+    }
+  },
+  "height_and_flags_encoding": {
+    "bits_0_3": {
+      "description": "Height / Elevation layer index (0..15)",
+      "levels": {
+        "0": "Base floor / water surface (Z=0)",
+        "1": "Low step / shallow water (Z=8)",
+        "2": "Normal ground elevation 1 (Z=16)",
+        "3": "Normal ground elevation 2 (Z=24)",
+        "4": "Raised platform / ledge (Z=32)",
+        "5": "Hill / bridge upper level (Z=40)",
+        "6": "High cliff layer (Z=48)",
+        "7": "Maximum traversable elevation (Z=56)"
+      }
+    },
+    "terrain_attribute_flags": {
+      "WALKABLE": "Height match within +/- 4 units of player Z",
+      "BLOCKED_WALL": "Height delta > 8 or explicit barrier flag 0x0F",
+      "WATER_DEEP": "Flag 0x0E (requires water spirit / swimming logic)",
+      "LEDGE_JUMP_SOUTH": "Flag 0x0C (one-way descent allowed)",
+      "PIT_VOID": "Flag 0x0D (fall trigger to lower floor / respawn)",
+      "HAZARD_DAMAGE": "Flag 0x0B (lava / spikes damage tick)"
+    }
+  },
+  "runtime_interaction": {
+    "player_actor_evaluator": "0x060784B4 takes (R4=actor_ptr, R5=target_x, R6=target_y)",
+    "elevation_admissibility_check": "Reads cell at target coordinates; checks height delta <= actor_max_climb",
+    "slope_calculation": "Adjacent cell height differences determine slope vector and sliding speed"
+  },
+  "confidence": "HIGH",
+  "verification_level": "L2"
+}

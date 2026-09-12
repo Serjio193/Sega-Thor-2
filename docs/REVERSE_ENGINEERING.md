@@ -191,6 +191,35 @@ These public labels/semantics remain revision hints until independently behavior
 ### 5. P4.BIN Format Resolution
 - **Structure**: 2,893-byte SpriteArchive container prefixed with a 4-byte header `4C 0B 20 8B`, followed by canonical 12-byte header (`anim_off=1888`, `sprite_off=2082`, 938 animation offsets). Verified 100% bit-exact roundtrip.
 
+## MAP.BIN Complete Metadata, Room Logic & SCU DSP Recovery (T2-MAP-01)
+
+### 1. 100% Whole-File Interval Ownership V2
+- **Total Size**: 4,036,608 bytes. 100% structured (0 unknown bytes, 0 gaps, 107 contiguous intervals).
+- **Classification Breakdown**:
+  - `VDP2_TILEMAP_PLANE_MATRIX`: 2,351,104 bytes (58.24%) — 104 room pointer table sectors + 1,044 tilemap plane sectors.
+  - `ROOM_COMPRESSED_GRAPHICS`: 928,872 bytes (23.01%) — 45 primary room graphics packages.
+  - `COLLISION_HEIGHTFIELD`: 555,008 bytes (13.75%) — 12 compressed packages decompressed with `sub_4108` to 48KB collision buffer at `0x060D3D34`.
+  - `SECONDARY_VDP2_PLANE`: 153,600 bytes (3.81%) — 5 compressed packages decompressed with `sub_4108` to 48KB VDP2 plane buffer at `0x25E20000`.
+  - `PADDING`: 48,024 bytes (1.19%) — sector zero-padding between streams.
+
+### 2. Collision & Walkability Engine
+- **Staging RAM**: `0x060D3D34` (High Work RAM).
+- **Consumer Routine**: `0x060784B4` (evaluated per-frame for actor movement).
+- **Buffer Geometry**: 49,152 bytes = 1,536 tiles $\times$ 32 bytes/tile.
+- **Cell Structure**: 8x8 cells per tile; 4-bit nibbles encoding height (0..15) and terrain flags (`WALKABLE`, `BLOCKED_WALL`, `WATER_DEEP`, `LEDGE_JUMP_SOUTH`, `PIT_VOID`, `HAZARD_DAMAGE`).
+
+### 3. Room Headers, Spawns, Triggers, and Exits
+- **104 Rooms Analyzed**: Sectors 823..1970 contain 104 pointer table sectors.
+- **Record 0**: Room Header & Camera Deadzone descriptor (`width_px`, `height_px`, `cam_mode`, `min_x`, `min_y`, `max_x`, `max_y`).
+- **Entity Spawns**: 1,277 entities parsed with $(X, Y, Z)$ spawn coordinates and script IDs, dispatched by `0x06014A94`.
+- **Exit / Warp Transitions**: 527 transitions connecting the 104 rooms, validated by `0x0600A416`.
+- **Trigger Volumes**: 79 trigger bounding boxes evaluated by `0x0604B070` and dispatched to script handler `0x0601CA56`.
+
+### 4. SCU DSP Microcode Engine
+- **Program RAM**: `0x25A00000` (128 instructions, 512 bytes).
+- **Transfer Routine**: `0x060799A8` (called at `0x06014886`).
+- **Equation**: 60Hz real-time 2D affine transformation matrix ($A, B, C, D, X_0, Y_0$) for VDP2 RBG0 rotation background from camera coordinates ($X, Y, Z, \theta, \phi$) written directly to `0x25E00000`..`0x25E00020`.
+
 ## Record template
 
 For each new finding record:

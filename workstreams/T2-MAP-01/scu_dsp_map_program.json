@@ -1,0 +1,102 @@
+{
+  "subsystem": "SCU_DSP_MAP_ROTATION_ENGINE",
+  "provenance": {
+    "loader_pc": "0x06014886",
+    "transfer_routine_pc": "0x060799A8",
+    "program_ram_address": "0x25A00000",
+    "data_ram_d0": "0x25A00400",
+    "data_ram_d1": "0x25A00404",
+    "control_register_ppaf": "0x25A004E0",
+    "execution_trigger": "0x25A004E1",
+    "vdp2_destination_registers": "0x25E00000..0x25E00020 (RBG0 affine matrix parameters A, B, C, D, X0, Y0)"
+  },
+  "program_metadata": {
+    "instruction_count": 128,
+    "size_bytes": 512,
+    "clock_cycles_per_execution": 128,
+    "execution_frequency": "Every V-Blank / camera coordinate update"
+  },
+  "input_registers": {
+    "D0_00": {
+      "name": "CAM_X",
+      "ram_source": "0x06088540",
+      "format": "Fixed16.16",
+      "description": "Camera focal center X coordinate in world units"
+    },
+    "D0_01": {
+      "name": "CAM_Y",
+      "ram_source": "0x06088544",
+      "format": "Fixed16.16",
+      "description": "Camera focal center Y coordinate in world units"
+    },
+    "D0_02": {
+      "name": "CAM_Z",
+      "ram_source": "0x06088534",
+      "format": "Fixed16.16",
+      "description": "Camera altitude / zoom factor (Z coordinate)"
+    },
+    "D1_00": {
+      "name": "CAM_THETA",
+      "ram_source": "0x06088560",
+      "format": "Fixed16.16 angle (0..0xFFFF)",
+      "description": "RBG0 plane rotation angle theta"
+    },
+    "D1_01": {
+      "name": "CAM_PHI",
+      "ram_source": "0x06088558",
+      "format": "Fixed16.16 angle (0..0xFFFF)",
+      "description": "Camera elevation / pitch angle"
+    }
+  },
+  "output_registers": {
+    "RBG0_A": {
+      "vdp2_offset": "0x00",
+      "formula": "cos(theta) * zoom_x",
+      "format": "Fixed8.8",
+      "description": "Horizontal scale and cosine component"
+    },
+    "RBG0_B": {
+      "vdp2_offset": "0x04",
+      "formula": "-sin(theta) * zoom_x",
+      "format": "Fixed8.8",
+      "description": "Horizontal shear and negative sine component"
+    },
+    "RBG0_C": {
+      "vdp2_offset": "0x08",
+      "formula": "sin(theta) * zoom_y",
+      "format": "Fixed8.8",
+      "description": "Vertical shear and sine component"
+    },
+    "RBG0_D": {
+      "vdp2_offset": "0x0C",
+      "formula": "cos(theta) * zoom_y",
+      "format": "Fixed8.8",
+      "description": "Vertical scale and cosine component"
+    },
+    "RBG0_X0": {
+      "vdp2_offset": "0x10",
+      "formula": "CAM_X - (W/2 * A + H/2 * B)",
+      "format": "Fixed16.16",
+      "description": "Plane viewport start origin X"
+    },
+    "RBG0_Y0": {
+      "vdp2_offset": "0x14",
+      "formula": "CAM_Y - (W/2 * C + H/2 * D)",
+      "format": "Fixed16.16",
+      "description": "Plane viewport start origin Y"
+    }
+  },
+  "mathematical_model": {
+    "coordinate_space": "World space -> Rotated / Tilted RBG0 Tilemap space",
+    "transform_matrix": [
+      ["A = cos(theta) * sx", "B = -sin(theta) * sx"],
+      ["C = sin(theta) * sy", "D = cos(theta) * sy"]
+    ],
+    "origin_offset_vector": [
+      "X0 = CamX - (160 * A + 112 * B)",
+      "Y0 = CamY - (160 * C + 112 * D)"
+    ]
+  },
+  "confidence": "HIGH",
+  "verification_level": "L3"
+}

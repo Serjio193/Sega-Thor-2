@@ -1,0 +1,480 @@
+{
+  "total_event_references": 79,
+  "consumer_pc": "0x0601CA56 (script_event_dispatcher)",
+  "events": [
+    {
+      "event_id": 20672,
+      "trigger_id": 0,
+      "room_id": 0,
+      "handler_routine": "0x0601CA56 (script_event_dispatcher)"
+    },
+    {
+      "event_id": 4184,
+      "trigger_id": 1,
+      "room_id": 0,
+      "handler_routine": "0x0601CA56 (script_event_dispatcher)"
+    },
+    {
+      "event_id": 17001,
+      "trigger_id": 2,
+      "room_id": 2,
+      "handler_routine": "0x0601CA56 (script_event_dispatcher)"
+    },
+    {
+      "event_id": 0,
+      "trigger_id": 3,
+      "room_id": 2,
+      "handler_routine": "0x0601CA56 (script_event_dispatcher)"
+    },
+    {
+      "event_id": 0,
+      "trigger_id": 4,
+      "room_id": 2,
+      "handler_routine": "0x0601CA56 (script_event_dispatcher)"
+    },
+    {
+      "event_id": 56,
+      "trigger_id": 5,
+      "room_id": 5,
+      "handler_routine": "0x0601CA56 (script_event_dispatcher)"
+    },
+    {
+      "event_id": -16220,
+      "trigger_id": 6,
+      "room_id": 5,
+      "handler_routine": "0x0601CA56 (script_event_dispatcher)"
+    },
+    {
+      "event_id": 0,
+      "trigger_id": 7,
+      "room_id": 7,
+      "handler_routine": "0x0601CA56 (script_event_dispatcher)"
+    },
+    {
+      "event_id": 9472,
+      "trigger_id": 8,
+      "room_id": 8,
+      "handler_routine": "0x0601CA56 (script_event_dispatcher)"
+    },
+    {
+      "event_id": 0,
+      "trigger_id": 9,
+      "room_id": 9,
+      "handler_routine": "0x0601CA56 (script_event_dispatcher)"
+    },
+    {
+      "event_id": -20479,
+      "trigger_id": 10,
+      "room_id": 10,
+      "handler_routine": "0x0601CA56 (script_event_dispatcher)"
+    },
+    {
+      "event_id": 2302,
+      "trigger_id": 11,
+      "room_id": 10,
+      "handler_routine": "0x0601CA56 (script_event_dispatcher)"
+    },
+    {
+      "event_id": -24568,
+      "trigger_id": 12,
+      "room_id": 12,
+      "handler_routine": "0x0601CA56 (script_event_dispatcher)"
+    },
+    {
+      "event_id": 16388,
+      "trigger_id": 13,
+      "room_id": 12,
+      "handler_routine": "0x0601CA56 (script_event_dispatcher)"
+    },
+    {
+      "event_id": 1024,
+      "trigger_id": 14,
+      "room_id": 14,
+      "handler_routine": "0x0601CA56 (script_event_dispatcher)"
+    },
+    {
+      "event_id": -16157,
+      "trigger_id": 15,
+      "room_id": 15,
+      "handler_routine": "0x0601CA56 (script_event_dispatcher)"
+    },
+    {
+      "event_id": -24538,
+      "trigger_id": 16,
+      "room_id": 16,
+      "handler_routine": "0x0601CA56 (script_event_dispatcher)"
+    },
+    {
+      "event_id": 376,
+      "trigger_id": 17,
+      "room_id": 17,
+      "handler_routine": "0x0601CA56 (script_event_dispatcher)"
+    },
+    {
+      "event_id": -32760,
+      "trigger_id": 18,
+      "room_id": 18,
+      "handler_routine": "0x0601CA56 (script_event_dispatcher)"
+    },
+    {
+      "event_id": 520,
+      "trigger_id": 19,
+      "room_id": 18,
+      "handler_routine": "0x0601CA56 (script_event_dispatcher)"
+    },
+    {
+      "event_id": -28927,
+      "trigger_id": 20,
+      "room_id": 18,
+      "handler_routine": "0x0601CA56 (script_event_dispatcher)"
+    },
+    {
+      "event_id": -32760,
+      "trigger_id": 21,
+      "room_id": 21,
+      "handler_routine": "0x0601CA56 (script_event_dispatcher)"
+    },
+    {
+      "event_id": -32376,
+      "trigger_id": 22,
+      "room_id": 22,
+      "handler_routine": "0x0601CA56 (script_event_dispatcher)"
+    },
+    {
+      "event_id": 0,
+      "trigger_id": 23,
+      "room_id": 22,
+      "handler_routine": "0x0601CA56 (script_event_dispatcher)"
+    },
+    {
+      "event_id": 0,
+      "trigger_id": 24,
+      "room_id": 22,
+      "handler_routine": "0x0601CA56 (script_event_dispatcher)"
+    },
+    {
+      "event_id": 0,
+      "trigger_id": 25,
+      "room_id": 22,
+      "handler_routine": "0x0601CA56 (script_event_dispatcher)"
+    },
+    {
+      "event_id": -379,
+      "trigger_id": 26,
+      "room_id": 26,
+      "handler_routine": "0x0601CA56 (script_event_dispatcher)"
+    },
+    {
+      "event_id": -32760,
+      "trigger_id": 27,
+      "room_id": 27,
+      "handler_routine": "0x0601CA56 (script_event_dispatcher)"
+    },
+    {
+      "event_id": -128,
+      "trigger_id": 28,
+      "room_id": 27,
+      "handler_routine": "0x0601CA56 (script_event_dispatcher)"
+    },
+    {
+      "event_id": -32760,
+      "trigger_id": 29,
+      "room_id": 29,
+      "handler_routine": "0x0601CA56 (script_event_dispatcher)"
+    },
+    {
+      "event_id": 352,
+      "trigger_id": 30,
+      "room_id": 30,
+      "handler_routine": "0x0601CA56 (script_event_dispatcher)"
+    },
+    {
+      "event_id": -507,
+      "trigger_id": 31,
+      "room_id": 30,
+      "handler_routine": "0x0601CA56 (script_event_dispatcher)"
+    },
+    {
+      "event_id": 20527,
+      "trigger_id": 32,
+      "room_id": 30,
+      "handler_routine": "0x0601CA56 (script_event_dispatcher)"
+    },
+    {
+      "event_id": 19457,
+      "trigger_id": 33,
+      "room_id": 30,
+      "handler_routine": "0x0601CA56 (script_event_dispatcher)"
+    },
+    {
+      "event_id": 200,
+      "trigger_id": 34,
+      "room_id": 34,
+      "handler_routine": "0x0601CA56 (script_event_dispatcher)"
+    },
+    {
+      "event_id": 1056,
+      "trigger_id": 35,
+      "room_id": 34,
+      "handler_routine": "0x0601CA56 (script_event_dispatcher)"
+    },
+    {
+      "event_id": -7775,
+      "trigger_id": 36,
+      "room_id": 34,
+      "handler_routine": "0x0601CA56 (script_event_dispatcher)"
+    },
+    {
+      "event_id": 716,
+      "trigger_id": 37,
+      "room_id": 37,
+      "handler_routine": "0x0601CA56 (script_event_dispatcher)"
+    },
+    {
+      "event_id": 31401,
+      "trigger_id": 38,
+      "room_id": 37,
+      "handler_routine": "0x0601CA56 (script_event_dispatcher)"
+    },
+    {
+      "event_id": -896,
+      "trigger_id": 39,
+      "room_id": 39,
+      "handler_routine": "0x0601CA56 (script_event_dispatcher)"
+    },
+    {
+      "event_id": 28800,
+      "trigger_id": 40,
+      "room_id": 40,
+      "handler_routine": "0x0601CA56 (script_event_dispatcher)"
+    },
+    {
+      "event_id": -24608,
+      "trigger_id": 41,
+      "room_id": 41,
+      "handler_routine": "0x0601CA56 (script_event_dispatcher)"
+    },
+    {
+      "event_id": 4350,
+      "trigger_id": 42,
+      "room_id": 42,
+      "handler_routine": "0x0601CA56 (script_event_dispatcher)"
+    },
+    {
+      "event_id": 4097,
+      "trigger_id": 43,
+      "room_id": 43,
+      "handler_routine": "0x0601CA56 (script_event_dispatcher)"
+    },
+    {
+      "event_id": 24288,
+      "trigger_id": 44,
+      "room_id": 44,
+      "handler_routine": "0x0601CA56 (script_event_dispatcher)"
+    },
+    {
+      "event_id": 0,
+      "trigger_id": 45,
+      "room_id": 44,
+      "handler_routine": "0x0601CA56 (script_event_dispatcher)"
+    },
+    {
+      "event_id": 0,
+      "trigger_id": 46,
+      "room_id": 44,
+      "handler_routine": "0x0601CA56 (script_event_dispatcher)"
+    },
+    {
+      "event_id": 769,
+      "trigger_id": 47,
+      "room_id": 47,
+      "handler_routine": "0x0601CA56 (script_event_dispatcher)"
+    },
+    {
+      "event_id": 1,
+      "trigger_id": 48,
+      "room_id": 47,
+      "handler_routine": "0x0601CA56 (script_event_dispatcher)"
+    },
+    {
+      "event_id": 5986,
+      "trigger_id": 49,
+      "room_id": 49,
+      "handler_routine": "0x0601CA56 (script_event_dispatcher)"
+    },
+    {
+      "event_id": 12543,
+      "trigger_id": 50,
+      "room_id": 50,
+      "handler_routine": "0x0601CA56 (script_event_dispatcher)"
+    },
+    {
+      "event_id": 448,
+      "trigger_id": 51,
+      "room_id": 50,
+      "handler_routine": "0x0601CA56 (script_event_dispatcher)"
+    },
+    {
+      "event_id": -16362,
+      "trigger_id": 52,
+      "room_id": 50,
+      "handler_routine": "0x0601CA56 (script_event_dispatcher)"
+    },
+    {
+      "event_id": 64,
+      "trigger_id": 53,
+      "room_id": 50,
+      "handler_routine": "0x0601CA56 (script_event_dispatcher)"
+    },
+    {
+      "event_id": 262,
+      "trigger_id": 54,
+      "room_id": 50,
+      "handler_routine": "0x0601CA56 (script_event_dispatcher)"
+    },
+    {
+      "event_id": 1040,
+      "trigger_id": 55,
+      "room_id": 55,
+      "handler_routine": "0x0601CA56 (script_event_dispatcher)"
+    },
+    {
+      "event_id": 30470,
+      "trigger_id": 56,
+      "room_id": 55,
+      "handler_routine": "0x0601CA56 (script_event_dispatcher)"
+    },
+    {
+      "event_id": 10335,
+      "trigger_id": 57,
+      "room_id": 55,
+      "handler_routine": "0x0601CA56 (script_event_dispatcher)"
+    },
+    {
+      "event_id": -28928,
+      "trigger_id": 58,
+      "room_id": 55,
+      "handler_routine": "0x0601CA56 (script_event_dispatcher)"
+    },
+    {
+      "event_id": 0,
+      "trigger_id": 59,
+      "room_id": 59,
+      "handler_routine": "0x0601CA56 (script_event_dispatcher)"
+    },
+    {
+      "event_id": 0,
+      "trigger_id": 60,
+      "room_id": 59,
+      "handler_routine": "0x0601CA56 (script_event_dispatcher)"
+    },
+    {
+      "event_id": 25056,
+      "trigger_id": 61,
+      "room_id": 61,
+      "handler_routine": "0x0601CA56 (script_event_dispatcher)"
+    },
+    {
+      "event_id": 0,
+      "trigger_id": 62,
+      "room_id": 61,
+      "handler_routine": "0x0601CA56 (script_event_dispatcher)"
+    },
+    {
+      "event_id": 828,
+      "trigger_id": 63,
+      "room_id": 63,
+      "handler_routine": "0x0601CA56 (script_event_dispatcher)"
+    },
+    {
+      "event_id": -32026,
+      "trigger_id": 64,
+      "room_id": 63,
+      "handler_routine": "0x0601CA56 (script_event_dispatcher)"
+    },
+    {
+      "event_id": 3681,
+      "trigger_id": 65,
+      "room_id": 65,
+      "handler_routine": "0x0601CA56 (script_event_dispatcher)"
+    },
+    {
+      "event_id": 0,
+      "trigger_id": 66,
+      "room_id": 65,
+      "handler_routine": "0x0601CA56 (script_event_dispatcher)"
+    },
+    {
+      "event_id": 916,
+      "trigger_id": 67,
+      "room_id": 65,
+      "handler_routine": "0x0601CA56 (script_event_dispatcher)"
+    },
+    {
+      "event_id": 2304,
+      "trigger_id": 68,
+      "room_id": 65,
+      "handler_routine": "0x0601CA56 (script_event_dispatcher)"
+    },
+    {
+      "event_id": 5633,
+      "trigger_id": 69,
+      "room_id": 69,
+      "handler_routine": "0x0601CA56 (script_event_dispatcher)"
+    },
+    {
+      "event_id": 2880,
+      "trigger_id": 70,
+      "room_id": 69,
+      "handler_routine": "0x0601CA56 (script_event_dispatcher)"
+    },
+    {
+      "event_id": 519,
+      "trigger_id": 71,
+      "room_id": 71,
+      "handler_routine": "0x0601CA56 (script_event_dispatcher)"
+    },
+    {
+      "event_id": -32708,
+      "trigger_id": 72,
+      "room_id": 71,
+      "handler_routine": "0x0601CA56 (script_event_dispatcher)"
+    },
+    {
+      "event_id": -27131,
+      "trigger_id": 73,
+      "room_id": 71,
+      "handler_routine": "0x0601CA56 (script_event_dispatcher)"
+    },
+    {
+      "event_id": 257,
+      "trigger_id": 74,
+      "room_id": 71,
+      "handler_routine": "0x0601CA56 (script_event_dispatcher)"
+    },
+    {
+      "event_id": -32698,
+      "trigger_id": 75,
+      "room_id": 71,
+      "handler_routine": "0x0601CA56 (script_event_dispatcher)"
+    },
+    {
+      "event_id": -256,
+      "trigger_id": 76,
+      "room_id": 76,
+      "handler_routine": "0x0601CA56 (script_event_dispatcher)"
+    },
+    {
+      "event_id": -32768,
+      "trigger_id": 77,
+      "room_id": 76,
+      "handler_routine": "0x0601CA56 (script_event_dispatcher)"
+    },
+    {
+      "event_id": 7808,
+      "trigger_id": 78,
+      "room_id": 76,
+      "handler_routine": "0x0601CA56 (script_event_dispatcher)"
+    }
+  ]
+}
