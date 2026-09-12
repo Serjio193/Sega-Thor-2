@@ -36,6 +36,7 @@ docs/
     INDIRECT_CONTROL_FLOW_T2_ASM_06.md    comprehensive technical report for indirect control-flow resolution and jump tables
     RETURN_PROVENANCE_T2_ASM_08.md        comprehensive technical report for PR return provenance and byte carving
     RTS_CALLER_DOMAIN_T2_ASM_09.md        comprehensive technical report for residual RTS caller-domain closure and control-flow proof
+    WHOLE_MODULE_REASSEMBLY_T2_ASM_10.md  comprehensive technical report for whole-module reassembly, gap decarving, and gate finalization
 
 
 config/
@@ -169,6 +170,10 @@ tools/
     call_sink_and_pointer_tracer.py traces function references to call sinks and audits UNKNOWN threats
     rts_caller_certifier.py       certifies function caller domains and derives RTS completeness v2
     cfg_reclosure_v2.py           recomputes CFG closure with certified return targets and emits partition v2
+    source_reassembly_emitter.py  emits full-source reassembly listings with zero commercial bytes
+    sh2_gap_decarver.py           SH-2 gap decarver, literal pool certifier, and partition v3 emitter
+    pr_path_refiner.py            symbolic PR path refiner, leaf certifier, and shared epilogue analyzer
+    rts_v3_certifier.py           master RTS v3 certifier with UNKNOWN threat elimination under partition v3
   carver/
     interval_db.py                canonical central interval database & execution conflict engine
     provenance_dag.py             provenance DAG & graph expansion engine
@@ -249,15 +254,18 @@ tests/
     test_bgm_asm.py               CTest integration test for full BGM.BIN M68K sound driver round-trip
     test_manifest_schema.py       CTest integration test for module manifest schema & partition invariants
     test_full_game_disc.py        CTest integration test for FULL_ASM_GAME_GATE rebuilt disc verification
-    test_recovery_gates.py        negative controls (58 total) & validation for recovery gates
+    test_recovery_gates.py        negative controls (66 total) & validation for recovery gates
     negative_controls_p5.py       8 adversarial negative controls (NC-Q..NC-X) for indirect flow integrity
     negative_controls_p6.py       8 adversarial negative controls (NC-Y..NC-AF) for struct callback integrity
     negative_controls_p7.py       10 adversarial negative controls (NC-AG..NC-AP) for PR return provenance & tables
     negative_controls_p8.py       8 adversarial negative controls (NC-AQ..NC-AX) for RTS caller-domain closure
+    negative_controls_p9.py       8 adversarial negative controls (NC-AY..NC-BF) for whole-module reassembly & gap decarving
     test_indirect_resolution.py   unit tests for constant propagation, jump tables, call graph, and accounting
     test_struct_callback_resolution.py unit tests for struct callbacks, object provenance, and accounting
     test_return_provenance.py     unit tests for PR return provenance, canonical denominator, and byte carving
     test_rts_domain_closure.py    unit tests for residual RTS caller-domain closure and certificates
+    test_whole_module_reassembly.py unit tests for full source reassembly, determinism, and diff parity
+    test_gap_decarving.py         unit tests for SH-2 gap decarving, partition v3, and RTS completeness v3
   carver/
     test_carver_pipeline.py       carver pipeline, interval algebra, conflict, and determinism test suite
 
@@ -432,6 +440,24 @@ workstreams/
     residual_rts_dynamic_oracle.json dynamic trace oracle telemetry for residual RTS sites
     cfg_closure_v2.json           CFG closure v2 telemetry (+456 bytes code, -446 bytes unknown)
     executable_byte_partition_v2.json whole-module partition v2 (156,694 code bytes)
+  T2-ASM-10/
+    reassembly_model.json         formal whole-module reassembly specification and environment pins
+    assembler_environment.json    GNU binutils sh-elf / m68k toolchain metadata
+    instruction_roundtrip.json    0 instruction decode/encode mismatches and 0 delay-slot reorders
+    module_reassembly_results.json reassembly and link status for all 4 canonical modules
+    module_binary_diff.json       0 differing bytes across all 4 modules
+    reassembly_determinism.json   bit-for-bit identity across multi-build runs
+    sh2_unknown_inventory.json    inventory of 511,452 SH-2 UNKNOWN baseline bytes
+    code_promotion_certificates.json code promotion certificates
+    data_promotion_certificates.json 13,060 bytes literal pool certificates promoted to DATA
+    padding_certificates.json     padding certificates
+    module_byte_ownership_v3.json whole-module interval ownership V3
+    executable_byte_partition_v3.json audited partition V3 (156,694 code, 68,980 data, 498,392 SH-2 unknown)
+    pr_path_refinements.json      symbolic PR path tracing across 81 sites (43 resolved, 38 shared epilogues)
+    rts_gap_correlation.json      gap threat correlation eliminating non-code threats (59 external threats cleared)
+    rts_completeness_v3.json      master RTS v3 certificates (552 resolved, 86 residual unresolved)
+    closed_world_control_flow_v2.json closed-world theorems V2 (code: PROVEN, all SH-2: NOT_PROVEN_FAIL_CLOSED)
+    precommit_integrity_audit.json pre-commit hash, size, and binary diff verification audit
 
 
 asm/                              assembly reconstruction layout (ADR D-015)

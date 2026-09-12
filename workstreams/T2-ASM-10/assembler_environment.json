@@ -1,0 +1,71 @@
+{
+  "environment_verified": true,
+  "sh2": {
+    "assembler": "sh-elf-as",
+    "target": "sh-elf",
+    "binutils_version": "2.40+2",
+    "endianness": "big-endian",
+    "flags": [
+      "-isa=sh2",
+      "-big"
+    ],
+    "linker_flags": [
+      "-T",
+      "<script.ld>",
+      "-nostdlib",
+      "--no-warn-rwx-segments",
+      "-EL/EB: EB"
+    ],
+    "objcopy_flags": [
+      "-O",
+      "binary"
+    ],
+    "paths": {
+      "as": "/home/serji/.local/share/toolchains/sh-elf/usr/bin/sh-elf-as",
+      "ld": "/home/serji/.local/share/toolchains/sh-elf/usr/bin/sh-elf-ld",
+      "objcopy": "/home/serji/.local/share/toolchains/sh-elf/usr/bin/sh-elf-objcopy",
+      "objdump": "/home/serji/.local/share/toolchains/sh-elf/usr/bin/sh-elf-objdump"
+    },
+    "verified_hashes": {
+      "sh-elf-as": "fd3ddc347d0f83521b98e039e30acf93380930dd521d5031682767e822c074e5",
+      "sh-elf-ld": "e369cd410424715b549f2e61fc12f1f93f525f656ff3f60f2fdc22f689c8472d",
+      "sh-elf-objcopy": "1da83e2a6bbabe453a0fe12a37dd57a262135fc9cb769413655cdfc5e54aaea2",
+      "sh-elf-objdump": "ee13a67c88f386a388cf10eb4710d13f05691ac008af103b84329276bc41eb35"
+    },
+    "relaxation_prohibited": true,
+    "section_reorder_prohibited": true
+  },
+  "m68k": {
+    "assembler": "m68k-linux-gnu-as",
+    "target": "m68k-linux-gnu",
+    "binutils_version": "2.42",
+    "endianness": "big-endian",
+    "flags": [
+      "-m68000"
+    ],
+    "linker_flags": [
+      "-T",
+      "<script.ld>",
+      "-nostdlib",
+      "--no-warn-rwx-segments"
+    ],
+    "objcopy_flags": [
+      "-O",
+      "binary"
+    ],
+    "paths": {
+      "as": "/usr/bin/m68k-linux-gnu-as",
+      "ld": "/usr/bin/m68k-linux-gnu-ld",
+      "objcopy": "/usr/bin/m68k-linux-gnu-objcopy",
+      "objdump": "/usr/bin/m68k-linux-gnu-objdump"
+    },
+    "verified_hashes": {
+      "m68k-linux-gnu-as": "c52857325edf2697b7434a0c053c3952b31a8698f8d57f6bc6cd1dec7aa1c6d9",
+      "m68k-linux-gnu-ld": "ad520eb42f75b6bd9d3d72bd7e518ca8c506f0d48e660020a2649da8b0bb4e4f",
+      "m68k-linux-gnu-objcopy": "b34601a02ddb1be3cdc363f67ccf9587c5c2554098e6ff83566252f196fb89b3",
+      "m68k-linux-gnu-objdump": "240d1acf1e8f1e3a09498300e8ca4f23076df5f3f7c16af48d534efcc03feded"
+    },
+    "relaxation_prohibited": true,
+    "section_reorder_prohibited": true
+  }
+}

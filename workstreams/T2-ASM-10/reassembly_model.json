@@ -1,0 +1,103 @@
+{
+  "version": "1.0",
+  "milestone": "T2-ASM-10",
+  "strategic_lock": "ASM-FIRST FINALIZATION ONLY",
+  "principles": {
+    "byte_reproduction_vs_ownership": "Byte-exact source reassembly does NOT by itself prove opaque bytes are CODE. Ownership proof requires explicit evidence certificates.",
+    "processor_separation": "0TH2.BIN, TH2.LOW, and SET07.BIN are SH-2. BGM.BIN is MC68EC000. M68K UNKNOWN bytes do not contaminate SH-2 metrics.",
+    "hygiene_policy": "No commercial binary blobs, extracted dumps, or generated commercial assembly sources committed to git. Private sources reside in .private/asm/"
+  },
+  "modules": [
+    {
+      "module": "0TH2.BIN",
+      "processor": "SH-2",
+      "vma": "0x06004000",
+      "vma_int": 100679680,
+      "size": 535552,
+      "canonical_sha256": "c1cc4117870bc567386410aa2d4f1b5f03fb98a601be71bb3ae2155de1853c64",
+      "toolchain": {
+        "assembler": "sh-elf-as",
+        "flags": [
+          "-isa=sh2",
+          "-big"
+        ],
+        "linker_script": "asm/linker/0TH2.ld"
+      },
+      "source_generation_strategy": {
+        "confirmed_code": "Thor-decoder-backed SH-2 mnemonics with local and global labels",
+        "proven_data": "Typed data declarations (.long, .short, .byte) with explicit xref labels",
+        "proven_padding": "Deterministic alignment and fill directives",
+        "unknown": "Opaque byte-preserving private .byte directives"
+      },
+      "private_source_path": ".private/asm/0TH2/0TH2.s"
+    },
+    {
+      "module": "TH2.LOW",
+      "processor": "SH-2",
+      "vma": "0x002E9910",
+      "vma_int": 3053840,
+      "size": 149504,
+      "canonical_sha256": "781396898191921b486be751163aea493ef9b1abcb55c0ab8698df9c69211224",
+      "toolchain": {
+        "assembler": "sh-elf-as",
+        "flags": [
+          "-isa=sh2",
+          "-big"
+        ],
+        "linker_script": "asm/linker/TH2_LOW.ld"
+      },
+      "source_generation_strategy": {
+        "confirmed_code": "Thor-decoder-backed SH-2 mnemonics with local and global labels",
+        "proven_data": "Typed data declarations (.long, .short, .byte) with explicit xref labels",
+        "proven_padding": "Deterministic alignment and fill directives",
+        "unknown": "Opaque byte-preserving private .byte directives"
+      },
+      "private_source_path": ".private/asm/TH2_LOW/TH2_LOW.s"
+    },
+    {
+      "module": "SET07.BIN",
+      "processor": "SH-2",
+      "vma": "0x060A0000",
+      "vma_int": 101318656,
+      "size": 98304,
+      "canonical_sha256": "bb6072222e19f8cb68934cbdb94e7d187c67680bb9e167524f85579ee6bc0af6",
+      "toolchain": {
+        "assembler": "sh-elf-as",
+        "flags": [
+          "-isa=sh2",
+          "-big"
+        ],
+        "linker_script": "asm/linker/SET07.ld"
+      },
+      "source_generation_strategy": {
+        "confirmed_code": "Thor-decoder-backed SH-2 mnemonics with entry labels",
+        "proven_data": "Typed data declarations (.long, .short, .byte)",
+        "proven_padding": "Deterministic fill directives",
+        "unknown": "Opaque byte-preserving private .byte directives"
+      },
+      "private_source_path": ".private/asm/SET07/SET07.s"
+    },
+    {
+      "module": "BGM.BIN",
+      "processor": "MC68EC000",
+      "vma": "0x00000000",
+      "vma_int": 0,
+      "size": 673792,
+      "canonical_sha256": "c1d11d5386eaffbd4ca6443c3de615312a71cc678ba4d76c2c9d6035acf9a8f6",
+      "toolchain": {
+        "assembler": "m68k-linux-gnu-as",
+        "flags": [
+          "-m68000"
+        ],
+        "linker_script": "asm/linker/BGM.ld"
+      },
+      "source_generation_strategy": {
+        "confirmed_code": "MC68EC000 reset vector and driver entry stubs",
+        "proven_data": "Opaque sound container data",
+        "proven_padding": "Zero-fill directives",
+        "unknown": "Opaque byte-preserving private .byte directives"
+      },
+      "private_source_path": ".private/asm/BGM/BGM.s"
+    }
+  ]
+}

@@ -28,6 +28,7 @@ from negative_controls_p5 import run_all_p5_negative_controls
 from negative_controls_p6 import run_all_p6_negative_controls
 from negative_controls_p7 import run_all_p7_negative_controls
 from negative_controls_p8 import run_all_p8_negative_controls
+from negative_controls_p9 import run_all_p9_negative_controls
 
 
 def test_honest_scorecard_passes():
@@ -328,9 +329,10 @@ def test_scorecard_partition_matches_audited():
     scorecard = load_scorecard(scorecard_path)
 
     # Find latest partition
+    p_v3 = repo_root / "workstreams" / "T2-ASM-10" / "executable_byte_partition_v3.json"
     p_v2 = repo_root / "workstreams" / "T2-ASM-09" / "executable_byte_partition_v2.json"
     p_v1 = repo_root / "workstreams" / "T2-ASM-08" / "executable_byte_partition.json"
-    ebp_path = p_v2 if p_v2.exists() else p_v1
+    ebp_path = p_v3 if p_v3.exists() else (p_v2 if p_v2.exists() else p_v1)
     assert ebp_path.exists(), f"Partition artifact missing: {ebp_path}"
     ebp = json.loads(ebp_path.read_text(encoding="utf-8"))
 
@@ -383,8 +385,9 @@ def main():
     run_all_p6_negative_controls(repo_root)
     run_all_p7_negative_controls(repo_root)
     run_all_p8_negative_controls(repo_root)
+    run_all_p9_negative_controls(repo_root)
     assert run_full_validation(repo_root) is True
-    print("All 58 negative controls (8 base + 8 P3 NC-A..NC-H + 8 P4 NC-I..NC-P + 8 P5 NC-Q..NC-X + 8 P6 NC-Y..NC-AF + 10 P7 NC-AG..NC-AP + 8 P8 NC-AQ..NC-AX) and gate validator tests passed 100%.")
+    print("All 66 negative controls (8 base + 8 P3 NC-A..NC-H + 8 P4 NC-I..NC-P + 8 P5 NC-Q..NC-X + 8 P6 NC-Y..NC-AF + 10 P7 NC-AG..NC-AP + 8 P8 NC-AQ..NC-AX + 8 P9 NC-AY..NC-BF) and gate validator tests passed 100%.")
 
 
 if __name__ == "__main__":

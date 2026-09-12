@@ -1,0 +1,32 @@
+{
+  "version": "2.0",
+  "milestone": "T2-ASM-10",
+  "closed_world_theorems": {
+    "CLOSED_WORLD_OVER_CONFIRMED_CODE": {
+      "is_proven": true,
+      "scope": "All 156,694 confirmed code bytes across SH-2 and M68K",
+      "proof_status": "PROVEN",
+      "premise": "Within the universe of confirmed executable basic blocks, every indirect transfer target domain and return flow is fully bounded or statically enumerated.",
+      "unresolved_indirect_calls_in_confirmed_code": 0,
+      "unresolved_indirect_jumps_in_confirmed_code": 0
+    },
+    "CLOSED_WORLD_OVER_ALL_POTENTIALLY_EXECUTABLE_SH2_BYTES": {
+      "is_proven": false,
+      "scope": "All 498,392 SH-2 UNKNOWN bytes across 0TH2.BIN, TH2.LOW, SET07.BIN",
+      "proof_status": "NOT_PROVEN_FAIL_CLOSED",
+      "premise": "Absence of verbatim function pointer is not proof of no caller. Under the complete SH-2 target-construction model (PC-rel literals, base+offset, MOVA, relative table entries, copied pointers, register arithmetic, mutable RAM writers), remaining UNKNOWN regions cannot be proven unable to introduce new entry edges without full semantic classification.",
+      "remaining_threat_bytes": 498392,
+      "functions_with_threats_in_unknown": 22,
+      "residual_external_entry_rts_blockers": 22
+    }
+  },
+  "accounting": {
+    "canonical_indirect_sites": 2226,
+    "resolved_indirect_sites": 2140,
+    "unresolved_indirect_sites": 86,
+    "calls_jumps_resolved": 1588,
+    "calls_jumps_unresolved": 0,
+    "rts_resolved": 552,
+    "rts_unresolved": 86
+  }
+}

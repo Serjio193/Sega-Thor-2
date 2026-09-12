@@ -1,0 +1,41 @@
+{
+  "version": "1.0",
+  "summary": {
+    "all_modules_zero_diff": true,
+    "total_differing_bytes_across_all_modules": 0
+  },
+  "modules": [
+    {
+      "module": "0TH2.BIN",
+      "total_bytes_compared": 535552,
+      "first_differing_offset": null,
+      "total_differing_bytes": 0,
+      "differing_intervals": [],
+      "byte_exact_parity": true
+    },
+    {
+      "module": "TH2.LOW",
+      "total_bytes_compared": 149504,
+      "first_differing_offset": null,
+      "total_differing_bytes": 0,
+      "differing_intervals": [],
+      "byte_exact_parity": true
+    },
+    {
+      "module": "SET07.BIN",
+      "total_bytes_compared": 98304,
+      "first_differing_offset": null,
+      "total_differing_bytes": 0,
+      "differing_intervals": [],
+      "byte_exact_parity": true
+    },
+    {
+      "module": "BGM.BIN",
+      "total_bytes_compared": 673792,
+      "first_differing_offset": null,
+      "total_differing_bytes": 0,
+      "differing_intervals": [],
+      "byte_exact_parity": true
+    }
+  ]
+}

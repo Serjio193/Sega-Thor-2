@@ -1,0 +1,32 @@
+{
+  "version": "1.0",
+  "summary": {
+    "all_modules_deterministic": true
+  },
+  "modules": [
+    {
+      "module": "0TH2.BIN",
+      "build_1_sha256": "c1cc4117870bc567386410aa2d4f1b5f03fb98a601be71bb3ae2155de1853c64",
+      "build_2_sha256": "c1cc4117870bc567386410aa2d4f1b5f03fb98a601be71bb3ae2155de1853c64",
+      "is_deterministic": true
+    },
+    {
+      "module": "TH2.LOW",
+      "build_1_sha256": "781396898191921b486be751163aea493ef9b1abcb55c0ab8698df9c69211224",
+      "build_2_sha256": "781396898191921b486be751163aea493ef9b1abcb55c0ab8698df9c69211224",
+      "is_deterministic": true
+    },
+    {
+      "module": "SET07.BIN",
+      "build_1_sha256": "bb6072222e19f8cb68934cbdb94e7d187c67680bb9e167524f85579ee6bc0af6",
+      "build_2_sha256": "bb6072222e19f8cb68934cbdb94e7d187c67680bb9e167524f85579ee6bc0af6",
+      "is_deterministic": true
+    },
+    {
+      "module": "BGM.BIN",
+      "build_1_sha256": "c1d11d5386eaffbd4ca6443c3de615312a71cc678ba4d76c2c9d6035acf9a8f6",
+      "build_2_sha256": "c1d11d5386eaffbd4ca6443c3de615312a71cc678ba4d76c2c9d6035acf9a8f6",
+      "is_deterministic": true
+    }
+  ]
+}

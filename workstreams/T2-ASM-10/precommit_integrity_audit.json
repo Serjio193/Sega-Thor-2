@@ -1,0 +1,59 @@
+{
+  "version": "1.0",
+  "audit_scope": "T2-ASM-10 Pre-Commit Integrity Fix",
+  "all_modules_passed": true,
+  "modules": [
+    {
+      "module": "0TH2.BIN",
+      "canonical_path_identity": ".private/rus/0TH2.BIN",
+      "rebuilt_path_identity": "out/asm_0TH2_build_1/block.bin",
+      "canonical_size": 535552,
+      "rebuilt_size": 535552,
+      "canonical_sha256": "c1cc4117870bc567386410aa2d4f1b5f03fb98a601be71bb3ae2155de1853c64",
+      "rebuilt_sha256": "c1cc4117870bc567386410aa2d4f1b5f03fb98a601be71bb3ae2155de1853c64",
+      "differing_bytes": 0,
+      "first_differing_offset": null,
+      "disc_input_path_identity": "out/asm_0TH2_build_1/block.bin",
+      "status": "PASS"
+    },
+    {
+      "module": "TH2.LOW",
+      "canonical_path_identity": ".private/rus/TH2.LOW",
+      "rebuilt_path_identity": "out/asm_TH2_LOW_build_1/block.bin",
+      "canonical_size": 149504,
+      "rebuilt_size": 149504,
+      "canonical_sha256": "781396898191921b486be751163aea493ef9b1abcb55c0ab8698df9c69211224",
+      "rebuilt_sha256": "781396898191921b486be751163aea493ef9b1abcb55c0ab8698df9c69211224",
+      "differing_bytes": 0,
+      "first_differing_offset": null,
+      "disc_input_path_identity": "out/asm_TH2_LOW_build_1/block.bin",
+      "status": "PASS"
+    },
+    {
+      "module": "SET07.BIN",
+      "canonical_path_identity": ".private/rus/SET07.BIN",
+      "rebuilt_path_identity": "out/asm_SET07_build_1/block.bin",
+      "canonical_size": 98304,
+      "rebuilt_size": 98304,
+      "canonical_sha256": "bb6072222e19f8cb68934cbdb94e7d187c67680bb9e167524f85579ee6bc0af6",
+      "rebuilt_sha256": "bb6072222e19f8cb68934cbdb94e7d187c67680bb9e167524f85579ee6bc0af6",
+      "differing_bytes": 0,
+      "first_differing_offset": null,
+      "disc_input_path_identity": "out/asm_SET07_build_1/block.bin",
+      "status": "PASS"
+    },
+    {
+      "module": "BGM.BIN",
+      "canonical_path_identity": ".private/rus/BGM.BIN",
+      "rebuilt_path_identity": "out/asm_BGM_build_1/block.bin",
+      "canonical_size": 673792,
+      "rebuilt_size": 673792,
+      "canonical_sha256": "c1d11d5386eaffbd4ca6443c3de615312a71cc678ba4d76c2c9d6035acf9a8f6",
+      "rebuilt_sha256": "c1d11d5386eaffbd4ca6443c3de615312a71cc678ba4d76c2c9d6035acf9a8f6",
+      "differing_bytes": 0,
+      "first_differing_offset": null,
+      "disc_input_path_identity": "out/asm_BGM_build_1/block.bin",
+      "status": "PASS"
+    }
+  ]
+}

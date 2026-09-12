@@ -1,0 +1,61 @@
+{
+  "version": "1.0",
+  "summary": {
+    "all_modules_byte_exact": true,
+    "modules_assembled": 4
+  },
+  "modules": [
+    {
+      "module": "0TH2.BIN",
+      "processor": "MASTER_SH2",
+      "size_bytes": 535552,
+      "canonical_sha256": "c1cc4117870bc567386410aa2d4f1b5f03fb98a601be71bb3ae2155de1853c64",
+      "rebuilt_sha256": "c1cc4117870bc567386410aa2d4f1b5f03fb98a601be71bb3ae2155de1853c64",
+      "sha256_match": true,
+      "BYTE_EXACT_CONTAINER_REASSEMBLY": true,
+      "CONFIRMED_CODE_ASM_ROUNDTRIP": 94242,
+      "SEMANTIC_DATA_REASSEMBLY": 58079,
+      "OPAQUE_BYTES_PRESERVED": 383231,
+      "semantic_provenance_note": "Reconstructed via Thor-decoder backed mnemonics and verified pointer tables"
+    },
+    {
+      "module": "TH2.LOW",
+      "processor": "MASTER_SH2",
+      "size_bytes": 149504,
+      "canonical_sha256": "781396898191921b486be751163aea493ef9b1abcb55c0ab8698df9c69211224",
+      "rebuilt_sha256": "781396898191921b486be751163aea493ef9b1abcb55c0ab8698df9c69211224",
+      "sha256_match": true,
+      "BYTE_EXACT_CONTAINER_REASSEMBLY": true,
+      "CONFIRMED_CODE_ASM_ROUNDTRIP": 10598,
+      "SEMANTIC_DATA_REASSEMBLY": 9852,
+      "OPAQUE_BYTES_PRESERVED": 129054,
+      "semantic_provenance_note": "Reconstructed via Thor-decoder backed mnemonics and verified pointer tables"
+    },
+    {
+      "module": "SET07.BIN",
+      "processor": "MASTER_SH2",
+      "size_bytes": 98304,
+      "canonical_sha256": "bb6072222e19f8cb68934cbdb94e7d187c67680bb9e167524f85579ee6bc0af6",
+      "rebuilt_sha256": "bb6072222e19f8cb68934cbdb94e7d187c67680bb9e167524f85579ee6bc0af6",
+      "sha256_match": true,
+      "BYTE_EXACT_CONTAINER_REASSEMBLY": true,
+      "CONFIRMED_CODE_ASM_ROUNDTRIP": 12,
+      "SEMANTIC_DATA_REASSEMBLY": 2976,
+      "OPAQUE_BYTES_PRESERVED": 95316,
+      "semantic_provenance_note": "Reconstructed via Thor-decoder backed mnemonics and verified pointer tables"
+    },
+    {
+      "module": "BGM.BIN",
+      "processor": "MC68EC000",
+      "size_bytes": 673792,
+      "canonical_sha256": "c1d11d5386eaffbd4ca6443c3de615312a71cc678ba4d76c2c9d6035acf9a8f6",
+      "rebuilt_sha256": "c1d11d5386eaffbd4ca6443c3de615312a71cc678ba4d76c2c9d6035acf9a8f6",
+      "sha256_match": true,
+      "BYTE_EXACT_CONTAINER_REASSEMBLY": true,
+      "CONFIRMED_CODE_ASM_ROUNDTRIP": 30,
+      "SEMANTIC_DATA_REASSEMBLY": 1576,
+      "OPAQUE_BYTES_PRESERVED": 672186,
+      "semantic_provenance_note": "Lossless container reassembly only; M68K semantics remain unanalyzed under T2-SND-01"
+    }
+  ]
+}

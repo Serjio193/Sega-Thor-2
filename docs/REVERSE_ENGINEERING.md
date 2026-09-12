@@ -292,6 +292,55 @@ These public labels/semantics remain revision hints until independently behavior
   - Total binary bytes: 1,457,152 bytes (exact arithmetic balance across all 4 modules).
 - **Negative Controls**: 58 / 58 PASS (including 8 new P8 controls NC-AQ .. NC-AX in `tests/asm/negative_controls_p8.py`).
 
+## Whole-Module Source Reassembly, Gap Decarving, and Gate Finalization (T2-ASM-10)
+
+### 1. Whole-Module Assembly Source Roundtrip
+- Pinned toolchains: `binutils-sh-elf 2.40+2` (`-isa=sh2 -big -EB`) for Master/Slave SH-2 modules, Motorola syntax for M68K sound driver container.
+- Emitted full source reassembly trees into gitignored `.private/asm/` without committing commercial binary bytes.
+- 100% exact instruction roundtrip across all 4 canonical game binaries (`0TH2.BIN`, `TH2.LOW`, `SET07.BIN`, `BGM.BIN`): 0 mnemonic mismatches, 0 delay-slot reorders.
+- Assembled and linked all 4 modules: binary diff confirms **0 differing bytes** against retail binaries.
+- Multi-build determinism: two independent build iterations produced 100% bit-for-bit identical hashes across all modules.
+
+### 2. SH-2 Gap Decarving & Partition V3
+- Audited baseline 511,452 SH-2 UNKNOWN bytes across 0TH2.BIN, TH2.LOW, and SET07.BIN.
+- Identified and certified 13,060 bytes of literal pools (`DATA_LITERAL_POOL`) loaded by PC-relative instructions (`MOV.L @(disp,PC), Rn` / `MOV.W @(disp,PC), Rn`).
+- Promoted 13,060 bytes from UNKNOWN to DATA with formal certificates.
+- Updated partition V3:
+  - `CONFIRMED_CODE`: **156,694 bytes**
+  - `PROVEN_DATA`: **68,980 bytes** (+13,060 bytes)
+  - `PROVEN_PADDING`: **59,324 bytes**
+  - `UNKNOWN`: **1,172,154 bytes** (-13,060 bytes)
+  - Total binary bytes: 1,457,152 bytes (exact arithmetic balance across all 4 modules).
+- SH-2 UNKNOWN reduced to 498,392 bytes; M68K sound UNKNOWN remains 673,762 bytes (BGM.BIN).
+
+### 3. Symbolic PR Path Refinement & Shared Epilogues
+- Traced symbolic PR register states and R15 stack slots across all 81 baseline `UNRESOLVED_PR_PATH` sites:
+  - **19 sites** proven to be pure leaf routines (`LEAF_UNTOUCHED_PR`) returning with PR unmodified.
+  - **24 sites** had valid prologues/epilogues severed by heuristic function boundaries (`FUNCTION_BOUNDARY_REFINED`).
+  - **38 sites** proven to belong to shared epilogues (`SHARED_EPILOGUE_PROVEN`) and retained fail-closed.
+- Discharged 43 sites, reducing PR path ambiguity to 44 residual sites (38 shared epilogues + 6 boundary edge cases).
+
+### 4. Residual RTS Threat Correlation & RTS V3
+- Re-audited caller threats against Partition V3:
+  - 103 apparent threats in T2-ASM-09 were located in confirmed code (76) or proven data (27).
+  - Under Rule #5, data cannot be caller edge sources because PR is loaded exclusively by call instructions.
+  - Proved 279 of 309 candidate functions completely free of UNKNOWN caller threats.
+  - Discharged 59 `UNRESOLVED_EXTERNAL_ENTRY` sites.
+- Certified **552 / 638 RTS sites as resolved (86.52%)**, reducing residual unresolved RTS from 182 down to **86** (-96 sites).
+- Baseline blocker breakdown:
+  - `UNRESOLVED_EXTERNAL_ENTRY`: 81 -> 22 (-59 sites)
+  - `UNRESOLVED_PR_PATH`: 81 -> 44 (-37 sites)
+  - `UNRESOLVED_CALLER_DOMAIN`: 20 -> 20 (retained fail-closed)
+- Overall canonical indirect resolution reached **2,140 / 2,226 (96.14%)** (1,588 / 1,588 call/jump [100.0%], 552 / 638 RTS [86.52%]).
+
+### 5. Rebuilt Disc, Dynamic Gameplay & Closed-World Theorem V2
+- Full disc reconstructed from reassembled modules matches canonical disc SHA-256 (`fe11d2fbda58d63300ef2265c555ce05bddf14d69fb7b73fc409e25c0ef6c0a8`) bit-for-bit.
+- Dynamically discovered 6 Mednafen gameplay scenarios executed with 0 divergence and 0 cycle drift.
+- Closed-world theorem over confirmed code: **PROVEN (True)**.
+- Closed-world theorem over all potentially executable SH-2 bytes: **NOT_PROVEN_FAIL_CLOSED (False)**, held open by 498,392 residual UNKNOWN bytes.
+- `FULL_ASM_GAME_GATE`: honestly maintained as **`NOT_YET_REPROVEN`**.
+- Repository negative controls: **66 / 66 PASS** (including 8 new P9 controls NC-AY .. NC-BF in `tests/asm/negative_controls_p9.py`).
+
 ## Record template
 
 For each new finding record:

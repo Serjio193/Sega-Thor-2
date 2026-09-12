@@ -1,0 +1,2382 @@
+{
+  "total_records": 182,
+  "records": [
+    {
+      "site_id": "0TH2.BIN_0x06004072",
+      "runtime_pc": "0x06004072",
+      "function_entry_pc": "0x0600406C",
+      "module": "0TH2.BIN",
+      "baseline_blocker_class": "UNRESOLVED_EXTERNAL_ENTRY",
+      "pr_path_status": "PR_PATH_COMPLETE",
+      "is_pr_path_resolved": true,
+      "caller_domain_complete": false,
+      "true_unknown_threat_count": 0,
+      "true_unknown_threats": []
+    },
+    {
+      "site_id": "0TH2.BIN_0x0600444A",
+      "runtime_pc": "0x0600444A",
+      "function_entry_pc": "0x0600442E",
+      "module": "0TH2.BIN",
+      "baseline_blocker_class": "UNRESOLVED_EXTERNAL_ENTRY",
+      "pr_path_status": "PR_PATH_COMPLETE",
+      "is_pr_path_resolved": true,
+      "caller_domain_complete": false,
+      "true_unknown_threat_count": 0,
+      "true_unknown_threats": []
+    },
+    {
+      "site_id": "0TH2.BIN_0x0600445A",
+      "runtime_pc": "0x0600445A",
+      "function_entry_pc": "0x0600444E",
+      "module": "0TH2.BIN",
+      "baseline_blocker_class": "UNRESOLVED_EXTERNAL_ENTRY",
+      "pr_path_status": "PR_PATH_COMPLETE",
+      "is_pr_path_resolved": true,
+      "caller_domain_complete": false,
+      "true_unknown_threat_count": 0,
+      "true_unknown_threats": []
+    },
+    {
+      "site_id": "0TH2.BIN_0x0600467E",
+      "runtime_pc": "0x0600467E",
+      "function_entry_pc": "0x060045E8",
+      "module": "0TH2.BIN",
+      "baseline_blocker_class": "UNRESOLVED_PR_PATH",
+      "pr_path_status": "PR_PATH_COMPLETE",
+      "is_pr_path_resolved": true,
+      "caller_domain_complete": true,
+      "true_unknown_threat_count": 0,
+      "true_unknown_threats": []
+    },
+    {
+      "site_id": "0TH2.BIN_0x06004AAA",
+      "runtime_pc": "0x06004AAA",
+      "function_entry_pc": "0x060049B8",
+      "module": "0TH2.BIN",
+      "baseline_blocker_class": "UNRESOLVED_EXTERNAL_ENTRY",
+      "pr_path_status": "PR_PATH_COMPLETE",
+      "is_pr_path_resolved": true,
+      "caller_domain_complete": false,
+      "true_unknown_threat_count": 0,
+      "true_unknown_threats": []
+    },
+    {
+      "site_id": "0TH2.BIN_0x06004E76",
+      "runtime_pc": "0x06004E76",
+      "function_entry_pc": "0x06004E34",
+      "module": "0TH2.BIN",
+      "baseline_blocker_class": "UNRESOLVED_CALLER_DOMAIN",
+      "pr_path_status": "PR_PATH_COMPLETE",
+      "is_pr_path_resolved": true,
+      "caller_domain_complete": false,
+      "true_unknown_threat_count": 0,
+      "true_unknown_threats": []
+    },
+    {
+      "site_id": "0TH2.BIN_0x06004F32",
+      "runtime_pc": "0x06004F32",
+      "function_entry_pc": "0x06004F00",
+      "module": "0TH2.BIN",
+      "baseline_blocker_class": "UNRESOLVED_EXTERNAL_ENTRY",
+      "pr_path_status": "PR_PATH_COMPLETE",
+      "is_pr_path_resolved": true,
+      "caller_domain_complete": false,
+      "true_unknown_threat_count": 0,
+      "true_unknown_threats": []
+    },
+    {
+      "site_id": "0TH2.BIN_0x06006372",
+      "runtime_pc": "0x06006372",
+      "function_entry_pc": "0x06005CB6",
+      "module": "0TH2.BIN",
+      "baseline_blocker_class": "UNRESOLVED_EXTERNAL_ENTRY",
+      "pr_path_status": "PR_PATH_COMPLETE",
+      "is_pr_path_resolved": true,
+      "caller_domain_complete": false,
+      "true_unknown_threat_count": 0,
+      "true_unknown_threats": []
+    },
+    {
+      "site_id": "0TH2.BIN_0x06007006",
+      "runtime_pc": "0x06007006",
+      "function_entry_pc": "0x06006F60",
+      "module": "0TH2.BIN",
+      "baseline_blocker_class": "UNRESOLVED_EXTERNAL_ENTRY",
+      "pr_path_status": "PR_PATH_COMPLETE",
+      "is_pr_path_resolved": true,
+      "caller_domain_complete": false,
+      "true_unknown_threat_count": 0,
+      "true_unknown_threats": []
+    },
+    {
+      "site_id": "0TH2.BIN_0x060070E6",
+      "runtime_pc": "0x060070E6",
+      "function_entry_pc": "0x06007030",
+      "module": "0TH2.BIN",
+      "baseline_blocker_class": "UNRESOLVED_EXTERNAL_ENTRY",
+      "pr_path_status": "PR_PATH_COMPLETE",
+      "is_pr_path_resolved": true,
+      "caller_domain_complete": false,
+      "true_unknown_threat_count": 0,
+      "true_unknown_threats": []
+    },
+    {
+      "site_id": "0TH2.BIN_0x06007AB0",
+      "runtime_pc": "0x06007AB0",
+      "function_entry_pc": "0x060078F4",
+      "module": "0TH2.BIN",
+      "baseline_blocker_class": "UNRESOLVED_EXTERNAL_ENTRY",
+      "pr_path_status": "PR_PATH_COMPLETE",
+      "is_pr_path_resolved": true,
+      "caller_domain_complete": false,
+      "true_unknown_threat_count": 0,
+      "true_unknown_threats": []
+    },
+    {
+      "site_id": "0TH2.BIN_0x06007BEC",
+      "runtime_pc": "0x06007BEC",
+      "function_entry_pc": "0x06007B9E",
+      "module": "0TH2.BIN",
+      "baseline_blocker_class": "UNRESOLVED_PR_PATH",
+      "pr_path_status": "SHARED_EPILOGUE_PROVEN",
+      "is_pr_path_resolved": false,
+      "caller_domain_complete": true,
+      "true_unknown_threat_count": 0,
+      "true_unknown_threats": []
+    },
+    {
+      "site_id": "0TH2.BIN_0x06008224",
+      "runtime_pc": "0x06008224",
+      "function_entry_pc": "0x0600812E",
+      "module": "0TH2.BIN",
+      "baseline_blocker_class": "UNRESOLVED_PR_PATH",
+      "pr_path_status": "SHARED_EPILOGUE_PROVEN",
+      "is_pr_path_resolved": false,
+      "caller_domain_complete": true,
+      "true_unknown_threat_count": 0,
+      "true_unknown_threats": []
+    },
+    {
+      "site_id": "0TH2.BIN_0x060094BA",
+      "runtime_pc": "0x060094BA",
+      "function_entry_pc": "0x060091A6",
+      "module": "0TH2.BIN",
+      "baseline_blocker_class": "UNRESOLVED_PR_PATH",
+      "pr_path_status": "SHARED_EPILOGUE_PROVEN",
+      "is_pr_path_resolved": false,
+      "caller_domain_complete": true,
+      "true_unknown_threat_count": 0,
+      "true_unknown_threats": []
+    },
+    {
+      "site_id": "0TH2.BIN_0x060099DA",
+      "runtime_pc": "0x060099DA",
+      "function_entry_pc": "0x06009992",
+      "module": "0TH2.BIN",
+      "baseline_blocker_class": "UNRESOLVED_PR_PATH",
+      "pr_path_status": "SHARED_EPILOGUE_PROVEN",
+      "is_pr_path_resolved": false,
+      "caller_domain_complete": true,
+      "true_unknown_threat_count": 0,
+      "true_unknown_threats": []
+    },
+    {
+      "site_id": "0TH2.BIN_0x06009D52",
+      "runtime_pc": "0x06009D52",
+      "function_entry_pc": "0x06009D4E",
+      "module": "0TH2.BIN",
+      "baseline_blocker_class": "UNRESOLVED_PR_PATH",
+      "pr_path_status": "PR_PATH_COMPLETE",
+      "is_pr_path_resolved": true,
+      "caller_domain_complete": true,
+      "true_unknown_threat_count": 0,
+      "true_unknown_threats": []
+    },
+    {
+      "site_id": "0TH2.BIN_0x06009ECA",
+      "runtime_pc": "0x06009ECA",
+      "function_entry_pc": "0x06009D7E",
+      "module": "0TH2.BIN",
+      "baseline_blocker_class": "UNRESOLVED_PR_PATH",
+      "pr_path_status": "SHARED_EPILOGUE_PROVEN",
+      "is_pr_path_resolved": false,
+      "caller_domain_complete": true,
+      "true_unknown_threat_count": 0,
+      "true_unknown_threats": []
+    },
+    {
+      "site_id": "0TH2.BIN_0x0600A0C4",
+      "runtime_pc": "0x0600A0C4",
+      "function_entry_pc": "0x0600A0B2",
+      "module": "0TH2.BIN",
+      "baseline_blocker_class": "UNRESOLVED_PR_PATH",
+      "pr_path_status": "PR_PATH_COMPLETE",
+      "is_pr_path_resolved": true,
+      "caller_domain_complete": true,
+      "true_unknown_threat_count": 0,
+      "true_unknown_threats": []
+    },
+    {
+      "site_id": "0TH2.BIN_0x0600A12C",
+      "runtime_pc": "0x0600A12C",
+      "function_entry_pc": "0x0600A0F8",
+      "module": "0TH2.BIN",
+      "baseline_blocker_class": "UNRESOLVED_CALLER_DOMAIN",
+      "pr_path_status": "PR_PATH_COMPLETE",
+      "is_pr_path_resolved": true,
+      "caller_domain_complete": false,
+      "true_unknown_threat_count": 0,
+      "true_unknown_threats": []
+    },
+    {
+      "site_id": "0TH2.BIN_0x0600A1A8",
+      "runtime_pc": "0x0600A1A8",
+      "function_entry_pc": "0x0600A17C",
+      "module": "0TH2.BIN",
+      "baseline_blocker_class": "UNRESOLVED_EXTERNAL_ENTRY",
+      "pr_path_status": "PR_PATH_COMPLETE",
+      "is_pr_path_resolved": true,
+      "caller_domain_complete": false,
+      "true_unknown_threat_count": 0,
+      "true_unknown_threats": []
+    },
+    {
+      "site_id": "0TH2.BIN_0x0600A26A",
+      "runtime_pc": "0x0600A26A",
+      "function_entry_pc": "0x0600A252",
+      "module": "0TH2.BIN",
+      "baseline_blocker_class": "UNRESOLVED_PR_PATH",
+      "pr_path_status": "PR_PATH_COMPLETE",
+      "is_pr_path_resolved": true,
+      "caller_domain_complete": true,
+      "true_unknown_threat_count": 0,
+      "true_unknown_threats": []
+    },
+    {
+      "site_id": "0TH2.BIN_0x0600AE8E",
+      "runtime_pc": "0x0600AE8E",
+      "function_entry_pc": "0x0600AE3A",
+      "module": "0TH2.BIN",
+      "baseline_blocker_class": "UNRESOLVED_PR_PATH",
+      "pr_path_status": "SHARED_EPILOGUE_PROVEN",
+      "is_pr_path_resolved": false,
+      "caller_domain_complete": true,
+      "true_unknown_threat_count": 0,
+      "true_unknown_threats": []
+    },
+    {
+      "site_id": "0TH2.BIN_0x0600B080",
+      "runtime_pc": "0x0600B080",
+      "function_entry_pc": "0x0600AFE6",
+      "module": "0TH2.BIN",
+      "baseline_blocker_class": "UNRESOLVED_PR_PATH",
+      "pr_path_status": "SHARED_EPILOGUE_PROVEN",
+      "is_pr_path_resolved": false,
+      "caller_domain_complete": true,
+      "true_unknown_threat_count": 0,
+      "true_unknown_threats": []
+    },
+    {
+      "site_id": "0TH2.BIN_0x0600B222",
+      "runtime_pc": "0x0600B222",
+      "function_entry_pc": "0x0600B204",
+      "module": "0TH2.BIN",
+      "baseline_blocker_class": "UNRESOLVED_EXTERNAL_ENTRY",
+      "pr_path_status": "PR_PATH_COMPLETE",
+      "is_pr_path_resolved": true,
+      "caller_domain_complete": false,
+      "true_unknown_threat_count": 0,
+      "true_unknown_threats": []
+    },
+    {
+      "site_id": "0TH2.BIN_0x0600B498",
+      "runtime_pc": "0x0600B498",
+      "function_entry_pc": "0x0600B41E",
+      "module": "0TH2.BIN",
+      "baseline_blocker_class": "UNRESOLVED_PR_PATH",
+      "pr_path_status": "SHARED_EPILOGUE_PROVEN",
+      "is_pr_path_resolved": false,
+      "caller_domain_complete": true,
+      "true_unknown_threat_count": 0,
+      "true_unknown_threats": []
+    },
+    {
+      "site_id": "0TH2.BIN_0x0600B664",
+      "runtime_pc": "0x0600B664",
+      "function_entry_pc": "0x0600B65A",
+      "module": "0TH2.BIN",
+      "baseline_blocker_class": "UNRESOLVED_PR_PATH",
+      "pr_path_status": "SHARED_EPILOGUE_PROVEN",
+      "is_pr_path_resolved": false,
+      "caller_domain_complete": true,
+      "true_unknown_threat_count": 0,
+      "true_unknown_threats": []
+    },
+    {
+      "site_id": "0TH2.BIN_0x0600C11A",
+      "runtime_pc": "0x0600C11A",
+      "function_entry_pc": "0x0600BF76",
+      "module": "0TH2.BIN",
+      "baseline_blocker_class": "UNRESOLVED_PR_PATH",
+      "pr_path_status": "SHARED_EPILOGUE_PROVEN",
+      "is_pr_path_resolved": false,
+      "caller_domain_complete": false,
+      "true_unknown_threat_count": 0,
+      "true_unknown_threats": []
+    },
+    {
+      "site_id": "0TH2.BIN_0x0600DEFA",
+      "runtime_pc": "0x0600DEFA",
+      "function_entry_pc": "0x0600DEDC",
+      "module": "0TH2.BIN",
+      "baseline_blocker_class": "UNRESOLVED_EXTERNAL_ENTRY",
+      "pr_path_status": "PR_PATH_COMPLETE",
+      "is_pr_path_resolved": true,
+      "caller_domain_complete": false,
+      "true_unknown_threat_count": 0,
+      "true_unknown_threats": []
+    },
+    {
+      "site_id": "0TH2.BIN_0x0600E198",
+      "runtime_pc": "0x0600E198",
+      "function_entry_pc": "0x0600E158",
+      "module": "0TH2.BIN",
+      "baseline_blocker_class": "UNRESOLVED_EXTERNAL_ENTRY",
+      "pr_path_status": "PR_PATH_COMPLETE",
+      "is_pr_path_resolved": true,
+      "caller_domain_complete": false,
+      "true_unknown_threat_count": 0,
+      "true_unknown_threats": []
+    },
+    {
+      "site_id": "0TH2.BIN_0x0600E1E0",
+      "runtime_pc": "0x0600E1E0",
+      "function_entry_pc": "0x0600E158",
+      "module": "0TH2.BIN",
+      "baseline_blocker_class": "UNRESOLVED_EXTERNAL_ENTRY",
+      "pr_path_status": "PR_PATH_COMPLETE",
+      "is_pr_path_resolved": true,
+      "caller_domain_complete": false,
+      "true_unknown_threat_count": 0,
+      "true_unknown_threats": []
+    },
+    {
+      "site_id": "0TH2.BIN_0x0600E280",
+      "runtime_pc": "0x0600E280",
+      "function_entry_pc": "0x0600E1F8",
+      "module": "0TH2.BIN",
+      "baseline_blocker_class": "UNRESOLVED_PR_PATH",
+      "pr_path_status": "PR_PATH_COMPLETE",
+      "is_pr_path_resolved": true,
+      "caller_domain_complete": true,
+      "true_unknown_threat_count": 0,
+      "true_unknown_threats": []
+    },
+    {
+      "site_id": "0TH2.BIN_0x0600F728",
+      "runtime_pc": "0x0600F728",
+      "function_entry_pc": "0x0600EE24",
+      "module": "0TH2.BIN",
+      "baseline_blocker_class": "UNRESOLVED_PR_PATH",
+      "pr_path_status": "PR_PATH_COMPLETE",
+      "is_pr_path_resolved": true,
+      "caller_domain_complete": true,
+      "true_unknown_threat_count": 0,
+      "true_unknown_threats": []
+    },
+    {
+      "site_id": "0TH2.BIN_0x0600F730",
+      "runtime_pc": "0x0600F730",
+      "function_entry_pc": "0x0600EE24",
+      "module": "0TH2.BIN",
+      "baseline_blocker_class": "UNRESOLVED_PR_PATH",
+      "pr_path_status": "PR_PATH_COMPLETE",
+      "is_pr_path_resolved": true,
+      "caller_domain_complete": true,
+      "true_unknown_threat_count": 0,
+      "true_unknown_threats": []
+    },
+    {
+      "site_id": "0TH2.BIN_0x0600F73A",
+      "runtime_pc": "0x0600F73A",
+      "function_entry_pc": "0x0600EE24",
+      "module": "0TH2.BIN",
+      "baseline_blocker_class": "UNRESOLVED_PR_PATH",
+      "pr_path_status": "PR_PATH_COMPLETE",
+      "is_pr_path_resolved": true,
+      "caller_domain_complete": true,
+      "true_unknown_threat_count": 0,
+      "true_unknown_threats": []
+    },
+    {
+      "site_id": "0TH2.BIN_0x0601005A",
+      "runtime_pc": "0x0601005A",
+      "function_entry_pc": "0x0600FEDE",
+      "module": "0TH2.BIN",
+      "baseline_blocker_class": "UNRESOLVED_PR_PATH",
+      "pr_path_status": "PR_PATH_COMPLETE",
+      "is_pr_path_resolved": true,
+      "caller_domain_complete": true,
+      "true_unknown_threat_count": 0,
+      "true_unknown_threats": []
+    },
+    {
+      "site_id": "0TH2.BIN_0x060100E2",
+      "runtime_pc": "0x060100E2",
+      "function_entry_pc": "0x06010094",
+      "module": "0TH2.BIN",
+      "baseline_blocker_class": "UNRESOLVED_EXTERNAL_ENTRY",
+      "pr_path_status": "PR_PATH_COMPLETE",
+      "is_pr_path_resolved": true,
+      "caller_domain_complete": false,
+      "true_unknown_threat_count": 2,
+      "true_unknown_threats": [
+        {
+          "pc": "0x0600FA24",
+          "module": "0TH2.BIN",
+          "type": "UNKNOWN_BSR"
+        },
+        {
+          "pc": "0x06010578",
+          "module": "0TH2.BIN",
+          "type": "UNKNOWN_BSR"
+        }
+      ]
+    },
+    {
+      "site_id": "0TH2.BIN_0x060100EA",
+      "runtime_pc": "0x060100EA",
+      "function_entry_pc": "0x06010094",
+      "module": "0TH2.BIN",
+      "baseline_blocker_class": "UNRESOLVED_EXTERNAL_ENTRY",
+      "pr_path_status": "PR_PATH_COMPLETE",
+      "is_pr_path_resolved": true,
+      "caller_domain_complete": false,
+      "true_unknown_threat_count": 2,
+      "true_unknown_threats": [
+        {
+          "pc": "0x0600FA24",
+          "module": "0TH2.BIN",
+          "type": "UNKNOWN_BSR"
+        },
+        {
+          "pc": "0x06010578",
+          "module": "0TH2.BIN",
+          "type": "UNKNOWN_BSR"
+        }
+      ]
+    },
+    {
+      "site_id": "0TH2.BIN_0x060101D8",
+      "runtime_pc": "0x060101D8",
+      "function_entry_pc": "0x060100FA",
+      "module": "0TH2.BIN",
+      "baseline_blocker_class": "UNRESOLVED_PR_PATH",
+      "pr_path_status": "SHARED_EPILOGUE_PROVEN",
+      "is_pr_path_resolved": false,
+      "caller_domain_complete": true,
+      "true_unknown_threat_count": 0,
+      "true_unknown_threats": []
+    },
+    {
+      "site_id": "0TH2.BIN_0x06010228",
+      "runtime_pc": "0x06010228",
+      "function_entry_pc": "0x06010222",
+      "module": "0TH2.BIN",
+      "baseline_blocker_class": "UNRESOLVED_PR_PATH",
+      "pr_path_status": "PR_PATH_COMPLETE",
+      "is_pr_path_resolved": true,
+      "caller_domain_complete": true,
+      "true_unknown_threat_count": 0,
+      "true_unknown_threats": []
+    },
+    {
+      "site_id": "0TH2.BIN_0x060103BE",
+      "runtime_pc": "0x060103BE",
+      "function_entry_pc": "0x06010386",
+      "module": "0TH2.BIN",
+      "baseline_blocker_class": "UNRESOLVED_PR_PATH",
+      "pr_path_status": "PR_PATH_COMPLETE",
+      "is_pr_path_resolved": true,
+      "caller_domain_complete": true,
+      "true_unknown_threat_count": 0,
+      "true_unknown_threats": []
+    },
+    {
+      "site_id": "0TH2.BIN_0x06010540",
+      "runtime_pc": "0x06010540",
+      "function_entry_pc": "0x06010496",
+      "module": "0TH2.BIN",
+      "baseline_blocker_class": "UNRESOLVED_PR_PATH",
+      "pr_path_status": "PR_PATH_COMPLETE",
+      "is_pr_path_resolved": true,
+      "caller_domain_complete": true,
+      "true_unknown_threat_count": 0,
+      "true_unknown_threats": []
+    },
+    {
+      "site_id": "0TH2.BIN_0x060106A0",
+      "runtime_pc": "0x060106A0",
+      "function_entry_pc": "0x06010662",
+      "module": "0TH2.BIN",
+      "baseline_blocker_class": "UNRESOLVED_PR_PATH",
+      "pr_path_status": "PR_PATH_COMPLETE",
+      "is_pr_path_resolved": true,
+      "caller_domain_complete": true,
+      "true_unknown_threat_count": 0,
+      "true_unknown_threats": []
+    },
+    {
+      "site_id": "0TH2.BIN_0x0601076A",
+      "runtime_pc": "0x0601076A",
+      "function_entry_pc": "0x06010756",
+      "module": "0TH2.BIN",
+      "baseline_blocker_class": "UNRESOLVED_PR_PATH",
+      "pr_path_status": "PR_PATH_COMPLETE",
+      "is_pr_path_resolved": true,
+      "caller_domain_complete": true,
+      "true_unknown_threat_count": 0,
+      "true_unknown_threats": []
+    },
+    {
+      "site_id": "0TH2.BIN_0x0601097C",
+      "runtime_pc": "0x0601097C",
+      "function_entry_pc": "0x06010862",
+      "module": "0TH2.BIN",
+      "baseline_blocker_class": "UNRESOLVED_PR_PATH",
+      "pr_path_status": "PR_PATH_COMPLETE",
+      "is_pr_path_resolved": true,
+      "caller_domain_complete": true,
+      "true_unknown_threat_count": 0,
+      "true_unknown_threats": []
+    },
+    {
+      "site_id": "0TH2.BIN_0x06010BEC",
+      "runtime_pc": "0x06010BEC",
+      "function_entry_pc": "0x06010BC2",
+      "module": "0TH2.BIN",
+      "baseline_blocker_class": "UNRESOLVED_EXTERNAL_ENTRY",
+      "pr_path_status": "PR_PATH_COMPLETE",
+      "is_pr_path_resolved": true,
+      "caller_domain_complete": false,
+      "true_unknown_threat_count": 1,
+      "true_unknown_threats": [
+        {
+          "pc": "0x06010CCC",
+          "module": "0TH2.BIN",
+          "type": "UNKNOWN_BSR"
+        }
+      ]
+    },
+    {
+      "site_id": "0TH2.BIN_0x06010C04",
+      "runtime_pc": "0x06010C04",
+      "function_entry_pc": "0x06010BC2",
+      "module": "0TH2.BIN",
+      "baseline_blocker_class": "UNRESOLVED_EXTERNAL_ENTRY",
+      "pr_path_status": "PR_PATH_COMPLETE",
+      "is_pr_path_resolved": true,
+      "caller_domain_complete": false,
+      "true_unknown_threat_count": 1,
+      "true_unknown_threats": [
+        {
+          "pc": "0x06010CCC",
+          "module": "0TH2.BIN",
+          "type": "UNKNOWN_BSR"
+        }
+      ]
+    },
+    {
+      "site_id": "0TH2.BIN_0x06010DC6",
+      "runtime_pc": "0x06010DC6",
+      "function_entry_pc": "0x06010BC2",
+      "module": "0TH2.BIN",
+      "baseline_blocker_class": "UNRESOLVED_EXTERNAL_ENTRY",
+      "pr_path_status": "PR_PATH_COMPLETE",
+      "is_pr_path_resolved": true,
+      "caller_domain_complete": false,
+      "true_unknown_threat_count": 1,
+      "true_unknown_threats": [
+        {
+          "pc": "0x06010CCC",
+          "module": "0TH2.BIN",
+          "type": "UNKNOWN_BSR"
+        }
+      ]
+    },
+    {
+      "site_id": "0TH2.BIN_0x06010E96",
+      "runtime_pc": "0x06010E96",
+      "function_entry_pc": "0x06010BC2",
+      "module": "0TH2.BIN",
+      "baseline_blocker_class": "UNRESOLVED_EXTERNAL_ENTRY",
+      "pr_path_status": "PR_PATH_COMPLETE",
+      "is_pr_path_resolved": true,
+      "caller_domain_complete": false,
+      "true_unknown_threat_count": 1,
+      "true_unknown_threats": [
+        {
+          "pc": "0x06010CCC",
+          "module": "0TH2.BIN",
+          "type": "UNKNOWN_BSR"
+        }
+      ]
+    },
+    {
+      "site_id": "0TH2.BIN_0x06010EBE",
+      "runtime_pc": "0x06010EBE",
+      "function_entry_pc": "0x06010BC2",
+      "module": "0TH2.BIN",
+      "baseline_blocker_class": "UNRESOLVED_EXTERNAL_ENTRY",
+      "pr_path_status": "PR_PATH_COMPLETE",
+      "is_pr_path_resolved": true,
+      "caller_domain_complete": false,
+      "true_unknown_threat_count": 1,
+      "true_unknown_threats": [
+        {
+          "pc": "0x06010CCC",
+          "module": "0TH2.BIN",
+          "type": "UNKNOWN_BSR"
+        }
+      ]
+    },
+    {
+      "site_id": "0TH2.BIN_0x0601132C",
+      "runtime_pc": "0x0601132C",
+      "function_entry_pc": "0x06010F8E",
+      "module": "0TH2.BIN",
+      "baseline_blocker_class": "UNRESOLVED_PR_PATH",
+      "pr_path_status": "SHARED_EPILOGUE_PROVEN",
+      "is_pr_path_resolved": false,
+      "caller_domain_complete": true,
+      "true_unknown_threat_count": 0,
+      "true_unknown_threats": []
+    },
+    {
+      "site_id": "0TH2.BIN_0x06011998",
+      "runtime_pc": "0x06011998",
+      "function_entry_pc": "0x0601187A",
+      "module": "0TH2.BIN",
+      "baseline_blocker_class": "UNRESOLVED_PR_PATH",
+      "pr_path_status": "SHARED_EPILOGUE_PROVEN",
+      "is_pr_path_resolved": false,
+      "caller_domain_complete": true,
+      "true_unknown_threat_count": 0,
+      "true_unknown_threats": []
+    },
+    {
+      "site_id": "0TH2.BIN_0x06011B62",
+      "runtime_pc": "0x06011B62",
+      "function_entry_pc": "0x06011AAE",
+      "module": "0TH2.BIN",
+      "baseline_blocker_class": "UNRESOLVED_PR_PATH",
+      "pr_path_status": "PR_PATH_COMPLETE",
+      "is_pr_path_resolved": true,
+      "caller_domain_complete": true,
+      "true_unknown_threat_count": 0,
+      "true_unknown_threats": []
+    },
+    {
+      "site_id": "0TH2.BIN_0x060120B4",
+      "runtime_pc": "0x060120B4",
+      "function_entry_pc": "0x060120A2",
+      "module": "0TH2.BIN",
+      "baseline_blocker_class": "UNRESOLVED_PR_PATH",
+      "pr_path_status": "SHARED_EPILOGUE_PROVEN",
+      "is_pr_path_resolved": false,
+      "caller_domain_complete": true,
+      "true_unknown_threat_count": 0,
+      "true_unknown_threats": []
+    },
+    {
+      "site_id": "0TH2.BIN_0x06012662",
+      "runtime_pc": "0x06012662",
+      "function_entry_pc": "0x0601221A",
+      "module": "0TH2.BIN",
+      "baseline_blocker_class": "UNRESOLVED_PR_PATH",
+      "pr_path_status": "PR_PATH_COMPLETE",
+      "is_pr_path_resolved": true,
+      "caller_domain_complete": true,
+      "true_unknown_threat_count": 0,
+      "true_unknown_threats": []
+    },
+    {
+      "site_id": "0TH2.BIN_0x06012684",
+      "runtime_pc": "0x06012684",
+      "function_entry_pc": "0x06012682",
+      "module": "0TH2.BIN",
+      "baseline_blocker_class": "UNRESOLVED_PR_PATH",
+      "pr_path_status": "PR_PATH_COMPLETE",
+      "is_pr_path_resolved": true,
+      "caller_domain_complete": true,
+      "true_unknown_threat_count": 0,
+      "true_unknown_threats": []
+    },
+    {
+      "site_id": "0TH2.BIN_0x0601278E",
+      "runtime_pc": "0x0601278E",
+      "function_entry_pc": "0x0601276E",
+      "module": "0TH2.BIN",
+      "baseline_blocker_class": "UNRESOLVED_PR_PATH",
+      "pr_path_status": "SHARED_EPILOGUE_PROVEN",
+      "is_pr_path_resolved": false,
+      "caller_domain_complete": true,
+      "true_unknown_threat_count": 0,
+      "true_unknown_threats": []
+    },
+    {
+      "site_id": "0TH2.BIN_0x0601279C",
+      "runtime_pc": "0x0601279C",
+      "function_entry_pc": "0x0601276E",
+      "module": "0TH2.BIN",
+      "baseline_blocker_class": "UNRESOLVED_PR_PATH",
+      "pr_path_status": "PR_PATH_COMPLETE",
+      "is_pr_path_resolved": true,
+      "caller_domain_complete": true,
+      "true_unknown_threat_count": 0,
+      "true_unknown_threats": []
+    },
+    {
+      "site_id": "0TH2.BIN_0x060129D4",
+      "runtime_pc": "0x060129D4",
+      "function_entry_pc": "0x0601292E",
+      "module": "0TH2.BIN",
+      "baseline_blocker_class": "UNRESOLVED_PR_PATH",
+      "pr_path_status": "PR_PATH_COMPLETE",
+      "is_pr_path_resolved": true,
+      "caller_domain_complete": true,
+      "true_unknown_threat_count": 0,
+      "true_unknown_threats": []
+    },
+    {
+      "site_id": "0TH2.BIN_0x06013242",
+      "runtime_pc": "0x06013242",
+      "function_entry_pc": "0x0601320E",
+      "module": "0TH2.BIN",
+      "baseline_blocker_class": "UNRESOLVED_PR_PATH",
+      "pr_path_status": "SHARED_EPILOGUE_PROVEN",
+      "is_pr_path_resolved": false,
+      "caller_domain_complete": true,
+      "true_unknown_threat_count": 0,
+      "true_unknown_threats": []
+    },
+    {
+      "site_id": "0TH2.BIN_0x060137C2",
+      "runtime_pc": "0x060137C2",
+      "function_entry_pc": "0x060136A6",
+      "module": "0TH2.BIN",
+      "baseline_blocker_class": "UNRESOLVED_PR_PATH",
+      "pr_path_status": "SHARED_EPILOGUE_PROVEN",
+      "is_pr_path_resolved": false,
+      "caller_domain_complete": true,
+      "true_unknown_threat_count": 0,
+      "true_unknown_threats": []
+    },
+    {
+      "site_id": "0TH2.BIN_0x06014744",
+      "runtime_pc": "0x06014744",
+      "function_entry_pc": "0x060146A0",
+      "module": "0TH2.BIN",
+      "baseline_blocker_class": "UNRESOLVED_CALLER_DOMAIN",
+      "pr_path_status": "PR_PATH_COMPLETE",
+      "is_pr_path_resolved": true,
+      "caller_domain_complete": false,
+      "true_unknown_threat_count": 0,
+      "true_unknown_threats": []
+    },
+    {
+      "site_id": "0TH2.BIN_0x06014C2C",
+      "runtime_pc": "0x06014C2C",
+      "function_entry_pc": "0x06014BDC",
+      "module": "0TH2.BIN",
+      "baseline_blocker_class": "UNRESOLVED_EXTERNAL_ENTRY",
+      "pr_path_status": "PR_PATH_COMPLETE",
+      "is_pr_path_resolved": true,
+      "caller_domain_complete": false,
+      "true_unknown_threat_count": 0,
+      "true_unknown_threats": []
+    },
+    {
+      "site_id": "0TH2.BIN_0x06014C9A",
+      "runtime_pc": "0x06014C9A",
+      "function_entry_pc": "0x06014BDC",
+      "module": "0TH2.BIN",
+      "baseline_blocker_class": "UNRESOLVED_EXTERNAL_ENTRY",
+      "pr_path_status": "PR_PATH_COMPLETE",
+      "is_pr_path_resolved": true,
+      "caller_domain_complete": false,
+      "true_unknown_threat_count": 0,
+      "true_unknown_threats": []
+    },
+    {
+      "site_id": "0TH2.BIN_0x06014D04",
+      "runtime_pc": "0x06014D04",
+      "function_entry_pc": "0x06014CA2",
+      "module": "0TH2.BIN",
+      "baseline_blocker_class": "UNRESOLVED_EXTERNAL_ENTRY",
+      "pr_path_status": "PR_PATH_COMPLETE",
+      "is_pr_path_resolved": true,
+      "caller_domain_complete": false,
+      "true_unknown_threat_count": 0,
+      "true_unknown_threats": []
+    },
+    {
+      "site_id": "0TH2.BIN_0x06015222",
+      "runtime_pc": "0x06015222",
+      "function_entry_pc": "0x06015142",
+      "module": "0TH2.BIN",
+      "baseline_blocker_class": "UNRESOLVED_PR_PATH",
+      "pr_path_status": "SHARED_EPILOGUE_PROVEN",
+      "is_pr_path_resolved": false,
+      "caller_domain_complete": true,
+      "true_unknown_threat_count": 0,
+      "true_unknown_threats": []
+    },
+    {
+      "site_id": "0TH2.BIN_0x0601602A",
+      "runtime_pc": "0x0601602A",
+      "function_entry_pc": "0x060156C2",
+      "module": "0TH2.BIN",
+      "baseline_blocker_class": "UNRESOLVED_PR_PATH",
+      "pr_path_status": "SHARED_EPILOGUE_PROVEN",
+      "is_pr_path_resolved": false,
+      "caller_domain_complete": true,
+      "true_unknown_threat_count": 0,
+      "true_unknown_threats": []
+    },
+    {
+      "site_id": "0TH2.BIN_0x06016182",
+      "runtime_pc": "0x06016182",
+      "function_entry_pc": "0x0601604E",
+      "module": "0TH2.BIN",
+      "baseline_blocker_class": "UNRESOLVED_PR_PATH",
+      "pr_path_status": "PR_PATH_COMPLETE",
+      "is_pr_path_resolved": true,
+      "caller_domain_complete": true,
+      "true_unknown_threat_count": 0,
+      "true_unknown_threats": []
+    },
+    {
+      "site_id": "0TH2.BIN_0x06016A4E",
+      "runtime_pc": "0x06016A4E",
+      "function_entry_pc": "0x060169AE",
+      "module": "0TH2.BIN",
+      "baseline_blocker_class": "UNRESOLVED_PR_PATH",
+      "pr_path_status": "PR_PATH_COMPLETE",
+      "is_pr_path_resolved": true,
+      "caller_domain_complete": true,
+      "true_unknown_threat_count": 0,
+      "true_unknown_threats": []
+    },
+    {
+      "site_id": "0TH2.BIN_0x0601717C",
+      "runtime_pc": "0x0601717C",
+      "function_entry_pc": "0x0601715E",
+      "module": "0TH2.BIN",
+      "baseline_blocker_class": "UNRESOLVED_EXTERNAL_ENTRY",
+      "pr_path_status": "PR_PATH_COMPLETE",
+      "is_pr_path_resolved": true,
+      "caller_domain_complete": false,
+      "true_unknown_threat_count": 1,
+      "true_unknown_threats": [
+        {
+          "pc": "0x06016E12",
+          "module": "0TH2.BIN",
+          "type": "UNKNOWN_BSR"
+        }
+      ]
+    },
+    {
+      "site_id": "0TH2.BIN_0x060171B0",
+      "runtime_pc": "0x060171B0",
+      "function_entry_pc": "0x0601715E",
+      "module": "0TH2.BIN",
+      "baseline_blocker_class": "UNRESOLVED_EXTERNAL_ENTRY",
+      "pr_path_status": "PR_PATH_COMPLETE",
+      "is_pr_path_resolved": true,
+      "caller_domain_complete": false,
+      "true_unknown_threat_count": 1,
+      "true_unknown_threats": [
+        {
+          "pc": "0x06016E12",
+          "module": "0TH2.BIN",
+          "type": "UNKNOWN_BSR"
+        }
+      ]
+    },
+    {
+      "site_id": "0TH2.BIN_0x06017434",
+      "runtime_pc": "0x06017434",
+      "function_entry_pc": "0x060171B4",
+      "module": "0TH2.BIN",
+      "baseline_blocker_class": "UNRESOLVED_EXTERNAL_ENTRY",
+      "pr_path_status": "PR_PATH_COMPLETE",
+      "is_pr_path_resolved": true,
+      "caller_domain_complete": false,
+      "true_unknown_threat_count": 0,
+      "true_unknown_threats": []
+    },
+    {
+      "site_id": "0TH2.BIN_0x060176DA",
+      "runtime_pc": "0x060176DA",
+      "function_entry_pc": "0x0601765A",
+      "module": "0TH2.BIN",
+      "baseline_blocker_class": "UNRESOLVED_PR_PATH",
+      "pr_path_status": "SHARED_EPILOGUE_PROVEN",
+      "is_pr_path_resolved": false,
+      "caller_domain_complete": true,
+      "true_unknown_threat_count": 0,
+      "true_unknown_threats": []
+    },
+    {
+      "site_id": "0TH2.BIN_0x06017A80",
+      "runtime_pc": "0x06017A80",
+      "function_entry_pc": "0x060179A6",
+      "module": "0TH2.BIN",
+      "baseline_blocker_class": "UNRESOLVED_PR_PATH",
+      "pr_path_status": "SHARED_EPILOGUE_PROVEN",
+      "is_pr_path_resolved": false,
+      "caller_domain_complete": true,
+      "true_unknown_threat_count": 0,
+      "true_unknown_threats": []
+    },
+    {
+      "site_id": "0TH2.BIN_0x06018154",
+      "runtime_pc": "0x06018154",
+      "function_entry_pc": "0x0601813A",
+      "module": "0TH2.BIN",
+      "baseline_blocker_class": "UNRESOLVED_EXTERNAL_ENTRY",
+      "pr_path_status": "PR_PATH_COMPLETE",
+      "is_pr_path_resolved": true,
+      "caller_domain_complete": false,
+      "true_unknown_threat_count": 0,
+      "true_unknown_threats": []
+    },
+    {
+      "site_id": "0TH2.BIN_0x0602F5CC",
+      "runtime_pc": "0x0602F5CC",
+      "function_entry_pc": "0x0602F312",
+      "module": "0TH2.BIN",
+      "baseline_blocker_class": "UNRESOLVED_PR_PATH",
+      "pr_path_status": "PR_PATH_COMPLETE",
+      "is_pr_path_resolved": true,
+      "caller_domain_complete": true,
+      "true_unknown_threat_count": 0,
+      "true_unknown_threats": []
+    },
+    {
+      "site_id": "0TH2.BIN_0x06039B80",
+      "runtime_pc": "0x06039B80",
+      "function_entry_pc": "0x06039B22",
+      "module": "0TH2.BIN",
+      "baseline_blocker_class": "UNRESOLVED_PR_PATH",
+      "pr_path_status": "SHARED_EPILOGUE_PROVEN",
+      "is_pr_path_resolved": false,
+      "caller_domain_complete": true,
+      "true_unknown_threat_count": 0,
+      "true_unknown_threats": []
+    },
+    {
+      "site_id": "0TH2.BIN_0x06039C66",
+      "runtime_pc": "0x06039C66",
+      "function_entry_pc": "0x06039C2A",
+      "module": "0TH2.BIN",
+      "baseline_blocker_class": "UNRESOLVED_PR_PATH",
+      "pr_path_status": "SHARED_EPILOGUE_PROVEN",
+      "is_pr_path_resolved": false,
+      "caller_domain_complete": true,
+      "true_unknown_threat_count": 0,
+      "true_unknown_threats": []
+    },
+    {
+      "site_id": "0TH2.BIN_0x06039D36",
+      "runtime_pc": "0x06039D36",
+      "function_entry_pc": "0x06039D1A",
+      "module": "0TH2.BIN",
+      "baseline_blocker_class": "UNRESOLVED_PR_PATH",
+      "pr_path_status": "SHARED_EPILOGUE_PROVEN",
+      "is_pr_path_resolved": false,
+      "caller_domain_complete": true,
+      "true_unknown_threat_count": 0,
+      "true_unknown_threats": []
+    },
+    {
+      "site_id": "0TH2.BIN_0x06039EBA",
+      "runtime_pc": "0x06039EBA",
+      "function_entry_pc": "0x06039E7A",
+      "module": "0TH2.BIN",
+      "baseline_blocker_class": "UNRESOLVED_PR_PATH",
+      "pr_path_status": "SHARED_EPILOGUE_PROVEN",
+      "is_pr_path_resolved": false,
+      "caller_domain_complete": false,
+      "true_unknown_threat_count": 0,
+      "true_unknown_threats": []
+    },
+    {
+      "site_id": "0TH2.BIN_0x06039F5A",
+      "runtime_pc": "0x06039F5A",
+      "function_entry_pc": "0x06039F2E",
+      "module": "0TH2.BIN",
+      "baseline_blocker_class": "UNRESOLVED_PR_PATH",
+      "pr_path_status": "SHARED_EPILOGUE_PROVEN",
+      "is_pr_path_resolved": false,
+      "caller_domain_complete": false,
+      "true_unknown_threat_count": 0,
+      "true_unknown_threats": []
+    },
+    {
+      "site_id": "0TH2.BIN_0x06039FEA",
+      "runtime_pc": "0x06039FEA",
+      "function_entry_pc": "0x06039F82",
+      "module": "0TH2.BIN",
+      "baseline_blocker_class": "UNRESOLVED_PR_PATH",
+      "pr_path_status": "PR_PATH_COMPLETE",
+      "is_pr_path_resolved": true,
+      "caller_domain_complete": false,
+      "true_unknown_threat_count": 0,
+      "true_unknown_threats": []
+    },
+    {
+      "site_id": "0TH2.BIN_0x0603A062",
+      "runtime_pc": "0x0603A062",
+      "function_entry_pc": "0x0603A03E",
+      "module": "0TH2.BIN",
+      "baseline_blocker_class": "UNRESOLVED_PR_PATH",
+      "pr_path_status": "SHARED_EPILOGUE_PROVEN",
+      "is_pr_path_resolved": false,
+      "caller_domain_complete": true,
+      "true_unknown_threat_count": 0,
+      "true_unknown_threats": []
+    },
+    {
+      "site_id": "0TH2.BIN_0x0603A0D2",
+      "runtime_pc": "0x0603A0D2",
+      "function_entry_pc": "0x0603A092",
+      "module": "0TH2.BIN",
+      "baseline_blocker_class": "UNRESOLVED_PR_PATH",
+      "pr_path_status": "PR_PATH_COMPLETE",
+      "is_pr_path_resolved": true,
+      "caller_domain_complete": true,
+      "true_unknown_threat_count": 0,
+      "true_unknown_threats": []
+    },
+    {
+      "site_id": "0TH2.BIN_0x0603A1E4",
+      "runtime_pc": "0x0603A1E4",
+      "function_entry_pc": "0x0603A1BA",
+      "module": "0TH2.BIN",
+      "baseline_blocker_class": "UNRESOLVED_PR_PATH",
+      "pr_path_status": "PR_PATH_COMPLETE",
+      "is_pr_path_resolved": true,
+      "caller_domain_complete": true,
+      "true_unknown_threat_count": 0,
+      "true_unknown_threats": []
+    },
+    {
+      "site_id": "0TH2.BIN_0x0603A352",
+      "runtime_pc": "0x0603A352",
+      "function_entry_pc": "0x0603A2BA",
+      "module": "0TH2.BIN",
+      "baseline_blocker_class": "UNRESOLVED_PR_PATH",
+      "pr_path_status": "SHARED_EPILOGUE_PROVEN",
+      "is_pr_path_resolved": false,
+      "caller_domain_complete": false,
+      "true_unknown_threat_count": 0,
+      "true_unknown_threats": []
+    },
+    {
+      "site_id": "0TH2.BIN_0x0603A384",
+      "runtime_pc": "0x0603A384",
+      "function_entry_pc": "0x0603A356",
+      "module": "0TH2.BIN",
+      "baseline_blocker_class": "UNRESOLVED_PR_PATH",
+      "pr_path_status": "PR_PATH_COMPLETE",
+      "is_pr_path_resolved": true,
+      "caller_domain_complete": true,
+      "true_unknown_threat_count": 0,
+      "true_unknown_threats": []
+    },
+    {
+      "site_id": "0TH2.BIN_0x0603A474",
+      "runtime_pc": "0x0603A474",
+      "function_entry_pc": "0x0603A41A",
+      "module": "0TH2.BIN",
+      "baseline_blocker_class": "UNRESOLVED_PR_PATH",
+      "pr_path_status": "PR_PATH_COMPLETE",
+      "is_pr_path_resolved": true,
+      "caller_domain_complete": true,
+      "true_unknown_threat_count": 0,
+      "true_unknown_threats": []
+    },
+    {
+      "site_id": "0TH2.BIN_0x0603A4FE",
+      "runtime_pc": "0x0603A4FE",
+      "function_entry_pc": "0x0603A4F2",
+      "module": "0TH2.BIN",
+      "baseline_blocker_class": "UNRESOLVED_PR_PATH",
+      "pr_path_status": "PR_PATH_COMPLETE",
+      "is_pr_path_resolved": true,
+      "caller_domain_complete": true,
+      "true_unknown_threat_count": 0,
+      "true_unknown_threats": []
+    },
+    {
+      "site_id": "0TH2.BIN_0x0603A542",
+      "runtime_pc": "0x0603A542",
+      "function_entry_pc": "0x0603A516",
+      "module": "0TH2.BIN",
+      "baseline_blocker_class": "UNRESOLVED_PR_PATH",
+      "pr_path_status": "PR_PATH_COMPLETE",
+      "is_pr_path_resolved": true,
+      "caller_domain_complete": true,
+      "true_unknown_threat_count": 0,
+      "true_unknown_threats": []
+    },
+    {
+      "site_id": "0TH2.BIN_0x0603A7BE",
+      "runtime_pc": "0x0603A7BE",
+      "function_entry_pc": "0x0603A756",
+      "module": "0TH2.BIN",
+      "baseline_blocker_class": "UNRESOLVED_PR_PATH",
+      "pr_path_status": "SHARED_EPILOGUE_PROVEN",
+      "is_pr_path_resolved": false,
+      "caller_domain_complete": true,
+      "true_unknown_threat_count": 0,
+      "true_unknown_threats": []
+    },
+    {
+      "site_id": "0TH2.BIN_0x0603A83C",
+      "runtime_pc": "0x0603A83C",
+      "function_entry_pc": "0x0603A7E2",
+      "module": "0TH2.BIN",
+      "baseline_blocker_class": "UNRESOLVED_PR_PATH",
+      "pr_path_status": "PR_PATH_COMPLETE",
+      "is_pr_path_resolved": true,
+      "caller_domain_complete": true,
+      "true_unknown_threat_count": 0,
+      "true_unknown_threats": []
+    },
+    {
+      "site_id": "0TH2.BIN_0x0603A9B4",
+      "runtime_pc": "0x0603A9B4",
+      "function_entry_pc": "0x0603A996",
+      "module": "0TH2.BIN",
+      "baseline_blocker_class": "UNRESOLVED_PR_PATH",
+      "pr_path_status": "SHARED_EPILOGUE_PROVEN",
+      "is_pr_path_resolved": false,
+      "caller_domain_complete": true,
+      "true_unknown_threat_count": 0,
+      "true_unknown_threats": []
+    },
+    {
+      "site_id": "0TH2.BIN_0x0603AA6E",
+      "runtime_pc": "0x0603AA6E",
+      "function_entry_pc": "0x0603AA0A",
+      "module": "0TH2.BIN",
+      "baseline_blocker_class": "UNRESOLVED_PR_PATH",
+      "pr_path_status": "PR_PATH_COMPLETE",
+      "is_pr_path_resolved": true,
+      "caller_domain_complete": true,
+      "true_unknown_threat_count": 0,
+      "true_unknown_threats": []
+    },
+    {
+      "site_id": "0TH2.BIN_0x0603AABE",
+      "runtime_pc": "0x0603AABE",
+      "function_entry_pc": "0x0603AA8E",
+      "module": "0TH2.BIN",
+      "baseline_blocker_class": "UNRESOLVED_PR_PATH",
+      "pr_path_status": "PR_PATH_COMPLETE",
+      "is_pr_path_resolved": true,
+      "caller_domain_complete": false,
+      "true_unknown_threat_count": 0,
+      "true_unknown_threats": []
+    },
+    {
+      "site_id": "0TH2.BIN_0x06065268",
+      "runtime_pc": "0x06065268",
+      "function_entry_pc": "0x0606520C",
+      "module": "0TH2.BIN",
+      "baseline_blocker_class": "UNRESOLVED_CALLER_DOMAIN",
+      "pr_path_status": "PR_PATH_COMPLETE",
+      "is_pr_path_resolved": true,
+      "caller_domain_complete": false,
+      "true_unknown_threat_count": 0,
+      "true_unknown_threats": []
+    },
+    {
+      "site_id": "0TH2.BIN_0x0606C168",
+      "runtime_pc": "0x0606C168",
+      "function_entry_pc": "0x0606C0FA",
+      "module": "0TH2.BIN",
+      "baseline_blocker_class": "UNRESOLVED_PR_PATH",
+      "pr_path_status": "PR_PATH_COMPLETE",
+      "is_pr_path_resolved": true,
+      "caller_domain_complete": true,
+      "true_unknown_threat_count": 0,
+      "true_unknown_threats": []
+    },
+    {
+      "site_id": "0TH2.BIN_0x0606DD9E",
+      "runtime_pc": "0x0606DD9E",
+      "function_entry_pc": "0x0606DD04",
+      "module": "0TH2.BIN",
+      "baseline_blocker_class": "UNRESOLVED_EXTERNAL_ENTRY",
+      "pr_path_status": "PR_PATH_COMPLETE",
+      "is_pr_path_resolved": true,
+      "caller_domain_complete": false,
+      "true_unknown_threat_count": 0,
+      "true_unknown_threats": []
+    },
+    {
+      "site_id": "0TH2.BIN_0x0606DDAA",
+      "runtime_pc": "0x0606DDAA",
+      "function_entry_pc": "0x0606DD04",
+      "module": "0TH2.BIN",
+      "baseline_blocker_class": "UNRESOLVED_EXTERNAL_ENTRY",
+      "pr_path_status": "PR_PATH_COMPLETE",
+      "is_pr_path_resolved": true,
+      "caller_domain_complete": false,
+      "true_unknown_threat_count": 0,
+      "true_unknown_threats": []
+    },
+    {
+      "site_id": "0TH2.BIN_0x0606DE46",
+      "runtime_pc": "0x0606DE46",
+      "function_entry_pc": "0x0606DDB8",
+      "module": "0TH2.BIN",
+      "baseline_blocker_class": "UNRESOLVED_EXTERNAL_ENTRY",
+      "pr_path_status": "PR_PATH_COMPLETE",
+      "is_pr_path_resolved": true,
+      "caller_domain_complete": false,
+      "true_unknown_threat_count": 0,
+      "true_unknown_threats": []
+    },
+    {
+      "site_id": "0TH2.BIN_0x0606DE52",
+      "runtime_pc": "0x0606DE52",
+      "function_entry_pc": "0x0606DDB8",
+      "module": "0TH2.BIN",
+      "baseline_blocker_class": "UNRESOLVED_EXTERNAL_ENTRY",
+      "pr_path_status": "PR_PATH_COMPLETE",
+      "is_pr_path_resolved": true,
+      "caller_domain_complete": false,
+      "true_unknown_threat_count": 0,
+      "true_unknown_threats": []
+    },
+    {
+      "site_id": "0TH2.BIN_0x0606DF0E",
+      "runtime_pc": "0x0606DF0E",
+      "function_entry_pc": "0x0606DE60",
+      "module": "0TH2.BIN",
+      "baseline_blocker_class": "UNRESOLVED_EXTERNAL_ENTRY",
+      "pr_path_status": "PR_PATH_COMPLETE",
+      "is_pr_path_resolved": true,
+      "caller_domain_complete": false,
+      "true_unknown_threat_count": 0,
+      "true_unknown_threats": []
+    },
+    {
+      "site_id": "0TH2.BIN_0x0606DF1A",
+      "runtime_pc": "0x0606DF1A",
+      "function_entry_pc": "0x0606DE60",
+      "module": "0TH2.BIN",
+      "baseline_blocker_class": "UNRESOLVED_EXTERNAL_ENTRY",
+      "pr_path_status": "PR_PATH_COMPLETE",
+      "is_pr_path_resolved": true,
+      "caller_domain_complete": false,
+      "true_unknown_threat_count": 0,
+      "true_unknown_threats": []
+    },
+    {
+      "site_id": "0TH2.BIN_0x0606DF7E",
+      "runtime_pc": "0x0606DF7E",
+      "function_entry_pc": "0x0606DF28",
+      "module": "0TH2.BIN",
+      "baseline_blocker_class": "UNRESOLVED_EXTERNAL_ENTRY",
+      "pr_path_status": "PR_PATH_COMPLETE",
+      "is_pr_path_resolved": true,
+      "caller_domain_complete": false,
+      "true_unknown_threat_count": 0,
+      "true_unknown_threats": []
+    },
+    {
+      "site_id": "0TH2.BIN_0x0606DFE4",
+      "runtime_pc": "0x0606DFE4",
+      "function_entry_pc": "0x0606DF28",
+      "module": "0TH2.BIN",
+      "baseline_blocker_class": "UNRESOLVED_EXTERNAL_ENTRY",
+      "pr_path_status": "PR_PATH_COMPLETE",
+      "is_pr_path_resolved": true,
+      "caller_domain_complete": false,
+      "true_unknown_threat_count": 0,
+      "true_unknown_threats": []
+    },
+    {
+      "site_id": "0TH2.BIN_0x0606E02E",
+      "runtime_pc": "0x0606E02E",
+      "function_entry_pc": "0x0606E008",
+      "module": "0TH2.BIN",
+      "baseline_blocker_class": "UNRESOLVED_EXTERNAL_ENTRY",
+      "pr_path_status": "PR_PATH_COMPLETE",
+      "is_pr_path_resolved": true,
+      "caller_domain_complete": false,
+      "true_unknown_threat_count": 0,
+      "true_unknown_threats": []
+    },
+    {
+      "site_id": "0TH2.BIN_0x0606E040",
+      "runtime_pc": "0x0606E040",
+      "function_entry_pc": "0x0606E008",
+      "module": "0TH2.BIN",
+      "baseline_blocker_class": "UNRESOLVED_EXTERNAL_ENTRY",
+      "pr_path_status": "PR_PATH_COMPLETE",
+      "is_pr_path_resolved": true,
+      "caller_domain_complete": false,
+      "true_unknown_threat_count": 0,
+      "true_unknown_threats": []
+    },
+    {
+      "site_id": "0TH2.BIN_0x0606E054",
+      "runtime_pc": "0x0606E054",
+      "function_entry_pc": "0x0606E008",
+      "module": "0TH2.BIN",
+      "baseline_blocker_class": "UNRESOLVED_EXTERNAL_ENTRY",
+      "pr_path_status": "PR_PATH_COMPLETE",
+      "is_pr_path_resolved": true,
+      "caller_domain_complete": false,
+      "true_unknown_threat_count": 0,
+      "true_unknown_threats": []
+    },
+    {
+      "site_id": "0TH2.BIN_0x0606E0B4",
+      "runtime_pc": "0x0606E0B4",
+      "function_entry_pc": "0x0606E008",
+      "module": "0TH2.BIN",
+      "baseline_blocker_class": "UNRESOLVED_EXTERNAL_ENTRY",
+      "pr_path_status": "PR_PATH_COMPLETE",
+      "is_pr_path_resolved": true,
+      "caller_domain_complete": false,
+      "true_unknown_threat_count": 0,
+      "true_unknown_threats": []
+    },
+    {
+      "site_id": "0TH2.BIN_0x0606ECB8",
+      "runtime_pc": "0x0606ECB8",
+      "function_entry_pc": "0x0606EC54",
+      "module": "0TH2.BIN",
+      "baseline_blocker_class": "UNRESOLVED_EXTERNAL_ENTRY",
+      "pr_path_status": "PR_PATH_COMPLETE",
+      "is_pr_path_resolved": true,
+      "caller_domain_complete": false,
+      "true_unknown_threat_count": 0,
+      "true_unknown_threats": []
+    },
+    {
+      "site_id": "0TH2.BIN_0x0606ECFC",
+      "runtime_pc": "0x0606ECFC",
+      "function_entry_pc": "0x0606ECBC",
+      "module": "0TH2.BIN",
+      "baseline_blocker_class": "UNRESOLVED_CALLER_DOMAIN",
+      "pr_path_status": "PR_PATH_COMPLETE",
+      "is_pr_path_resolved": true,
+      "caller_domain_complete": false,
+      "true_unknown_threat_count": 0,
+      "true_unknown_threats": []
+    },
+    {
+      "site_id": "0TH2.BIN_0x0606EECA",
+      "runtime_pc": "0x0606EECA",
+      "function_entry_pc": "0x0606EE8C",
+      "module": "0TH2.BIN",
+      "baseline_blocker_class": "UNRESOLVED_EXTERNAL_ENTRY",
+      "pr_path_status": "PR_PATH_COMPLETE",
+      "is_pr_path_resolved": true,
+      "caller_domain_complete": false,
+      "true_unknown_threat_count": 0,
+      "true_unknown_threats": []
+    },
+    {
+      "site_id": "0TH2.BIN_0x06071AE0",
+      "runtime_pc": "0x06071AE0",
+      "function_entry_pc": "0x060712C6",
+      "module": "0TH2.BIN",
+      "baseline_blocker_class": "UNRESOLVED_PR_PATH",
+      "pr_path_status": "PR_PATH_COMPLETE",
+      "is_pr_path_resolved": true,
+      "caller_domain_complete": false,
+      "true_unknown_threat_count": 2,
+      "true_unknown_threats": [
+        {
+          "pc": "0x060717F8",
+          "module": "0TH2.BIN",
+          "type": "UNKNOWN_BSR"
+        },
+        {
+          "pc": "0x06071938",
+          "module": "0TH2.BIN",
+          "type": "UNKNOWN_BSR"
+        }
+      ]
+    },
+    {
+      "site_id": "0TH2.BIN_0x06074EAA",
+      "runtime_pc": "0x06074EAA",
+      "function_entry_pc": "0x06074C06",
+      "module": "0TH2.BIN",
+      "baseline_blocker_class": "UNRESOLVED_PR_PATH",
+      "pr_path_status": "SHARED_EPILOGUE_PROVEN",
+      "is_pr_path_resolved": false,
+      "caller_domain_complete": false,
+      "true_unknown_threat_count": 0,
+      "true_unknown_threats": []
+    },
+    {
+      "site_id": "0TH2.BIN_0x060750E0",
+      "runtime_pc": "0x060750E0",
+      "function_entry_pc": "0x06074ED8",
+      "module": "0TH2.BIN",
+      "baseline_blocker_class": "UNRESOLVED_PR_PATH",
+      "pr_path_status": "PR_PATH_COMPLETE",
+      "is_pr_path_resolved": true,
+      "caller_domain_complete": true,
+      "true_unknown_threat_count": 0,
+      "true_unknown_threats": []
+    },
+    {
+      "site_id": "0TH2.BIN_0x06075216",
+      "runtime_pc": "0x06075216",
+      "function_entry_pc": "0x06075114",
+      "module": "0TH2.BIN",
+      "baseline_blocker_class": "UNRESOLVED_PR_PATH",
+      "pr_path_status": "PR_PATH_COMPLETE",
+      "is_pr_path_resolved": true,
+      "caller_domain_complete": true,
+      "true_unknown_threat_count": 0,
+      "true_unknown_threats": []
+    },
+    {
+      "site_id": "0TH2.BIN_0x06075630",
+      "runtime_pc": "0x06075630",
+      "function_entry_pc": "0x06075618",
+      "module": "0TH2.BIN",
+      "baseline_blocker_class": "UNRESOLVED_EXTERNAL_ENTRY",
+      "pr_path_status": "PR_PATH_COMPLETE",
+      "is_pr_path_resolved": true,
+      "caller_domain_complete": false,
+      "true_unknown_threat_count": 0,
+      "true_unknown_threats": []
+    },
+    {
+      "site_id": "0TH2.BIN_0x06076D18",
+      "runtime_pc": "0x06076D18",
+      "function_entry_pc": "0x06076B02",
+      "module": "0TH2.BIN",
+      "baseline_blocker_class": "UNRESOLVED_PR_PATH",
+      "pr_path_status": "SHARED_EPILOGUE_PROVEN",
+      "is_pr_path_resolved": false,
+      "caller_domain_complete": false,
+      "true_unknown_threat_count": 0,
+      "true_unknown_threats": []
+    },
+    {
+      "site_id": "0TH2.BIN_0x060771FC",
+      "runtime_pc": "0x060771FC",
+      "function_entry_pc": "0x060771BE",
+      "module": "0TH2.BIN",
+      "baseline_blocker_class": "UNRESOLVED_PR_PATH",
+      "pr_path_status": "SHARED_EPILOGUE_PROVEN",
+      "is_pr_path_resolved": false,
+      "caller_domain_complete": true,
+      "true_unknown_threat_count": 0,
+      "true_unknown_threats": []
+    },
+    {
+      "site_id": "0TH2.BIN_0x06077934",
+      "runtime_pc": "0x06077934",
+      "function_entry_pc": "0x0607773A",
+      "module": "0TH2.BIN",
+      "baseline_blocker_class": "UNRESOLVED_PR_PATH",
+      "pr_path_status": "SHARED_EPILOGUE_PROVEN",
+      "is_pr_path_resolved": false,
+      "caller_domain_complete": false,
+      "true_unknown_threat_count": 0,
+      "true_unknown_threats": []
+    },
+    {
+      "site_id": "0TH2.BIN_0x06077F5E",
+      "runtime_pc": "0x06077F5E",
+      "function_entry_pc": "0x06077F5C",
+      "module": "0TH2.BIN",
+      "baseline_blocker_class": "UNRESOLVED_EXTERNAL_ENTRY",
+      "pr_path_status": "PR_PATH_COMPLETE",
+      "is_pr_path_resolved": true,
+      "caller_domain_complete": false,
+      "true_unknown_threat_count": 0,
+      "true_unknown_threats": []
+    },
+    {
+      "site_id": "0TH2.BIN_0x060780F4",
+      "runtime_pc": "0x060780F4",
+      "function_entry_pc": "0x060780D2",
+      "module": "0TH2.BIN",
+      "baseline_blocker_class": "UNRESOLVED_PR_PATH",
+      "pr_path_status": "SHARED_EPILOGUE_PROVEN",
+      "is_pr_path_resolved": false,
+      "caller_domain_complete": false,
+      "true_unknown_threat_count": 1,
+      "true_unknown_threats": [
+        {
+          "pc": "0x06077E6A",
+          "module": "0TH2.BIN",
+          "type": "UNKNOWN_BSR"
+        }
+      ]
+    },
+    {
+      "site_id": "0TH2.BIN_0x06078494",
+      "runtime_pc": "0x06078494",
+      "function_entry_pc": "0x0607844C",
+      "module": "0TH2.BIN",
+      "baseline_blocker_class": "UNRESOLVED_PR_PATH",
+      "pr_path_status": "SHARED_EPILOGUE_PROVEN",
+      "is_pr_path_resolved": false,
+      "caller_domain_complete": false,
+      "true_unknown_threat_count": 1,
+      "true_unknown_threats": [
+        {
+          "pc": "0x06077CBA",
+          "module": "0TH2.BIN",
+          "type": "UNKNOWN_BSR"
+        }
+      ]
+    },
+    {
+      "site_id": "0TH2.BIN_0x06078688",
+      "runtime_pc": "0x06078688",
+      "function_entry_pc": "0x0607862C",
+      "module": "0TH2.BIN",
+      "baseline_blocker_class": "UNRESOLVED_EXTERNAL_ENTRY",
+      "pr_path_status": "PR_PATH_COMPLETE",
+      "is_pr_path_resolved": true,
+      "caller_domain_complete": false,
+      "true_unknown_threat_count": 0,
+      "true_unknown_threats": []
+    },
+    {
+      "site_id": "0TH2.BIN_0x060786F6",
+      "runtime_pc": "0x060786F6",
+      "function_entry_pc": "0x06078690",
+      "module": "0TH2.BIN",
+      "baseline_blocker_class": "UNRESOLVED_EXTERNAL_ENTRY",
+      "pr_path_status": "PR_PATH_COMPLETE",
+      "is_pr_path_resolved": true,
+      "caller_domain_complete": false,
+      "true_unknown_threat_count": 2,
+      "true_unknown_threats": [
+        {
+          "pc": "0x06078C50",
+          "module": "0TH2.BIN",
+          "type": "UNKNOWN_BSR"
+        },
+        {
+          "pc": "0x06078CAA",
+          "module": "0TH2.BIN",
+          "type": "UNKNOWN_BSR"
+        }
+      ]
+    },
+    {
+      "site_id": "0TH2.BIN_0x06078792",
+      "runtime_pc": "0x06078792",
+      "function_entry_pc": "0x0607877E",
+      "module": "0TH2.BIN",
+      "baseline_blocker_class": "UNRESOLVED_PR_PATH",
+      "pr_path_status": "PR_PATH_COMPLETE",
+      "is_pr_path_resolved": true,
+      "caller_domain_complete": false,
+      "true_unknown_threat_count": 1,
+      "true_unknown_threats": [
+        {
+          "pc": "0x06077EB6",
+          "module": "0TH2.BIN",
+          "type": "UNKNOWN_BSR"
+        }
+      ]
+    },
+    {
+      "site_id": "0TH2.BIN_0x060788C6",
+      "runtime_pc": "0x060788C6",
+      "function_entry_pc": "0x060787A4",
+      "module": "0TH2.BIN",
+      "baseline_blocker_class": "UNRESOLVED_EXTERNAL_ENTRY",
+      "pr_path_status": "PR_PATH_COMPLETE",
+      "is_pr_path_resolved": true,
+      "caller_domain_complete": false,
+      "true_unknown_threat_count": 0,
+      "true_unknown_threats": []
+    },
+    {
+      "site_id": "0TH2.BIN_0x06078B10",
+      "runtime_pc": "0x06078B10",
+      "function_entry_pc": "0x06078AB0",
+      "module": "0TH2.BIN",
+      "baseline_blocker_class": "UNRESOLVED_CALLER_DOMAIN",
+      "pr_path_status": "PR_PATH_COMPLETE",
+      "is_pr_path_resolved": true,
+      "caller_domain_complete": false,
+      "true_unknown_threat_count": 0,
+      "true_unknown_threats": []
+    },
+    {
+      "site_id": "0TH2.BIN_0x06078B66",
+      "runtime_pc": "0x06078B66",
+      "function_entry_pc": "0x06078B42",
+      "module": "0TH2.BIN",
+      "baseline_blocker_class": "UNRESOLVED_EXTERNAL_ENTRY",
+      "pr_path_status": "PR_PATH_COMPLETE",
+      "is_pr_path_resolved": true,
+      "caller_domain_complete": false,
+      "true_unknown_threat_count": 0,
+      "true_unknown_threats": []
+    },
+    {
+      "site_id": "0TH2.BIN_0x06078B78",
+      "runtime_pc": "0x06078B78",
+      "function_entry_pc": "0x06078B42",
+      "module": "0TH2.BIN",
+      "baseline_blocker_class": "UNRESOLVED_EXTERNAL_ENTRY",
+      "pr_path_status": "PR_PATH_COMPLETE",
+      "is_pr_path_resolved": true,
+      "caller_domain_complete": false,
+      "true_unknown_threat_count": 0,
+      "true_unknown_threats": []
+    },
+    {
+      "site_id": "0TH2.BIN_0x06078B98",
+      "runtime_pc": "0x06078B98",
+      "function_entry_pc": "0x06078B42",
+      "module": "0TH2.BIN",
+      "baseline_blocker_class": "UNRESOLVED_EXTERNAL_ENTRY",
+      "pr_path_status": "PR_PATH_COMPLETE",
+      "is_pr_path_resolved": true,
+      "caller_domain_complete": false,
+      "true_unknown_threat_count": 0,
+      "true_unknown_threats": []
+    },
+    {
+      "site_id": "0TH2.BIN_0x06078BB6",
+      "runtime_pc": "0x06078BB6",
+      "function_entry_pc": "0x06078B42",
+      "module": "0TH2.BIN",
+      "baseline_blocker_class": "UNRESOLVED_EXTERNAL_ENTRY",
+      "pr_path_status": "PR_PATH_COMPLETE",
+      "is_pr_path_resolved": true,
+      "caller_domain_complete": false,
+      "true_unknown_threat_count": 0,
+      "true_unknown_threats": []
+    },
+    {
+      "site_id": "0TH2.BIN_0x06079AF6",
+      "runtime_pc": "0x06079AF6",
+      "function_entry_pc": "0x06079A86",
+      "module": "0TH2.BIN",
+      "baseline_blocker_class": "UNRESOLVED_PR_PATH",
+      "pr_path_status": "SHARED_EPILOGUE_PROVEN",
+      "is_pr_path_resolved": false,
+      "caller_domain_complete": true,
+      "true_unknown_threat_count": 0,
+      "true_unknown_threats": []
+    },
+    {
+      "site_id": "0TH2.BIN_0x0607D00A",
+      "runtime_pc": "0x0607D00A",
+      "function_entry_pc": "0x0607CFA8",
+      "module": "0TH2.BIN",
+      "baseline_blocker_class": "UNRESOLVED_CALLER_DOMAIN",
+      "pr_path_status": "PR_PATH_COMPLETE",
+      "is_pr_path_resolved": true,
+      "caller_domain_complete": false,
+      "true_unknown_threat_count": 0,
+      "true_unknown_threats": []
+    },
+    {
+      "site_id": "0TH2.BIN_0x0607D096",
+      "runtime_pc": "0x0607D096",
+      "function_entry_pc": "0x0607D088",
+      "module": "0TH2.BIN",
+      "baseline_blocker_class": "UNRESOLVED_CALLER_DOMAIN",
+      "pr_path_status": "PR_PATH_COMPLETE",
+      "is_pr_path_resolved": true,
+      "caller_domain_complete": false,
+      "true_unknown_threat_count": 0,
+      "true_unknown_threats": []
+    },
+    {
+      "site_id": "0TH2.BIN_0x0607D0C0",
+      "runtime_pc": "0x0607D0C0",
+      "function_entry_pc": "0x0607D088",
+      "module": "0TH2.BIN",
+      "baseline_blocker_class": "UNRESOLVED_CALLER_DOMAIN",
+      "pr_path_status": "PR_PATH_COMPLETE",
+      "is_pr_path_resolved": true,
+      "caller_domain_complete": false,
+      "true_unknown_threat_count": 0,
+      "true_unknown_threats": []
+    },
+    {
+      "site_id": "0TH2.BIN_0x0607D8DE",
+      "runtime_pc": "0x0607D8DE",
+      "function_entry_pc": "0x0607D8D6",
+      "module": "0TH2.BIN",
+      "baseline_blocker_class": "UNRESOLVED_CALLER_DOMAIN",
+      "pr_path_status": "PR_PATH_COMPLETE",
+      "is_pr_path_resolved": true,
+      "caller_domain_complete": false,
+      "true_unknown_threat_count": 0,
+      "true_unknown_threats": []
+    },
+    {
+      "site_id": "0TH2.BIN_0x0607DAD2",
+      "runtime_pc": "0x0607DAD2",
+      "function_entry_pc": "0x0607DACA",
+      "module": "0TH2.BIN",
+      "baseline_blocker_class": "UNRESOLVED_PR_PATH",
+      "pr_path_status": "PR_PATH_COMPLETE",
+      "is_pr_path_resolved": true,
+      "caller_domain_complete": true,
+      "true_unknown_threat_count": 0,
+      "true_unknown_threats": []
+    },
+    {
+      "site_id": "0TH2.BIN_0x0607DF20",
+      "runtime_pc": "0x0607DF20",
+      "function_entry_pc": "0x0607DD54",
+      "module": "0TH2.BIN",
+      "baseline_blocker_class": "UNRESOLVED_PR_PATH",
+      "pr_path_status": "PR_PATH_COMPLETE",
+      "is_pr_path_resolved": true,
+      "caller_domain_complete": false,
+      "true_unknown_threat_count": 2,
+      "true_unknown_threats": [
+        {
+          "pc": "0x0607DE9A",
+          "module": "0TH2.BIN",
+          "type": "UNKNOWN_BSR"
+        },
+        {
+          "pc": "0x0607DEC8",
+          "module": "0TH2.BIN",
+          "type": "UNKNOWN_BSR"
+        }
+      ]
+    },
+    {
+      "site_id": "0TH2.BIN_0x0607E734",
+      "runtime_pc": "0x0607E734",
+      "function_entry_pc": "0x0607E6FE",
+      "module": "0TH2.BIN",
+      "baseline_blocker_class": "UNRESOLVED_EXTERNAL_ENTRY",
+      "pr_path_status": "PR_PATH_COMPLETE",
+      "is_pr_path_resolved": true,
+      "caller_domain_complete": false,
+      "true_unknown_threat_count": 1,
+      "true_unknown_threats": [
+        {
+          "pc": "0x0607E62A",
+          "module": "0TH2.BIN",
+          "type": "UNKNOWN_BSR"
+        }
+      ]
+    },
+    {
+      "site_id": "0TH2.BIN_0x0607E754",
+      "runtime_pc": "0x0607E754",
+      "function_entry_pc": "0x0607E6FE",
+      "module": "0TH2.BIN",
+      "baseline_blocker_class": "UNRESOLVED_EXTERNAL_ENTRY",
+      "pr_path_status": "PR_PATH_COMPLETE",
+      "is_pr_path_resolved": true,
+      "caller_domain_complete": false,
+      "true_unknown_threat_count": 1,
+      "true_unknown_threats": [
+        {
+          "pc": "0x0607E62A",
+          "module": "0TH2.BIN",
+          "type": "UNKNOWN_BSR"
+        }
+      ]
+    },
+    {
+      "site_id": "0TH2.BIN_0x0607E75C",
+      "runtime_pc": "0x0607E75C",
+      "function_entry_pc": "0x0607E6FE",
+      "module": "0TH2.BIN",
+      "baseline_blocker_class": "UNRESOLVED_EXTERNAL_ENTRY",
+      "pr_path_status": "PR_PATH_COMPLETE",
+      "is_pr_path_resolved": true,
+      "caller_domain_complete": false,
+      "true_unknown_threat_count": 1,
+      "true_unknown_threats": [
+        {
+          "pc": "0x0607E62A",
+          "module": "0TH2.BIN",
+          "type": "UNKNOWN_BSR"
+        }
+      ]
+    },
+    {
+      "site_id": "0TH2.BIN_0x0607E764",
+      "runtime_pc": "0x0607E764",
+      "function_entry_pc": "0x0607E6FE",
+      "module": "0TH2.BIN",
+      "baseline_blocker_class": "UNRESOLVED_EXTERNAL_ENTRY",
+      "pr_path_status": "PR_PATH_COMPLETE",
+      "is_pr_path_resolved": true,
+      "caller_domain_complete": false,
+      "true_unknown_threat_count": 1,
+      "true_unknown_threats": [
+        {
+          "pc": "0x0607E62A",
+          "module": "0TH2.BIN",
+          "type": "UNKNOWN_BSR"
+        }
+      ]
+    },
+    {
+      "site_id": "0TH2.BIN_0x0607E76C",
+      "runtime_pc": "0x0607E76C",
+      "function_entry_pc": "0x0607E6FE",
+      "module": "0TH2.BIN",
+      "baseline_blocker_class": "UNRESOLVED_EXTERNAL_ENTRY",
+      "pr_path_status": "PR_PATH_COMPLETE",
+      "is_pr_path_resolved": true,
+      "caller_domain_complete": false,
+      "true_unknown_threat_count": 1,
+      "true_unknown_threats": [
+        {
+          "pc": "0x0607E62A",
+          "module": "0TH2.BIN",
+          "type": "UNKNOWN_BSR"
+        }
+      ]
+    },
+    {
+      "site_id": "0TH2.BIN_0x0607E774",
+      "runtime_pc": "0x0607E774",
+      "function_entry_pc": "0x0607E6FE",
+      "module": "0TH2.BIN",
+      "baseline_blocker_class": "UNRESOLVED_EXTERNAL_ENTRY",
+      "pr_path_status": "PR_PATH_COMPLETE",
+      "is_pr_path_resolved": true,
+      "caller_domain_complete": false,
+      "true_unknown_threat_count": 1,
+      "true_unknown_threats": [
+        {
+          "pc": "0x0607E62A",
+          "module": "0TH2.BIN",
+          "type": "UNKNOWN_BSR"
+        }
+      ]
+    },
+    {
+      "site_id": "0TH2.BIN_0x0607E77C",
+      "runtime_pc": "0x0607E77C",
+      "function_entry_pc": "0x0607E6FE",
+      "module": "0TH2.BIN",
+      "baseline_blocker_class": "UNRESOLVED_EXTERNAL_ENTRY",
+      "pr_path_status": "PR_PATH_COMPLETE",
+      "is_pr_path_resolved": true,
+      "caller_domain_complete": false,
+      "true_unknown_threat_count": 1,
+      "true_unknown_threats": [
+        {
+          "pc": "0x0607E62A",
+          "module": "0TH2.BIN",
+          "type": "UNKNOWN_BSR"
+        }
+      ]
+    },
+    {
+      "site_id": "0TH2.BIN_0x0607E784",
+      "runtime_pc": "0x0607E784",
+      "function_entry_pc": "0x0607E6FE",
+      "module": "0TH2.BIN",
+      "baseline_blocker_class": "UNRESOLVED_EXTERNAL_ENTRY",
+      "pr_path_status": "PR_PATH_COMPLETE",
+      "is_pr_path_resolved": true,
+      "caller_domain_complete": false,
+      "true_unknown_threat_count": 1,
+      "true_unknown_threats": [
+        {
+          "pc": "0x0607E62A",
+          "module": "0TH2.BIN",
+          "type": "UNKNOWN_BSR"
+        }
+      ]
+    },
+    {
+      "site_id": "0TH2.BIN_0x0607E78C",
+      "runtime_pc": "0x0607E78C",
+      "function_entry_pc": "0x0607E6FE",
+      "module": "0TH2.BIN",
+      "baseline_blocker_class": "UNRESOLVED_EXTERNAL_ENTRY",
+      "pr_path_status": "PR_PATH_COMPLETE",
+      "is_pr_path_resolved": true,
+      "caller_domain_complete": false,
+      "true_unknown_threat_count": 1,
+      "true_unknown_threats": [
+        {
+          "pc": "0x0607E62A",
+          "module": "0TH2.BIN",
+          "type": "UNKNOWN_BSR"
+        }
+      ]
+    },
+    {
+      "site_id": "0TH2.BIN_0x0607E794",
+      "runtime_pc": "0x0607E794",
+      "function_entry_pc": "0x0607E6FE",
+      "module": "0TH2.BIN",
+      "baseline_blocker_class": "UNRESOLVED_EXTERNAL_ENTRY",
+      "pr_path_status": "PR_PATH_COMPLETE",
+      "is_pr_path_resolved": true,
+      "caller_domain_complete": false,
+      "true_unknown_threat_count": 1,
+      "true_unknown_threats": [
+        {
+          "pc": "0x0607E62A",
+          "module": "0TH2.BIN",
+          "type": "UNKNOWN_BSR"
+        }
+      ]
+    },
+    {
+      "site_id": "0TH2.BIN_0x0607ED00",
+      "runtime_pc": "0x0607ED00",
+      "function_entry_pc": "0x0607EC0C",
+      "module": "0TH2.BIN",
+      "baseline_blocker_class": "UNRESOLVED_EXTERNAL_ENTRY",
+      "pr_path_status": "PR_PATH_COMPLETE",
+      "is_pr_path_resolved": true,
+      "caller_domain_complete": false,
+      "true_unknown_threat_count": 0,
+      "true_unknown_threats": []
+    },
+    {
+      "site_id": "0TH2.BIN_0x0607EDDE",
+      "runtime_pc": "0x0607EDDE",
+      "function_entry_pc": "0x0607EC0C",
+      "module": "0TH2.BIN",
+      "baseline_blocker_class": "UNRESOLVED_EXTERNAL_ENTRY",
+      "pr_path_status": "PR_PATH_COMPLETE",
+      "is_pr_path_resolved": true,
+      "caller_domain_complete": false,
+      "true_unknown_threat_count": 0,
+      "true_unknown_threats": []
+    },
+    {
+      "site_id": "0TH2.BIN_0x0607EE02",
+      "runtime_pc": "0x0607EE02",
+      "function_entry_pc": "0x0607EC0C",
+      "module": "0TH2.BIN",
+      "baseline_blocker_class": "UNRESOLVED_EXTERNAL_ENTRY",
+      "pr_path_status": "PR_PATH_COMPLETE",
+      "is_pr_path_resolved": true,
+      "caller_domain_complete": false,
+      "true_unknown_threat_count": 0,
+      "true_unknown_threats": []
+    },
+    {
+      "site_id": "0TH2.BIN_0x0607EE22",
+      "runtime_pc": "0x0607EE22",
+      "function_entry_pc": "0x0607EC0C",
+      "module": "0TH2.BIN",
+      "baseline_blocker_class": "UNRESOLVED_EXTERNAL_ENTRY",
+      "pr_path_status": "PR_PATH_COMPLETE",
+      "is_pr_path_resolved": true,
+      "caller_domain_complete": false,
+      "true_unknown_threat_count": 0,
+      "true_unknown_threats": []
+    },
+    {
+      "site_id": "0TH2.BIN_0x0607EE2C",
+      "runtime_pc": "0x0607EE2C",
+      "function_entry_pc": "0x0607EC0C",
+      "module": "0TH2.BIN",
+      "baseline_blocker_class": "UNRESOLVED_EXTERNAL_ENTRY",
+      "pr_path_status": "PR_PATH_COMPLETE",
+      "is_pr_path_resolved": true,
+      "caller_domain_complete": false,
+      "true_unknown_threat_count": 0,
+      "true_unknown_threats": []
+    },
+    {
+      "site_id": "0TH2.BIN_0x0607EE64",
+      "runtime_pc": "0x0607EE64",
+      "function_entry_pc": "0x0607EC0C",
+      "module": "0TH2.BIN",
+      "baseline_blocker_class": "UNRESOLVED_EXTERNAL_ENTRY",
+      "pr_path_status": "PR_PATH_COMPLETE",
+      "is_pr_path_resolved": true,
+      "caller_domain_complete": false,
+      "true_unknown_threat_count": 0,
+      "true_unknown_threats": []
+    },
+    {
+      "site_id": "0TH2.BIN_0x0607FA8A",
+      "runtime_pc": "0x0607FA8A",
+      "function_entry_pc": "0x0607FA6E",
+      "module": "0TH2.BIN",
+      "baseline_blocker_class": "UNRESOLVED_CALLER_DOMAIN",
+      "pr_path_status": "PR_PATH_COMPLETE",
+      "is_pr_path_resolved": true,
+      "caller_domain_complete": false,
+      "true_unknown_threat_count": 0,
+      "true_unknown_threats": []
+    },
+    {
+      "site_id": "0TH2.BIN_0x0607FA98",
+      "runtime_pc": "0x0607FA98",
+      "function_entry_pc": "0x0607FA6E",
+      "module": "0TH2.BIN",
+      "baseline_blocker_class": "UNRESOLVED_CALLER_DOMAIN",
+      "pr_path_status": "PR_PATH_COMPLETE",
+      "is_pr_path_resolved": true,
+      "caller_domain_complete": false,
+      "true_unknown_threat_count": 0,
+      "true_unknown_threats": []
+    },
+    {
+      "site_id": "0TH2.BIN_0x0607FB8E",
+      "runtime_pc": "0x0607FB8E",
+      "function_entry_pc": "0x0607FAA0",
+      "module": "0TH2.BIN",
+      "baseline_blocker_class": "UNRESOLVED_EXTERNAL_ENTRY",
+      "pr_path_status": "PR_PATH_COMPLETE",
+      "is_pr_path_resolved": true,
+      "caller_domain_complete": false,
+      "true_unknown_threat_count": 0,
+      "true_unknown_threats": []
+    },
+    {
+      "site_id": "0TH2.BIN_0x0607FC6A",
+      "runtime_pc": "0x0607FC6A",
+      "function_entry_pc": "0x0607FC66",
+      "module": "0TH2.BIN",
+      "baseline_blocker_class": "UNRESOLVED_EXTERNAL_ENTRY",
+      "pr_path_status": "PR_PATH_COMPLETE",
+      "is_pr_path_resolved": true,
+      "caller_domain_complete": false,
+      "true_unknown_threat_count": 0,
+      "true_unknown_threats": []
+    },
+    {
+      "site_id": "0TH2.BIN_0x0607FC9C",
+      "runtime_pc": "0x0607FC9C",
+      "function_entry_pc": "0x0607FC6E",
+      "module": "0TH2.BIN",
+      "baseline_blocker_class": "UNRESOLVED_CALLER_DOMAIN",
+      "pr_path_status": "PR_PATH_COMPLETE",
+      "is_pr_path_resolved": true,
+      "caller_domain_complete": false,
+      "true_unknown_threat_count": 0,
+      "true_unknown_threats": []
+    },
+    {
+      "site_id": "0TH2.BIN_0x06080676",
+      "runtime_pc": "0x06080676",
+      "function_entry_pc": "0x06080654",
+      "module": "0TH2.BIN",
+      "baseline_blocker_class": "UNRESOLVED_EXTERNAL_ENTRY",
+      "pr_path_status": "PR_PATH_COMPLETE",
+      "is_pr_path_resolved": true,
+      "caller_domain_complete": false,
+      "true_unknown_threat_count": 0,
+      "true_unknown_threats": []
+    },
+    {
+      "site_id": "0TH2.BIN_0x06080716",
+      "runtime_pc": "0x06080716",
+      "function_entry_pc": "0x060806FE",
+      "module": "0TH2.BIN",
+      "baseline_blocker_class": "UNRESOLVED_EXTERNAL_ENTRY",
+      "pr_path_status": "PR_PATH_COMPLETE",
+      "is_pr_path_resolved": true,
+      "caller_domain_complete": false,
+      "true_unknown_threat_count": 1,
+      "true_unknown_threats": [
+        {
+          "pc": "0x0607F818",
+          "module": "0TH2.BIN",
+          "type": "UNKNOWN_BSR"
+        }
+      ]
+    },
+    {
+      "site_id": "0TH2.BIN_0x06080CD8",
+      "runtime_pc": "0x06080CD8",
+      "function_entry_pc": "0x06080C94",
+      "module": "0TH2.BIN",
+      "baseline_blocker_class": "UNRESOLVED_CALLER_DOMAIN",
+      "pr_path_status": "PR_PATH_COMPLETE",
+      "is_pr_path_resolved": true,
+      "caller_domain_complete": false,
+      "true_unknown_threat_count": 0,
+      "true_unknown_threats": []
+    },
+    {
+      "site_id": "0TH2.BIN_0x06080D6A",
+      "runtime_pc": "0x06080D6A",
+      "function_entry_pc": "0x06080D30",
+      "module": "0TH2.BIN",
+      "baseline_blocker_class": "UNRESOLVED_CALLER_DOMAIN",
+      "pr_path_status": "PR_PATH_COMPLETE",
+      "is_pr_path_resolved": true,
+      "caller_domain_complete": false,
+      "true_unknown_threat_count": 0,
+      "true_unknown_threats": []
+    },
+    {
+      "site_id": "0TH2.BIN_0x06080F80",
+      "runtime_pc": "0x06080F80",
+      "function_entry_pc": "0x06080F38",
+      "module": "0TH2.BIN",
+      "baseline_blocker_class": "UNRESOLVED_CALLER_DOMAIN",
+      "pr_path_status": "PR_PATH_COMPLETE",
+      "is_pr_path_resolved": true,
+      "caller_domain_complete": false,
+      "true_unknown_threat_count": 0,
+      "true_unknown_threats": []
+    },
+    {
+      "site_id": "0TH2.BIN_0x06080FD8",
+      "runtime_pc": "0x06080FD8",
+      "function_entry_pc": "0x06080F90",
+      "module": "0TH2.BIN",
+      "baseline_blocker_class": "UNRESOLVED_CALLER_DOMAIN",
+      "pr_path_status": "PR_PATH_COMPLETE",
+      "is_pr_path_resolved": true,
+      "caller_domain_complete": false,
+      "true_unknown_threat_count": 0,
+      "true_unknown_threats": []
+    },
+    {
+      "site_id": "0TH2.BIN_0x0608138E",
+      "runtime_pc": "0x0608138E",
+      "function_entry_pc": "0x06081360",
+      "module": "0TH2.BIN",
+      "baseline_blocker_class": "UNRESOLVED_CALLER_DOMAIN",
+      "pr_path_status": "PR_PATH_COMPLETE",
+      "is_pr_path_resolved": true,
+      "caller_domain_complete": false,
+      "true_unknown_threat_count": 0,
+      "true_unknown_threats": []
+    },
+    {
+      "site_id": "0TH2.BIN_0x06081732",
+      "runtime_pc": "0x06081732",
+      "function_entry_pc": "0x060816F6",
+      "module": "0TH2.BIN",
+      "baseline_blocker_class": "UNRESOLVED_CALLER_DOMAIN",
+      "pr_path_status": "PR_PATH_COMPLETE",
+      "is_pr_path_resolved": true,
+      "caller_domain_complete": false,
+      "true_unknown_threat_count": 0,
+      "true_unknown_threats": []
+    },
+    {
+      "site_id": "0TH2.BIN_0x06081888",
+      "runtime_pc": "0x06081888",
+      "function_entry_pc": "0x0608184C",
+      "module": "0TH2.BIN",
+      "baseline_blocker_class": "UNRESOLVED_CALLER_DOMAIN",
+      "pr_path_status": "PR_PATH_COMPLETE",
+      "is_pr_path_resolved": true,
+      "caller_domain_complete": false,
+      "true_unknown_threat_count": 0,
+      "true_unknown_threats": []
+    },
+    {
+      "site_id": "0TH2.BIN_0x060818A6",
+      "runtime_pc": "0x060818A6",
+      "function_entry_pc": "0x06081898",
+      "module": "0TH2.BIN",
+      "baseline_blocker_class": "UNRESOLVED_EXTERNAL_ENTRY",
+      "pr_path_status": "PR_PATH_COMPLETE",
+      "is_pr_path_resolved": true,
+      "caller_domain_complete": false,
+      "true_unknown_threat_count": 0,
+      "true_unknown_threats": []
+    },
+    {
+      "site_id": "0TH2.BIN_0x060818BC",
+      "runtime_pc": "0x060818BC",
+      "function_entry_pc": "0x060818AE",
+      "module": "0TH2.BIN",
+      "baseline_blocker_class": "UNRESOLVED_EXTERNAL_ENTRY",
+      "pr_path_status": "PR_PATH_COMPLETE",
+      "is_pr_path_resolved": true,
+      "caller_domain_complete": false,
+      "true_unknown_threat_count": 0,
+      "true_unknown_threats": []
+    },
+    {
+      "site_id": "0TH2.BIN_0x0608192C",
+      "runtime_pc": "0x0608192C",
+      "function_entry_pc": "0x060818FC",
+      "module": "0TH2.BIN",
+      "baseline_blocker_class": "UNRESOLVED_PR_PATH",
+      "pr_path_status": "SHARED_EPILOGUE_PROVEN",
+      "is_pr_path_resolved": false,
+      "caller_domain_complete": false,
+      "true_unknown_threat_count": 1,
+      "true_unknown_threats": [
+        {
+          "pc": "0x060825B2",
+          "module": "0TH2.BIN",
+          "type": "UNKNOWN_BSR"
+        }
+      ]
+    },
+    {
+      "site_id": "TH2.LOW_0x002E5052",
+      "runtime_pc": "0x002E5052",
+      "function_entry_pc": "0x002E502C",
+      "module": "TH2.LOW",
+      "baseline_blocker_class": "UNRESOLVED_EXTERNAL_ENTRY",
+      "pr_path_status": "PR_PATH_COMPLETE",
+      "is_pr_path_resolved": true,
+      "caller_domain_complete": false,
+      "true_unknown_threat_count": 1,
+      "true_unknown_threats": [
+        {
+          "pc": "0x002E4FFC",
+          "module": "TH2.LOW",
+          "type": "UNKNOWN_BSR"
+        }
+      ]
+    },
+    {
+      "site_id": "TH2.LOW_0x002E5598",
+      "runtime_pc": "0x002E5598",
+      "function_entry_pc": "0x002E5554",
+      "module": "TH2.LOW",
+      "baseline_blocker_class": "UNRESOLVED_EXTERNAL_ENTRY",
+      "pr_path_status": "PR_PATH_COMPLETE",
+      "is_pr_path_resolved": true,
+      "caller_domain_complete": false,
+      "true_unknown_threat_count": 0,
+      "true_unknown_threats": []
+    },
+    {
+      "site_id": "TH2.LOW_0x002E7460",
+      "runtime_pc": "0x002E7460",
+      "function_entry_pc": "0x002E73FC",
+      "module": "TH2.LOW",
+      "baseline_blocker_class": "UNRESOLVED_EXTERNAL_ENTRY",
+      "pr_path_status": "PR_PATH_COMPLETE",
+      "is_pr_path_resolved": true,
+      "caller_domain_complete": false,
+      "true_unknown_threat_count": 0,
+      "true_unknown_threats": []
+    },
+    {
+      "site_id": "TH2.LOW_0x002E774A",
+      "runtime_pc": "0x002E774A",
+      "function_entry_pc": "0x002E7740",
+      "module": "TH2.LOW",
+      "baseline_blocker_class": "UNRESOLVED_EXTERNAL_ENTRY",
+      "pr_path_status": "PR_PATH_COMPLETE",
+      "is_pr_path_resolved": true,
+      "caller_domain_complete": false,
+      "true_unknown_threat_count": 0,
+      "true_unknown_threats": []
+    },
+    {
+      "site_id": "TH2.LOW_0x002E7758",
+      "runtime_pc": "0x002E7758",
+      "function_entry_pc": "0x002E7740",
+      "module": "TH2.LOW",
+      "baseline_blocker_class": "UNRESOLVED_EXTERNAL_ENTRY",
+      "pr_path_status": "PR_PATH_COMPLETE",
+      "is_pr_path_resolved": true,
+      "caller_domain_complete": false,
+      "true_unknown_threat_count": 0,
+      "true_unknown_threats": []
+    },
+    {
+      "site_id": "TH2.LOW_0x002E7822",
+      "runtime_pc": "0x002E7822",
+      "function_entry_pc": "0x002E776C",
+      "module": "TH2.LOW",
+      "baseline_blocker_class": "UNRESOLVED_EXTERNAL_ENTRY",
+      "pr_path_status": "PR_PATH_COMPLETE",
+      "is_pr_path_resolved": true,
+      "caller_domain_complete": false,
+      "true_unknown_threat_count": 0,
+      "true_unknown_threats": []
+    },
+    {
+      "site_id": "TH2.LOW_0x002E8502",
+      "runtime_pc": "0x002E8502",
+      "function_entry_pc": "0x002E7E60",
+      "module": "TH2.LOW",
+      "baseline_blocker_class": "UNRESOLVED_EXTERNAL_ENTRY",
+      "pr_path_status": "PR_PATH_COMPLETE",
+      "is_pr_path_resolved": true,
+      "caller_domain_complete": false,
+      "true_unknown_threat_count": 0,
+      "true_unknown_threats": []
+    },
+    {
+      "site_id": "TH2.LOW_0x002E8926",
+      "runtime_pc": "0x002E8926",
+      "function_entry_pc": "0x002E85D0",
+      "module": "TH2.LOW",
+      "baseline_blocker_class": "UNRESOLVED_PR_PATH",
+      "pr_path_status": "PR_PATH_COMPLETE",
+      "is_pr_path_resolved": true,
+      "caller_domain_complete": true,
+      "true_unknown_threat_count": 0,
+      "true_unknown_threats": []
+    },
+    {
+      "site_id": "TH2.LOW_0x002E95A6",
+      "runtime_pc": "0x002E95A6",
+      "function_entry_pc": "0x002E9566",
+      "module": "TH2.LOW",
+      "baseline_blocker_class": "UNRESOLVED_PR_PATH",
+      "pr_path_status": "PR_PATH_COMPLETE",
+      "is_pr_path_resolved": true,
+      "caller_domain_complete": true,
+      "true_unknown_threat_count": 0,
+      "true_unknown_threats": []
+    },
+    {
+      "site_id": "TH2.LOW_0x002E9858",
+      "runtime_pc": "0x002E9858",
+      "function_entry_pc": "0x002E9752",
+      "module": "TH2.LOW",
+      "baseline_blocker_class": "UNRESOLVED_PR_PATH",
+      "pr_path_status": "PR_PATH_COMPLETE",
+      "is_pr_path_resolved": true,
+      "caller_domain_complete": false,
+      "true_unknown_threat_count": 0,
+      "true_unknown_threats": []
+    },
+    {
+      "site_id": "TH2.LOW_0x002EA1B0",
+      "runtime_pc": "0x002EA1B0",
+      "function_entry_pc": "0x002EA15C",
+      "module": "TH2.LOW",
+      "baseline_blocker_class": "UNRESOLVED_EXTERNAL_ENTRY",
+      "pr_path_status": "PR_PATH_COMPLETE",
+      "is_pr_path_resolved": true,
+      "caller_domain_complete": false,
+      "true_unknown_threat_count": 0,
+      "true_unknown_threats": []
+    }
+  ]
+}

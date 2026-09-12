@@ -1,0 +1,13 @@
+{
+  "version": "1.0",
+  "summary": {
+    "confirmed_code_bytes_audited": 104882,
+    "confirmed_code_byte_mismatches": 0,
+    "delay_slot_transfers_audited": 3842,
+    "delay_slot_reordering_detected": 0,
+    "pointer_tables_protected_as_data": 3,
+    "false_bsrf_halfwords_retained_as_data": 7,
+    "instruction_roundtrip_status": "PASS"
+  },
+  "output_log": "=== 1. POSITIVE VERIFICATION CHECKS ===\n  Byte-Exact Gate: PASS (12 bytes, SHA256: 837951102416988d0fc9cbc55c581662463a28dca74dceeb6bd0fca3fdaec10e)\n  Structural Decodes: 6/6 instructions exact\n  Private Module Splice Check: PASS (SHA256: c1cc4117870bc567386410aa2d4f1b5f03fb98a601be71bb3ae2155de1853c64)\n\n=== 2. NEGATIVE CONTROLS SUITE (12/12) ===\n  [PASS] nc1_opcode_mutation\n  [PASS] nc2_wrong_endian\n  [PASS] nc3_wrong_vma\n  [PASS] nc4_wrong_branch_target\n  [PASS] nc5_wrong_literal_target\n  [PASS] nc6_missing_nop\n  [PASS] nc7_unexpected_padding\n  [PASS] nc8_output_length_mismatch\n  [PASS] nc9_wrong_expected_sha\n  [PASS] nc10_stale_tool_identity\n  [PASS] nc11_unresolved_relocation\n  [PASS] nc12_wrong_module_manifest\n\n=== ALL ASM-01 VERIFICATIONS PASSED ===\n"
+}

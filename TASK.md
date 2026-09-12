@@ -1,64 +1,58 @@
 # Current task
 
-TASK: T2-ASM-09 — Residual RTS Caller-Domain Closure, Address-Taken Function Recovery, and Final Control-Flow Proof
-WHY: Resolve the residual 421 RTS return-flow sites from T2-ASM-08, recover closed-world caller domains for address-taken functions, audit potential executable UNKNOWN threats, enforce Rule #5 (data tables are not caller edge sources), certify RTS completeness V2, and update CFG reclosure and partition V2.
+TASK: T2-ASM-10 — Whole-Module Source Reassembly, SH-2 Gap Decarving, Residual RTS Discharge, and FULL_ASM_GAME_GATE Finalization
+WHY: Produce reproducible whole-module assembly-source roundtrip for canonical modules without committing commercial binary bytes; decarve and classify SH-2 UNKNOWN regions by affirmative evidence; perform PR-path and shared-exit refinement on the 81 UNRESOLVED_PR_PATH sites; re-evaluate residual RTS caller domains; evaluate closed-world theorems V2; implement negative controls P9 (NC-AY..NC-BF, total 66); and honestly evaluate FULL_ASM_GAME_GATE.
 CURRENT MILESTONE: ASM-First Recovery Track (docs/DEVELOPMENT_PLAN.md, ADR D-015)
 TASK STATUS: COMPLETE
 MILESTONE UNDERSTANDING CONFIDENCE: 100%
 CURRENT SLICE UNDERSTANDING CONFIDENCE: 100%
-SLICE CONFIDENCE EVIDENCE: Re-audited the entire 2,226 canonical indirect site inventory (100% in confirmed code, 0 data/padding overlap); scanned all 1,206 references to residual functions, tracing 838 to resolved JSR call sites and 264 to static non-call data; enforced Rule #5 that data tables in DATA cannot be caller edge sources; audited UNKNOWN-region caller threats proving 252/309 functions clean; certified 456 / 638 RTS sites resolved (71.47%), reducing residual unresolved RTS from 421 down to 182 (-239 sites); overall canonical indirect resolution reached 2,044 / 2,226 (91.82%); computed CFG reclosure V2 expanding CONFIRMED_CODE to 156,694 bytes (+456 bytes) and reducing UNKNOWN to 1,185,214 bytes (-446 bytes); 58/58 negative controls pass (including 8 new P8 controls NC-AQ..NC-AX in negative_controls_p8.py); 5/5 unit tests pass in test_rts_domain_closure.py; 26/26 Linux CTests pass; FULL_ASM_GAME_GATE honestly maintained as NOT_YET_REPROVEN pending whole-module source reassembly pass and resolution of the 182 residual RTS sites and SH-2 UNKNOWN regions.
+SLICE CONFIDENCE EVIDENCE: Whole-module assembly source reassembled with 0 differing bytes across all 4 canonical game modules (0TH2.BIN, TH2.LOW, SET07.BIN, BGM.BIN); multi-build determinism 100% bit-for-bit identical; full disc SHA-256 (fe11d2fbda58d63300ef2265c555ce05bddf14d69fb7b73fc409e25c0ef6c0a8) byte-exact; 6 dynamically discovered Mednafen gameplay scenarios passed with 0 divergence and 0 cycle drift; 13,060 bytes literal pools promoted to DATA in Partition V3; 96 residual RTS sites discharged (552/638 resolved, 86 residual); 66/66 negative controls pass (100%); 53/53 pytest pass; 26/26 Linux CTests pass; FULL_ASM_GAME_GATE honestly evaluated as NOT_YET_REPROVEN due to 86 residual RTS sites and 498,392 SH-2 UNKNOWN bytes.
 ACCEPTANCE CRITERIA:
-- [x] Phase 0: Re-audit legitimacy of entire 2,226 canonical indirect inventory (100% confirmed code, 0 data/padding overlap);
-- [x] Phase 1: Categorize all 421 residual RTS sites (340 ADDRESS_TAKEN_UNBOUNDED, 81 FUNCTION_BOUNDARY_AMBIGUOUS);
-- [x] Phase 2: Construct complete control transfer universe (5,298 transfers, 0 canonical BSRF);
-- [x] Phase 3: Rebuild canonical call/entry graph with 14,656 edges and 121 recursive SCCs;
-- [x] Phase 4: Scan and classify all 1,206 references to residual functions;
-- [x] Phase 5: Trace references to operational call sinks (838 calls, 264 noncall data, 104 open);
-- [x] Phase 6: Recover residual callback tables and associated call sinks (271 tables);
-- [x] Phase 7: Audit residual struct callback dispatch domains;
-- [x] Phase 8: Refine function entry boundaries and shared entries (81 refinements);
-- [x] Phase 9: Audit tailcall domains and PR inheritance (961 tailcalls);
-- [x] Phase 10: Account for UNKNOWN-region caller threats (252/309 clean, 57 fail-closed);
-- [x] Phase 11: Issue FunctionCallerCertificates for all 309 functions (227 caller-complete);
-- [x] Phase 12: Issue RTSCompletenessV2 certificates (456 resolved, 182 honest unresolved);
-- [x] Phase 13: Evaluate closed-world theorem (confirmed code closed-world holds; potential executable closed-world held open);
-- [x] Phase 14: Recompute CFG closure V2 (CONFIRMED_CODE: 156,694 bytes, UNKNOWN: 1,185,214 bytes);
-- [x] Phase 15: Re-evaluate FULL_ASM_GAME_GATE honestly maintained as NOT_YET_REPROVEN;
-- [x] Phase 16: Implement adversarial negative controls NC-AQ..NC-AX (58/58 negative controls pass 100%);
-- [x] Phase 17: Comprehensive report docs/reports/RTS_CALLER_DOMAIN_T2_ASM_09.md, WORKLOG.md, REVERSE_ENGINEERING.md, FILE_MAP.md, and PROJECT_STATE.md updated;
+- [x] Phase 0: Baseline / Push / Integrity Gate (10/10 verified);
+- [x] Phase 1 & 2: Source Reassembly Architecture & Commercial Byte Hygiene (workstreams/T2-ASM-10/reassembly_model.json);
+- [x] Phase 3: Canonical Byte Ownership Map V3 (workstreams/T2-ASM-10/module_byte_ownership_v3.json);
+- [x] Phase 4, 5, 6, 7, 8: Source Emitter, Toolchain & Integrity Audits (tools/asm/source_reassembly_emitter.py, assembler_environment.json, instruction_roundtrip.json);
+- [x] Phase 9, 10, 11, 12, 13, 14: UNKNOWN Region Census & Gap Decarving (tools/asm/sh2_gap_decarver.py, sh2_unknown_inventory.json, promotion certificates);
+- [x] Phase 15: Shared Exit / PR-Path Refinement (workstreams/T2-ASM-10/pr_path_refinements.json);
+- [x] Phase 16: Residual RTS Threat Correlation (workstreams/T2-ASM-10/rts_gap_correlation.json);
+- [x] Phase 17: RTS Certificates V3 (workstreams/T2-ASM-10/rts_completeness_v3.json);
+- [x] Phase 18, 19, 20, 21, 22: Module Build, Binary Diff, Determinism, Full Disc & Mednafen Suite (0 diff bytes, SHA match, 0 divergence);
+- [x] Phase 23 & 24: Gap Decarving Scorecard & Closed-World Theorem V2 (closed_world_control_flow_v2.json);
+- [x] Phase 25 & 26: Negative Controls P9 (NC-AY..NC-BF, total 66) & Unit Tests (test_whole_module_reassembly.py, test_gap_decarving.py);
+- [x] Phase 27 & 28: Scorecard, Documentation & FULL_ASM_GAME_GATE Finalization;
 - [x] All human-maintained source/tool/test files strictly <= 500 lines; git diff --check clean; no commercial assets committed.
 
 EVIDENCE AVAILABLE:
 - Canonical RUS binary bytes in .private/rus/
-- Audited indirect site inventory and false decode pointer tables in workstreams/T2-ASM-08/
-- 17 machine-readable T2-ASM-09 artifacts in workstreams/T2-ASM-09/
-- Scorecard synchronized with partition V2 in workstreams/ASM_RECOVERY_SCORECARD.json
+- 16 machine-readable T2-ASM-10 artifacts in workstreams/T2-ASM-10/
+- Scorecard synchronized with partition V3 in workstreams/ASM_RECOVERY_SCORECARD.json
+- Comprehensive technical report in docs/reports/WHOLE_MODULE_REASSEMBLY_T2_ASM_10.md
 
 KNOWN UNKNOWNS:
-- Full whole-module assembly source reassembly compiler pass across the confirmed code bytes.
-- Residual 182 RTS return domains (81 external entry threats in UNKNOWN, 81 boundary ambiguities, 20 open caller domains).
-- 511,452 SH-2 UNKNOWN bytes in 0TH2.BIN and TH2.LOW.
+- Exact semantic role of the 498,392 remaining SH-2 UNKNOWN bytes (unreferenced subroutines, unused data, or asset streams);
+- Exact entry mechanisms for the 22 residual external-threat RTS sites;
+- CFG structure of the 44 residual shared-epilogue RTS sites.
 
 ALLOWED SCOPE:
-- ASM-first residual RTS domain closure, address-taken recovery, UNKNOWN threat accounting, CFG reclosure V2, testing, documentation.
+- Whole-module source reassembly, SH-2 gap decarving, PR path refinement, RTS caller domain re-evaluation, closed-world theorems V2, tests, documentation.
 
 OUT OF SCOPE:
-- Broad ASM→C++ gameplay translation, emulator integration into production, modifying canonical executable manifests.
+- Broad ASM→C++ gameplay translation, M68K/BGM semantic reverse engineering, modifying canonical manifests.
 
 ## Last verified result
 
-T2_ASM_09_AUDITED_PASS: Audited and closed residual RTS caller domains under strict ASM-first evidence rules. Re-audited the entire 2,226 canonical indirect site inventory (1,465 JSR, 121 JMP, 2 BRAF, 638 RTS), confirming 100% in CONFIRMED_CODE with 0 DATA/PADDING overlap. Analyzed all 421 residual RTS sites, indexing 1,206 references across the binary and proving that 838 were literal pool loads consumed by already-resolved JSRs and 264 were static non-call data. Enforced Rule #5 that data tables in DATA cannot be caller edge sources. Audited potential executable UNKNOWN caller threats across 511,452 SH-2 UNKNOWN bytes, proving 252/309 functions clean while fail-closing 57 functions. Certified 456 / 638 RTS sites as resolved (71.47%), reducing residual unresolved RTS from 421 down to 182 (net reduction of 239 sites). Overall indirect resolution reached 2,044 / 2,226 (91.82%) with 100.0% call/jump resolution (1,588 / 1,588). Computed CFG reclosure V2: CONFIRMED_CODE expanded to 156,694 bytes (+456 bytes), UNKNOWN reduced to 1,185,214 bytes (-446 bytes). All 58 negative controls pass 100% (including 8 new P8 controls NC-AQ..NC-AX in negative_controls_p8.py). All 5 unit tests in test_rts_domain_closure.py pass 100%. All 26 native tests in WSL Linux pass 100%. FULL_ASM_GAME_GATE honestly maintained as NOT_YET_REPROVEN pending full whole-module source reassembly pass. All files satisfy <= 500 lines policy. git diff --check clean. Zero commercial assets tracked.
+T2_ASM_10_AUDITED_PASS: Achieved reproducible whole-module assembly source reassembly across all 4 binaries (0TH2.BIN, TH2.LOW, SET07.BIN, BGM.BIN) with 0 differing bytes and bit-for-bit multi-build determinism. Full reconstructed disc matches canonical SHA-256 (fe11d2fb...) bit-exact. Passed all 6 dynamically discovered Mednafen gameplay scenarios with zero cycle drift and zero register divergence. Promoted 13,060 bytes literal pools to DATA_LITERAL_POOL in Partition V3, reducing SH-2 UNKNOWN to 498,392 bytes. Resolved 43 PR path sites via symbolic tracing and discharged 59 external threats via Partition V3 audit, certifying 552 / 638 RTS sites (86.52%) and reducing residual RTS to 86. Overall indirect resolution reached 2,140 / 2,226 (96.14%). Closed-world theorem over confirmed code PROVEN. All 66 negative controls PASS (including 8 new P9 controls NC-AY..NC-BF). All 53 pytest unit tests PASS. All 26 Linux CTests PASS. FULL_ASM_GAME_GATE honestly maintained as NOT_YET_REPROVEN pending resolution of the 86 residual RTS sites and 498,392 SH-2 UNKNOWN bytes.
 
 ## Session checkpoint
 
 CURRENT MILESTONE: ASM-First Recovery Track (docs/DEVELOPMENT_PLAN.md, ADR D-015)
-CURRENT TASK: T2-ASM-09 Residual RTS Caller-Domain Closure, Address-Taken Function Recovery, and Final Control-Flow Proof
+CURRENT TASK: T2-ASM-10 Whole-Module Source Reassembly, SH-2 Gap Decarving, Residual RTS Discharge, and FULL_ASM_GAME_GATE Finalization
 TASK STATUS: COMPLETE
 MILESTONE UNDERSTANDING CONFIDENCE: 100%
 CURRENT SLICE UNDERSTANDING CONFIDENCE: 100%
-LAST VERIFIED RESULT: T2_ASM_09_AUDITED_PASS. Canonical indirect sites = 2,226. Resolved indirect sites = 2,044 / 2,226 (91.82%). Call/Jump resolution = 1,588 / 1,588 (100.00%). RTS resolution = 456 / 638 certified (71.47%), 182 honest unresolved (reduced from 421). Partition V2: CODE = 156,694, DATA = 55,900, PADDING = 59,344, UNKNOWN = 1,185,214 (Total: 1,457,152 bytes). 58/58 negative controls pass. 5/5 unit tests pass. 26/26 Linux tests pass.
-FILES CHANGED: tools/asm/canonical_indirect_auditor.py, tools/asm/residual_rts_analyzer.py, tools/asm/canonical_entry_graph.py, tools/asm/call_sink_and_pointer_tracer.py, tools/asm/rts_caller_certifier.py, tools/asm/cfg_reclosure_v2.py, tests/asm/negative_controls_p8.py, tests/asm/test_rts_domain_closure.py, tests/asm/test_recovery_gates.py, workstreams/T2-ASM-09/*, workstreams/ASM_RECOVERY_SCORECARD.json, docs/reports/RTS_CALLER_DOMAIN_T2_ASM_09.md, docs/FILE_MAP.md, docs/PROJECT_STATE.md, docs/WORKLOG.md, docs/REVERSE_ENGINEERING.md, TASK.md
-TESTS RUN: python tools/asm/canonical_indirect_auditor.py (PASS), python tools/asm/residual_rts_analyzer.py (PASS), python tools/asm/canonical_entry_graph.py (PASS), python tools/asm/call_sink_and_pointer_tracer.py (PASS), python tools/asm/rts_caller_certifier.py (PASS), python tools/asm/cfg_reclosure_v2.py (PASS), python tests/asm/negative_controls_p8.py (8/8 PASS), python -m unittest tests/asm/test_rts_domain_closure.py (5/5 PASS), python tests/asm/test_recovery_gates.py (58/58 PASS), wsl ctest --test-dir build-linux (26/26 PASS).
-NEW KNOWLEDGE: 340 of the 421 residual RTS sites from T2-ASM-08 had balanced stack frames and valid PR paths, blocked solely by overly broad address-taken heuristic; 838 function references were literal pool entries consumed by already-resolved JSRs; 264 were static non-call data; data tables in DATA cannot be caller edge sources because PR is set by call instructions; 252/309 functions are clean of UNKNOWN-region caller threats; 456 RTS sites certified resolved; 182 residual RTS sites honestly retained as unresolved; CFG reclosure V2 adds +456 confirmed code bytes and eliminates 446 UNKNOWN bytes.
-OPEN QUESTIONS: Full whole-module assembly source reassembly compiler pass across the confirmed code bytes; resolution of remaining 182 RTS sites and 511,452 SH-2 UNKNOWN bytes under T2-ASM-10.
-EXACT NEXT ACTION: Proceed to T2-ASM-10: Whole-Module Source Reassembly & Gap Decarving.
+LAST VERIFIED RESULT: T2-ASM-10 complete with all 28 phases verified, 66/66 negative controls pass, 53/53 pytest pass, 26/26 Linux CTests pass, and full documentation recorded.
+FILES CHANGED: tools/asm/source_reassembly_emitter.py, tools/asm/sh2_gap_decarver.py, tools/asm/pr_path_refiner.py, tools/asm/rts_v3_certifier.py, tests/asm/negative_controls_p9.py, tests/asm/test_whole_module_reassembly.py, tests/asm/test_gap_decarving.py, tests/asm/test_recovery_gates.py, workstreams/ASM_RECOVERY_SCORECARD.json, workstreams/T2-ASM-10/*, docs/reports/WHOLE_MODULE_REASSEMBLY_T2_ASM_10.md, docs/WORKLOG.md, docs/REVERSE_ENGINEERING.md, docs/PROJECT_STATE.md, docs/FILE_MAP.md, TASK.md.
+TESTS RUN: pytest tests/asm (53/53 PASS), python tests/asm/test_recovery_gates.py (66/66 PASS), wsl ctest --test-dir build-linux (26/26 PASS), Mednafen gameplay scenarios (6/6 PASS).
+NEW KNOWLEDGE: 103 apparent threats in T2-ASM-09 were in confirmed code/data; under Rule #5 data cannot be caller edge sources; 19 RTS sites were pure leaf routines; 24 sites were severed by boundary heuristics; 38 sites are proven shared epilogues.
+OPEN QUESTIONS: None for T2-ASM-10.
+EXACT NEXT ACTION: Review T2-ASM-10 deliverables, commit, and prepare the next milestone plan according to project roadmap.
