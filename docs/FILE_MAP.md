@@ -39,6 +39,7 @@ docs/
     WHOLE_MODULE_REASSEMBLY_T2_ASM_10.md  comprehensive technical report for whole-module reassembly, gap decarving, and gate finalization
     RTS_V3_SOUNDNESS_AUDIT_T2_ASM_10_1.md comprehensive technical report for RTS V3 soundness audit and reconciliation
     SHARED_EPILOGUE_CLOSURE_T2_ASM_11.md  comprehensive technical report for context-sensitive shared epilogues & RTS V4
+    EXTERNAL_ENTRY_THREAT_CLOSURE_T2_ASM_12.md comprehensive technical report for targeted UNKNOWN caller-threat elimination & external-entry closure
 
 
 config/
@@ -182,6 +183,10 @@ tools/
     caller_return_domain_auditor.py audits caller/return domains and formalizes false call edges from literal pools
     rts_v4_certifier.py           pure certify_site master RTS v4 certifier with context-sensitive closure
     rts_v4_soundness_auditor.py   independent soundness auditor for RTS v4 certificates against fail-closed contract
+    threat_rebase_and_universe.py rebases historical threat universe against byte ownership v3
+    dual_channel_threat_prover.py dual-channel reachability exclusion and caller domains v5 engine
+    rts_v5_certifier.py           master RTS v5 certifier and byte partition v4 emitter
+    rts_v5_soundness_auditor.py   independent soundness auditor for RTS v5 certificates against contract
   carver/
     interval_db.py                canonical central interval database & execution conflict engine
     provenance_dag.py             provenance DAG & graph expansion engine
@@ -270,6 +275,7 @@ tests/
     negative_controls_p9.py       8 adversarial negative controls (NC-AY..NC-BF) for whole-module reassembly & gap decarving
     negative_controls_p10.py      8 adversarial negative controls (NC-BG..NC-BN) for RTS certificate soundness
     negative_controls_p11.py      8 adversarial negative controls (NC-BO..NC-BV) for shared epilogues & return targets
+    negative_controls_p12.py      9 adversarial negative controls (NC-BW..NC-CE) for external-entry threat proof
     test_indirect_resolution.py   unit tests for constant propagation, jump tables, call graph, and accounting
     test_struct_callback_resolution.py unit tests for struct callbacks, object provenance, and accounting
     test_return_provenance.py     unit tests for PR return provenance, canonical denominator, and byte carving
@@ -277,6 +283,7 @@ tests/
     test_whole_module_reassembly.py unit tests for full source reassembly, determinism, and diff parity
     test_gap_decarving.py         unit tests for SH-2 gap decarving, partition v3, and RTS completeness v3
     test_shared_epilogue_closure.py unit tests for context-sensitive shared epilogue decomposition and RTS V4
+    test_external_entry_closure.py unit tests for threat rebase, data consumer chains, entry graph v2, and RTS v5
   carver/
     test_carver_pipeline.py       carver pipeline, interval algebra, conflict, and determinism test suite
 
@@ -485,6 +492,24 @@ workstreams/
     targeted_external_threats.json accounting of external entry threats retained fail-closed
     rts_completeness_v4.json      master RTS v4 certificates (453 resolved, 185 honest unresolved)
     rts_v4_soundness_audit.json   independent soundness audit verifying 0 violations across all 638 sites
+  T2-ASM-12/
+    threat_rebase_audit.json      audit rebasing 99 historical reference addresses against byte ownership v3
+    external_threat_universe.json complete external threat universe combining literals, tailcalls, and branches
+    unknown_threat_regions.json   clustering of 2,080 UNKNOWN regions with historical entry-graph edges
+    unknown_false_decode_audit.json audit of 2,810 entry edges (2,801 false decodes, 9 branch candidates)
+    targeted_data_certificates.json consumer chain proof for all 99 literal pool addresses (0 open consumers)
+    targeted_code_certificates.json candidate branch instruction isolation in UNKNOWN (6 sites fail-closed)
+    reachability_exclusion_certificates.json reachability exclusion certificates for 35,435 UNKNOWN intervals
+    threat_to_call_sink_provenance.json provenance linking data references to real call sinks
+    tailcall_external_domains.json tailcall domain bounding (8 functions fail-closed on sub_0602F312)
+    canonical_entry_graph_v2.json canonical entry graph v2 with 9,591 confirmed CODE-only edges
+    external_threat_frontier.json bipartite threat frontier graph (202 frontier bytes across 5 intervals)
+    external_threat_dynamic_oracle.json Mednafen dynamic oracle telemetry confirming unobserved regions
+    function_caller_domains_v5.json function caller domains v5 (34 complete, 14 fail-closed)
+    rts_completeness_v5.json      master RTS v5 certificates (510 resolved, 128 honest unresolved)
+    rts_v5_soundness_audit.json   independent soundness audit verifying 0 violations across all 638 sites
+    executable_byte_partition_v4.json audited partition V4 (156,694 code, 68,980 data, 202 caller threat frontier)
+    closed_world_control_flow_v3.json closed-world theorems V3 (Theorems 1 & 2 PROVEN, Theorem 3 fail-closed)
 
 
 asm/                              assembly reconstruction layout (ADR D-015)

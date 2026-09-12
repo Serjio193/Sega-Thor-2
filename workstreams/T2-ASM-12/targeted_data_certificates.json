@@ -1,0 +1,2105 @@
+{
+  "version": "1.0",
+  "certificates": [
+    {
+      "source_pc": "0x002E48C0",
+      "module": "TH2.LOW",
+      "ownership_class": "DATA",
+      "semantic_subtype": "DATA_LITERAL_POOL",
+      "target_function_val": "0x06004F00",
+      "loaders_count": 1,
+      "primary_classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+      "consumer_chains": [
+        {
+          "loader_pc": "0x002E4868",
+          "destination_reg": "R2",
+          "classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+          "call_site": "0x002E4870"
+        }
+      ],
+      "is_non_executable_source": true
+    },
+    {
+      "source_pc": "0x002E5528",
+      "module": "TH2.LOW",
+      "ownership_class": "DATA",
+      "semantic_subtype": "DATA_LITERAL_POOL",
+      "target_function_val": "0x0600444E",
+      "loaders_count": 1,
+      "primary_classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+      "consumer_chains": [
+        {
+          "loader_pc": "0x002E5444",
+          "destination_reg": "R2",
+          "classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+          "call_site": "0x002E5446"
+        }
+      ],
+      "is_non_executable_source": true
+    },
+    {
+      "source_pc": "0x002E7634",
+      "module": "TH2.LOW",
+      "ownership_class": "DATA",
+      "semantic_subtype": "DATA_LITERAL_POOL",
+      "target_function_val": "0x0606DD04",
+      "loaders_count": 2,
+      "primary_classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+      "consumer_chains": [
+        {
+          "loader_pc": "0x002E7564",
+          "destination_reg": "R3",
+          "classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+          "call_site": "0x002E7568"
+        },
+        {
+          "loader_pc": "0x002E7608",
+          "destination_reg": "R3",
+          "classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+          "call_site": "0x002E760E"
+        }
+      ],
+      "is_non_executable_source": true
+    },
+    {
+      "source_pc": "0x002E7B50",
+      "module": "TH2.LOW",
+      "ownership_class": "DATA",
+      "semantic_subtype": "DATA_LITERAL_POOL",
+      "target_function_val": "0x0600442E",
+      "loaders_count": 1,
+      "primary_classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+      "consumer_chains": [
+        {
+          "loader_pc": "0x002E7AC6",
+          "destination_reg": "R3",
+          "classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+          "call_site": "0x002E7AC8"
+        }
+      ],
+      "is_non_executable_source": true
+    },
+    {
+      "source_pc": "0x002E9D60",
+      "module": "TH2.LOW",
+      "ownership_class": "DATA",
+      "semantic_subtype": "DATA_LITERAL_POOL",
+      "target_function_val": "0x06014CA2",
+      "loaders_count": 1,
+      "primary_classification": "DATA_LITERAL_REACHES_TAILCALL",
+      "consumer_chains": [
+        {
+          "loader_pc": "0x002E9CD8",
+          "destination_reg": "R3",
+          "classification": "DATA_LITERAL_REACHES_TAILCALL",
+          "call_site": "0x002E9CDC"
+        }
+      ],
+      "is_non_executable_source": true
+    },
+    {
+      "source_pc": "0x060059B0",
+      "module": "0TH2.BIN",
+      "ownership_class": "DATA",
+      "semantic_subtype": "DATA_LITERAL_POOL",
+      "target_function_val": "0x0606DD04",
+      "loaders_count": 5,
+      "primary_classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+      "consumer_chains": [
+        {
+          "loader_pc": "0x06005868",
+          "destination_reg": "R2",
+          "classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+          "call_site": "0x0600586E"
+        },
+        {
+          "loader_pc": "0x060058B6",
+          "destination_reg": "R2",
+          "classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+          "call_site": "0x060058B8"
+        },
+        {
+          "loader_pc": "0x060058C4",
+          "destination_reg": "R3",
+          "classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+          "call_site": "0x060058D2"
+        },
+        {
+          "loader_pc": "0x060058E0",
+          "destination_reg": "R3",
+          "classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+          "call_site": "0x060058EC"
+        },
+        {
+          "loader_pc": "0x060058FE",
+          "destination_reg": "R3",
+          "classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+          "call_site": "0x06005906"
+        }
+      ],
+      "is_non_executable_source": true
+    },
+    {
+      "source_pc": "0x0600A458",
+      "module": "0TH2.BIN",
+      "ownership_class": "DATA",
+      "semantic_subtype": "DATA_LITERAL_POOL",
+      "target_function_val": "0x06078B42",
+      "loaders_count": 2,
+      "primary_classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+      "consumer_chains": [
+        {
+          "loader_pc": "0x0600A33A",
+          "destination_reg": "R2",
+          "classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+          "call_site": "0x0600A33C"
+        },
+        {
+          "loader_pc": "0x0600A39E",
+          "destination_reg": "R11",
+          "classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+          "call_site": "0x0600A3A0"
+        }
+      ],
+      "is_non_executable_source": true
+    },
+    {
+      "source_pc": "0x0600E5E0",
+      "module": "0TH2.BIN",
+      "ownership_class": "DATA",
+      "semantic_subtype": "DATA_LITERAL_POOL",
+      "target_function_val": "0x0600406C",
+      "loaders_count": 1,
+      "primary_classification": "DATA_LITERAL_NO_CALL_USE",
+      "consumer_chains": [
+        {
+          "loader_pc": "0x0600E45C",
+          "destination_reg": "R9",
+          "classification": "DATA_LITERAL_NO_CALL_USE",
+          "call_site": null
+        }
+      ],
+      "is_non_executable_source": true
+    },
+    {
+      "source_pc": "0x0600E9C8",
+      "module": "0TH2.BIN",
+      "ownership_class": "DATA",
+      "semantic_subtype": "DATA_LITERAL_POOL",
+      "target_function_val": "0x0606DD04",
+      "loaders_count": 1,
+      "primary_classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+      "consumer_chains": [
+        {
+          "loader_pc": "0x0600E9A2",
+          "destination_reg": "R3",
+          "classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+          "call_site": "0x0600E9A4"
+        }
+      ],
+      "is_non_executable_source": true
+    },
+    {
+      "source_pc": "0x0600F498",
+      "module": "0TH2.BIN",
+      "ownership_class": "DATA",
+      "semantic_subtype": "DATA_LITERAL_POOL",
+      "target_function_val": "0x0600B204",
+      "loaders_count": 1,
+      "primary_classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+      "consumer_chains": [
+        {
+          "loader_pc": "0x0600F450",
+          "destination_reg": "R3",
+          "classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+          "call_site": "0x0600F45E"
+        }
+      ],
+      "is_non_executable_source": true
+    },
+    {
+      "source_pc": "0x06017DD8",
+      "module": "0TH2.BIN",
+      "ownership_class": "DATA",
+      "semantic_subtype": "DATA_LITERAL_POOL",
+      "target_function_val": "0x060171B4",
+      "loaders_count": 1,
+      "primary_classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+      "consumer_chains": [
+        {
+          "loader_pc": "0x06017D68",
+          "destination_reg": "R1",
+          "classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+          "call_site": "0x06017D6A"
+        }
+      ],
+      "is_non_executable_source": true
+    },
+    {
+      "source_pc": "0x06017DDC",
+      "module": "0TH2.BIN",
+      "ownership_class": "DATA",
+      "semantic_subtype": "DATA_LITERAL_POOL",
+      "target_function_val": "0x0601715E",
+      "loaders_count": 1,
+      "primary_classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+      "consumer_chains": [
+        {
+          "loader_pc": "0x06017D72",
+          "destination_reg": "R2",
+          "classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+          "call_site": "0x06017D74"
+        }
+      ],
+      "is_non_executable_source": true
+    },
+    {
+      "source_pc": "0x06019658",
+      "module": "0TH2.BIN",
+      "ownership_class": "DATA",
+      "semantic_subtype": "DATA_LITERAL_POOL",
+      "target_function_val": "0x0600406C",
+      "loaders_count": 1,
+      "primary_classification": "DATA_LITERAL_NO_CALL_USE",
+      "consumer_chains": [
+        {
+          "loader_pc": "0x06019526",
+          "destination_reg": "R13",
+          "classification": "DATA_LITERAL_NO_CALL_USE",
+          "call_site": null
+        }
+      ],
+      "is_non_executable_source": true
+    },
+    {
+      "source_pc": "0x060197E0",
+      "module": "0TH2.BIN",
+      "ownership_class": "DATA",
+      "semantic_subtype": "DATA_LITERAL_POOL",
+      "target_function_val": "0x0600406C",
+      "loaders_count": 1,
+      "primary_classification": "DATA_LITERAL_NO_CALL_USE",
+      "consumer_chains": [
+        {
+          "loader_pc": "0x060196B0",
+          "destination_reg": "R14",
+          "classification": "DATA_LITERAL_NO_CALL_USE",
+          "call_site": null
+        }
+      ],
+      "is_non_executable_source": true
+    },
+    {
+      "source_pc": "0x0601BF94",
+      "module": "0TH2.BIN",
+      "ownership_class": "DATA",
+      "semantic_subtype": "DATA_LITERAL_POOL",
+      "target_function_val": "0x0600DEDC",
+      "loaders_count": 1,
+      "primary_classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+      "consumer_chains": [
+        {
+          "loader_pc": "0x0601BF64",
+          "destination_reg": "R3",
+          "classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+          "call_site": "0x0601BF66"
+        }
+      ],
+      "is_non_executable_source": true
+    },
+    {
+      "source_pc": "0x0601C834",
+      "module": "0TH2.BIN",
+      "ownership_class": "DATA",
+      "semantic_subtype": "DATA_LITERAL_POOL",
+      "target_function_val": "0x0606DD04",
+      "loaders_count": 4,
+      "primary_classification": "DATA_LITERAL_NO_CALL_USE",
+      "consumer_chains": [
+        {
+          "loader_pc": "0x0601C784",
+          "destination_reg": "R3",
+          "classification": "DATA_LITERAL_NO_CALL_USE",
+          "call_site": null
+        },
+        {
+          "loader_pc": "0x0601C7BE",
+          "destination_reg": "R3",
+          "classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+          "call_site": "0x0601C7C4"
+        },
+        {
+          "loader_pc": "0x0601C7DC",
+          "destination_reg": "R3",
+          "classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+          "call_site": "0x0601C7E2"
+        },
+        {
+          "loader_pc": "0x0601C7FC",
+          "destination_reg": "R3",
+          "classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+          "call_site": "0x0601C802"
+        }
+      ],
+      "is_non_executable_source": true
+    },
+    {
+      "source_pc": "0x0601CAC0",
+      "module": "0TH2.BIN",
+      "ownership_class": "DATA",
+      "semantic_subtype": "DATA_LITERAL_POOL",
+      "target_function_val": "0x0600406C",
+      "loaders_count": 2,
+      "primary_classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+      "consumer_chains": [
+        {
+          "loader_pc": "0x0601C990",
+          "destination_reg": "R3",
+          "classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+          "call_site": "0x0601C9AE"
+        },
+        {
+          "loader_pc": "0x0601C9B4",
+          "destination_reg": "R3",
+          "classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+          "call_site": "0x0601C9BE"
+        }
+      ],
+      "is_non_executable_source": true
+    },
+    {
+      "source_pc": "0x060211B8",
+      "module": "0TH2.BIN",
+      "ownership_class": "DATA",
+      "semantic_subtype": "DATA_LITERAL_POOL",
+      "target_function_val": "0x0600B204",
+      "loaders_count": 1,
+      "primary_classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+      "consumer_chains": [
+        {
+          "loader_pc": "0x060210C0",
+          "destination_reg": "R3",
+          "classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+          "call_site": "0x060210CC"
+        }
+      ],
+      "is_non_executable_source": true
+    },
+    {
+      "source_pc": "0x06022D2C",
+      "module": "0TH2.BIN",
+      "ownership_class": "DATA",
+      "semantic_subtype": "DATA_LITERAL_POOL",
+      "target_function_val": "0x0600DEDC",
+      "loaders_count": 1,
+      "primary_classification": "DATA_LITERAL_REACHES_TAILCALL",
+      "consumer_chains": [
+        {
+          "loader_pc": "0x06022D18",
+          "destination_reg": "R3",
+          "classification": "DATA_LITERAL_REACHES_TAILCALL",
+          "call_site": "0x06022D1A"
+        }
+      ],
+      "is_non_executable_source": true
+    },
+    {
+      "source_pc": "0x060237D0",
+      "module": "0TH2.BIN",
+      "ownership_class": "DATA",
+      "semantic_subtype": "DATA_LITERAL_POOL",
+      "target_function_val": "0x0600DEDC",
+      "loaders_count": 1,
+      "primary_classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+      "consumer_chains": [
+        {
+          "loader_pc": "0x06023780",
+          "destination_reg": "R2",
+          "classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+          "call_site": "0x06023786"
+        }
+      ],
+      "is_non_executable_source": true
+    },
+    {
+      "source_pc": "0x06026CD8",
+      "module": "0TH2.BIN",
+      "ownership_class": "DATA",
+      "semantic_subtype": "DATA_LITERAL_POOL",
+      "target_function_val": "0x0600B204",
+      "loaders_count": 1,
+      "primary_classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+      "consumer_chains": [
+        {
+          "loader_pc": "0x06026C30",
+          "destination_reg": "R2",
+          "classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+          "call_site": "0x06026C36"
+        }
+      ],
+      "is_non_executable_source": true
+    },
+    {
+      "source_pc": "0x06027240",
+      "module": "0TH2.BIN",
+      "ownership_class": "DATA",
+      "semantic_subtype": "DATA_LITERAL_POOL",
+      "target_function_val": "0x0600B204",
+      "loaders_count": 1,
+      "primary_classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+      "consumer_chains": [
+        {
+          "loader_pc": "0x06027124",
+          "destination_reg": "R3",
+          "classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+          "call_site": "0x0602712C"
+        }
+      ],
+      "is_non_executable_source": true
+    },
+    {
+      "source_pc": "0x060290B8",
+      "module": "0TH2.BIN",
+      "ownership_class": "DATA",
+      "semantic_subtype": "DATA_LITERAL_POOL",
+      "target_function_val": "0x0600DEDC",
+      "loaders_count": 1,
+      "primary_classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+      "consumer_chains": [
+        {
+          "loader_pc": "0x06029064",
+          "destination_reg": "R3",
+          "classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+          "call_site": "0x06029066"
+        }
+      ],
+      "is_non_executable_source": true
+    },
+    {
+      "source_pc": "0x0602D44C",
+      "module": "0TH2.BIN",
+      "ownership_class": "DATA",
+      "semantic_subtype": "DATA_LITERAL_POOL",
+      "target_function_val": "0x0600406C",
+      "loaders_count": 2,
+      "primary_classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+      "consumer_chains": [
+        {
+          "loader_pc": "0x0602D330",
+          "destination_reg": "R3",
+          "classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+          "call_site": "0x0602D336"
+        },
+        {
+          "loader_pc": "0x0602D33C",
+          "destination_reg": "R3",
+          "classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+          "call_site": "0x0602D342"
+        }
+      ],
+      "is_non_executable_source": true
+    },
+    {
+      "source_pc": "0x0602D504",
+      "module": "0TH2.BIN",
+      "ownership_class": "DATA",
+      "semantic_subtype": "DATA_LITERAL_POOL",
+      "target_function_val": "0x0600406C",
+      "loaders_count": 1,
+      "primary_classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+      "consumer_chains": [
+        {
+          "loader_pc": "0x0602D47C",
+          "destination_reg": "R2",
+          "classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+          "call_site": "0x0602D480"
+        }
+      ],
+      "is_non_executable_source": true
+    },
+    {
+      "source_pc": "0x0602E7A8",
+      "module": "0TH2.BIN",
+      "ownership_class": "DATA",
+      "semantic_subtype": "DATA_LITERAL_POOL",
+      "target_function_val": "0x0600DEDC",
+      "loaders_count": 1,
+      "primary_classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+      "consumer_chains": [
+        {
+          "loader_pc": "0x0602E760",
+          "destination_reg": "R2",
+          "classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+          "call_site": "0x0602E762"
+        }
+      ],
+      "is_non_executable_source": true
+    },
+    {
+      "source_pc": "0x0602F1A4",
+      "module": "0TH2.BIN",
+      "ownership_class": "DATA",
+      "semantic_subtype": "DATA_LITERAL_POOL",
+      "target_function_val": "0x0600DEDC",
+      "loaders_count": 1,
+      "primary_classification": "DATA_LITERAL_REACHES_TAILCALL",
+      "consumer_chains": [
+        {
+          "loader_pc": "0x0602F182",
+          "destination_reg": "R3",
+          "classification": "DATA_LITERAL_REACHES_TAILCALL",
+          "call_site": "0x0602F184"
+        }
+      ],
+      "is_non_executable_source": true
+    },
+    {
+      "source_pc": "0x060300E8",
+      "module": "0TH2.BIN",
+      "ownership_class": "DATA",
+      "semantic_subtype": "DATA_LITERAL_POOL",
+      "target_function_val": "0x06005CB6",
+      "loaders_count": 1,
+      "primary_classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+      "consumer_chains": [
+        {
+          "loader_pc": "0x06030042",
+          "destination_reg": "R3",
+          "classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+          "call_site": "0x06030044"
+        }
+      ],
+      "is_non_executable_source": true
+    },
+    {
+      "source_pc": "0x06030FFC",
+      "module": "0TH2.BIN",
+      "ownership_class": "DATA",
+      "semantic_subtype": "DATA_LITERAL_POOL",
+      "target_function_val": "0x0600406C",
+      "loaders_count": 2,
+      "primary_classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+      "consumer_chains": [
+        {
+          "loader_pc": "0x06030FB4",
+          "destination_reg": "R3",
+          "classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+          "call_site": "0x06030FB6"
+        },
+        {
+          "loader_pc": "0x06030FC8",
+          "destination_reg": "R3",
+          "classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+          "call_site": "0x06030FCA"
+        }
+      ],
+      "is_non_executable_source": true
+    },
+    {
+      "source_pc": "0x06032D98",
+      "module": "0TH2.BIN",
+      "ownership_class": "DATA",
+      "semantic_subtype": "DATA_LITERAL_POOL",
+      "target_function_val": "0x0600406C",
+      "loaders_count": 2,
+      "primary_classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+      "consumer_chains": [
+        {
+          "loader_pc": "0x06032D24",
+          "destination_reg": "R3",
+          "classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+          "call_site": "0x06032D2E"
+        },
+        {
+          "loader_pc": "0x06032D34",
+          "destination_reg": "R3",
+          "classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+          "call_site": "0x06032D3E"
+        }
+      ],
+      "is_non_executable_source": true
+    },
+    {
+      "source_pc": "0x06032D9C",
+      "module": "0TH2.BIN",
+      "ownership_class": "DATA",
+      "semantic_subtype": "DATA_LITERAL_POOL",
+      "target_function_val": "0x0600DEDC",
+      "loaders_count": 1,
+      "primary_classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+      "consumer_chains": [
+        {
+          "loader_pc": "0x06032D44",
+          "destination_reg": "R3",
+          "classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+          "call_site": "0x06032D4A"
+        }
+      ],
+      "is_non_executable_source": true
+    },
+    {
+      "source_pc": "0x06033164",
+      "module": "0TH2.BIN",
+      "ownership_class": "DATA",
+      "semantic_subtype": "DATA_LITERAL_POOL",
+      "target_function_val": "0x0606DF28",
+      "loaders_count": 1,
+      "primary_classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+      "consumer_chains": [
+        {
+          "loader_pc": "0x06033040",
+          "destination_reg": "R3",
+          "classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+          "call_site": "0x0603304A"
+        }
+      ],
+      "is_non_executable_source": true
+    },
+    {
+      "source_pc": "0x0603B014",
+      "module": "0TH2.BIN",
+      "ownership_class": "DATA",
+      "semantic_subtype": "DATA_LITERAL_POOL",
+      "target_function_val": "0x0606DF28",
+      "loaders_count": 1,
+      "primary_classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+      "consumer_chains": [
+        {
+          "loader_pc": "0x0603AEFA",
+          "destination_reg": "R3",
+          "classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+          "call_site": "0x0603AEFC"
+        }
+      ],
+      "is_non_executable_source": true
+    },
+    {
+      "source_pc": "0x0603D9FC",
+      "module": "0TH2.BIN",
+      "ownership_class": "DATA",
+      "semantic_subtype": "DATA_LITERAL_POOL",
+      "target_function_val": "0x0600406C",
+      "loaders_count": 1,
+      "primary_classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+      "consumer_chains": [
+        {
+          "loader_pc": "0x0603D9AA",
+          "destination_reg": "R3",
+          "classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+          "call_site": "0x0603D9AC"
+        }
+      ],
+      "is_non_executable_source": true
+    },
+    {
+      "source_pc": "0x0603DE9C",
+      "module": "0TH2.BIN",
+      "ownership_class": "DATA",
+      "semantic_subtype": "DATA_LITERAL_POOL",
+      "target_function_val": "0x0600406C",
+      "loaders_count": 1,
+      "primary_classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+      "consumer_chains": [
+        {
+          "loader_pc": "0x0603DDB4",
+          "destination_reg": "R3",
+          "classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+          "call_site": "0x0603DDB6"
+        }
+      ],
+      "is_non_executable_source": true
+    },
+    {
+      "source_pc": "0x06041758",
+      "module": "0TH2.BIN",
+      "ownership_class": "DATA",
+      "semantic_subtype": "DATA_LITERAL_POOL",
+      "target_function_val": "0x0600406C",
+      "loaders_count": 1,
+      "primary_classification": "DATA_LITERAL_NO_CALL_USE",
+      "consumer_chains": [
+        {
+          "loader_pc": "0x060416B4",
+          "destination_reg": "R12",
+          "classification": "DATA_LITERAL_NO_CALL_USE",
+          "call_site": null
+        }
+      ],
+      "is_non_executable_source": true
+    },
+    {
+      "source_pc": "0x060477E8",
+      "module": "0TH2.BIN",
+      "ownership_class": "DATA",
+      "semantic_subtype": "DATA_LITERAL_POOL",
+      "target_function_val": "0x0606DD04",
+      "loaders_count": 4,
+      "primary_classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+      "consumer_chains": [
+        {
+          "loader_pc": "0x060476F0",
+          "destination_reg": "R2",
+          "classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+          "call_site": "0x060476FC"
+        },
+        {
+          "loader_pc": "0x06047704",
+          "destination_reg": "R2",
+          "classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+          "call_site": "0x0604770A"
+        },
+        {
+          "loader_pc": "0x06047724",
+          "destination_reg": "R2",
+          "classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+          "call_site": "0x0604772C"
+        },
+        {
+          "loader_pc": "0x06047734",
+          "destination_reg": "R2",
+          "classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+          "call_site": "0x0604773A"
+        }
+      ],
+      "is_non_executable_source": true
+    },
+    {
+      "source_pc": "0x06049798",
+      "module": "0TH2.BIN",
+      "ownership_class": "DATA",
+      "semantic_subtype": "DATA_LITERAL_POOL",
+      "target_function_val": "0x0606DD04",
+      "loaders_count": 1,
+      "primary_classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+      "consumer_chains": [
+        {
+          "loader_pc": "0x06049714",
+          "destination_reg": "R3",
+          "classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+          "call_site": "0x0604971E"
+        }
+      ],
+      "is_non_executable_source": true
+    },
+    {
+      "source_pc": "0x0604A7F4",
+      "module": "0TH2.BIN",
+      "ownership_class": "DATA",
+      "semantic_subtype": "DATA_LITERAL_POOL",
+      "target_function_val": "0x0606DD04",
+      "loaders_count": 1,
+      "primary_classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+      "consumer_chains": [
+        {
+          "loader_pc": "0x0604A6F0",
+          "destination_reg": "R3",
+          "classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+          "call_site": "0x0604A6FE"
+        }
+      ],
+      "is_non_executable_source": true
+    },
+    {
+      "source_pc": "0x0604AB18",
+      "module": "0TH2.BIN",
+      "ownership_class": "DATA",
+      "semantic_subtype": "DATA_LITERAL_POOL",
+      "target_function_val": "0x0606DD04",
+      "loaders_count": 2,
+      "primary_classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+      "consumer_chains": [
+        {
+          "loader_pc": "0x0604AAB4",
+          "destination_reg": "R2",
+          "classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+          "call_site": "0x0604AAC8"
+        },
+        {
+          "loader_pc": "0x0604AADC",
+          "destination_reg": "R3",
+          "classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+          "call_site": "0x0604AAE4"
+        }
+      ],
+      "is_non_executable_source": true
+    },
+    {
+      "source_pc": "0x0604B764",
+      "module": "0TH2.BIN",
+      "ownership_class": "DATA",
+      "semantic_subtype": "DATA_LITERAL_POOL",
+      "target_function_val": "0x0606DD04",
+      "loaders_count": 2,
+      "primary_classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+      "consumer_chains": [
+        {
+          "loader_pc": "0x0604B718",
+          "destination_reg": "R3",
+          "classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+          "call_site": "0x0604B71C"
+        },
+        {
+          "loader_pc": "0x0604B72C",
+          "destination_reg": "R3",
+          "classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+          "call_site": "0x0604B736"
+        }
+      ],
+      "is_non_executable_source": true
+    },
+    {
+      "source_pc": "0x0604BC6C",
+      "module": "0TH2.BIN",
+      "ownership_class": "DATA",
+      "semantic_subtype": "DATA_LITERAL_POOL",
+      "target_function_val": "0x0606DD04",
+      "loaders_count": 3,
+      "primary_classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+      "consumer_chains": [
+        {
+          "loader_pc": "0x0604BB58",
+          "destination_reg": "R2",
+          "classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+          "call_site": "0x0604BB5C"
+        },
+        {
+          "loader_pc": "0x0604BB6C",
+          "destination_reg": "R3",
+          "classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+          "call_site": "0x0604BB76"
+        },
+        {
+          "loader_pc": "0x0604BC38",
+          "destination_reg": "R2",
+          "classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+          "call_site": "0x0604BC50"
+        }
+      ],
+      "is_non_executable_source": true
+    },
+    {
+      "source_pc": "0x0604BD9C",
+      "module": "0TH2.BIN",
+      "ownership_class": "DATA",
+      "semantic_subtype": "DATA_LITERAL_POOL",
+      "target_function_val": "0x0606DD04",
+      "loaders_count": 1,
+      "primary_classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+      "consumer_chains": [
+        {
+          "loader_pc": "0x0604BC88",
+          "destination_reg": "R3",
+          "classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+          "call_site": "0x0604BC92"
+        }
+      ],
+      "is_non_executable_source": true
+    },
+    {
+      "source_pc": "0x0604E1B8",
+      "module": "0TH2.BIN",
+      "ownership_class": "DATA",
+      "semantic_subtype": "DATA_LITERAL_POOL",
+      "target_function_val": "0x0601715E",
+      "loaders_count": 1,
+      "primary_classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+      "consumer_chains": [
+        {
+          "loader_pc": "0x0604E07C",
+          "destination_reg": "R3",
+          "classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+          "call_site": "0x0604E082"
+        }
+      ],
+      "is_non_executable_source": true
+    },
+    {
+      "source_pc": "0x0604E458",
+      "module": "0TH2.BIN",
+      "ownership_class": "DATA",
+      "semantic_subtype": "DATA_LITERAL_POOL",
+      "target_function_val": "0x0601715E",
+      "loaders_count": 1,
+      "primary_classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+      "consumer_chains": [
+        {
+          "loader_pc": "0x0604E2E0",
+          "destination_reg": "R3",
+          "classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+          "call_site": "0x0604E2E8"
+        }
+      ],
+      "is_non_executable_source": true
+    },
+    {
+      "source_pc": "0x0604E460",
+      "module": "0TH2.BIN",
+      "ownership_class": "DATA",
+      "semantic_subtype": "DATA_LITERAL_POOL",
+      "target_function_val": "0x0600406C",
+      "loaders_count": 2,
+      "primary_classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+      "consumer_chains": [
+        {
+          "loader_pc": "0x0604E378",
+          "destination_reg": "R2",
+          "classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+          "call_site": "0x0604E382"
+        },
+        {
+          "loader_pc": "0x0604E388",
+          "destination_reg": "R3",
+          "classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+          "call_site": "0x0604E392"
+        }
+      ],
+      "is_non_executable_source": true
+    },
+    {
+      "source_pc": "0x0604EBB4",
+      "module": "0TH2.BIN",
+      "ownership_class": "DATA",
+      "semantic_subtype": "DATA_LITERAL_POOL",
+      "target_function_val": "0x0600406C",
+      "loaders_count": 3,
+      "primary_classification": "DATA_LITERAL_DEAD_PROVEN",
+      "consumer_chains": [
+        {
+          "loader_pc": "0x0604E842",
+          "destination_reg": "R14",
+          "classification": "DATA_LITERAL_DEAD_PROVEN",
+          "call_site": null
+        },
+        {
+          "loader_pc": "0x0604EB08",
+          "destination_reg": "R2",
+          "classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+          "call_site": "0x0604EB16"
+        },
+        {
+          "loader_pc": "0x0604EB1C",
+          "destination_reg": "R3",
+          "classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+          "call_site": "0x0604EB24"
+        }
+      ],
+      "is_non_executable_source": true
+    },
+    {
+      "source_pc": "0x06055144",
+      "module": "0TH2.BIN",
+      "ownership_class": "DATA",
+      "semantic_subtype": "DATA_LITERAL_POOL",
+      "target_function_val": "0x0606DF28",
+      "loaders_count": 1,
+      "primary_classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+      "consumer_chains": [
+        {
+          "loader_pc": "0x0605504C",
+          "destination_reg": "R3",
+          "classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+          "call_site": "0x0605504E"
+        }
+      ],
+      "is_non_executable_source": true
+    },
+    {
+      "source_pc": "0x06056BA8",
+      "module": "0TH2.BIN",
+      "ownership_class": "DATA",
+      "semantic_subtype": "DATA_LITERAL_POOL",
+      "target_function_val": "0x06014BDC",
+      "loaders_count": 1,
+      "primary_classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+      "consumer_chains": [
+        {
+          "loader_pc": "0x06056B46",
+          "destination_reg": "R3",
+          "classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+          "call_site": "0x06056B48"
+        }
+      ],
+      "is_non_executable_source": true
+    },
+    {
+      "source_pc": "0x060574A8",
+      "module": "0TH2.BIN",
+      "ownership_class": "DATA",
+      "semantic_subtype": "DATA_LITERAL_POOL",
+      "target_function_val": "0x0606DD04",
+      "loaders_count": 5,
+      "primary_classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+      "consumer_chains": [
+        {
+          "loader_pc": "0x06057398",
+          "destination_reg": "R3",
+          "classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+          "call_site": "0x0605739E"
+        },
+        {
+          "loader_pc": "0x060573CC",
+          "destination_reg": "R3",
+          "classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+          "call_site": "0x060573D2"
+        },
+        {
+          "loader_pc": "0x06057400",
+          "destination_reg": "R3",
+          "classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+          "call_site": "0x06057406"
+        },
+        {
+          "loader_pc": "0x06057434",
+          "destination_reg": "R3",
+          "classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+          "call_site": "0x0605743A"
+        },
+        {
+          "loader_pc": "0x06057470",
+          "destination_reg": "R3",
+          "classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+          "call_site": "0x06057476"
+        }
+      ],
+      "is_non_executable_source": true
+    },
+    {
+      "source_pc": "0x0605A05C",
+      "module": "0TH2.BIN",
+      "ownership_class": "DATA",
+      "semantic_subtype": "DATA_LITERAL_POOL",
+      "target_function_val": "0x0600406C",
+      "loaders_count": 1,
+      "primary_classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+      "consumer_chains": [
+        {
+          "loader_pc": "0x06059F20",
+          "destination_reg": "R3",
+          "classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+          "call_site": "0x06059F36"
+        }
+      ],
+      "is_non_executable_source": true
+    },
+    {
+      "source_pc": "0x0605EA54",
+      "module": "0TH2.BIN",
+      "ownership_class": "DATA",
+      "semantic_subtype": "DATA_LITERAL_POOL",
+      "target_function_val": "0x0606DD04",
+      "loaders_count": 1,
+      "primary_classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+      "consumer_chains": [
+        {
+          "loader_pc": "0x0605E948",
+          "destination_reg": "R3",
+          "classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+          "call_site": "0x0605E952"
+        }
+      ],
+      "is_non_executable_source": true
+    },
+    {
+      "source_pc": "0x0605F288",
+      "module": "0TH2.BIN",
+      "ownership_class": "DATA",
+      "semantic_subtype": "DATA_LITERAL_POOL",
+      "target_function_val": "0x0606DD04",
+      "loaders_count": 1,
+      "primary_classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+      "consumer_chains": [
+        {
+          "loader_pc": "0x0605F1D0",
+          "destination_reg": "R2",
+          "classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+          "call_site": "0x0605F1EE"
+        }
+      ],
+      "is_non_executable_source": true
+    },
+    {
+      "source_pc": "0x0605FE34",
+      "module": "0TH2.BIN",
+      "ownership_class": "DATA",
+      "semantic_subtype": "DATA_LITERAL_POOL",
+      "target_function_val": "0x0606DD04",
+      "loaders_count": 1,
+      "primary_classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+      "consumer_chains": [
+        {
+          "loader_pc": "0x0605FD04",
+          "destination_reg": "R3",
+          "classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+          "call_site": "0x0605FD0E"
+        }
+      ],
+      "is_non_executable_source": true
+    },
+    {
+      "source_pc": "0x06060464",
+      "module": "0TH2.BIN",
+      "ownership_class": "DATA",
+      "semantic_subtype": "DATA_LITERAL_POOL",
+      "target_function_val": "0x0606DD04",
+      "loaders_count": 4,
+      "primary_classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+      "consumer_chains": [
+        {
+          "loader_pc": "0x06060330",
+          "destination_reg": "R3",
+          "classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+          "call_site": "0x0606033A"
+        },
+        {
+          "loader_pc": "0x06060364",
+          "destination_reg": "R3",
+          "classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+          "call_site": "0x0606036C"
+        },
+        {
+          "loader_pc": "0x06060394",
+          "destination_reg": "R3",
+          "classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+          "call_site": "0x0606039E"
+        },
+        {
+          "loader_pc": "0x060603C8",
+          "destination_reg": "R3",
+          "classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+          "call_site": "0x060603D0"
+        }
+      ],
+      "is_non_executable_source": true
+    },
+    {
+      "source_pc": "0x06063724",
+      "module": "0TH2.BIN",
+      "ownership_class": "DATA",
+      "semantic_subtype": "DATA_LITERAL_POOL",
+      "target_function_val": "0x0606DF28",
+      "loaders_count": 1,
+      "primary_classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+      "consumer_chains": [
+        {
+          "loader_pc": "0x06063604",
+          "destination_reg": "R3",
+          "classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+          "call_site": "0x0606360A"
+        }
+      ],
+      "is_non_executable_source": true
+    },
+    {
+      "source_pc": "0x06063728",
+      "module": "0TH2.BIN",
+      "ownership_class": "DATA",
+      "semantic_subtype": "DATA_LITERAL_POOL",
+      "target_function_val": "0x0600DEDC",
+      "loaders_count": 1,
+      "primary_classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+      "consumer_chains": [
+        {
+          "loader_pc": "0x06063640",
+          "destination_reg": "R3",
+          "classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+          "call_site": "0x06063642"
+        }
+      ],
+      "is_non_executable_source": true
+    },
+    {
+      "source_pc": "0x0606541C",
+      "module": "0TH2.BIN",
+      "ownership_class": "DATA",
+      "semantic_subtype": "DATA_LITERAL_POOL",
+      "target_function_val": "0x060078F4",
+      "loaders_count": 1,
+      "primary_classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+      "consumer_chains": [
+        {
+          "loader_pc": "0x06065366",
+          "destination_reg": "R2",
+          "classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+          "call_site": "0x06065368"
+        }
+      ],
+      "is_non_executable_source": true
+    },
+    {
+      "source_pc": "0x0606CA84",
+      "module": "0TH2.BIN",
+      "ownership_class": "DATA",
+      "semantic_subtype": "DATA_LITERAL_POOL",
+      "target_function_val": "0x0606DD04",
+      "loaders_count": 1,
+      "primary_classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+      "consumer_chains": [
+        {
+          "loader_pc": "0x0606C970",
+          "destination_reg": "R3",
+          "classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+          "call_site": "0x0606C97A"
+        }
+      ],
+      "is_non_executable_source": true
+    },
+    {
+      "source_pc": "0x0606D6DC",
+      "module": "0TH2.BIN",
+      "ownership_class": "DATA",
+      "semantic_subtype": "DATA_LITERAL_POOL",
+      "target_function_val": "0x0606DD04",
+      "loaders_count": 2,
+      "primary_classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+      "consumer_chains": [
+        {
+          "loader_pc": "0x0606D664",
+          "destination_reg": "R3",
+          "classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+          "call_site": "0x0606D666"
+        },
+        {
+          "loader_pc": "0x0606D670",
+          "destination_reg": "R3",
+          "classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+          "call_site": "0x0606D67C"
+        }
+      ],
+      "is_non_executable_source": true
+    },
+    {
+      "source_pc": "0x0606FEE0",
+      "module": "0TH2.BIN",
+      "ownership_class": "DATA",
+      "semantic_subtype": "DATA_LITERAL_POOL",
+      "target_function_val": "0x0606E008",
+      "loaders_count": 4,
+      "primary_classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+      "consumer_chains": [
+        {
+          "loader_pc": "0x0606FE50",
+          "destination_reg": "R2",
+          "classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+          "call_site": "0x0606FE5C"
+        },
+        {
+          "loader_pc": "0x0606FE6C",
+          "destination_reg": "R2",
+          "classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+          "call_site": "0x0606FE76"
+        },
+        {
+          "loader_pc": "0x0606FE86",
+          "destination_reg": "R2",
+          "classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+          "call_site": "0x0606FE90"
+        },
+        {
+          "loader_pc": "0x0606FEA8",
+          "destination_reg": "R3",
+          "classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+          "call_site": "0x0606FEAA"
+        }
+      ],
+      "is_non_executable_source": true
+    },
+    {
+      "source_pc": "0x06071478",
+      "module": "0TH2.BIN",
+      "ownership_class": "DATA",
+      "semantic_subtype": "DATA_LITERAL_POOL",
+      "target_function_val": "0x0606DD04",
+      "loaders_count": 1,
+      "primary_classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+      "consumer_chains": [
+        {
+          "loader_pc": "0x0607141C",
+          "destination_reg": "R2",
+          "classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+          "call_site": "0x06071420"
+        }
+      ],
+      "is_non_executable_source": true
+    },
+    {
+      "source_pc": "0x06071538",
+      "module": "0TH2.BIN",
+      "ownership_class": "DATA",
+      "semantic_subtype": "DATA_LITERAL_POOL",
+      "target_function_val": "0x0606DDB8",
+      "loaders_count": 1,
+      "primary_classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+      "consumer_chains": [
+        {
+          "loader_pc": "0x06071486",
+          "destination_reg": "R2",
+          "classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+          "call_site": "0x0607148A"
+        }
+      ],
+      "is_non_executable_source": true
+    },
+    {
+      "source_pc": "0x06071548",
+      "module": "0TH2.BIN",
+      "ownership_class": "DATA",
+      "semantic_subtype": "DATA_LITERAL_POOL",
+      "target_function_val": "0x0606DE60",
+      "loaders_count": 1,
+      "primary_classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+      "consumer_chains": [
+        {
+          "loader_pc": "0x060714C0",
+          "destination_reg": "R2",
+          "classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+          "call_site": "0x060714C4"
+        }
+      ],
+      "is_non_executable_source": true
+    },
+    {
+      "source_pc": "0x06071638",
+      "module": "0TH2.BIN",
+      "ownership_class": "DATA",
+      "semantic_subtype": "DATA_LITERAL_POOL",
+      "target_function_val": "0x0606DE60",
+      "loaders_count": 1,
+      "primary_classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+      "consumer_chains": [
+        {
+          "loader_pc": "0x0607155A",
+          "destination_reg": "R2",
+          "classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+          "call_site": "0x0607155E"
+        }
+      ],
+      "is_non_executable_source": true
+    },
+    {
+      "source_pc": "0x06071720",
+      "module": "0TH2.BIN",
+      "ownership_class": "DATA",
+      "semantic_subtype": "DATA_LITERAL_POOL",
+      "target_function_val": "0x0606DD04",
+      "loaders_count": 1,
+      "primary_classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+      "consumer_chains": [
+        {
+          "loader_pc": "0x06071670",
+          "destination_reg": "R2",
+          "classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+          "call_site": "0x06071674"
+        }
+      ],
+      "is_non_executable_source": true
+    },
+    {
+      "source_pc": "0x0607172C",
+      "module": "0TH2.BIN",
+      "ownership_class": "DATA",
+      "semantic_subtype": "DATA_LITERAL_POOL",
+      "target_function_val": "0x0606DDB8",
+      "loaders_count": 1,
+      "primary_classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+      "consumer_chains": [
+        {
+          "loader_pc": "0x060716B6",
+          "destination_reg": "R2",
+          "classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+          "call_site": "0x060716BA"
+        }
+      ],
+      "is_non_executable_source": true
+    },
+    {
+      "source_pc": "0x06071730",
+      "module": "0TH2.BIN",
+      "ownership_class": "DATA",
+      "semantic_subtype": "DATA_LITERAL_POOL",
+      "target_function_val": "0x0606DE60",
+      "loaders_count": 1,
+      "primary_classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+      "consumer_chains": [
+        {
+          "loader_pc": "0x060716F0",
+          "destination_reg": "R2",
+          "classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+          "call_site": "0x060716F4"
+        }
+      ],
+      "is_non_executable_source": true
+    },
+    {
+      "source_pc": "0x060717F0",
+      "module": "0TH2.BIN",
+      "ownership_class": "DATA",
+      "semantic_subtype": "DATA_LITERAL_POOL",
+      "target_function_val": "0x0606DE60",
+      "loaders_count": 1,
+      "primary_classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+      "consumer_chains": [
+        {
+          "loader_pc": "0x0607178C",
+          "destination_reg": "R2",
+          "classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+          "call_site": "0x06071790"
+        }
+      ],
+      "is_non_executable_source": true
+    },
+    {
+      "source_pc": "0x060717F4",
+      "module": "0TH2.BIN",
+      "ownership_class": "DATA",
+      "semantic_subtype": "DATA_LITERAL_POOL",
+      "target_function_val": "0x0606DDB8",
+      "loaders_count": 1,
+      "primary_classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+      "consumer_chains": [
+        {
+          "loader_pc": "0x060717C8",
+          "destination_reg": "R2",
+          "classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+          "call_site": "0x060717CA"
+        }
+      ],
+      "is_non_executable_source": true
+    },
+    {
+      "source_pc": "0x060718D8",
+      "module": "0TH2.BIN",
+      "ownership_class": "DATA",
+      "semantic_subtype": "DATA_LITERAL_POOL",
+      "target_function_val": "0x0606DDB8",
+      "loaders_count": 3,
+      "primary_classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+      "consumer_chains": [
+        {
+          "loader_pc": "0x06071812",
+          "destination_reg": "R3",
+          "classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+          "call_site": "0x06071816"
+        },
+        {
+          "loader_pc": "0x0607181C",
+          "destination_reg": "R2",
+          "classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+          "call_site": "0x06071826"
+        },
+        {
+          "loader_pc": "0x06071846",
+          "destination_reg": "R3",
+          "classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+          "call_site": "0x0607184A"
+        }
+      ],
+      "is_non_executable_source": true
+    },
+    {
+      "source_pc": "0x060719BC",
+      "module": "0TH2.BIN",
+      "ownership_class": "DATA",
+      "semantic_subtype": "DATA_LITERAL_POOL",
+      "target_function_val": "0x0606DDB8",
+      "loaders_count": 6,
+      "primary_classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+      "consumer_chains": [
+        {
+          "loader_pc": "0x060718EC",
+          "destination_reg": "R3",
+          "classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+          "call_site": "0x060718EE"
+        },
+        {
+          "loader_pc": "0x060718F4",
+          "destination_reg": "R2",
+          "classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+          "call_site": "0x060718FE"
+        },
+        {
+          "loader_pc": "0x0607191E",
+          "destination_reg": "R3",
+          "classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+          "call_site": "0x06071922"
+        },
+        {
+          "loader_pc": "0x0607194A",
+          "destination_reg": "R3",
+          "classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+          "call_site": "0x0607194E"
+        },
+        {
+          "loader_pc": "0x06071954",
+          "destination_reg": "R2",
+          "classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+          "call_site": "0x0607195E"
+        },
+        {
+          "loader_pc": "0x0607197E",
+          "destination_reg": "R3",
+          "classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+          "call_site": "0x06071982"
+        }
+      ],
+      "is_non_executable_source": true
+    },
+    {
+      "source_pc": "0x06071FB0",
+      "module": "0TH2.BIN",
+      "ownership_class": "DATA",
+      "semantic_subtype": "DATA_LITERAL_POOL",
+      "target_function_val": "0x0606DD04",
+      "loaders_count": 1,
+      "primary_classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+      "consumer_chains": [
+        {
+          "loader_pc": "0x06071F72",
+          "destination_reg": "R3",
+          "classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+          "call_site": "0x06071F7A"
+        }
+      ],
+      "is_non_executable_source": true
+    },
+    {
+      "source_pc": "0x0607222C",
+      "module": "0TH2.BIN",
+      "ownership_class": "DATA",
+      "semantic_subtype": "DATA_LITERAL_POOL",
+      "target_function_val": "0x0606DD04",
+      "loaders_count": 1,
+      "primary_classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+      "consumer_chains": [
+        {
+          "loader_pc": "0x060721FC",
+          "destination_reg": "R3",
+          "classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+          "call_site": "0x06072204"
+        }
+      ],
+      "is_non_executable_source": true
+    },
+    {
+      "source_pc": "0x06072CAC",
+      "module": "0TH2.BIN",
+      "ownership_class": "DATA",
+      "semantic_subtype": "DATA_LITERAL_POOL",
+      "target_function_val": "0x0606EE8C",
+      "loaders_count": 1,
+      "primary_classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+      "consumer_chains": [
+        {
+          "loader_pc": "0x06072C1A",
+          "destination_reg": "R3",
+          "classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+          "call_site": "0x06072C1C"
+        }
+      ],
+      "is_non_executable_source": true
+    },
+    {
+      "source_pc": "0x06077434",
+      "module": "0TH2.BIN",
+      "ownership_class": "DATA",
+      "semantic_subtype": "DATA_LITERAL_POOL",
+      "target_function_val": "0x0606EC54",
+      "loaders_count": 7,
+      "primary_classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+      "consumer_chains": [
+        {
+          "loader_pc": "0x0607734C",
+          "destination_reg": "R3",
+          "classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+          "call_site": "0x0607734E"
+        },
+        {
+          "loader_pc": "0x0607736E",
+          "destination_reg": "R3",
+          "classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+          "call_site": "0x06077370"
+        },
+        {
+          "loader_pc": "0x06077390",
+          "destination_reg": "R3",
+          "classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+          "call_site": "0x06077392"
+        },
+        {
+          "loader_pc": "0x060773B2",
+          "destination_reg": "R3",
+          "classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+          "call_site": "0x060773B4"
+        },
+        {
+          "loader_pc": "0x060773D2",
+          "destination_reg": "R3",
+          "classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+          "call_site": "0x060773D4"
+        },
+        {
+          "loader_pc": "0x060773F2",
+          "destination_reg": "R3",
+          "classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+          "call_site": "0x060773F4"
+        },
+        {
+          "loader_pc": "0x06077412",
+          "destination_reg": "R3",
+          "classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+          "call_site": "0x06077414"
+        }
+      ],
+      "is_non_executable_source": true
+    },
+    {
+      "source_pc": "0x06078628",
+      "module": "0TH2.BIN",
+      "ownership_class": "DATA",
+      "semantic_subtype": "DATA_LITERAL_POOL",
+      "target_function_val": "0x0606DDB8",
+      "loaders_count": 1,
+      "primary_classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+      "consumer_chains": [
+        {
+          "loader_pc": "0x0607861A",
+          "destination_reg": "R3",
+          "classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+          "call_site": "0x0607861C"
+        }
+      ],
+      "is_non_executable_source": true
+    },
+    {
+      "source_pc": "0x060795A4",
+      "module": "0TH2.BIN",
+      "ownership_class": "DATA",
+      "semantic_subtype": "DATA_LITERAL_POOL",
+      "target_function_val": "0x0606DD04",
+      "loaders_count": 1,
+      "primary_classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+      "consumer_chains": [
+        {
+          "loader_pc": "0x06079560",
+          "destination_reg": "R3",
+          "classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+          "call_site": "0x06079566"
+        }
+      ],
+      "is_non_executable_source": true
+    },
+    {
+      "source_pc": "0x0607B7A4",
+      "module": "0TH2.BIN",
+      "ownership_class": "DATA",
+      "semantic_subtype": "DATA_LITERAL_POOL",
+      "target_function_val": "0x06075618",
+      "loaders_count": 2,
+      "primary_classification": "DATA_LITERAL_REACHES_TAILCALL",
+      "consumer_chains": [
+        {
+          "loader_pc": "0x0607B750",
+          "destination_reg": "R3",
+          "classification": "DATA_LITERAL_REACHES_TAILCALL",
+          "call_site": "0x0607B752"
+        },
+        {
+          "loader_pc": "0x0607B786",
+          "destination_reg": "R3",
+          "classification": "DATA_LITERAL_REACHES_TAILCALL",
+          "call_site": "0x0607B788"
+        }
+      ],
+      "is_non_executable_source": true
+    },
+    {
+      "source_pc": "0x0607B824",
+      "module": "0TH2.BIN",
+      "ownership_class": "DATA",
+      "semantic_subtype": "DATA_LITERAL_POOL",
+      "target_function_val": "0x0606DE60",
+      "loaders_count": 1,
+      "primary_classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+      "consumer_chains": [
+        {
+          "loader_pc": "0x0607B7C2",
+          "destination_reg": "R3",
+          "classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+          "call_site": "0x0607B7C4"
+        }
+      ],
+      "is_non_executable_source": true
+    },
+    {
+      "source_pc": "0x0607B8C4",
+      "module": "0TH2.BIN",
+      "ownership_class": "DATA",
+      "semantic_subtype": "DATA_LITERAL_POOL",
+      "target_function_val": "0x0606DE60",
+      "loaders_count": 1,
+      "primary_classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+      "consumer_chains": [
+        {
+          "loader_pc": "0x0607B85A",
+          "destination_reg": "R3",
+          "classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+          "call_site": "0x0607B85C"
+        }
+      ],
+      "is_non_executable_source": true
+    },
+    {
+      "source_pc": "0x0607D13C",
+      "module": "0TH2.BIN",
+      "ownership_class": "DATA",
+      "semantic_subtype": "DATA_LITERAL_POOL",
+      "target_function_val": "0x0607FAA0",
+      "loaders_count": 1,
+      "primary_classification": "DATA_LITERAL_NO_CALL_USE",
+      "consumer_chains": [
+        {
+          "loader_pc": "0x0607D0DA",
+          "destination_reg": "R14",
+          "classification": "DATA_LITERAL_NO_CALL_USE",
+          "call_site": null
+        }
+      ],
+      "is_non_executable_source": true
+    },
+    {
+      "source_pc": "0x0607D144",
+      "module": "0TH2.BIN",
+      "ownership_class": "DATA",
+      "semantic_subtype": "DATA_LITERAL_POOL",
+      "target_function_val": "0x0607FC66",
+      "loaders_count": 1,
+      "primary_classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+      "consumer_chains": [
+        {
+          "loader_pc": "0x0607D0E0",
+          "destination_reg": "R3",
+          "classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+          "call_site": "0x0607D0E2"
+        }
+      ],
+      "is_non_executable_source": true
+    },
+    {
+      "source_pc": "0x06080E30",
+      "module": "0TH2.BIN",
+      "ownership_class": "DATA",
+      "semantic_subtype": "DATA_LITERAL_POOL",
+      "target_function_val": "0x06081898",
+      "loaders_count": 1,
+      "primary_classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+      "consumer_chains": [
+        {
+          "loader_pc": "0x06080DC2",
+          "destination_reg": "R3",
+          "classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+          "call_site": "0x06080DC4"
+        }
+      ],
+      "is_non_executable_source": true
+    },
+    {
+      "source_pc": "0x06080E88",
+      "module": "0TH2.BIN",
+      "ownership_class": "DATA",
+      "semantic_subtype": "DATA_LITERAL_POOL",
+      "target_function_val": "0x06081898",
+      "loaders_count": 1,
+      "primary_classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+      "consumer_chains": [
+        {
+          "loader_pc": "0x06080E48",
+          "destination_reg": "R3",
+          "classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+          "call_site": "0x06080E4A"
+        }
+      ],
+      "is_non_executable_source": true
+    },
+    {
+      "source_pc": "0x06080E8C",
+      "module": "0TH2.BIN",
+      "ownership_class": "DATA",
+      "semantic_subtype": "DATA_LITERAL_POOL",
+      "target_function_val": "0x060818AE",
+      "loaders_count": 1,
+      "primary_classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+      "consumer_chains": [
+        {
+          "loader_pc": "0x06080E78",
+          "destination_reg": "R3",
+          "classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+          "call_site": "0x06080E7A"
+        }
+      ],
+      "is_non_executable_source": true
+    },
+    {
+      "source_pc": "0x06080EF0",
+      "module": "0TH2.BIN",
+      "ownership_class": "DATA",
+      "semantic_subtype": "DATA_LITERAL_POOL",
+      "target_function_val": "0x06081898",
+      "loaders_count": 1,
+      "primary_classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+      "consumer_chains": [
+        {
+          "loader_pc": "0x06080E9C",
+          "destination_reg": "R3",
+          "classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+          "call_site": "0x06080E9E"
+        }
+      ],
+      "is_non_executable_source": true
+    },
+    {
+      "source_pc": "0x060810D0",
+      "module": "0TH2.BIN",
+      "ownership_class": "DATA",
+      "semantic_subtype": "DATA_LITERAL_POOL",
+      "target_function_val": "0x06081898",
+      "loaders_count": 2,
+      "primary_classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+      "consumer_chains": [
+        {
+          "loader_pc": "0x0608103E",
+          "destination_reg": "R3",
+          "classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+          "call_site": "0x06081040"
+        },
+        {
+          "loader_pc": "0x06081082",
+          "destination_reg": "R3",
+          "classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+          "call_site": "0x06081084"
+        }
+      ],
+      "is_non_executable_source": true
+    },
+    {
+      "source_pc": "0x060810D4",
+      "module": "0TH2.BIN",
+      "ownership_class": "DATA",
+      "semantic_subtype": "DATA_LITERAL_POOL",
+      "target_function_val": "0x060818AE",
+      "loaders_count": 2,
+      "primary_classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+      "consumer_chains": [
+        {
+          "loader_pc": "0x06081066",
+          "destination_reg": "R3",
+          "classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+          "call_site": "0x06081068"
+        },
+        {
+          "loader_pc": "0x060810BE",
+          "destination_reg": "R3",
+          "classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+          "call_site": "0x060810C0"
+        }
+      ],
+      "is_non_executable_source": true
+    },
+    {
+      "source_pc": "0x060811F8",
+      "module": "0TH2.BIN",
+      "ownership_class": "DATA",
+      "semantic_subtype": "DATA_LITERAL_POOL",
+      "target_function_val": "0x06081898",
+      "loaders_count": 2,
+      "primary_classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+      "consumer_chains": [
+        {
+          "loader_pc": "0x06081186",
+          "destination_reg": "R3",
+          "classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+          "call_site": "0x06081188"
+        },
+        {
+          "loader_pc": "0x060811C2",
+          "destination_reg": "R3",
+          "classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+          "call_site": "0x060811C4"
+        }
+      ],
+      "is_non_executable_source": true
+    },
+    {
+      "source_pc": "0x060811FC",
+      "module": "0TH2.BIN",
+      "ownership_class": "DATA",
+      "semantic_subtype": "DATA_LITERAL_POOL",
+      "target_function_val": "0x060818AE",
+      "loaders_count": 2,
+      "primary_classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+      "consumer_chains": [
+        {
+          "loader_pc": "0x060811AA",
+          "destination_reg": "R3",
+          "classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+          "call_site": "0x060811AC"
+        },
+        {
+          "loader_pc": "0x060811E6",
+          "destination_reg": "R3",
+          "classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+          "call_site": "0x060811E8"
+        }
+      ],
+      "is_non_executable_source": true
+    },
+    {
+      "source_pc": "0x060812A8",
+      "module": "0TH2.BIN",
+      "ownership_class": "DATA",
+      "semantic_subtype": "DATA_LITERAL_POOL",
+      "target_function_val": "0x06081898",
+      "loaders_count": 2,
+      "primary_classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+      "consumer_chains": [
+        {
+          "loader_pc": "0x0608120C",
+          "destination_reg": "R3",
+          "classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+          "call_site": "0x0608120E"
+        },
+        {
+          "loader_pc": "0x0608126C",
+          "destination_reg": "R3",
+          "classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+          "call_site": "0x0608126E"
+        }
+      ],
+      "is_non_executable_source": true
+    },
+    {
+      "source_pc": "0x06081418",
+      "module": "0TH2.BIN",
+      "ownership_class": "DATA",
+      "semantic_subtype": "DATA_LITERAL_POOL",
+      "target_function_val": "0x06081898",
+      "loaders_count": 1,
+      "primary_classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+      "consumer_chains": [
+        {
+          "loader_pc": "0x060813E4",
+          "destination_reg": "R3",
+          "classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+          "call_site": "0x060813E6"
+        }
+      ],
+      "is_non_executable_source": true
+    },
+    {
+      "source_pc": "0x0608154C",
+      "module": "0TH2.BIN",
+      "ownership_class": "DATA",
+      "semantic_subtype": "DATA_LITERAL_POOL",
+      "target_function_val": "0x06081898",
+      "loaders_count": 1,
+      "primary_classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+      "consumer_chains": [
+        {
+          "loader_pc": "0x06081520",
+          "destination_reg": "R3",
+          "classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+          "call_site": "0x06081522"
+        }
+      ],
+      "is_non_executable_source": true
+    },
+    {
+      "source_pc": "0x06081550",
+      "module": "0TH2.BIN",
+      "ownership_class": "DATA",
+      "semantic_subtype": "DATA_LITERAL_POOL",
+      "target_function_val": "0x060818AE",
+      "loaders_count": 1,
+      "primary_classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+      "consumer_chains": [
+        {
+          "loader_pc": "0x0608153C",
+          "destination_reg": "R3",
+          "classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+          "call_site": "0x0608153E"
+        }
+      ],
+      "is_non_executable_source": true
+    },
+    {
+      "source_pc": "0x0608159C",
+      "module": "0TH2.BIN",
+      "ownership_class": "DATA",
+      "semantic_subtype": "DATA_LITERAL_POOL",
+      "target_function_val": "0x06081898",
+      "loaders_count": 1,
+      "primary_classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+      "consumer_chains": [
+        {
+          "loader_pc": "0x06081560",
+          "destination_reg": "R3",
+          "classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+          "call_site": "0x06081562"
+        }
+      ],
+      "is_non_executable_source": true
+    },
+    {
+      "source_pc": "0x060815A0",
+      "module": "0TH2.BIN",
+      "ownership_class": "DATA",
+      "semantic_subtype": "DATA_LITERAL_POOL",
+      "target_function_val": "0x060818AE",
+      "loaders_count": 1,
+      "primary_classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+      "consumer_chains": [
+        {
+          "loader_pc": "0x0608158C",
+          "destination_reg": "R3",
+          "classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+          "call_site": "0x0608158E"
+        }
+      ],
+      "is_non_executable_source": true
+    },
+    {
+      "source_pc": "0x06081608",
+      "module": "0TH2.BIN",
+      "ownership_class": "DATA",
+      "semantic_subtype": "DATA_LITERAL_POOL",
+      "target_function_val": "0x06081898",
+      "loaders_count": 1,
+      "primary_classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+      "consumer_chains": [
+        {
+          "loader_pc": "0x060815B0",
+          "destination_reg": "R3",
+          "classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+          "call_site": "0x060815B2"
+        }
+      ],
+      "is_non_executable_source": true
+    },
+    {
+      "source_pc": "0x0608178C",
+      "module": "0TH2.BIN",
+      "ownership_class": "DATA",
+      "semantic_subtype": "DATA_LITERAL_POOL",
+      "target_function_val": "0x06081898",
+      "loaders_count": 1,
+      "primary_classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+      "consumer_chains": [
+        {
+          "loader_pc": "0x0608174E",
+          "destination_reg": "R3",
+          "classification": "DATA_LITERAL_REACHES_AUDITED_INDIRECT_CALL",
+          "call_site": "0x06081750"
+        }
+      ],
+      "is_non_executable_source": true
+    }
+  ]
+}

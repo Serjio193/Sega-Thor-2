@@ -1,68 +1,70 @@
 # Current task
 
-TASK: T2-ASM-11 — Context-Sensitive Shared-Epilogue Decomposition, Multi-Entry CFG Normalization, and Residual RTS Return-Domain Closure
-WHY: Advance the ASM-first proof track from the sound T2-ASM-10.1 baseline (420 resolved, 218 honest unresolved) by decomposing shared epilogues across the 81 UNRESOLVED_PR_PATH sites using context-sensitive PR dataflow; auditing and resolving the 56 UNRESOLVED_CALLER_DOMAIN sites (including formalizing the 43 revoked return edges from data literal pools as FALSE_CALL_EDGE); targeting high-leverage UNKNOWN caller threats blocking the 81 UNRESOLVED_EXTERNAL_ENTRY sites; certifying RTS V4 without metric-forcing; adding 8 new negative controls P11 (NC-BO..NC-BV, total 82); and updating the control-flow scorecard and gate status under a strict fail-closed contract.
+TASK: T2-ASM-12 — Targeted UNKNOWN Caller-Threat Elimination, Region Ownership Proof, and External-Entry Closure
+WHY: Advance the ASM-first proof track from the sound T2-ASM-11 baseline (453 resolved, 185 honest unresolved) by systematically decomposing and proving the caller-threat frontier for the 81 UNRESOLVED_EXTERNAL_ENTRY RTS sites and affected UNRESOLVED_CALLER_DOMAIN sites across both executable-source and data-target channels; establishing affirmative consumer-chain proof for literal pool function pointers; applying reachability-exclusion certificates (UNKNOWN_BUT_PROVEN_NO_EXECUTABLE_INGRESS) without erasing data-target relevance; rebuilding canonical entry graph v2 and caller domains v5; resolving the 8 independent tailcall domains; certifying RTS V5; adding 9 new adversarial negative controls P12 (NC-BW..NC-CE, total 91); and updating ownership v4 and closed-world theorems v3 under a strict fail-closed contract.
 CURRENT MILESTONE: ASM-First Recovery Track (docs/DEVELOPMENT_PLAN.md, ADR D-015)
 TASK STATUS: COMPLETE
 MILESTONE UNDERSTANDING CONFIDENCE: 100%
 CURRENT SLICE UNDERSTANDING CONFIDENCE: 100%
-SLICE CONFIDENCE EVIDENCE: Baseline commit 2575529a047690eaa3f07702b5f19b86f08c9a1c verified; exact classification of the 218 residual RTS sites documented; root cause of the 43 revoked return edges proven to be FALSE_CALL_EDGE from literal pool lower halfwords (e.g. 0xBA88 matching BSR); context-sensitive PR dataflow model established.
+SLICE CONFIDENCE EVIDENCE: Baseline commit f7b9eabd5d0614fb8f4ef1f452e6709ba8c3c7a7 verified; reporting split reconciled; threat universe rebased (100% of 99 references in DATA literal pools with 0 open consumers); 2,801 false decodes excised; 35,435 UNKNOWN intervals reachability-excluded; 8 tailcall functions bounded (retained fail-closed); RTS V5 certified (510 resolved, 128 unresolved, INVALID_RESOLVED == 0); 91 negative controls pass 100%; 4/4 byte-exact modules, full disc bit-identical SHA-256, Mednafen 6 scenarios zero divergence.
 ACCEPTANCE CRITERIA:
-- [x] Phase 0: Baseline reproduction (commit 2575529a..., 4/4 hashes, disc SHA, Mednafen 6-scenario, 74 negative controls, 53 pytest, 26 CTests);
-- [x] Phase 1: Residual 218 site inventory V4 (workstreams/T2-ASM-11/residual_rts_v4_inventory.json);
-- [x] Phase 2: Context-sensitive CFG (workstreams/T2-ASM-11/context_sensitive_cfg.json);
-- [x] Phase 3: Shared epilogue census & clustering (workstreams/T2-ASM-11/shared_epilogue_clusters.json);
-- [x] Phase 4: Context-sensitive PR engine (tools/asm/context_sensitive_pr_engine.py <= 500 lines);
-- [x] Phase 5: Epilogue return partitioning & tailcall PR contexts (workstreams/T2-ASM-11/shared_epilogue_return_domains.json, tailcall_pr_contexts_v2.json);
-- [x] Phase 6: Function boundary normalization (workstreams/T2-ASM-11/function_boundary_v4.json);
-- [x] Phase 7: Caller-domain audit & false call edge formalization (workstreams/T2-ASM-11/caller_return_domain_audit.json);
-- [x] Phase 8: Revalidation of the 43 revoked return edges (proven FALSE_CALL_EDGE);
-- [x] Phase 9: Return domain reconstruction for caller-complete functions;
-- [x] Phase 10: Tail-merge epilogue isolation & stack frame generation tracking;
-- [x] Phase 11: Dynamic validation in Mednafen (if needed to confirm candidate contexts);
-- [x] Phase 12: Targeted external threats analysis (workstreams/T2-ASM-11/targeted_external_threats.json);
-- [x] Phase 13: RTS V4 certifier (tools/asm/rts_v4_certifier.py <= 500 lines, workstreams/T2-ASM-11/rts_completeness_v4.json);
-- [x] Phase 14: Independent RTS V4 soundness auditor (tools/asm/rts_v4_soundness_auditor.py <= 500 lines, workstreams/T2-ASM-11/rts_v4_soundness_audit.json);
-- [x] Phase 15: Invariant verification (INVALID_RESOLVED_CERTIFICATES == 0, zero-element domains == 0, return PCs in DATA == 0);
-- [x] Phase 16: Zero-forcing check (certifier derived dynamically from proof artifacts);
-- [x] Phase 17: Adversarial negative controls P11 (tests/asm/negative_controls_p11.py, NC-BO..NC-BV, total 82);
-- [x] Phase 18: Test suite update (tests/asm/test_shared_epilogue_closure.py, test_recovery_gates.py updated);
-- [x] Phase 19: Full-disc & Mednafen invariants verified;
-- [x] Phase 20: Control-flow scorecard & gate status update (workstreams/ASM_RECOVERY_SCORECARD.json);
-- [x] Phase 21: Documentation & reporting (docs/reports/SHARED_EPILOGUE_CLOSURE_T2_ASM_11.md, WORKLOG, REVERSE_ENGINEERING, PROJECT_STATE, FILE_MAP, TASK.md);
+- [x] Phase 0: Baseline and reporting integrity (commit f7b9eab..., 4/4 hashes, disc SHA, 82 negative controls, 58 pytest, 26 CTests, reporting reconciliation);
+- [x] Phase 1: Threat rebase audit & external-entry threat universe (workstreams/T2-ASM-12/threat_rebase_audit.json, external_threat_universe.json);
+- [x] Phase 2: UNKNOWN region clustering & ranking (workstreams/T2-ASM-12/unknown_threat_regions.json);
+- [x] Phase 3: Threat source raw-byte validation (alignment, delay slots, surrounding decode);
+- [x] Phase 4: Positive data-structure proof & literal consumer chains (workstreams/T2-ASM-12/targeted_data_certificates.json);
+- [x] Phase 5: Executability proof for candidate code (workstreams/T2-ASM-12/targeted_code_certificates.json);
+- [x] Phase 6: Dual-channel reachability-exclusion certificates (workstreams/T2-ASM-12/reachability_exclusion_certificates.json);
+- [x] Phase 7: Synthesized target provenance to real call sinks (workstreams/T2-ASM-12/threat_to_call_sink_provenance.json);
+- [x] Phase 8: Generalized false decode audit (workstreams/T2-ASM-12/unknown_false_decode_audit.json);
+- [x] Phase 9: Tailcall external domains completion (workstreams/T2-ASM-12/tailcall_external_domains.json);
+- [x] Phase 10: Canonical entry graph V2 & threat frontier graph (workstreams/T2-ASM-12/canonical_entry_graph_v2.json, external_threat_frontier.json);
+- [x] Phase 11: Targeted dynamic oracle in Mednafen (workstreams/T2-ASM-12/external_threat_dynamic_oracle.json);
+- [x] Phase 12: Caller-domain rebuild V5 (workstreams/T2-ASM-12/function_caller_domains_v5.json);
+- [x] Phase 13: RTS V5 certifier (tools/asm/rts_v5_certifier.py <= 500 lines, workstreams/T2-ASM-12/rts_completeness_v5.json);
+- [x] Phase 14: Independent RTS V5 soundness auditor (tools/asm/rts_v5_soundness_auditor.py <= 500 lines, workstreams/T2-ASM-12/rts_v5_soundness_audit.json, INVALID_RESOLVED == 0);
+- [x] Phase 15: PR & caller blocker side effects evaluated;
+- [x] Phase 16: Byte ownership V4 (workstreams/T2-ASM-12/executable_byte_partition_v4.json, SH2 UNKNOWN on caller frontier tracked);
+- [x] Phase 17: Closed-world theorem V3 (workstreams/T2-ASM-12/closed_world_control_flow_v3.json);
+- [x] Phase 18: Negative controls P12 (tests/asm/negative_controls_p12.py, NC-BW..NC-CE, total 91 controls);
+- [x] Phase 19: Test suite update & regression gates (tests/asm/test_external_entry_closure.py, test_recovery_gates.py updated);
+- [x] Phase 20: Documentation & reporting (docs/reports/EXTERNAL_ENTRY_THREAT_CLOSURE_T2_ASM_12.md, WORKLOG, REVERSE_ENGINEERING, PROJECT_STATE, FILE_MAP, TASK.md);
+- [x] Phase 21: Gate evaluation (ASM_90_GATE = 100.00% mnemonic coverage, FULL_ASM_GAME_GATE fail-closed evaluation);
 - [x] All human-maintained source/tool/test files strictly <= 500 lines; git diff --check clean; zero commercial assets committed.
 
 EVIDENCE AVAILABLE:
 - Canonical RUS binary bytes in .private/rus/
-- Baseline commit 2575529a047690eaa3f07702b5f19b86f08c9a1c
-- Sound RTS V3.1 audit in workstreams/T2-ASM-10-1/rts_completeness_v3_1.json
+- Baseline commit f7b9eabd5d0614fb8f4ef1f452e6709ba8c3c7a7
+- Sound RTS V4 audit in workstreams/T2-ASM-11/rts_completeness_v4.json
 - Scorecard in workstreams/ASM_RECOVERY_SCORECARD.json
-- T2-ASM-11 artifacts in workstreams/T2-ASM-11/
+- Ownership V3 in workstreams/T2-ASM-10/module_byte_ownership_v3.json
+- Ownership V4 in workstreams/T2-ASM-12/executable_byte_partition_v4.json
 
 KNOWN UNKNOWNS:
-- 185 residual unresolved RTS sites: 81 UNRESOLVED_EXTERNAL_ENTRY, 59 UNRESOLVED_PR_PATH, 45 UNRESOLVED_CALLER_DOMAIN;
-- 498,392 SH-2 UNKNOWN bytes awaiting future targeted decarving.
+- Resolution of the single upstream tailcall blocker at 0x0602F5C8 in sub_0602F312 (currently 0 callers), which blocks 8 tailcall functions (24 RTS sites);
+- Executable classification of the 202 UNKNOWN bytes across 5 intervals on the active caller threat frontier (6 candidate branches);
+- 59 residual PR-path sites and 39 open caller-domain sites.
 
 ALLOWED SCOPE:
-- Context-sensitive PR dataflow, shared epilogue decomposition, caller-domain audit, false call edge excision, boundary normalization, RTS V4 certification, negative controls P11, scorecard updates.
+- Threat rebase, dual-channel reachability exclusion, literal pool consumer chain tracing, tailcall domain auditing, canonical entry graph v2, caller domains v5, RTS V5 certification, negative controls P12.
 
 OUT OF SCOPE:
 - Broad 498,392-byte UNKNOWN sweep, sound recovery (T2-SND-01), ASM→C++ translation, metric forcing.
 
 ## Last verified result
 
-T2_ASM_11_PASS: Context-sensitive shared-epilogue decomposition and residual RTS return-domain closure complete. 630/638 PR paths proven (62 stack slots, 17 leaf, 2 ambiguous). Function boundaries normalized resolving artificial splits. 14,656 entry edges audited; 2,288 false call edges from literal pools excised (formalizing the 43 revoked return edges as FALSE_CALL_EDGE). RTS V4 certified: 453 / 638 (71.00%) resolved, 185 / 638 (29.00%) honest unresolved (+33 net resolved sites: 22 PR + 11 caller domain). Independent soundness audit: 0 violations across all 638 certificates (INVALID_RESOLVED_CERTIFICATES == 0, 0 zero-element domains, 0 data returns). Overall canonical indirect resolution: 2,041 / 2,226 (91.69%), ASM_90_GATE = PASS. 82/82 adversarial negative controls pass (8 new P11 NC-BO..NC-BV); 58/58 pytest pass; 26/26 Linux CTests pass; 4/4 modules byte-exact (0 differing bytes); full-disc SHA-256 bit-identical; Mednafen 6-scenario suite 0 divergence.
+T2_ASM_12_PASS: Baseline commit f7b9eabd5d0614fb8f4ef1f452e6709ba8c3c7a7. Certified RTS completeness V5: 510/638 resolved (265 exact, 245 finite; 79.94%), 128 honest unresolved (30 external threats across 8 tailcall and 4 branch functions, 59 PR path, 39 caller domain). Calls/jumps 1,588/1,588 (100.0%). Overall indirect 2,098/2,226 (94.25%). Independent soundness audit: INVALID_RESOLVED_CERTIFICATES == 0. 91/91 negative controls pass; 63/63 pytest pass; 41/41 Linux CTests pass; 4/4 modules byte-exact (0 diff bytes); full disc SHA-256 exact; Mednafen 6-scenario suite 0 divergence.
 
 ## Session checkpoint
 
 CURRENT MILESTONE: ASM-First Recovery Track (docs/DEVELOPMENT_PLAN.md, ADR D-015)
-CURRENT TASK: T2-ASM-11 Context-Sensitive Shared-Epilogue Decomposition, Multi-Entry CFG Normalization, and Residual RTS Return-Domain Closure
+CURRENT TASK: T2-ASM-12 Targeted UNKNOWN Caller-Threat Elimination, Region Ownership Proof, and External-Entry Closure
 TASK STATUS: COMPLETE
 MILESTONE UNDERSTANDING CONFIDENCE: 100%
 CURRENT SLICE UNDERSTANDING CONFIDENCE: 100%
-LAST VERIFIED RESULT: T2_ASM_11_PASS
-FILES CHANGED: TASK.md, docs/FILE_MAP.md, docs/PROJECT_STATE.md, docs/REVERSE_ENGINEERING.md, docs/WORKLOG.md, docs/reports/SHARED_EPILOGUE_CLOSURE_T2_ASM_11.md, tests/asm/negative_controls_p11.py, tests/asm/test_recovery_gates.py, tests/asm/test_shared_epilogue_closure.py, tools/asm/caller_return_domain_auditor.py, tools/asm/context_sensitive_pr_engine.py, tools/asm/rts_v4_certifier.py, tools/asm/rts_v4_soundness_auditor.py, workstreams/ASM_RECOVERY_SCORECARD.json, workstreams/T2-ASM-11/
-TESTS RUN: 82/82 negative controls, 58/58 pytest, 26/26 Linux CTests, 4/4 reassembly, full-disc SHA, 6 Mednafen scenarios.
-NEW KNOWLEDGE: 43 revoked return edges proven to be literal pool false call decodes (2,288 excised); shared epilogues successfully decomposed; 453/638 RTS sites soundly certified (0 invalid).
-OPEN QUESTIONS: None for T2-ASM-11.
-EXACT NEXT ACTION: Propose T2-ASM-12 as next milestone. STOP.
+LAST VERIFIED RESULT: T2_ASM_12_PASS
+FILES CHANGED: tools/asm/threat_rebase_and_universe.py, tools/asm/dual_channel_threat_prover.py, tools/asm/rts_v5_certifier.py, tools/asm/rts_v5_soundness_auditor.py, tests/asm/negative_controls_p12.py, tests/asm/test_external_entry_closure.py, tests/asm/test_recovery_gates.py, tests/asm/negative_controls_p11.py, workstreams/ASM_RECOVERY_SCORECARD.json, docs/reports/EXTERNAL_ENTRY_THREAT_CLOSURE_T2_ASM_12.md, docs/WORKLOG.md, docs/PROJECT_STATE.md, docs/REVERSE_ENGINEERING.md, docs/FILE_MAP.md, TASK.md.
+TESTS RUN: 91/91 negative controls pass, 63/63 pytest pass, 41/41 Linux CTests pass, 4/4 module reassembly byte-exactness verified, full disc SHA verified.
+NEW KNOWLEDGE: 100% of 99 historical reference sources verified in DATA literal pools with 0 open consumers; 2,801 UNKNOWN edges proved false decodes; active caller threat frontier decarved to 202 bytes across 5 intervals; upstream tailcall blocker isolated to 0x0602F5C8 (sub_0602F312); RTS V5 certified at 510/638 (79.94%).
+OPEN QUESTIONS: None.
+EXACT NEXT ACTION: Await user review and instructions for next ASM recovery milestone.

@@ -2,11 +2,11 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "Thor 2 ASM Recovery Scorecard",
   "timestamp": "2026-09-12T16:00:00Z",
-  "baseline_commit": "2575529a047690eaa3f07702b5f19b86f08c9a1c",
-  "active_milestone": "ASM-First Recovery Track (docs/DEVELOPMENT_PLAN.md, ADR D-015, T2-ASM-CARVER-02 / T2-ASM-11)",
+  "baseline_commit": "f7b9eabd5d0614fb8f4ef1f452e6709ba8c3c7a7",
+  "active_milestone": "ASM-First Recovery Track (docs/DEVELOPMENT_PLAN.md, ADR D-015, T2-ASM-CARVER-02 / T2-ASM-12)",
   "overall_status": "IN_PROGRESS",
-  "active_task": "T2-ASM-11",
-  "audit_note": "T2-ASM-11: Context-Sensitive Shared-Epilogue Decomposition, Multi-Entry CFG Normalization, and Residual RTS Return-Domain Closure. Advanced the ASM-first proof track from the sound T2-ASM-10.1 baseline (420 resolved, 218 unresolved). Decomposed shared epilogues with context-sensitive PR dataflow (630/638 PR paths proven; shared epilogue clusters formed). Audited all 56 caller-blocked sites: excised 2,288 FALSE_CALL_EDGE instances from DATA literal pools/tables (including formalizing the 43 revoked return edges as false call decodes); recovered 11 sound caller domains. Discharged 22 PR-path sites with proven stack/leaf mechanics and complete caller domains. Derived certified RTS V4: 453 / 638 resolved (71.00%), 185 honest unresolved (81 external threats in UNKNOWN, 59 PR path / shared epilogues, 45 open caller domains). Calls/jumps remain 1,588 / 1,588 (100.0%). Overall canonical indirect resolution: 2,041 / 2,226 (91.69%), 185 unresolved (8.31%). ASM_90_GATE passes (91.69% >= 90.00%). FULL_ASM_GAME_GATE maintained honestly at NOT_YET_REPROVEN pending 185 residual RTS sites and 498,392 SH-2 UNKNOWN bytes. 82 negative controls pass 100% (8 new P11 NC-BO..NC-BV). All 4 modules byte-exact, full disc SHA-256 exact, Mednafen 6 scenarios zero divergence.",
+  "active_task": "T2-ASM-12",
+  "audit_note": "T2-ASM-12: Targeted UNKNOWN Caller-Threat Elimination, Region Ownership Proof, and External-Entry Closure. Advanced the ASM-first proof track from the sound T2-ASM-11 baseline (453 resolved, 185 unresolved). Rebased historical threat frontier from module byte ownership V3: 100% of 99 historical reference sources reside in proven DATA (literal pools) with 0 open consumer chains (Channel B proved; 88 reach audited indirect calls, 4 reach tailcalls, 5 no call use, 2 mixed). Audited all 2,810 entry-graph edges in UNKNOWN: 2,801 proven DATA_HALFWORD_FALSE_DECODE, 9 candidate branches across 6 sites in 4 functions isolated fail-closed. Formally proved reachability exclusion across 35,435 UNKNOWN intervals, reducing active UNKNOWN bytes on caller threat frontier from 498,392 to 202 bytes. Bounded tailcalls for 8 functions (retained fail-closed due to upstream open tailcall at 0x0602F5C8 in sub_0602F312). Certified RTS completeness V5: 510 / 638 resolved (79.94%), 128 honest unresolved (59 PR path, 39 caller domain, 30 external entry threats across 8 tailcall and 4 branch functions). Independent soundness audit confirmed INVALID_RESOLVED_CERTIFICATES == 0. Calls/jumps remain 1,588 / 1,588 (100.0%). Overall canonical indirect resolution: 2,098 / 2,226 (94.25%), 128 unresolved (5.75%). ASM_90_GATE passes (100.00% mnemonic coverage). FULL_ASM_GAME_GATE maintained honestly at NOT_YET_REPROVEN pending 128 residual RTS sites and 498,392 SH-2 UNKNOWN bytes (202 bytes active threat frontier). 91 negative controls pass 100% (9 new P12 NC-BW..NC-CE). All 4 modules byte-exact, full disc SHA-256 exact, Mednafen 6 scenarios zero divergence.",
   "tracks": {
     "ASM_DISCOVERY": "COMPLETE",
     "ASM_CODE_RECOVERY": "IN_PROGRESS",
@@ -27,7 +27,7 @@
     "FULL_ASM_GAME_GATE": {
       "status": "NOT_YET_REPROVEN",
       "requirement": "Zero unresolved control-flow unknowns, byte-exact module reassembly, canonical disc SHA-256 parity, and clean Mednafen zero-divergence gameplay",
-      "details": "All 4 modules byte-exact (0 differing bytes), full disc bit-identical, Mednafen 6 scenarios zero divergence. Canonical indirect sites 2,226. Resolved: 2,041 / 2,226 (1,588 / 1,588 call/jump [100.0%], 453 / 638 RTS [71.00%]). Honest unresolved: 185 RTS (81 external threats in UNKNOWN, 59 PR path / shared epilogues, 45 open caller domains). 498,392 SH-2 UNKNOWN bytes remain. Closed-world theorem over confirmed code is PROVEN; closed-world theorem over all SH-2 bytes is held open fail-closed."
+      "details": "All 4 modules byte-exact (0 differing bytes), full disc bit-identical, Mednafen 6 scenarios zero divergence. Canonical indirect sites 2,226. Resolved: 2,098 / 2,226 (1,588 / 1,588 call/jump [100.0%], 510 / 638 RTS [79.94%]). Honest unresolved: 128 RTS (30 external threats in UNKNOWN [8 tailcall, 4 branch], 59 PR path / shared epilogues, 39 open caller domains). 498,392 SH-2 UNKNOWN bytes remain (202 bytes on active caller threat frontier; 498,190 reachability excluded). Closed-world theorem over confirmed code is PROVEN; closed-world theorem over all SH-2 bytes is held open fail-closed."
     },
     "STANDALONE_NATIVE_GATE": {
       "status": "FROZEN_BY_ASM_FIRST_ARCHITECTURE",
@@ -57,8 +57,8 @@
     "indirect_sites_historical_total": 2233,
     "false_positive_sites_removed": 7,
     "indirect_sites_total": 2226,
-    "indirect_sites_resolved": 2041,
-    "indirect_sites_unresolved": 185,
+    "indirect_sites_resolved": 2098,
+    "indirect_sites_unresolved": 128,
     "silent_evidence_demotions": 0,
     "historical_baseline_confirmed_code_bytes": 95422,
     "historical_baseline_data_bytes": 57722,

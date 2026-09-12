@@ -1,0 +1,18 @@
+{
+  "version": "3.0",
+  "theorem_1_closed_world_over_confirmed_code": {
+    "name": "CLOSED_WORLD_OVER_CONFIRMED_CODE",
+    "status": "PROVEN",
+    "evidence": "1,588 / 1,588 indirect call/jump sites in confirmed code fully resolved (100.0%)."
+  },
+  "theorem_2_closed_world_over_caller_threat_frontier": {
+    "name": "CLOSED_WORLD_OVER_CALLER_THREAT_FRONTIER",
+    "status": "FAIL_CLOSED",
+    "evidence": "202 bytes on threat frontier across 4 functions with candidate branch patterns; 144 RTS sites unresolved."
+  },
+  "theorem_3_closed_world_over_all_potentially_executable_sh2_bytes": {
+    "name": "CLOSED_WORLD_OVER_ALL_POTENTIALLY_EXECUTABLE_SH2_BYTES",
+    "status": "NOT_PROVEN_FAIL_CLOSED",
+    "evidence": "498,392 SH-2 bytes remain semantically unclassified."
+  }
+}

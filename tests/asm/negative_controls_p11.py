@@ -14,7 +14,6 @@ Implements required adversarial Negative Controls for T2-ASM-11:
 
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Tuple
-import pytest
 import sys
 
 _repo_root = Path(__file__).resolve().parent.parent.parent

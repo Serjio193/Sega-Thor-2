@@ -1,0 +1,9 @@
+{
+  "version": "1.0",
+  "total_sites_audited": 638,
+  "resolved_sites_count": 510,
+  "unresolved_sites_count": 128,
+  "invalid_resolved_certificates_count": 0,
+  "audit_passed": true,
+  "violations": []
+}

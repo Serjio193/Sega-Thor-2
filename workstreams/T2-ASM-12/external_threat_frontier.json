@@ -1,0 +1,20 @@
+{
+  "version": "1.0",
+  "blocked_by_tailcall_domain": [
+    "sub_002E73FC",
+    "sub_0600406C",
+    "sub_0600DEDC",
+    "sub_0606DD04",
+    "sub_0606EC54",
+    "sub_0606EE8C",
+    "sub_060787A4",
+    "sub_06081898"
+  ],
+  "blocked_by_unknown_branch_candidates": [
+    "0x06010094",
+    "0x06010BC2",
+    "0x06078690",
+    "0x0607E6FE"
+  ],
+  "cleared_threat_functions": []
+}

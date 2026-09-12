@@ -1,5 +1,50 @@
 # Worklog
 
+## 2026-09-12 — T2-ASM-12: Targeted UNKNOWN Caller-Threat Elimination, Region Ownership Proof, and External-Entry Closure
+
+### Task
+
+Execute milestone `T2-ASM-12` to advance the ASM-first proof track from the sound `T2-ASM-11` baseline (453 resolved, 185 unresolved) without metric-forcing or broad unguided byte sweeps:
+1. **Threat Rebase Audit (`workstreams/T2-ASM-12/threat_rebase_audit.json`) & External Threat Universe (`workstreams/T2-ASM-12/external_threat_universe.json`)**:
+   - Rebased all 99 unique historical reference addresses (representing 148 historical threat instances) against `module_byte_ownership_v3.json`.
+   - Confirmed 100% of historical reference sources reside in `DATA` (`DATA_LITERAL_POOL`). Zero reference sources reside in `CODE` or `UNKNOWN`.
+2. **UNKNOWN Region Clustering & False Decode Audit (`workstreams/T2-ASM-12/unknown_threat_regions.json`, `workstreams/T2-ASM-12/unknown_false_decode_audit.json`)**:
+   - Clustered 2,080 UNKNOWN regions containing historical entry-graph edges.
+   - Audited all 2,810 entry-graph edges originating in UNKNOWN: proved 2,801 are `DATA_HALFWORD_FALSE_DECODE` instances from non-executable data tables/literals.
+   - Identified and isolated 9 candidate branch edges across 6 branch sites in 4 functions (`VALID_EXECUTABLE_CANDIDATE`).
+3. **Dual-Channel Threat Prover (`tools/asm/dual_channel_threat_prover.py`)**:
+   - Channel B: Traced consumer chains for all 99 literal pool addresses (`targeted_data_certificates.json` and `threat_to_call_sink_provenance.json`). Proved 0 open consumers (88 reach audited indirect calls, 4 reach tailcalls, 5 no call use, 2 mixed).
+   - Channel A: Issued reachability exclusion certificates for 35,435 UNKNOWN intervals (`reachability_exclusion_certificates.json`), reducing active caller threat frontier to 202 bytes in 5 intervals.
+   - Channel C: Bounded tailcalls across 8 functions (`tailcall_external_domains.json`), retaining them fail-closed due to an upstream unbonded tailcall at `0x0602F5C8` in `sub_0602F312`.
+   - Constructed `canonical_entry_graph_v2.json` (9,591 confirmed CODE-only edges) and `function_caller_domains_v5.json` (34 complete caller domains, 14 fail-closed).
+4. **Master RTS V5 Certifier & Partition V4 (`tools/asm/rts_v5_certifier.py`)**:
+   - Derived certified RTS V5: **510 / 638 resolved (79.94%)**, **128 honest unresolved (20.06%)**.
+   - Net increase of +57 sound resolutions (51 primary external entry resolutions + 6 secondary caller domain recoveries).
+   - Unresolved breakdown: 30 external entry threats (24 tailcall-blocked across 8 functions, 6 branch-threat across 4 functions), 59 PR path / shared epilogues, 39 open caller domains.
+   - Emitted `workstreams/T2-ASM-12/executable_byte_partition_v4.json` (498,392 SH-2 UNKNOWN bytes, 202 bytes active threat frontier, 498,190 bytes reachability excluded).
+   - Evaluated `workstreams/T2-ASM-12/closed_world_control_flow_v3.json` (Theorems 1 & 2 PROVEN, Theorem 3 held open fail-closed).
+5. **Independent Soundness Audit (`tools/asm/rts_v5_soundness_auditor.py`)**:
+   - Audited all 638 RTS certificates: `INVALID_RESOLVED_CERTIFICATES == 0`, `audit_passed == True`.
+   - Emitted `workstreams/T2-ASM-12/rts_v5_soundness_audit.json`.
+6. **Negative Controls Suite P12 (`tests/asm/negative_controls_p12.py`)**:
+   - Implemented 9 new adversarial negative controls (NC-BW through NC-CE): cold instruction in unknown rejection, non-call pointer caller rejection, synthesized target tracking, dynamic non-observation unreachability rejection, cleared pointer open tailcall fail-closed, indirect ingress region exclusion rejection, overlay generation mismatch isolation, partial region data overpromotion rejection, and real JSR data literal caller retention.
+   - Repository negative controls increased from 82 to **91 / 91 PASS (100%)**.
+7. **Invariants Preserved**:
+   - All 63 pytest tests pass; all 41 WSL Linux CTests pass; 4/4 canonical modules byte-exact (0 differing bytes); full-disc SHA-256 exact; Mednafen 6 scenarios zero divergence.
+   - Emitted technical report `docs/reports/EXTERNAL_ENTRY_THREAT_CLOSURE_T2_ASM_12.md`.
+
+### Status After Pass
+
+- `T2-ASM-12`: **COMPLETE / PASS**
+- Canonical indirect denominator: **2,226** (1,588 call/jump + 638 RTS)
+- Total resolved indirect sites: **2,098 / 2,226 (94.25%)**
+- Total unresolved indirect sites: **128 / 2,226 (5.75%)**
+- Indirect call/jump resolution: **1,588 / 1,588 (100.00%)**
+- RTS return flow resolution: **510 / 638 (79.94%)**, 128 unresolved (20.06%)
+- Negative controls: **91/91 PASS** (8 base + 8 P3 + 8 P4 + 8 P5 + 8 P6 + 10 P7 + 8 P8 + 8 P9 + 8 P10 + 8 P11 + 9 P12 NC-BW..CE)
+- Recovery gates: `ASM_90_GATE` = PASS (100.00% mnemonic coverage), `FULL_ASM_GAME_GATE` = NOT_YET_REPROVEN (honest), `STANDALONE_NATIVE_GATE` = FROZEN
+- Technical report: `docs/reports/EXTERNAL_ENTRY_THREAT_CLOSURE_T2_ASM_12.md`.
+
 ## 2026-09-12 — T2-ASM-11: Context-Sensitive Shared-Epilogue Decomposition, Multi-Entry CFG Normalization, and Residual RTS Return-Domain Closure
 
 ### Task

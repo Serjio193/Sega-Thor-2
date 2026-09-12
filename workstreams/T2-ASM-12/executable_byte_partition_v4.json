@@ -1,0 +1,95 @@
+{
+  "version": "4.0",
+  "total_binary_bytes": 1457152,
+  "total_confirmed_code_bytes": 156694,
+  "total_proven_data_bytes": 68980,
+  "total_proven_padding_bytes": 59324,
+  "total_unknown_bytes": 1172154,
+  "all_partitions_balanced": true,
+  "processor_breakdown": {
+    "SH2_UNKNOWN_BYTES": 498392,
+    "M68K_UNKNOWN_BYTES": 673762,
+    "SH2_UNKNOWN_BYTES_STILL_ON_CALLER_THREAT_FRONTIER": 202,
+    "SH2_UNKNOWN_BYTES_REACHABILITY_EXCLUDED": 498190
+  },
+  "frontier_intervals": [
+    [
+      "0TH2.BIN",
+      "0x0600F9FE",
+      "0x0600FA30",
+      50
+    ],
+    [
+      "0TH2.BIN",
+      "0x06010568",
+      "0x0601057E",
+      22
+    ],
+    [
+      "0TH2.BIN",
+      "0x06010CB4",
+      "0x06010CD2",
+      30
+    ],
+    [
+      "0TH2.BIN",
+      "0x06078C4A",
+      "0x06078C62",
+      24
+    ],
+    [
+      "0TH2.BIN",
+      "0x06078CA2",
+      "0x06078CBC",
+      26
+    ],
+    [
+      "0TH2.BIN",
+      "0x0607E62A",
+      "0x0607E65C",
+      50
+    ]
+  ],
+  "modules": [
+    {
+      "module": "0TH2.BIN",
+      "vma_base": "0x06004000",
+      "size_bytes": 535552,
+      "confirmed_code_bytes": 127384,
+      "proven_data_bytes": 58554,
+      "proven_padding_bytes": 25330,
+      "unknown_bytes": 324284,
+      "checksum_valid": true
+    },
+    {
+      "module": "TH2.LOW",
+      "vma_base": "0x002DA000",
+      "size_bytes": 149504,
+      "confirmed_code_bytes": 29268,
+      "proven_data_bytes": 10426,
+      "proven_padding_bytes": 33994,
+      "unknown_bytes": 75816,
+      "checksum_valid": true
+    },
+    {
+      "module": "SET07.BIN",
+      "vma_base": "0x060D8000",
+      "size_bytes": 98304,
+      "confirmed_code_bytes": 12,
+      "proven_data_bytes": 0,
+      "proven_padding_bytes": 0,
+      "unknown_bytes": 98292,
+      "checksum_valid": true
+    },
+    {
+      "module": "BGM.BIN",
+      "vma_base": "0x00000000",
+      "size_bytes": 673792,
+      "confirmed_code_bytes": 30,
+      "proven_data_bytes": 0,
+      "proven_padding_bytes": 0,
+      "unknown_bytes": 673762,
+      "checksum_valid": true
+    }
+  ]
+}

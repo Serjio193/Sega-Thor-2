@@ -1,0 +1,2140 @@
+{
+  "version": "1.0",
+  "historical_reference_sources_total": 99,
+  "current_ownership_distribution": {
+    "DATA": 99
+  },
+  "current_subtype_distribution": {
+    "DATA_LITERAL_POOL": 99
+  },
+  "rebased_threat_records": [
+    {
+      "threat_id": "REF_TH2.LOW_0x002E48C0",
+      "source_pc": "0x002E48C0",
+      "source_module": "TH2.LOW",
+      "source_generation": 0,
+      "historical_ownership": "UNKNOWN",
+      "current_ownership": "DATA",
+      "current_subtype": "DATA_LITERAL_POOL",
+      "historical_threat_kind": "RAW_32BIT_POINTER_MATCH",
+      "current_threat_kind": "DATA_TARGET_VALUE_THREAT",
+      "still_relevant": true,
+      "containing_interval": "0x002E4894..0x002E48C4",
+      "blocked_functions": [
+        "sub_06004F00"
+      ],
+      "blocked_rts_sites": [
+        "0TH2.BIN_0x06004F32"
+      ],
+      "unique_blocked_functions_count": 1,
+      "number_of_rts_sites_blocked": 1
+    },
+    {
+      "threat_id": "REF_TH2.LOW_0x002E5528",
+      "source_pc": "0x002E5528",
+      "source_module": "TH2.LOW",
+      "source_generation": 0,
+      "historical_ownership": "UNKNOWN",
+      "current_ownership": "DATA",
+      "current_subtype": "DATA_LITERAL_POOL",
+      "historical_threat_kind": "RAW_32BIT_POINTER_MATCH",
+      "current_threat_kind": "DATA_TARGET_VALUE_THREAT",
+      "still_relevant": true,
+      "containing_interval": "0x002E5526..0x002E5534",
+      "blocked_functions": [
+        "sub_0600444E"
+      ],
+      "blocked_rts_sites": [
+        "0TH2.BIN_0x0600445A"
+      ],
+      "unique_blocked_functions_count": 1,
+      "number_of_rts_sites_blocked": 1
+    },
+    {
+      "threat_id": "REF_TH2.LOW_0x002E7634",
+      "source_pc": "0x002E7634",
+      "source_module": "TH2.LOW",
+      "source_generation": 0,
+      "historical_ownership": "UNKNOWN",
+      "current_ownership": "DATA",
+      "current_subtype": "DATA_LITERAL_POOL",
+      "historical_threat_kind": "RAW_32BIT_POINTER_MATCH",
+      "current_threat_kind": "DATA_TARGET_VALUE_THREAT",
+      "still_relevant": true,
+      "containing_interval": "0x002E7630..0x002E7638",
+      "blocked_functions": [
+        "sub_0606DD04"
+      ],
+      "blocked_rts_sites": [
+        "0TH2.BIN_0x0606DD9E",
+        "0TH2.BIN_0x0606DDAA"
+      ],
+      "unique_blocked_functions_count": 1,
+      "number_of_rts_sites_blocked": 2
+    },
+    {
+      "threat_id": "REF_TH2.LOW_0x002E7B50",
+      "source_pc": "0x002E7B50",
+      "source_module": "TH2.LOW",
+      "source_generation": 0,
+      "historical_ownership": "UNKNOWN",
+      "current_ownership": "DATA",
+      "current_subtype": "DATA_LITERAL_POOL",
+      "historical_threat_kind": "RAW_32BIT_POINTER_MATCH",
+      "current_threat_kind": "DATA_TARGET_VALUE_THREAT",
+      "still_relevant": true,
+      "containing_interval": "0x002E7B50..0x002E7B6C",
+      "blocked_functions": [
+        "sub_0600442E"
+      ],
+      "blocked_rts_sites": [
+        "0TH2.BIN_0x0600444A"
+      ],
+      "unique_blocked_functions_count": 1,
+      "number_of_rts_sites_blocked": 1
+    },
+    {
+      "threat_id": "REF_TH2.LOW_0x002E9D60",
+      "source_pc": "0x002E9D60",
+      "source_module": "TH2.LOW",
+      "source_generation": 0,
+      "historical_ownership": "UNKNOWN",
+      "current_ownership": "DATA",
+      "current_subtype": "DATA_LITERAL_POOL",
+      "historical_threat_kind": "RAW_32BIT_POINTER_MATCH",
+      "current_threat_kind": "DATA_TARGET_VALUE_THREAT",
+      "still_relevant": true,
+      "containing_interval": "0x002E9D04..0x002E9D64",
+      "blocked_functions": [
+        "sub_06014CA2"
+      ],
+      "blocked_rts_sites": [
+        "0TH2.BIN_0x06014D04"
+      ],
+      "unique_blocked_functions_count": 1,
+      "number_of_rts_sites_blocked": 1
+    },
+    {
+      "threat_id": "REF_0TH2.BIN_0x060059B0",
+      "source_pc": "0x060059B0",
+      "source_module": "0TH2.BIN",
+      "source_generation": 0,
+      "historical_ownership": "UNKNOWN",
+      "current_ownership": "DATA",
+      "current_subtype": "DATA_LITERAL_POOL",
+      "historical_threat_kind": "RAW_32BIT_POINTER_MATCH",
+      "current_threat_kind": "DATA_TARGET_VALUE_THREAT",
+      "still_relevant": true,
+      "containing_interval": "0x060059AC..0x060059B4",
+      "blocked_functions": [
+        "sub_0606DD04"
+      ],
+      "blocked_rts_sites": [
+        "0TH2.BIN_0x0606DD9E",
+        "0TH2.BIN_0x0606DDAA"
+      ],
+      "unique_blocked_functions_count": 1,
+      "number_of_rts_sites_blocked": 2
+    },
+    {
+      "threat_id": "REF_0TH2.BIN_0x0600A458",
+      "source_pc": "0x0600A458",
+      "source_module": "0TH2.BIN",
+      "source_generation": 0,
+      "historical_ownership": "UNKNOWN",
+      "current_ownership": "DATA",
+      "current_subtype": "DATA_LITERAL_POOL",
+      "historical_threat_kind": "RAW_32BIT_POINTER_MATCH",
+      "current_threat_kind": "DATA_TARGET_VALUE_THREAT",
+      "still_relevant": true,
+      "containing_interval": "0x0600A454..0x0600A47C",
+      "blocked_functions": [
+        "sub_06078B42"
+      ],
+      "blocked_rts_sites": [
+        "0TH2.BIN_0x06078B66",
+        "0TH2.BIN_0x06078B78",
+        "0TH2.BIN_0x06078B98",
+        "0TH2.BIN_0x06078BB6"
+      ],
+      "unique_blocked_functions_count": 1,
+      "number_of_rts_sites_blocked": 4
+    },
+    {
+      "threat_id": "REF_0TH2.BIN_0x0600E5E0",
+      "source_pc": "0x0600E5E0",
+      "source_module": "0TH2.BIN",
+      "source_generation": 0,
+      "historical_ownership": "UNKNOWN",
+      "current_ownership": "DATA",
+      "current_subtype": "DATA_LITERAL_POOL",
+      "historical_threat_kind": "RAW_32BIT_POINTER_MATCH",
+      "current_threat_kind": "DATA_TARGET_VALUE_THREAT",
+      "still_relevant": true,
+      "containing_interval": "0x0600E5E0..0x0600E5E8",
+      "blocked_functions": [
+        "sub_0600406C"
+      ],
+      "blocked_rts_sites": [
+        "0TH2.BIN_0x06004072"
+      ],
+      "unique_blocked_functions_count": 1,
+      "number_of_rts_sites_blocked": 1
+    },
+    {
+      "threat_id": "REF_0TH2.BIN_0x0600E9C8",
+      "source_pc": "0x0600E9C8",
+      "source_module": "0TH2.BIN",
+      "source_generation": 0,
+      "historical_ownership": "UNKNOWN",
+      "current_ownership": "DATA",
+      "current_subtype": "DATA_LITERAL_POOL",
+      "historical_threat_kind": "RAW_32BIT_POINTER_MATCH",
+      "current_threat_kind": "DATA_TARGET_VALUE_THREAT",
+      "still_relevant": true,
+      "containing_interval": "0x0600E9C0..0x0600E9CC",
+      "blocked_functions": [
+        "sub_0606DD04"
+      ],
+      "blocked_rts_sites": [
+        "0TH2.BIN_0x0606DD9E",
+        "0TH2.BIN_0x0606DDAA"
+      ],
+      "unique_blocked_functions_count": 1,
+      "number_of_rts_sites_blocked": 2
+    },
+    {
+      "threat_id": "REF_0TH2.BIN_0x0600F498",
+      "source_pc": "0x0600F498",
+      "source_module": "0TH2.BIN",
+      "source_generation": 0,
+      "historical_ownership": "UNKNOWN",
+      "current_ownership": "DATA",
+      "current_subtype": "DATA_LITERAL_POOL",
+      "historical_threat_kind": "RAW_32BIT_POINTER_MATCH",
+      "current_threat_kind": "DATA_TARGET_VALUE_THREAT",
+      "still_relevant": true,
+      "containing_interval": "0x0600F48C..0x0600F4A0",
+      "blocked_functions": [
+        "sub_0600B204"
+      ],
+      "blocked_rts_sites": [
+        "0TH2.BIN_0x0600B222"
+      ],
+      "unique_blocked_functions_count": 1,
+      "number_of_rts_sites_blocked": 1
+    },
+    {
+      "threat_id": "REF_0TH2.BIN_0x06017DD8",
+      "source_pc": "0x06017DD8",
+      "source_module": "0TH2.BIN",
+      "source_generation": 0,
+      "historical_ownership": "UNKNOWN",
+      "current_ownership": "DATA",
+      "current_subtype": "DATA_LITERAL_POOL",
+      "historical_threat_kind": "RAW_32BIT_POINTER_MATCH",
+      "current_threat_kind": "DATA_TARGET_VALUE_THREAT",
+      "still_relevant": true,
+      "containing_interval": "0x06017DD8..0x06017DE0",
+      "blocked_functions": [
+        "sub_060171B4"
+      ],
+      "blocked_rts_sites": [
+        "0TH2.BIN_0x06017434"
+      ],
+      "unique_blocked_functions_count": 1,
+      "number_of_rts_sites_blocked": 1
+    },
+    {
+      "threat_id": "REF_0TH2.BIN_0x06017DDC",
+      "source_pc": "0x06017DDC",
+      "source_module": "0TH2.BIN",
+      "source_generation": 0,
+      "historical_ownership": "UNKNOWN",
+      "current_ownership": "DATA",
+      "current_subtype": "DATA_LITERAL_POOL",
+      "historical_threat_kind": "RAW_32BIT_POINTER_MATCH",
+      "current_threat_kind": "DATA_TARGET_VALUE_THREAT",
+      "still_relevant": true,
+      "containing_interval": "0x06017DD8..0x06017DE0",
+      "blocked_functions": [
+        "sub_0601715E"
+      ],
+      "blocked_rts_sites": [
+        "0TH2.BIN_0x0601717C",
+        "0TH2.BIN_0x060171B0"
+      ],
+      "unique_blocked_functions_count": 1,
+      "number_of_rts_sites_blocked": 2
+    },
+    {
+      "threat_id": "REF_0TH2.BIN_0x06019658",
+      "source_pc": "0x06019658",
+      "source_module": "0TH2.BIN",
+      "source_generation": 0,
+      "historical_ownership": "UNKNOWN",
+      "current_ownership": "DATA",
+      "current_subtype": "DATA_LITERAL_POOL",
+      "historical_threat_kind": "RAW_32BIT_POINTER_MATCH",
+      "current_threat_kind": "DATA_TARGET_VALUE_THREAT",
+      "still_relevant": true,
+      "containing_interval": "0x06019658..0x06019659",
+      "blocked_functions": [
+        "sub_0600406C"
+      ],
+      "blocked_rts_sites": [
+        "0TH2.BIN_0x06004072"
+      ],
+      "unique_blocked_functions_count": 1,
+      "number_of_rts_sites_blocked": 1
+    },
+    {
+      "threat_id": "REF_0TH2.BIN_0x060197E0",
+      "source_pc": "0x060197E0",
+      "source_module": "0TH2.BIN",
+      "source_generation": 0,
+      "historical_ownership": "UNKNOWN",
+      "current_ownership": "DATA",
+      "current_subtype": "DATA_LITERAL_POOL",
+      "historical_threat_kind": "RAW_32BIT_POINTER_MATCH",
+      "current_threat_kind": "DATA_TARGET_VALUE_THREAT",
+      "still_relevant": true,
+      "containing_interval": "0x060197DC..0x060197E1",
+      "blocked_functions": [
+        "sub_0600406C"
+      ],
+      "blocked_rts_sites": [
+        "0TH2.BIN_0x06004072"
+      ],
+      "unique_blocked_functions_count": 1,
+      "number_of_rts_sites_blocked": 1
+    },
+    {
+      "threat_id": "REF_0TH2.BIN_0x0601BF94",
+      "source_pc": "0x0601BF94",
+      "source_module": "0TH2.BIN",
+      "source_generation": 0,
+      "historical_ownership": "UNKNOWN",
+      "current_ownership": "DATA",
+      "current_subtype": "DATA_LITERAL_POOL",
+      "historical_threat_kind": "RAW_32BIT_POINTER_MATCH",
+      "current_threat_kind": "DATA_TARGET_VALUE_THREAT",
+      "still_relevant": true,
+      "containing_interval": "0x0601BF78..0x0601BF98",
+      "blocked_functions": [
+        "sub_0600DEDC"
+      ],
+      "blocked_rts_sites": [
+        "0TH2.BIN_0x0600DEFA"
+      ],
+      "unique_blocked_functions_count": 1,
+      "number_of_rts_sites_blocked": 1
+    },
+    {
+      "threat_id": "REF_0TH2.BIN_0x0601C834",
+      "source_pc": "0x0601C834",
+      "source_module": "0TH2.BIN",
+      "source_generation": 0,
+      "historical_ownership": "UNKNOWN",
+      "current_ownership": "DATA",
+      "current_subtype": "DATA_LITERAL_POOL",
+      "historical_threat_kind": "RAW_32BIT_POINTER_MATCH",
+      "current_threat_kind": "DATA_TARGET_VALUE_THREAT",
+      "still_relevant": true,
+      "containing_interval": "0x0601C830..0x0601C838",
+      "blocked_functions": [
+        "sub_0606DD04"
+      ],
+      "blocked_rts_sites": [
+        "0TH2.BIN_0x0606DD9E",
+        "0TH2.BIN_0x0606DDAA"
+      ],
+      "unique_blocked_functions_count": 1,
+      "number_of_rts_sites_blocked": 2
+    },
+    {
+      "threat_id": "REF_0TH2.BIN_0x0601CAC0",
+      "source_pc": "0x0601CAC0",
+      "source_module": "0TH2.BIN",
+      "source_generation": 0,
+      "historical_ownership": "UNKNOWN",
+      "current_ownership": "DATA",
+      "current_subtype": "DATA_LITERAL_POOL",
+      "historical_threat_kind": "RAW_32BIT_POINTER_MATCH",
+      "current_threat_kind": "DATA_TARGET_VALUE_THREAT",
+      "still_relevant": true,
+      "containing_interval": "0x0601CAC0..0x0601CAC8",
+      "blocked_functions": [
+        "sub_0600406C"
+      ],
+      "blocked_rts_sites": [
+        "0TH2.BIN_0x06004072"
+      ],
+      "unique_blocked_functions_count": 1,
+      "number_of_rts_sites_blocked": 1
+    },
+    {
+      "threat_id": "REF_0TH2.BIN_0x060211B8",
+      "source_pc": "0x060211B8",
+      "source_module": "0TH2.BIN",
+      "source_generation": 0,
+      "historical_ownership": "UNKNOWN",
+      "current_ownership": "DATA",
+      "current_subtype": "DATA_LITERAL_POOL",
+      "historical_threat_kind": "RAW_32BIT_POINTER_MATCH",
+      "current_threat_kind": "DATA_TARGET_VALUE_THREAT",
+      "still_relevant": true,
+      "containing_interval": "0x060211B8..0x060211B9",
+      "blocked_functions": [
+        "sub_0600B204"
+      ],
+      "blocked_rts_sites": [
+        "0TH2.BIN_0x0600B222"
+      ],
+      "unique_blocked_functions_count": 1,
+      "number_of_rts_sites_blocked": 1
+    },
+    {
+      "threat_id": "REF_0TH2.BIN_0x06022D2C",
+      "source_pc": "0x06022D2C",
+      "source_module": "0TH2.BIN",
+      "source_generation": 0,
+      "historical_ownership": "UNKNOWN",
+      "current_ownership": "DATA",
+      "current_subtype": "DATA_LITERAL_POOL",
+      "historical_threat_kind": "RAW_32BIT_POINTER_MATCH",
+      "current_threat_kind": "DATA_TARGET_VALUE_THREAT",
+      "still_relevant": true,
+      "containing_interval": "0x06022D26..0x06022D2D",
+      "blocked_functions": [
+        "sub_0600DEDC"
+      ],
+      "blocked_rts_sites": [
+        "0TH2.BIN_0x0600DEFA"
+      ],
+      "unique_blocked_functions_count": 1,
+      "number_of_rts_sites_blocked": 1
+    },
+    {
+      "threat_id": "REF_0TH2.BIN_0x060237D0",
+      "source_pc": "0x060237D0",
+      "source_module": "0TH2.BIN",
+      "source_generation": 0,
+      "historical_ownership": "UNKNOWN",
+      "current_ownership": "DATA",
+      "current_subtype": "DATA_LITERAL_POOL",
+      "historical_threat_kind": "RAW_32BIT_POINTER_MATCH",
+      "current_threat_kind": "DATA_TARGET_VALUE_THREAT",
+      "still_relevant": true,
+      "containing_interval": "0x060237D0..0x060237D1",
+      "blocked_functions": [
+        "sub_0600DEDC"
+      ],
+      "blocked_rts_sites": [
+        "0TH2.BIN_0x0600DEFA"
+      ],
+      "unique_blocked_functions_count": 1,
+      "number_of_rts_sites_blocked": 1
+    },
+    {
+      "threat_id": "REF_0TH2.BIN_0x06026CD8",
+      "source_pc": "0x06026CD8",
+      "source_module": "0TH2.BIN",
+      "source_generation": 0,
+      "historical_ownership": "UNKNOWN",
+      "current_ownership": "DATA",
+      "current_subtype": "DATA_LITERAL_POOL",
+      "historical_threat_kind": "RAW_32BIT_POINTER_MATCH",
+      "current_threat_kind": "DATA_TARGET_VALUE_THREAT",
+      "still_relevant": true,
+      "containing_interval": "0x06026CD8..0x06026CD9",
+      "blocked_functions": [
+        "sub_0600B204"
+      ],
+      "blocked_rts_sites": [
+        "0TH2.BIN_0x0600B222"
+      ],
+      "unique_blocked_functions_count": 1,
+      "number_of_rts_sites_blocked": 1
+    },
+    {
+      "threat_id": "REF_0TH2.BIN_0x06027240",
+      "source_pc": "0x06027240",
+      "source_module": "0TH2.BIN",
+      "source_generation": 0,
+      "historical_ownership": "UNKNOWN",
+      "current_ownership": "DATA",
+      "current_subtype": "DATA_LITERAL_POOL",
+      "historical_threat_kind": "RAW_32BIT_POINTER_MATCH",
+      "current_threat_kind": "DATA_TARGET_VALUE_THREAT",
+      "still_relevant": true,
+      "containing_interval": "0x06027240..0x06027241",
+      "blocked_functions": [
+        "sub_0600B204"
+      ],
+      "blocked_rts_sites": [
+        "0TH2.BIN_0x0600B222"
+      ],
+      "unique_blocked_functions_count": 1,
+      "number_of_rts_sites_blocked": 1
+    },
+    {
+      "threat_id": "REF_0TH2.BIN_0x060290B8",
+      "source_pc": "0x060290B8",
+      "source_module": "0TH2.BIN",
+      "source_generation": 0,
+      "historical_ownership": "UNKNOWN",
+      "current_ownership": "DATA",
+      "current_subtype": "DATA_LITERAL_POOL",
+      "historical_threat_kind": "RAW_32BIT_POINTER_MATCH",
+      "current_threat_kind": "DATA_TARGET_VALUE_THREAT",
+      "still_relevant": true,
+      "containing_interval": "0x060290B4..0x060290B9",
+      "blocked_functions": [
+        "sub_0600DEDC"
+      ],
+      "blocked_rts_sites": [
+        "0TH2.BIN_0x0600DEFA"
+      ],
+      "unique_blocked_functions_count": 1,
+      "number_of_rts_sites_blocked": 1
+    },
+    {
+      "threat_id": "REF_0TH2.BIN_0x0602D44C",
+      "source_pc": "0x0602D44C",
+      "source_module": "0TH2.BIN",
+      "source_generation": 0,
+      "historical_ownership": "UNKNOWN",
+      "current_ownership": "DATA",
+      "current_subtype": "DATA_LITERAL_POOL",
+      "historical_threat_kind": "RAW_32BIT_POINTER_MATCH",
+      "current_threat_kind": "DATA_TARGET_VALUE_THREAT",
+      "still_relevant": true,
+      "containing_interval": "0x0602D44C..0x0602D44D",
+      "blocked_functions": [
+        "sub_0600406C"
+      ],
+      "blocked_rts_sites": [
+        "0TH2.BIN_0x06004072"
+      ],
+      "unique_blocked_functions_count": 1,
+      "number_of_rts_sites_blocked": 1
+    },
+    {
+      "threat_id": "REF_0TH2.BIN_0x0602D504",
+      "source_pc": "0x0602D504",
+      "source_module": "0TH2.BIN",
+      "source_generation": 0,
+      "historical_ownership": "UNKNOWN",
+      "current_ownership": "DATA",
+      "current_subtype": "DATA_LITERAL_POOL",
+      "historical_threat_kind": "RAW_32BIT_POINTER_MATCH",
+      "current_threat_kind": "DATA_TARGET_VALUE_THREAT",
+      "still_relevant": true,
+      "containing_interval": "0x0602D504..0x0602D505",
+      "blocked_functions": [
+        "sub_0600406C"
+      ],
+      "blocked_rts_sites": [
+        "0TH2.BIN_0x06004072"
+      ],
+      "unique_blocked_functions_count": 1,
+      "number_of_rts_sites_blocked": 1
+    },
+    {
+      "threat_id": "REF_0TH2.BIN_0x0602E7A8",
+      "source_pc": "0x0602E7A8",
+      "source_module": "0TH2.BIN",
+      "source_generation": 0,
+      "historical_ownership": "UNKNOWN",
+      "current_ownership": "DATA",
+      "current_subtype": "DATA_LITERAL_POOL",
+      "historical_threat_kind": "RAW_32BIT_POINTER_MATCH",
+      "current_threat_kind": "DATA_TARGET_VALUE_THREAT",
+      "still_relevant": true,
+      "containing_interval": "0x0602E7A6..0x0602E7A9",
+      "blocked_functions": [
+        "sub_0600DEDC"
+      ],
+      "blocked_rts_sites": [
+        "0TH2.BIN_0x0600DEFA"
+      ],
+      "unique_blocked_functions_count": 1,
+      "number_of_rts_sites_blocked": 1
+    },
+    {
+      "threat_id": "REF_0TH2.BIN_0x0602F1A4",
+      "source_pc": "0x0602F1A4",
+      "source_module": "0TH2.BIN",
+      "source_generation": 0,
+      "historical_ownership": "UNKNOWN",
+      "current_ownership": "DATA",
+      "current_subtype": "DATA_LITERAL_POOL",
+      "historical_threat_kind": "RAW_32BIT_POINTER_MATCH",
+      "current_threat_kind": "DATA_TARGET_VALUE_THREAT",
+      "still_relevant": true,
+      "containing_interval": "0x0602F1A4..0x0602F1A5",
+      "blocked_functions": [
+        "sub_0600DEDC"
+      ],
+      "blocked_rts_sites": [
+        "0TH2.BIN_0x0600DEFA"
+      ],
+      "unique_blocked_functions_count": 1,
+      "number_of_rts_sites_blocked": 1
+    },
+    {
+      "threat_id": "REF_0TH2.BIN_0x060300E8",
+      "source_pc": "0x060300E8",
+      "source_module": "0TH2.BIN",
+      "source_generation": 0,
+      "historical_ownership": "UNKNOWN",
+      "current_ownership": "DATA",
+      "current_subtype": "DATA_LITERAL_POOL",
+      "historical_threat_kind": "RAW_32BIT_POINTER_MATCH",
+      "current_threat_kind": "DATA_TARGET_VALUE_THREAT",
+      "still_relevant": true,
+      "containing_interval": "0x060300E6..0x060300E9",
+      "blocked_functions": [
+        "sub_06005CB6"
+      ],
+      "blocked_rts_sites": [
+        "0TH2.BIN_0x06006372"
+      ],
+      "unique_blocked_functions_count": 1,
+      "number_of_rts_sites_blocked": 1
+    },
+    {
+      "threat_id": "REF_0TH2.BIN_0x06030FFC",
+      "source_pc": "0x06030FFC",
+      "source_module": "0TH2.BIN",
+      "source_generation": 0,
+      "historical_ownership": "UNKNOWN",
+      "current_ownership": "DATA",
+      "current_subtype": "DATA_LITERAL_POOL",
+      "historical_threat_kind": "RAW_32BIT_POINTER_MATCH",
+      "current_threat_kind": "DATA_TARGET_VALUE_THREAT",
+      "still_relevant": true,
+      "containing_interval": "0x06030FF8..0x06030FFD",
+      "blocked_functions": [
+        "sub_0600406C"
+      ],
+      "blocked_rts_sites": [
+        "0TH2.BIN_0x06004072"
+      ],
+      "unique_blocked_functions_count": 1,
+      "number_of_rts_sites_blocked": 1
+    },
+    {
+      "threat_id": "REF_0TH2.BIN_0x06032D98",
+      "source_pc": "0x06032D98",
+      "source_module": "0TH2.BIN",
+      "source_generation": 0,
+      "historical_ownership": "UNKNOWN",
+      "current_ownership": "DATA",
+      "current_subtype": "DATA_LITERAL_POOL",
+      "historical_threat_kind": "RAW_32BIT_POINTER_MATCH",
+      "current_threat_kind": "DATA_TARGET_VALUE_THREAT",
+      "still_relevant": true,
+      "containing_interval": "0x06032D98..0x06032D99",
+      "blocked_functions": [
+        "sub_0600406C"
+      ],
+      "blocked_rts_sites": [
+        "0TH2.BIN_0x06004072"
+      ],
+      "unique_blocked_functions_count": 1,
+      "number_of_rts_sites_blocked": 1
+    },
+    {
+      "threat_id": "REF_0TH2.BIN_0x06032D9C",
+      "source_pc": "0x06032D9C",
+      "source_module": "0TH2.BIN",
+      "source_generation": 0,
+      "historical_ownership": "UNKNOWN",
+      "current_ownership": "DATA",
+      "current_subtype": "DATA_LITERAL_POOL",
+      "historical_threat_kind": "RAW_32BIT_POINTER_MATCH",
+      "current_threat_kind": "DATA_TARGET_VALUE_THREAT",
+      "still_relevant": true,
+      "containing_interval": "0x06032D9A..0x06032D9D",
+      "blocked_functions": [
+        "sub_0600DEDC"
+      ],
+      "blocked_rts_sites": [
+        "0TH2.BIN_0x0600DEFA"
+      ],
+      "unique_blocked_functions_count": 1,
+      "number_of_rts_sites_blocked": 1
+    },
+    {
+      "threat_id": "REF_0TH2.BIN_0x06033164",
+      "source_pc": "0x06033164",
+      "source_module": "0TH2.BIN",
+      "source_generation": 0,
+      "historical_ownership": "UNKNOWN",
+      "current_ownership": "DATA",
+      "current_subtype": "DATA_LITERAL_POOL",
+      "historical_threat_kind": "RAW_32BIT_POINTER_MATCH",
+      "current_threat_kind": "DATA_TARGET_VALUE_THREAT",
+      "still_relevant": true,
+      "containing_interval": "0x06033164..0x06033168",
+      "blocked_functions": [
+        "sub_0606DF28"
+      ],
+      "blocked_rts_sites": [
+        "0TH2.BIN_0x0606DF7E",
+        "0TH2.BIN_0x0606DFE4"
+      ],
+      "unique_blocked_functions_count": 1,
+      "number_of_rts_sites_blocked": 2
+    },
+    {
+      "threat_id": "REF_0TH2.BIN_0x0603B014",
+      "source_pc": "0x0603B014",
+      "source_module": "0TH2.BIN",
+      "source_generation": 0,
+      "historical_ownership": "UNKNOWN",
+      "current_ownership": "DATA",
+      "current_subtype": "DATA_LITERAL_POOL",
+      "historical_threat_kind": "RAW_32BIT_POINTER_MATCH",
+      "current_threat_kind": "DATA_TARGET_VALUE_THREAT",
+      "still_relevant": true,
+      "containing_interval": "0x0603B013..0x0603B018",
+      "blocked_functions": [
+        "sub_0606DF28"
+      ],
+      "blocked_rts_sites": [
+        "0TH2.BIN_0x0606DF7E",
+        "0TH2.BIN_0x0606DFE4"
+      ],
+      "unique_blocked_functions_count": 1,
+      "number_of_rts_sites_blocked": 2
+    },
+    {
+      "threat_id": "REF_0TH2.BIN_0x0603D9FC",
+      "source_pc": "0x0603D9FC",
+      "source_module": "0TH2.BIN",
+      "source_generation": 0,
+      "historical_ownership": "UNKNOWN",
+      "current_ownership": "DATA",
+      "current_subtype": "DATA_LITERAL_POOL",
+      "historical_threat_kind": "RAW_32BIT_POINTER_MATCH",
+      "current_threat_kind": "DATA_TARGET_VALUE_THREAT",
+      "still_relevant": true,
+      "containing_interval": "0x0603D9FC..0x0603D9FD",
+      "blocked_functions": [
+        "sub_0600406C"
+      ],
+      "blocked_rts_sites": [
+        "0TH2.BIN_0x06004072"
+      ],
+      "unique_blocked_functions_count": 1,
+      "number_of_rts_sites_blocked": 1
+    },
+    {
+      "threat_id": "REF_0TH2.BIN_0x0603DE9C",
+      "source_pc": "0x0603DE9C",
+      "source_module": "0TH2.BIN",
+      "source_generation": 0,
+      "historical_ownership": "UNKNOWN",
+      "current_ownership": "DATA",
+      "current_subtype": "DATA_LITERAL_POOL",
+      "historical_threat_kind": "RAW_32BIT_POINTER_MATCH",
+      "current_threat_kind": "DATA_TARGET_VALUE_THREAT",
+      "still_relevant": true,
+      "containing_interval": "0x0603DE9C..0x0603DE9D",
+      "blocked_functions": [
+        "sub_0600406C"
+      ],
+      "blocked_rts_sites": [
+        "0TH2.BIN_0x06004072"
+      ],
+      "unique_blocked_functions_count": 1,
+      "number_of_rts_sites_blocked": 1
+    },
+    {
+      "threat_id": "REF_0TH2.BIN_0x06041758",
+      "source_pc": "0x06041758",
+      "source_module": "0TH2.BIN",
+      "source_generation": 0,
+      "historical_ownership": "UNKNOWN",
+      "current_ownership": "DATA",
+      "current_subtype": "DATA_LITERAL_POOL",
+      "historical_threat_kind": "RAW_32BIT_POINTER_MATCH",
+      "current_threat_kind": "DATA_TARGET_VALUE_THREAT",
+      "still_relevant": true,
+      "containing_interval": "0x06041758..0x06041759",
+      "blocked_functions": [
+        "sub_0600406C"
+      ],
+      "blocked_rts_sites": [
+        "0TH2.BIN_0x06004072"
+      ],
+      "unique_blocked_functions_count": 1,
+      "number_of_rts_sites_blocked": 1
+    },
+    {
+      "threat_id": "REF_0TH2.BIN_0x060477E8",
+      "source_pc": "0x060477E8",
+      "source_module": "0TH2.BIN",
+      "source_generation": 0,
+      "historical_ownership": "UNKNOWN",
+      "current_ownership": "DATA",
+      "current_subtype": "DATA_LITERAL_POOL",
+      "historical_threat_kind": "RAW_32BIT_POINTER_MATCH",
+      "current_threat_kind": "DATA_TARGET_VALUE_THREAT",
+      "still_relevant": true,
+      "containing_interval": "0x060477E8..0x060477EC",
+      "blocked_functions": [
+        "sub_0606DD04"
+      ],
+      "blocked_rts_sites": [
+        "0TH2.BIN_0x0606DD9E",
+        "0TH2.BIN_0x0606DDAA"
+      ],
+      "unique_blocked_functions_count": 1,
+      "number_of_rts_sites_blocked": 2
+    },
+    {
+      "threat_id": "REF_0TH2.BIN_0x06049798",
+      "source_pc": "0x06049798",
+      "source_module": "0TH2.BIN",
+      "source_generation": 0,
+      "historical_ownership": "UNKNOWN",
+      "current_ownership": "DATA",
+      "current_subtype": "DATA_LITERAL_POOL",
+      "historical_threat_kind": "RAW_32BIT_POINTER_MATCH",
+      "current_threat_kind": "DATA_TARGET_VALUE_THREAT",
+      "still_relevant": true,
+      "containing_interval": "0x06049798..0x0604979C",
+      "blocked_functions": [
+        "sub_0606DD04"
+      ],
+      "blocked_rts_sites": [
+        "0TH2.BIN_0x0606DD9E",
+        "0TH2.BIN_0x0606DDAA"
+      ],
+      "unique_blocked_functions_count": 1,
+      "number_of_rts_sites_blocked": 2
+    },
+    {
+      "threat_id": "REF_0TH2.BIN_0x0604A7F4",
+      "source_pc": "0x0604A7F4",
+      "source_module": "0TH2.BIN",
+      "source_generation": 0,
+      "historical_ownership": "UNKNOWN",
+      "current_ownership": "DATA",
+      "current_subtype": "DATA_LITERAL_POOL",
+      "historical_threat_kind": "RAW_32BIT_POINTER_MATCH",
+      "current_threat_kind": "DATA_TARGET_VALUE_THREAT",
+      "still_relevant": true,
+      "containing_interval": "0x0604A7F4..0x0604A7FC",
+      "blocked_functions": [
+        "sub_0606DD04"
+      ],
+      "blocked_rts_sites": [
+        "0TH2.BIN_0x0606DD9E",
+        "0TH2.BIN_0x0606DDAA"
+      ],
+      "unique_blocked_functions_count": 1,
+      "number_of_rts_sites_blocked": 2
+    },
+    {
+      "threat_id": "REF_0TH2.BIN_0x0604AB18",
+      "source_pc": "0x0604AB18",
+      "source_module": "0TH2.BIN",
+      "source_generation": 0,
+      "historical_ownership": "UNKNOWN",
+      "current_ownership": "DATA",
+      "current_subtype": "DATA_LITERAL_POOL",
+      "historical_threat_kind": "RAW_32BIT_POINTER_MATCH",
+      "current_threat_kind": "DATA_TARGET_VALUE_THREAT",
+      "still_relevant": true,
+      "containing_interval": "0x0604AB18..0x0604AB1C",
+      "blocked_functions": [
+        "sub_0606DD04"
+      ],
+      "blocked_rts_sites": [
+        "0TH2.BIN_0x0606DD9E",
+        "0TH2.BIN_0x0606DDAA"
+      ],
+      "unique_blocked_functions_count": 1,
+      "number_of_rts_sites_blocked": 2
+    },
+    {
+      "threat_id": "REF_0TH2.BIN_0x0604B764",
+      "source_pc": "0x0604B764",
+      "source_module": "0TH2.BIN",
+      "source_generation": 0,
+      "historical_ownership": "UNKNOWN",
+      "current_ownership": "DATA",
+      "current_subtype": "DATA_LITERAL_POOL",
+      "historical_threat_kind": "RAW_32BIT_POINTER_MATCH",
+      "current_threat_kind": "DATA_TARGET_VALUE_THREAT",
+      "still_relevant": true,
+      "containing_interval": "0x0604B764..0x0604B768",
+      "blocked_functions": [
+        "sub_0606DD04"
+      ],
+      "blocked_rts_sites": [
+        "0TH2.BIN_0x0606DD9E",
+        "0TH2.BIN_0x0606DDAA"
+      ],
+      "unique_blocked_functions_count": 1,
+      "number_of_rts_sites_blocked": 2
+    },
+    {
+      "threat_id": "REF_0TH2.BIN_0x0604BC6C",
+      "source_pc": "0x0604BC6C",
+      "source_module": "0TH2.BIN",
+      "source_generation": 0,
+      "historical_ownership": "UNKNOWN",
+      "current_ownership": "DATA",
+      "current_subtype": "DATA_LITERAL_POOL",
+      "historical_threat_kind": "RAW_32BIT_POINTER_MATCH",
+      "current_threat_kind": "DATA_TARGET_VALUE_THREAT",
+      "still_relevant": true,
+      "containing_interval": "0x0604BC67..0x0604BC70",
+      "blocked_functions": [
+        "sub_0606DD04"
+      ],
+      "blocked_rts_sites": [
+        "0TH2.BIN_0x0606DD9E",
+        "0TH2.BIN_0x0606DDAA"
+      ],
+      "unique_blocked_functions_count": 1,
+      "number_of_rts_sites_blocked": 2
+    },
+    {
+      "threat_id": "REF_0TH2.BIN_0x0604BD9C",
+      "source_pc": "0x0604BD9C",
+      "source_module": "0TH2.BIN",
+      "source_generation": 0,
+      "historical_ownership": "UNKNOWN",
+      "current_ownership": "DATA",
+      "current_subtype": "DATA_LITERAL_POOL",
+      "historical_threat_kind": "RAW_32BIT_POINTER_MATCH",
+      "current_threat_kind": "DATA_TARGET_VALUE_THREAT",
+      "still_relevant": true,
+      "containing_interval": "0x0604BD9C..0x0604BDA4",
+      "blocked_functions": [
+        "sub_0606DD04"
+      ],
+      "blocked_rts_sites": [
+        "0TH2.BIN_0x0606DD9E",
+        "0TH2.BIN_0x0606DDAA"
+      ],
+      "unique_blocked_functions_count": 1,
+      "number_of_rts_sites_blocked": 2
+    },
+    {
+      "threat_id": "REF_0TH2.BIN_0x0604E1B8",
+      "source_pc": "0x0604E1B8",
+      "source_module": "0TH2.BIN",
+      "source_generation": 0,
+      "historical_ownership": "UNKNOWN",
+      "current_ownership": "DATA",
+      "current_subtype": "DATA_LITERAL_POOL",
+      "historical_threat_kind": "RAW_32BIT_POINTER_MATCH",
+      "current_threat_kind": "DATA_TARGET_VALUE_THREAT",
+      "still_relevant": true,
+      "containing_interval": "0x0604E1B7..0x0604E1BC",
+      "blocked_functions": [
+        "sub_0601715E"
+      ],
+      "blocked_rts_sites": [
+        "0TH2.BIN_0x0601717C",
+        "0TH2.BIN_0x060171B0"
+      ],
+      "unique_blocked_functions_count": 1,
+      "number_of_rts_sites_blocked": 2
+    },
+    {
+      "threat_id": "REF_0TH2.BIN_0x0604E458",
+      "source_pc": "0x0604E458",
+      "source_module": "0TH2.BIN",
+      "source_generation": 0,
+      "historical_ownership": "UNKNOWN",
+      "current_ownership": "DATA",
+      "current_subtype": "DATA_LITERAL_POOL",
+      "historical_threat_kind": "RAW_32BIT_POINTER_MATCH",
+      "current_threat_kind": "DATA_TARGET_VALUE_THREAT",
+      "still_relevant": true,
+      "containing_interval": "0x0604E458..0x0604E45C",
+      "blocked_functions": [
+        "sub_0601715E"
+      ],
+      "blocked_rts_sites": [
+        "0TH2.BIN_0x0601717C",
+        "0TH2.BIN_0x060171B0"
+      ],
+      "unique_blocked_functions_count": 1,
+      "number_of_rts_sites_blocked": 2
+    },
+    {
+      "threat_id": "REF_0TH2.BIN_0x0604E460",
+      "source_pc": "0x0604E460",
+      "source_module": "0TH2.BIN",
+      "source_generation": 0,
+      "historical_ownership": "UNKNOWN",
+      "current_ownership": "DATA",
+      "current_subtype": "DATA_LITERAL_POOL",
+      "historical_threat_kind": "RAW_32BIT_POINTER_MATCH",
+      "current_threat_kind": "DATA_TARGET_VALUE_THREAT",
+      "still_relevant": true,
+      "containing_interval": "0x0604E45F..0x0604E461",
+      "blocked_functions": [
+        "sub_0600406C"
+      ],
+      "blocked_rts_sites": [
+        "0TH2.BIN_0x06004072"
+      ],
+      "unique_blocked_functions_count": 1,
+      "number_of_rts_sites_blocked": 1
+    },
+    {
+      "threat_id": "REF_0TH2.BIN_0x0604EBB4",
+      "source_pc": "0x0604EBB4",
+      "source_module": "0TH2.BIN",
+      "source_generation": 0,
+      "historical_ownership": "UNKNOWN",
+      "current_ownership": "DATA",
+      "current_subtype": "DATA_LITERAL_POOL",
+      "historical_threat_kind": "RAW_32BIT_POINTER_MATCH",
+      "current_threat_kind": "DATA_TARGET_VALUE_THREAT",
+      "still_relevant": true,
+      "containing_interval": "0x0604EBB2..0x0604EBB5",
+      "blocked_functions": [
+        "sub_0600406C"
+      ],
+      "blocked_rts_sites": [
+        "0TH2.BIN_0x06004072"
+      ],
+      "unique_blocked_functions_count": 1,
+      "number_of_rts_sites_blocked": 1
+    },
+    {
+      "threat_id": "REF_0TH2.BIN_0x06055144",
+      "source_pc": "0x06055144",
+      "source_module": "0TH2.BIN",
+      "source_generation": 0,
+      "historical_ownership": "UNKNOWN",
+      "current_ownership": "DATA",
+      "current_subtype": "DATA_LITERAL_POOL",
+      "historical_threat_kind": "RAW_32BIT_POINTER_MATCH",
+      "current_threat_kind": "DATA_TARGET_VALUE_THREAT",
+      "still_relevant": true,
+      "containing_interval": "0x06055140..0x06055148",
+      "blocked_functions": [
+        "sub_0606DF28"
+      ],
+      "blocked_rts_sites": [
+        "0TH2.BIN_0x0606DF7E",
+        "0TH2.BIN_0x0606DFE4"
+      ],
+      "unique_blocked_functions_count": 1,
+      "number_of_rts_sites_blocked": 2
+    },
+    {
+      "threat_id": "REF_0TH2.BIN_0x06056BA8",
+      "source_pc": "0x06056BA8",
+      "source_module": "0TH2.BIN",
+      "source_generation": 0,
+      "historical_ownership": "UNKNOWN",
+      "current_ownership": "DATA",
+      "current_subtype": "DATA_LITERAL_POOL",
+      "historical_threat_kind": "RAW_32BIT_POINTER_MATCH",
+      "current_threat_kind": "DATA_TARGET_VALUE_THREAT",
+      "still_relevant": true,
+      "containing_interval": "0x06056BA3..0x06056BAC",
+      "blocked_functions": [
+        "sub_06014BDC"
+      ],
+      "blocked_rts_sites": [
+        "0TH2.BIN_0x06014C2C",
+        "0TH2.BIN_0x06014C9A"
+      ],
+      "unique_blocked_functions_count": 1,
+      "number_of_rts_sites_blocked": 2
+    },
+    {
+      "threat_id": "REF_0TH2.BIN_0x060574A8",
+      "source_pc": "0x060574A8",
+      "source_module": "0TH2.BIN",
+      "source_generation": 0,
+      "historical_ownership": "UNKNOWN",
+      "current_ownership": "DATA",
+      "current_subtype": "DATA_LITERAL_POOL",
+      "historical_threat_kind": "RAW_32BIT_POINTER_MATCH",
+      "current_threat_kind": "DATA_TARGET_VALUE_THREAT",
+      "still_relevant": true,
+      "containing_interval": "0x060574A8..0x060574AC",
+      "blocked_functions": [
+        "sub_0606DD04"
+      ],
+      "blocked_rts_sites": [
+        "0TH2.BIN_0x0606DD9E",
+        "0TH2.BIN_0x0606DDAA"
+      ],
+      "unique_blocked_functions_count": 1,
+      "number_of_rts_sites_blocked": 2
+    },
+    {
+      "threat_id": "REF_0TH2.BIN_0x0605A05C",
+      "source_pc": "0x0605A05C",
+      "source_module": "0TH2.BIN",
+      "source_generation": 0,
+      "historical_ownership": "UNKNOWN",
+      "current_ownership": "DATA",
+      "current_subtype": "DATA_LITERAL_POOL",
+      "historical_threat_kind": "RAW_32BIT_POINTER_MATCH",
+      "current_threat_kind": "DATA_TARGET_VALUE_THREAT",
+      "still_relevant": true,
+      "containing_interval": "0x0605A05C..0x0605A05D",
+      "blocked_functions": [
+        "sub_0600406C"
+      ],
+      "blocked_rts_sites": [
+        "0TH2.BIN_0x06004072"
+      ],
+      "unique_blocked_functions_count": 1,
+      "number_of_rts_sites_blocked": 1
+    },
+    {
+      "threat_id": "REF_0TH2.BIN_0x0605EA54",
+      "source_pc": "0x0605EA54",
+      "source_module": "0TH2.BIN",
+      "source_generation": 0,
+      "historical_ownership": "UNKNOWN",
+      "current_ownership": "DATA",
+      "current_subtype": "DATA_LITERAL_POOL",
+      "historical_threat_kind": "RAW_32BIT_POINTER_MATCH",
+      "current_threat_kind": "DATA_TARGET_VALUE_THREAT",
+      "still_relevant": true,
+      "containing_interval": "0x0605EA52..0x0605EA58",
+      "blocked_functions": [
+        "sub_0606DD04"
+      ],
+      "blocked_rts_sites": [
+        "0TH2.BIN_0x0606DD9E",
+        "0TH2.BIN_0x0606DDAA"
+      ],
+      "unique_blocked_functions_count": 1,
+      "number_of_rts_sites_blocked": 2
+    },
+    {
+      "threat_id": "REF_0TH2.BIN_0x0605F288",
+      "source_pc": "0x0605F288",
+      "source_module": "0TH2.BIN",
+      "source_generation": 0,
+      "historical_ownership": "UNKNOWN",
+      "current_ownership": "DATA",
+      "current_subtype": "DATA_LITERAL_POOL",
+      "historical_threat_kind": "RAW_32BIT_POINTER_MATCH",
+      "current_threat_kind": "DATA_TARGET_VALUE_THREAT",
+      "still_relevant": true,
+      "containing_interval": "0x0605F288..0x0605F28C",
+      "blocked_functions": [
+        "sub_0606DD04"
+      ],
+      "blocked_rts_sites": [
+        "0TH2.BIN_0x0606DD9E",
+        "0TH2.BIN_0x0606DDAA"
+      ],
+      "unique_blocked_functions_count": 1,
+      "number_of_rts_sites_blocked": 2
+    },
+    {
+      "threat_id": "REF_0TH2.BIN_0x0605FE34",
+      "source_pc": "0x0605FE34",
+      "source_module": "0TH2.BIN",
+      "source_generation": 0,
+      "historical_ownership": "UNKNOWN",
+      "current_ownership": "DATA",
+      "current_subtype": "DATA_LITERAL_POOL",
+      "historical_threat_kind": "RAW_32BIT_POINTER_MATCH",
+      "current_threat_kind": "DATA_TARGET_VALUE_THREAT",
+      "still_relevant": true,
+      "containing_interval": "0x0605FE33..0x0605FE39",
+      "blocked_functions": [
+        "sub_0606DD04"
+      ],
+      "blocked_rts_sites": [
+        "0TH2.BIN_0x0606DD9E",
+        "0TH2.BIN_0x0606DDAA"
+      ],
+      "unique_blocked_functions_count": 1,
+      "number_of_rts_sites_blocked": 2
+    },
+    {
+      "threat_id": "REF_0TH2.BIN_0x06060464",
+      "source_pc": "0x06060464",
+      "source_module": "0TH2.BIN",
+      "source_generation": 0,
+      "historical_ownership": "UNKNOWN",
+      "current_ownership": "DATA",
+      "current_subtype": "DATA_LITERAL_POOL",
+      "historical_threat_kind": "RAW_32BIT_POINTER_MATCH",
+      "current_threat_kind": "DATA_TARGET_VALUE_THREAT",
+      "still_relevant": true,
+      "containing_interval": "0x06060464..0x06060469",
+      "blocked_functions": [
+        "sub_0606DD04"
+      ],
+      "blocked_rts_sites": [
+        "0TH2.BIN_0x0606DD9E",
+        "0TH2.BIN_0x0606DDAA"
+      ],
+      "unique_blocked_functions_count": 1,
+      "number_of_rts_sites_blocked": 2
+    },
+    {
+      "threat_id": "REF_0TH2.BIN_0x06063724",
+      "source_pc": "0x06063724",
+      "source_module": "0TH2.BIN",
+      "source_generation": 0,
+      "historical_ownership": "UNKNOWN",
+      "current_ownership": "DATA",
+      "current_subtype": "DATA_LITERAL_POOL",
+      "historical_threat_kind": "RAW_32BIT_POINTER_MATCH",
+      "current_threat_kind": "DATA_TARGET_VALUE_THREAT",
+      "still_relevant": true,
+      "containing_interval": "0x06063723..0x06063729",
+      "blocked_functions": [
+        "sub_0606DF28"
+      ],
+      "blocked_rts_sites": [
+        "0TH2.BIN_0x0606DF7E",
+        "0TH2.BIN_0x0606DFE4"
+      ],
+      "unique_blocked_functions_count": 1,
+      "number_of_rts_sites_blocked": 2
+    },
+    {
+      "threat_id": "REF_0TH2.BIN_0x06063728",
+      "source_pc": "0x06063728",
+      "source_module": "0TH2.BIN",
+      "source_generation": 0,
+      "historical_ownership": "UNKNOWN",
+      "current_ownership": "DATA",
+      "current_subtype": "DATA_LITERAL_POOL",
+      "historical_threat_kind": "RAW_32BIT_POINTER_MATCH",
+      "current_threat_kind": "DATA_TARGET_VALUE_THREAT",
+      "still_relevant": true,
+      "containing_interval": "0x06063723..0x06063729",
+      "blocked_functions": [
+        "sub_0600DEDC"
+      ],
+      "blocked_rts_sites": [
+        "0TH2.BIN_0x0600DEFA"
+      ],
+      "unique_blocked_functions_count": 1,
+      "number_of_rts_sites_blocked": 1
+    },
+    {
+      "threat_id": "REF_0TH2.BIN_0x0606541C",
+      "source_pc": "0x0606541C",
+      "source_module": "0TH2.BIN",
+      "source_generation": 0,
+      "historical_ownership": "UNKNOWN",
+      "current_ownership": "DATA",
+      "current_subtype": "DATA_LITERAL_POOL",
+      "historical_threat_kind": "RAW_32BIT_POINTER_MATCH",
+      "current_threat_kind": "DATA_TARGET_VALUE_THREAT",
+      "still_relevant": true,
+      "containing_interval": "0x0606541C..0x0606541D",
+      "blocked_functions": [
+        "sub_060078F4"
+      ],
+      "blocked_rts_sites": [
+        "0TH2.BIN_0x06007AB0"
+      ],
+      "unique_blocked_functions_count": 1,
+      "number_of_rts_sites_blocked": 1
+    },
+    {
+      "threat_id": "REF_0TH2.BIN_0x0606CA84",
+      "source_pc": "0x0606CA84",
+      "source_module": "0TH2.BIN",
+      "source_generation": 0,
+      "historical_ownership": "UNKNOWN",
+      "current_ownership": "DATA",
+      "current_subtype": "DATA_LITERAL_POOL",
+      "historical_threat_kind": "RAW_32BIT_POINTER_MATCH",
+      "current_threat_kind": "DATA_TARGET_VALUE_THREAT",
+      "still_relevant": true,
+      "containing_interval": "0x0606CA84..0x0606CA88",
+      "blocked_functions": [
+        "sub_0606DD04"
+      ],
+      "blocked_rts_sites": [
+        "0TH2.BIN_0x0606DD9E",
+        "0TH2.BIN_0x0606DDAA"
+      ],
+      "unique_blocked_functions_count": 1,
+      "number_of_rts_sites_blocked": 2
+    },
+    {
+      "threat_id": "REF_0TH2.BIN_0x0606D6DC",
+      "source_pc": "0x0606D6DC",
+      "source_module": "0TH2.BIN",
+      "source_generation": 0,
+      "historical_ownership": "UNKNOWN",
+      "current_ownership": "DATA",
+      "current_subtype": "DATA_LITERAL_POOL",
+      "historical_threat_kind": "RAW_32BIT_POINTER_MATCH",
+      "current_threat_kind": "DATA_TARGET_VALUE_THREAT",
+      "still_relevant": true,
+      "containing_interval": "0x0606D6DC..0x0606D6E0",
+      "blocked_functions": [
+        "sub_0606DD04"
+      ],
+      "blocked_rts_sites": [
+        "0TH2.BIN_0x0606DD9E",
+        "0TH2.BIN_0x0606DDAA"
+      ],
+      "unique_blocked_functions_count": 1,
+      "number_of_rts_sites_blocked": 2
+    },
+    {
+      "threat_id": "REF_0TH2.BIN_0x0606FEE0",
+      "source_pc": "0x0606FEE0",
+      "source_module": "0TH2.BIN",
+      "source_generation": 0,
+      "historical_ownership": "UNKNOWN",
+      "current_ownership": "DATA",
+      "current_subtype": "DATA_LITERAL_POOL",
+      "historical_threat_kind": "RAW_32BIT_POINTER_MATCH",
+      "current_threat_kind": "DATA_TARGET_VALUE_THREAT",
+      "still_relevant": true,
+      "containing_interval": "0x0606FECE..0x0606FEE4",
+      "blocked_functions": [
+        "sub_0606E008"
+      ],
+      "blocked_rts_sites": [
+        "0TH2.BIN_0x0606E02E",
+        "0TH2.BIN_0x0606E040",
+        "0TH2.BIN_0x0606E054",
+        "0TH2.BIN_0x0606E0B4"
+      ],
+      "unique_blocked_functions_count": 1,
+      "number_of_rts_sites_blocked": 4
+    },
+    {
+      "threat_id": "REF_0TH2.BIN_0x06071478",
+      "source_pc": "0x06071478",
+      "source_module": "0TH2.BIN",
+      "source_generation": 0,
+      "historical_ownership": "UNKNOWN",
+      "current_ownership": "DATA",
+      "current_subtype": "DATA_LITERAL_POOL",
+      "historical_threat_kind": "RAW_32BIT_POINTER_MATCH",
+      "current_threat_kind": "DATA_TARGET_VALUE_THREAT",
+      "still_relevant": true,
+      "containing_interval": "0x06071471..0x0607147C",
+      "blocked_functions": [
+        "sub_0606DD04"
+      ],
+      "blocked_rts_sites": [
+        "0TH2.BIN_0x0606DD9E",
+        "0TH2.BIN_0x0606DDAA"
+      ],
+      "unique_blocked_functions_count": 1,
+      "number_of_rts_sites_blocked": 2
+    },
+    {
+      "threat_id": "REF_0TH2.BIN_0x06071538",
+      "source_pc": "0x06071538",
+      "source_module": "0TH2.BIN",
+      "source_generation": 0,
+      "historical_ownership": "UNKNOWN",
+      "current_ownership": "DATA",
+      "current_subtype": "DATA_LITERAL_POOL",
+      "historical_threat_kind": "RAW_32BIT_POINTER_MATCH",
+      "current_threat_kind": "DATA_TARGET_VALUE_THREAT",
+      "still_relevant": true,
+      "containing_interval": "0x06071531..0x0607153C",
+      "blocked_functions": [
+        "sub_0606DDB8"
+      ],
+      "blocked_rts_sites": [
+        "0TH2.BIN_0x0606DE46",
+        "0TH2.BIN_0x0606DE52"
+      ],
+      "unique_blocked_functions_count": 1,
+      "number_of_rts_sites_blocked": 2
+    },
+    {
+      "threat_id": "REF_0TH2.BIN_0x06071548",
+      "source_pc": "0x06071548",
+      "source_module": "0TH2.BIN",
+      "source_generation": 0,
+      "historical_ownership": "UNKNOWN",
+      "current_ownership": "DATA",
+      "current_subtype": "DATA_LITERAL_POOL",
+      "historical_threat_kind": "RAW_32BIT_POINTER_MATCH",
+      "current_threat_kind": "DATA_TARGET_VALUE_THREAT",
+      "still_relevant": true,
+      "containing_interval": "0x06071545..0x06071550",
+      "blocked_functions": [
+        "sub_0606DE60"
+      ],
+      "blocked_rts_sites": [
+        "0TH2.BIN_0x0606DF0E",
+        "0TH2.BIN_0x0606DF1A"
+      ],
+      "unique_blocked_functions_count": 1,
+      "number_of_rts_sites_blocked": 2
+    },
+    {
+      "threat_id": "REF_0TH2.BIN_0x06071638",
+      "source_pc": "0x06071638",
+      "source_module": "0TH2.BIN",
+      "source_generation": 0,
+      "historical_ownership": "UNKNOWN",
+      "current_ownership": "DATA",
+      "current_subtype": "DATA_LITERAL_POOL",
+      "historical_threat_kind": "RAW_32BIT_POINTER_MATCH",
+      "current_threat_kind": "DATA_TARGET_VALUE_THREAT",
+      "still_relevant": true,
+      "containing_interval": "0x06071631..0x0607163C",
+      "blocked_functions": [
+        "sub_0606DE60"
+      ],
+      "blocked_rts_sites": [
+        "0TH2.BIN_0x0606DF0E",
+        "0TH2.BIN_0x0606DF1A"
+      ],
+      "unique_blocked_functions_count": 1,
+      "number_of_rts_sites_blocked": 2
+    },
+    {
+      "threat_id": "REF_0TH2.BIN_0x06071720",
+      "source_pc": "0x06071720",
+      "source_module": "0TH2.BIN",
+      "source_generation": 0,
+      "historical_ownership": "UNKNOWN",
+      "current_ownership": "DATA",
+      "current_subtype": "DATA_LITERAL_POOL",
+      "historical_threat_kind": "RAW_32BIT_POINTER_MATCH",
+      "current_threat_kind": "DATA_TARGET_VALUE_THREAT",
+      "still_relevant": true,
+      "containing_interval": "0x06071719..0x06071724",
+      "blocked_functions": [
+        "sub_0606DD04"
+      ],
+      "blocked_rts_sites": [
+        "0TH2.BIN_0x0606DD9E",
+        "0TH2.BIN_0x0606DDAA"
+      ],
+      "unique_blocked_functions_count": 1,
+      "number_of_rts_sites_blocked": 2
+    },
+    {
+      "threat_id": "REF_0TH2.BIN_0x0607172C",
+      "source_pc": "0x0607172C",
+      "source_module": "0TH2.BIN",
+      "source_generation": 0,
+      "historical_ownership": "UNKNOWN",
+      "current_ownership": "DATA",
+      "current_subtype": "DATA_LITERAL_POOL",
+      "historical_threat_kind": "RAW_32BIT_POINTER_MATCH",
+      "current_threat_kind": "DATA_TARGET_VALUE_THREAT",
+      "still_relevant": true,
+      "containing_interval": "0x06071729..0x06071738",
+      "blocked_functions": [
+        "sub_0606DDB8"
+      ],
+      "blocked_rts_sites": [
+        "0TH2.BIN_0x0606DE46",
+        "0TH2.BIN_0x0606DE52"
+      ],
+      "unique_blocked_functions_count": 1,
+      "number_of_rts_sites_blocked": 2
+    },
+    {
+      "threat_id": "REF_0TH2.BIN_0x06071730",
+      "source_pc": "0x06071730",
+      "source_module": "0TH2.BIN",
+      "source_generation": 0,
+      "historical_ownership": "UNKNOWN",
+      "current_ownership": "DATA",
+      "current_subtype": "DATA_LITERAL_POOL",
+      "historical_threat_kind": "RAW_32BIT_POINTER_MATCH",
+      "current_threat_kind": "DATA_TARGET_VALUE_THREAT",
+      "still_relevant": true,
+      "containing_interval": "0x06071729..0x06071738",
+      "blocked_functions": [
+        "sub_0606DE60"
+      ],
+      "blocked_rts_sites": [
+        "0TH2.BIN_0x0606DF0E",
+        "0TH2.BIN_0x0606DF1A"
+      ],
+      "unique_blocked_functions_count": 1,
+      "number_of_rts_sites_blocked": 2
+    },
+    {
+      "threat_id": "REF_0TH2.BIN_0x060717F0",
+      "source_pc": "0x060717F0",
+      "source_module": "0TH2.BIN",
+      "source_generation": 0,
+      "historical_ownership": "UNKNOWN",
+      "current_ownership": "DATA",
+      "current_subtype": "DATA_LITERAL_POOL",
+      "historical_threat_kind": "RAW_32BIT_POINTER_MATCH",
+      "current_threat_kind": "DATA_TARGET_VALUE_THREAT",
+      "still_relevant": true,
+      "containing_interval": "0x060717F0..0x060717F8",
+      "blocked_functions": [
+        "sub_0606DE60"
+      ],
+      "blocked_rts_sites": [
+        "0TH2.BIN_0x0606DF0E",
+        "0TH2.BIN_0x0606DF1A"
+      ],
+      "unique_blocked_functions_count": 1,
+      "number_of_rts_sites_blocked": 2
+    },
+    {
+      "threat_id": "REF_0TH2.BIN_0x060717F4",
+      "source_pc": "0x060717F4",
+      "source_module": "0TH2.BIN",
+      "source_generation": 0,
+      "historical_ownership": "UNKNOWN",
+      "current_ownership": "DATA",
+      "current_subtype": "DATA_LITERAL_POOL",
+      "historical_threat_kind": "RAW_32BIT_POINTER_MATCH",
+      "current_threat_kind": "DATA_TARGET_VALUE_THREAT",
+      "still_relevant": true,
+      "containing_interval": "0x060717F0..0x060717F8",
+      "blocked_functions": [
+        "sub_0606DDB8"
+      ],
+      "blocked_rts_sites": [
+        "0TH2.BIN_0x0606DE46",
+        "0TH2.BIN_0x0606DE52"
+      ],
+      "unique_blocked_functions_count": 1,
+      "number_of_rts_sites_blocked": 2
+    },
+    {
+      "threat_id": "REF_0TH2.BIN_0x060718D8",
+      "source_pc": "0x060718D8",
+      "source_module": "0TH2.BIN",
+      "source_generation": 0,
+      "historical_ownership": "UNKNOWN",
+      "current_ownership": "DATA",
+      "current_subtype": "DATA_LITERAL_POOL",
+      "historical_threat_kind": "RAW_32BIT_POINTER_MATCH",
+      "current_threat_kind": "DATA_TARGET_VALUE_THREAT",
+      "still_relevant": true,
+      "containing_interval": "0x060718D8..0x060718E0",
+      "blocked_functions": [
+        "sub_0606DDB8"
+      ],
+      "blocked_rts_sites": [
+        "0TH2.BIN_0x0606DE46",
+        "0TH2.BIN_0x0606DE52"
+      ],
+      "unique_blocked_functions_count": 1,
+      "number_of_rts_sites_blocked": 2
+    },
+    {
+      "threat_id": "REF_0TH2.BIN_0x060719BC",
+      "source_pc": "0x060719BC",
+      "source_module": "0TH2.BIN",
+      "source_generation": 0,
+      "historical_ownership": "UNKNOWN",
+      "current_ownership": "DATA",
+      "current_subtype": "DATA_LITERAL_POOL",
+      "historical_threat_kind": "RAW_32BIT_POINTER_MATCH",
+      "current_threat_kind": "DATA_TARGET_VALUE_THREAT",
+      "still_relevant": true,
+      "containing_interval": "0x060719BB..0x060719C4",
+      "blocked_functions": [
+        "sub_0606DDB8"
+      ],
+      "blocked_rts_sites": [
+        "0TH2.BIN_0x0606DE46",
+        "0TH2.BIN_0x0606DE52"
+      ],
+      "unique_blocked_functions_count": 1,
+      "number_of_rts_sites_blocked": 2
+    },
+    {
+      "threat_id": "REF_0TH2.BIN_0x06071FB0",
+      "source_pc": "0x06071FB0",
+      "source_module": "0TH2.BIN",
+      "source_generation": 0,
+      "historical_ownership": "UNKNOWN",
+      "current_ownership": "DATA",
+      "current_subtype": "DATA_LITERAL_POOL",
+      "historical_threat_kind": "RAW_32BIT_POINTER_MATCH",
+      "current_threat_kind": "DATA_TARGET_VALUE_THREAT",
+      "still_relevant": true,
+      "containing_interval": "0x06071F8E..0x06071FB4",
+      "blocked_functions": [
+        "sub_0606DD04"
+      ],
+      "blocked_rts_sites": [
+        "0TH2.BIN_0x0606DD9E",
+        "0TH2.BIN_0x0606DDAA"
+      ],
+      "unique_blocked_functions_count": 1,
+      "number_of_rts_sites_blocked": 2
+    },
+    {
+      "threat_id": "REF_0TH2.BIN_0x0607222C",
+      "source_pc": "0x0607222C",
+      "source_module": "0TH2.BIN",
+      "source_generation": 0,
+      "historical_ownership": "UNKNOWN",
+      "current_ownership": "DATA",
+      "current_subtype": "DATA_LITERAL_POOL",
+      "historical_threat_kind": "RAW_32BIT_POINTER_MATCH",
+      "current_threat_kind": "DATA_TARGET_VALUE_THREAT",
+      "still_relevant": true,
+      "containing_interval": "0x06072218..0x06072230",
+      "blocked_functions": [
+        "sub_0606DD04"
+      ],
+      "blocked_rts_sites": [
+        "0TH2.BIN_0x0606DD9E",
+        "0TH2.BIN_0x0606DDAA"
+      ],
+      "unique_blocked_functions_count": 1,
+      "number_of_rts_sites_blocked": 2
+    },
+    {
+      "threat_id": "REF_0TH2.BIN_0x06072CAC",
+      "source_pc": "0x06072CAC",
+      "source_module": "0TH2.BIN",
+      "source_generation": 0,
+      "historical_ownership": "UNKNOWN",
+      "current_ownership": "DATA",
+      "current_subtype": "DATA_LITERAL_POOL",
+      "historical_threat_kind": "RAW_32BIT_POINTER_MATCH",
+      "current_threat_kind": "DATA_TARGET_VALUE_THREAT",
+      "still_relevant": true,
+      "containing_interval": "0x06072CAC..0x06072CB4",
+      "blocked_functions": [
+        "sub_0606EE8C"
+      ],
+      "blocked_rts_sites": [
+        "0TH2.BIN_0x0606EECA"
+      ],
+      "unique_blocked_functions_count": 1,
+      "number_of_rts_sites_blocked": 1
+    },
+    {
+      "threat_id": "REF_0TH2.BIN_0x06077434",
+      "source_pc": "0x06077434",
+      "source_module": "0TH2.BIN",
+      "source_generation": 0,
+      "historical_ownership": "UNKNOWN",
+      "current_ownership": "DATA",
+      "current_subtype": "DATA_LITERAL_POOL",
+      "historical_threat_kind": "RAW_32BIT_POINTER_MATCH",
+      "current_threat_kind": "DATA_TARGET_VALUE_THREAT",
+      "still_relevant": true,
+      "containing_interval": "0x06077434..0x06077438",
+      "blocked_functions": [
+        "sub_0606EC54"
+      ],
+      "blocked_rts_sites": [
+        "0TH2.BIN_0x0606ECB8"
+      ],
+      "unique_blocked_functions_count": 1,
+      "number_of_rts_sites_blocked": 1
+    },
+    {
+      "threat_id": "REF_0TH2.BIN_0x06078628",
+      "source_pc": "0x06078628",
+      "source_module": "0TH2.BIN",
+      "source_generation": 0,
+      "historical_ownership": "UNKNOWN",
+      "current_ownership": "DATA",
+      "current_subtype": "DATA_LITERAL_POOL",
+      "historical_threat_kind": "RAW_32BIT_POINTER_MATCH",
+      "current_threat_kind": "DATA_TARGET_VALUE_THREAT",
+      "still_relevant": true,
+      "containing_interval": "0x06078628..0x0607862C",
+      "blocked_functions": [
+        "sub_0606DDB8"
+      ],
+      "blocked_rts_sites": [
+        "0TH2.BIN_0x0606DE46",
+        "0TH2.BIN_0x0606DE52"
+      ],
+      "unique_blocked_functions_count": 1,
+      "number_of_rts_sites_blocked": 2
+    },
+    {
+      "threat_id": "REF_0TH2.BIN_0x060795A4",
+      "source_pc": "0x060795A4",
+      "source_module": "0TH2.BIN",
+      "source_generation": 0,
+      "historical_ownership": "UNKNOWN",
+      "current_ownership": "DATA",
+      "current_subtype": "DATA_LITERAL_POOL",
+      "historical_threat_kind": "RAW_32BIT_POINTER_MATCH",
+      "current_threat_kind": "DATA_TARGET_VALUE_THREAT",
+      "still_relevant": true,
+      "containing_interval": "0x060795A4..0x060795AC",
+      "blocked_functions": [
+        "sub_0606DD04"
+      ],
+      "blocked_rts_sites": [
+        "0TH2.BIN_0x0606DD9E",
+        "0TH2.BIN_0x0606DDAA"
+      ],
+      "unique_blocked_functions_count": 1,
+      "number_of_rts_sites_blocked": 2
+    },
+    {
+      "threat_id": "REF_0TH2.BIN_0x0607B7A4",
+      "source_pc": "0x0607B7A4",
+      "source_module": "0TH2.BIN",
+      "source_generation": 0,
+      "historical_ownership": "UNKNOWN",
+      "current_ownership": "DATA",
+      "current_subtype": "DATA_LITERAL_POOL",
+      "historical_threat_kind": "RAW_32BIT_POINTER_MATCH",
+      "current_threat_kind": "DATA_TARGET_VALUE_THREAT",
+      "still_relevant": true,
+      "containing_interval": "0x0607B798..0x0607B7A8",
+      "blocked_functions": [
+        "sub_06075618"
+      ],
+      "blocked_rts_sites": [
+        "0TH2.BIN_0x06075630"
+      ],
+      "unique_blocked_functions_count": 1,
+      "number_of_rts_sites_blocked": 1
+    },
+    {
+      "threat_id": "REF_0TH2.BIN_0x0607B824",
+      "source_pc": "0x0607B824",
+      "source_module": "0TH2.BIN",
+      "source_generation": 0,
+      "historical_ownership": "UNKNOWN",
+      "current_ownership": "DATA",
+      "current_subtype": "DATA_LITERAL_POOL",
+      "historical_threat_kind": "RAW_32BIT_POINTER_MATCH",
+      "current_threat_kind": "DATA_TARGET_VALUE_THREAT",
+      "still_relevant": true,
+      "containing_interval": "0x0607B81C..0x0607B844",
+      "blocked_functions": [
+        "sub_0606DE60"
+      ],
+      "blocked_rts_sites": [
+        "0TH2.BIN_0x0606DF0E",
+        "0TH2.BIN_0x0606DF1A"
+      ],
+      "unique_blocked_functions_count": 1,
+      "number_of_rts_sites_blocked": 2
+    },
+    {
+      "threat_id": "REF_0TH2.BIN_0x0607B8C4",
+      "source_pc": "0x0607B8C4",
+      "source_module": "0TH2.BIN",
+      "source_generation": 0,
+      "historical_ownership": "UNKNOWN",
+      "current_ownership": "DATA",
+      "current_subtype": "DATA_LITERAL_POOL",
+      "historical_threat_kind": "RAW_32BIT_POINTER_MATCH",
+      "current_threat_kind": "DATA_TARGET_VALUE_THREAT",
+      "still_relevant": true,
+      "containing_interval": "0x0607B8BC..0x0607B8E4",
+      "blocked_functions": [
+        "sub_0606DE60"
+      ],
+      "blocked_rts_sites": [
+        "0TH2.BIN_0x0606DF0E",
+        "0TH2.BIN_0x0606DF1A"
+      ],
+      "unique_blocked_functions_count": 1,
+      "number_of_rts_sites_blocked": 2
+    },
+    {
+      "threat_id": "REF_0TH2.BIN_0x0607D13C",
+      "source_pc": "0x0607D13C",
+      "source_module": "0TH2.BIN",
+      "source_generation": 0,
+      "historical_ownership": "UNKNOWN",
+      "current_ownership": "DATA",
+      "current_subtype": "DATA_LITERAL_POOL",
+      "historical_threat_kind": "RAW_32BIT_POINTER_MATCH",
+      "current_threat_kind": "DATA_TARGET_VALUE_THREAT",
+      "still_relevant": true,
+      "containing_interval": "0x0607D138..0x0607D14C",
+      "blocked_functions": [
+        "sub_0607FAA0"
+      ],
+      "blocked_rts_sites": [
+        "0TH2.BIN_0x0607FB8E"
+      ],
+      "unique_blocked_functions_count": 1,
+      "number_of_rts_sites_blocked": 1
+    },
+    {
+      "threat_id": "REF_0TH2.BIN_0x0607D144",
+      "source_pc": "0x0607D144",
+      "source_module": "0TH2.BIN",
+      "source_generation": 0,
+      "historical_ownership": "UNKNOWN",
+      "current_ownership": "DATA",
+      "current_subtype": "DATA_LITERAL_POOL",
+      "historical_threat_kind": "RAW_32BIT_POINTER_MATCH",
+      "current_threat_kind": "DATA_TARGET_VALUE_THREAT",
+      "still_relevant": true,
+      "containing_interval": "0x0607D138..0x0607D14C",
+      "blocked_functions": [
+        "sub_0607FC66"
+      ],
+      "blocked_rts_sites": [
+        "0TH2.BIN_0x0607FC6A"
+      ],
+      "unique_blocked_functions_count": 1,
+      "number_of_rts_sites_blocked": 1
+    },
+    {
+      "threat_id": "REF_0TH2.BIN_0x06080E30",
+      "source_pc": "0x06080E30",
+      "source_module": "0TH2.BIN",
+      "source_generation": 0,
+      "historical_ownership": "UNKNOWN",
+      "current_ownership": "DATA",
+      "current_subtype": "DATA_LITERAL_POOL",
+      "historical_threat_kind": "RAW_32BIT_POINTER_MATCH",
+      "current_threat_kind": "DATA_TARGET_VALUE_THREAT",
+      "still_relevant": true,
+      "containing_interval": "0x06080E30..0x06080E38",
+      "blocked_functions": [
+        "sub_06081898"
+      ],
+      "blocked_rts_sites": [
+        "0TH2.BIN_0x060818A6"
+      ],
+      "unique_blocked_functions_count": 1,
+      "number_of_rts_sites_blocked": 1
+    },
+    {
+      "threat_id": "REF_0TH2.BIN_0x06080E88",
+      "source_pc": "0x06080E88",
+      "source_module": "0TH2.BIN",
+      "source_generation": 0,
+      "historical_ownership": "UNKNOWN",
+      "current_ownership": "DATA",
+      "current_subtype": "DATA_LITERAL_POOL",
+      "historical_threat_kind": "RAW_32BIT_POINTER_MATCH",
+      "current_threat_kind": "DATA_TARGET_VALUE_THREAT",
+      "still_relevant": true,
+      "containing_interval": "0x06080E88..0x06080E90",
+      "blocked_functions": [
+        "sub_06081898"
+      ],
+      "blocked_rts_sites": [
+        "0TH2.BIN_0x060818A6"
+      ],
+      "unique_blocked_functions_count": 1,
+      "number_of_rts_sites_blocked": 1
+    },
+    {
+      "threat_id": "REF_0TH2.BIN_0x06080E8C",
+      "source_pc": "0x06080E8C",
+      "source_module": "0TH2.BIN",
+      "source_generation": 0,
+      "historical_ownership": "UNKNOWN",
+      "current_ownership": "DATA",
+      "current_subtype": "DATA_LITERAL_POOL",
+      "historical_threat_kind": "RAW_32BIT_POINTER_MATCH",
+      "current_threat_kind": "DATA_TARGET_VALUE_THREAT",
+      "still_relevant": true,
+      "containing_interval": "0x06080E88..0x06080E90",
+      "blocked_functions": [
+        "sub_060818AE"
+      ],
+      "blocked_rts_sites": [
+        "0TH2.BIN_0x060818BC"
+      ],
+      "unique_blocked_functions_count": 1,
+      "number_of_rts_sites_blocked": 1
+    },
+    {
+      "threat_id": "REF_0TH2.BIN_0x06080EF0",
+      "source_pc": "0x06080EF0",
+      "source_module": "0TH2.BIN",
+      "source_generation": 0,
+      "historical_ownership": "UNKNOWN",
+      "current_ownership": "DATA",
+      "current_subtype": "DATA_LITERAL_POOL",
+      "historical_threat_kind": "RAW_32BIT_POINTER_MATCH",
+      "current_threat_kind": "DATA_TARGET_VALUE_THREAT",
+      "still_relevant": true,
+      "containing_interval": "0x06080EF0..0x06080EF8",
+      "blocked_functions": [
+        "sub_06081898"
+      ],
+      "blocked_rts_sites": [
+        "0TH2.BIN_0x060818A6"
+      ],
+      "unique_blocked_functions_count": 1,
+      "number_of_rts_sites_blocked": 1
+    },
+    {
+      "threat_id": "REF_0TH2.BIN_0x060810D0",
+      "source_pc": "0x060810D0",
+      "source_module": "0TH2.BIN",
+      "source_generation": 0,
+      "historical_ownership": "UNKNOWN",
+      "current_ownership": "DATA",
+      "current_subtype": "DATA_LITERAL_POOL",
+      "historical_threat_kind": "RAW_32BIT_POINTER_MATCH",
+      "current_threat_kind": "DATA_TARGET_VALUE_THREAT",
+      "still_relevant": true,
+      "containing_interval": "0x060810D0..0x060810D8",
+      "blocked_functions": [
+        "sub_06081898"
+      ],
+      "blocked_rts_sites": [
+        "0TH2.BIN_0x060818A6"
+      ],
+      "unique_blocked_functions_count": 1,
+      "number_of_rts_sites_blocked": 1
+    },
+    {
+      "threat_id": "REF_0TH2.BIN_0x060810D4",
+      "source_pc": "0x060810D4",
+      "source_module": "0TH2.BIN",
+      "source_generation": 0,
+      "historical_ownership": "UNKNOWN",
+      "current_ownership": "DATA",
+      "current_subtype": "DATA_LITERAL_POOL",
+      "historical_threat_kind": "RAW_32BIT_POINTER_MATCH",
+      "current_threat_kind": "DATA_TARGET_VALUE_THREAT",
+      "still_relevant": true,
+      "containing_interval": "0x060810D0..0x060810D8",
+      "blocked_functions": [
+        "sub_060818AE"
+      ],
+      "blocked_rts_sites": [
+        "0TH2.BIN_0x060818BC"
+      ],
+      "unique_blocked_functions_count": 1,
+      "number_of_rts_sites_blocked": 1
+    },
+    {
+      "threat_id": "REF_0TH2.BIN_0x060811F8",
+      "source_pc": "0x060811F8",
+      "source_module": "0TH2.BIN",
+      "source_generation": 0,
+      "historical_ownership": "UNKNOWN",
+      "current_ownership": "DATA",
+      "current_subtype": "DATA_LITERAL_POOL",
+      "historical_threat_kind": "RAW_32BIT_POINTER_MATCH",
+      "current_threat_kind": "DATA_TARGET_VALUE_THREAT",
+      "still_relevant": true,
+      "containing_interval": "0x060811F8..0x06081200",
+      "blocked_functions": [
+        "sub_06081898"
+      ],
+      "blocked_rts_sites": [
+        "0TH2.BIN_0x060818A6"
+      ],
+      "unique_blocked_functions_count": 1,
+      "number_of_rts_sites_blocked": 1
+    },
+    {
+      "threat_id": "REF_0TH2.BIN_0x060811FC",
+      "source_pc": "0x060811FC",
+      "source_module": "0TH2.BIN",
+      "source_generation": 0,
+      "historical_ownership": "UNKNOWN",
+      "current_ownership": "DATA",
+      "current_subtype": "DATA_LITERAL_POOL",
+      "historical_threat_kind": "RAW_32BIT_POINTER_MATCH",
+      "current_threat_kind": "DATA_TARGET_VALUE_THREAT",
+      "still_relevant": true,
+      "containing_interval": "0x060811F8..0x06081200",
+      "blocked_functions": [
+        "sub_060818AE"
+      ],
+      "blocked_rts_sites": [
+        "0TH2.BIN_0x060818BC"
+      ],
+      "unique_blocked_functions_count": 1,
+      "number_of_rts_sites_blocked": 1
+    },
+    {
+      "threat_id": "REF_0TH2.BIN_0x060812A8",
+      "source_pc": "0x060812A8",
+      "source_module": "0TH2.BIN",
+      "source_generation": 0,
+      "historical_ownership": "UNKNOWN",
+      "current_ownership": "DATA",
+      "current_subtype": "DATA_LITERAL_POOL",
+      "historical_threat_kind": "RAW_32BIT_POINTER_MATCH",
+      "current_threat_kind": "DATA_TARGET_VALUE_THREAT",
+      "still_relevant": true,
+      "containing_interval": "0x060812A8..0x060812B4",
+      "blocked_functions": [
+        "sub_06081898"
+      ],
+      "blocked_rts_sites": [
+        "0TH2.BIN_0x060818A6"
+      ],
+      "unique_blocked_functions_count": 1,
+      "number_of_rts_sites_blocked": 1
+    },
+    {
+      "threat_id": "REF_0TH2.BIN_0x06081418",
+      "source_pc": "0x06081418",
+      "source_module": "0TH2.BIN",
+      "source_generation": 0,
+      "historical_ownership": "UNKNOWN",
+      "current_ownership": "DATA",
+      "current_subtype": "DATA_LITERAL_POOL",
+      "historical_threat_kind": "RAW_32BIT_POINTER_MATCH",
+      "current_threat_kind": "DATA_TARGET_VALUE_THREAT",
+      "still_relevant": true,
+      "containing_interval": "0x06081418..0x06081420",
+      "blocked_functions": [
+        "sub_06081898"
+      ],
+      "blocked_rts_sites": [
+        "0TH2.BIN_0x060818A6"
+      ],
+      "unique_blocked_functions_count": 1,
+      "number_of_rts_sites_blocked": 1
+    },
+    {
+      "threat_id": "REF_0TH2.BIN_0x0608154C",
+      "source_pc": "0x0608154C",
+      "source_module": "0TH2.BIN",
+      "source_generation": 0,
+      "historical_ownership": "UNKNOWN",
+      "current_ownership": "DATA",
+      "current_subtype": "DATA_LITERAL_POOL",
+      "historical_threat_kind": "RAW_32BIT_POINTER_MATCH",
+      "current_threat_kind": "DATA_TARGET_VALUE_THREAT",
+      "still_relevant": true,
+      "containing_interval": "0x0608154C..0x06081554",
+      "blocked_functions": [
+        "sub_06081898"
+      ],
+      "blocked_rts_sites": [
+        "0TH2.BIN_0x060818A6"
+      ],
+      "unique_blocked_functions_count": 1,
+      "number_of_rts_sites_blocked": 1
+    },
+    {
+      "threat_id": "REF_0TH2.BIN_0x06081550",
+      "source_pc": "0x06081550",
+      "source_module": "0TH2.BIN",
+      "source_generation": 0,
+      "historical_ownership": "UNKNOWN",
+      "current_ownership": "DATA",
+      "current_subtype": "DATA_LITERAL_POOL",
+      "historical_threat_kind": "RAW_32BIT_POINTER_MATCH",
+      "current_threat_kind": "DATA_TARGET_VALUE_THREAT",
+      "still_relevant": true,
+      "containing_interval": "0x0608154C..0x06081554",
+      "blocked_functions": [
+        "sub_060818AE"
+      ],
+      "blocked_rts_sites": [
+        "0TH2.BIN_0x060818BC"
+      ],
+      "unique_blocked_functions_count": 1,
+      "number_of_rts_sites_blocked": 1
+    },
+    {
+      "threat_id": "REF_0TH2.BIN_0x0608159C",
+      "source_pc": "0x0608159C",
+      "source_module": "0TH2.BIN",
+      "source_generation": 0,
+      "historical_ownership": "UNKNOWN",
+      "current_ownership": "DATA",
+      "current_subtype": "DATA_LITERAL_POOL",
+      "historical_threat_kind": "RAW_32BIT_POINTER_MATCH",
+      "current_threat_kind": "DATA_TARGET_VALUE_THREAT",
+      "still_relevant": true,
+      "containing_interval": "0x0608159C..0x060815A4",
+      "blocked_functions": [
+        "sub_06081898"
+      ],
+      "blocked_rts_sites": [
+        "0TH2.BIN_0x060818A6"
+      ],
+      "unique_blocked_functions_count": 1,
+      "number_of_rts_sites_blocked": 1
+    },
+    {
+      "threat_id": "REF_0TH2.BIN_0x060815A0",
+      "source_pc": "0x060815A0",
+      "source_module": "0TH2.BIN",
+      "source_generation": 0,
+      "historical_ownership": "UNKNOWN",
+      "current_ownership": "DATA",
+      "current_subtype": "DATA_LITERAL_POOL",
+      "historical_threat_kind": "RAW_32BIT_POINTER_MATCH",
+      "current_threat_kind": "DATA_TARGET_VALUE_THREAT",
+      "still_relevant": true,
+      "containing_interval": "0x0608159C..0x060815A4",
+      "blocked_functions": [
+        "sub_060818AE"
+      ],
+      "blocked_rts_sites": [
+        "0TH2.BIN_0x060818BC"
+      ],
+      "unique_blocked_functions_count": 1,
+      "number_of_rts_sites_blocked": 1
+    },
+    {
+      "threat_id": "REF_0TH2.BIN_0x06081608",
+      "source_pc": "0x06081608",
+      "source_module": "0TH2.BIN",
+      "source_generation": 0,
+      "historical_ownership": "UNKNOWN",
+      "current_ownership": "DATA",
+      "current_subtype": "DATA_LITERAL_POOL",
+      "historical_threat_kind": "RAW_32BIT_POINTER_MATCH",
+      "current_threat_kind": "DATA_TARGET_VALUE_THREAT",
+      "still_relevant": true,
+      "containing_interval": "0x06081608..0x06081610",
+      "blocked_functions": [
+        "sub_06081898"
+      ],
+      "blocked_rts_sites": [
+        "0TH2.BIN_0x060818A6"
+      ],
+      "unique_blocked_functions_count": 1,
+      "number_of_rts_sites_blocked": 1
+    },
+    {
+      "threat_id": "REF_0TH2.BIN_0x0608178C",
+      "source_pc": "0x0608178C",
+      "source_module": "0TH2.BIN",
+      "source_generation": 0,
+      "historical_ownership": "UNKNOWN",
+      "current_ownership": "DATA",
+      "current_subtype": "DATA_LITERAL_POOL",
+      "historical_threat_kind": "RAW_32BIT_POINTER_MATCH",
+      "current_threat_kind": "DATA_TARGET_VALUE_THREAT",
+      "still_relevant": true,
+      "containing_interval": "0x0608178C..0x06081794",
+      "blocked_functions": [
+        "sub_06081898"
+      ],
+      "blocked_rts_sites": [
+        "0TH2.BIN_0x060818A6"
+      ],
+      "unique_blocked_functions_count": 1,
+      "number_of_rts_sites_blocked": 1
+    }
+  ]
+}

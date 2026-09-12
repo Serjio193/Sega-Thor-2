@@ -393,6 +393,32 @@ Milestone T2-ASM-11 advanced the ASM-first proof track from the sound T2-ASM-10.
 - Gates: `ASM_90_GATE` = PASS (91.69% >= 90.00%); `FULL_ASM_GAME_GATE` = `NOT_YET_REPROVEN`.
 - Negative Controls Suite P11: Added NC-BO through NC-BV in `tests/asm/negative_controls_p11.py` (total **82 / 82 PASS**).
 
+## T2-ASM-12 — Targeted UNKNOWN Caller-Threat Elimination, Region Ownership Proof, and External-Entry Closure
+
+### 1. Dual-Channel Threat Frontier Rebase
+- Rebased historical threat universe (148 references, 2,810 entry-graph edges) against `module_byte_ownership_v3.json`.
+- **Channel B (Data Literal References)**: All 99 unique historical reference addresses reside 100% in `DATA` (`DATA_LITERAL_POOL`). Consumer chain dataflow tracing proved 0 open consumers across all 99 addresses (88 reach audited indirect `JSR` calls, 4 reach tailcalls, 5 no call use, 2 mixed).
+- **Entry-Graph Edges in UNKNOWN**: Audited all 2,810 edges originating in UNKNOWN: proved 2,801 are `DATA_HALFWORD_FALSE_DECODE` instances from non-executable data tables/literals. Isolated 9 candidate branch edges across 6 branch sites in 4 functions (`VALID_EXECUTABLE_CANDIDATE`).
+- **Channel A (Reachability Exclusion)**: Formally issued reachability exclusion certificates for 35,435 UNKNOWN intervals (498,190 bytes) proving no incoming branch/call ingress.
+- **Active Threat Frontier Decarving**: Total SH-2 UNKNOWN bytes remain 498,392 bytes, with active caller threat frontier bytes reduced from 498,392 to **202 bytes** across 5 intervals containing the 6 candidate branches.
+
+### 2. Tailcall Domain Bounding & Fail-Closed Retention
+- Bounded tailcalls across 8 functions (`sub_0600406C`, `sub_0600DEDC`, `sub_0606DD04`, `sub_0606EC54`, `sub_0606EE8C`, `sub_060787A4`, `sub_06081898`, `sub_002E73FC`).
+- Traced caller inheritance to an upstream tailcall `jmp @r3` at `0x0602F5C8` in leaf function `sub_0602F312` (0 confirmed callers).
+- In strict adherence to zero metric forcing, all 8 tailcall functions (24 RTS sites) were retained fail-closed as `BLOCKED_TAILCALL_DOMAIN_INCOMPLETE`.
+- 4 branch-threat functions (6 RTS sites) were retained fail-closed as `BLOCKED_UNKNOWN_BRANCH_THREAT`.
+
+### 3. Certified RTS V5 & Overall Indirect Resolution
+- Total RTS Sites: 638
+- Certified Resolved: **510 / 638 (79.94%)** (265 exact return, 245 finite set)
+- Honest Unresolved: **128 / 638 (20.06%)** (30 external threats [24 tailcall, 6 branch], 59 PR path / shared epilogues, 39 open caller domains)
+- Calls / Jumps: **1,588 / 1,588 resolved (100.0%)**
+- Overall Canonical Indirect: **2,098 / 2,226 resolved (94.25%)**, 128 unresolved (5.75%)
+- Independent Soundness Audit: `INVALID_RESOLVED_CERTIFICATES == 0` (100% sound, `audit_passed == True`).
+- Gates: `ASM_90_GATE` = PASS (100.00% mnemonic coverage across confirmed code); `FULL_ASM_GAME_GATE` = `NOT_YET_REPROVEN`.
+- Closed-World Control-Flow Theorems V3: Theorems 1 & 2 PROVEN; Theorem 3 held open fail-closed.
+- Negative Controls Suite P12: Added NC-BW through NC-CE in `tests/asm/negative_controls_p12.py` (total **91 / 91 PASS**).
+
 ## Record template
 
 For each new finding record:

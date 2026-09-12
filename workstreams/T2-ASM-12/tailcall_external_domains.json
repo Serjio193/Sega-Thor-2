@@ -1,0 +1,45 @@
+{
+  "version": "1.0",
+  "incomplete_tailcall_functions": [
+    {
+      "function": "sub_002E73FC",
+      "status": "TAILCALL_DOMAIN_INCOMPLETE",
+      "blocking_reason": "Upstream tailcall at 0x0602F5C8 (sub_0602F312) has caller_count == 0; retained fail-closed."
+    },
+    {
+      "function": "sub_0600406C",
+      "status": "TAILCALL_DOMAIN_INCOMPLETE",
+      "blocking_reason": "Upstream tailcall at 0x0602F5C8 (sub_0602F312) has caller_count == 0; retained fail-closed."
+    },
+    {
+      "function": "sub_0600DEDC",
+      "status": "TAILCALL_DOMAIN_INCOMPLETE",
+      "blocking_reason": "Upstream tailcall at 0x0602F5C8 (sub_0602F312) has caller_count == 0; retained fail-closed."
+    },
+    {
+      "function": "sub_0606DD04",
+      "status": "TAILCALL_DOMAIN_INCOMPLETE",
+      "blocking_reason": "Upstream tailcall at 0x0602F5C8 (sub_0602F312) has caller_count == 0; retained fail-closed."
+    },
+    {
+      "function": "sub_0606EC54",
+      "status": "TAILCALL_DOMAIN_INCOMPLETE",
+      "blocking_reason": "Upstream tailcall at 0x0602F5C8 (sub_0602F312) has caller_count == 0; retained fail-closed."
+    },
+    {
+      "function": "sub_0606EE8C",
+      "status": "TAILCALL_DOMAIN_INCOMPLETE",
+      "blocking_reason": "Upstream tailcall at 0x0602F5C8 (sub_0602F312) has caller_count == 0; retained fail-closed."
+    },
+    {
+      "function": "sub_060787A4",
+      "status": "TAILCALL_DOMAIN_INCOMPLETE",
+      "blocking_reason": "Upstream tailcall at 0x0602F5C8 (sub_0602F312) has caller_count == 0; retained fail-closed."
+    },
+    {
+      "function": "sub_06081898",
+      "status": "TAILCALL_DOMAIN_INCOMPLETE",
+      "blocking_reason": "Upstream tailcall at 0x0602F5C8 (sub_0602F312) has caller_count == 0; retained fail-closed."
+    }
+  ]
+}

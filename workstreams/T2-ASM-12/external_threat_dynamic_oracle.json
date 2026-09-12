@@ -1,0 +1,23 @@
+{
+  "version": "1.0",
+  "oracle_executed": true,
+  "observations": [
+    {
+      "region": "0x0600FA24",
+      "observed_in_mednafen": false
+    },
+    {
+      "region": "0x06010578",
+      "observed_in_mednafen": false
+    },
+    {
+      "region": "0x06078C50",
+      "observed_in_mednafen": false
+    },
+    {
+      "region": "0x0607E62A",
+      "observed_in_mednafen": false
+    }
+  ],
+  "conclusion": "Unobserved regions retained fail-closed without reachability promotion."
+}
