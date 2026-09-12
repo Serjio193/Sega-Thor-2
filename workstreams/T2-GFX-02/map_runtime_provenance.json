@@ -1,0 +1,62 @@
+[
+  {
+    "room_id": "DSP<",
+    "room_index": 0,
+    "disc_source_offset": "0x000000",
+    "compressed_size": 21317,
+    "decompressor": "0x06004108 (sub_4108 in 0TH2.BIN)",
+    "loader_pc": "0x0600AAC8",
+    "work_ram_staging": "0x00200000",
+    "decompressed_size": 49152,
+    "vdp2_vram_destination": "0x25E00000 (VDP2 VRAM Character Bank A)",
+    "cram_palette_destination": "0x25F00000 (CRAM Bank 0)",
+    "vdp2_format": "VDP2_4BPP_8X8_TILES",
+    "tile_count": 1536,
+    "scu_dsp_involvement": "0x25A004E0 execution trigger at room transition"
+  },
+  {
+    "room_id": "TQP<",
+    "room_index": 1,
+    "disc_source_offset": "0x005800",
+    "compressed_size": 20821,
+    "decompressor": "0x06004108 (sub_4108 in 0TH2.BIN)",
+    "loader_pc": "0x0600AAC8",
+    "work_ram_staging": "0x00200000",
+    "decompressed_size": 49152,
+    "vdp2_vram_destination": "0x25E00000 (VDP2 VRAM Character Bank A)",
+    "cram_palette_destination": "0x25F00000 (CRAM Bank 0)",
+    "vdp2_format": "VDP2_4BPP_8X8_TILES",
+    "tile_count": 1536,
+    "scu_dsp_involvement": "0x25A004E0 execution trigger at room transition"
+  },
+  {
+    "room_id": "BLP<",
+    "room_index": 2,
+    "disc_source_offset": "0x00B000",
+    "compressed_size": 19523,
+    "decompressor": "0x06004108 (sub_4108 in 0TH2.BIN)",
+    "loader_pc": "0x0600AAC8",
+    "work_ram_staging": "0x00200000",
+    "decompressed_size": 49152,
+    "vdp2_vram_destination": "0x25E00000 (VDP2 VRAM Character Bank A)",
+    "cram_palette_destination": "0x25F00000 (CRAM Bank 0)",
+    "vdp2_format": "VDP2_4BPP_8X8_TILES",
+    "tile_count": 1536,
+    "scu_dsp_involvement": "0x25A004E0 execution trigger at room transition"
+  },
+  {
+    "room_id": "REP<",
+    "room_index": 3,
+    "disc_source_offset": "0x015000",
+    "compressed_size": 17747,
+    "decompressor": "0x06004108 (sub_4108 in 0TH2.BIN)",
+    "loader_pc": "0x0600AAC8",
+    "work_ram_staging": "0x00200000",
+    "decompressed_size": 49152,
+    "vdp2_vram_destination": "0x25E00000 (VDP2 VRAM Character Bank A)",
+    "cram_palette_destination": "0x25F00000 (CRAM Bank 0)",
+    "vdp2_format": "VDP2_4BPP_8X8_TILES",
+    "tile_count": 1536,
+    "scu_dsp_involvement": "0x25A004E0 execution trigger at room transition"
+  }
+]

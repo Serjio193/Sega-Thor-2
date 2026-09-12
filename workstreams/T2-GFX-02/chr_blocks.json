@@ -1,0 +1,273 @@
+{
+  "total_blocks": 12,
+  "compressed_blocks_count": 11,
+  "uncompressed_font_blocks_count": 1,
+  "block_count_resolution": "Resolved: 11 compressed graphics blocks + 1 uncompressed font block = 12 physical blocks (0..11)",
+  "blocks": [
+    {
+      "block_index": 0,
+      "name": "Block 0 (Title/Menu & Palette)",
+      "classification": "COMPRESSED_GRAPHICS_AND_PALETTE",
+      "usa_start": 0,
+      "usa_end": 60034,
+      "rus_start": 0,
+      "rus_end": 60034,
+      "compressed_size": 60034,
+      "sub_streams": [
+        {
+          "type": "PALETTE",
+          "usa_offset": 0,
+          "comp_size": 170,
+          "decomp_size": 256
+        },
+        {
+          "type": "VDP1_GRAPHICS_4BPP",
+          "usa_offset": 170,
+          "comp_size": 59864,
+          "decomp_size": 76800
+        }
+      ],
+      "total_decompressed_bytes": 77056,
+      "rus_usa_relationship": "COMPRESSED_IDENTICAL"
+    },
+    {
+      "block_index": 1,
+      "name": "Block 1 (UI / HUD & Palette)",
+      "classification": "COMPRESSED_GRAPHICS_AND_PALETTE",
+      "usa_start": 61440,
+      "usa_end": 100134,
+      "rus_start": 61440,
+      "rus_end": 100134,
+      "compressed_size": 38694,
+      "sub_streams": [
+        {
+          "type": "PALETTE",
+          "usa_offset": 61440,
+          "comp_size": 164,
+          "decomp_size": 256
+        },
+        {
+          "type": "VDP1_GRAPHICS_4BPP",
+          "usa_offset": 61604,
+          "comp_size": 38530,
+          "decomp_size": 76800
+        }
+      ],
+      "total_decompressed_bytes": 77056,
+      "rus_usa_relationship": "COMPRESSED_IDENTICAL"
+    },
+    {
+      "block_index": 2,
+      "name": "Block 2 (Inventory Icons & Palette)",
+      "classification": "COMPRESSED_GRAPHICS_AND_PALETTE",
+      "usa_start": 100352,
+      "usa_end": 102802,
+      "rus_start": 100352,
+      "rus_end": 102802,
+      "compressed_size": 2450,
+      "sub_streams": [
+        {
+          "type": "PALETTE",
+          "usa_offset": 100352,
+          "comp_size": 67,
+          "decomp_size": 64
+        },
+        {
+          "type": "VDP1_GRAPHICS_4BPP",
+          "usa_offset": 100419,
+          "comp_size": 2383,
+          "decomp_size": 81920
+        }
+      ],
+      "total_decompressed_bytes": 81984,
+      "rus_usa_relationship": "COMPRESSED_IDENTICAL"
+    },
+    {
+      "block_index": 3,
+      "name": "Block 3 (Weapons / Equipment & Palette)",
+      "classification": "COMPRESSED_GRAPHICS_AND_PALETTE",
+      "usa_start": 104448,
+      "usa_end": 109531,
+      "rus_start": 104448,
+      "rus_end": 109531,
+      "compressed_size": 5083,
+      "sub_streams": [
+        {
+          "type": "PALETTE",
+          "usa_offset": 104448,
+          "comp_size": 256,
+          "decomp_size": 256
+        },
+        {
+          "type": "VDP1_GRAPHICS_4BPP",
+          "usa_offset": 104704,
+          "comp_size": 4827,
+          "decomp_size": 81920
+        }
+      ],
+      "total_decompressed_bytes": 82176,
+      "rus_usa_relationship": "COMPRESSED_IDENTICAL"
+    },
+    {
+      "block_index": 4,
+      "name": "Block 4 (System & Dialog Elements)",
+      "classification": "COMPRESSED_GRAPHICS_AND_PALETTE",
+      "usa_start": 110592,
+      "usa_end": 166872,
+      "rus_start": 110592,
+      "rus_end": 166872,
+      "compressed_size": 56280,
+      "sub_streams": [
+        {
+          "type": "PALETTE",
+          "usa_offset": 110592,
+          "comp_size": 484,
+          "decomp_size": 480
+        },
+        {
+          "type": "VDP1_GRAPHICS_4BPP",
+          "usa_offset": 111076,
+          "comp_size": 55796,
+          "decomp_size": 79360
+        }
+      ],
+      "total_decompressed_bytes": 79840,
+      "rus_usa_relationship": "COMPRESSED_IDENTICAL"
+    },
+    {
+      "block_index": 5,
+      "name": "Block 5 / Font 0 (Uncompressed Font Sheets)",
+      "classification": "FONT_1BPP_UNCOMPRESSED",
+      "usa_start": 167936,
+      "usa_end": 266240,
+      "rus_start": 176128,
+      "rus_end": 274432,
+      "compressed_size": 0,
+      "raw_size_usa": 98304,
+      "raw_size_rus": 98304,
+      "sub_streams": [],
+      "total_decompressed_bytes": 98304,
+      "rus_usa_relationship": "RUS_EXPANDED_FONT_INSERTION (+8192 bytes translation shift)"
+    },
+    {
+      "block_index": 6,
+      "name": "Block 6 (Stage / Environmental Graphics)",
+      "classification": "COMPRESSED_GRAPHICS_4BPP",
+      "usa_start": 266240,
+      "usa_end": 279276,
+      "rus_start": 274432,
+      "rus_end": 287468,
+      "compressed_size": 13036,
+      "sub_streams": [
+        {
+          "type": "VDP1_GRAPHICS_4BPP",
+          "usa_offset": 266240,
+          "comp_size": 13036,
+          "decomp_size": 74240
+        }
+      ],
+      "total_decompressed_bytes": 74240,
+      "rus_usa_relationship": "COMPRESSED_IDENTICAL_OFFSET_SHIFTED"
+    },
+    {
+      "block_index": 7,
+      "name": "Block 7 (Special Effects Graphics)",
+      "classification": "COMPRESSED_GRAPHICS_4BPP",
+      "usa_start": 280576,
+      "usa_end": 285476,
+      "rus_start": 288768,
+      "rus_end": 293668,
+      "compressed_size": 4900,
+      "sub_streams": [
+        {
+          "type": "VDP1_GRAPHICS_4BPP",
+          "usa_offset": 280576,
+          "comp_size": 4900,
+          "decomp_size": 20416
+        }
+      ],
+      "total_decompressed_bytes": 20416,
+      "rus_usa_relationship": "COMPRESSED_IDENTICAL_OFFSET_SHIFTED"
+    },
+    {
+      "block_index": 8,
+      "name": "Block 8 (UI Overlay Graphics)",
+      "classification": "COMPRESSED_GRAPHICS_4BPP",
+      "usa_start": 286720,
+      "usa_end": 289620,
+      "rus_start": 294912,
+      "rus_end": 297812,
+      "compressed_size": 2900,
+      "sub_streams": [
+        {
+          "type": "VDP1_GRAPHICS_4BPP",
+          "usa_offset": 286720,
+          "comp_size": 2900,
+          "decomp_size": 25600
+        }
+      ],
+      "total_decompressed_bytes": 25600,
+      "rus_usa_relationship": "COMPRESSED_IDENTICAL_OFFSET_SHIFTED"
+    },
+    {
+      "block_index": 9,
+      "name": "Block 9 (Status Bar / Gauges)",
+      "classification": "COMPRESSED_GRAPHICS_4BPP",
+      "usa_start": 290816,
+      "usa_end": 292422,
+      "rus_start": 299008,
+      "rus_end": 300614,
+      "compressed_size": 1606,
+      "sub_streams": [
+        {
+          "type": "VDP1_GRAPHICS_4BPP",
+          "usa_offset": 290816,
+          "comp_size": 1606,
+          "decomp_size": 17920
+        }
+      ],
+      "total_decompressed_bytes": 17920,
+      "rus_usa_relationship": "COMPRESSED_IDENTICAL_OFFSET_SHIFTED"
+    },
+    {
+      "block_index": 10,
+      "name": "Block 10 (Cutscene / Portrait Graphics)",
+      "classification": "COMPRESSED_GRAPHICS_4BPP",
+      "usa_start": 292864,
+      "usa_end": 296912,
+      "rus_start": 301056,
+      "rus_end": 305104,
+      "compressed_size": 4048,
+      "sub_streams": [
+        {
+          "type": "VDP1_GRAPHICS_4BPP",
+          "usa_offset": 292864,
+          "comp_size": 4048,
+          "decomp_size": 23040
+        }
+      ],
+      "total_decompressed_bytes": 23040,
+      "rus_usa_relationship": "COMPRESSED_IDENTICAL_OFFSET_SHIFTED"
+    },
+    {
+      "block_index": 11,
+      "name": "Block 11 (NPC / Dialog Portraits & Elements)",
+      "classification": "COMPRESSED_GRAPHICS_4BPP",
+      "usa_start": 296960,
+      "usa_end": 370688,
+      "rus_start": 305152,
+      "rus_end": 378880,
+      "compressed_size": 72053,
+      "sub_streams": [
+        {
+          "type": "VDP1_GRAPHICS_4BPP",
+          "usa_offset": 296960,
+          "comp_size": 72053,
+          "decomp_size": 142080
+        }
+      ],
+      "total_decompressed_bytes": 142080,
+      "rus_usa_relationship": "COMPRESSED_IDENTICAL_OFFSET_SHIFTED"
+    }
+  ]
+}

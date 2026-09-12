@@ -1,0 +1,15 @@
+{
+  "file": "ED.BIN",
+  "file_size": 616480,
+  "total_frames": 8,
+  "frame_dimensions": [
+    320,
+    240
+  ],
+  "format": "8BPP_LINEAR_RASTER",
+  "header_palette_bytes": 2080,
+  "illustration_payload_bytes": 614400,
+  "structured_bytes": 616480,
+  "structured_percentage": 100.0,
+  "rus_usa_differential": "Frames 0..5 bit-identical; Frames 6..7 translated Cyrillic epilogue text starting at 0x72200"
+}

@@ -1,0 +1,103 @@
+{
+  "CHR.BIN": {
+    "total_bytes": 370688,
+    "structured_bytes": 370688,
+    "percentage": 100.0,
+    "partitions": [
+      {
+        "type": "COMPRESSED_GRAPHICS_AND_PALETTE",
+        "size": 256828,
+        "blocks": "0..4, 6..11"
+      },
+      {
+        "type": "FONT_1BPP_UNCOMPRESSED",
+        "size": 98304,
+        "blocks": "5 (Font 0)"
+      },
+      {
+        "type": "PADDING",
+        "size": 15556,
+        "blocks": "sector alignment zero padding"
+      }
+    ]
+  },
+  "MAP.BIN": {
+    "total_bytes": 4036608,
+    "structured_bytes": 3328000,
+    "unknown_bytes": 708608,
+    "percentage": 82.45,
+    "partitions": [
+      {
+        "type": "VDP2_TILEMAP_PLANE_MATRIX",
+        "size": 2351104
+      },
+      {
+        "type": "ROOM_COMPRESSED_GRAPHICS",
+        "size": 928872
+      },
+      {
+        "type": "STRUCTURED_MAP_METADATA_UNKNOWN",
+        "size": 708608
+      },
+      {
+        "type": "PADDING",
+        "size": 48024
+      }
+    ]
+  },
+  "ED.BIN": {
+    "total_bytes": 616480,
+    "structured_bytes": 616480,
+    "percentage": 100.0,
+    "partitions": [
+      {
+        "type": "PALETTE_AND_DESCRIPTOR_TABLE",
+        "size": 2080
+      },
+      {
+        "type": "RAW_8BPP_ILLUSTRATION_FRAMES",
+        "size": 614400,
+        "count": 8
+      }
+    ]
+  },
+  "MONS.BIN": {
+    "total_bytes": 1490944,
+    "structured_bytes": 1490944,
+    "percentage": 100.0,
+    "partitions": [
+      {
+        "type": "SPRITE_ARCHIVES_50_SUBARCHIVES",
+        "size": 1490944,
+        "count": 50
+      }
+    ]
+  },
+  "P4.BIN": {
+    "total_bytes": 2893,
+    "structured_bytes": 2893,
+    "percentage": 100.0,
+    "partitions": [
+      {
+        "type": "CONTAINER_PREFIX",
+        "size": 4
+      },
+      {
+        "type": "SPRITE_ARCHIVE_HEADER",
+        "size": 12
+      },
+      {
+        "type": "ANIMATION_OFFSET_TABLE",
+        "size": 1876
+      },
+      {
+        "type": "ANIMATION_SCRIPTS",
+        "size": 194
+      },
+      {
+        "type": "SPRITE_DESCRIPTOR_PAYLOAD",
+        "size": 807
+      }
+    ]
+  }
+}

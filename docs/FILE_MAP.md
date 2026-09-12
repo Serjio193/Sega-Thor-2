@@ -31,6 +31,7 @@ docs/
   ASM_RECOVERY_AUTOPLAN.md        live priority queue and cost-benefit scoring engine
   reports/
     GFX_RUS_USA_DIFFERENTIAL_T2_GFX_01.md comprehensive technical report for RUS/USA graphics differential
+    FULL_GRAPHICS_RECOVERY_T2_GFX_02.md   comprehensive technical report for CHR/MAP/ED full recovery
 
 
 config/
@@ -163,6 +164,9 @@ tools/
     asset_census.py               audited resource breakdown and metrics compiler
     sprite_mapper.py              VDP1 sprite provenance, descriptor, and animation mapper
     mass_sprite_exporter.py       deduplicated 4bpp sprite exporter with palette application
+    chr_decompressor.py           fail-closed Ancient LZSS variant graphics decompressor (sub_4108)
+    map_renderer.py               VDP2 room package decoder and 48KB tile pattern extractor
+    ed_extractor.py               uncompressed 8bpp ending illustration decoder and exporter
 
 tests/
   test_census_saturn_cd.py        synthetic tests for census parser
@@ -198,6 +202,7 @@ tests/
     test_resource_roundtrip.cpp   D14 resource byte-accurate round-trip proof (Gate V-11)
     test_gfx_differential.py      regression tests and negative controls for graphics tools
     test_vdp1_provenance.py       regression tests and negative controls for VDP1 sprite provenance
+    test_gfx_recovery.py          regression tests and negative controls for T2-GFX-02 graphics recovery
   hw/
     test_vdp1.cpp                 D15 VDP1 command decoding, jump modes, clipping, and coordinate tests
     test_vdp2.cpp                 D15 VDP2 color decode, CRAM, RBG0 matrix, and pixel arbitration tests
@@ -318,6 +323,19 @@ workstreams/
     animation_map.json            43 animation sequences with 6,510 ordered frame records
     vdp1_trace_summary.json       multi-scene trace summary and 460 SCU DMA transfers
     coverage_metrics.json         audited metrics for sprite, animation, and scene coverage
+  T2-GFX-02/
+    README.md                     workstream record and asset recovery architecture
+    chr_blocks.json               physical block partition of CHR.BIN (11 compressed + 1 font)
+    chr_decompressor_map.json     reverse-engineered sub_4108 control-flow, decision tree and callsites
+    chr_decompression_traces.json live dynamic decompression traces across boot, title, and scenes
+    map_room_layouts.json         45 room packages decompressed to 49,152 bytes with VDP2 geometry
+    map_interval_ownership.json   exhaustive whole-file interval partition of MAP.BIN (107 intervals)
+    map_runtime_provenance.json   dynamic VDP2 pattern and map buffer allocation evidence
+    ed_bin_metadata.json          ending sequence RGB555 palette and 8x 320x240 frame table
+    graphics_unknown_intervals.json catalog of unresolved intervals across resource files
+    byte_ownership.json           whole-file byte ownership classifications across all resource files
+    asset_census_v3.json          audited resource breakdown, UNKNOWN reduction, and completeness metrics
+    graphics_database.json        unified central index of all recovered graphics assets
 
 
 asm/                              assembly reconstruction layout (ADR D-015)

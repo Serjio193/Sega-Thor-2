@@ -1,0 +1,93 @@
+{
+  "routine_name": "sub_4108",
+  "runtime_entry_vma": "0x06004108",
+  "owning_module": "0TH2.BIN",
+  "module_file_offset": "0x000108",
+  "calling_convention": {
+    "r4": "source_pointer (compressed bitstream in RAM/disc buffer)",
+    "r5": "destination_pointer (decompression buffer in Low or High Work RAM)",
+    "r3": "preserved initial destination address (used for size computation: r5 - r3)",
+    "r6": "constant #1 (increment/decrement register)",
+    "r7": "current sub-block end pointer (r1 + 16-bit length)"
+  },
+  "return_state": {
+    "r0": "status/scratch",
+    "r1": "pointer to static state descriptor at 0x060B3D0C",
+    "@0x060B3D0C": "updated source pointer (r4) pointing to next sub-block or stream",
+    "@0x060B3D10": "updated destination pointer (r5)",
+    "@0x060B3D14": "total decompressed byte count (r5 - r3)"
+  },
+  "grammar_decision_tree": {
+    "sub_block_header": "16-bit Little-Endian length: (b1 << 8) | b0. End pointer = start + length.",
+    "token_fetch": "r0 = *r4++, test bit 7 (0x80)",
+    "backreference_branch": {
+      "condition": "token & 0x80 != 0",
+      "length": "((token & 0x60) >> 5) + 4 (range 4..7)",
+      "distance": "((token & 0x1F) << 8) | *r4++ (13-bit distance 1..8191)",
+      "source_address": "r5 - distance",
+      "chained_copy_peek": "while (peek(*r4) & 0xE0) == 0x60: consume *r4++, copy (peek & 0x1F) additional bytes"
+    },
+    "rle_branch": {
+      "condition": "token & 0x80 == 0 and token & 0x40 != 0",
+      "length": "if (token & 0x10): ((token & 0x0F) << 8 | *r4++) + 4 else: (token & 0x1F) + 4",
+      "fill_value": "*r4++ (single byte)",
+      "action": "fill length bytes of fill_value into destination"
+    },
+    "literal_branch": {
+      "condition": "token & 0xC0 == 0",
+      "length": "if (token & 0x20): ((token & 0x1F) << 8 | *r4++) else: token & 0x1F",
+      "action": "copy length raw bytes from *r4++ to destination"
+    },
+    "sub_block_continuation": "terminator = *r4++. If terminator == 0: STREAM_TERMINATED; else: next sub-block into same destination buffer."
+  },
+  "confirmed_callers_in_0th2": [
+    {
+      "pc": "0x06005DDC",
+      "context": "title screen resource initialization"
+    },
+    {
+      "pc": "0x0600646C",
+      "context": "menu graphics decompressor"
+    },
+    {
+      "pc": "0x0600A680",
+      "context": "load_chr universal CHR graphics pipeline"
+    },
+    {
+      "pc": "0x0600A838",
+      "context": "VDP1 sprite palette/graphics pipeline"
+    },
+    {
+      "pc": "0x0600B924",
+      "context": "VDP2 background plane decompression"
+    },
+    {
+      "pc": "0x0600BE10",
+      "context": "font and window frame loader"
+    },
+    {
+      "pc": "0x0600FBB4",
+      "context": "in-game HUD gauge decompression"
+    },
+    {
+      "pc": "0x06015C18",
+      "context": "room layout loader 1"
+    },
+    {
+      "pc": "0x06015D90",
+      "context": "room layout loader 2"
+    },
+    {
+      "pc": "0x06015ECC",
+      "context": "room pattern loader"
+    },
+    {
+      "pc": "0x06016198",
+      "context": "room elevation map loader"
+    },
+    {
+      "pc": "0x06016B24",
+      "context": "room object placement table loader"
+    }
+  ]
+}

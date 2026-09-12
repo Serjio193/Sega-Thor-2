@@ -155,6 +155,42 @@ These public labels/semantics remain revision hints until independently behavior
 - **1bpp Font Sheet**: Starts at `0x29030` in USA and `0x2B030` in RUS.
 - **Differential Shift**: Meduza Team inserted Cyrillic font glyphs by shifting all subsequent blocks by exactly `+0x2000` (8,192 bytes / 4 sectors), maintaining identical relative internal layouts.
 
+## Confirmed Universal Decompression & Full Graphics Recovery (T2-GFX-02)
+
+### 1. Universal Ancient Decompressor Routine (`sub_4108`)
+- **Location**: `0TH2.BIN` runtime address `0x06004108` (file offset `0x00108`), called from 12 distinct sites including `load_chr` at `0x0600A480`.
+- **Calling Convention**: `R4` = pointer to compressed source bitstream, `R5` = pointer to destination uncompressed buffer in Work RAM or VRAM.
+- **Control Flow & Bitstream Grammar**:
+  - Each sub-block begins with a 16-bit little-endian length word.
+  - Byte-oriented command tokens with bitfield dispatch:
+    - `token & 0x80`: **Backreference copy**. Base length = `((token & 0x60) >> 5) + 4`, distance = `((token & 0x1F) << 8) | next_byte`. Peek loop: while `(peek & 0xE0) == 0x60`, copies `peek & 0x1F` more bytes from same continuing pointer.
+    - `(token & 0xC0) == 0x40`: **RLE fill**. Value = `next_byte`, length = `(token & 0x1F) + 4` or 12-bit extended length if `(token & 0x1F) == 0`.
+    - `(token & 0xC0) == 0x00`: **Literal copy**. Length = `token & 0x1F` or 13-bit extended length if `token & 0x1F == 0`.
+    - Stream terminator: zero-length sub-block exits.
+
+### 2. Complete CHR.BIN Layout
+- **Total Size**: 370,688 bytes (USA: 362,496 bytes). 100% structured.
+- **Block Layout**: 12 physical blocks:
+  - 11 compressed graphics blocks (Blocks 0..4, 6..11) decompressed via `sub_4108` to VDP1/VDP2 sprite and tile data.
+  - 1 uncompressed 1bpp font sheet (Block 5 at `0x29000` USA / `0x2B000` RUS).
+
+### 3. MAP.BIN Decompression & Whole-File Ownership
+- **Room Packages**: 45 packages (`00P<`..`44P<`) at 22,528-byte strides. Each decompresses via `sub_4108` to **exactly 49,152 bytes (48 KB)** of VDP2 tile patterns (1,536 8x8 4bpp tiles per room, 2,211,840 bytes total).
+- **SCU DSP Microprogram**: 2,048-byte microcode at offset `0x0000`..`0x0800` executes 3D projection and affine transformation matrices for VDP2 RBG0 rotation plane.
+- **Whole-File Ownership**: 4,036,608 bytes partitioned into 107 non-overlapping intervals (0 gaps):
+  - `VDP2_TILEMAP_PLANE_MATRIX`: 2,351,104 bytes (58.24%) — global 16-bit pattern-name tilemaps and plane grids.
+  - `ROOM_COMPRESSED_GRAPHICS`: 928,872 bytes (23.01%) — 45 compressed room packages.
+  - `STRUCTURED_MAP_METADATA_UNKNOWN`: 708,608 bytes (17.55%) — non-room metadata tables (triggers, meshes, object tables).
+  - `PADDING`: 48,024 bytes (1.19%).
+
+### 4. ED.BIN Ending Graphics Architecture
+- **Format**: Uncompressed 8bpp raster illustration container (616,480 bytes, 100% structured).
+- **Header & Palettes**: Offset `0x0000`..`0x0820` (2,080 bytes) containing four 256-color RGB555 palettes and frame descriptor table.
+- **Image Frames**: Offset `0x0820`..`0x96820` (614,400 bytes) containing 8 full-screen 320x240 8bpp frames (76,800 bytes each). Frames 6 and 7 contain localized text (replaced at `0x72200` in RUS revision).
+
+### 5. P4.BIN Format Resolution
+- **Structure**: 2,893-byte SpriteArchive container prefixed with a 4-byte header `4C 0B 20 8B`, followed by canonical 12-byte header (`anim_off=1888`, `sprite_off=2082`, 938 animation offsets). Verified 100% bit-exact roundtrip.
+
 ## Record template
 
 For each new finding record:

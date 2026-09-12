@@ -1,0 +1,159 @@
+{
+  "total_unknown_intervals": 17,
+  "total_unknown_bytes": 737280,
+  "intervals": [
+    {
+      "source_file": "MAP.BIN",
+      "start_offset": "0x010000",
+      "end_offset": "0x015000",
+      "size": 20480,
+      "alignment": 2048,
+      "candidate_class": "STRUCTURED_MAP_METADATA_UNKNOWN",
+      "blocker": "Unresolved room metadata / script table format between Room 2 and Room 3"
+    },
+    {
+      "source_file": "MAP.BIN",
+      "start_offset": "0x01F000",
+      "end_offset": "0x024800",
+      "size": 22528,
+      "alignment": 2048,
+      "candidate_class": "STRUCTURED_MAP_METADATA_UNKNOWN",
+      "blocker": "Unresolved room transition / trigger table between Room 4 and Room 5"
+    },
+    {
+      "source_file": "MAP.BIN",
+      "start_offset": "0x047000",
+      "end_offset": "0x052800",
+      "size": 47104,
+      "alignment": 2048,
+      "candidate_class": "STRUCTURED_MAP_METADATA_UNKNOWN",
+      "blocker": "Unresolved room metadata package between Room 11 and Room 12"
+    },
+    {
+      "source_file": "MAP.BIN",
+      "start_offset": "0x064800",
+      "end_offset": "0x06F800",
+      "size": 45056,
+      "alignment": 2048,
+      "candidate_class": "STRUCTURED_MAP_METADATA_UNKNOWN",
+      "blocker": "Unresolved collision / geometry mesh between Room 14 and Room 15"
+    },
+    {
+      "source_file": "MAP.BIN",
+      "start_offset": "0x075000",
+      "end_offset": "0x080000",
+      "size": 45056,
+      "alignment": 2048,
+      "candidate_class": "STRUCTURED_MAP_METADATA_UNKNOWN",
+      "blocker": "Unresolved room package tail between Room 15 and Room 16"
+    },
+    {
+      "source_file": "MAP.BIN",
+      "start_offset": "0x085800",
+      "end_offset": "0x08F000",
+      "size": 38912,
+      "alignment": 2048,
+      "candidate_class": "STRUCTURED_MAP_METADATA_UNKNOWN",
+      "blocker": "Unresolved object placement tables between Room 16 and Room 17"
+    },
+    {
+      "source_file": "MAP.BIN",
+      "start_offset": "0x09A800",
+      "end_offset": "0x0A0000",
+      "size": 22528,
+      "alignment": 2048,
+      "candidate_class": "STRUCTURED_MAP_METADATA_UNKNOWN",
+      "blocker": "Unresolved room transition headers between Room 18 and Room 19"
+    },
+    {
+      "source_file": "MAP.BIN",
+      "start_offset": "0x0A5000",
+      "end_offset": "0x0AA000",
+      "size": 20480,
+      "alignment": 2048,
+      "candidate_class": "STRUCTURED_MAP_METADATA_UNKNOWN",
+      "blocker": "Unresolved room package boundary between Room 19 and Room 20"
+    },
+    {
+      "source_file": "MAP.BIN",
+      "start_offset": "0x0B0800",
+      "end_offset": "0x0B6800",
+      "size": 24576,
+      "alignment": 2048,
+      "candidate_class": "STRUCTURED_MAP_METADATA_UNKNOWN",
+      "blocker": "Unresolved elevation map between Room 20 and Room 21"
+    },
+    {
+      "source_file": "MAP.BIN",
+      "start_offset": "0x0CD800",
+      "end_offset": "0x0D7000",
+      "size": 38912,
+      "alignment": 2048,
+      "candidate_class": "STRUCTURED_MAP_METADATA_UNKNOWN",
+      "blocker": "Unresolved room package boundary between Room 24 and Room 25"
+    },
+    {
+      "source_file": "MAP.BIN",
+      "start_offset": "0x0E2800",
+      "end_offset": "0x0F3800",
+      "size": 69632,
+      "alignment": 2048,
+      "candidate_class": "STRUCTURED_MAP_METADATA_UNKNOWN",
+      "blocker": "Unresolved collision / mesh table between Room 26 and Room 27"
+    },
+    {
+      "source_file": "MAP.BIN",
+      "start_offset": "0x102800",
+      "end_offset": "0x107800",
+      "size": 20480,
+      "alignment": 2048,
+      "candidate_class": "STRUCTURED_MAP_METADATA_UNKNOWN",
+      "blocker": "Unresolved script trigger tables between Room 29 and Room 30"
+    },
+    {
+      "source_file": "MAP.BIN",
+      "start_offset": "0x11B800",
+      "end_offset": "0x120000",
+      "size": 18432,
+      "alignment": 2048,
+      "candidate_class": "STRUCTURED_MAP_METADATA_UNKNOWN",
+      "blocker": "Unresolved room package boundary between Room 33 and Room 34"
+    },
+    {
+      "source_file": "MAP.BIN",
+      "start_offset": "0x12D000",
+      "end_offset": "0x152800",
+      "size": 153600,
+      "alignment": 2048,
+      "candidate_class": "STRUCTURED_MAP_METADATA_UNKNOWN",
+      "blocker": "Unresolved dungeon world sub-mesh between Room 35 and Room 36"
+    },
+    {
+      "source_file": "MAP.BIN",
+      "start_offset": "0x161000",
+      "end_offset": "0x16D800",
+      "size": 51200,
+      "alignment": 2048,
+      "candidate_class": "STRUCTURED_MAP_METADATA_UNKNOWN",
+      "blocker": "Unresolved room geometry between Room 38 and Room 39"
+    },
+    {
+      "source_file": "MAP.BIN",
+      "start_offset": "0x17A800",
+      "end_offset": "0x18B800",
+      "size": 69632,
+      "alignment": 2048,
+      "candidate_class": "STRUCTURED_MAP_METADATA_UNKNOWN",
+      "blocker": "Unresolved room metadata between Room 41 and Room 42"
+    },
+    {
+      "source_file": "MAP.BIN",
+      "start_offset": "0x194800",
+      "end_offset": "0x19B800",
+      "size": 28672,
+      "alignment": 2048,
+      "candidate_class": "STRUCTURED_MAP_METADATA_UNKNOWN",
+      "blocker": "Unresolved room package tail before global tilemap matrix"
+    }
+  ]
+}

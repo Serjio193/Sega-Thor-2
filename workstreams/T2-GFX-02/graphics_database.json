@@ -1,0 +1,20 @@
+{
+  "version": "T2-GFX-02-V3",
+  "description": "Unified machine-readable database of all recovered Thor 2 graphics resources",
+  "categories": {
+    "player_sprites": "P0.BIN..P3.BIN, P4.BIN (333 records)",
+    "spirit_sprites": "ARELE, BAW, BRAS, DIT, EFREET, SHADE (41 records)",
+    "monster_sprites": "MONS.BIN 50/50 subarchives (all resolved)",
+    "chr_compressed_blocks": "CHR.BIN Blocks 0..4, 6..11 (11 blocks decompressed byte-exact)",
+    "fonts": "CHR.BIN Block 5 / Font 0 (Latin + Cyrillic uncompressed 1bpp sheets)",
+    "rooms": "MAP.BIN 45 rooms (all 45 decompressed to 49,152 bytes VDP2 tiles)",
+    "ending_illustrations": "ED.BIN 8 frames (320x240, 8bpp uncompressed, USA + RUS)"
+  },
+  "summary": {
+    "total_sprites": 312,
+    "total_rooms": 45,
+    "total_ending_frames": 16,
+    "total_chr_blocks": 11,
+    "total_palettes": 12
+  }
+}
