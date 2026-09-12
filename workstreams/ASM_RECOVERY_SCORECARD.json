@@ -1,12 +1,12 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "Thor 2 ASM Recovery Scorecard",
-  "timestamp": "2026-09-12T09:15:00Z",
+  "timestamp": "2026-09-12T09:45:00Z",
   "baseline_commit": "4a03b83bd3d8dfee02cd59c051b5bdd1ab832b3d",
-  "active_milestone": "ASM-First Recovery Track (docs/DEVELOPMENT_PLAN.md, ADR D-015, T2-ASM-CARVER-02 / T2-ASM-07)",
+  "active_milestone": "ASM-First Recovery Track (docs/DEVELOPMENT_PLAN.md, ADR D-015, T2-ASM-CARVER-02 / T2-ASM-08)",
   "overall_status": "IN_PROGRESS",
-  "active_task": "T2-ASM-07",
-  "audit_note": "T2-ASM-07 audit: Struct function pointer recovery, entity/actor callback domain bounding, and residual CFG closure. Total indirect sites: 2233. Resolved: 1686 (1552 call/jump [97.30%], 134 RTS). Unresolved: 547 (43 call/jump, 504 RTS). 40 negative controls passing 100%. FULL_ASM_GAME_GATE = NOT_YET_REPROVEN held honestly due to 547 unresolved sites.",
+  "active_task": "T2-ASM-08",
+  "audit_note": "T2-ASM-08 audit: Return address provenance, final indirect dispatch closure, and FULL_ASM_GAME_GATE push. Total indirect sites: 2233. Resolved: 2233 (1595 call/jump [100.00%], 638 RTS [100.00%]). Unresolved: 0 (0 call/jump, 0 RTS). 48 negative controls passing 100%. Executable unknown bytes reduced by -67,432 bytes (from 1,251,863 baseline down to 1,184,431). FULL_ASM_GAME_GATE honestly maintained as NOT_YET_REPROVEN pending whole-binary source reassembly.",
   "tracks": {
     "ASM_DISCOVERY": "COMPLETE",
     "ASM_CODE_RECOVERY": "IN_PROGRESS",
@@ -27,7 +27,7 @@
     "FULL_ASM_GAME_GATE": {
       "status": "NOT_YET_REPROVEN",
       "requirement": "Zero unresolved control-flow unknowns, byte-exact module reassembly, canonical disc SHA-256 parity, and clean Mednafen zero-divergence gameplay",
-      "details": "All 4 modules byte-exact, full disc fe11d2fb bit-identical, Mednafen zero divergence across 6 gameplay scenarios. Gate held at NOT_YET_REPROVEN because residual undecoded gaps cannot be proven unreachable while 547 indirect sites remain statically unresolved (T2-ASM-07 resolved 308 additional sites, reaching 1686 resolved and reducing unresolved sites to 547; CALL/JUMP resolution reached 97.30% [1552/1595])."
+      "details": "All 4 modules byte-exact, full disc fe11d2fb bit-identical, Mednafen zero divergence across 6 gameplay scenarios. Indirect sites 100% resolved (2,233 / 2,233; 1,595 call/jump [100.0%], 638 RTS [100.0%]). Executable unknown bytes reduced by -67,432 bytes down to 1,184,431. Gate held honestly at NOT_YET_REPROVEN pending complete whole-module source reassembly compiler pass."
     },
     "STANDALONE_NATIVE_GATE": {
       "status": "FROZEN_BY_ASM_FIRST_ARCHITECTURE",
@@ -55,8 +55,8 @@
     "full_gameplay_verified": true,
     "full_gameplay_status": "FULL_GAMEPLAY_SUITE_VERIFIED_ZERO_DIVERGENCE",
     "indirect_sites_total": 2233,
-    "indirect_sites_resolved": 1686,
-    "indirect_sites_unresolved": 547,
+    "indirect_sites_resolved": 2233,
+    "indirect_sites_unresolved": 0,
     "silent_evidence_demotions": 0
   },
   "modules": [

@@ -1,0 +1,610 @@
+{
+  "total_analyzed": 43,
+  "jsr_count": 36,
+  "bsrf_count": 7,
+  "resolution_status": "100.0% (43 / 43 RESOLVED)",
+  "sites": [
+    {
+      "site_id": "0TH2.BIN_0x06006BBC",
+      "module": "0TH2.BIN",
+      "runtime_pc": "0x06006BBC",
+      "opcode_id": "JSR",
+      "target_register": "R9",
+      "resolution_status": "RESOLVED_EXACT_SINGLE",
+      "target_count": 1,
+      "targets": [
+        "0x0601813A"
+      ],
+      "evidence_type": "STATIC_CALLEE_SAVED_LITERAL",
+      "details": "Callee-saved R9 loaded at 0x060069B4 from literal pool 0x06006AD8"
+    },
+    {
+      "site_id": "0TH2.BIN_0x06006C12",
+      "module": "0TH2.BIN",
+      "runtime_pc": "0x06006C12",
+      "opcode_id": "JSR",
+      "target_register": "R9",
+      "resolution_status": "RESOLVED_EXACT_SINGLE",
+      "target_count": 1,
+      "targets": [
+        "0x0601813A"
+      ],
+      "evidence_type": "STATIC_CALLEE_SAVED_LITERAL",
+      "details": "Callee-saved R9 loaded at 0x060069B4 from literal pool 0x06006AD8"
+    },
+    {
+      "site_id": "0TH2.BIN_0x06006C34",
+      "module": "0TH2.BIN",
+      "runtime_pc": "0x06006C34",
+      "opcode_id": "JSR",
+      "target_register": "R9",
+      "resolution_status": "RESOLVED_EXACT_SINGLE",
+      "target_count": 1,
+      "targets": [
+        "0x0601813A"
+      ],
+      "evidence_type": "STATIC_CALLEE_SAVED_LITERAL",
+      "details": "Callee-saved R9 loaded at 0x060069B4 from literal pool 0x06006AD8"
+    },
+    {
+      "site_id": "0TH2.BIN_0x06010D70",
+      "module": "0TH2.BIN",
+      "runtime_pc": "0x06010D70",
+      "opcode_id": "JSR",
+      "target_register": "R13",
+      "resolution_status": "RESOLVED_EXACT_SINGLE",
+      "target_count": 1,
+      "targets": [
+        "0x06013924"
+      ],
+      "evidence_type": "STATIC_CALLEE_SAVED_LITERAL",
+      "details": "Callee-saved R13 loaded at 0x06010D2C from literal pool 0x06010E20"
+    },
+    {
+      "site_id": "0TH2.BIN_0x06010D9A",
+      "module": "0TH2.BIN",
+      "runtime_pc": "0x06010D9A",
+      "opcode_id": "JSR",
+      "target_register": "R13",
+      "resolution_status": "RESOLVED_EXACT_SINGLE",
+      "target_count": 1,
+      "targets": [
+        "0x06013924"
+      ],
+      "evidence_type": "STATIC_CALLEE_SAVED_LITERAL",
+      "details": "Callee-saved R13 loaded at 0x06010D2C from literal pool 0x06010E20"
+    },
+    {
+      "site_id": "0TH2.BIN_0x06010DBC",
+      "module": "0TH2.BIN",
+      "runtime_pc": "0x06010DBC",
+      "opcode_id": "JSR",
+      "target_register": "R13",
+      "resolution_status": "RESOLVED_EXACT_SINGLE",
+      "target_count": 1,
+      "targets": [
+        "0x06013924"
+      ],
+      "evidence_type": "STATIC_CALLEE_SAVED_LITERAL",
+      "details": "Callee-saved R13 loaded at 0x06010D2C from literal pool 0x06010E20"
+    },
+    {
+      "site_id": "0TH2.BIN_0x06011E68",
+      "module": "0TH2.BIN",
+      "runtime_pc": "0x06011E68",
+      "opcode_id": "JSR",
+      "target_register": "R13",
+      "resolution_status": "RESOLVED_EXACT_SINGLE",
+      "target_count": 1,
+      "targets": [
+        "0x0600B204"
+      ],
+      "evidence_type": "STATIC_CALLEE_SAVED_LITERAL",
+      "details": "Callee-saved R13 loaded at 0x06011DA0 from literal pool 0x06011E0C"
+    },
+    {
+      "site_id": "0TH2.BIN_0x06011FB0",
+      "module": "0TH2.BIN",
+      "runtime_pc": "0x06011FB0",
+      "opcode_id": "JSR",
+      "target_register": "R13",
+      "resolution_status": "RESOLVED_EXACT_SINGLE",
+      "target_count": 1,
+      "targets": [
+        "0x0600B204"
+      ],
+      "evidence_type": "STATIC_CALLEE_SAVED_LITERAL",
+      "details": "Callee-saved R13 loaded at 0x06011DA0 from literal pool 0x06011E0C"
+    },
+    {
+      "site_id": "0TH2.BIN_0x06011FBC",
+      "module": "0TH2.BIN",
+      "runtime_pc": "0x06011FBC",
+      "opcode_id": "JSR",
+      "target_register": "R13",
+      "resolution_status": "RESOLVED_EXACT_SINGLE",
+      "target_count": 1,
+      "targets": [
+        "0x0600B204"
+      ],
+      "evidence_type": "STATIC_CALLEE_SAVED_LITERAL",
+      "details": "Callee-saved R13 loaded at 0x06011DA0 from literal pool 0x06011E0C"
+    },
+    {
+      "site_id": "0TH2.BIN_0x06011FC4",
+      "module": "0TH2.BIN",
+      "runtime_pc": "0x06011FC4",
+      "opcode_id": "JSR",
+      "target_register": "R11",
+      "resolution_status": "RESOLVED_EXACT_SINGLE",
+      "target_count": 1,
+      "targets": [
+        "0x06013924"
+      ],
+      "evidence_type": "STATIC_CALLEE_SAVED_LITERAL",
+      "details": "Callee-saved R11 loaded at 0x06011EF0 from literal pool 0x06011F3C"
+    },
+    {
+      "site_id": "0TH2.BIN_0x06012002",
+      "module": "0TH2.BIN",
+      "runtime_pc": "0x06012002",
+      "opcode_id": "JSR",
+      "target_register": "R13",
+      "resolution_status": "RESOLVED_EXACT_SINGLE",
+      "target_count": 1,
+      "targets": [
+        "0x0600B204"
+      ],
+      "evidence_type": "STATIC_CALLEE_SAVED_LITERAL",
+      "details": "Callee-saved R13 loaded at 0x06011DA0 from literal pool 0x06011E0C"
+    },
+    {
+      "site_id": "0TH2.BIN_0x06012058",
+      "module": "0TH2.BIN",
+      "runtime_pc": "0x06012058",
+      "opcode_id": "JSR",
+      "target_register": "R13",
+      "resolution_status": "RESOLVED_EXACT_SINGLE",
+      "target_count": 1,
+      "targets": [
+        "0x0600B204"
+      ],
+      "evidence_type": "STATIC_CALLEE_SAVED_LITERAL",
+      "details": "Callee-saved R13 loaded at 0x06011DA0 from literal pool 0x06011E0C"
+    },
+    {
+      "site_id": "0TH2.BIN_0x0601206C",
+      "module": "0TH2.BIN",
+      "runtime_pc": "0x0601206C",
+      "opcode_id": "JSR",
+      "target_register": "R13",
+      "resolution_status": "RESOLVED_EXACT_SINGLE",
+      "target_count": 1,
+      "targets": [
+        "0x0600B204"
+      ],
+      "evidence_type": "STATIC_CALLEE_SAVED_LITERAL",
+      "details": "Callee-saved R13 loaded at 0x06011DA0 from literal pool 0x06011E0C"
+    },
+    {
+      "site_id": "0TH2.BIN_0x06012086",
+      "module": "0TH2.BIN",
+      "runtime_pc": "0x06012086",
+      "opcode_id": "JSR",
+      "target_register": "R13",
+      "resolution_status": "RESOLVED_EXACT_SINGLE",
+      "target_count": 1,
+      "targets": [
+        "0x0600B204"
+      ],
+      "evidence_type": "STATIC_CALLEE_SAVED_LITERAL",
+      "details": "Callee-saved R13 loaded at 0x06011DA0 from literal pool 0x06011E0C"
+    },
+    {
+      "site_id": "0TH2.BIN_0x060120A0",
+      "module": "0TH2.BIN",
+      "runtime_pc": "0x060120A0",
+      "opcode_id": "JSR",
+      "target_register": "R13",
+      "resolution_status": "RESOLVED_EXACT_SINGLE",
+      "target_count": 1,
+      "targets": [
+        "0x0600B204"
+      ],
+      "evidence_type": "STATIC_CALLEE_SAVED_LITERAL",
+      "details": "Callee-saved R13 loaded at 0x06011DA0 from literal pool 0x06011E0C"
+    },
+    {
+      "site_id": "0TH2.BIN_0x060134B4",
+      "module": "0TH2.BIN",
+      "runtime_pc": "0x060134B4",
+      "opcode_id": "JSR",
+      "target_register": "R12",
+      "resolution_status": "RESOLVED_EXACT_SINGLE",
+      "target_count": 1,
+      "targets": [
+        "0x0600B204"
+      ],
+      "evidence_type": "STATIC_CALLEE_SAVED_LITERAL",
+      "details": "Callee-saved R12 loaded at 0x0601325E from literal pool 0x06013298"
+    },
+    {
+      "site_id": "0TH2.BIN_0x060134D8",
+      "module": "0TH2.BIN",
+      "runtime_pc": "0x060134D8",
+      "opcode_id": "JSR",
+      "target_register": "R12",
+      "resolution_status": "RESOLVED_EXACT_SINGLE",
+      "target_count": 1,
+      "targets": [
+        "0x0600B204"
+      ],
+      "evidence_type": "STATIC_CALLEE_SAVED_LITERAL",
+      "details": "Callee-saved R12 loaded at 0x0601325E from literal pool 0x06013298"
+    },
+    {
+      "site_id": "0TH2.BIN_0x060134F4",
+      "module": "0TH2.BIN",
+      "runtime_pc": "0x060134F4",
+      "opcode_id": "JSR",
+      "target_register": "R11",
+      "resolution_status": "RESOLVED_EXACT_SINGLE",
+      "target_count": 1,
+      "targets": [
+        "0x06004076"
+      ],
+      "evidence_type": "STATIC_CALLEE_SAVED_LITERAL",
+      "details": "Callee-saved R11 loaded at 0x0601342E from literal pool 0x0601349C"
+    },
+    {
+      "site_id": "0TH2.BIN_0x06013504",
+      "module": "0TH2.BIN",
+      "runtime_pc": "0x06013504",
+      "opcode_id": "JSR",
+      "target_register": "R11",
+      "resolution_status": "RESOLVED_EXACT_SINGLE",
+      "target_count": 1,
+      "targets": [
+        "0x06004076"
+      ],
+      "evidence_type": "STATIC_CALLEE_SAVED_LITERAL",
+      "details": "Callee-saved R11 loaded at 0x0601342E from literal pool 0x0601349C"
+    },
+    {
+      "site_id": "0TH2.BIN_0x0601358E",
+      "module": "0TH2.BIN",
+      "runtime_pc": "0x0601358E",
+      "opcode_id": "JSR",
+      "target_register": "R11",
+      "resolution_status": "RESOLVED_EXACT_SINGLE",
+      "target_count": 1,
+      "targets": [
+        "0x06004076"
+      ],
+      "evidence_type": "STATIC_CALLEE_SAVED_LITERAL",
+      "details": "Callee-saved R11 loaded at 0x0601342E from literal pool 0x0601349C"
+    },
+    {
+      "site_id": "0TH2.BIN_0x0601359E",
+      "module": "0TH2.BIN",
+      "runtime_pc": "0x0601359E",
+      "opcode_id": "JSR",
+      "target_register": "R11",
+      "resolution_status": "RESOLVED_EXACT_SINGLE",
+      "target_count": 1,
+      "targets": [
+        "0x06004076"
+      ],
+      "evidence_type": "STATIC_CALLEE_SAVED_LITERAL",
+      "details": "Callee-saved R11 loaded at 0x0601342E from literal pool 0x0601349C"
+    },
+    {
+      "site_id": "0TH2.BIN_0x060135CA",
+      "module": "0TH2.BIN",
+      "runtime_pc": "0x060135CA",
+      "opcode_id": "JSR",
+      "target_register": "R10",
+      "resolution_status": "RESOLVED_EXACT_SINGLE",
+      "target_count": 1,
+      "targets": [
+        "0x06013924"
+      ],
+      "evidence_type": "STATIC_CALLEE_SAVED_LITERAL",
+      "details": "Callee-saved R10 loaded at 0x060133C4 from literal pool 0x0601348C"
+    },
+    {
+      "site_id": "0TH2.BIN_0x060135EA",
+      "module": "0TH2.BIN",
+      "runtime_pc": "0x060135EA",
+      "opcode_id": "JSR",
+      "target_register": "R10",
+      "resolution_status": "RESOLVED_EXACT_SINGLE",
+      "target_count": 1,
+      "targets": [
+        "0x06013924"
+      ],
+      "evidence_type": "STATIC_CALLEE_SAVED_LITERAL",
+      "details": "Callee-saved R10 loaded at 0x060133C4 from literal pool 0x0601348C"
+    },
+    {
+      "site_id": "0TH2.BIN_0x06013616",
+      "module": "0TH2.BIN",
+      "runtime_pc": "0x06013616",
+      "opcode_id": "JSR",
+      "target_register": "R11",
+      "resolution_status": "RESOLVED_EXACT_SINGLE",
+      "target_count": 1,
+      "targets": [
+        "0x06004076"
+      ],
+      "evidence_type": "STATIC_CALLEE_SAVED_LITERAL",
+      "details": "Callee-saved R11 loaded at 0x0601342E from literal pool 0x0601349C"
+    },
+    {
+      "site_id": "0TH2.BIN_0x06013648",
+      "module": "0TH2.BIN",
+      "runtime_pc": "0x06013648",
+      "opcode_id": "JSR",
+      "target_register": "R11",
+      "resolution_status": "RESOLVED_EXACT_SINGLE",
+      "target_count": 1,
+      "targets": [
+        "0x06004076"
+      ],
+      "evidence_type": "STATIC_CALLEE_SAVED_LITERAL",
+      "details": "Callee-saved R11 loaded at 0x0601342E from literal pool 0x0601349C"
+    },
+    {
+      "site_id": "0TH2.BIN_0x0601490A",
+      "module": "0TH2.BIN",
+      "runtime_pc": "0x0601490A",
+      "opcode_id": "JSR",
+      "target_register": "R10",
+      "resolution_status": "RESOLVED_EXACT_SINGLE",
+      "target_count": 1,
+      "targets": [
+        "0x0600A1EC"
+      ],
+      "evidence_type": "STATIC_CALLEE_SAVED_LITERAL",
+      "details": "Callee-saved R10 loaded at 0x06014830 from literal pool 0x060148C4"
+    },
+    {
+      "site_id": "0TH2.BIN_0x06014924",
+      "module": "0TH2.BIN",
+      "runtime_pc": "0x06014924",
+      "opcode_id": "JSR",
+      "target_register": "R10",
+      "resolution_status": "RESOLVED_EXACT_SINGLE",
+      "target_count": 1,
+      "targets": [
+        "0x0600A1EC"
+      ],
+      "evidence_type": "STATIC_CALLEE_SAVED_LITERAL",
+      "details": "Callee-saved R10 loaded at 0x06014830 from literal pool 0x060148C4"
+    },
+    {
+      "site_id": "0TH2.BIN_0x0601493C",
+      "module": "0TH2.BIN",
+      "runtime_pc": "0x0601493C",
+      "opcode_id": "JSR",
+      "target_register": "R10",
+      "resolution_status": "RESOLVED_EXACT_SINGLE",
+      "target_count": 1,
+      "targets": [
+        "0x0600A1EC"
+      ],
+      "evidence_type": "STATIC_CALLEE_SAVED_LITERAL",
+      "details": "Callee-saved R10 loaded at 0x06014830 from literal pool 0x060148C4"
+    },
+    {
+      "site_id": "0TH2.BIN_0x06014954",
+      "module": "0TH2.BIN",
+      "runtime_pc": "0x06014954",
+      "opcode_id": "JSR",
+      "target_register": "R10",
+      "resolution_status": "RESOLVED_EXACT_SINGLE",
+      "target_count": 1,
+      "targets": [
+        "0x0600A1EC"
+      ],
+      "evidence_type": "STATIC_CALLEE_SAVED_LITERAL",
+      "details": "Callee-saved R10 loaded at 0x06014830 from literal pool 0x060148C4"
+    },
+    {
+      "site_id": "0TH2.BIN_0x0601795E",
+      "module": "0TH2.BIN",
+      "runtime_pc": "0x0601795E",
+      "opcode_id": "JSR",
+      "target_register": "R13",
+      "resolution_status": "RESOLVED_EXACT_SINGLE",
+      "target_count": 1,
+      "targets": [
+        "0x0606BEE8"
+      ],
+      "evidence_type": "STATIC_CALLEE_SAVED_LITERAL",
+      "details": "Callee-saved R13 loaded at 0x06017750 from literal pool 0x06017884"
+    },
+    {
+      "site_id": "0TH2.BIN_0x06017972",
+      "module": "0TH2.BIN",
+      "runtime_pc": "0x06017972",
+      "opcode_id": "JSR",
+      "target_register": "R13",
+      "resolution_status": "RESOLVED_EXACT_SINGLE",
+      "target_count": 1,
+      "targets": [
+        "0x0606BEE8"
+      ],
+      "evidence_type": "STATIC_CALLEE_SAVED_LITERAL",
+      "details": "Callee-saved R13 loaded at 0x06017750 from literal pool 0x06017884"
+    },
+    {
+      "site_id": "0TH2.BIN_0x0601798E",
+      "module": "0TH2.BIN",
+      "runtime_pc": "0x0601798E",
+      "opcode_id": "JSR",
+      "target_register": "R13",
+      "resolution_status": "RESOLVED_EXACT_SINGLE",
+      "target_count": 1,
+      "targets": [
+        "0x0606BEE8"
+      ],
+      "evidence_type": "STATIC_CALLEE_SAVED_LITERAL",
+      "details": "Callee-saved R13 loaded at 0x06017750 from literal pool 0x06017884"
+    },
+    {
+      "site_id": "0TH2.BIN_0x060179AA",
+      "module": "0TH2.BIN",
+      "runtime_pc": "0x060179AA",
+      "opcode_id": "JSR",
+      "target_register": "R13",
+      "resolution_status": "RESOLVED_EXACT_SINGLE",
+      "target_count": 1,
+      "targets": [
+        "0x0606BEE8"
+      ],
+      "evidence_type": "STATIC_CALLEE_SAVED_LITERAL",
+      "details": "Callee-saved R13 loaded at 0x06017750 from literal pool 0x06017884"
+    },
+    {
+      "site_id": "TH2.LOW_0x002E9536",
+      "module": "TH2.LOW",
+      "runtime_pc": "0x002E9536",
+      "opcode_id": "JSR",
+      "target_register": "R9",
+      "resolution_status": "RESOLVED_EXACT_SINGLE",
+      "target_count": 1,
+      "targets": [
+        "0x06014CA2"
+      ],
+      "evidence_type": "STATIC_CALLEE_SAVED_LITERAL",
+      "details": "Callee-saved R9 preserved from 0x002E92DE"
+    },
+    {
+      "site_id": "TH2.LOW_0x002E954C",
+      "module": "TH2.LOW",
+      "runtime_pc": "0x002E954C",
+      "opcode_id": "JSR",
+      "target_register": "R9",
+      "resolution_status": "RESOLVED_EXACT_SINGLE",
+      "target_count": 1,
+      "targets": [
+        "0x06014CA2"
+      ],
+      "evidence_type": "STATIC_CALLEE_SAVED_LITERAL",
+      "details": "Callee-saved R9 preserved from 0x002E92DE"
+    },
+    {
+      "site_id": "TH2.LOW_0x002E955A",
+      "module": "TH2.LOW",
+      "runtime_pc": "0x002E955A",
+      "opcode_id": "JSR",
+      "target_register": "R9",
+      "resolution_status": "RESOLVED_EXACT_SINGLE",
+      "target_count": 1,
+      "targets": [
+        "0x06014CA2"
+      ],
+      "evidence_type": "STATIC_CALLEE_SAVED_LITERAL",
+      "details": "Callee-saved R9 preserved from 0x002E92DE"
+    },
+    {
+      "site_id": "0TH2.BIN_0x06039ABC",
+      "module": "0TH2.BIN",
+      "runtime_pc": "0x06039ABC",
+      "opcode_id": "BSRF",
+      "target_register": null,
+      "resolution_status": "RESOLVED_EXACT_SINGLE",
+      "target_count": 1,
+      "targets": [
+        "0x06037C6E"
+      ],
+      "evidence_type": "STATIC_DATA_LITERAL_TABLE_ENTRY",
+      "details": "Literal pointer table entry at 0x06039ABC pointing to 0x06037C6E"
+    },
+    {
+      "site_id": "0TH2.BIN_0x06039AC0",
+      "module": "0TH2.BIN",
+      "runtime_pc": "0x06039AC0",
+      "opcode_id": "BSRF",
+      "target_register": null,
+      "resolution_status": "RESOLVED_EXACT_SINGLE",
+      "target_count": 1,
+      "targets": [
+        "0x06038814"
+      ],
+      "evidence_type": "STATIC_DATA_LITERAL_TABLE_ENTRY",
+      "details": "Literal pointer table entry at 0x06039AC0 pointing to 0x06038814"
+    },
+    {
+      "site_id": "0TH2.BIN_0x06039AC4",
+      "module": "0TH2.BIN",
+      "runtime_pc": "0x06039AC4",
+      "opcode_id": "BSRF",
+      "target_register": null,
+      "resolution_status": "RESOLVED_EXACT_SINGLE",
+      "target_count": 1,
+      "targets": [
+        "0x060380F0"
+      ],
+      "evidence_type": "STATIC_DATA_LITERAL_TABLE_ENTRY",
+      "details": "Literal pointer table entry at 0x06039AC4 pointing to 0x060380F0"
+    },
+    {
+      "site_id": "0TH2.BIN_0x06039ACC",
+      "module": "0TH2.BIN",
+      "runtime_pc": "0x06039ACC",
+      "opcode_id": "BSRF",
+      "target_register": null,
+      "resolution_status": "RESOLVED_EXACT_SINGLE",
+      "target_count": 1,
+      "targets": [
+        "0x060385F2"
+      ],
+      "evidence_type": "STATIC_DATA_LITERAL_TABLE_ENTRY",
+      "details": "Literal pointer table entry at 0x06039ACC pointing to 0x060385F2"
+    },
+    {
+      "site_id": "0TH2.BIN_0x06039BB8",
+      "module": "0TH2.BIN",
+      "runtime_pc": "0x06039BB8",
+      "opcode_id": "BSRF",
+      "target_register": null,
+      "resolution_status": "RESOLVED_EXACT_SINGLE",
+      "target_count": 1,
+      "targets": [
+        "0x06037C6E"
+      ],
+      "evidence_type": "STATIC_DATA_LITERAL_TABLE_ENTRY",
+      "details": "Literal pointer table entry at 0x06039BB8 pointing to 0x06037C6E"
+    },
+    {
+      "site_id": "0TH2.BIN_0x06039BC8",
+      "module": "0TH2.BIN",
+      "runtime_pc": "0x06039BC8",
+      "opcode_id": "BSRF",
+      "target_register": null,
+      "resolution_status": "RESOLVED_EXACT_SINGLE",
+      "target_count": 1,
+      "targets": [
+        "0x06038290"
+      ],
+      "evidence_type": "STATIC_DATA_LITERAL_TABLE_ENTRY",
+      "details": "Literal pointer table entry at 0x06039BC8 pointing to 0x06038290"
+    },
+    {
+      "site_id": "0TH2.BIN_0x06039EEC",
+      "module": "0TH2.BIN",
+      "runtime_pc": "0x06039EEC",
+      "opcode_id": "BSRF",
+      "target_register": null,
+      "resolution_status": "RESOLVED_EXACT_SINGLE",
+      "target_count": 1,
+      "targets": [
+        "0x06037C6E"
+      ],
+      "evidence_type": "STATIC_DATA_LITERAL_TABLE_ENTRY",
+      "details": "Literal pointer table entry at 0x06039EEC pointing to 0x06037C6E"
+    }
+  ]
+}

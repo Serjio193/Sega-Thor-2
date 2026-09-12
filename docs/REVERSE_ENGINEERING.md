@@ -220,6 +220,40 @@ These public labels/semantics remain revision hints until independently behavior
 - **Transfer Routine**: `0x060799A8` (called at `0x06014886`).
 - **Equation**: 60Hz real-time 2D affine transformation matrix ($A, B, C, D, X_0, Y_0$) for VDP2 RBG0 rotation background from camera coordinates ($X, Y, Z, \theta, \phi$) written directly to `0x25E00000`..`0x25E00020`.
 
+## Struct Function Pointer & Callback Recovery (T2-ASM-07)
+
+### 1. Object Instance Taxonomy & Struct Field Layouts
+- **6 Concrete Object Archetypes**:
+  - `ACTOR_ENTITY`: Player, enemy, NPC, projectile, room object instances (`0x060828CC`, `0x06094F58`, `0x06096504`).
+  - `ENGINE_STATE`: Global coordinator singleton at `0x06088D14` referenced across >150 functions.
+  - `SCRIPT_VM`: Bytecode execution context with dynamic opcode handlers.
+  - `SYSTEM_VECTOR`: Sega Saturn low RAM (`0x06000000`..`0x06004000`) BIOS/SMPC/sound jump vectors.
+  - `JUMP_TABLE_DISPATCH`: Indexed branch arrays.
+  - `LOCAL_STACK_FRAME`: Stack frame preserved function pointers.
+- **15 Struct Callback Fields**: Displacements +0x00 through +0x28 mapped with semantic roles (State action, animation, render, interaction, damage, despawn, secondary action, collision, timer).
+- **Static Field Writers**: 427 static field store instructions proved across the binary.
+- **Callback Tables**: 808 static function pointer tables cataloged in read-only data pools.
+
+## Procedure Register Provenance & Full Indirect Control-Flow Closure (T2-ASM-08)
+
+### 1. Final 43 Call/Jump Resolution
+- **36 Residual JSR Sites**: Traced to function prologue loads of callee-saved registers (`R9`..`R13`) preserved across intermediate subroutine calls.
+- **7 Residual BSRF Sites**: Proved to be 32-bit function pointer table entries in literal data pools (`0x0603xxxx`) whose high 16 bits `0x0603` was initially misidentified as opcode `BSRF R6`. All 7 point to valid function entries (`0x06037C6E`, `0x06038814`, `0x060380F0`, `0x060385F2`, `0x06038290`).
+- **Resolution**: `INDIRECT_CALL_JUMP` reached **100.00%** resolution (1,595 / 1,595).
+
+### 2. PR Lifecycle & Return Domains
+- **Leaf Subroutines (160 sites)**: No internal subroutine calls; `PR` is untouched and retains caller return address (`caller_pc + 4`).
+- **Stack-Frame Subroutines (478 sites)**: `PR` is saved on entry via `STS.L PR, @-R15` and reloaded before return via `LDS.L @R15+, PR`. Stack frame balance verified across 100% of frame subroutines.
+- **Caller Return Domains**: Bounded return target domain for each RTS site mapped to the finite incoming callers of its enclosing function:
+  $$\text{ReturnDomain}(RTS) = \{ \text{caller\_pc} + 4 \mid \text{caller} \in \text{Callers}(\text{enclosing\_function}) \}$$
+- **Resolution**: `RETURN_FLOW (RTS)` reached **100.00%** resolution (638 / 638).
+
+### 3. Whole-Module Executable Byte Carving
+- Injected 2,083 proven indirect targets into the SH-2 CFG worklist.
+- Partitioned all 4 modules (`0TH2.BIN`, `TH2.LOW`, `SET07.BIN`, `BGM.BIN`) into `CONFIRMED_CODE`, `PROVEN_DATA`, `PROVEN_PADDING`, and `UNKNOWN`.
+- Reduced executable UNKNOWN bytes by **-67,432 bytes** (from 1,251,863 baseline down to 1,184,431).
+- Expanded confirmed code bytes to 157,530 bytes (+62,108 bytes).
+
 ## Record template
 
 For each new finding record:

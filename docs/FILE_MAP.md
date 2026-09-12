@@ -155,6 +155,10 @@ tools/
     callback_field_analyzer.py    discovers field writers and callback dispatch tables
     struct_callback_resolver.py   master multi-pass resolver for struct callbacks and callee-saved literals
     complete_cfg_closure.py       full CFG closure and gap reduction engine
+    final_call_jump_analyzer.py   resolves final 43 CALL/JUMP indirect sites (36 JSR, 7 BSRF)
+    pr_provenance_engine.py       SH-2 PR and return address provenance engine across 638 RTS sites
+    final_indirect_resolver.py    master synthesis resolver for 100% indirect control-flow closure
+    executable_byte_carver.py     whole-module byte carver and UNKNOWN byte reducer
   carver/
     interval_db.py                canonical central interval database & execution conflict engine
     provenance_dag.py             provenance DAG & graph expansion engine
@@ -235,11 +239,13 @@ tests/
     test_bgm_asm.py               CTest integration test for full BGM.BIN M68K sound driver round-trip
     test_manifest_schema.py       CTest integration test for module manifest schema & partition invariants
     test_full_game_disc.py        CTest integration test for FULL_ASM_GAME_GATE rebuilt disc verification
-    test_recovery_gates.py        negative controls (40 total) & validation for recovery gates
+    test_recovery_gates.py        negative controls (48 total) & validation for recovery gates
     negative_controls_p5.py       8 adversarial negative controls (NC-Q..NC-X) for indirect flow integrity
     negative_controls_p6.py       8 adversarial negative controls (NC-Y..NC-AF) for struct callback integrity
+    negative_controls_p7.py       8 adversarial negative controls (NC-AG..NC-AN) for PR return provenance
     test_indirect_resolution.py   unit tests for constant propagation, jump tables, call graph, and accounting
     test_struct_callback_resolution.py unit tests for struct callbacks, object provenance, and accounting
+    test_return_provenance.py     unit tests for PR return provenance, 100% indirect closure, and byte carving
   carver/
     test_carver_pipeline.py       carver pipeline, interval algebra, conflict, and determinism test suite
 
@@ -386,6 +392,12 @@ workstreams/
     state_machine_callbacks.json  10 finite proven callback domains across 427 static field writers
     struct_callback_scorecard.json master scorecard (1,686 resolved, 547 unresolved; 97.30% call/jump resolution)
     cfg_closure.json              CFG closure telemetry (+114 confirmed code segments, 546 injected targets)
+  T2-ASM-08/
+    final_call_jump_sites.json    complete analysis of residual 43 Call/Jump sites (36 JSR, 7 BSRF table entries)
+    pr_provenance.json            architectural PR lifecycle and caller return domains across all 638 RTS sites
+    final_indirect_scorecard.json 100.0% master indirect scorecard (2,233 / 2,233 resolved; 0 unresolved)
+    cfg_closure.json              CFG closure telemetry (2,083 targets injected, +92 confirmed code segments)
+    executable_byte_partition.json whole-module interval partition (-67,432 bytes UNKNOWN reduction)
 
 
 asm/                              assembly reconstruction layout (ADR D-015)

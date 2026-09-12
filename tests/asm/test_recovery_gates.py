@@ -26,6 +26,7 @@ from negative_controls_p3 import run_all_p3_negative_controls
 from negative_controls_p4 import run_all_p4_negative_controls
 from negative_controls_p5 import run_all_p5_negative_controls
 from negative_controls_p6 import run_all_p6_negative_controls
+from negative_controls_p7 import run_all_p7_negative_controls
 
 
 def test_honest_scorecard_passes():
@@ -331,8 +332,9 @@ def main():
     run_all_p4_negative_controls(repo_root)
     run_all_p5_negative_controls(repo_root)
     run_all_p6_negative_controls(repo_root)
+    run_all_p7_negative_controls(repo_root)
     assert run_full_validation(repo_root) is True
-    print("All 40 negative controls (8 base + 8 P3 NC-A..NC-H + 8 P4 NC-I..NC-P + 8 P5 NC-Q..NC-X + 8 P6 NC-Y..NC-AF) and gate validator tests passed 100%.")
+    print("All 48 negative controls (8 base + 8 P3 NC-A..NC-H + 8 P4 NC-I..NC-P + 8 P5 NC-Q..NC-X + 8 P6 NC-Y..NC-AF + 8 P7 NC-AG..NC-AN) and gate validator tests passed 100%.")
 
 
 if __name__ == "__main__":
