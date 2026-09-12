@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
 """tools/asm/executable_byte_carver.py — Whole-Module Byte Carver & UNKNOWN Reducer.
 
-Recomputes full SH-2 CFG closure across 0TH2.BIN and TH2.LOW with all 2,233
-indirect sites and RTS return domains injected, partitioning each module into
+Recomputes full SH-2 CFG closure across 0TH2.BIN and TH2.LOW with audited
+indirect sites and certified RTS return domains injected, strictly classifying
+pointer tables as FUNCTION_POINTER_TABLE_DATA, partitioning each module into
 CONFIRMED_CODE, PROVEN_DATA, PROVEN_PADDING, and UNKNOWN, and quantifying exact
-reduction from the 1,251,863 baseline UNKNOWN bytes.
+reductions and retractions from the pre-audit baseline.
 """
 
 from collections import deque
@@ -42,8 +43,13 @@ class ExecutableByteCarver:
         self.scorecard = json.loads(
             (repo_root / "workstreams/T2-ASM-08/final_indirect_scorecard.json").read_text(encoding="utf-8")
         )
+        self.false_tables = json.loads(
+            (repo_root / "workstreams/T2-ASM-08/false_decode_pointer_tables.json").read_text(encoding="utf-8")
+        )
         self.resolver = P3ControlFlowResolver(repo_root)
         self.baseline_unknown_bytes = 1251863
+        self.old_asm08_code_bytes = 157530
+        self.old_asm08_unknown_bytes = 1184431
 
     def extract_proven_targets(self) -> Set[int]:
         targets: Set[int] = set()
@@ -67,6 +73,11 @@ class ExecutableByteCarver:
         total_pad = 0
         total_unknown = 0
 
+        # Extract pointer table intervals
+        table_intervals: List[Tuple[int, int]] = []
+        for tbl in self.false_tables.get("tables", []):
+            table_intervals.append((int(tbl["table_start"], 16), int(tbl["table_end"], 16)))
+
         for mod_name, meta in self.resolver.db.modules.items():
             cpu = meta.get("cpu", "MASTER_SH2")
             vma_base = meta["vma_base"]
@@ -77,7 +88,6 @@ class ExecutableByteCarver:
             if cpu == "MASTER_SH2" and mod_name in ("0TH2.BIN", "TH2.LOW") and raw:
                 all_insts = dump_all_valid_with_thor_sh2(self.repo_root, mod_name, vma_base, raw)
 
-                # Initialize base knowledge sets from baseline intervals
                 base_code_vmas: Set[int] = set()
                 base_data_vmas: Set[int] = set()
                 base_pad_vmas: Set[int] = set()
@@ -93,6 +103,13 @@ class ExecutableByteCarver:
                         for off in range(r.offset_start, r.offset_end_exclusive):
                             base_pad_vmas.add(vma_base + off)
 
+                # Protect pointer tables as data
+                if mod_name == "0TH2.BIN":
+                    for t_start, t_end in table_intervals:
+                        for vma in range(t_start, t_end):
+                            base_data_vmas.add(vma)
+                            base_code_vmas.discard(vma)
+
                 seeds: Set[int] = set(base_code_vmas)
                 for pc in self.resolver.union.get_instruction_pcs_for_module(mod_name):
                     seeds.add(pc)
@@ -101,6 +118,11 @@ class ExecutableByteCarver:
                 for t in new_targets:
                     if vma_base <= t < vma_base + sz:
                         seeds.add(t)
+
+                # Remove any seeds that fall inside pointer tables
+                if mod_name == "0TH2.BIN":
+                    for t_start, t_end in table_intervals:
+                        seeds = {s for s in seeds if not (t_start <= s < t_end)}
 
                 g_data_vmas = {vma_base + off for off in self.resolver.guarded_data.get(mod_name, set())} | base_data_vmas
                 g_pad_vmas = {vma_base + off for off in self.resolver.guarded_pad.get(mod_name, set())} | base_pad_vmas
@@ -127,10 +149,7 @@ class ExecutableByteCarver:
                         continue
                     curr_pc = pc
                     while curr_pc < vma_base + sz:
-                        if (
-                            curr_pc in proven_data_bytes
-                            or curr_pc in g_pad_vmas
-                        ):
+                        if curr_pc in proven_data_bytes or curr_pc in g_pad_vmas:
                             break
                         ins = all_insts.get(curr_pc)
                         if not ins:
@@ -192,7 +211,6 @@ class ExecutableByteCarver:
                         else:
                             unk_b += 1
 
-                # Segment grouping for closure records
                 for i in range(1, len(ivs)):
                     left = ivs[i - 1]
                     curr = ivs[i]
@@ -248,7 +266,6 @@ class ExecutableByteCarver:
                 total_unknown += unk_b
 
             else:
-                # SET07.BIN or BGM.BIN: manifest verified baseline
                 c_b = sum(r.offset_end_exclusive - r.offset_start for r in ivs if r.classification == "CONFIRMED_CODE")
                 d_b = sum(r.offset_end_exclusive - r.offset_start for r in ivs if r.classification == "DATA")
                 p_b = sum(r.offset_end_exclusive - r.offset_start for r in ivs if r.classification == "PADDING")
@@ -297,6 +314,12 @@ class ExecutableByteCarver:
             "total_unknown_bytes": total_unknown,
             "baseline_unknown_bytes": self.baseline_unknown_bytes,
             "unknown_bytes_reduction": self.baseline_unknown_bytes - total_unknown,
+            "old_asm08_code_bytes": self.old_asm08_code_bytes,
+            "audited_code_bytes": total_code,
+            "code_bytes_retracted": max(0, self.old_asm08_code_bytes - total_code),
+            "old_asm08_unknown_bytes": self.old_asm08_unknown_bytes,
+            "audited_unknown_bytes": total_unknown,
+            "unknown_bytes_restored_by_audit": max(0, total_unknown - self.old_asm08_unknown_bytes),
             "all_partitions_balanced": all(p.checksum_valid for p in partitions),
             "modules": [asdict(p) for p in partitions],
         }
@@ -329,6 +352,7 @@ def main():
     print(f"  Proven padding bytes: {partition['total_proven_padding_bytes']}")
     print(f"  Unknown bytes: {partition['total_unknown_bytes']} (Baseline: {partition['baseline_unknown_bytes']})")
     print(f"  UNKNOWN REDUCTION: -{partition['unknown_bytes_reduction']} bytes!")
+    print(f"  Code bytes retracted: {partition['code_bytes_retracted']}")
     print(f"  All checksums valid: {partition['all_partitions_balanced']}")
 
 

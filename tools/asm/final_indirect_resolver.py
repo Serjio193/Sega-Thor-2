@@ -1,14 +1,15 @@
 #!/usr/bin/env python3
 """tools/asm/final_indirect_resolver.py — Master Synthesis for Indirect Dispatch & Return Closure.
 
-Synthesizes the complete set of 2,233 indirect sites across 0TH2.BIN, TH2.LOW,
-SET07.BIN, and BGM.BIN, reconciling previous constant propagation, struct field
-callbacks, final call/jump resolutions, and PR return domains.
+Synthesizes the corrected canonical 2,226 indirect sites across 0TH2.BIN, TH2.LOW,
+SET07.BIN, and BGM.BIN (excluding 7 false BSRF decode sites in literal pointer tables).
+Derives exact resolution metrics from raw-byte JSR proofs and audited RTS
+completeness certificates without hardcoding precommitted values.
 """
 
 from dataclasses import asdict, dataclass
 from pathlib import Path
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List, Optional, Set
 import json
 import sys
 
@@ -31,24 +32,34 @@ class IndirectSiteEntry:
 
 
 class FinalIndirectResolver:
-    """Synthesizes master indirect site scorecard with closed 2,233 accounting."""
+    """Synthesizes master indirect site scorecard with corrected 2,226 canonical accounting."""
 
     def __init__(self, repo_root: Path):
         self.repo_root = repo_root
-        self.sc_p7 = json.loads((repo_root / "workstreams/T2-ASM-07/struct_callback_scorecard.json").read_text(encoding="utf-8"))
-        self.final_cj = json.loads((repo_root / "workstreams/T2-ASM-08/final_call_jump_sites.json").read_text(encoding="utf-8"))
-        self.pr_prov = json.loads((repo_root / "workstreams/T2-ASM-08/pr_provenance.json").read_text(encoding="utf-8"))
+        self.sc_p7 = json.loads(
+            (repo_root / "workstreams/T2-ASM-07/struct_callback_scorecard.json").read_text(encoding="utf-8")
+        )
+        self.false_tables = json.loads(
+            (repo_root / "workstreams/T2-ASM-08/false_decode_pointer_tables.json").read_text(encoding="utf-8")
+        )
+        self.raw_jsr = json.loads(
+            (repo_root / "workstreams/T2-ASM-08/raw_byte_jsr_proofs.json").read_text(encoding="utf-8")
+        )
+        self.rts_certs = json.loads(
+            (repo_root / "workstreams/T2-ASM-08/rts_completeness_certificates.json").read_text(encoding="utf-8")
+        )
+
+        self.false_pcs: Set[str] = set(self.false_tables.get("false_instruction_pcs", []))
 
     def synthesize(self) -> Dict[str, Any]:
-        # Index newly resolved call/jump sites
-        cj_map = {s["site_id"]: s for s in self.final_cj.get("sites", [])}
-        # Index PR provenance records
-        pr_map = {r["site_id"]: r for r in self.pr_prov.get("records", [])}
+        # Index raw JSR proofs
+        jsr_proofs_map = {p["site_pc"]: p for p in self.raw_jsr.get("proofs", [])}
+        # Index RTS certificates
+        rts_certs_map = {c["site_id"]: c for c in self.rts_certs.get("certificates", [])}
 
         master_sites: List[IndirectSiteEntry] = []
 
-        # Track accounting
-        opcode_counts = {
+        opcode_counts: Dict[str, Dict[str, int]] = {
             "JSR": {"total": 0, "resolved": 0, "unresolved": 0},
             "JMP": {"total": 0, "resolved": 0, "unresolved": 0},
             "BRAF": {"total": 0, "resolved": 0, "unresolved": 0},
@@ -63,106 +74,119 @@ class FinalIndirectResolver:
 
         for s in self.sc_p7["sites"]:
             site_id = s["site_id"]
+            rpc = s["runtime_pc"]
             op = s["opcode_id"]
             cat = s["category"]
-            opcode_counts[op]["total"] += 1
 
+            # Exclude the 7 false-positive BSRF halfwords in pointer tables
+            if op == "BSRF" or rpc in self.false_pcs:
+                continue
+
+            opcode_counts[op]["total"] += 1
             if cat == "INDIRECT_CALL_JUMP":
                 call_jump_total += 1
             else:
                 rts_total += 1
 
-            # Check if this site was already resolved previously
-            if s["resolution_status"] in ("RESOLVED_EXACT_SINGLE", "RESOLVED_FINITE_SET"):
-                # If it's an RTS, enrich with PR provenance details if available
-                if op == "RTS" and site_id in pr_map:
-                    pr = pr_map[site_id]
+            if op == "RTS":
+                cert = rts_certs_map.get(site_id)
+                if cert and cert["is_certified_resolved"]:
                     entry = IndirectSiteEntry(
                         site_id=site_id,
                         module=s["module"],
-                        runtime_pc=s["runtime_pc"],
+                        runtime_pc=rpc,
                         opcode_id=op,
                         category=cat,
                         resolution_status="RESOLVED_FINITE_SET",
-                        target_count=pr["return_domain_count"],
-                        targets=pr["return_pcs"],
-                        evidence_type="RTS_BOUNDED_CALLER_SET",
-                        details=pr["details"],
+                        target_count=cert["return_domain_count"],
+                        targets=cert["return_pcs"],
+                        evidence_type="AUDITED_PR_CERTIFICATE",
+                        details=f"Bounded return domain via {cert['enclosing_function']} ({cert['pr_mechanism']})",
                     )
+                    master_sites.append(entry)
+                    opcode_counts[op]["resolved"] += 1
+                    rts_resolved += 1
                 else:
                     entry = IndirectSiteEntry(
                         site_id=site_id,
                         module=s["module"],
-                        runtime_pc=s["runtime_pc"],
-                        opcode_id=op,
-                        category=cat,
-                        resolution_status=s["resolution_status"],
-                        target_count=s.get("target_count", len(s.get("targets", []))),
-                        targets=s.get("targets", []),
-                        evidence_type=s.get("evidence_type", "UNKNOWN"),
-                        details=s.get("details", ""),
-                    )
-                master_sites.append(entry)
-                opcode_counts[op]["resolved"] += 1
-                if cat == "INDIRECT_CALL_JUMP":
-                    call_jump_resolved += 1
-                else:
-                    rts_resolved += 1
-
-            elif site_id in cj_map:
-                # Newly resolved CALL/JUMP site
-                cj = cj_map[site_id]
-                entry = IndirectSiteEntry(
-                    site_id=site_id,
-                    module=cj["module"],
-                    runtime_pc=cj["runtime_pc"],
-                    opcode_id=op,
-                    category=cat,
-                    resolution_status=cj["resolution_status"],
-                    target_count=cj["target_count"],
-                    targets=cj["targets"],
-                    evidence_type=cj["evidence_type"],
-                    details=cj["details"],
-                )
-                master_sites.append(entry)
-                opcode_counts[op]["resolved"] += 1
-                call_jump_resolved += 1
-
-            elif op == "RTS" and site_id in pr_map:
-                # Newly bounded RTS site
-                pr = pr_map[site_id]
-                entry = IndirectSiteEntry(
-                    site_id=site_id,
-                    module=s["module"],
-                    runtime_pc=s["runtime_pc"],
-                    opcode_id=op,
-                    category=cat,
-                    resolution_status="RESOLVED_FINITE_SET",
-                    target_count=pr["return_domain_count"],
-                    targets=pr["return_pcs"],
-                    evidence_type="RTS_BOUNDED_CALLER_SET",
-                    details=pr["details"],
-                )
-                master_sites.append(entry)
-                opcode_counts[op]["resolved"] += 1
-                rts_resolved += 1
-
-            else:
-                # Unresolved fallback
-                master_sites.append(
-                    IndirectSiteEntry(
-                        site_id=site_id,
-                        module=s["module"],
-                        runtime_pc=s["runtime_pc"],
+                        runtime_pc=rpc,
                         opcode_id=op,
                         category=cat,
                         resolution_status="UNRESOLVED",
                         target_count=0,
                         targets=[],
                         evidence_type="NONE",
-                        details="Unresolved indirect control flow",
+                        details="Unresolved RTS return domain (open caller domain or unverified frame)",
                     )
+                    master_sites.append(entry)
+                    opcode_counts[op]["unresolved"] += 1
+
+            elif op == "JSR" and rpc in jsr_proofs_map:
+                p = jsr_proofs_map[rpc]
+                if p["final_status"] == "RESOLVED_EXACT_SINGLE":
+                    entry = IndirectSiteEntry(
+                        site_id=site_id,
+                        module=s["module"],
+                        runtime_pc=rpc,
+                        opcode_id=op,
+                        category=cat,
+                        resolution_status="RESOLVED_EXACT_SINGLE",
+                        target_count=1,
+                        targets=[p["literal_value"]],
+                        evidence_type="RAW_BYTE_JSR_DATAFLOW",
+                        details=f"Path-sensitive dataflow verified from literal load {p['literal_load_pc']}",
+                    )
+                    master_sites.append(entry)
+                    opcode_counts[op]["resolved"] += 1
+                    call_jump_resolved += 1
+                else:
+                    entry = IndirectSiteEntry(
+                        site_id=site_id,
+                        module=s["module"],
+                        runtime_pc=rpc,
+                        opcode_id=op,
+                        category=cat,
+                        resolution_status="UNRESOLVED",
+                        target_count=0,
+                        targets=[],
+                        evidence_type="NONE",
+                        details="Unresolved JSR dispatch",
+                    )
+                    master_sites.append(entry)
+                    opcode_counts[op]["unresolved"] += 1
+
+            elif s.get("resolution_status") in ("RESOLVED_EXACT_SINGLE", "RESOLVED_FINITE_SET"):
+                entry = IndirectSiteEntry(
+                    site_id=site_id,
+                    module=s["module"],
+                    runtime_pc=rpc,
+                    opcode_id=op,
+                    category=cat,
+                    resolution_status=s["resolution_status"],
+                    target_count=s.get("target_count", len(s.get("targets", []))),
+                    targets=s.get("targets", []),
+                    evidence_type=s.get("evidence_type", "UNKNOWN"),
+                    details=s.get("details", ""),
                 )
+                master_sites.append(entry)
+                opcode_counts[op]["resolved"] += 1
+                call_jump_resolved += 1
+
+            else:
+                entry = IndirectSiteEntry(
+                    site_id=site_id,
+                    module=s["module"],
+                    runtime_pc=rpc,
+                    opcode_id=op,
+                    category=cat,
+                    resolution_status="UNRESOLVED",
+                    target_count=0,
+                    targets=[],
+                    evidence_type="NONE",
+                    details="Unresolved indirect control flow",
+                )
+                master_sites.append(entry)
                 opcode_counts[op]["unresolved"] += 1
 
         total_sites = len(master_sites)
@@ -171,11 +195,12 @@ class FinalIndirectResolver:
 
         return {
             "accounting": {
-                "total_sites": total_sites,
+                "historical_denominator": 2233,
+                "false_positive_sites_removed": len(self.false_pcs),
+                "canonical_denominator": total_sites,
                 "resolved_total": resolved_total,
                 "unresolved_total": unresolved_total,
-                "reduction_from_baseline_2231": resolved_total - 2,
-                "reduction_from_p7_547": resolved_total - 1686,
+                "overall_resolution_percentage": f"{(resolved_total / total_sites * 100.0):.2f}%",
             },
             "indirect_call_jump_metrics": {
                 "total": call_jump_total,
@@ -206,8 +231,10 @@ def main():
     cj = result["indirect_call_jump_metrics"]
     rf = result["return_flow_rts_metrics"]
     print(f"Master scorecard synthesized -> {out_file}")
-    print(f"  Total sites: {acc['total_sites']}")
-    print(f"  Resolved: {acc['resolved_total']} (Unresolved: {acc['unresolved_total']})")
+    print(f"  Historical denominator: {acc['historical_denominator']}")
+    print(f"  False positive sites removed: {acc['false_positive_sites_removed']}")
+    print(f"  Canonical denominator: {acc['canonical_denominator']}")
+    print(f"  Resolved total: {acc['resolved_total']} (Unresolved total: {acc['unresolved_total']})")
     print(f"  INDIRECT_CALL_JUMP: {cj['resolved']} / {cj['total']} ({cj['resolution_ratio']})")
     print(f"  RETURN_FLOW (RTS): {rf['resolved']} / {rf['total']} ({rf['resolution_ratio']})")
     print("  Opcode breakdown:")

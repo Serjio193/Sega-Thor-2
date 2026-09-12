@@ -1,0 +1,242 @@
+{
+  "accounting": {
+    "historical_indirect_site_count": 2233,
+    "false_positive_indirect_sites": 7,
+    "canonical_indirect_site_count": 2226,
+    "canonical_bsrf_count": 0
+  },
+  "false_instruction_pcs": [
+    "0x06039ABC",
+    "0x06039AC0",
+    "0x06039AC4",
+    "0x06039ACC",
+    "0x06039BB8",
+    "0x06039BC8",
+    "0x06039EEC"
+  ],
+  "tables": [
+    {
+      "table_id": "TABLE_06039AA8",
+      "table_start": "0x06039AA8",
+      "table_end": "0x06039AD4",
+      "entry_width": 4,
+      "entry_count": 11,
+      "consumer_pc": "0x06039998",
+      "jump_over_pc": "0x06039A9E",
+      "classification": "FUNCTION_POINTER_TABLE_DATA",
+      "false_instruction_pcs": [
+        "0x06039ABC",
+        "0x06039AC0",
+        "0x06039AC4",
+        "0x06039ACC"
+      ],
+      "targets": [
+        "0x0600B1E6",
+        "0x0601B488",
+        "0x0601B18C",
+        "0x00027000",
+        "0x0601B6EC",
+        "0x06037C6E",
+        "0x06038814",
+        "0x060380F0",
+        "0x06013924",
+        "0x060385F2",
+        "0x0600E380"
+      ],
+      "entries": [
+        {
+          "entry_pc": "0x06039AA8",
+          "target_address": "0x0600B1E6",
+          "consumer_pc": "0x06039998",
+          "is_false_bsrf": false
+        },
+        {
+          "entry_pc": "0x06039AAC",
+          "target_address": "0x0601B488",
+          "consumer_pc": "0x060399A0",
+          "is_false_bsrf": false
+        },
+        {
+          "entry_pc": "0x06039AB0",
+          "target_address": "0x0601B18C",
+          "consumer_pc": "0x060399AA",
+          "is_false_bsrf": false
+        },
+        {
+          "entry_pc": "0x06039AB4",
+          "target_address": "0x00027000",
+          "consumer_pc": "0x060399C8",
+          "is_false_bsrf": false
+        },
+        {
+          "entry_pc": "0x06039AB8",
+          "target_address": "0x0601B6EC",
+          "consumer_pc": "0x060399DC",
+          "is_false_bsrf": false
+        },
+        {
+          "entry_pc": "0x06039ABC",
+          "target_address": "0x06037C6E",
+          "consumer_pc": "0x060399E4",
+          "is_false_bsrf": true
+        },
+        {
+          "entry_pc": "0x06039AC0",
+          "target_address": "0x06038814",
+          "consumer_pc": "0x060399EE",
+          "is_false_bsrf": true
+        },
+        {
+          "entry_pc": "0x06039AC4",
+          "target_address": "0x060380F0",
+          "consumer_pc": "0x060399F8",
+          "is_false_bsrf": true
+        },
+        {
+          "entry_pc": "0x06039AC8",
+          "target_address": "0x06013924",
+          "consumer_pc": "0x06039A38",
+          "is_false_bsrf": false
+        },
+        {
+          "entry_pc": "0x06039ACC",
+          "target_address": "0x060385F2",
+          "consumer_pc": "0x06039A5C",
+          "is_false_bsrf": true
+        },
+        {
+          "entry_pc": "0x06039AD0",
+          "target_address": "0x0600E380",
+          "consumer_pc": "0x06039A68",
+          "is_false_bsrf": false
+        }
+      ]
+    },
+    {
+      "table_id": "TABLE_06039BB0",
+      "table_start": "0x06039BB0",
+      "table_end": "0x06039BCC",
+      "entry_width": 4,
+      "entry_count": 7,
+      "consumer_pc": "0x06039AD8",
+      "jump_over_pc": "0x06039BA6",
+      "classification": "FUNCTION_POINTER_TABLE_DATA",
+      "false_instruction_pcs": [
+        "0x06039BB8",
+        "0x06039BC8"
+      ],
+      "targets": [
+        "0x0600B1E6",
+        "0x0601B1BA",
+        "0x06037C6E",
+        "0x06018998",
+        "0x0608585C",
+        "0x0601BF98",
+        "0x06038290"
+      ],
+      "entries": [
+        {
+          "entry_pc": "0x06039BB0",
+          "target_address": "0x0600B1E6",
+          "consumer_pc": "0x06039AD8",
+          "is_false_bsrf": false
+        },
+        {
+          "entry_pc": "0x06039BB4",
+          "target_address": "0x0601B1BA",
+          "consumer_pc": "0x06039AE0",
+          "is_false_bsrf": false
+        },
+        {
+          "entry_pc": "0x06039BB8",
+          "target_address": "0x06037C6E",
+          "consumer_pc": "0x06039AFA",
+          "is_false_bsrf": true
+        },
+        {
+          "entry_pc": "0x06039BBC",
+          "target_address": "0x06018998",
+          "consumer_pc": "0x06039B0C",
+          "is_false_bsrf": false
+        },
+        {
+          "entry_pc": "0x06039BC0",
+          "target_address": "0x0608585C",
+          "consumer_pc": "0x06039B58",
+          "is_false_bsrf": false
+        },
+        {
+          "entry_pc": "0x06039BC4",
+          "target_address": "0x0601BF98",
+          "consumer_pc": "0x06039B54",
+          "is_false_bsrf": false
+        },
+        {
+          "entry_pc": "0x06039BC8",
+          "target_address": "0x06038290",
+          "consumer_pc": "0x06039B70",
+          "is_false_bsrf": true
+        }
+      ]
+    },
+    {
+      "table_id": "TABLE_06039EE8",
+      "table_start": "0x06039EE8",
+      "table_end": "0x06039F00",
+      "entry_width": 4,
+      "entry_count": 6,
+      "consumer_pc": "0x06039DF0",
+      "jump_over_pc": "0x06039EE0",
+      "classification": "FUNCTION_POINTER_TABLE_DATA",
+      "false_instruction_pcs": [
+        "0x06039EEC"
+      ],
+      "targets": [
+        "0x0600B1E6",
+        "0x06037C6E",
+        "0x00200000",
+        "0x0608585C",
+        "0x0601BF98",
+        "0x0601B5C6"
+      ],
+      "entries": [
+        {
+          "entry_pc": "0x06039EE8",
+          "target_address": "0x0600B1E6",
+          "consumer_pc": "0x06039DF0",
+          "is_false_bsrf": false
+        },
+        {
+          "entry_pc": "0x06039EEC",
+          "target_address": "0x06037C6E",
+          "consumer_pc": "0x06039DFC",
+          "is_false_bsrf": true
+        },
+        {
+          "entry_pc": "0x06039EF0",
+          "target_address": "0x00200000",
+          "consumer_pc": "0x06039E06",
+          "is_false_bsrf": false
+        },
+        {
+          "entry_pc": "0x06039EF4",
+          "target_address": "0x0608585C",
+          "consumer_pc": "0x06039E08",
+          "is_false_bsrf": false
+        },
+        {
+          "entry_pc": "0x06039EF8",
+          "target_address": "0x0601BF98",
+          "consumer_pc": "0x06039E0A",
+          "is_false_bsrf": false
+        },
+        {
+          "entry_pc": "0x06039EFC",
+          "target_address": "0x0601B5C6",
+          "consumer_pc": "0x06039E30",
+          "is_false_bsrf": false
+        }
+      ]
+    }
+  ]
+}

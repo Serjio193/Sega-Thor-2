@@ -1,14 +1,14 @@
 {
-  "total_gaps_audited": 7419,
+  "total_gaps_audited": 7384,
   "state_counts": {
-    "CONFIRMED_CODE": 3252,
-    "UNKNOWN": 1543,
-    "PROVEN_DATA": 2251,
+    "CONFIRMED_CODE": 3232,
+    "UNKNOWN": 1530,
+    "PROVEN_DATA": 2249,
     "PROVEN_PADDING": 373
   },
   "residual_undecoded_gaps_before": 1595,
-  "residual_undecoded_gaps_after": 1543,
-  "gap_reduction_from_p7": 52,
-  "newly_confirmed_code_segments": 92,
-  "proven_targets_injected": 2083
+  "residual_undecoded_gaps_after": 1530,
+  "gap_reduction_from_p7": 65,
+  "newly_confirmed_code_segments": 72,
+  "proven_targets_injected": 915
 }

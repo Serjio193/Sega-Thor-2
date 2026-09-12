@@ -237,22 +237,20 @@ These public labels/semantics remain revision hints until independently behavior
 ## Procedure Register Provenance & Full Indirect Control-Flow Closure (T2-ASM-08)
 
 ### 1. Final 43 Call/Jump Resolution
-- **36 Residual JSR Sites**: Traced to function prologue loads of callee-saved registers (`R9`..`R13`) preserved across intermediate subroutine calls.
-- **7 Residual BSRF Sites**: Proved to be 32-bit function pointer table entries in literal data pools (`0x0603xxxx`) whose high 16 bits `0x0603` was initially misidentified as opcode `BSRF R6`. All 7 point to valid function entries (`0x06037C6E`, `0x06038814`, `0x060380F0`, `0x060385F2`, `0x06038290`).
-- **Resolution**: `INDIRECT_CALL_JUMP` reached **100.00%** resolution (1,595 / 1,595).
+- **36 Residual JSR Sites**: Verified directly from raw binary bytes via forward reaching-definitions dataflow with SH-2 branch delay slots; proven invariant single targets with zero clobbers.
+- **7 Pointer-Table BSRF Decodes Removed**: Proved that the 7 sites (`0x06039ABC`, `0x06039AC0`, `0x06039AC4`, `0x06039ACC`, `0x06039BB8`, `0x06039BC8`, `0x06039EEC`) are data halfwords `0x0603` representing the high 16 bits of 32-bit function pointers in 3 literal pointer tables (`TABLE_06039AA8`, `TABLE_06039BB0`, `TABLE_06039EE8`). Reclassified as `FUNCTION_POINTER_TABLE_DATA`, correcting canonical indirect denominator to **2,226** and canonical BSRF count to **0**.
+- **Resolution**: `INDIRECT_CALL_JUMP` reached **100.00%** resolution (1,588 / 1,588).
 
 ### 2. PR Lifecycle & Return Domains
-- **Leaf Subroutines (160 sites)**: No internal subroutine calls; `PR` is untouched and retains caller return address (`caller_pc + 4`).
-- **Stack-Frame Subroutines (478 sites)**: `PR` is saved on entry via `STS.L PR, @-R15` and reloaded before return via `LDS.L @R15+, PR`. Stack frame balance verified across 100% of frame subroutines.
-- **Caller Return Domains**: Bounded return target domain for each RTS site mapped to the finite incoming callers of its enclosing function:
-  $$\text{ReturnDomain}(RTS) = \{ \text{caller\_pc} + 4 \mid \text{caller} \in \text{Callers}(\text{enclosing\_function}) \}$$
-- **Resolution**: `RETURN_FLOW (RTS)` reached **100.00%** resolution (638 / 638).
+- **Path-Sensitive Symbolic Tracking**: Modeled exact $R15$ delta, exact slot $S-4$ spill/reload pairing, and leaf zero PR-write checks across all 638 RTS sites.
+- **Audited Caller Domains (Zero Placeholders)**: Disallowed synthetic `CALLERS_OF_*` placeholders. Enforced that an RTS is certified resolved only when incoming callers are bounded concrete static call sites and the function has no open address-taken references.
+- **Resolution**: Certified **217 / 638 RTS sites** (34.01%) as `RESOLVED_FINITE_SET`, while honestly retaining 421 sites with open/unmodeled caller domains as `UNRESOLVED`.
 
 ### 3. Whole-Module Executable Byte Carving
-- Injected 2,083 proven indirect targets into the SH-2 CFG worklist.
-- Partitioned all 4 modules (`0TH2.BIN`, `TH2.LOW`, `SET07.BIN`, `BGM.BIN`) into `CONFIRMED_CODE`, `PROVEN_DATA`, `PROVEN_PADDING`, and `UNKNOWN`.
-- Reduced executable UNKNOWN bytes by **-67,432 bytes** (from 1,251,863 baseline down to 1,184,431).
-- Expanded confirmed code bytes to 157,530 bytes (+62,108 bytes).
+- Injected only audited JSR targets and certified RTS return domains; protected literal pointer tables as data.
+- Retracted 1,292 invalid code bytes from pre-audit overpromotion back to UNKNOWN/DATA.
+- Reduced executable UNKNOWN bytes by **-66,203 bytes** (from 1,251,863 baseline down to 1,185,660).
+- Confirmed code bytes established at 156,238 bytes across all modules.
 
 ## Record template
 

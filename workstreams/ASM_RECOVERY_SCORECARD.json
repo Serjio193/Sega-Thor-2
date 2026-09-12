@@ -6,7 +6,7 @@
   "active_milestone": "ASM-First Recovery Track (docs/DEVELOPMENT_PLAN.md, ADR D-015, T2-ASM-CARVER-02 / T2-ASM-08)",
   "overall_status": "IN_PROGRESS",
   "active_task": "T2-ASM-08",
-  "audit_note": "T2-ASM-08 audit: Return address provenance, final indirect dispatch closure, and FULL_ASM_GAME_GATE push. Total indirect sites: 2233. Resolved: 2233 (1595 call/jump [100.00%], 638 RTS [100.00%]). Unresolved: 0 (0 call/jump, 0 RTS). 48 negative controls passing 100%. Executable unknown bytes reduced by -67,432 bytes (from 1,251,863 baseline down to 1,184,431). FULL_ASM_GAME_GATE honestly maintained as NOT_YET_REPROVEN pending whole-binary source reassembly.",
+  "audit_note": "T2-ASM-08 audit: Return address provenance, final indirect dispatch closure, and FULL_ASM_GAME_GATE push. Removal of 7 false-positive BSRF halfwords in pointer tables (canonical denominator: 2,226). Resolved: 1,805 (1,588 call/jump [100.00%], 217 RTS [34.01%]). Unresolved: 421 (0 call/jump, 421 RTS). 50 negative controls passing 100%. Executable unknown bytes reduced by -66,203 bytes (1,292 invalid code bytes retracted and restored to unknown/data). FULL_ASM_GAME_GATE honestly maintained as NOT_YET_REPROVEN pending whole-binary source reassembly and residual RTS resolution.",
   "tracks": {
     "ASM_DISCOVERY": "COMPLETE",
     "ASM_CODE_RECOVERY": "IN_PROGRESS",
@@ -27,7 +27,7 @@
     "FULL_ASM_GAME_GATE": {
       "status": "NOT_YET_REPROVEN",
       "requirement": "Zero unresolved control-flow unknowns, byte-exact module reassembly, canonical disc SHA-256 parity, and clean Mednafen zero-divergence gameplay",
-      "details": "All 4 modules byte-exact, full disc fe11d2fb bit-identical, Mednafen zero divergence across 6 gameplay scenarios. Indirect sites 100% resolved (2,233 / 2,233; 1,595 call/jump [100.0%], 638 RTS [100.0%]). Executable unknown bytes reduced by -67,432 bytes down to 1,184,431. Gate held honestly at NOT_YET_REPROVEN pending complete whole-module source reassembly compiler pass."
+      "details": "All 4 modules byte-exact, full disc fe11d2fb bit-identical, Mednafen zero divergence across 6 gameplay scenarios. Canonical indirect sites 2,226 (7 pointer table false decodes removed). Resolved: 1,805 / 2,226 (1,588 / 1,588 call/jump [100.0%], 217 / 638 RTS [34.0%]). Honest unresolved: 421 RTS. Executable unknown bytes reduced by -66,203 bytes down to 1,185,660 (1,292 invalid code bytes retracted and restored to unknown/data). Gate held honestly at NOT_YET_REPROVEN pending complete whole-module source reassembly compiler pass and residual RTS resolution."
     },
     "STANDALONE_NATIVE_GATE": {
       "status": "FROZEN_BY_ASM_FIRST_ARCHITECTURE",
@@ -54,9 +54,11 @@
     },
     "full_gameplay_verified": true,
     "full_gameplay_status": "FULL_GAMEPLAY_SUITE_VERIFIED_ZERO_DIVERGENCE",
-    "indirect_sites_total": 2233,
-    "indirect_sites_resolved": 2233,
-    "indirect_sites_unresolved": 0,
+    "indirect_sites_historical_total": 2233,
+    "false_positive_sites_removed": 7,
+    "indirect_sites_total": 2226,
+    "indirect_sites_resolved": 1805,
+    "indirect_sites_unresolved": 421,
     "silent_evidence_demotions": 0
   },
   "modules": [

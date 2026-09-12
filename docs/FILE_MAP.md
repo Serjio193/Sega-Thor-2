@@ -154,11 +154,13 @@ tools/
     object_provenance_analyzer.py classifies object instances and tracks struct field layouts
     callback_field_analyzer.py    discovers field writers and callback dispatch tables
     struct_callback_resolver.py   master multi-pass resolver for struct callbacks and callee-saved literals
-    complete_cfg_closure.py       full CFG closure and gap reduction engine
     final_call_jump_analyzer.py   resolves final 43 CALL/JUMP indirect sites (36 JSR, 7 BSRF)
+    pointer_table_classifier.py   classifies contiguous function pointer tables and removes false-positive branch decodes
+    raw_byte_jsr_tracer.py        path-sensitive raw-byte forward dataflow tracer with delay slots for JSR calls
+    audited_call_graph_builder.py builds audited call graph, decomposes SCCs, and tracks address-taken functions
     pr_provenance_engine.py       SH-2 PR and return address provenance engine across 638 RTS sites
-    final_indirect_resolver.py    master synthesis resolver for 100% indirect control-flow closure
-    executable_byte_carver.py     whole-module byte carver and UNKNOWN byte reducer
+    final_indirect_resolver.py    master synthesis resolver for canonical indirect control-flow closure
+    executable_byte_carver.py     whole-module byte carver, retraction accounting, and UNKNOWN byte reducer
   carver/
     interval_db.py                canonical central interval database & execution conflict engine
     provenance_dag.py             provenance DAG & graph expansion engine
@@ -239,13 +241,13 @@ tests/
     test_bgm_asm.py               CTest integration test for full BGM.BIN M68K sound driver round-trip
     test_manifest_schema.py       CTest integration test for module manifest schema & partition invariants
     test_full_game_disc.py        CTest integration test for FULL_ASM_GAME_GATE rebuilt disc verification
-    test_recovery_gates.py        negative controls (48 total) & validation for recovery gates
+    test_recovery_gates.py        negative controls (50 total) & validation for recovery gates
     negative_controls_p5.py       8 adversarial negative controls (NC-Q..NC-X) for indirect flow integrity
     negative_controls_p6.py       8 adversarial negative controls (NC-Y..NC-AF) for struct callback integrity
-    negative_controls_p7.py       8 adversarial negative controls (NC-AG..NC-AN) for PR return provenance
+    negative_controls_p7.py       10 adversarial negative controls (NC-AG..NC-AP) for PR return provenance & tables
     test_indirect_resolution.py   unit tests for constant propagation, jump tables, call graph, and accounting
     test_struct_callback_resolution.py unit tests for struct callbacks, object provenance, and accounting
-    test_return_provenance.py     unit tests for PR return provenance, 100% indirect closure, and byte carving
+    test_return_provenance.py     unit tests for PR return provenance, canonical denominator, and byte carving
   carver/
     test_carver_pipeline.py       carver pipeline, interval algebra, conflict, and determinism test suite
 
@@ -393,11 +395,15 @@ workstreams/
     struct_callback_scorecard.json master scorecard (1,686 resolved, 547 unresolved; 97.30% call/jump resolution)
     cfg_closure.json              CFG closure telemetry (+114 confirmed code segments, 546 injected targets)
   T2-ASM-08/
+    false_decode_pointer_tables.json 3 literal pointer tables reclassified as data (7 false BSRF sites removed)
+    raw_byte_jsr_proofs.json      36 raw-byte reaching definitions JSR dataflow proofs with zero clobbers
+    audited_call_graph.json       audited call graph with SCCs and address-taken tracking (11,648 edges)
     final_call_jump_sites.json    complete analysis of residual 43 Call/Jump sites (36 JSR, 7 BSRF table entries)
+    rts_completeness_certificates.json machine-readable RTS certificates enforcing PR and caller contracts
     pr_provenance.json            architectural PR lifecycle and caller return domains across all 638 RTS sites
-    final_indirect_scorecard.json 100.0% master indirect scorecard (2,233 / 2,233 resolved; 0 unresolved)
-    cfg_closure.json              CFG closure telemetry (2,083 targets injected, +92 confirmed code segments)
-    executable_byte_partition.json whole-module interval partition (-67,432 bytes UNKNOWN reduction)
+    final_indirect_scorecard.json canonical master indirect scorecard (2,226 canonical denominator; 1,805 resolved)
+    cfg_closure.json              CFG closure telemetry (915 targets injected, +72 confirmed code segments)
+    executable_byte_partition.json whole-module interval partition (-66,203 bytes UNKNOWN, 1,292 bytes retracted)
 
 
 asm/                              assembly reconstruction layout (ADR D-015)

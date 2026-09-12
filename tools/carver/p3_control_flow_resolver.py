@@ -79,29 +79,19 @@ class P3ControlFlowResolver:
         diff = json.loads(diff_path.read_text(encoding="utf-8"))
         self.guarded_data: Dict[str, Set[int]] = {}
         self.guarded_pad: Dict[str, Set[int]] = {}
+        for mod, ivs in self.db.intervals.items():
+            for iv in ivs:
+                tgt = self.guarded_data if iv.classification == "DATA" else (self.guarded_pad if iv.classification == "PADDING" else None)
+                if tgt is not None:
+                    tgt.setdefault(mod, set()).update(range(iv.offset_start, iv.offset_end_exclusive))
         for d in diff.get("decisions", []):
-            m = d["module"]
-            st = d.get("status")
-            cls = d.get("new_classification")
-            if st in ("CONFIRMED", "PROBABLE"):
-                rng = range(d["offset_start"], d["offset_end_exclusive"])
-                if cls == "DATA":
-                    self.guarded_data.setdefault(m, set()).update(rng)
-                elif cls == "PADDING":
-                    self.guarded_pad.setdefault(m, set()).update(rng)
+            if d.get("status") in ("CONFIRMED", "PROBABLE"):
+                tgt = self.guarded_data if d.get("new_classification") == "DATA" else (self.guarded_pad if d.get("new_classification") == "PADDING" else None)
+                if tgt is not None:
+                    tgt.setdefault(d["module"], set()).update(range(d["offset_start"], d["offset_end_exclusive"]))
 
     def _import_manifest(self, mf_name: str) -> None:
-        import subprocess
-        data = None
-        try:
-            res = subprocess.run(
-                ["git", "show", f"4a03b83bd3d8dfee02cd59c051b5bdd1ab832b3d:asm/manifests/{mf_name}"],
-                capture_output=True,
-                check=True,
-            )
-            data = json.loads(res.stdout.decode("utf-8"))
-        except Exception:
-            data = json.loads((self.manifest_dir / mf_name).read_text(encoding="utf-8"))
+        data = json.loads((self.manifest_dir / mf_name).read_text(encoding="utf-8-sig"))
 
         name = data["module"]
         size = data["module_size"]

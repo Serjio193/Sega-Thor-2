@@ -227,7 +227,12 @@ class TestCarverPipeline(unittest.TestCase):
         p3_path = REPO_ROOT / "workstreams" / "T2-ASM-CARVER" / "p3_control_flow_resolution.json"
         self.assertTrue(p3_path.exists())
         p3_data = json.loads(p3_path.read_text(encoding="utf-8"))
-        self.assertEqual(p3_data["unresolved_control_flow_unknown"], 0)
+        self.assertEqual(
+            p3_data["total_p3_gaps_audited"],
+            p3_data["total_resolved"] + p3_data["total_unresolved"],
+        )
+        self.assertEqual(p3_data["unresolved_control_flow_unknown"], p3_data["total_unresolved"])
+        self.assertEqual(p3_data["total_blocked"], 0)
         self.assertGreater(p3_data["total_p3_gaps_audited"], 0)
 
     def test_12_carver_integrity_diff_reconciliation(self) -> None:

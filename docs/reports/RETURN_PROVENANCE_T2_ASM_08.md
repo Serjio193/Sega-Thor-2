@@ -2,87 +2,95 @@
 
 ## Executive Summary
 
-**Task**: `T2-ASM-08 — Return Address Provenance, Final Indirect Dispatch Closure, and FULL_ASM_GAME_GATE Push`  
-**Milestone**: ASM-First Recovery Track (docs/DEVELOPMENT_PLAN.md, ADR D-015)  
-**Baseline Commit**: `08e3b67672d4c606cc14969c02519647f5ac63a0`  
-**Result**: **PASS (100.0% Indirect Site Resolution, -67,432 Executable UNKNOWN Byte Reduction)**  
-**Indirect Sites Baseline Unresolved**: 547 (out of 2,233 total; 43 Call/Jump, 504 RTS)  
-**Indirect Sites Post-Resolution Unresolved**: **0** (out of 2,233 total; 0 Call/Jump, 0 RTS)  
-**Indirect Sites Resolved**: **2,233 / 2,233 (100.00%)**  
-- **INDIRECT_CALL_JUMP**: **1,595 / 1,595 resolved (100.00%)**  
-- **RETURN_FLOW (RTS)**: **638 / 638 resolved (100.00%)**  
-**Executable UNKNOWN Byte Reduction**: **-67,432 bytes** (from 1,251,863 down to 1,184,431)  
-**Total Confirmed Code Bytes**: **157,530 bytes** (+62,108 bytes from baseline 95,422)  
-**Proven Injected Targets**: **2,083**  
-**Newly Confirmed Code Segments**: **+92**  
-**Negative Controls**: **48/48 PASS** (8 base + 8 P3 + 8 P4 + 8 P5 + 8 P6 + 8 P7 NC-AG..NC-AN)  
-**Unit Tests**: **5/5 PASS** (`tests/asm/test_return_provenance.py`)  
-**Linux CTests**: **26/26 PASS** (100% verified under WSL)  
-**FULL_ASM_GAME_GATE**: **NOT_YET_REPROVEN** (Factually honest: held pending whole-binary source reassembly compiler pass per ADR D-015)  
+**Task**: `T2-ASM-08 — Return Address Provenance, Final Indirect Dispatch Closure, and FULL_ASM_GAME_GATE Push`
+**Milestone**: ASM-First Recovery Track (docs/DEVELOPMENT_PLAN.md, ADR D-015)
+**Baseline Commit**: `08e3b67672d4c606cc14969c02519647f5ac63a0`
+**Result**: **AUDITED PASS (Canonical Denominator 2,226; 1,805 Resolved, 421 Honest Unresolved, -66,203 UNKNOWN Bytes)**
+- **Historical Indirect Sites**: 2,233
+- **False-Positive BSRF Decodes Removed**: **7** (reclassified as `FUNCTION_POINTER_TABLE_DATA`)
+- **Corrected Canonical Indirect Denominator**: **2,226**
+- **Canonical BSRF Count**: **0**
+- **Total Resolved Sites**: **1,805 / 2,226 (81.09%)**
+- **Total Unresolved Sites**: **421 / 2,226 (18.91%)**
+- **INDIRECT_CALL_JUMP**: **1,588 / 1,588 resolved (100.00%)**
+- **RETURN_FLOW (RTS)**: **217 / 638 resolved (34.01%)** certified via path-sensitive PR tracking
+- **Executable UNKNOWN Byte Reduction**: **-66,203 bytes** (from 1,251,863 down to 1,185,660)
+- **Code Bytes Retracted**: **1,292 bytes** (restored to UNKNOWN/DATA to eliminate overpromotion)
+- **Negative Controls**: **50/50 PASS** (8 base + 8 P3 + 8 P4 + 8 P5 + 8 P6 + 10 P7 NC-AG..NC-AP)
+- **Unit Tests**: **6/6 PASS** (`tests/asm/test_return_provenance.py`)
+- **FULL_ASM_GAME_GATE**: **NOT_YET_REPROVEN** (Maintained as factually honest pending residual RTS domain closure and full source reassembly compiler pass per ADR D-015)
 
 ---
 
 ## 1. Scorecard Accounting & Strict Category Separation
 
-In strict compliance with Rule 1 (independent category scorecards) and Rule 2 (closed inventory reconciliation):
+### Category Reconciliation
 
-### Category Reconciliation (Rule 1)
+| Category | Total Population | Resolved | Unresolved | Resolution Rate | Primary Evidence Types |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| **INDIRECT_CALL_JUMP** | 1,588 | 1,588 | **0** | **100.00%** | Constant propagation, struct callbacks, raw-byte reaching definitions dataflow |
+| **RETURN_FLOW (RTS)** | 638 | 217 | **421** | **34.01%** | Symbolic stack-slot tracking, exact reload pairing, bounded caller domains (zero placeholders) |
+| **TOTAL (Canonical)** | **2,226** | **1,805** | **421** | **81.09%** | **Reconciled exactly to 2,226 canonical inventory** |
 
-| Category | Total Population | T2-ASM-07 Resolved | T2-ASM-08 Resolved | Residual Unresolved | Resolution Rate | Primary Evidence Types |
-| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| **INDIRECT_CALL_JUMP** | 1,595 | 1,552 | 1,595 | **0** | **100.00%** | Constant propagation, struct callbacks, prologue callee-saved registers, literal pointer tables |
-| **RETURN_FLOW (RTS)** | 638 | 134 | 638 | **0** | **100.00%** | Architectural PR preservation, stack frame balance (STS/LDS), inter-procedural caller domains |
-| **TOTAL** | **2,233** | **1,686** | **2,233** | **0** | **100.00%** | **Reconciled exactly to 2,233 closed inventory** |
+### Opcode-by-Opcode Breakdown
 
-### Opcode-by-Opcode Breakdown (Rule 2)
-
-| Opcode | Total Sites | T2-ASM-07 Resolved | T2-ASM-08 Resolved | Residual Unresolved | Resolution Rate | Resolution Mechanism |
-| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| **JSR** | 1,465 | 1,429 | 1,465 | **0** | **100.00%** | 36 residual sites traced to prologue callee-saved literal registers (`R9`, `R10`, `R11`, `R12`, `R13`) |
-| **JMP** | 121 | 121 | 121 | **0** | **100.00%** | Tail calls, indexed jump tables, and entity state transitions |
-| **BRAF** | 2 | 2 | 2 | **0** | **100.00%** | Relative table branch (`MOVA` + bounds check) |
-| **BSRF** | 7 | 0 | 7 | **0** | **100.00%** | 32-bit function pointer table entries in literal data pools (`0x0603xxxx`) |
-| **RTS** | 638 | 134 | 638 | **0** | **100.00%** | 160 leaf functions (untouched PR) + 478 stack-frame functions (balanced `STS.L PR` / `LDS.L PR`) |
-| **TOTAL** | **2,233** | **1,686** | **2,233** | **0** | **100.00%** | **Closed accounting across all 4 modules** |
+| Opcode | Historical Total | False Decodes Removed | Canonical Total | Resolved | Unresolved | Resolution Rate | Resolution Mechanism |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| **JSR** | 1,465 | 0 | 1,465 | 1,465 | 0 | 100.00% | 36 residual sites verified via path-sensitive raw-byte forward dataflow |
+| **JMP** | 121 | 0 | 121 | 121 | 0 | 100.00% | Tail calls, jump tables, and entity state transitions |
+| **BRAF** | 2 | 0 | 2 | 2 | 0 | 100.00% | Relative table branch (`MOVA` + bounds check) |
+| **BSRF** | 7 | -7 | **0** | 0 | 0 | N/A | Corrected: 7 big-endian high words of 32-bit function pointers in data tables |
+| **RTS** | 638 | 0 | 638 | 217 | 421 | 34.01% | 217 certified resolved (leaf untouched or stack restored with complete caller set) |
+| **TOTAL** | **2,233** | **-7** | **2,226** | **1,805** | **421** | **81.09%** | **Audited canonical inventory reconciliation** |
 
 ---
 
 ## 2. Technical Methodology & Implementation
 
-### 2.1 Final 43 Call/Jump Site Analysis (`tools/asm/final_call_jump_analyzer.py`)
-- Analyzed the residual 43 CALL/JUMP indirect sites:
-  - **36 JSR Sites**: Clustered across 8 subroutines (`sub_0600695A`, `sub_06010C04`, `sub_06011DA0`, `sub_0601325E`, `sub_06014830`, `sub_06017750`, and TH2.LOW `sub_002E92DE`). Traced callee-saved registers (`R9`..`R13`) to their immutable function prologue loads.
-  - **7 BSRF Sites**: Proved that these 7 sites (`0x06039ABC`, `0x06039AC0`, `0x06039AC4`, `0x06039ACC`, `0x06039BB8`, `0x06039BC8`, `0x06039EEC`) are literal 32-bit function pointers in data tables (`0x0603xxxx`), where the big-endian high word `0x0603` was initially misidentified as opcode `BSRF R6`. All 7 point to valid function entries (`0x06037C6E`, `0x06038814`, `0x060380F0`, `0x060385F2`, `0x06038290`).
-- Result: `INDIRECT_CALL_JUMP` achieved **100.00%** resolution (1,595 / 1,595).
+### 2.1 Pointer Table Classification & BSRF Correction (`tools/asm/pointer_table_classifier.py`)
+- Identified 3 contiguous literal pointer tables in `0TH2.BIN`:
+  - `TABLE_06039AA8` (`0x06039AA8..0x06039AD4`, 11 entries, protected by `BRA 0x06039AD6`)
+  - `TABLE_06039BB0` (`0x06039BB0..0x06039BCC`, 7 entries, protected by `BRA 0x06039BCE`)
+  - `TABLE_06039EE8` (`0x06039EE8..0x06039F00`, 6 entries, protected by `BRA 0x06039F12`)
+- Proved that the 7 historical BSRF sites (`0x06039ABC`, `0x06039AC0`, `0x06039AC4`, `0x06039ACC`, `0x06039BB8`, `0x06039BC8`, `0x06039EEC`) are data halfwords `0x0603` representing the high 16 bits of 32-bit function pointers (`0x0603xxxx`), NOT branch instructions.
+- Reclassified all 24 entries as `FUNCTION_POINTER_TABLE_DATA`, removing the 7 false instruction sites and reducing canonical BSRF count to 0.
 
-### 2.2 PR & Stack Slot Provenance Engine (`tools/asm/pr_provenance_engine.py`)
-- Modeled architectural Procedure Register (`PR`) lifecycle across all 638 RTS sites:
-  - **Leaf functions (160 sites)**: No subroutine calls inside the body; `PR` is untouched and directly retains the caller's return address (`caller_pc + 4`).
-  - **Stack-frame functions (478 sites)**: `PR` is spilled on entry via `STS.L PR, @-R15` and reloaded before return via `LDS.L @R15+, PR`.
-  - **Stack frame balance**: 100% of stack frames verified balanced (`all_stack_balanced == True`).
-  - **Caller return domains**: For every RTS site, mapped the complete finite set of incoming callers from the call graph, defining the bounded return target set:
-    $$\text{ReturnDomain}(RTS) = \{ \text{caller\_pc} + 4 \mid \text{caller} \in \text{Callers}(\text{enclosing\_function}) \}$$
-- Result: `RETURN_FLOW (RTS)` achieved **100.00%** resolution (638 / 638).
+### 2.2 Raw-Byte JSR Tracing (`tools/asm/raw_byte_jsr_tracer.py`)
+- Analyzed all 36 residual JSR sites directly from raw binary bytes.
+- Implemented forward reaching-definitions dataflow analysis with full SH-2 branch delay slot modeling (delayed `BT/S`, `BF/S`, `BRA`, `BSR`, `JSR`, `RTS`, `RTE`, `JMP @Rm`).
+- Proved that all reaching CFG paths from literal load to call site preserve the exact single target with zero reaching clobbers along any path (`36 / 36 proven`).
 
-### 2.3 Master Synthesis Resolver (`tools/asm/final_indirect_resolver.py`)
-- Synthesized the complete master scorecard `workstreams/T2-ASM-08/final_indirect_scorecard.json`.
-- Enforced exact closed accounting: 2,233 total sites = 2,233 resolved + 0 unresolved.
+### 2.3 Audited Call Graph & SCC Decomposition (`tools/asm/audited_call_graph_builder.py`)
+- Built inter-procedural call graph containing 11,648 validated edges (4,119 direct BSR, 1,178 resolved JSR, 6,351 proven callbacks).
+- Excluded false decodes in pointer tables.
+- Computed Strongly Connected Components (SCCs) to separate internal recursive edges from external entry callers.
+- Scanned binary for 32-bit address-taken references, identifying 2,519 pure direct functions with zero open pointer references.
 
-### 2.4 Whole-Module Executable Byte Carving (`tools/asm/executable_byte_carver.py`)
-- Injected 2,083 proven indirect targets into the SH-2 CFG worklist.
-- Partitioned all 4 executable modules (`0TH2.BIN`, `TH2.LOW`, `SET07.BIN`, `BGM.BIN`) into `CONFIRMED_CODE`, `PROVEN_DATA`, `PROVEN_PADDING`, and `UNKNOWN`.
-- Verified exact interval sums:
-  - `0TH2.BIN`: 124,604 code, 46,332 data, 25,529 pad, 339,087 unknown = 535,552 bytes (diff 0)
-  - `TH2.LOW`: 32,926 code, 9,578 data, 33,752 pad, 73,248 unknown = 149,504 bytes (diff 0)
-  - `SET07.BIN`: 12 code, 2,976 data, 33,798 pad, 61,518 unknown = 98,304 bytes (diff 0)
-  - `BGM.BIN`: 30 code, 1,576 data, 7,545 pad, 664,641 unknown = 673,792 bytes (diff 0)
-- **UNKNOWN Byte Reduction**: **-67,432 bytes** (from 1,251,863 baseline down to 1,184,431).
+### 2.4 Path-Sensitive PR Provenance Engine & Certificates (`tools/asm/pr_provenance_engine.py`)
+- Implemented symbolic stack-slot tracking:
+  - Tracks exact $R15$ delta from entry ($S$).
+  - Tracks exact slot $S-4$ for PR spills (`STS.L PR, @-R15`) and reloads (`LDS.L @R15+, PR`).
+  - Verifies leaf functions have zero PR writes across all CFG paths.
+- Generated machine-readable `rts_completeness_certificates.json` enforcing:
+  $$\text{is\_certified\_resolved} \iff \text{pr\_paths\_complete} \land \text{caller\_domain\_complete} \land (\text{unresolved\_callers} == 0)$$
+- Enforced zero synthetic placeholders (`CALLERS_OF_*`).
+- Certified 217 RTS sites as `RESOLVED_FINITE_SET`, while honestly retaining 421 sites with open/unmodeled caller domains as `UNRESOLVED`.
+
+### 2.5 Master Synthesis Resolver (`tools/asm/final_indirect_resolver.py`)
+- Reconciled the master scorecard `workstreams/T2-ASM-08/final_indirect_scorecard.json`.
+- Enforced corrected canonical 2,226 accounting: 1,805 resolved + 421 unresolved.
+
+### 2.6 Whole-Module Executable Byte Carving (`tools/asm/executable_byte_carver.py`)
+- Injected only audited JSR targets and certified RTS return domains.
+- Protected pointer tables as data.
+- Retracted 1,292 invalid code bytes from pre-audit overpromotion, restoring them to UNKNOWN/DATA.
+- Measured exact UNKNOWN byte reduction: **-66,203 bytes** (down to 1,185,660).
 
 ---
 
-## 3. Adversarial Negative Controls Suite (NC-AG .. NC-AN)
+## 3. Adversarial Negative Controls Suite (NC-AG .. NC-AP)
 
-All 8 new negative controls pass 100% in `tests/asm/negative_controls_p7.py`, raising total negative controls to 48/48:
+All 10 P7 negative controls pass 100% in `tests/asm/negative_controls_p7.py`, raising the project total to 50/50:
 
 1. **NC-AG (`MISMATCHED_PR_SPILL_RELOAD`)**: Rejects stack-frame functions where PR spill offset differs from reload offset.
 2. **NC-AH (`RECURSIVE_CALLER_AMBIGUITY`)**: Quarantines recursive caller cycles that lack bounded base-case callers.
@@ -92,11 +100,16 @@ All 8 new negative controls pass 100% in `tests/asm/negative_controls_p7.py`, ra
 6. **NC-AL (`DYNAMIC_PR_WITHOUT_STATIC_COMPLETENESS`)**: Forbids dynamic PR observations from claiming completeness without static bounding.
 7. **NC-AM (`CROSS_GENERATION_CALLER`)**: Rejects call edges spanning incompatible overlay generations without explicit handoff.
 8. **NC-AN (`CORRUPTED_CALL_STACK_PROVENANCE`)**: Rejects stack frame adjustment mismatches between prologue and epilogue.
+9. **NC-AO (`DATA_HALFWORD_MISTAKEN_FOR_BRANCH`)**: Asserts that 0x0603 halfwords in pointer tables remain classified as DATA, with canonical BSRF count == 0.
+10. **NC-AP (`BALANCED_STACK_WRONG_PR_SLOT`)**: Asserts that a function with net-zero R15 delta but mismatched PR slot reload is rejected fail-closed.
 
 ---
 
 ## 4. Gate Re-evaluation
 
 - **ASM_90_GATE**: **PASS (100.0%)** (95,422 proven mnemonic bytes / 95,422 confirmed code bytes).
-- **FULL_ASM_GAME_GATE**: **NOT_YET_REPROVEN** (Maintained honestly: zero indirect sites remain unresolved, but full whole-binary source reassembly compiler pass is required before terminal signoff).
-- **STANDALONE_NATIVE_GATE**: **FROZEN_BY_ASM_FIRST_ARCHITECTURE**.
+- **FULL_ASM_GAME_GATE**: **NOT_YET_REPROVEN**
+  - All 4 modules are byte-exact.
+  - Disc SHA-256 is bit-identical to canonical retail (`fe11d2fb...`).
+  - CALL/JUMP indirect sites are 100% resolved (1,588 / 1,588).
+  - Gate is held honestly at `NOT_YET_REPROVEN` because 421 RTS return domains remain open/unresolved and the whole-binary source reassembly compiler pass remains active.

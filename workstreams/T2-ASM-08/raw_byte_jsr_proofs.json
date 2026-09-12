@@ -1,0 +1,512 @@
+{
+  "total_analyzed": 36,
+  "resolved_count": 36,
+  "unresolved_count": 0,
+  "all_paths_proven": true,
+  "proofs": [
+    {
+      "site_pc": "0x06006BBC",
+      "module": "0TH2.BIN",
+      "target_register": "R9",
+      "literal_load_pc": "0x060069B4",
+      "literal_address": "0x06006AD8",
+      "literal_value": "0x0601813A",
+      "reaching_definitions": [
+        "0x0601813A"
+      ],
+      "clobber_sites": [],
+      "all_paths_same_definition": true,
+      "final_status": "RESOLVED_EXACT_SINGLE"
+    },
+    {
+      "site_pc": "0x06006C12",
+      "module": "0TH2.BIN",
+      "target_register": "R9",
+      "literal_load_pc": "0x060069B4",
+      "literal_address": "0x06006AD8",
+      "literal_value": "0x0601813A",
+      "reaching_definitions": [
+        "0x0601813A"
+      ],
+      "clobber_sites": [],
+      "all_paths_same_definition": true,
+      "final_status": "RESOLVED_EXACT_SINGLE"
+    },
+    {
+      "site_pc": "0x06006C34",
+      "module": "0TH2.BIN",
+      "target_register": "R9",
+      "literal_load_pc": "0x060069B4",
+      "literal_address": "0x06006AD8",
+      "literal_value": "0x0601813A",
+      "reaching_definitions": [
+        "0x0601813A"
+      ],
+      "clobber_sites": [],
+      "all_paths_same_definition": true,
+      "final_status": "RESOLVED_EXACT_SINGLE"
+    },
+    {
+      "site_pc": "0x06010D70",
+      "module": "0TH2.BIN",
+      "target_register": "R13",
+      "literal_load_pc": "0x06010D2C",
+      "literal_address": "0x06010E20",
+      "literal_value": "0x06013924",
+      "reaching_definitions": [
+        "0x06013924"
+      ],
+      "clobber_sites": [],
+      "all_paths_same_definition": true,
+      "final_status": "RESOLVED_EXACT_SINGLE"
+    },
+    {
+      "site_pc": "0x06010D9A",
+      "module": "0TH2.BIN",
+      "target_register": "R13",
+      "literal_load_pc": "0x06010D2C",
+      "literal_address": "0x06010E20",
+      "literal_value": "0x06013924",
+      "reaching_definitions": [
+        "0x06013924"
+      ],
+      "clobber_sites": [],
+      "all_paths_same_definition": true,
+      "final_status": "RESOLVED_EXACT_SINGLE"
+    },
+    {
+      "site_pc": "0x06010DBC",
+      "module": "0TH2.BIN",
+      "target_register": "R13",
+      "literal_load_pc": "0x06010D2C",
+      "literal_address": "0x06010E20",
+      "literal_value": "0x06013924",
+      "reaching_definitions": [
+        "0x06013924"
+      ],
+      "clobber_sites": [],
+      "all_paths_same_definition": true,
+      "final_status": "RESOLVED_EXACT_SINGLE"
+    },
+    {
+      "site_pc": "0x06011E68",
+      "module": "0TH2.BIN",
+      "target_register": "R13",
+      "literal_load_pc": "0x06011DA0",
+      "literal_address": "0x06011E0C",
+      "literal_value": "0x0600B204",
+      "reaching_definitions": [
+        "0x0600B204"
+      ],
+      "clobber_sites": [],
+      "all_paths_same_definition": true,
+      "final_status": "RESOLVED_EXACT_SINGLE"
+    },
+    {
+      "site_pc": "0x06011FB0",
+      "module": "0TH2.BIN",
+      "target_register": "R13",
+      "literal_load_pc": "0x06011DA0",
+      "literal_address": "0x06011E0C",
+      "literal_value": "0x0600B204",
+      "reaching_definitions": [
+        "0x0600B204"
+      ],
+      "clobber_sites": [],
+      "all_paths_same_definition": true,
+      "final_status": "RESOLVED_EXACT_SINGLE"
+    },
+    {
+      "site_pc": "0x06011FBC",
+      "module": "0TH2.BIN",
+      "target_register": "R13",
+      "literal_load_pc": "0x06011DA0",
+      "literal_address": "0x06011E0C",
+      "literal_value": "0x0600B204",
+      "reaching_definitions": [
+        "0x0600B204"
+      ],
+      "clobber_sites": [],
+      "all_paths_same_definition": true,
+      "final_status": "RESOLVED_EXACT_SINGLE"
+    },
+    {
+      "site_pc": "0x06011FC4",
+      "module": "0TH2.BIN",
+      "target_register": "R11",
+      "literal_load_pc": "0x06011EF0",
+      "literal_address": "0x06011F3C",
+      "literal_value": "0x06013924",
+      "reaching_definitions": [
+        "0x06013924"
+      ],
+      "clobber_sites": [],
+      "all_paths_same_definition": true,
+      "final_status": "RESOLVED_EXACT_SINGLE"
+    },
+    {
+      "site_pc": "0x06012002",
+      "module": "0TH2.BIN",
+      "target_register": "R13",
+      "literal_load_pc": "0x06011DA0",
+      "literal_address": "0x06011E0C",
+      "literal_value": "0x0600B204",
+      "reaching_definitions": [
+        "0x0600B204"
+      ],
+      "clobber_sites": [],
+      "all_paths_same_definition": true,
+      "final_status": "RESOLVED_EXACT_SINGLE"
+    },
+    {
+      "site_pc": "0x06012058",
+      "module": "0TH2.BIN",
+      "target_register": "R13",
+      "literal_load_pc": "0x06011DA0",
+      "literal_address": "0x06011E0C",
+      "literal_value": "0x0600B204",
+      "reaching_definitions": [
+        "0x0600B204"
+      ],
+      "clobber_sites": [],
+      "all_paths_same_definition": true,
+      "final_status": "RESOLVED_EXACT_SINGLE"
+    },
+    {
+      "site_pc": "0x0601206C",
+      "module": "0TH2.BIN",
+      "target_register": "R13",
+      "literal_load_pc": "0x06011DA0",
+      "literal_address": "0x06011E0C",
+      "literal_value": "0x0600B204",
+      "reaching_definitions": [
+        "0x0600B204"
+      ],
+      "clobber_sites": [],
+      "all_paths_same_definition": true,
+      "final_status": "RESOLVED_EXACT_SINGLE"
+    },
+    {
+      "site_pc": "0x06012086",
+      "module": "0TH2.BIN",
+      "target_register": "R13",
+      "literal_load_pc": "0x06011DA0",
+      "literal_address": "0x06011E0C",
+      "literal_value": "0x0600B204",
+      "reaching_definitions": [
+        "0x0600B204"
+      ],
+      "clobber_sites": [],
+      "all_paths_same_definition": true,
+      "final_status": "RESOLVED_EXACT_SINGLE"
+    },
+    {
+      "site_pc": "0x060120A0",
+      "module": "0TH2.BIN",
+      "target_register": "R13",
+      "literal_load_pc": "0x06011DA0",
+      "literal_address": "0x06011E0C",
+      "literal_value": "0x0600B204",
+      "reaching_definitions": [
+        "0x0600B204"
+      ],
+      "clobber_sites": [],
+      "all_paths_same_definition": true,
+      "final_status": "RESOLVED_EXACT_SINGLE"
+    },
+    {
+      "site_pc": "0x060134B4",
+      "module": "0TH2.BIN",
+      "target_register": "R12",
+      "literal_load_pc": "0x0601325E",
+      "literal_address": "0x06013298",
+      "literal_value": "0x0600B204",
+      "reaching_definitions": [
+        "0x0600B204"
+      ],
+      "clobber_sites": [],
+      "all_paths_same_definition": true,
+      "final_status": "RESOLVED_EXACT_SINGLE"
+    },
+    {
+      "site_pc": "0x060134D8",
+      "module": "0TH2.BIN",
+      "target_register": "R12",
+      "literal_load_pc": "0x0601325E",
+      "literal_address": "0x06013298",
+      "literal_value": "0x0600B204",
+      "reaching_definitions": [
+        "0x0600B204"
+      ],
+      "clobber_sites": [],
+      "all_paths_same_definition": true,
+      "final_status": "RESOLVED_EXACT_SINGLE"
+    },
+    {
+      "site_pc": "0x060134F4",
+      "module": "0TH2.BIN",
+      "target_register": "R11",
+      "literal_load_pc": "0x0601342E",
+      "literal_address": "0x0601349C",
+      "literal_value": "0x06004076",
+      "reaching_definitions": [
+        "0x06004076"
+      ],
+      "clobber_sites": [],
+      "all_paths_same_definition": true,
+      "final_status": "RESOLVED_EXACT_SINGLE"
+    },
+    {
+      "site_pc": "0x06013504",
+      "module": "0TH2.BIN",
+      "target_register": "R11",
+      "literal_load_pc": "0x0601342E",
+      "literal_address": "0x0601349C",
+      "literal_value": "0x06004076",
+      "reaching_definitions": [
+        "0x06004076"
+      ],
+      "clobber_sites": [],
+      "all_paths_same_definition": true,
+      "final_status": "RESOLVED_EXACT_SINGLE"
+    },
+    {
+      "site_pc": "0x0601358E",
+      "module": "0TH2.BIN",
+      "target_register": "R11",
+      "literal_load_pc": "0x0601342E",
+      "literal_address": "0x0601349C",
+      "literal_value": "0x06004076",
+      "reaching_definitions": [
+        "0x06004076"
+      ],
+      "clobber_sites": [],
+      "all_paths_same_definition": true,
+      "final_status": "RESOLVED_EXACT_SINGLE"
+    },
+    {
+      "site_pc": "0x0601359E",
+      "module": "0TH2.BIN",
+      "target_register": "R11",
+      "literal_load_pc": "0x0601342E",
+      "literal_address": "0x0601349C",
+      "literal_value": "0x06004076",
+      "reaching_definitions": [
+        "0x06004076"
+      ],
+      "clobber_sites": [],
+      "all_paths_same_definition": true,
+      "final_status": "RESOLVED_EXACT_SINGLE"
+    },
+    {
+      "site_pc": "0x060135CA",
+      "module": "0TH2.BIN",
+      "target_register": "R10",
+      "literal_load_pc": "0x060133C4",
+      "literal_address": "0x0601348C",
+      "literal_value": "0x06013924",
+      "reaching_definitions": [
+        "0x06013924"
+      ],
+      "clobber_sites": [],
+      "all_paths_same_definition": true,
+      "final_status": "RESOLVED_EXACT_SINGLE"
+    },
+    {
+      "site_pc": "0x060135EA",
+      "module": "0TH2.BIN",
+      "target_register": "R10",
+      "literal_load_pc": "0x060133C4",
+      "literal_address": "0x0601348C",
+      "literal_value": "0x06013924",
+      "reaching_definitions": [
+        "0x06013924"
+      ],
+      "clobber_sites": [],
+      "all_paths_same_definition": true,
+      "final_status": "RESOLVED_EXACT_SINGLE"
+    },
+    {
+      "site_pc": "0x06013616",
+      "module": "0TH2.BIN",
+      "target_register": "R11",
+      "literal_load_pc": "0x0601342E",
+      "literal_address": "0x0601349C",
+      "literal_value": "0x06004076",
+      "reaching_definitions": [
+        "0x06004076"
+      ],
+      "clobber_sites": [],
+      "all_paths_same_definition": true,
+      "final_status": "RESOLVED_EXACT_SINGLE"
+    },
+    {
+      "site_pc": "0x06013648",
+      "module": "0TH2.BIN",
+      "target_register": "R11",
+      "literal_load_pc": "0x0601342E",
+      "literal_address": "0x0601349C",
+      "literal_value": "0x06004076",
+      "reaching_definitions": [
+        "0x06004076"
+      ],
+      "clobber_sites": [],
+      "all_paths_same_definition": true,
+      "final_status": "RESOLVED_EXACT_SINGLE"
+    },
+    {
+      "site_pc": "0x0601490A",
+      "module": "0TH2.BIN",
+      "target_register": "R10",
+      "literal_load_pc": "0x06014830",
+      "literal_address": "0x060148C4",
+      "literal_value": "0x0600A1EC",
+      "reaching_definitions": [
+        "0x0600A1EC"
+      ],
+      "clobber_sites": [],
+      "all_paths_same_definition": true,
+      "final_status": "RESOLVED_EXACT_SINGLE"
+    },
+    {
+      "site_pc": "0x06014924",
+      "module": "0TH2.BIN",
+      "target_register": "R10",
+      "literal_load_pc": "0x06014830",
+      "literal_address": "0x060148C4",
+      "literal_value": "0x0600A1EC",
+      "reaching_definitions": [
+        "0x0600A1EC"
+      ],
+      "clobber_sites": [],
+      "all_paths_same_definition": true,
+      "final_status": "RESOLVED_EXACT_SINGLE"
+    },
+    {
+      "site_pc": "0x0601493C",
+      "module": "0TH2.BIN",
+      "target_register": "R10",
+      "literal_load_pc": "0x06014830",
+      "literal_address": "0x060148C4",
+      "literal_value": "0x0600A1EC",
+      "reaching_definitions": [
+        "0x0600A1EC"
+      ],
+      "clobber_sites": [],
+      "all_paths_same_definition": true,
+      "final_status": "RESOLVED_EXACT_SINGLE"
+    },
+    {
+      "site_pc": "0x06014954",
+      "module": "0TH2.BIN",
+      "target_register": "R10",
+      "literal_load_pc": "0x06014830",
+      "literal_address": "0x060148C4",
+      "literal_value": "0x0600A1EC",
+      "reaching_definitions": [
+        "0x0600A1EC"
+      ],
+      "clobber_sites": [],
+      "all_paths_same_definition": true,
+      "final_status": "RESOLVED_EXACT_SINGLE"
+    },
+    {
+      "site_pc": "0x0601795E",
+      "module": "0TH2.BIN",
+      "target_register": "R13",
+      "literal_load_pc": "0x06017750",
+      "literal_address": "0x06017884",
+      "literal_value": "0x0606BEE8",
+      "reaching_definitions": [
+        "0x0606BEE8"
+      ],
+      "clobber_sites": [],
+      "all_paths_same_definition": true,
+      "final_status": "RESOLVED_EXACT_SINGLE"
+    },
+    {
+      "site_pc": "0x06017972",
+      "module": "0TH2.BIN",
+      "target_register": "R13",
+      "literal_load_pc": "0x06017750",
+      "literal_address": "0x06017884",
+      "literal_value": "0x0606BEE8",
+      "reaching_definitions": [
+        "0x0606BEE8"
+      ],
+      "clobber_sites": [],
+      "all_paths_same_definition": true,
+      "final_status": "RESOLVED_EXACT_SINGLE"
+    },
+    {
+      "site_pc": "0x0601798E",
+      "module": "0TH2.BIN",
+      "target_register": "R13",
+      "literal_load_pc": "0x06017750",
+      "literal_address": "0x06017884",
+      "literal_value": "0x0606BEE8",
+      "reaching_definitions": [
+        "0x0606BEE8"
+      ],
+      "clobber_sites": [],
+      "all_paths_same_definition": true,
+      "final_status": "RESOLVED_EXACT_SINGLE"
+    },
+    {
+      "site_pc": "0x060179AA",
+      "module": "0TH2.BIN",
+      "target_register": "R13",
+      "literal_load_pc": "0x06017750",
+      "literal_address": "0x06017884",
+      "literal_value": "0x0606BEE8",
+      "reaching_definitions": [
+        "0x0606BEE8"
+      ],
+      "clobber_sites": [],
+      "all_paths_same_definition": true,
+      "final_status": "RESOLVED_EXACT_SINGLE"
+    },
+    {
+      "site_pc": "0x002E9536",
+      "module": "TH2.LOW",
+      "target_register": "R9",
+      "literal_load_pc": "0x002E92DE",
+      "literal_address": "0x002E93EC",
+      "literal_value": "0x06014CA2",
+      "reaching_definitions": [
+        "0x06014CA2"
+      ],
+      "clobber_sites": [],
+      "all_paths_same_definition": true,
+      "final_status": "RESOLVED_EXACT_SINGLE"
+    },
+    {
+      "site_pc": "0x002E954C",
+      "module": "TH2.LOW",
+      "target_register": "R9",
+      "literal_load_pc": "0x002E92DE",
+      "literal_address": "0x002E93EC",
+      "literal_value": "0x06014CA2",
+      "reaching_definitions": [
+        "0x06014CA2"
+      ],
+      "clobber_sites": [],
+      "all_paths_same_definition": true,
+      "final_status": "RESOLVED_EXACT_SINGLE"
+    },
+    {
+      "site_pc": "0x002E955A",
+      "module": "TH2.LOW",
+      "target_register": "R9",
+      "literal_load_pc": "0x002E92DE",
+      "literal_address": "0x002E93EC",
+      "literal_value": "0x06014CA2",
+      "reaching_definitions": [
+        "0x06014CA2"
+      ],
+      "clobber_sites": [],
+      "all_paths_same_definition": true,
+      "final_status": "RESOLVED_EXACT_SINGLE"
+    }
+  ]
+}
