@@ -33,6 +33,7 @@ docs/
     GFX_RUS_USA_DIFFERENTIAL_T2_GFX_01.md comprehensive technical report for RUS/USA graphics differential
     FULL_GRAPHICS_RECOVERY_T2_GFX_02.md   comprehensive technical report for CHR/MAP/ED full recovery
     MAP_METADATA_RECOVERY_T2_MAP_01.md    comprehensive technical report for MAP metadata and room logic recovery
+    INDIRECT_CONTROL_FLOW_T2_ASM_06.md    comprehensive technical report for indirect control-flow resolution and jump tables
 
 
 config/
@@ -146,6 +147,11 @@ tools/
     verify_full_game_disc.py      full Saturn disc reassembled module verification in Mednafen
     verify_gameplay_scenarios.py  multi-scenario gameplay regression suite across 6 distinct scenarios
     validate_recovery_gates.py    machine-enforced recovery gate integrity validator
+    constant_propagator.py        SH-2 basic-block constant propagator with call-clobber and memory safety
+    register_provenance.py        architectural register provenance engine over canonical revision bytes
+    jump_table_recovery.py        indexed jump table recovery with bounds check and data overlap rejection
+    call_graph_builder.py         call graph construction and leaf function boundary recovery
+    indirect_resolver.py          master indirect control-flow resolver and category-separated scorecard generator
   carver/
     interval_db.py                canonical central interval database & execution conflict engine
     provenance_dag.py             provenance DAG & graph expansion engine
@@ -227,7 +233,9 @@ tests/
     test_manifest_schema.py       CTest integration test for module manifest schema & partition invariants
     test_full_game_disc.py        CTest integration test for FULL_ASM_GAME_GATE rebuilt disc verification
     test_gameplay_scenarios.py    CTest integration test for multi-scenario gameplay verification
-    test_recovery_gates.py        negative controls & validation for recovery gates
+    test_recovery_gates.py        negative controls (32 total) & validation for recovery gates
+    negative_controls_p5.py       8 adversarial negative controls (NC-Q..NC-X) for indirect flow integrity
+    test_indirect_resolution.py   unit tests for constant propagation, jump tables, call graph, and accounting
   carver/
     test_carver_pipeline.py       carver pipeline, interval algebra, conflict, and determinism test suite
 
@@ -356,6 +364,16 @@ workstreams/
     collision_model.json          48KB collision heightfield and passability matrix model
     world_graph.json              complete topological graph of rooms, edges, and triggers
     map_byte_ownership_v2.json    100% whole-file interval ownership (UNKNOWN bytes: 0)
+  T2-ASM-06/
+    indirect_sites.json           complete inventory of 2,233 indirect sites with closed opcode accounting
+    indirect_site_classes.json    structural classification across all 2,233 sites
+    register_provenance.json      architectural register provenance records (1,242 resolved targets)
+    jump_tables.json              46 indexed jump tables with proven bounds and 0 data overlaps
+    call_graph.json               3,019 nodes and 5,271 call edges
+    function_boundaries.json      3,019 function definitions with caller/callee domains
+    indirect_resolution_scorecard.json master scorecard (1,378 resolved, 855 unresolved)
+    indirect_dynamic_targets.json dynamic trace execution correlation across all 2,233 sites
+    cfg_closure.json              CFG closure telemetry (-645 residual unknown gaps, +361 confirmed code segments)
 
 
 asm/                              assembly reconstruction layout (ADR D-015)

@@ -24,6 +24,7 @@ from validate_recovery_gates import (
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from negative_controls_p3 import run_all_p3_negative_controls
 from negative_controls_p4 import run_all_p4_negative_controls
+from negative_controls_p5 import run_all_p5_negative_controls
 
 
 def test_honest_scorecard_passes():
@@ -327,8 +328,9 @@ def main():
     test_premature_overall_complete_rejected()
     run_all_p3_negative_controls(repo_root)
     run_all_p4_negative_controls(repo_root)
+    run_all_p5_negative_controls(repo_root)
     assert run_full_validation(repo_root) is True
-    print("All 24 negative controls (8 base + 8 P3 NC-A..NC-H + 8 P4 NC-I..NC-P) and gate validator tests passed 100%.")
+    print("All 32 negative controls (8 base + 8 P3 NC-A..NC-H + 8 P4 NC-I..NC-P + 8 P5 NC-Q..NC-X) and gate validator tests passed 100%.")
 
 
 if __name__ == "__main__":

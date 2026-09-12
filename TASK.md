@@ -1,63 +1,59 @@
 # Current task
 
-TASK: T2-MAP-01 — MAP Metadata, Entity/Trigger Tables, Collision and Room Logic Recovery
-WHY: Reduce the remaining UNKNOWN_RESOURCE_BYTES = 708,608 in MAP.BIN by recovering entity spawn tables, collision/walkability, exit/warp adjacency, trigger volumes, room bounds, object placement, and SCU DSP microcode.
-CURRENT MILESTONE: Resource / Graphics Reverse Engineering Track (Map Metadata Recovery)
+TASK: T2-ASM-06 — Indirect Control Flow Resolution, Jump Table Recovery, and Code Denominator Closure
+WHY: Resolve indirect control-flow sites across 0TH2.BIN, TH2.LOW, SET07.BIN, and BGM.BIN, drive down unresolved indirect sites from baseline 2,231, recover jump tables, bound RTS caller domains, and reduce residual undecoded gaps towards FULL_ASM_GAME_GATE.
+CURRENT MILESTONE: ASM-First Recovery Track (docs/DEVELOPMENT_PLAN.md, ADR D-015)
 TASK STATUS: COMPLETE
 MILESTONE UNDERSTANDING CONFIDENCE: 100%
 CURRENT SLICE UNDERSTANDING CONFIDENCE: 100%
-SLICE CONFIDENCE EVIDENCE: Baseline HEAD at 58f71fd03bc9a10090b75bb2fe92625140dfc52d; 26/26 Linux CTests pass; 10/10 test_map_metadata.py pass; 26/26 Python resource suite pass; all 17 MAP.BIN metadata intervals decomposed into 34 compressed companion sub-streams with sub_4108 to 48KB; UNKNOWN_RESOURCE_BYTES drops to 0 (100% reduction).
+SLICE CONFIDENCE EVIDENCE: Baseline HEAD at ad0e2f5ef1a407bbe592a7bdab197835a6eac4c3; 32/32 negative controls pass (8 base + 8 P3 NC-A..H + 8 P4 NC-I..P + 8 P5 NC-Q..X); 8/8 unit tests in test_indirect_resolution.py pass; 26/26 Linux CTests pass; unresolved indirect sites reduced from 2,231 down to 855 (-61.68% reduction); residual undecoded gaps reduced from 2,206 down to 1,561 (-645 gaps eliminated, -29.24%); 46 jump tables recovered with proven bounds; 134 leaf RTS caller domains bounded.
 ACCEPTANCE CRITERIA:
-- [x] Phase 0: Baseline gate verified (HEAD, regressions, UNKNOWN_RESOURCE_BYTES_BEFORE = 708,608);
-- [x] Phase 1: Freeze canonical 17 unknown intervals in workstreams/T2-MAP-01/map_unknown_intervals.json (sum = exactly 708,608 bytes);
-- [x] Phase 2: Global pattern analysis across intervals (widths 2..32, offsets, pointers, sentinels) in workstreams/T2-MAP-01/map_metadata_structure_candidates.json;
-- [x] Phase 3: Cross-room correlation with 45 rooms (small, large, multi-exit, combat-heavy, distinct);
-- [x] Phase 4: Runtime load provenance (disc -> RAM -> consumer routine) in workstreams/T2-MAP-01/map_metadata_runtime_provenance.json;
-- [x] Phase 5: Entity spawn table recovery in workstreams/T2-MAP-01/entity_spawn_tables.json;
-- [x] Phase 6: Collision / walkability model recovery in workstreams/T2-MAP-01/collision_model.json;
-- [x] Phase 7: Exit / warp / room adjacency tables in workstreams/T2-MAP-01/room_adjacency.json;
-- [x] Phase 8: Trigger tables recovered in workstreams/T2-MAP-01/trigger_tables.json;
-- [x] Phase 9: Script / event references recovered in workstreams/T2-MAP-01/map_event_references.json;
-- [x] Phase 10: Camera / room bounds recovered in workstreams/T2-MAP-01/room_bounds.json;
-- [x] Phase 11: Object / geometry tables investigated and linked to consumers;
-- [x] Phase 12: SCU DSP microcode disassembled in workstreams/T2-MAP-01/scu_dsp_map_program.json;
-- [x] Phase 13: Semantic record definitions documented with confidence tiers;
-- [x] Phase 14: Offline map metadata parser implemented in tools/map/ (each file <= 500 lines);
-- [x] Phase 15: World graph constructed in workstreams/T2-MAP-01/world_graph.json;
-- [x] Phase 16: Byte ownership V2 compiled in workstreams/T2-MAP-01/map_byte_ownership_v2.json;
-- [x] Phase 17: UNKNOWN reduction audited (UNKNOWN_RESOURCE_BYTES_AFTER < 708,608);
-- [x] Phase 18: Regression tests in tests/resource/test_map_metadata.py pass with negative controls; existing tests remain green;
-- [x] Phase 19: Comprehensive technical report in docs/reports/MAP_METADATA_RECOVERY_T2_MAP_01.md, docs updated;
-- [x] Source line limits <= 500 lines; git diff --check clean; no commercial assets committed.
+- [x] Phase 0: Baseline gate verified (HEAD at ad0e2f5ef1a407bbe592a7bdab197835a6eac4c3, 24 negative controls green);
+- [x] Phase 1: Canonical indirect site inventory in workstreams/T2-ASM-06/indirect_sites.json (2,233 sites, 2 baseline resolved, 2,231 unresolved);
+- [x] Phase 2: Structural classification in workstreams/T2-ASM-06/indirect_site_classes.json;
+- [x] Phase 3: Constant propagator in tools/asm/constant_propagator.py with call-clobber and memory safety;
+- [x] Phase 4: Register provenance engine in tools/asm/register_provenance.py (1,242 PC literal targets resolved);
+- [x] Phase 5: Jump table recovery engine in tools/asm/jump_table_recovery.py (46 jump tables with proven bounds and 0 data overlaps);
+- [x] Phase 6 & 7: Dynamic target oracle documentation in workstreams/T2-ASM-06/indirect_dynamic_targets.json;
+- [x] Phase 8: RTS caller domain resolution in tools/asm/indirect_resolver.py (134 leaf RTS sites bounded, 504 retained as RTS_UNRESOLVED);
+- [x] Phase 9 & 10: Call graph and function boundaries in workstreams/T2-ASM-06/call_graph.json (3,019 functions, 5,271 call edges);
+- [x] Phase 14: Indirect resolution scorecard in workstreams/T2-ASM-06/indirect_resolution_scorecard.json (1,378 resolved, 855 unresolved);
+- [x] Phase 15..17: CFG closure recomputed in workstreams/T2-ASM-06/cfg_closure.json (residual gaps 2,206 -> 1,561, delta = -645);
+- [x] Phase 18: Re-evaluate FULL_ASM_GAME_GATE (honestly maintained as NOT_YET_REPROVEN);
+- [x] Phase 19: Adversarial negative controls NC-Q .. NC-X in tests/asm/negative_controls_p5.py (32/32 total negative controls pass);
+- [x] Phase 21: Unit test suite in tests/asm/test_indirect_resolution.py (8/8 PASS);
+- [x] Phase 22: Final report in docs/reports/INDIRECT_CONTROL_FLOW_T2_ASM_06.md and documentation updated;
+- [x] Source file line limits <= 500 lines; git diff --check clean; no commercial assets committed.
 
 EVIDENCE AVAILABLE:
-- T2-GFX-02 interval ownership map (107 intervals, 17 metadata intervals totaling 708,608 bytes);
-- 45 room packages decompress to 49,152 bytes each;
-- In-game map loaders at 0x060148B6 (DSP) and room loaders in 0TH2.BIN / TH2.LOW.
+- Canonical RUS binary bytes in .private/rus/
+- P3 control flow resolution inventory (2,233 indirect sites)
+- CDL execution traces, D9 dynamic checkpoints, ASM-01..04 test logs
 
 KNOWN UNKNOWNS:
-- None within resource/metadata scope (100.0% of disc resources structured, 0 UNKNOWN bytes).
+- 855 residual indirect sites (551 dynamically executed sites in 0TH2.BIN / TH2.LOW using struct function pointers, 304 unexecuted / cold edges);
+- 1,561 residual undecoded gaps in 0TH2.BIN and TH2.LOW.
 
 ALLOWED SCOPE:
-- MAP.BIN / room metadata reverse engineering, collision, entities, warps, triggers, DSP microcode disassembly, tools/map/, testing, documentation.
+- ASM-first indirect control-flow resolution, jump tables, constant propagation, call graph recovery, testing, documentation.
 
 OUT OF SCOPE:
 - Broad ASM→C++ gameplay translation, emulator integration into production, modifying canonical executable manifests.
 
 ## Last verified result
 
-T2_MAP_01_PASS: MAP.BIN metadata intervals completely recovered and structured. All 17 metadata intervals (708,608 bytes) proven to consist of 34 compressed companion sub-streams decompressing via sub_4108 to exactly 49,152 bytes (48 KB) each (12 collision packages + 5 secondary VDP2 plane packages). Parsed 104 room pointer table sectors in MAP.BIN tail: 104 room bounds and camera scroll deadzones recovered (room_bounds.json); 1,277 entity spawn definitions mapped to 0x06014A94 (entity_spawn_tables.json); 527 exit and warp transitions mapped to 0x0600A416 (room_adjacency.json); 79 trigger volumes mapped to 0x0604B070 / 0x0601CA56 (trigger_tables.json, map_event_references.json). Reverse-engineered SCU DSP 128-instruction microprogram computing VDP2 RBG0 2D affine matrix at 60Hz (scu_dsp_map_program.json). Compiled map_byte_ownership_v2.json across 107 contiguous intervals: UNKNOWN_RESOURCE_BYTES reduced from 708,608 down to 0 bytes (100.0% reduction). Disc-wide resource coverage reached 100.0% (9,044,008 / 9,044,008 bytes). Modular tooling implemented in tools/map/ (map_collision.py, map_entities.py, map_triggers.py, map_metadata_parser.py). Test suite tests/resource/test_map_metadata.py passing 10/10 with negative controls. 26/26 Python resource tests pass. 26/26 Linux CTests pass. All human-maintained source/test/tool files strictly <= 500 lines. git diff --check clean. Zero commercial assets tracked.
+T2_ASM_06_PASS: Resolved 1,378 of 2,233 indirect control flow sites (+1,376 net resolved), reducing unresolved indirect sites from 2,231 down to 855 (-61.68% reduction). Resolved 1,244 of 1,595 INDIRECT_CALL_JUMP sites (77.99%) and 134 of 638 RETURN_FLOW (RTS) sites (21.00%) strictly respecting Rule 1 and Rule 7. Recovered 46 indexed jump tables with proven bounds checks and zero guarded data collisions. Recovered 3,019 function boundaries and 5,271 call edges. Injected 402 proven indirect targets into SH-2 CFG worklist, reducing residual undecoded gaps from 2,206 down to 1,561 (-645 gaps eliminated, -29.24%) and discovering 361 newly confirmed code segments. All 32 negative controls pass (8 base + 8 P3 NC-A..H + 8 P4 NC-I..P + 8 P5 NC-Q..X). All 8 unit tests in test_indirect_resolution.py pass. FULL_ASM_GAME_GATE honestly maintained as NOT_YET_REPROVEN. All files satisfy <= 500 lines policy. git diff --check clean. Zero commercial assets tracked.
 
 ## Session checkpoint
 
-CURRENT MILESTONE: Resource / Graphics Reverse Engineering Track (Map Metadata Recovery)
-CURRENT TASK: T2-MAP-01 MAP Metadata, Entity/Trigger Tables, Collision and Room Logic Recovery
+CURRENT MILESTONE: ASM-First Recovery Track (docs/DEVELOPMENT_PLAN.md, ADR D-015)
+CURRENT TASK: T2-ASM-06 Indirect Control Flow Resolution, Jump Table Recovery, and Code Denominator Closure
 TASK STATUS: COMPLETE
 MILESTONE UNDERSTANDING CONFIDENCE: 100%
 CURRENT SLICE UNDERSTANDING CONFIDENCE: 100%
-LAST VERIFIED RESULT: T2_MAP_01_PASS. UNKNOWN_RESOURCE_BYTES = 0 bytes (100% structured). 26/26 Linux CTests pass. 26/26 Python resource tests pass.
-FILES CHANGED: tools/map/*, tests/resource/test_map_metadata.py, workstreams/T2-MAP-01/*, docs/reports/MAP_METADATA_RECOVERY_T2_MAP_01.md, docs/FILE_MAP.md, docs/PROJECT_STATE.md, docs/WORKLOG.md, docs/REVERSE_ENGINEERING.md, TASK.md
-TESTS RUN: python -m unittest tests/resource/test_map_metadata.py (10/10 PASS), full resource suite (26/26 PASS), wsl ctest --test-dir build-linux (26/26 PASS).
-NEW KNOWLEDGE: 34 compressed companion streams in MAP.BIN decompress to 48KB collision buffers and secondary VDP2 planes; 104 rooms, 1,277 entities, 527 exits, 79 triggers; SCU DSP microcode generates RBG0 matrix at 60Hz.
-OPEN QUESTIONS: None in resource track. Next milestone: resume ASM-first indirect control flow resolution or audio/M68K recovery.
-EXACT NEXT ACTION: Propose next technical task (T2-SND-01 M68K sound driver recovery or T2-ASM-06 indirect branch resolution).
+LAST VERIFIED RESULT: T2_ASM_06_PASS. Unresolved indirect sites = 855 (down from 2,231). Residual gaps = 1,561 (down from 2,206). 32/32 negative controls pass. 8/8 unit tests pass. 26/26 Linux CTests pass.
+FILES CHANGED: tools/asm/constant_propagator.py, tools/asm/register_provenance.py, tools/asm/jump_table_recovery.py, tools/asm/call_graph_builder.py, tools/asm/indirect_resolver.py, tests/asm/negative_controls_p5.py, tests/asm/test_indirect_resolution.py, tests/asm/test_recovery_gates.py, workstreams/T2-ASM-06/*, workstreams/ASM_RECOVERY_SCORECARD.json, docs/reports/INDIRECT_CONTROL_FLOW_T2_ASM_06.md, docs/FILE_MAP.md, docs/PROJECT_STATE.md, docs/WORKLOG.md, TASK.md
+TESTS RUN: python tests/asm/negative_controls_p5.py (8/8 PASS), python tests/asm/test_indirect_resolution.py (8/8 PASS), python tests/asm/test_recovery_gates.py (32/32 PASS), wsl ctest --test-dir build-linux (26/26 PASS).
+NEW KNOWLEDGE: 1,200 JSR calls resolve to static PC literal targets; 46 jump tables use AND_MASK and MOV_LIMIT; 134 RTS sites belong to bounded leaf functions; 645 undecoded gaps resolved to confirmed code and data.
+OPEN QUESTIONS: Resolution of remaining 855 indirect sites (struct-field function pointers at 551 dynamically active sites) and closing the remaining 1,561 undecoded gaps.
+EXACT NEXT ACTION: Target remaining 855 indirect sites (focusing on 551 dynamically executed sites) or proceed to M68K sound driver / BGM.BIN semantic recovery under T2-SND-01.

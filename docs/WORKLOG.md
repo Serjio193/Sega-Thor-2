@@ -1,5 +1,55 @@
 # Worklog
 
+## 2026-09-12 — T2-ASM-06: Indirect Control Flow Resolution, Jump Table Recovery, and Code Denominator Closure Passed
+
+### Task
+
+Execute task `T2-ASM-06` to resolve indirect control flow and jump tables across `0TH2.BIN`, `TH2.LOW`, `SET07.BIN`, and `BGM.BIN`, driving down unresolved indirect sites from baseline 2,231 and reducing residual undecoded gaps:
+1. **Inventory Reconciliation & Closed Opcode Accounting (Rules 1 & 2)**:
+   - Built canonical `workstreams/T2-ASM-06/indirect_sites.json` reconciling exactly to 2,233 total sites (2 baseline resolved, 2,231 unresolved).
+   - Enforced strict Rule 1 separation between `INDIRECT_CALL_JUMP` (1,595 sites) and `RETURN_FLOW (RTS)` (638 sites).
+   - Closed accounting across all opcodes: JSR (1,465), RTS (638), JMP (121), BSRF (7), BRAF (2).
+2. **Local Constant Propagator (`tools/asm/constant_propagator.py`)**:
+   - Implemented backward basic-block scanning (up to 24 steps) resolving PC literal pool reads and arithmetic.
+   - Enforced Rule 3 Call-Clobber Safety: halts immediately at `BSR`, `JSR`, `RTS`, `RTE`, `TRAPA`.
+   - Enforced Rule 4 Memory Provenance Safety: operates exclusively on immutable module bytes; mutable RAM aborts propagation as `DYNAMIC_MEMORY`.
+3. **Register Provenance Engine (`tools/asm/register_provenance.py`)**:
+   - Analyzed all 2,233 sites against canonical revision bytes (`RUS`).
+   - Validated alignment (`% 2 == 0`) and valid Saturn executable memory bounds, rejecting small immediate numeric constants from being falsely promoted as function pointers (NC-Q).
+   - Resolved 1,242 exact constant/literal targets.
+4. **Jump Table Recovery Engine (`tools/asm/jump_table_recovery.py`)**:
+   - Recovered 46 indexed jump tables across `0TH2.BIN` and `TH2.LOW` with proven bounds mechanisms (`AND_MASK`, `MOV_LIMIT`).
+   - Enforced NC-V: candidate tables colliding with guarded `DATA` or `PADDING` rejected fail-closed.
+5. **Call Graph & Leaf Function Boundary Recovery (`tools/asm/call_graph_builder.py`)**:
+   - Recovered 3,019 functions with 5,271 call edges (4,456 direct `BSR` + 815 resolved `JSR`).
+   - Enforced Rule 7 RTS Completeness: resolved 134 single-exit leaf functions to bounded caller sets; quarantined remaining 504 RTS sites as `RTS_UNRESOLVED`.
+6. **Master Scorecard & Dynamic Oracle Correlation (`workstreams/T2-ASM-06/indirect_resolution_scorecard.json`)**:
+   - Master resolution: 1,378 sites resolved (+1,376 net resolved), 855 unresolved (-1,376 unresolved, 61.68% reduction).
+   - `INDIRECT_CALL_JUMP`: 1,244 resolved / 1,595 total (77.99%).
+   - `RETURN_FLOW (RTS)`: 134 resolved / 638 total (21.00%).
+   - Dynamic oracle correlation: 1,449 sites historically executed in CDL traces.
+7. **CFG Closure & Denominator Gap Reduction (`workstreams/T2-ASM-06/cfg_closure.json`)**:
+   - Injected 402 unique proven entry points into the SH-2 CFG worklist.
+   - Residual unknown gaps: reduced from 2,206 down to 1,561 (-645 gaps eliminated, 29.24% reduction!).
+   - Confirmed code segments: increased from 2,685 to 3,046 (+361 confirmed code segments).
+8. **Negative Controls Suite & Gate Verification**:
+   - Created `tests/asm/negative_controls_p5.py` with 8 adversarial negative controls (`NC-Q` .. `NC-X`).
+   - Linked into `tests/asm/test_recovery_gates.py`: all 32 negative controls passed 100%.
+   - Created `tests/asm/test_indirect_resolution.py`: 8 unit tests passed 100%.
+   - `FULL_ASM_GAME_GATE` honestly maintained as `NOT_YET_REPROVEN`.
+   - All human-maintained source/test/tool files satisfy <= 500 lines; `git diff --check` clean; 0 commercial bytes.
+
+### Status After Pass
+
+- `T2-ASM-06`: **COMPLETE / PASS**
+- Total indirect sites: 2,233 (1,378 resolved, 855 unresolved)
+- Unresolved indirect sites: reduced from 2,231 to **855** (-61.68% reduction)
+- Residual undecoded gaps: reduced from 2,206 to **1,561** (-645 gaps eliminated, -29.24%)
+- Newly confirmed code segments: **+361**
+- Jump tables recovered: **46 tables** with proven bounds checks
+- Negative controls: **32/32 PASS** (8 base + 8 P3 NC-A..H + 8 P4 NC-I..P + 8 P5 NC-Q..X)
+- Recovery gates: `ASM_90_GATE` = PASS (100.0%), `FULL_ASM_GAME_GATE` = NOT_YET_REPROVEN (honest), `STANDALONE_NATIVE_GATE` = FROZEN
+
 ## 2026-09-12 — T2-MAP-01: MAP Metadata, Entity/Trigger Tables, Collision and Room Logic Recovery Passed
 
 ### Task

@@ -27,7 +27,7 @@
     "FULL_ASM_GAME_GATE": {
       "status": "NOT_YET_REPROVEN",
       "requirement": "Zero unresolved control-flow unknowns, byte-exact module reassembly, canonical disc SHA-256 parity, and clean Mednafen zero-divergence gameplay",
-      "details": "All 4 modules byte-exact, full disc fe11d2fb bit-identical, Mednafen zero divergence across 6 gameplay scenarios. Gate held at NOT_YET_REPROVEN because 2206 residual undecoded gaps cannot be proven unreachable while 2231 indirect sites remain statically unresolved."
+      "details": "All 4 modules byte-exact, full disc fe11d2fb bit-identical, Mednafen zero divergence across 6 gameplay scenarios. Gate held at NOT_YET_REPROVEN because 1561 residual undecoded gaps cannot be proven unreachable while 855 indirect sites remain statically unresolved (T2-ASM-06 reduced unresolved sites from 2231 to 855, and residual gaps from 2206 to 1561)."
     },
     "STANDALONE_NATIVE_GATE": {
       "status": "FROZEN_BY_ASM_FIRST_ARCHITECTURE",
@@ -55,8 +55,8 @@
     "full_gameplay_verified": true,
     "full_gameplay_status": "FULL_GAMEPLAY_SUITE_VERIFIED_ZERO_DIVERGENCE",
     "indirect_sites_total": 2233,
-    "indirect_sites_resolved": 2,
-    "indirect_sites_unresolved": 2231,
+    "indirect_sites_resolved": 1378,
+    "indirect_sites_unresolved": 855,
     "silent_evidence_demotions": 0
   },
   "modules": [
