@@ -27,6 +27,7 @@ from negative_controls_p4 import run_all_p4_negative_controls
 from negative_controls_p5 import run_all_p5_negative_controls
 from negative_controls_p6 import run_all_p6_negative_controls
 from negative_controls_p7 import run_all_p7_negative_controls
+from negative_controls_p8 import run_all_p8_negative_controls
 
 
 def test_honest_scorecard_passes():
@@ -318,10 +319,49 @@ def test_all_negative_controls_suite():
     run_all_p5_negative_controls(repo_root)
     run_all_p6_negative_controls(repo_root)
     run_all_p7_negative_controls(repo_root)
+    run_all_p8_negative_controls(repo_root)
     assert run_full_validation(repo_root) is True
 
 
+def test_scorecard_partition_matches_audited():
+    scorecard_path = repo_root / "workstreams" / "ASM_RECOVERY_SCORECARD.json"
+    scorecard = load_scorecard(scorecard_path)
+
+    # Find latest partition
+    p_v2 = repo_root / "workstreams" / "T2-ASM-09" / "executable_byte_partition_v2.json"
+    p_v1 = repo_root / "workstreams" / "T2-ASM-08" / "executable_byte_partition.json"
+    ebp_path = p_v2 if p_v2.exists() else p_v1
+    assert ebp_path.exists(), f"Partition artifact missing: {ebp_path}"
+    ebp = json.loads(ebp_path.read_text(encoding="utf-8"))
+
+    m = scorecard["metrics"]
+    assert m["total_confirmed_code_bytes"] == ebp["total_confirmed_code_bytes"], "Total confirmed code mismatch"
+    assert m["total_data_bytes"] == ebp["total_proven_data_bytes"], "Total data mismatch"
+    assert m["total_padding_bytes"] == ebp["total_proven_padding_bytes"], "Total padding mismatch"
+    assert m["total_unknown_bytes"] == ebp["total_unknown_bytes"], "Total unknown mismatch"
+    assert m["total_binary_bytes"] == ebp["total_binary_bytes"], "Total binary mismatch"
+
+    # Arithmetic partition balance
+    tot_sum = m["total_confirmed_code_bytes"] + m["total_data_bytes"] + m["total_padding_bytes"] + m["total_unknown_bytes"]
+    assert tot_sum == m["total_binary_bytes"], f"Arithmetic partition mismatch: sum {tot_sum} != {m['total_binary_bytes']}"
+
+    ebp_mods = {mod["module"]: mod for mod in ebp["modules"]}
+    for sm in scorecard["modules"]:
+        mod_name = sm["name"]
+        assert mod_name in ebp_mods, f"Module {mod_name} missing from partition"
+        em = ebp_mods[mod_name]
+        assert sm["confirmed_code_bytes"] == em["confirmed_code_bytes"], f"{mod_name} code mismatch"
+        assert sm["data_bytes"] == em["proven_data_bytes"], f"{mod_name} data mismatch"
+        assert sm["padding_bytes"] == em["proven_padding_bytes"], f"{mod_name} padding mismatch"
+        assert sm["unknown_bytes"] == em["unknown_bytes"], f"{mod_name} unknown mismatch"
+        mod_sum = sm["confirmed_code_bytes"] + sm["data_bytes"] + sm["padding_bytes"] + sm["unknown_bytes"]
+        assert mod_sum == sm["size_bytes"], f"{mod_name} partition sum {mod_sum} != {sm['size_bytes']}"
+
+    print("[PASS] Scorecard current partition matches audited executable_byte_partition.")
+
+
 def main():
+    test_scorecard_partition_matches_audited()
     test_honest_scorecard_passes()
     test_premature_full_asm_rejected()
     test_premature_d18_guest_removal_rejected()
@@ -342,8 +382,9 @@ def main():
     run_all_p5_negative_controls(repo_root)
     run_all_p6_negative_controls(repo_root)
     run_all_p7_negative_controls(repo_root)
+    run_all_p8_negative_controls(repo_root)
     assert run_full_validation(repo_root) is True
-    print("All 50 negative controls (8 base + 8 P3 NC-A..NC-H + 8 P4 NC-I..NC-P + 8 P5 NC-Q..NC-X + 8 P6 NC-Y..NC-AF + 10 P7 NC-AG..NC-AP) and gate validator tests passed 100%.")
+    print("All 58 negative controls (8 base + 8 P3 NC-A..NC-H + 8 P4 NC-I..NC-P + 8 P5 NC-Q..NC-X + 8 P6 NC-Y..NC-AF + 10 P7 NC-AG..NC-AP + 8 P8 NC-AQ..NC-AX) and gate validator tests passed 100%.")
 
 
 if __name__ == "__main__":

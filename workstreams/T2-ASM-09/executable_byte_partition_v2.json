@@ -1,0 +1,52 @@
+{
+  "total_binary_bytes": 1457152,
+  "total_confirmed_code_bytes": 156694,
+  "total_proven_data_bytes": 55920,
+  "total_proven_padding_bytes": 59324,
+  "total_unknown_bytes": 1185214,
+  "baseline_unknown_bytes": 1251863,
+  "unknown_bytes_reduction": 66649,
+  "all_partitions_balanced": true,
+  "modules": [
+    {
+      "module": "0TH2.BIN",
+      "vma_base": "0x06004000",
+      "size_bytes": 535552,
+      "confirmed_code_bytes": 127384,
+      "proven_data_bytes": 46106,
+      "proven_padding_bytes": 25330,
+      "unknown_bytes": 336732,
+      "checksum_valid": true
+    },
+    {
+      "module": "TH2.LOW",
+      "vma_base": "0x002DA000",
+      "size_bytes": 149504,
+      "confirmed_code_bytes": 29268,
+      "proven_data_bytes": 9814,
+      "proven_padding_bytes": 33994,
+      "unknown_bytes": 76428,
+      "checksum_valid": true
+    },
+    {
+      "module": "SET07.BIN",
+      "vma_base": "0x060D8000",
+      "size_bytes": 98304,
+      "confirmed_code_bytes": 12,
+      "proven_data_bytes": 0,
+      "proven_padding_bytes": 0,
+      "unknown_bytes": 98292,
+      "checksum_valid": true
+    },
+    {
+      "module": "BGM.BIN",
+      "vma_base": "0x00000000",
+      "size_bytes": 673792,
+      "confirmed_code_bytes": 30,
+      "proven_data_bytes": 0,
+      "proven_padding_bytes": 0,
+      "unknown_bytes": 673762,
+      "checksum_valid": true
+    }
+  ]
+}

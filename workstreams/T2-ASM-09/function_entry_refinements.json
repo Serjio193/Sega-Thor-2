@@ -1,0 +1,3051 @@
+{
+  "total_functions_with_shared_entries": 81,
+  "refinements": [
+    {
+      "function_entry": "0x06004506",
+      "shared_entry_count": 1,
+      "entry_edges": [
+        {
+          "source_pc": "0x06004366",
+          "target_pc": "0x0600455A",
+          "source_function": "0x06004254",
+          "target_function": "0x06004506",
+          "opcode": "BRA",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "SH2_INTER_FUNCTION_DIRECT_BRANCH_SHARED_ENTRY"
+        }
+      ]
+    },
+    {
+      "function_entry": "0x06004AF0",
+      "shared_entry_count": 1,
+      "entry_edges": [
+        {
+          "source_pc": "0x06004386",
+          "target_pc": "0x06004C06",
+          "source_function": "0x06004254",
+          "target_function": "0x06004AF0",
+          "opcode": "BRA",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "SH2_INTER_FUNCTION_DIRECT_BRANCH_SHARED_ENTRY"
+        }
+      ]
+    },
+    {
+      "function_entry": "0x060046DC",
+      "shared_entry_count": 1,
+      "entry_edges": [
+        {
+          "source_pc": "0x06004572",
+          "target_pc": "0x06004706",
+          "source_function": "0x06004506",
+          "target_function": "0x060046DC",
+          "opcode": "BRA",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "SH2_INTER_FUNCTION_DIRECT_BRANCH_SHARED_ENTRY"
+        }
+      ]
+    },
+    {
+      "function_entry": "0x06004108",
+      "shared_entry_count": 1,
+      "entry_edges": [
+        {
+          "source_pc": "0x06004CDA",
+          "target_pc": "0x060041B6",
+          "source_function": "0x06004AF0",
+          "target_function": "0x06004108",
+          "opcode": "BRA",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "SH2_INTER_FUNCTION_DIRECT_BRANCH_SHARED_ENTRY"
+        }
+      ]
+    },
+    {
+      "function_entry": "0x06004FAE",
+      "shared_entry_count": 1,
+      "entry_edges": [
+        {
+          "source_pc": "0x06004F68",
+          "target_pc": "0x06004FE2",
+          "source_function": "0x06004F56",
+          "target_function": "0x06004FAE",
+          "opcode": "BRA",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "SH2_INTER_FUNCTION_DIRECT_BRANCH_SHARED_ENTRY"
+        }
+      ]
+    },
+    {
+      "function_entry": "0x060057FC",
+      "shared_entry_count": 2,
+      "entry_edges": [
+        {
+          "source_pc": "0x0600597C",
+          "target_pc": "0x060058AC",
+          "source_function": "0x06005946",
+          "target_function": "0x060057FC",
+          "opcode": "BRA",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "SH2_INTER_FUNCTION_DIRECT_BRANCH_SHARED_ENTRY"
+        },
+        {
+          "source_pc": "0x06005998",
+          "target_pc": "0x060058AC",
+          "source_function": "0x06005946",
+          "target_function": "0x060057FC",
+          "opcode": "BRA",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "SH2_INTER_FUNCTION_DIRECT_BRANCH_SHARED_ENTRY"
+        }
+      ]
+    },
+    {
+      "function_entry": "0x06007B9E",
+      "shared_entry_count": 2,
+      "entry_edges": [
+        {
+          "source_pc": "0x06007B26",
+          "target_pc": "0x06007BE4",
+          "source_function": "0x06007AB4",
+          "target_function": "0x06007B9E",
+          "opcode": "BRA",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "SH2_INTER_FUNCTION_DIRECT_BRANCH_SHARED_ENTRY"
+        },
+        {
+          "source_pc": "0x06007B98",
+          "target_pc": "0x06007BB8",
+          "source_function": "0x06007B8E",
+          "target_function": "0x06007B9E",
+          "opcode": "BRA",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "SH2_INTER_FUNCTION_DIRECT_BRANCH_SHARED_ENTRY"
+        }
+      ]
+    },
+    {
+      "function_entry": "0x0600812E",
+      "shared_entry_count": 2,
+      "entry_edges": [
+        {
+          "source_pc": "0x06007D3A",
+          "target_pc": "0x06008206",
+          "source_function": "0x06007BF0",
+          "target_function": "0x0600812E",
+          "opcode": "BRA",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "SH2_INTER_FUNCTION_DIRECT_BRANCH_SHARED_ENTRY"
+        },
+        {
+          "source_pc": "0x060080CA",
+          "target_pc": "0x060081E6",
+          "source_function": "0x06007FA2",
+          "target_function": "0x0600812E",
+          "opcode": "BRA",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "SH2_INTER_FUNCTION_DIRECT_BRANCH_SHARED_ENTRY"
+        }
+      ]
+    },
+    {
+      "function_entry": "0x060091A6",
+      "shared_entry_count": 6,
+      "entry_edges": [
+        {
+          "source_pc": "0x0600914A",
+          "target_pc": "0x060091B8",
+          "source_function": "0x06008E78",
+          "target_function": "0x060091A6",
+          "opcode": "BRA",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "SH2_INTER_FUNCTION_DIRECT_BRANCH_SHARED_ENTRY"
+        },
+        {
+          "source_pc": "0x06009156",
+          "target_pc": "0x0600947E",
+          "source_function": "0x06008E78",
+          "target_function": "0x060091A6",
+          "opcode": "BRA",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "SH2_INTER_FUNCTION_DIRECT_BRANCH_SHARED_ENTRY"
+        },
+        {
+          "source_pc": "0x06009162",
+          "target_pc": "0x0600947E",
+          "source_function": "0x06008E78",
+          "target_function": "0x060091A6",
+          "opcode": "BRA",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "SH2_INTER_FUNCTION_DIRECT_BRANCH_SHARED_ENTRY"
+        },
+        {
+          "source_pc": "0x0600916E",
+          "target_pc": "0x0600947E",
+          "source_function": "0x06008E78",
+          "target_function": "0x060091A6",
+          "opcode": "BRA",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "SH2_INTER_FUNCTION_DIRECT_BRANCH_SHARED_ENTRY"
+        },
+        {
+          "source_pc": "0x0600917A",
+          "target_pc": "0x0600947E",
+          "source_function": "0x06008E78",
+          "target_function": "0x060091A6",
+          "opcode": "BRA",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "SH2_INTER_FUNCTION_DIRECT_BRANCH_SHARED_ENTRY"
+        },
+        {
+          "source_pc": "0x06009186",
+          "target_pc": "0x0600947E",
+          "source_function": "0x06008E78",
+          "target_function": "0x060091A6",
+          "opcode": "BRA",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "SH2_INTER_FUNCTION_DIRECT_BRANCH_SHARED_ENTRY"
+        }
+      ]
+    },
+    {
+      "function_entry": "0x06008E78",
+      "shared_entry_count": 2,
+      "entry_edges": [
+        {
+          "source_pc": "0x060094A6",
+          "target_pc": "0x06009142",
+          "source_function": "0x060091A6",
+          "target_function": "0x06008E78",
+          "opcode": "BRA",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "SH2_INTER_FUNCTION_DIRECT_BRANCH_SHARED_ENTRY"
+        },
+        {
+          "source_pc": "0x06007BE0",
+          "target_pc": "0x06008FDC",
+          "source_function": "0x06007B9E",
+          "target_function": "0x06008E78",
+          "opcode": "JMP",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "AUDITED_JMP_DIRECT_BRANCH_SHARED_ENTRY"
+        }
+      ]
+    },
+    {
+      "function_entry": "0x0600A962",
+      "shared_entry_count": 1,
+      "entry_edges": [
+        {
+          "source_pc": "0x06009B82",
+          "target_pc": "0x0600A97E",
+          "source_function": "0x06009992",
+          "target_function": "0x0600A962",
+          "opcode": "BRA",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "SH2_INTER_FUNCTION_DIRECT_BRANCH_SHARED_ENTRY"
+        }
+      ]
+    },
+    {
+      "function_entry": "0x06009D7E",
+      "shared_entry_count": 1,
+      "entry_edges": [
+        {
+          "source_pc": "0x06009D76",
+          "target_pc": "0x06009E04",
+          "source_function": "0x06009D6E",
+          "target_function": "0x06009D7E",
+          "opcode": "BRA",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "SH2_INTER_FUNCTION_DIRECT_BRANCH_SHARED_ENTRY"
+        }
+      ]
+    },
+    {
+      "function_entry": "0x0600AE3A",
+      "shared_entry_count": 2,
+      "entry_edges": [
+        {
+          "source_pc": "0x0600AC8E",
+          "target_pc": "0x0600AE80",
+          "source_function": "0x0600A994",
+          "target_function": "0x0600AE3A",
+          "opcode": "BRA",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "SH2_INTER_FUNCTION_DIRECT_BRANCH_SHARED_ENTRY"
+        },
+        {
+          "source_pc": "0x0600ADF6",
+          "target_pc": "0x0600AE42",
+          "source_function": "0x0600A994",
+          "target_function": "0x0600AE3A",
+          "opcode": "BRA",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "SH2_INTER_FUNCTION_DIRECT_BRANCH_SHARED_ENTRY"
+        }
+      ]
+    },
+    {
+      "function_entry": "0x0600B41E",
+      "shared_entry_count": 1,
+      "entry_edges": [
+        {
+          "source_pc": "0x0600B410",
+          "target_pc": "0x0600B43E",
+          "source_function": "0x0600B338",
+          "target_function": "0x0600B41E",
+          "opcode": "BRA",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "SH2_INTER_FUNCTION_DIRECT_BRANCH_SHARED_ENTRY"
+        }
+      ]
+    },
+    {
+      "function_entry": "0x0600B65A",
+      "shared_entry_count": 2,
+      "entry_edges": [
+        {
+          "source_pc": "0x0600B4C2",
+          "target_pc": "0x0600B65C",
+          "source_function": "0x0600B4B0",
+          "target_function": "0x0600B65A",
+          "opcode": "BRA",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "SH2_INTER_FUNCTION_DIRECT_BRANCH_SHARED_ENTRY"
+        },
+        {
+          "source_pc": "0x0600B4DC",
+          "target_pc": "0x0600B65C",
+          "source_function": "0x0600B4B0",
+          "target_function": "0x0600B65A",
+          "opcode": "BRA",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "SH2_INTER_FUNCTION_DIRECT_BRANCH_SHARED_ENTRY"
+        }
+      ]
+    },
+    {
+      "function_entry": "0x0600B084",
+      "shared_entry_count": 1,
+      "entry_edges": [
+        {
+          "source_pc": "0x0600BE0A",
+          "target_pc": "0x0600B0D2",
+          "source_function": "0x0600BD82",
+          "target_function": "0x0600B084",
+          "opcode": "BRA",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "SH2_INTER_FUNCTION_DIRECT_BRANCH_SHARED_ENTRY"
+        }
+      ]
+    },
+    {
+      "function_entry": "0x0600EE24",
+      "shared_entry_count": 2,
+      "entry_edges": [
+        {
+          "source_pc": "0x0600F768",
+          "target_pc": "0x0600F716",
+          "source_function": "0x0600F73E",
+          "target_function": "0x0600EE24",
+          "opcode": "BRA",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "SH2_INTER_FUNCTION_DIRECT_BRANCH_SHARED_ENTRY"
+        },
+        {
+          "source_pc": "0x0600F76E",
+          "target_pc": "0x0600F716",
+          "source_function": "0x0600F73E",
+          "target_function": "0x0600EE24",
+          "opcode": "BRA",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "SH2_INTER_FUNCTION_DIRECT_BRANCH_SHARED_ENTRY"
+        }
+      ]
+    },
+    {
+      "function_entry": "0x06010662",
+      "shared_entry_count": 2,
+      "entry_edges": [
+        {
+          "source_pc": "0x06010582",
+          "target_pc": "0x06010692",
+          "source_function": "0x06010542",
+          "target_function": "0x06010662",
+          "opcode": "BRA",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "SH2_INTER_FUNCTION_DIRECT_BRANCH_SHARED_ENTRY"
+        },
+        {
+          "source_pc": "0x06010614",
+          "target_pc": "0x0601066C",
+          "source_function": "0x06010542",
+          "target_function": "0x06010662",
+          "opcode": "BRA",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "SH2_INTER_FUNCTION_DIRECT_BRANCH_SHARED_ENTRY"
+        }
+      ]
+    },
+    {
+      "function_entry": "0x06010862",
+      "shared_entry_count": 3,
+      "entry_edges": [
+        {
+          "source_pc": "0x060107E4",
+          "target_pc": "0x0601096C",
+          "source_function": "0x06010756",
+          "target_function": "0x06010862",
+          "opcode": "BRA",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "SH2_INTER_FUNCTION_DIRECT_BRANCH_SHARED_ENTRY"
+        },
+        {
+          "source_pc": "0x060107F8",
+          "target_pc": "0x0601095C",
+          "source_function": "0x06010756",
+          "target_function": "0x06010862",
+          "opcode": "BRA",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "SH2_INTER_FUNCTION_DIRECT_BRANCH_SHARED_ENTRY"
+        },
+        {
+          "source_pc": "0x06010802",
+          "target_pc": "0x0601095C",
+          "source_function": "0x06010756",
+          "target_function": "0x06010862",
+          "opcode": "BRA",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "SH2_INTER_FUNCTION_DIRECT_BRANCH_SHARED_ENTRY"
+        }
+      ]
+    },
+    {
+      "function_entry": "0x06010F8E",
+      "shared_entry_count": 3,
+      "entry_edges": [
+        {
+          "source_pc": "0x06010F06",
+          "target_pc": "0x0601131C",
+          "source_function": "0x06010BC2",
+          "target_function": "0x06010F8E",
+          "opcode": "BRA",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "SH2_INTER_FUNCTION_DIRECT_BRANCH_SHARED_ENTRY"
+        },
+        {
+          "source_pc": "0x06010F72",
+          "target_pc": "0x0601131C",
+          "source_function": "0x06010BC2",
+          "target_function": "0x06010F8E",
+          "opcode": "BRA",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "SH2_INTER_FUNCTION_DIRECT_BRANCH_SHARED_ENTRY"
+        },
+        {
+          "source_pc": "0x06010F7C",
+          "target_pc": "0x0601131C",
+          "source_function": "0x06010BC2",
+          "target_function": "0x06010F8E",
+          "opcode": "BRA",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "SH2_INTER_FUNCTION_DIRECT_BRANCH_SHARED_ENTRY"
+        }
+      ]
+    },
+    {
+      "function_entry": "0x060120A2",
+      "shared_entry_count": 7,
+      "entry_edges": [
+        {
+          "source_pc": "0x06011D9C",
+          "target_pc": "0x060120AC",
+          "source_function": "0x06011D7A",
+          "target_function": "0x060120A2",
+          "opcode": "BRA",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "SH2_INTER_FUNCTION_DIRECT_BRANCH_SHARED_ENTRY"
+        },
+        {
+          "source_pc": "0x06011FB4",
+          "target_pc": "0x060120AC",
+          "source_function": "0x06011F60",
+          "target_function": "0x060120A2",
+          "opcode": "BRA",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "SH2_INTER_FUNCTION_DIRECT_BRANCH_SHARED_ENTRY"
+        },
+        {
+          "source_pc": "0x06011FC8",
+          "target_pc": "0x060120AC",
+          "source_function": "0x06011FC6",
+          "target_function": "0x060120A2",
+          "opcode": "BRA",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "SH2_INTER_FUNCTION_DIRECT_BRANCH_SHARED_ENTRY"
+        },
+        {
+          "source_pc": "0x06012006",
+          "target_pc": "0x060120AC",
+          "source_function": "0x06011FC6",
+          "target_function": "0x060120A2",
+          "opcode": "BRA",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "SH2_INTER_FUNCTION_DIRECT_BRANCH_SHARED_ENTRY"
+        },
+        {
+          "source_pc": "0x0601205C",
+          "target_pc": "0x060120AC",
+          "source_function": "0x06011FC6",
+          "target_function": "0x060120A2",
+          "opcode": "BRA",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "SH2_INTER_FUNCTION_DIRECT_BRANCH_SHARED_ENTRY"
+        },
+        {
+          "source_pc": "0x06012070",
+          "target_pc": "0x060120AC",
+          "source_function": "0x06011FC6",
+          "target_function": "0x060120A2",
+          "opcode": "BRA",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "SH2_INTER_FUNCTION_DIRECT_BRANCH_SHARED_ENTRY"
+        },
+        {
+          "source_pc": "0x06012092",
+          "target_pc": "0x060120AC",
+          "source_function": "0x06011FC6",
+          "target_function": "0x060120A2",
+          "opcode": "BRA",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "SH2_INTER_FUNCTION_DIRECT_BRANCH_SHARED_ENTRY"
+        }
+      ]
+    },
+    {
+      "function_entry": "0x06012F3A",
+      "shared_entry_count": 1,
+      "entry_edges": [
+        {
+          "source_pc": "0x06012852",
+          "target_pc": "0x06012F5E",
+          "source_function": "0x0601276E",
+          "target_function": "0x06012F3A",
+          "opcode": "BRA",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "SH2_INTER_FUNCTION_DIRECT_BRANCH_SHARED_ENTRY"
+        }
+      ]
+    },
+    {
+      "function_entry": "0x0601187A",
+      "shared_entry_count": 1,
+      "entry_edges": [
+        {
+          "source_pc": "0x06012972",
+          "target_pc": "0x06011A66",
+          "source_function": "0x0601292E",
+          "target_function": "0x0601187A",
+          "opcode": "BRA",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "SH2_INTER_FUNCTION_DIRECT_BRANCH_SHARED_ENTRY"
+        }
+      ]
+    },
+    {
+      "function_entry": "0x0601320E",
+      "shared_entry_count": 6,
+      "entry_edges": [
+        {
+          "source_pc": "0x06013082",
+          "target_pc": "0x06013238",
+          "source_function": "0x06013040",
+          "target_function": "0x0601320E",
+          "opcode": "BRA",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "SH2_INTER_FUNCTION_DIRECT_BRANCH_SHARED_ENTRY"
+        },
+        {
+          "source_pc": "0x060130D2",
+          "target_pc": "0x06013238",
+          "source_function": "0x06013040",
+          "target_function": "0x0601320E",
+          "opcode": "BRA",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "SH2_INTER_FUNCTION_DIRECT_BRANCH_SHARED_ENTRY"
+        },
+        {
+          "source_pc": "0x060130FA",
+          "target_pc": "0x06013238",
+          "source_function": "0x06013040",
+          "target_function": "0x0601320E",
+          "opcode": "BRA",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "SH2_INTER_FUNCTION_DIRECT_BRANCH_SHARED_ENTRY"
+        },
+        {
+          "source_pc": "0x06013114",
+          "target_pc": "0x06013238",
+          "source_function": "0x06013040",
+          "target_function": "0x0601320E",
+          "opcode": "BRA",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "SH2_INTER_FUNCTION_DIRECT_BRANCH_SHARED_ENTRY"
+        },
+        {
+          "source_pc": "0x06013146",
+          "target_pc": "0x06013238",
+          "source_function": "0x06013040",
+          "target_function": "0x0601320E",
+          "opcode": "BRA",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "SH2_INTER_FUNCTION_DIRECT_BRANCH_SHARED_ENTRY"
+        },
+        {
+          "source_pc": "0x060131DC",
+          "target_pc": "0x06013238",
+          "source_function": "0x06013040",
+          "target_function": "0x0601320E",
+          "opcode": "BRA",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "SH2_INTER_FUNCTION_DIRECT_BRANCH_SHARED_ENTRY"
+        }
+      ]
+    },
+    {
+      "function_entry": "0x060136A6",
+      "shared_entry_count": 23,
+      "entry_edges": [
+        {
+          "source_pc": "0x0601328A",
+          "target_pc": "0x060137A8",
+          "source_function": "0x06013246",
+          "target_function": "0x060136A6",
+          "opcode": "BRA",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "SH2_INTER_FUNCTION_DIRECT_BRANCH_SHARED_ENTRY"
+        },
+        {
+          "source_pc": "0x060132BE",
+          "target_pc": "0x060137B2",
+          "source_function": "0x06013246",
+          "target_function": "0x060136A6",
+          "opcode": "BRA",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "SH2_INTER_FUNCTION_DIRECT_BRANCH_SHARED_ENTRY"
+        },
+        {
+          "source_pc": "0x060132D2",
+          "target_pc": "0x060137B2",
+          "source_function": "0x06013246",
+          "target_function": "0x060136A6",
+          "opcode": "BRA",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "SH2_INTER_FUNCTION_DIRECT_BRANCH_SHARED_ENTRY"
+        },
+        {
+          "source_pc": "0x060132FA",
+          "target_pc": "0x060137B2",
+          "source_function": "0x06013246",
+          "target_function": "0x060136A6",
+          "opcode": "BRA",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "SH2_INTER_FUNCTION_DIRECT_BRANCH_SHARED_ENTRY"
+        },
+        {
+          "source_pc": "0x06013324",
+          "target_pc": "0x060137B2",
+          "source_function": "0x06013246",
+          "target_function": "0x060136A6",
+          "opcode": "BRA",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "SH2_INTER_FUNCTION_DIRECT_BRANCH_SHARED_ENTRY"
+        },
+        {
+          "source_pc": "0x06013346",
+          "target_pc": "0x060137B2",
+          "source_function": "0x06013246",
+          "target_function": "0x060136A6",
+          "opcode": "BRA",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "SH2_INTER_FUNCTION_DIRECT_BRANCH_SHARED_ENTRY"
+        },
+        {
+          "source_pc": "0x0601335A",
+          "target_pc": "0x060137B2",
+          "source_function": "0x06013246",
+          "target_function": "0x060136A6",
+          "opcode": "BRA",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "SH2_INTER_FUNCTION_DIRECT_BRANCH_SHARED_ENTRY"
+        },
+        {
+          "source_pc": "0x06013378",
+          "target_pc": "0x060137B2",
+          "source_function": "0x0601336A",
+          "target_function": "0x060136A6",
+          "opcode": "BRA",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "SH2_INTER_FUNCTION_DIRECT_BRANCH_SHARED_ENTRY"
+        },
+        {
+          "source_pc": "0x060133C0",
+          "target_pc": "0x060137B2",
+          "source_function": "0x0601336A",
+          "target_function": "0x060136A6",
+          "opcode": "BRA",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "SH2_INTER_FUNCTION_DIRECT_BRANCH_SHARED_ENTRY"
+        },
+        {
+          "source_pc": "0x060133F6",
+          "target_pc": "0x060137B2",
+          "source_function": "0x0601336A",
+          "target_function": "0x060136A6",
+          "opcode": "BRA",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "SH2_INTER_FUNCTION_DIRECT_BRANCH_SHARED_ENTRY"
+        },
+        {
+          "source_pc": "0x0601341E",
+          "target_pc": "0x060137B2",
+          "source_function": "0x0601336A",
+          "target_function": "0x060136A6",
+          "opcode": "BRA",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "SH2_INTER_FUNCTION_DIRECT_BRANCH_SHARED_ENTRY"
+        },
+        {
+          "source_pc": "0x06013472",
+          "target_pc": "0x060137B2",
+          "source_function": "0x0601336A",
+          "target_function": "0x060136A6",
+          "opcode": "BRA",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "SH2_INTER_FUNCTION_DIRECT_BRANCH_SHARED_ENTRY"
+        },
+        {
+          "source_pc": "0x060134B8",
+          "target_pc": "0x060137B2",
+          "source_function": "0x060134A6",
+          "target_function": "0x060136A6",
+          "opcode": "BRA",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "SH2_INTER_FUNCTION_DIRECT_BRANCH_SHARED_ENTRY"
+        },
+        {
+          "source_pc": "0x060134C2",
+          "target_pc": "0x060137A8",
+          "source_function": "0x060134A6",
+          "target_function": "0x060136A6",
+          "opcode": "BRA",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "SH2_INTER_FUNCTION_DIRECT_BRANCH_SHARED_ENTRY"
+        },
+        {
+          "source_pc": "0x0601352E",
+          "target_pc": "0x060137B2",
+          "source_function": "0x060134A6",
+          "target_function": "0x060136A6",
+          "opcode": "BRA",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "SH2_INTER_FUNCTION_DIRECT_BRANCH_SHARED_ENTRY"
+        },
+        {
+          "source_pc": "0x06013574",
+          "target_pc": "0x060137B2",
+          "source_function": "0x060134A6",
+          "target_function": "0x060136A6",
+          "opcode": "BRA",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "SH2_INTER_FUNCTION_DIRECT_BRANCH_SHARED_ENTRY"
+        },
+        {
+          "source_pc": "0x06013600",
+          "target_pc": "0x060137A4",
+          "source_function": "0x060134A6",
+          "target_function": "0x060136A6",
+          "opcode": "BRA",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "SH2_INTER_FUNCTION_DIRECT_BRANCH_SHARED_ENTRY"
+        },
+        {
+          "source_pc": "0x06013628",
+          "target_pc": "0x060137A4",
+          "source_function": "0x060134A6",
+          "target_function": "0x060136A6",
+          "opcode": "BRA",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "SH2_INTER_FUNCTION_DIRECT_BRANCH_SHARED_ENTRY"
+        },
+        {
+          "source_pc": "0x06013630",
+          "target_pc": "0x060137A4",
+          "source_function": "0x060134A6",
+          "target_function": "0x060136A6",
+          "opcode": "BRA",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "SH2_INTER_FUNCTION_DIRECT_BRANCH_SHARED_ENTRY"
+        },
+        {
+          "source_pc": "0x0601363A",
+          "target_pc": "0x060137A4",
+          "source_function": "0x060134A6",
+          "target_function": "0x060136A6",
+          "opcode": "BRA",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "SH2_INTER_FUNCTION_DIRECT_BRANCH_SHARED_ENTRY"
+        },
+        {
+          "source_pc": "0x0601365C",
+          "target_pc": "0x060137A4",
+          "source_function": "0x060134A6",
+          "target_function": "0x060136A6",
+          "opcode": "BRA",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "SH2_INTER_FUNCTION_DIRECT_BRANCH_SHARED_ENTRY"
+        },
+        {
+          "source_pc": "0x06013662",
+          "target_pc": "0x060137A4",
+          "source_function": "0x060134A6",
+          "target_function": "0x060136A6",
+          "opcode": "BRA",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "SH2_INTER_FUNCTION_DIRECT_BRANCH_SHARED_ENTRY"
+        },
+        {
+          "source_pc": "0x0601368E",
+          "target_pc": "0x06013714",
+          "source_function": "0x060134A6",
+          "target_function": "0x060136A6",
+          "opcode": "BRA",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "SH2_INTER_FUNCTION_DIRECT_BRANCH_SHARED_ENTRY"
+        }
+      ]
+    },
+    {
+      "function_entry": "0x06014ABC",
+      "shared_entry_count": 2,
+      "entry_edges": [
+        {
+          "source_pc": "0x060148BE",
+          "target_pc": "0x06014BBA",
+          "source_function": "0x06014810",
+          "target_function": "0x06014ABC",
+          "opcode": "BRA",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "SH2_INTER_FUNCTION_DIRECT_BRANCH_SHARED_ENTRY"
+        },
+        {
+          "source_pc": "0x06015996",
+          "target_pc": "0x06014AE6",
+          "source_function": "0x060156C2",
+          "target_function": "0x06014ABC",
+          "opcode": "BRA",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "SH2_INTER_FUNCTION_DIRECT_BRANCH_SHARED_ENTRY"
+        }
+      ]
+    },
+    {
+      "function_entry": "0x06014BDC",
+      "shared_entry_count": 2,
+      "entry_edges": [
+        {
+          "source_pc": "0x06014C9E",
+          "target_pc": "0x06014C64",
+          "source_function": "0x06014C9E",
+          "target_function": "0x06014BDC",
+          "opcode": "BRA",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "SH2_INTER_FUNCTION_DIRECT_BRANCH_SHARED_ENTRY"
+        },
+        {
+          "source_pc": "0x06015992",
+          "target_pc": "0x06014C5A",
+          "source_function": "0x060156C2",
+          "target_function": "0x06014BDC",
+          "opcode": "BRA",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "SH2_INTER_FUNCTION_DIRECT_BRANCH_SHARED_ENTRY"
+        }
+      ]
+    },
+    {
+      "function_entry": "0x060156C2",
+      "shared_entry_count": 3,
+      "entry_edges": [
+        {
+          "source_pc": "0x06014EA6",
+          "target_pc": "0x060159FA",
+          "source_function": "0x06014D08",
+          "target_function": "0x060156C2",
+          "opcode": "BRA",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "SH2_INTER_FUNCTION_DIRECT_BRANCH_SHARED_ENTRY"
+        },
+        {
+          "source_pc": "0x060155EC",
+          "target_pc": "0x0601601A",
+          "source_function": "0x06015440",
+          "target_function": "0x060156C2",
+          "opcode": "BRA",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "SH2_INTER_FUNCTION_DIRECT_BRANCH_SHARED_ENTRY"
+        },
+        {
+          "source_pc": "0x060156AA",
+          "target_pc": "0x0601601A",
+          "source_function": "0x06015440",
+          "target_function": "0x060156C2",
+          "opcode": "BRA",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "SH2_INTER_FUNCTION_DIRECT_BRANCH_SHARED_ENTRY"
+        }
+      ]
+    },
+    {
+      "function_entry": "0x06015142",
+      "shared_entry_count": 4,
+      "entry_edges": [
+        {
+          "source_pc": "0x06014F38",
+          "target_pc": "0x06015212",
+          "source_function": "0x06014D08",
+          "target_function": "0x06015142",
+          "opcode": "BRA",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "SH2_INTER_FUNCTION_DIRECT_BRANCH_SHARED_ENTRY"
+        },
+        {
+          "source_pc": "0x06014F4C",
+          "target_pc": "0x060151F0",
+          "source_function": "0x06014D08",
+          "target_function": "0x06015142",
+          "opcode": "BRA",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "SH2_INTER_FUNCTION_DIRECT_BRANCH_SHARED_ENTRY"
+        },
+        {
+          "source_pc": "0x0601505A",
+          "target_pc": "0x06015166",
+          "source_function": "0x06014D08",
+          "target_function": "0x06015142",
+          "opcode": "BRA",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "SH2_INTER_FUNCTION_DIRECT_BRANCH_SHARED_ENTRY"
+        },
+        {
+          "source_pc": "0x06015EBA",
+          "target_pc": "0x06015182",
+          "source_function": "0x060156C2",
+          "target_function": "0x06015142",
+          "opcode": "BRA",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "SH2_INTER_FUNCTION_DIRECT_BRANCH_SHARED_ENTRY"
+        }
+      ]
+    },
+    {
+      "function_entry": "0x0601604E",
+      "shared_entry_count": 1,
+      "entry_edges": [
+        {
+          "source_pc": "0x06015D8E",
+          "target_pc": "0x0601616A",
+          "source_function": "0x060156C2",
+          "target_function": "0x0601604E",
+          "opcode": "BRA",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "SH2_INTER_FUNCTION_DIRECT_BRANCH_SHARED_ENTRY"
+        }
+      ]
+    },
+    {
+      "function_entry": "0x060169AE",
+      "shared_entry_count": 1,
+      "entry_edges": [
+        {
+          "source_pc": "0x060169A8",
+          "target_pc": "0x06016A1A",
+          "source_function": "0x060166A2",
+          "target_function": "0x060169AE",
+          "opcode": "BRA",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "SH2_INTER_FUNCTION_DIRECT_BRANCH_SHARED_ENTRY"
+        }
+      ]
+    },
+    {
+      "function_entry": "0x0601765A",
+      "shared_entry_count": 3,
+      "entry_edges": [
+        {
+          "source_pc": "0x060175E4",
+          "target_pc": "0x06017692",
+          "source_function": "0x060175A8",
+          "target_function": "0x0601765A",
+          "opcode": "BRA",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "SH2_INTER_FUNCTION_DIRECT_BRANCH_SHARED_ENTRY"
+        },
+        {
+          "source_pc": "0x06017604",
+          "target_pc": "0x06017692",
+          "source_function": "0x060175A8",
+          "target_function": "0x0601765A",
+          "opcode": "BRA",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "SH2_INTER_FUNCTION_DIRECT_BRANCH_SHARED_ENTRY"
+        },
+        {
+          "source_pc": "0x06017628",
+          "target_pc": "0x06017692",
+          "source_function": "0x060175A8",
+          "target_function": "0x0601765A",
+          "opcode": "BRA",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "SH2_INTER_FUNCTION_DIRECT_BRANCH_SHARED_ENTRY"
+        }
+      ]
+    },
+    {
+      "function_entry": "0x0602F312",
+      "shared_entry_count": 8,
+      "entry_edges": [
+        {
+          "source_pc": "0x0602F192",
+          "target_pc": "0x0602F4B6",
+          "source_function": "0x0602F052",
+          "target_function": "0x0602F312",
+          "opcode": "BRA",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "SH2_INTER_FUNCTION_DIRECT_BRANCH_SHARED_ENTRY"
+        },
+        {
+          "source_pc": "0x0602F1D0",
+          "target_pc": "0x0602F4A8",
+          "source_function": "0x0602F052",
+          "target_function": "0x0602F312",
+          "opcode": "BRA",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "SH2_INTER_FUNCTION_DIRECT_BRANCH_SHARED_ENTRY"
+        },
+        {
+          "source_pc": "0x0602F1E2",
+          "target_pc": "0x0602F4A8",
+          "source_function": "0x0602F052",
+          "target_function": "0x0602F312",
+          "opcode": "BRA",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "SH2_INTER_FUNCTION_DIRECT_BRANCH_SHARED_ENTRY"
+        },
+        {
+          "source_pc": "0x0602F26C",
+          "target_pc": "0x0602F4A8",
+          "source_function": "0x0602F052",
+          "target_function": "0x0602F312",
+          "opcode": "BRA",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "SH2_INTER_FUNCTION_DIRECT_BRANCH_SHARED_ENTRY"
+        },
+        {
+          "source_pc": "0x0602F2E0",
+          "target_pc": "0x0602F4A8",
+          "source_function": "0x0602F052",
+          "target_function": "0x0602F312",
+          "opcode": "BRA",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "SH2_INTER_FUNCTION_DIRECT_BRANCH_SHARED_ENTRY"
+        },
+        {
+          "source_pc": "0x0602F2FC",
+          "target_pc": "0x0602F4A8",
+          "source_function": "0x0602F052",
+          "target_function": "0x0602F312",
+          "opcode": "BRA",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "SH2_INTER_FUNCTION_DIRECT_BRANCH_SHARED_ENTRY"
+        },
+        {
+          "source_pc": "0x06030080",
+          "target_pc": "0x0602FC64",
+          "source_function": "0x0602FF58",
+          "target_function": "0x0602F312",
+          "opcode": "BRA",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "SH2_INTER_FUNCTION_DIRECT_BRANCH_SHARED_ENTRY"
+        },
+        {
+          "source_pc": "0x0603009C",
+          "target_pc": "0x0602FCDC",
+          "source_function": "0x0602FF58",
+          "target_function": "0x0602F312",
+          "opcode": "BRA",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "SH2_INTER_FUNCTION_DIRECT_BRANCH_SHARED_ENTRY"
+        }
+      ]
+    },
+    {
+      "function_entry": "0x06039B22",
+      "shared_entry_count": 2,
+      "entry_edges": [
+        {
+          "source_pc": "0x06039AF6",
+          "target_pc": "0x06039B7A",
+          "source_function": "0x060398F6",
+          "target_function": "0x06039B22",
+          "opcode": "BRA",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "SH2_INTER_FUNCTION_DIRECT_BRANCH_SHARED_ENTRY"
+        },
+        {
+          "source_pc": "0x06039B1E",
+          "target_pc": "0x06039B7A",
+          "source_function": "0x06039AFA",
+          "target_function": "0x06039B22",
+          "opcode": "BRA",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "SH2_INTER_FUNCTION_DIRECT_BRANCH_SHARED_ENTRY"
+        }
+      ]
+    },
+    {
+      "function_entry": "0x06039C2A",
+      "shared_entry_count": 1,
+      "entry_edges": [
+        {
+          "source_pc": "0x06039C06",
+          "target_pc": "0x06039C60",
+          "source_function": "0x06039C06",
+          "target_function": "0x06039C2A",
+          "opcode": "BRA",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "SH2_INTER_FUNCTION_DIRECT_BRANCH_SHARED_ENTRY"
+        }
+      ]
+    },
+    {
+      "function_entry": "0x06039D1A",
+      "shared_entry_count": 3,
+      "entry_edges": [
+        {
+          "source_pc": "0x06039CB4",
+          "target_pc": "0x06039D32",
+          "source_function": "0x06039C2A",
+          "target_function": "0x06039D1A",
+          "opcode": "BRA",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "SH2_INTER_FUNCTION_DIRECT_BRANCH_SHARED_ENTRY"
+        },
+        {
+          "source_pc": "0x06039CF2",
+          "target_pc": "0x06039D32",
+          "source_function": "0x06039CE6",
+          "target_function": "0x06039D1A",
+          "opcode": "BRA",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "SH2_INTER_FUNCTION_DIRECT_BRANCH_SHARED_ENTRY"
+        },
+        {
+          "source_pc": "0x06039D02",
+          "target_pc": "0x06039D32",
+          "source_function": "0x06039CE6",
+          "target_function": "0x06039D1A",
+          "opcode": "BRA",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "SH2_INTER_FUNCTION_DIRECT_BRANCH_SHARED_ENTRY"
+        }
+      ]
+    },
+    {
+      "function_entry": "0x06039E7A",
+      "shared_entry_count": 3,
+      "entry_edges": [
+        {
+          "source_pc": "0x06039DF8",
+          "target_pc": "0x06039EAE",
+          "source_function": "0x06039DCE",
+          "target_function": "0x06039E7A",
+          "opcode": "BRA",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "SH2_INTER_FUNCTION_DIRECT_BRANCH_SHARED_ENTRY"
+        },
+        {
+          "source_pc": "0x06039E70",
+          "target_pc": "0x06039EAE",
+          "source_function": "0x06039E2E",
+          "target_function": "0x06039E7A",
+          "opcode": "BRA",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "SH2_INTER_FUNCTION_DIRECT_BRANCH_SHARED_ENTRY"
+        },
+        {
+          "source_pc": "0x06039E76",
+          "target_pc": "0x06039E8A",
+          "source_function": "0x06039E2E",
+          "target_function": "0x06039E7A",
+          "opcode": "BRA",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "SH2_INTER_FUNCTION_DIRECT_BRANCH_SHARED_ENTRY"
+        }
+      ]
+    },
+    {
+      "function_entry": "0x0603A03E",
+      "shared_entry_count": 1,
+      "entry_edges": [
+        {
+          "source_pc": "0x0603A026",
+          "target_pc": "0x0603A05C",
+          "source_function": "0x06039F82",
+          "target_function": "0x0603A03E",
+          "opcode": "BRA",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "SH2_INTER_FUNCTION_DIRECT_BRANCH_SHARED_ENTRY"
+        }
+      ]
+    },
+    {
+      "function_entry": "0x0603A1BA",
+      "shared_entry_count": 1,
+      "entry_edges": [
+        {
+          "source_pc": "0x0603A1A2",
+          "target_pc": "0x0603A1E2",
+          "source_function": "0x0603A182",
+          "target_function": "0x0603A1BA",
+          "opcode": "BRA",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "SH2_INTER_FUNCTION_DIRECT_BRANCH_SHARED_ENTRY"
+        }
+      ]
+    },
+    {
+      "function_entry": "0x0603A41A",
+      "shared_entry_count": 2,
+      "entry_edges": [
+        {
+          "source_pc": "0x0603A3E2",
+          "target_pc": "0x0603A46E",
+          "source_function": "0x0603A3CA",
+          "target_function": "0x0603A41A",
+          "opcode": "BRA",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "SH2_INTER_FUNCTION_DIRECT_BRANCH_SHARED_ENTRY"
+        },
+        {
+          "source_pc": "0x0603B146",
+          "target_pc": "0x0603A472",
+          "source_function": "0x0603B0FA",
+          "target_function": "0x0603A41A",
+          "opcode": "BRA",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "SH2_INTER_FUNCTION_DIRECT_BRANCH_SHARED_ENTRY"
+        }
+      ]
+    },
+    {
+      "function_entry": "0x0603A4F2",
+      "shared_entry_count": 1,
+      "entry_edges": [
+        {
+          "source_pc": "0x0603A4DC",
+          "target_pc": "0x0603A4FC",
+          "source_function": "0x0603A49A",
+          "target_function": "0x0603A4F2",
+          "opcode": "BRA",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "SH2_INTER_FUNCTION_DIRECT_BRANCH_SHARED_ENTRY"
+        }
+      ]
+    },
+    {
+      "function_entry": "0x0603A756",
+      "shared_entry_count": 6,
+      "entry_edges": [
+        {
+          "source_pc": "0x0603A6F2",
+          "target_pc": "0x0603A79C",
+          "source_function": "0x0603A676",
+          "target_function": "0x0603A756",
+          "opcode": "BRA",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "SH2_INTER_FUNCTION_DIRECT_BRANCH_SHARED_ENTRY"
+        },
+        {
+          "source_pc": "0x0603A726",
+          "target_pc": "0x0603A79C",
+          "source_function": "0x0603A676",
+          "target_function": "0x0603A756",
+          "opcode": "BRA",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "SH2_INTER_FUNCTION_DIRECT_BRANCH_SHARED_ENTRY"
+        },
+        {
+          "source_pc": "0x0603A754",
+          "target_pc": "0x0603A79C",
+          "source_function": "0x0603A73A",
+          "target_function": "0x0603A756",
+          "opcode": "BRAF",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "AUDITED_BRAF_DIRECT_BRANCH_SHARED_ENTRY"
+        },
+        {
+          "source_pc": "0x0603A754",
+          "target_pc": "0x0603A78A",
+          "source_function": "0x0603A73A",
+          "target_function": "0x0603A756",
+          "opcode": "BRAF",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "AUDITED_BRAF_DIRECT_BRANCH_SHARED_ENTRY"
+        },
+        {
+          "source_pc": "0x0603A754",
+          "target_pc": "0x0603A77C",
+          "source_function": "0x0603A73A",
+          "target_function": "0x0603A756",
+          "opcode": "BRAF",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "AUDITED_BRAF_DIRECT_BRANCH_SHARED_ENTRY"
+        },
+        {
+          "source_pc": "0x0603A754",
+          "target_pc": "0x0603A78E",
+          "source_function": "0x0603A73A",
+          "target_function": "0x0603A756",
+          "opcode": "BRAF",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "AUDITED_BRAF_DIRECT_BRANCH_SHARED_ENTRY"
+        }
+      ]
+    },
+    {
+      "function_entry": "0x0603A996",
+      "shared_entry_count": 2,
+      "entry_edges": [
+        {
+          "source_pc": "0x0603A8E6",
+          "target_pc": "0x0603A9AA",
+          "source_function": "0x0603A896",
+          "target_function": "0x0603A996",
+          "opcode": "BRA",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "SH2_INTER_FUNCTION_DIRECT_BRANCH_SHARED_ENTRY"
+        },
+        {
+          "source_pc": "0x0603A91E",
+          "target_pc": "0x0603A9AA",
+          "source_function": "0x0603A896",
+          "target_function": "0x0603A996",
+          "opcode": "BRA",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "SH2_INTER_FUNCTION_DIRECT_BRANCH_SHARED_ENTRY"
+        }
+      ]
+    },
+    {
+      "function_entry": "0x0606520C",
+      "shared_entry_count": 1,
+      "entry_edges": [
+        {
+          "source_pc": "0x060651F4",
+          "target_pc": "0x060652E4",
+          "source_function": "0x06065192",
+          "target_function": "0x0606520C",
+          "opcode": "BRA",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "SH2_INTER_FUNCTION_DIRECT_BRANCH_SHARED_ENTRY"
+        }
+      ]
+    },
+    {
+      "function_entry": "0x0606C0FA",
+      "shared_entry_count": 2,
+      "entry_edges": [
+        {
+          "source_pc": "0x0606D806",
+          "target_pc": "0x0606C8B2",
+          "source_function": "0x0606CB18",
+          "target_function": "0x0606C0FA",
+          "opcode": "BRA",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "SH2_INTER_FUNCTION_DIRECT_BRANCH_SHARED_ENTRY"
+        },
+        {
+          "source_pc": "0x0606D8EE",
+          "target_pc": "0x0606C99A",
+          "source_function": "0x0606CB18",
+          "target_function": "0x0606C0FA",
+          "opcode": "BRA",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "SH2_INTER_FUNCTION_DIRECT_BRANCH_SHARED_ENTRY"
+        }
+      ]
+    },
+    {
+      "function_entry": "0x06071E74",
+      "shared_entry_count": 6,
+      "entry_edges": [
+        {
+          "source_pc": "0x06072E6A",
+          "target_pc": "0x06072D7A",
+          "source_function": "0x06072DF0",
+          "target_function": "0x06071E74",
+          "opcode": "BRA",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "SH2_INTER_FUNCTION_DIRECT_BRANCH_SHARED_ENTRY"
+        },
+        {
+          "source_pc": "0x06072FE2",
+          "target_pc": "0x0607286E",
+          "source_function": "0x06072E8C",
+          "target_function": "0x06071E74",
+          "opcode": "BRA",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "SH2_INTER_FUNCTION_DIRECT_BRANCH_SHARED_ENTRY"
+        },
+        {
+          "source_pc": "0x06073092",
+          "target_pc": "0x0607291E",
+          "source_function": "0x06072E8C",
+          "target_function": "0x06071E74",
+          "opcode": "BRA",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "SH2_INTER_FUNCTION_DIRECT_BRANCH_SHARED_ENTRY"
+        },
+        {
+          "source_pc": "0x0607D86A",
+          "target_pc": "0x06072A88",
+          "source_function": "0x0607D850",
+          "target_function": "0x06071E74",
+          "opcode": "JMP",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "AUDITED_JMP_DIRECT_BRANCH_SHARED_ENTRY"
+        },
+        {
+          "source_pc": "0x0607E0B4",
+          "target_pc": "0x06072A88",
+          "source_function": "0x0607E05C",
+          "target_function": "0x06071E74",
+          "opcode": "JMP",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "AUDITED_JMP_DIRECT_BRANCH_SHARED_ENTRY"
+        },
+        {
+          "source_pc": "0x0607E0CC",
+          "target_pc": "0x06072A88",
+          "source_function": "0x0607E05C",
+          "target_function": "0x06071E74",
+          "opcode": "JMP",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "AUDITED_JMP_DIRECT_BRANCH_SHARED_ENTRY"
+        }
+      ]
+    },
+    {
+      "function_entry": "0x06074C06",
+      "shared_entry_count": 6,
+      "entry_edges": [
+        {
+          "source_pc": "0x060743D0",
+          "target_pc": "0x06074CE0",
+          "source_function": "0x06074390",
+          "target_function": "0x06074C06",
+          "opcode": "BRA",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "SH2_INTER_FUNCTION_DIRECT_BRANCH_SHARED_ENTRY"
+        },
+        {
+          "source_pc": "0x06074840",
+          "target_pc": "0x06074D10",
+          "source_function": "0x060743DC",
+          "target_function": "0x06074C06",
+          "opcode": "BRA",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "SH2_INTER_FUNCTION_DIRECT_BRANCH_SHARED_ENTRY"
+        },
+        {
+          "source_pc": "0x06074A42",
+          "target_pc": "0x06074D10",
+          "source_function": "0x060749F6",
+          "target_function": "0x06074C06",
+          "opcode": "BRA",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "SH2_INTER_FUNCTION_DIRECT_BRANCH_SHARED_ENTRY"
+        },
+        {
+          "source_pc": "0x06074B6E",
+          "target_pc": "0x06074D10",
+          "source_function": "0x06074ACE",
+          "target_function": "0x06074C06",
+          "opcode": "BRA",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "SH2_INTER_FUNCTION_DIRECT_BRANCH_SHARED_ENTRY"
+        },
+        {
+          "source_pc": "0x06074B8E",
+          "target_pc": "0x06074D10",
+          "source_function": "0x06074ACE",
+          "target_function": "0x06074C06",
+          "opcode": "BRA",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "SH2_INTER_FUNCTION_DIRECT_BRANCH_SHARED_ENTRY"
+        },
+        {
+          "source_pc": "0x06074B9C",
+          "target_pc": "0x06074D10",
+          "source_function": "0x06074ACE",
+          "target_function": "0x06074C06",
+          "opcode": "BRA",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "SH2_INTER_FUNCTION_DIRECT_BRANCH_SHARED_ENTRY"
+        }
+      ]
+    },
+    {
+      "function_entry": "0x06075634",
+      "shared_entry_count": 1,
+      "entry_edges": [
+        {
+          "source_pc": "0x06075614",
+          "target_pc": "0x06075698",
+          "source_function": "0x06075498",
+          "target_function": "0x06075634",
+          "opcode": "BRA",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "SH2_INTER_FUNCTION_DIRECT_BRANCH_SHARED_ENTRY"
+        }
+      ]
+    },
+    {
+      "function_entry": "0x06078358",
+      "shared_entry_count": 1,
+      "entry_edges": [
+        {
+          "source_pc": "0x06077A9A",
+          "target_pc": "0x060783B8",
+          "source_function": "0x0607773A",
+          "target_function": "0x06078358",
+          "opcode": "BRA",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "SH2_INTER_FUNCTION_DIRECT_BRANCH_SHARED_ENTRY"
+        }
+      ]
+    },
+    {
+      "function_entry": "0x060775A6",
+      "shared_entry_count": 3,
+      "entry_edges": [
+        {
+          "source_pc": "0x06077D12",
+          "target_pc": "0x0607767A",
+          "source_function": "0x0607773A",
+          "target_function": "0x060775A6",
+          "opcode": "BRA",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "SH2_INTER_FUNCTION_DIRECT_BRANCH_SHARED_ENTRY"
+        },
+        {
+          "source_pc": "0x06077D56",
+          "target_pc": "0x060776B2",
+          "source_function": "0x06077D2E",
+          "target_function": "0x060775A6",
+          "opcode": "BRA",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "SH2_INTER_FUNCTION_DIRECT_BRANCH_SHARED_ENTRY"
+        },
+        {
+          "source_pc": "0x06077EC6",
+          "target_pc": "0x0607767C",
+          "source_function": "0x06077E58",
+          "target_function": "0x060775A6",
+          "opcode": "BRA",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "SH2_INTER_FUNCTION_DIRECT_BRANCH_SHARED_ENTRY"
+        }
+      ]
+    },
+    {
+      "function_entry": "0x06078AB0",
+      "shared_entry_count": 1,
+      "entry_edges": [
+        {
+          "source_pc": "0x06077D42",
+          "target_pc": "0x06078AD8",
+          "source_function": "0x06077D2E",
+          "target_function": "0x06078AB0",
+          "opcode": "BRA",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "SH2_INTER_FUNCTION_DIRECT_BRANCH_SHARED_ENTRY"
+        }
+      ]
+    },
+    {
+      "function_entry": "0x060771BE",
+      "shared_entry_count": 1,
+      "entry_edges": [
+        {
+          "source_pc": "0x06077E1E",
+          "target_pc": "0x0607723E",
+          "source_function": "0x06077D2E",
+          "target_function": "0x060771BE",
+          "opcode": "BRA",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "SH2_INTER_FUNCTION_DIRECT_BRANCH_SHARED_ENTRY"
+        }
+      ]
+    },
+    {
+      "function_entry": "0x0607773A",
+      "shared_entry_count": 10,
+      "entry_edges": [
+        {
+          "source_pc": "0x06077EB2",
+          "target_pc": "0x06077ACC",
+          "source_function": "0x06077E58",
+          "target_function": "0x0607773A",
+          "opcode": "BRA",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "SH2_INTER_FUNCTION_DIRECT_BRANCH_SHARED_ENTRY"
+        },
+        {
+          "source_pc": "0x0600A0BE",
+          "target_pc": "0x06077948",
+          "source_function": "0x0600A0B2",
+          "target_function": "0x0607773A",
+          "opcode": "JMP",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "AUDITED_JMP_DIRECT_BRANCH_SHARED_ENTRY"
+        },
+        {
+          "source_pc": "0x0600A43A",
+          "target_pc": "0x06077948",
+          "source_function": "0x0600A428",
+          "target_function": "0x0607773A",
+          "opcode": "JMP",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "AUDITED_JMP_DIRECT_BRANCH_SHARED_ENTRY"
+        },
+        {
+          "source_pc": "0x0600BC80",
+          "target_pc": "0x06077948",
+          "source_function": "0x0600B816",
+          "target_function": "0x0607773A",
+          "opcode": "JMP",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "AUDITED_JMP_DIRECT_BRANCH_SHARED_ENTRY"
+        },
+        {
+          "source_pc": "0x060138BC",
+          "target_pc": "0x06077948",
+          "source_function": "0x060138AC",
+          "target_function": "0x0607773A",
+          "opcode": "JMP",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "AUDITED_JMP_DIRECT_BRANCH_SHARED_ENTRY"
+        },
+        {
+          "source_pc": "0x0602F5C8",
+          "target_pc": "0x06077948",
+          "source_function": "0x0602F312",
+          "target_function": "0x0607773A",
+          "opcode": "JMP",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "AUDITED_JMP_DIRECT_BRANCH_SHARED_ENTRY"
+        },
+        {
+          "source_pc": "0x0607398C",
+          "target_pc": "0x06077948",
+          "source_function": "0x06073970",
+          "target_function": "0x0607773A",
+          "opcode": "JMP",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "AUDITED_JMP_DIRECT_BRANCH_SHARED_ENTRY"
+        },
+        {
+          "source_pc": "0x0607D82C",
+          "target_pc": "0x06077948",
+          "source_function": "0x0607D816",
+          "target_function": "0x0607773A",
+          "opcode": "JMP",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "AUDITED_JMP_DIRECT_BRANCH_SHARED_ENTRY"
+        },
+        {
+          "source_pc": "0x0607DF5C",
+          "target_pc": "0x06077948",
+          "source_function": "0x0607DF28",
+          "target_function": "0x0607773A",
+          "opcode": "JMP",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "AUDITED_JMP_DIRECT_BRANCH_SHARED_ENTRY"
+        },
+        {
+          "source_pc": "0x0607DF72",
+          "target_pc": "0x06077948",
+          "source_function": "0x0607DF28",
+          "target_function": "0x0607773A",
+          "opcode": "JMP",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "AUDITED_JMP_DIRECT_BRANCH_SHARED_ENTRY"
+        }
+      ]
+    },
+    {
+      "function_entry": "0x060780D2",
+      "shared_entry_count": 4,
+      "entry_edges": [
+        {
+          "source_pc": "0x06078078",
+          "target_pc": "0x060780EC",
+          "source_function": "0x06078050",
+          "target_function": "0x060780D2",
+          "opcode": "BRA",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "SH2_INTER_FUNCTION_DIRECT_BRANCH_SHARED_ENTRY"
+        },
+        {
+          "source_pc": "0x06078084",
+          "target_pc": "0x060780EC",
+          "source_function": "0x06078050",
+          "target_function": "0x060780D2",
+          "opcode": "BRA",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "SH2_INTER_FUNCTION_DIRECT_BRANCH_SHARED_ENTRY"
+        },
+        {
+          "source_pc": "0x060780AC",
+          "target_pc": "0x060780EC",
+          "source_function": "0x06078050",
+          "target_function": "0x060780D2",
+          "opcode": "BRA",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "SH2_INTER_FUNCTION_DIRECT_BRANCH_SHARED_ENTRY"
+        },
+        {
+          "source_pc": "0x060780C4",
+          "target_pc": "0x060780DE",
+          "source_function": "0x06078050",
+          "target_function": "0x060780D2",
+          "opcode": "BRA",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "SH2_INTER_FUNCTION_DIRECT_BRANCH_SHARED_ENTRY"
+        }
+      ]
+    },
+    {
+      "function_entry": "0x0607844C",
+      "shared_entry_count": 3,
+      "entry_edges": [
+        {
+          "source_pc": "0x0607842E",
+          "target_pc": "0x0607848E",
+          "source_function": "0x06078408",
+          "target_function": "0x0607844C",
+          "opcode": "BRA",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "SH2_INTER_FUNCTION_DIRECT_BRANCH_SHARED_ENTRY"
+        },
+        {
+          "source_pc": "0x06078440",
+          "target_pc": "0x0607848E",
+          "source_function": "0x06078408",
+          "target_function": "0x0607844C",
+          "opcode": "BRA",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "SH2_INTER_FUNCTION_DIRECT_BRANCH_SHARED_ENTRY"
+        },
+        {
+          "source_pc": "0x0607844A",
+          "target_pc": "0x06078474",
+          "source_function": "0x06078408",
+          "target_function": "0x0607844C",
+          "opcode": "BRA",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "SH2_INTER_FUNCTION_DIRECT_BRANCH_SHARED_ENTRY"
+        }
+      ]
+    },
+    {
+      "function_entry": "0x0607877E",
+      "shared_entry_count": 1,
+      "entry_edges": [
+        {
+          "source_pc": "0x0607871A",
+          "target_pc": "0x0607878A",
+          "source_function": "0x060786FA",
+          "target_function": "0x0607877E",
+          "opcode": "BRA",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "SH2_INTER_FUNCTION_DIRECT_BRANCH_SHARED_ENTRY"
+        }
+      ]
+    },
+    {
+      "function_entry": "0x06079A86",
+      "shared_entry_count": 1,
+      "entry_edges": [
+        {
+          "source_pc": "0x06079A60",
+          "target_pc": "0x06079AC4",
+          "source_function": "0x0607998C",
+          "target_function": "0x06079A86",
+          "opcode": "BRA",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "SH2_INTER_FUNCTION_DIRECT_BRANCH_SHARED_ENTRY"
+        }
+      ]
+    },
+    {
+      "function_entry": "0x06079AFA",
+      "shared_entry_count": 2,
+      "entry_edges": [
+        {
+          "source_pc": "0x0607A982",
+          "target_pc": "0x0607A292",
+          "source_function": "0x0607A8A8",
+          "target_function": "0x06079AFA",
+          "opcode": "BRA",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "SH2_INTER_FUNCTION_DIRECT_BRANCH_SHARED_ENTRY"
+        },
+        {
+          "source_pc": "0x0607AADE",
+          "target_pc": "0x0607A3EE",
+          "source_function": "0x0607AA6C",
+          "target_function": "0x06079AFA",
+          "opcode": "BRA",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "SH2_INTER_FUNCTION_DIRECT_BRANCH_SHARED_ENTRY"
+        }
+      ]
+    },
+    {
+      "function_entry": "0x0607DACA",
+      "shared_entry_count": 4,
+      "entry_edges": [
+        {
+          "source_pc": "0x0607DA74",
+          "target_pc": "0x0607DACE",
+          "source_function": "0x0607DA62",
+          "target_function": "0x0607DACA",
+          "opcode": "BRA",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "SH2_INTER_FUNCTION_DIRECT_BRANCH_SHARED_ENTRY"
+        },
+        {
+          "source_pc": "0x0607DA7E",
+          "target_pc": "0x0607DACE",
+          "source_function": "0x0607DA62",
+          "target_function": "0x0607DACA",
+          "opcode": "BRA",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "SH2_INTER_FUNCTION_DIRECT_BRANCH_SHARED_ENTRY"
+        },
+        {
+          "source_pc": "0x0607DA90",
+          "target_pc": "0x0607DACC",
+          "source_function": "0x0607DA62",
+          "target_function": "0x0607DACA",
+          "opcode": "BRA",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "SH2_INTER_FUNCTION_DIRECT_BRANCH_SHARED_ENTRY"
+        },
+        {
+          "source_pc": "0x0607DAC0",
+          "target_pc": "0x0607DACC",
+          "source_function": "0x0607DA62",
+          "target_function": "0x0607DACA",
+          "opcode": "BRA",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "SH2_INTER_FUNCTION_DIRECT_BRANCH_SHARED_ENTRY"
+        }
+      ]
+    },
+    {
+      "function_entry": "0x060818FC",
+      "shared_entry_count": 1,
+      "entry_edges": [
+        {
+          "source_pc": "0x060818D8",
+          "target_pc": "0x06081926",
+          "source_function": "0x060818C0",
+          "target_function": "0x060818FC",
+          "opcode": "BRA",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "SH2_INTER_FUNCTION_DIRECT_BRANCH_SHARED_ENTRY"
+        }
+      ]
+    },
+    {
+      "function_entry": "0x06081614",
+      "shared_entry_count": 1,
+      "entry_edges": [
+        {
+          "source_pc": "0x06082090",
+          "target_pc": "0x0608169A",
+          "source_function": "0x06081974",
+          "target_function": "0x06081614",
+          "opcode": "BRA",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "SH2_INTER_FUNCTION_DIRECT_BRANCH_SHARED_ENTRY"
+        }
+      ]
+    },
+    {
+      "function_entry": "0x06081898",
+      "shared_entry_count": 1,
+      "entry_edges": [
+        {
+          "source_pc": "0x06082092",
+          "target_pc": "0x0608189C",
+          "source_function": "0x06081974",
+          "target_function": "0x06081898",
+          "opcode": "BRA",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "SH2_INTER_FUNCTION_DIRECT_BRANCH_SHARED_ENTRY"
+        }
+      ]
+    },
+    {
+      "function_entry": "0x06081974",
+      "shared_entry_count": 12,
+      "entry_edges": [
+        {
+          "source_pc": "0x06082BE8",
+          "target_pc": "0x06081ECE",
+          "source_function": "0x06082BAE",
+          "target_function": "0x06081974",
+          "opcode": "BRA",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "SH2_INTER_FUNCTION_DIRECT_BRANCH_SHARED_ENTRY"
+        },
+        {
+          "source_pc": "0x0600A0BE",
+          "target_pc": "0x06081F38",
+          "source_function": "0x0600A0B2",
+          "target_function": "0x06081974",
+          "opcode": "JMP",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "AUDITED_JMP_DIRECT_BRANCH_SHARED_ENTRY"
+        },
+        {
+          "source_pc": "0x0600A43A",
+          "target_pc": "0x06081F38",
+          "source_function": "0x0600A428",
+          "target_function": "0x06081974",
+          "opcode": "JMP",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "AUDITED_JMP_DIRECT_BRANCH_SHARED_ENTRY"
+        },
+        {
+          "source_pc": "0x0600BC80",
+          "target_pc": "0x06081F38",
+          "source_function": "0x0600B816",
+          "target_function": "0x06081974",
+          "opcode": "JMP",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "AUDITED_JMP_DIRECT_BRANCH_SHARED_ENTRY"
+        },
+        {
+          "source_pc": "0x060138BC",
+          "target_pc": "0x06081F38",
+          "source_function": "0x060138AC",
+          "target_function": "0x06081974",
+          "opcode": "JMP",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "AUDITED_JMP_DIRECT_BRANCH_SHARED_ENTRY"
+        },
+        {
+          "source_pc": "0x0602F5C8",
+          "target_pc": "0x06081F38",
+          "source_function": "0x0602F312",
+          "target_function": "0x06081974",
+          "opcode": "JMP",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "AUDITED_JMP_DIRECT_BRANCH_SHARED_ENTRY"
+        },
+        {
+          "source_pc": "0x0607398C",
+          "target_pc": "0x06081F38",
+          "source_function": "0x06073970",
+          "target_function": "0x06081974",
+          "opcode": "JMP",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "AUDITED_JMP_DIRECT_BRANCH_SHARED_ENTRY"
+        },
+        {
+          "source_pc": "0x0607D82C",
+          "target_pc": "0x06081F38",
+          "source_function": "0x0607D816",
+          "target_function": "0x06081974",
+          "opcode": "JMP",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "AUDITED_JMP_DIRECT_BRANCH_SHARED_ENTRY"
+        },
+        {
+          "source_pc": "0x0607D84C",
+          "target_pc": "0x06081998",
+          "source_function": "0x0607D830",
+          "target_function": "0x06081974",
+          "opcode": "JMP",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "AUDITED_JMP_DIRECT_BRANCH_SHARED_ENTRY"
+        },
+        {
+          "source_pc": "0x0607D84C",
+          "target_pc": "0x06081F3C",
+          "source_function": "0x0607D830",
+          "target_function": "0x06081974",
+          "opcode": "JMP",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "AUDITED_JMP_DIRECT_BRANCH_SHARED_ENTRY"
+        },
+        {
+          "source_pc": "0x0607DF5C",
+          "target_pc": "0x06081F38",
+          "source_function": "0x0607DF28",
+          "target_function": "0x06081974",
+          "opcode": "JMP",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "AUDITED_JMP_DIRECT_BRANCH_SHARED_ENTRY"
+        },
+        {
+          "source_pc": "0x0607DF72",
+          "target_pc": "0x06081F38",
+          "source_function": "0x0607DF28",
+          "target_function": "0x06081974",
+          "opcode": "JMP",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "AUDITED_JMP_DIRECT_BRANCH_SHARED_ENTRY"
+        }
+      ]
+    },
+    {
+      "function_entry": "0x002E502C",
+      "shared_entry_count": 1,
+      "entry_edges": [
+        {
+          "source_pc": "0x002E4E6A",
+          "target_pc": "0x002E505E",
+          "source_function": "0x002E4C9C",
+          "target_function": "0x002E502C",
+          "opcode": "BRA",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "TH2.LOW",
+          "evidence": "SH2_INTER_FUNCTION_DIRECT_BRANCH_SHARED_ENTRY"
+        }
+      ]
+    },
+    {
+      "function_entry": "0x002E776C",
+      "shared_entry_count": 2,
+      "entry_edges": [
+        {
+          "source_pc": "0x002E74CC",
+          "target_pc": "0x002E7826",
+          "source_function": "0x002E7464",
+          "target_function": "0x002E776C",
+          "opcode": "BRA",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "TH2.LOW",
+          "evidence": "SH2_INTER_FUNCTION_DIRECT_BRANCH_SHARED_ENTRY"
+        },
+        {
+          "source_pc": "0x002E824A",
+          "target_pc": "0x002E7906",
+          "source_function": "0x002E7E60",
+          "target_function": "0x002E776C",
+          "opcode": "BRA",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "TH2.LOW",
+          "evidence": "SH2_INTER_FUNCTION_DIRECT_BRANCH_SHARED_ENTRY"
+        }
+      ]
+    },
+    {
+      "function_entry": "0x002E9910",
+      "shared_entry_count": 1,
+      "entry_edges": [
+        {
+          "source_pc": "0x002E92AE",
+          "target_pc": "0x002E9ADE",
+          "source_function": "0x002E9256",
+          "target_function": "0x002E9910",
+          "opcode": "BRA",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "TH2.LOW",
+          "evidence": "SH2_INTER_FUNCTION_DIRECT_BRANCH_SHARED_ENTRY"
+        }
+      ]
+    },
+    {
+      "function_entry": "0x002E9566",
+      "shared_entry_count": 1,
+      "entry_edges": [
+        {
+          "source_pc": "0x002E94DE",
+          "target_pc": "0x002E9596",
+          "source_function": "0x002E92C4",
+          "target_function": "0x002E9566",
+          "opcode": "BRA",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "TH2.LOW",
+          "evidence": "SH2_INTER_FUNCTION_DIRECT_BRANCH_SHARED_ENTRY"
+        }
+      ]
+    },
+    {
+      "function_entry": "0x002E9752",
+      "shared_entry_count": 4,
+      "entry_edges": [
+        {
+          "source_pc": "0x002E95E6",
+          "target_pc": "0x002E9848",
+          "source_function": "0x002E95AA",
+          "target_function": "0x002E9752",
+          "opcode": "BRA",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "TH2.LOW",
+          "evidence": "SH2_INTER_FUNCTION_DIRECT_BRANCH_SHARED_ENTRY"
+        },
+        {
+          "source_pc": "0x002E9636",
+          "target_pc": "0x002E9808",
+          "source_function": "0x002E95AA",
+          "target_function": "0x002E9752",
+          "opcode": "BRA",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "TH2.LOW",
+          "evidence": "SH2_INTER_FUNCTION_DIRECT_BRANCH_SHARED_ENTRY"
+        },
+        {
+          "source_pc": "0x002E9646",
+          "target_pc": "0x002E9790",
+          "source_function": "0x002E95AA",
+          "target_function": "0x002E9752",
+          "opcode": "BRA",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "TH2.LOW",
+          "evidence": "SH2_INTER_FUNCTION_DIRECT_BRANCH_SHARED_ENTRY"
+        },
+        {
+          "source_pc": "0x002E966E",
+          "target_pc": "0x002E9848",
+          "source_function": "0x002E95AA",
+          "target_function": "0x002E9752",
+          "opcode": "BRA",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "TH2.LOW",
+          "evidence": "SH2_INTER_FUNCTION_DIRECT_BRANCH_SHARED_ENTRY"
+        }
+      ]
+    },
+    {
+      "function_entry": "0x002EA1B4",
+      "shared_entry_count": 1,
+      "entry_edges": [
+        {
+          "source_pc": "0x002EA046",
+          "target_pc": "0x002EA242",
+          "source_function": "0x002E9DA6",
+          "target_function": "0x002EA1B4",
+          "opcode": "BRA",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "TH2.LOW",
+          "evidence": "SH2_INTER_FUNCTION_DIRECT_BRANCH_SHARED_ENTRY"
+        }
+      ]
+    },
+    {
+      "function_entry": "0x060045E8",
+      "shared_entry_count": 9,
+      "entry_edges": [
+        {
+          "source_pc": "0x0600A0BE",
+          "target_pc": "0x06004678",
+          "source_function": "0x0600A0B2",
+          "target_function": "0x060045E8",
+          "opcode": "JMP",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "AUDITED_JMP_DIRECT_BRANCH_SHARED_ENTRY"
+        },
+        {
+          "source_pc": "0x0600A43A",
+          "target_pc": "0x06004678",
+          "source_function": "0x0600A428",
+          "target_function": "0x060045E8",
+          "opcode": "JMP",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "AUDITED_JMP_DIRECT_BRANCH_SHARED_ENTRY"
+        },
+        {
+          "source_pc": "0x0600BC80",
+          "target_pc": "0x06004678",
+          "source_function": "0x0600B816",
+          "target_function": "0x060045E8",
+          "opcode": "JMP",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "AUDITED_JMP_DIRECT_BRANCH_SHARED_ENTRY"
+        },
+        {
+          "source_pc": "0x060138BC",
+          "target_pc": "0x06004678",
+          "source_function": "0x060138AC",
+          "target_function": "0x060045E8",
+          "opcode": "JMP",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "AUDITED_JMP_DIRECT_BRANCH_SHARED_ENTRY"
+        },
+        {
+          "source_pc": "0x0602F5C8",
+          "target_pc": "0x06004678",
+          "source_function": "0x0602F312",
+          "target_function": "0x060045E8",
+          "opcode": "JMP",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "AUDITED_JMP_DIRECT_BRANCH_SHARED_ENTRY"
+        },
+        {
+          "source_pc": "0x0607398C",
+          "target_pc": "0x06004678",
+          "source_function": "0x06073970",
+          "target_function": "0x060045E8",
+          "opcode": "JMP",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "AUDITED_JMP_DIRECT_BRANCH_SHARED_ENTRY"
+        },
+        {
+          "source_pc": "0x0607D82C",
+          "target_pc": "0x06004678",
+          "source_function": "0x0607D816",
+          "target_function": "0x060045E8",
+          "opcode": "JMP",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "AUDITED_JMP_DIRECT_BRANCH_SHARED_ENTRY"
+        },
+        {
+          "source_pc": "0x0607DF5C",
+          "target_pc": "0x06004678",
+          "source_function": "0x0607DF28",
+          "target_function": "0x060045E8",
+          "opcode": "JMP",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "AUDITED_JMP_DIRECT_BRANCH_SHARED_ENTRY"
+        },
+        {
+          "source_pc": "0x0607DF72",
+          "target_pc": "0x06004678",
+          "source_function": "0x0607DF28",
+          "target_function": "0x060045E8",
+          "opcode": "JMP",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "AUDITED_JMP_DIRECT_BRANCH_SHARED_ENTRY"
+        }
+      ]
+    },
+    {
+      "function_entry": "0x060171B4",
+      "shared_entry_count": 9,
+      "entry_edges": [
+        {
+          "source_pc": "0x0600A0BE",
+          "target_pc": "0x060171D4",
+          "source_function": "0x0600A0B2",
+          "target_function": "0x060171B4",
+          "opcode": "JMP",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "AUDITED_JMP_DIRECT_BRANCH_SHARED_ENTRY"
+        },
+        {
+          "source_pc": "0x0600A43A",
+          "target_pc": "0x060171D4",
+          "source_function": "0x0600A428",
+          "target_function": "0x060171B4",
+          "opcode": "JMP",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "AUDITED_JMP_DIRECT_BRANCH_SHARED_ENTRY"
+        },
+        {
+          "source_pc": "0x0600BC80",
+          "target_pc": "0x060171D4",
+          "source_function": "0x0600B816",
+          "target_function": "0x060171B4",
+          "opcode": "JMP",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "AUDITED_JMP_DIRECT_BRANCH_SHARED_ENTRY"
+        },
+        {
+          "source_pc": "0x060138BC",
+          "target_pc": "0x060171D4",
+          "source_function": "0x060138AC",
+          "target_function": "0x060171B4",
+          "opcode": "JMP",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "AUDITED_JMP_DIRECT_BRANCH_SHARED_ENTRY"
+        },
+        {
+          "source_pc": "0x0602F5C8",
+          "target_pc": "0x060171D4",
+          "source_function": "0x0602F312",
+          "target_function": "0x060171B4",
+          "opcode": "JMP",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "AUDITED_JMP_DIRECT_BRANCH_SHARED_ENTRY"
+        },
+        {
+          "source_pc": "0x0607398C",
+          "target_pc": "0x060171D4",
+          "source_function": "0x06073970",
+          "target_function": "0x060171B4",
+          "opcode": "JMP",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "AUDITED_JMP_DIRECT_BRANCH_SHARED_ENTRY"
+        },
+        {
+          "source_pc": "0x0607D82C",
+          "target_pc": "0x060171D4",
+          "source_function": "0x0607D816",
+          "target_function": "0x060171B4",
+          "opcode": "JMP",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "AUDITED_JMP_DIRECT_BRANCH_SHARED_ENTRY"
+        },
+        {
+          "source_pc": "0x0607DF5C",
+          "target_pc": "0x060171D4",
+          "source_function": "0x0607DF28",
+          "target_function": "0x060171B4",
+          "opcode": "JMP",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "AUDITED_JMP_DIRECT_BRANCH_SHARED_ENTRY"
+        },
+        {
+          "source_pc": "0x0607DF72",
+          "target_pc": "0x060171D4",
+          "source_function": "0x0607DF28",
+          "target_function": "0x060171B4",
+          "opcode": "JMP",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "AUDITED_JMP_DIRECT_BRANCH_SHARED_ENTRY"
+        }
+      ]
+    },
+    {
+      "function_entry": "0x060712C6",
+      "shared_entry_count": 10,
+      "entry_edges": [
+        {
+          "source_pc": "0x0600A0BE",
+          "target_pc": "0x060719C4",
+          "source_function": "0x0600A0B2",
+          "target_function": "0x060712C6",
+          "opcode": "JMP",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "AUDITED_JMP_DIRECT_BRANCH_SHARED_ENTRY"
+        },
+        {
+          "source_pc": "0x0600A43A",
+          "target_pc": "0x060719C4",
+          "source_function": "0x0600A428",
+          "target_function": "0x060712C6",
+          "opcode": "JMP",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "AUDITED_JMP_DIRECT_BRANCH_SHARED_ENTRY"
+        },
+        {
+          "source_pc": "0x0600BC80",
+          "target_pc": "0x060719C4",
+          "source_function": "0x0600B816",
+          "target_function": "0x060712C6",
+          "opcode": "JMP",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "AUDITED_JMP_DIRECT_BRANCH_SHARED_ENTRY"
+        },
+        {
+          "source_pc": "0x060138BC",
+          "target_pc": "0x060719C4",
+          "source_function": "0x060138AC",
+          "target_function": "0x060712C6",
+          "opcode": "JMP",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "AUDITED_JMP_DIRECT_BRANCH_SHARED_ENTRY"
+        },
+        {
+          "source_pc": "0x0602F5C8",
+          "target_pc": "0x060719C4",
+          "source_function": "0x0602F312",
+          "target_function": "0x060712C6",
+          "opcode": "JMP",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "AUDITED_JMP_DIRECT_BRANCH_SHARED_ENTRY"
+        },
+        {
+          "source_pc": "0x0606ED02",
+          "target_pc": "0x06071A80",
+          "source_function": "0x0606ECBC",
+          "target_function": "0x060712C6",
+          "opcode": "JMP",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "AUDITED_JMP_DIRECT_BRANCH_SHARED_ENTRY"
+        },
+        {
+          "source_pc": "0x0607398C",
+          "target_pc": "0x060719C4",
+          "source_function": "0x06073970",
+          "target_function": "0x060712C6",
+          "opcode": "JMP",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "AUDITED_JMP_DIRECT_BRANCH_SHARED_ENTRY"
+        },
+        {
+          "source_pc": "0x0607D82C",
+          "target_pc": "0x060719C4",
+          "source_function": "0x0607D816",
+          "target_function": "0x060712C6",
+          "opcode": "JMP",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "AUDITED_JMP_DIRECT_BRANCH_SHARED_ENTRY"
+        },
+        {
+          "source_pc": "0x0607DF5C",
+          "target_pc": "0x060719C4",
+          "source_function": "0x0607DF28",
+          "target_function": "0x060712C6",
+          "opcode": "JMP",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "AUDITED_JMP_DIRECT_BRANCH_SHARED_ENTRY"
+        },
+        {
+          "source_pc": "0x0607DF72",
+          "target_pc": "0x060719C4",
+          "source_function": "0x0607DF28",
+          "target_function": "0x060712C6",
+          "opcode": "JMP",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "AUDITED_JMP_DIRECT_BRANCH_SHARED_ENTRY"
+        }
+      ]
+    },
+    {
+      "function_entry": "0x06071AE4",
+      "shared_entry_count": 15,
+      "entry_edges": [
+        {
+          "source_pc": "0x0600A0BE",
+          "target_pc": "0x06071D04",
+          "source_function": "0x0600A0B2",
+          "target_function": "0x06071AE4",
+          "opcode": "JMP",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "AUDITED_JMP_DIRECT_BRANCH_SHARED_ENTRY"
+        },
+        {
+          "source_pc": "0x0600A43A",
+          "target_pc": "0x06071D04",
+          "source_function": "0x0600A428",
+          "target_function": "0x06071AE4",
+          "opcode": "JMP",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "AUDITED_JMP_DIRECT_BRANCH_SHARED_ENTRY"
+        },
+        {
+          "source_pc": "0x0600BC80",
+          "target_pc": "0x06071D04",
+          "source_function": "0x0600B816",
+          "target_function": "0x06071AE4",
+          "opcode": "JMP",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "AUDITED_JMP_DIRECT_BRANCH_SHARED_ENTRY"
+        },
+        {
+          "source_pc": "0x060138BC",
+          "target_pc": "0x06071D04",
+          "source_function": "0x060138AC",
+          "target_function": "0x06071AE4",
+          "opcode": "JMP",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "AUDITED_JMP_DIRECT_BRANCH_SHARED_ENTRY"
+        },
+        {
+          "source_pc": "0x0602F5C8",
+          "target_pc": "0x06071D04",
+          "source_function": "0x0602F312",
+          "target_function": "0x06071AE4",
+          "opcode": "JMP",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "AUDITED_JMP_DIRECT_BRANCH_SHARED_ENTRY"
+        },
+        {
+          "source_pc": "0x0607398C",
+          "target_pc": "0x06071D04",
+          "source_function": "0x06073970",
+          "target_function": "0x06071AE4",
+          "opcode": "JMP",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "AUDITED_JMP_DIRECT_BRANCH_SHARED_ENTRY"
+        },
+        {
+          "source_pc": "0x0607D82C",
+          "target_pc": "0x06071D04",
+          "source_function": "0x0607D816",
+          "target_function": "0x06071AE4",
+          "opcode": "JMP",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "AUDITED_JMP_DIRECT_BRANCH_SHARED_ENTRY"
+        },
+        {
+          "source_pc": "0x0607D84C",
+          "target_pc": "0x06071B80",
+          "source_function": "0x0607D830",
+          "target_function": "0x06071AE4",
+          "opcode": "JMP",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "AUDITED_JMP_DIRECT_BRANCH_SHARED_ENTRY"
+        },
+        {
+          "source_pc": "0x0607D84C",
+          "target_pc": "0x06071D04",
+          "source_function": "0x0607D830",
+          "target_function": "0x06071AE4",
+          "opcode": "JMP",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "AUDITED_JMP_DIRECT_BRANCH_SHARED_ENTRY"
+        },
+        {
+          "source_pc": "0x0607D86A",
+          "target_pc": "0x06071D04",
+          "source_function": "0x0607D850",
+          "target_function": "0x06071AE4",
+          "opcode": "JMP",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "AUDITED_JMP_DIRECT_BRANCH_SHARED_ENTRY"
+        },
+        {
+          "source_pc": "0x0607D892",
+          "target_pc": "0x06071B80",
+          "source_function": "0x0607D878",
+          "target_function": "0x06071AE4",
+          "opcode": "JMP",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "AUDITED_JMP_DIRECT_BRANCH_SHARED_ENTRY"
+        },
+        {
+          "source_pc": "0x0607DF5C",
+          "target_pc": "0x06071D04",
+          "source_function": "0x0607DF28",
+          "target_function": "0x06071AE4",
+          "opcode": "JMP",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "AUDITED_JMP_DIRECT_BRANCH_SHARED_ENTRY"
+        },
+        {
+          "source_pc": "0x0607DF72",
+          "target_pc": "0x06071D04",
+          "source_function": "0x0607DF28",
+          "target_function": "0x06071AE4",
+          "opcode": "JMP",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "AUDITED_JMP_DIRECT_BRANCH_SHARED_ENTRY"
+        },
+        {
+          "source_pc": "0x0607E0B4",
+          "target_pc": "0x06071D04",
+          "source_function": "0x0607E05C",
+          "target_function": "0x06071AE4",
+          "opcode": "JMP",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "AUDITED_JMP_DIRECT_BRANCH_SHARED_ENTRY"
+        },
+        {
+          "source_pc": "0x0607E0CC",
+          "target_pc": "0x06071D04",
+          "source_function": "0x0607E05C",
+          "target_function": "0x06071AE4",
+          "opcode": "JMP",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "AUDITED_JMP_DIRECT_BRANCH_SHARED_ENTRY"
+        }
+      ]
+    },
+    {
+      "function_entry": "0x0607E35C",
+      "shared_entry_count": 10,
+      "entry_edges": [
+        {
+          "source_pc": "0x0600A0BE",
+          "target_pc": "0x0607E3D2",
+          "source_function": "0x0600A0B2",
+          "target_function": "0x0607E35C",
+          "opcode": "JMP",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "AUDITED_JMP_DIRECT_BRANCH_SHARED_ENTRY"
+        },
+        {
+          "source_pc": "0x0600A43A",
+          "target_pc": "0x0607E3D2",
+          "source_function": "0x0600A428",
+          "target_function": "0x0607E35C",
+          "opcode": "JMP",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "AUDITED_JMP_DIRECT_BRANCH_SHARED_ENTRY"
+        },
+        {
+          "source_pc": "0x0600BC80",
+          "target_pc": "0x0607E3D2",
+          "source_function": "0x0600B816",
+          "target_function": "0x0607E35C",
+          "opcode": "JMP",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "AUDITED_JMP_DIRECT_BRANCH_SHARED_ENTRY"
+        },
+        {
+          "source_pc": "0x060138BC",
+          "target_pc": "0x0607E3D2",
+          "source_function": "0x060138AC",
+          "target_function": "0x0607E35C",
+          "opcode": "JMP",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "AUDITED_JMP_DIRECT_BRANCH_SHARED_ENTRY"
+        },
+        {
+          "source_pc": "0x0602F5C8",
+          "target_pc": "0x0607E3D2",
+          "source_function": "0x0602F312",
+          "target_function": "0x0607E35C",
+          "opcode": "JMP",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "AUDITED_JMP_DIRECT_BRANCH_SHARED_ENTRY"
+        },
+        {
+          "source_pc": "0x0607398C",
+          "target_pc": "0x0607E3D2",
+          "source_function": "0x06073970",
+          "target_function": "0x0607E35C",
+          "opcode": "JMP",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "AUDITED_JMP_DIRECT_BRANCH_SHARED_ENTRY"
+        },
+        {
+          "source_pc": "0x0607D82C",
+          "target_pc": "0x0607E3D2",
+          "source_function": "0x0607D816",
+          "target_function": "0x0607E35C",
+          "opcode": "JMP",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "AUDITED_JMP_DIRECT_BRANCH_SHARED_ENTRY"
+        },
+        {
+          "source_pc": "0x0607D84C",
+          "target_pc": "0x0607E518",
+          "source_function": "0x0607D830",
+          "target_function": "0x0607E35C",
+          "opcode": "JMP",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "AUDITED_JMP_DIRECT_BRANCH_SHARED_ENTRY"
+        },
+        {
+          "source_pc": "0x0607DF5C",
+          "target_pc": "0x0607E3D2",
+          "source_function": "0x0607DF28",
+          "target_function": "0x0607E35C",
+          "opcode": "JMP",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "AUDITED_JMP_DIRECT_BRANCH_SHARED_ENTRY"
+        },
+        {
+          "source_pc": "0x0607DF72",
+          "target_pc": "0x0607E3D2",
+          "source_function": "0x0607DF28",
+          "target_function": "0x0607E35C",
+          "opcode": "JMP",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "AUDITED_JMP_DIRECT_BRANCH_SHARED_ENTRY"
+        }
+      ]
+    },
+    {
+      "function_entry": "0x06079788",
+      "shared_entry_count": 1,
+      "entry_edges": [
+        {
+          "source_pc": "0x0600A96C",
+          "target_pc": "0x060798B8",
+          "source_function": "0x0600A962",
+          "target_function": "0x06079788",
+          "opcode": "JMP",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "AUDITED_JMP_DIRECT_BRANCH_SHARED_ENTRY"
+        }
+      ]
+    },
+    {
+      "function_entry": "0x0607D93E",
+      "shared_entry_count": 1,
+      "entry_edges": [
+        {
+          "source_pc": "0x0607906C",
+          "target_pc": "0x0607D94A",
+          "source_function": "0x06079002",
+          "target_function": "0x0607D93E",
+          "opcode": "JMP",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "AUDITED_JMP_DIRECT_BRANCH_SHARED_ENTRY"
+        }
+      ]
+    },
+    {
+      "function_entry": "0x0607E9DC",
+      "shared_entry_count": 2,
+      "entry_edges": [
+        {
+          "source_pc": "0x06079648",
+          "target_pc": "0x0607EAC8",
+          "source_function": "0x0607961A",
+          "target_function": "0x0607E9DC",
+          "opcode": "JMP",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "AUDITED_JMP_DIRECT_BRANCH_SHARED_ENTRY"
+        },
+        {
+          "source_pc": "0x0607D84C",
+          "target_pc": "0x0607EAC8",
+          "source_function": "0x0607D830",
+          "target_function": "0x0607E9DC",
+          "opcode": "JMP",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "AUDITED_JMP_DIRECT_BRANCH_SHARED_ENTRY"
+        }
+      ]
+    },
+    {
+      "function_entry": "0x0606EDB8",
+      "shared_entry_count": 2,
+      "entry_edges": [
+        {
+          "source_pc": "0x0607D84C",
+          "target_pc": "0x0606EE06",
+          "source_function": "0x0607D830",
+          "target_function": "0x0606EDB8",
+          "opcode": "JMP",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "AUDITED_JMP_DIRECT_BRANCH_SHARED_ENTRY"
+        },
+        {
+          "source_pc": "0x0607D84C",
+          "target_pc": "0x0606EE0C",
+          "source_function": "0x0607D830",
+          "target_function": "0x0606EDB8",
+          "opcode": "JMP",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "AUDITED_JMP_DIRECT_BRANCH_SHARED_ENTRY"
+        }
+      ]
+    },
+    {
+      "function_entry": "0x0607F16E",
+      "shared_entry_count": 1,
+      "entry_edges": [
+        {
+          "source_pc": "0x0607EADC",
+          "target_pc": "0x0607F1A8",
+          "source_function": "0x0607E9DC",
+          "target_function": "0x0607F16E",
+          "opcode": "JMP",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "AUDITED_JMP_DIRECT_BRANCH_SHARED_ENTRY"
+        }
+      ]
+    },
+    {
+      "function_entry": "0x0607F664",
+      "shared_entry_count": 1,
+      "entry_edges": [
+        {
+          "source_pc": "0x0607EE7E",
+          "target_pc": "0x0607F6DE",
+          "source_function": "0x0607EE70",
+          "target_function": "0x0607F664",
+          "opcode": "JMP",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "AUDITED_JMP_DIRECT_BRANCH_SHARED_ENTRY"
+        }
+      ]
+    },
+    {
+      "function_entry": "0x0607F2B2",
+      "shared_entry_count": 2,
+      "entry_edges": [
+        {
+          "source_pc": "0x0607EEFE",
+          "target_pc": "0x0607F316",
+          "source_function": "0x0607EEF6",
+          "target_function": "0x0607F2B2",
+          "opcode": "JMP",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "AUDITED_JMP_DIRECT_BRANCH_SHARED_ENTRY"
+        },
+        {
+          "source_pc": "0x0607EF0A",
+          "target_pc": "0x0607F2F0",
+          "source_function": "0x0607EF02",
+          "target_function": "0x0607F2B2",
+          "opcode": "JMP",
+          "edge_type": "DIRECT_BRANCH_SHARED_ENTRY",
+          "module": "0TH2.BIN",
+          "evidence": "AUDITED_JMP_DIRECT_BRANCH_SHARED_ENTRY"
+        }
+      ]
+    }
+  ]
+}

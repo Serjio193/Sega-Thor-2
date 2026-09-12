@@ -34,6 +34,8 @@ docs/
     FULL_GRAPHICS_RECOVERY_T2_GFX_02.md   comprehensive technical report for CHR/MAP/ED full recovery
     MAP_METADATA_RECOVERY_T2_MAP_01.md    comprehensive technical report for MAP metadata and room logic recovery
     INDIRECT_CONTROL_FLOW_T2_ASM_06.md    comprehensive technical report for indirect control-flow resolution and jump tables
+    RETURN_PROVENANCE_T2_ASM_08.md        comprehensive technical report for PR return provenance and byte carving
+    RTS_CALLER_DOMAIN_T2_ASM_09.md        comprehensive technical report for residual RTS caller-domain closure and control-flow proof
 
 
 config/
@@ -161,6 +163,12 @@ tools/
     pr_provenance_engine.py       SH-2 PR and return address provenance engine across 638 RTS sites
     final_indirect_resolver.py    master synthesis resolver for canonical indirect control-flow closure
     executable_byte_carver.py     whole-module byte carver, retraction accounting, and UNKNOWN byte reducer
+    canonical_indirect_auditor.py re-audits entire 2,226 canonical indirect site inventory
+    residual_rts_analyzer.py      analyzes residual 421 RTS inventory and control transfer universe
+    canonical_entry_graph.py      builds canonical entry graph with 14,656 edges and recursive SCCs
+    call_sink_and_pointer_tracer.py traces function references to call sinks and audits UNKNOWN threats
+    rts_caller_certifier.py       certifies function caller domains and derives RTS completeness v2
+    cfg_reclosure_v2.py           recomputes CFG closure with certified return targets and emits partition v2
   carver/
     interval_db.py                canonical central interval database & execution conflict engine
     provenance_dag.py             provenance DAG & graph expansion engine
@@ -241,13 +249,15 @@ tests/
     test_bgm_asm.py               CTest integration test for full BGM.BIN M68K sound driver round-trip
     test_manifest_schema.py       CTest integration test for module manifest schema & partition invariants
     test_full_game_disc.py        CTest integration test for FULL_ASM_GAME_GATE rebuilt disc verification
-    test_recovery_gates.py        negative controls (50 total) & validation for recovery gates
+    test_recovery_gates.py        negative controls (58 total) & validation for recovery gates
     negative_controls_p5.py       8 adversarial negative controls (NC-Q..NC-X) for indirect flow integrity
     negative_controls_p6.py       8 adversarial negative controls (NC-Y..NC-AF) for struct callback integrity
     negative_controls_p7.py       10 adversarial negative controls (NC-AG..NC-AP) for PR return provenance & tables
+    negative_controls_p8.py       8 adversarial negative controls (NC-AQ..NC-AX) for RTS caller-domain closure
     test_indirect_resolution.py   unit tests for constant propagation, jump tables, call graph, and accounting
     test_struct_callback_resolution.py unit tests for struct callbacks, object provenance, and accounting
     test_return_provenance.py     unit tests for PR return provenance, canonical denominator, and byte carving
+    test_rts_domain_closure.py    unit tests for residual RTS caller-domain closure and certificates
   carver/
     test_carver_pipeline.py       carver pipeline, interval algebra, conflict, and determinism test suite
 
@@ -404,6 +414,24 @@ workstreams/
     final_indirect_scorecard.json canonical master indirect scorecard (2,226 canonical denominator; 1,805 resolved)
     cfg_closure.json              CFG closure telemetry (915 targets injected, +72 confirmed code segments)
     executable_byte_partition.json whole-module interval partition (-66,203 bytes UNKNOWN, 1,292 bytes retracted)
+  T2-ASM-09/
+    canonical_indirect_site_audit.json audit of 2,226 canonical indirect sites in confirmed code
+    residual_rts_inventory.json   complete inventory and categorization of 421 residual RTS sites
+    control_transfer_universe.json exhaustive universe of 5,298 control transfers (0 canonical BSRF)
+    canonical_entry_graph.json    canonical call/entry graph with 14,656 verified edges
+    recursive_scc_domains.json    Tarjan SCC decomposition into 121 recursive clusters
+    function_reference_index.json index of 1,206 references to residual functions
+    reference_to_call_sink.json   reference provenance tracing to genuine call sinks (838 calls, 264 noncall data)
+    residual_callback_tables.json 271 callback tables associated with residual functions
+    residual_struct_callback_domains.json residual actor struct callback dispatch domains
+    tailcall_domains.json         961 audited tailcall domains with PR inheritance
+    function_entry_refinements.json 81 shared function entry refinements
+    function_caller_certificates.json caller completeness certificates across 309 functions (227 complete)
+    rts_completeness_v2.json      master RTS completeness v2 certificates (456 resolved, 182 unresolved)
+    closed_world_control_flow_proof.json closed-world theorem audit and UNKNOWN threat accounting
+    residual_rts_dynamic_oracle.json dynamic trace oracle telemetry for residual RTS sites
+    cfg_closure_v2.json           CFG closure v2 telemetry (+456 bytes code, -446 bytes unknown)
+    executable_byte_partition_v2.json whole-module partition v2 (156,694 code bytes)
 
 
 asm/                              assembly reconstruction layout (ADR D-015)

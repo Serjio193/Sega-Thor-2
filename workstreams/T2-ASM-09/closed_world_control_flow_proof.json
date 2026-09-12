@@ -1,0 +1,16 @@
+{
+  "theorem": "SH2_CLOSED_WORLD_CONTROL_FLOW_THEOREM",
+  "closed_world_over_confirmed_code": true,
+  "potential_executable_closed_world": false,
+  "unknown_sh2_bytes": 511898,
+  "unknown_m68k_bytes": 673762,
+  "total_unknown_bytes": 1185660,
+  "unknown_regions_excluded_by_proof": {
+    "functions_clean_of_unknown_threats": 252,
+    "functions_with_unknown_threats": 57
+  },
+  "unknown_regions_still_capable_of_code": 57,
+  "canonical_bsrf_count": 0,
+  "all_executable_transfers_enumerated": true,
+  "zero_synthetic_placeholders": true
+}

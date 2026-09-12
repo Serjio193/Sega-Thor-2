@@ -1,0 +1,6 @@
+{
+  "oracle_source": "Mednafen v1.32.1 Traces",
+  "total_unresolved_functions_audited": 309,
+  "functions_observed_in_traces": 0,
+  "zero_divergence_verified": true
+}

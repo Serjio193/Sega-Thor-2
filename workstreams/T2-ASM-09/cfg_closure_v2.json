@@ -1,0 +1,10 @@
+{
+  "total_confirmed_code_bytes_before": 156238,
+  "total_confirmed_code_bytes_after": 156694,
+  "total_unknown_bytes_before": 1185660,
+  "total_unknown_bytes_after": 1185214,
+  "residual_gap_fragments": 38791,
+  "residual_gap_bytes": 413160,
+  "sh2_unknown_bytes": 511452,
+  "m68k_unknown_bytes": 673762
+}

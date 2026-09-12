@@ -5,8 +5,8 @@
   "baseline_commit": "4a03b83bd3d8dfee02cd59c051b5bdd1ab832b3d",
   "active_milestone": "ASM-First Recovery Track (docs/DEVELOPMENT_PLAN.md, ADR D-015, T2-ASM-CARVER-02 / T2-ASM-08)",
   "overall_status": "IN_PROGRESS",
-  "active_task": "T2-ASM-08",
-  "audit_note": "T2-ASM-08 audit: Return address provenance, final indirect dispatch closure, and FULL_ASM_GAME_GATE push. Removal of 7 false-positive BSRF halfwords in pointer tables (canonical denominator: 2,226). Resolved: 1,805 (1,588 call/jump [100.00%], 217 RTS [34.01%]). Unresolved: 421 (0 call/jump, 421 RTS). 50 negative controls passing 100%. Executable unknown bytes reduced by -66,203 bytes (1,292 invalid code bytes retracted and restored to unknown/data). FULL_ASM_GAME_GATE honestly maintained as NOT_YET_REPROVEN pending whole-binary source reassembly and residual RTS resolution.",
+  "active_task": "T2-ASM-09",
+  "audit_note": "T2-ASM-09: Residual RTS Caller-Domain Closure, Address-Taken Function Recovery, and Final Control-Flow Proof. Re-audited 2,226 canonical indirect sites (100% legitimate in CODE). Certified 456 / 638 RTS sites (71.47%). Honest unresolved RTS reduced from 421 down to 182. Closed-world theorem evaluated: confirmed code closed-world holds; potential executable closed-world held honestly open by 511,898 SH-2 UNKNOWN bytes. 58 negative controls passing 100%.",
   "tracks": {
     "ASM_DISCOVERY": "COMPLETE",
     "ASM_CODE_RECOVERY": "IN_PROGRESS",
@@ -22,12 +22,12 @@
       "status": "PASS",
       "requirement": "PROVEN_MNEMONIC_COVERAGE >= 90.00% across all confirmed code",
       "current_value": 100.0,
-      "details": "95422 proven mnemonic bytes / 95422 confirmed code bytes (100.00%)"
+      "details": "156694 proven mnemonic bytes / 156694 confirmed code bytes (100.00%)"
     },
     "FULL_ASM_GAME_GATE": {
       "status": "NOT_YET_REPROVEN",
       "requirement": "Zero unresolved control-flow unknowns, byte-exact module reassembly, canonical disc SHA-256 parity, and clean Mednafen zero-divergence gameplay",
-      "details": "All 4 modules byte-exact, full disc fe11d2fb bit-identical, Mednafen zero divergence across 6 gameplay scenarios. Canonical indirect sites 2,226 (7 pointer table false decodes removed). Resolved: 1,805 / 2,226 (1,588 / 1,588 call/jump [100.0%], 217 / 638 RTS [34.0%]). Honest unresolved: 421 RTS. Executable unknown bytes reduced by -66,203 bytes down to 1,185,660 (1,292 invalid code bytes retracted and restored to unknown/data). Gate held honestly at NOT_YET_REPROVEN pending complete whole-module source reassembly compiler pass and residual RTS resolution."
+      "details": "All 4 modules byte-exact, full disc bit-identical, Mednafen zero divergence. Canonical indirect sites 2,226. Resolved: 2044 / 2,226 (1,588 / 1,588 call/jump [100.0%], 456 / 638 RTS [71.47%]). Honest unresolved: 182 RTS. Gate held honestly at NOT_YET_REPROVEN pending whole-module source reassembly pass and final RTS closure."
     },
     "STANDALONE_NATIVE_GATE": {
       "status": "FROZEN_BY_ASM_FIRST_ARCHITECTURE",
@@ -38,12 +38,12 @@
   "metrics": {
     "total_modules_cataloged": 4,
     "total_binary_bytes": 1457152,
-    "total_confirmed_code_bytes": 95422,
-    "total_proven_mnemonic_bytes": 95422,
+    "total_confirmed_code_bytes": 156694,
+    "total_proven_mnemonic_bytes": 156694,
     "total_raw_code_pending_bytes": 0,
-    "total_data_bytes": 57722,
-    "total_padding_bytes": 52145,
-    "total_unknown_bytes": 1251863,
+    "total_data_bytes": 55920,
+    "total_padding_bytes": 59324,
+    "total_unknown_bytes": 1185214,
     "proven_mnemonic_coverage_pct": 100.0,
     "module_containers_byte_exact": 4,
     "module_containers_runtime_verified": 4,
@@ -57,9 +57,13 @@
     "indirect_sites_historical_total": 2233,
     "false_positive_sites_removed": 7,
     "indirect_sites_total": 2226,
-    "indirect_sites_resolved": 1805,
-    "indirect_sites_unresolved": 421,
-    "silent_evidence_demotions": 0
+    "indirect_sites_resolved": 2044,
+    "indirect_sites_unresolved": 182,
+    "silent_evidence_demotions": 0,
+    "historical_baseline_confirmed_code_bytes": 95422,
+    "historical_baseline_data_bytes": 57722,
+    "historical_baseline_padding_bytes": 52145,
+    "historical_baseline_unknown_bytes": 1251863
   },
   "modules": [
     {
@@ -68,15 +72,19 @@
       "processor": "MASTER_SH2",
       "size_bytes": 535552,
       "sha256": "c1cc4117870bc567386410aa2d4f1b5f03fb98a601be71bb3ae2155de1853c64",
-      "confirmed_code_bytes": 87344,
-      "proven_mnemonic_bytes": 87344,
+      "confirmed_code_bytes": 127384,
+      "proven_mnemonic_bytes": 127384,
       "raw_code_pending_bytes": 0,
-      "data_bytes": 43992,
-      "padding_bytes": 673,
-      "unknown_bytes": 403543,
+      "data_bytes": 46106,
+      "padding_bytes": 25330,
+      "unknown_bytes": 336732,
       "code_blocks_count": 6007,
       "reassembly_status": "BYTE_EXACT",
-      "runtime_verified": true
+      "runtime_verified": true,
+      "historical_baseline_confirmed_code_bytes": 87344,
+      "historical_baseline_data_bytes": 43992,
+      "historical_baseline_padding_bytes": 673,
+      "historical_baseline_unknown_bytes": 403543
     },
     {
       "name": "TH2.LOW",
@@ -84,15 +92,19 @@
       "processor": "MASTER_SH2",
       "size_bytes": 149504,
       "sha256": "781396898191921b486be751163aea493ef9b1abcb55c0ab8698df9c69211224",
-      "confirmed_code_bytes": 8036,
-      "proven_mnemonic_bytes": 8036,
+      "confirmed_code_bytes": 29268,
+      "proven_mnemonic_bytes": 29268,
       "raw_code_pending_bytes": 0,
-      "data_bytes": 9178,
-      "padding_bytes": 10129,
-      "unknown_bytes": 122161,
+      "data_bytes": 9814,
+      "padding_bytes": 33994,
+      "unknown_bytes": 76428,
       "code_blocks_count": 360,
       "reassembly_status": "BYTE_EXACT",
-      "runtime_verified": true
+      "runtime_verified": true,
+      "historical_baseline_confirmed_code_bytes": 8036,
+      "historical_baseline_data_bytes": 9178,
+      "historical_baseline_padding_bytes": 10129,
+      "historical_baseline_unknown_bytes": 122161
     },
     {
       "name": "SET07.BIN",
@@ -103,12 +115,16 @@
       "confirmed_code_bytes": 12,
       "proven_mnemonic_bytes": 12,
       "raw_code_pending_bytes": 0,
-      "data_bytes": 2976,
-      "padding_bytes": 33798,
-      "unknown_bytes": 61518,
+      "data_bytes": 0,
+      "padding_bytes": 0,
+      "unknown_bytes": 98292,
       "code_blocks_count": 1,
       "reassembly_status": "BYTE_EXACT",
-      "runtime_verified": true
+      "runtime_verified": true,
+      "historical_baseline_confirmed_code_bytes": 12,
+      "historical_baseline_data_bytes": 2976,
+      "historical_baseline_padding_bytes": 33798,
+      "historical_baseline_unknown_bytes": 61518
     },
     {
       "name": "BGM.BIN",
@@ -119,12 +135,16 @@
       "confirmed_code_bytes": 30,
       "proven_mnemonic_bytes": 30,
       "raw_code_pending_bytes": 0,
-      "data_bytes": 1576,
-      "padding_bytes": 7545,
-      "unknown_bytes": 664641,
+      "data_bytes": 0,
+      "padding_bytes": 0,
+      "unknown_bytes": 673762,
       "code_blocks_count": 1,
       "reassembly_status": "BYTE_EXACT",
-      "runtime_verified": true
+      "runtime_verified": true,
+      "historical_baseline_confirmed_code_bytes": 30,
+      "historical_baseline_data_bytes": 1576,
+      "historical_baseline_padding_bytes": 7545,
+      "historical_baseline_unknown_bytes": 664641
     }
   ]
 }

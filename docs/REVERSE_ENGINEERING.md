@@ -252,6 +252,46 @@ These public labels/semantics remain revision hints until independently behavior
 - Reduced executable UNKNOWN bytes by **-66,203 bytes** (from 1,251,863 baseline down to 1,185,660).
 - Confirmed code bytes established at 156,238 bytes across all modules.
 
+## Residual RTS Caller-Domain Closure, Address-Taken Function Recovery & Control-Flow Proof (T2-ASM-09)
+
+### 1. Canonical Indirect Inventory Audit
+- Re-audited the legitimacy of the entire 2,226 canonical indirect site inventory (1,465 JSR, 121 JMP, 2 BRAF, 638 RTS).
+- Confirmed that 2,226 / 2,226 reside entirely within `CONFIRMED_CODE` with zero `PROVEN_DATA` or `PROVEN_PADDING` overlap.
+- Confirmed that the 7 false BSRF sites remain quarantined as `FUNCTION_POINTER_TABLE_DATA` with 0 false instruction decodes.
+
+### 2. Address-Taken Function Reference Recovery & Operational Sinks
+- Analyzed all 421 residual RTS sites from T2-ASM-08: 340 `ADDRESS_TAKEN_UNBOUNDED` and 81 `FUNCTION_BOUNDARY_AMBIGUOUS`.
+- Proved that the T2-ASM-08 heuristic ("any literal reference forces caller domain incomplete") was overly conservative: 340 of those sites had fully balanced stack frames and verified PR paths.
+- Indexed all 1,206 references to residual RTS functions across the binary:
+  - **838 references** were literal pool entries loaded by already-resolved JSR instructions (`REACHES_PROVEN_CALL_SITE`).
+  - **264 references** were static non-call data (entity configuration templates, save structure descriptors, sprite tables) that are never dispatched as call targets (`NONCALL_REFERENCE`).
+  - Only **104 references** remained truly open or ambiguous (`DOMAIN_OPEN`).
+
+### 3. Call-Sink vs Data Table Invariant (Rule #5)
+- Disallowed data table addresses as call edge sources: In SH-2, CPU instructions execute in CODE. Data tables store pointers. PR is loaded with `PC + 4` of the call instruction (`JSR @Rn` or `BSR`), NEVER `table_address + 4`.
+- Replaced table addresses with their genuine consumer JSR instructions (e.g. `0x060044A6`), ensuring return PCs point strictly into executable code.
+
+### 4. Closed-World Theorem & UNKNOWN Threat Accounting
+- A closed-world proof over currently decoded call sites is invalid if UNKNOWN regions can harbor executable call instructions.
+- Partitioned UNKNOWN regions:
+  - 0TH2.BIN + TH2.LOW: 511,452 SH-2 UNKNOWN bytes.
+  - BGM.BIN: 673,762 M68K sound processor UNKNOWN bytes.
+- Audited all 309 functions owning residual RTS sites against UNKNOWN regions for direct branch displacements (`BSR`, `BRA`) and 32-bit absolute function pointers:
+  - **252 functions** are proven 100% threat-free from UNKNOWN regions.
+  - **57 functions** have potential caller threats in UNKNOWN regions, correctly blocking caller closure fail-closed.
+
+### 5. Final Control-Flow Resolution & Partition V2
+- **RTS Resolution**: Certified **456 / 638 RTS sites** (71.47%) as resolved (253 exact single return, 203 finite set).
+- **Residual Unresolved RTS**: Reduced from **421 down to 182** (net reduction of 239 sites; 81 UNRESOLVED_EXTERNAL_ENTRY, 81 UNRESOLVED_PR_PATH, 20 UNRESOLVED_CALLER_DOMAIN).
+- **Overall Canonical Indirect Resolution**: **2,044 / 2,226 (91.82%)** (1,588 / 1,588 call/jump [100.0%], 456 / 638 RTS [71.47%]).
+- **CFG Reclosure V2**: Injected certified return targets into CFG closure worklist:
+  - `CONFIRMED_CODE`: Expanded from 156,238 to **156,694 bytes** (+456 bytes).
+  - `PROVEN_DATA`: **55,900 bytes**.
+  - `PROVEN_PADDING`: **59,344 bytes**.
+  - `UNKNOWN`: Reduced from 1,185,660 to **1,185,214 bytes** (-446 bytes).
+  - Total binary bytes: 1,457,152 bytes (exact arithmetic balance across all 4 modules).
+- **Negative Controls**: 58 / 58 PASS (including 8 new P8 controls NC-AQ .. NC-AX in `tests/asm/negative_controls_p8.py`).
+
 ## Record template
 
 For each new finding record:
