@@ -1,0 +1,127 @@
+{
+  "provenance_records": [
+    {
+      "source_file": "TH2.LOW",
+      "source_offset": "0x00022DB6",
+      "staging_ram": "0x002FCDB6",
+      "destination_vram": "0x25F00000",
+      "destination_subsystem": "VDP2_CRAM",
+      "color_mode": "RGB555",
+      "record_type": "PALETTE_BANK_0",
+      "bytes_copied": 32,
+      "loader_routine_pc": "0x0600A9F4",
+      "evidence": "SH-2 loop copying 16 words from 0x002FCDB6 to 0x25F00000"
+    },
+    {
+      "source_file": "TH2.LOW",
+      "source_offset": "0x00022FB6",
+      "staging_ram": "0x002FCFB6",
+      "destination_vram": "0x25F00400",
+      "destination_subsystem": "VDP2_CRAM",
+      "color_mode": "RGB555",
+      "record_type": "LEON_PRIMARY_PALETTE",
+      "bytes_copied": 32,
+      "loader_routine_pc": "0x0600AA10",
+      "evidence": "SH-2 loop copying 16 words from 0x002FCFB6 to 0x25F00400"
+    },
+    {
+      "source_file": "TH2.LOW",
+      "source_offset": "0x000231B6",
+      "staging_ram": "0x002FD1B6",
+      "destination_vram": "0x25F00420",
+      "destination_subsystem": "VDP2_CRAM",
+      "color_mode": "RGB555",
+      "record_type": "LEON_SECONDARY_PALETTE",
+      "bytes_copied": 32,
+      "loader_routine_pc": "0x0600A7D4",
+      "evidence": "SH-2 loop copying 16 words from 0x002FD1B6 to 0x25F00420"
+    },
+    {
+      "source_file": "CHR.BIN",
+      "source_offset": "0x00041000",
+      "staging_ram": "0x002BC880",
+      "destination_vram": "0x25C18400",
+      "destination_subsystem": "VDP1_VRAM",
+      "color_mode": "COLOR_BANK_16",
+      "record_type": "CHARACTER_TEXTURE_BLOCK",
+      "loader_routine_pc": "0x0600A8A6",
+      "evidence": "Fast copy routine DMA upload to VDP1 VRAM base 0x25C18400"
+    },
+    {
+      "source_file": "CHR.BIN",
+      "source_offset": "0x00044800",
+      "staging_ram": "0x060B29CC",
+      "destination_vram": "0x25C1DC00",
+      "destination_subsystem": "VDP1_VRAM",
+      "color_mode": "COLOR_BANK_16",
+      "record_type": "CHARACTER_TEXTURE_BLOCK",
+      "loader_routine_pc": "0x0600A8A6",
+      "evidence": "Fast copy routine DMA upload to VDP1 VRAM base 0x25C1DC00"
+    },
+    {
+      "source_file": "CHR.BIN",
+      "source_offset": "0x00046000",
+      "staging_ram": "0x002BFC80",
+      "destination_vram": "0x25C1E400",
+      "destination_subsystem": "VDP1_VRAM",
+      "color_mode": "COLOR_BANK_16",
+      "record_type": "CHARACTER_TEXTURE_BLOCK",
+      "loader_routine_pc": "0x0600A8A6",
+      "evidence": "Fast copy routine DMA upload to VDP1 VRAM base 0x25C1E400"
+    },
+    {
+      "source_file": "CHR.BIN",
+      "source_offset": "0x00047000",
+      "staging_ram": "0x002C0880",
+      "destination_vram": "0x25C21C00",
+      "destination_subsystem": "VDP1_VRAM",
+      "color_mode": "COLOR_BANK_16",
+      "record_type": "CHARACTER_TEXTURE_BLOCK",
+      "loader_routine_pc": "0x0600A8A6",
+      "evidence": "Fast copy routine DMA upload to VDP1 VRAM base 0x25C21C00"
+    },
+    {
+      "source_file": "CHR.BIN",
+      "source_offset": "0x00047800",
+      "staging_ram": "0x002C0ED0",
+      "destination_vram": "0x25C23000",
+      "destination_subsystem": "VDP1_VRAM",
+      "color_mode": "COLOR_BANK_16",
+      "record_type": "CHARACTER_TEXTURE_BLOCK",
+      "loader_routine_pc": "0x0600A8A6",
+      "evidence": "Fast copy routine DMA upload to VDP1 VRAM base 0x25C23000"
+    },
+    {
+      "source_file": "CHR.BIN",
+      "source_offset": "0x00048800",
+      "staging_ram": "0x060B3D18",
+      "destination_vram": "0x25C24400",
+      "destination_subsystem": "VDP1_VRAM",
+      "color_mode": "COLOR_BANK_16",
+      "record_type": "CHARACTER_TEXTURE_BLOCK",
+      "loader_routine_pc": "0x0600A8A6",
+      "evidence": "Fast copy routine DMA upload to VDP1 VRAM base 0x25C24400"
+    },
+    {
+      "source_file": "MAP.BIN",
+      "source_offset": "0x00000000",
+      "staging_ram": "0x060B3D18",
+      "destination_vram": "0x25A004E0",
+      "destination_subsystem": "SCU_DSP",
+      "record_type": "SCU_DSP_MICROCODE_AND_DATA",
+      "loader_routine_pc": "0x060148D8",
+      "evidence": "SCU DSP control register trigger at 0x25A004E1 following DMA load"
+    },
+    {
+      "source_file": "P0.BIN",
+      "source_offset": "0x00000000",
+      "staging_ram": "0x00200828",
+      "destination_vram": "DYNAMIC_VDP1_SPRITE_SLOTS",
+      "destination_subsystem": "VDP1_VRAM",
+      "color_mode": "COLOR_BANK_16",
+      "record_type": "PLAYER_SPRITE_PACKAGE",
+      "loader_routine_pc": "0x060147D4",
+      "evidence": "Ancient SpriteArchive header parser at 0x060147D4 loading offsets, anim script, and 4bpp sprite payload"
+    }
+  ]
+}

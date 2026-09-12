@@ -118,11 +118,42 @@ Prior public Thor 2 research has reported:
 
 For the confirmed current substrate:
 
-- `0x002E55A4` is consistent with `TH2.LOW + 0xB5A4`;
-- `0x002E8A38` is consistent with `TH2.LOW + 0xEA38`;
-- both current-revision offsets contain SH-2-like instruction streams.
-
 These public labels/semantics remain revision hints until independently behavior-verified.
+
+## Confirmed Resource & Graphics Architecture (T2-GFX-01)
+
+### 1. Ancient SpriteArchive Architecture & In-Game Loader
+- **Format**: 12-byte header (`header_size=12`, `anim_script_offset`, `sprite_data_offset`), 16-bit offset table, 6-byte animation frame records (`[hotspot_x, width_extent, hotspot_y, height_extent, sprite_index]`), and 14-byte sprite descriptor records (`[x_off, width, y_off, height, z_anchor, flags, 0x7FFF]`) preceding uncompressed 4bpp linear VDP1 pixel data.
+- **In-Game Loader Routine**: `0TH2.BIN` runtime address `0x060147D4` (`sub_147d4`, file offset `0x0107D4`). Disassembles header into pointer table in RAM:
+  - `0x060147D4`: reads `@r5` (12), computes `r5 + 12` (animation offset table pointer);
+  - `0x060147DC`: reads `@(r5 + 4)` (`anim_script_offset`), computes `r5 + anim_script_offset` (script pointer);
+  - `0x060147F0`: reads `@(r5 + 8)` (`sprite_data_offset`), computes `r5 + sprite_data_offset` (sprite pixel pointer).
+- **Confirmed Standalone Packages**: `ARELE.BIN`, `BAW.BIN`, `BRAS.BIN`, `DIT.BIN`, `EFREET.BIN`, `SHADE.BIN`, `P0.BIN`, `P1.BIN`, `P2.BIN`, `P3.BIN` (all 10 verified bit-exact roundtrip, total 2,371,588 bytes).
+
+### 2. Multi-Archive Container MONS.BIN
+- **Format**: 50 sector-aligned subarchives (at multiples of 2,048 bytes).
+- **Prefix**: 4-byte sector header `[prefix_w0, prefix_w1]` followed immediately by standard 12-byte `SpriteArchive` header (`0x0000000C`, `s_off`, `g_off`).
+- **Status**: 48 of 50 confirmed directly as valid `SpriteArchive` instances (1,490,944 bytes).
+
+### 3. VDP2 CRAM Palette Recovery
+- **Storage**: Defined in `TH2.LOW` as standard 16-bit RGB555 words:
+  - Bank 0: `0x002FCDB6` (file offset `0x22DB6`) -> uploaded to CRAM `0x25F00000` (ANSI/system palette);
+  - Bank 1: `0x002FCFB6` (file offset `0x22FB6`) -> uploaded to CRAM `0x25F00400` (Leon Primary Character Palette: `#296B63`, `#311808`, `#5A2921`, `#7B4229`, `#9C5A31`, `#4A4A00`, `#8C8C31`, `#CEB521`, `#DEE763`, `#002963`, `#004AAD`, `#9C9C7B`, `#C6C694`, `#E7E7B5`, `#000000`, `#FFFFEF`);
+  - Bank 2: `0x002FD1B6` (file offset `0x231B6`) -> uploaded to CRAM `0x25F00420` (Leon Equipment/Shadow Palette).
+- **In-Game Upload Routine**: `0TH2.BIN` runtime `0x0600A9E8`..`0x0600AA1C`.
+
+### 4. VDP1 VRAM Upload Routine
+- **Address**: `0TH2.BIN` runtime `0x0600A8A6` (file offset `0x068A6`).
+- **Function**: Width/alignment-aware fast memory copy routine transferring character/sprite texture buffers to VDP1 VRAM addresses `0x25C18400`..`0x25C24400`.
+
+### 5. MAP.BIN & SCU DSP Microcode
+- **Header**: File offset `0x000000` begins with `0x4453503C` (`DSP<`).
+- **Loader**: `0TH2.BIN` runtime `0x060148B6` loads microprogram to SCU Program/Data RAM at `0x25A00000` and activates DSP execution via control registers `0x25A004E0` and `0x25A004E1`.
+- **Room Packages**: 45 packages aligned to 11 sectors (22,528 bytes per room), marked by `[ID] 50 3C 00 50 3C 01 50 3C ...`.
+
+### 6. CHR.BIN Differential & Font Structure
+- **1bpp Font Sheet**: Starts at `0x29030` in USA and `0x2B030` in RUS.
+- **Differential Shift**: Meduza Team inserted Cyrillic font glyphs by shifting all subsequent blocks by exactly `+0x2000` (8,192 bytes / 4 sectors), maintaining identical relative internal layouts.
 
 ## Record template
 

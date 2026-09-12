@@ -1,0 +1,24 @@
+{
+  "rus_revision": {
+    "identification": "RUS_NTSC_PATCHED_MEDUZA",
+    "volume_id": "THE STORY OF THOR 2",
+    "title": "THE STORY OF      THOR 2 (patched for NTSC)",
+    "product_code": "MK-81302",
+    "version": "V1.000",
+    "date": "19960618",
+    "image_size": 122830848,
+    "image_sha256": "fe11d2fbda58d63300ef2265c555ce05bddf14d69fb7b73fc409e25c0ef6c0a8",
+    "file_count": 33
+  },
+  "usa_revision": {
+    "identification": "USA_RETAIL_LEGEND_OF_OASIS",
+    "volume_id": "THE_LEDEND_OF_OASIS",
+    "title": "THE LEGEND OF     OASIS",
+    "product_code": "MK-81302",
+    "version": "V1.002",
+    "date": "19960605",
+    "image_size": 81986016,
+    "image_sha256": "dc11c3660132360d094c8c0f65a692a6a13041b54fbb8af5de7c73d04f87c2d1",
+    "file_count": 33
+  }
+}

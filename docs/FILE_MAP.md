@@ -29,6 +29,9 @@ docs/
   RULES_TRANSFER_AUDIT.md         Sega-Thor -> Sega-Thor-2 governance parity audit
   ASM_RECOVERY_METHOD_CATALOG.md  recovery methods M-01..M-10, ASM-01..04, and tracks A..R
   ASM_RECOVERY_AUTOPLAN.md        live priority queue and cost-benefit scoring engine
+  reports/
+    GFX_RUS_USA_DIFFERENTIAL_T2_GFX_01.md comprehensive technical report for RUS/USA graphics differential
+
 
 config/
   revisions/
@@ -151,6 +154,13 @@ tools/
     ram_disc_carver.py            R-Studio style RAM to disc file signature carver
     gap_reporter.py               residual UNKNOWN gap auditor and campaign prioritization
     carver_pipeline.py            fixed-point carver convergence loop engine
+  gfx/
+    disc_extractor.py             ISO9660 extent extraction from raw Saturn MODE1 disc images
+    rus_usa_differential.py       disc-wide differential analyzer and changed range locator
+    sprite_archive_analyzer.py    container validator, animation offset extractor, and sprite analyzer
+    carver.py                     Saturn graphics resource signature carver
+    export_images.py              lossless PNG exporter and metadata manifest builder
+    asset_census.py               audited resource breakdown and metrics compiler
 
 tests/
   test_census_saturn_cd.py        synthetic tests for census parser
@@ -184,6 +194,7 @@ tests/
     test_guest_provenance.cpp     D13 guest-address & type provenance test suite (Gate V-09)
   resource/
     test_resource_roundtrip.cpp   D14 resource byte-accurate round-trip proof (Gate V-11)
+    test_gfx_differential.py      regression tests and negative controls for graphics tools
   hw/
     test_vdp1.cpp                 D15 VDP1 command decoding, jump modes, clipping, and coordinate tests
     test_vdp2.cpp                 D15 VDP2 color decode, CRAM, RBG0 matrix, and pixel arbitration tests
@@ -287,6 +298,17 @@ workstreams/
     unknown_gap_report.json       exhaustive audit of residual UNKNOWN gaps and campaigns
     provenance_graph_summary.json Provenance DAG node and edge topology metrics
     carver_evidence.md            comprehensive experiment evidence and denominator re-audit
+  T2-GFX-01/
+    README.md                     workstream record and artifact inventory
+    input_revisions.json          disc revision metadata and SHA-256 hashes
+    rus_usa_file_diff.tsv         file-by-file comparison between RUS and USA
+    rus_usa_changed_ranges.json   detailed byte offset ranges for changed files
+    sprite_archive_verification.json container verification across all 10 packages
+    vram_provenance.json          VDP1/VDP2/CRAM hardware mapping evidence
+    graphics_candidates.json      scored candidate graphics ranges
+    extracted_images_manifest.json exported PNG dimensions, palettes, and provenance
+    asset_census.json             audited resource breakdown and classification metrics
+
 
 asm/                              assembly reconstruction layout (ADR D-015)
   schema/

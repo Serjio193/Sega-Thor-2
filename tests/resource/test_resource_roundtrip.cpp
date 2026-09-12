@@ -138,7 +138,11 @@ void test_real_game_resource_roundtrip() {
         {"SHADE.BIN", 52088, 69844, 0x0A40, 0x0AF2},
         {"ARELE.BIN", 286, 62344, 0x1A68, 0x1DBC},
         {"EFREET.BIN", 48249, 130352, 0x1B88, 0x1F64},
-        {"BRAS.BIN", 682, 105180, 0x1D6E, 0x2196}
+        {"BRAS.BIN", 682, 105180, 0x1D6E, 0x2196},
+        {"P0.BIN", 51012, 475636, 0xE84A, 0xFF98},
+        {"P1.BIN", 51245, 497584, 0xFA68, 0x1124C},
+        {"P2.BIN", 51488, 432684, 0x1000C, 0x1165E},
+        {"P3.BIN", 51700, 462184, 0xFBD6, 0x11282}
     };
 
     for (const auto& spec : specs) {

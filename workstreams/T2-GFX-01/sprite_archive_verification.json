@@ -1,0 +1,462 @@
+{
+  "rus": {
+    "ARELE.BIN": {
+      "filename": "ARELE.BIN",
+      "status": "SPRITE_ARCHIVE_CONFIRMED",
+      "roundtrip_exact": true,
+      "header_size": 12,
+      "anim_script_offset": 6760,
+      "sprite_data_offset": 7612,
+      "num_anim_offsets": 3374,
+      "anim_offsets_sample": [
+        106,
+        216,
+        278,
+        340,
+        402,
+        464,
+        526,
+        588
+      ],
+      "anim_script_bytes": 852,
+      "sprite_bytes": 54732,
+      "total_size": 62344
+    },
+    "BAW.BIN": {
+      "filename": "BAW.BIN",
+      "status": "SPRITE_ARCHIVE_CONFIRMED",
+      "roundtrip_exact": true,
+      "header_size": 12,
+      "anim_script_offset": 4248,
+      "sprite_data_offset": 5494,
+      "num_anim_offsets": 2118,
+      "anim_offsets_sample": [
+        160,
+        324,
+        346,
+        368,
+        390,
+        412,
+        434,
+        456
+      ],
+      "anim_script_bytes": 1246,
+      "sprite_bytes": 67046,
+      "total_size": 72540
+    },
+    "BRAS.BIN": {
+      "filename": "BRAS.BIN",
+      "status": "SPRITE_ARCHIVE_CONFIRMED",
+      "roundtrip_exact": true,
+      "header_size": 12,
+      "anim_script_offset": 7534,
+      "sprite_data_offset": 8598,
+      "num_anim_offsets": 3761,
+      "anim_offsets_sample": [
+        134,
+        272,
+        358,
+        420,
+        466,
+        520,
+        582,
+        628
+      ],
+      "anim_script_bytes": 1064,
+      "sprite_bytes": 96582,
+      "total_size": 105180
+    },
+    "DIT.BIN": {
+      "filename": "DIT.BIN",
+      "status": "SPRITE_ARCHIVE_CONFIRMED",
+      "roundtrip_exact": true,
+      "header_size": 12,
+      "anim_script_offset": 12206,
+      "sprite_data_offset": 14630,
+      "num_anim_offsets": 6097,
+      "anim_offsets_sample": [
+        692,
+        1388,
+        1482,
+        1512,
+        1566,
+        1660,
+        1706,
+        1776
+      ],
+      "anim_script_bytes": 2424,
+      "sprite_bytes": 48614,
+      "total_size": 63244
+    },
+    "EFREET.BIN": {
+      "filename": "EFREET.BIN",
+      "status": "SPRITE_ARCHIVE_CONFIRMED",
+      "roundtrip_exact": true,
+      "header_size": 12,
+      "anim_script_offset": 7048,
+      "sprite_data_offset": 8036,
+      "num_anim_offsets": 3518,
+      "anim_offsets_sample": [
+        124,
+        252,
+        314,
+        376,
+        422,
+        484,
+        546,
+        592
+      ],
+      "anim_script_bytes": 988,
+      "sprite_bytes": 122316,
+      "total_size": 130352
+    },
+    "SHADE.BIN": {
+      "filename": "SHADE.BIN",
+      "status": "SPRITE_ARCHIVE_CONFIRMED",
+      "roundtrip_exact": true,
+      "header_size": 12,
+      "anim_script_offset": 2624,
+      "sprite_data_offset": 2802,
+      "num_anim_offsets": 1306,
+      "anim_offsets_sample": [
+        90,
+        184,
+        198,
+        212,
+        226,
+        240,
+        254,
+        268
+      ],
+      "anim_script_bytes": 178,
+      "sprite_bytes": 67042,
+      "total_size": 69844
+    },
+    "P0.BIN": {
+      "filename": "P0.BIN",
+      "status": "SPRITE_ARCHIVE_CONFIRMED",
+      "roundtrip_exact": true,
+      "header_size": 12,
+      "anim_script_offset": 59466,
+      "sprite_data_offset": 65432,
+      "num_anim_offsets": 29727,
+      "anim_offsets_sample": [
+        750,
+        1504,
+        1558,
+        1612,
+        1674,
+        1744,
+        1822,
+        1908
+      ],
+      "anim_script_bytes": 5966,
+      "sprite_bytes": 410204,
+      "total_size": 475636
+    },
+    "P1.BIN": {
+      "filename": "P1.BIN",
+      "status": "SPRITE_ARCHIVE_CONFIRMED",
+      "roundtrip_exact": true,
+      "header_size": 12,
+      "anim_script_offset": 64104,
+      "sprite_data_offset": 70220,
+      "num_anim_offsets": 32046,
+      "anim_offsets_sample": [
+        768,
+        1540,
+        1618,
+        1704,
+        1790,
+        1860,
+        1946,
+        2024
+      ],
+      "anim_script_bytes": 6116,
+      "sprite_bytes": 427364,
+      "total_size": 497584
+    },
+    "P2.BIN": {
+      "filename": "P2.BIN",
+      "status": "SPRITE_ARCHIVE_CONFIRMED",
+      "roundtrip_exact": true,
+      "header_size": 12,
+      "anim_script_offset": 65548,
+      "sprite_data_offset": 71262,
+      "num_anim_offsets": 32768,
+      "anim_offsets_sample": [
+        734,
+        1472,
+        1542,
+        1604,
+        1682,
+        1768,
+        1854,
+        1956
+      ],
+      "anim_script_bytes": 5714,
+      "sprite_bytes": 361422,
+      "total_size": 432684
+    },
+    "P3.BIN": {
+      "filename": "P3.BIN",
+      "status": "SPRITE_ARCHIVE_CONFIRMED",
+      "roundtrip_exact": true,
+      "header_size": 12,
+      "anim_script_offset": 64470,
+      "sprite_data_offset": 70274,
+      "num_anim_offsets": 32229,
+      "anim_offsets_sample": [
+        728,
+        1460,
+        1530,
+        1592,
+        1662,
+        1748,
+        1834,
+        1928
+      ],
+      "anim_script_bytes": 5804,
+      "sprite_bytes": 391910,
+      "total_size": 462184
+    },
+    "P4.BIN": {
+      "status": "SPRITE_ARCHIVE_REJECTED",
+      "reason": "invalid_header",
+      "header_size": 1275797643,
+      "anim_script_offset": 12,
+      "sprite_data_offset": 1888,
+      "total_size": 2893
+    }
+  },
+  "usa": {
+    "ARELE.BIN": {
+      "filename": "ARELE.BIN",
+      "status": "SPRITE_ARCHIVE_CONFIRMED",
+      "roundtrip_exact": true,
+      "header_size": 12,
+      "anim_script_offset": 6760,
+      "sprite_data_offset": 7612,
+      "num_anim_offsets": 3374,
+      "anim_offsets_sample": [
+        106,
+        216,
+        278,
+        340,
+        402,
+        464,
+        526,
+        588
+      ],
+      "anim_script_bytes": 852,
+      "sprite_bytes": 54732,
+      "total_size": 62344
+    },
+    "BAW.BIN": {
+      "filename": "BAW.BIN",
+      "status": "SPRITE_ARCHIVE_CONFIRMED",
+      "roundtrip_exact": true,
+      "header_size": 12,
+      "anim_script_offset": 4248,
+      "sprite_data_offset": 5494,
+      "num_anim_offsets": 2118,
+      "anim_offsets_sample": [
+        160,
+        324,
+        346,
+        368,
+        390,
+        412,
+        434,
+        456
+      ],
+      "anim_script_bytes": 1246,
+      "sprite_bytes": 67046,
+      "total_size": 72540
+    },
+    "BRAS.BIN": {
+      "filename": "BRAS.BIN",
+      "status": "SPRITE_ARCHIVE_CONFIRMED",
+      "roundtrip_exact": true,
+      "header_size": 12,
+      "anim_script_offset": 7534,
+      "sprite_data_offset": 8598,
+      "num_anim_offsets": 3761,
+      "anim_offsets_sample": [
+        134,
+        272,
+        358,
+        420,
+        466,
+        520,
+        582,
+        628
+      ],
+      "anim_script_bytes": 1064,
+      "sprite_bytes": 96582,
+      "total_size": 105180
+    },
+    "DIT.BIN": {
+      "filename": "DIT.BIN",
+      "status": "SPRITE_ARCHIVE_CONFIRMED",
+      "roundtrip_exact": true,
+      "header_size": 12,
+      "anim_script_offset": 12206,
+      "sprite_data_offset": 14630,
+      "num_anim_offsets": 6097,
+      "anim_offsets_sample": [
+        692,
+        1388,
+        1482,
+        1512,
+        1566,
+        1660,
+        1706,
+        1776
+      ],
+      "anim_script_bytes": 2424,
+      "sprite_bytes": 48614,
+      "total_size": 63244
+    },
+    "EFREET.BIN": {
+      "filename": "EFREET.BIN",
+      "status": "SPRITE_ARCHIVE_CONFIRMED",
+      "roundtrip_exact": true,
+      "header_size": 12,
+      "anim_script_offset": 7048,
+      "sprite_data_offset": 8036,
+      "num_anim_offsets": 3518,
+      "anim_offsets_sample": [
+        124,
+        252,
+        314,
+        376,
+        422,
+        484,
+        546,
+        592
+      ],
+      "anim_script_bytes": 988,
+      "sprite_bytes": 122316,
+      "total_size": 130352
+    },
+    "SHADE.BIN": {
+      "filename": "SHADE.BIN",
+      "status": "SPRITE_ARCHIVE_CONFIRMED",
+      "roundtrip_exact": true,
+      "header_size": 12,
+      "anim_script_offset": 2624,
+      "sprite_data_offset": 2802,
+      "num_anim_offsets": 1306,
+      "anim_offsets_sample": [
+        90,
+        184,
+        198,
+        212,
+        226,
+        240,
+        254,
+        268
+      ],
+      "anim_script_bytes": 178,
+      "sprite_bytes": 67042,
+      "total_size": 69844
+    },
+    "P0.BIN": {
+      "filename": "P0.BIN",
+      "status": "SPRITE_ARCHIVE_CONFIRMED",
+      "roundtrip_exact": true,
+      "header_size": 12,
+      "anim_script_offset": 59466,
+      "sprite_data_offset": 65432,
+      "num_anim_offsets": 29727,
+      "anim_offsets_sample": [
+        750,
+        1504,
+        1558,
+        1612,
+        1674,
+        1744,
+        1822,
+        1908
+      ],
+      "anim_script_bytes": 5966,
+      "sprite_bytes": 410204,
+      "total_size": 475636
+    },
+    "P1.BIN": {
+      "filename": "P1.BIN",
+      "status": "SPRITE_ARCHIVE_CONFIRMED",
+      "roundtrip_exact": true,
+      "header_size": 12,
+      "anim_script_offset": 64104,
+      "sprite_data_offset": 70220,
+      "num_anim_offsets": 32046,
+      "anim_offsets_sample": [
+        768,
+        1540,
+        1618,
+        1704,
+        1790,
+        1860,
+        1946,
+        2024
+      ],
+      "anim_script_bytes": 6116,
+      "sprite_bytes": 427364,
+      "total_size": 497584
+    },
+    "P2.BIN": {
+      "filename": "P2.BIN",
+      "status": "SPRITE_ARCHIVE_CONFIRMED",
+      "roundtrip_exact": true,
+      "header_size": 12,
+      "anim_script_offset": 65548,
+      "sprite_data_offset": 71262,
+      "num_anim_offsets": 32768,
+      "anim_offsets_sample": [
+        734,
+        1472,
+        1542,
+        1604,
+        1682,
+        1768,
+        1854,
+        1956
+      ],
+      "anim_script_bytes": 5714,
+      "sprite_bytes": 361422,
+      "total_size": 432684
+    },
+    "P3.BIN": {
+      "filename": "P3.BIN",
+      "status": "SPRITE_ARCHIVE_CONFIRMED",
+      "roundtrip_exact": true,
+      "header_size": 12,
+      "anim_script_offset": 64470,
+      "sprite_data_offset": 70274,
+      "num_anim_offsets": 32229,
+      "anim_offsets_sample": [
+        728,
+        1460,
+        1530,
+        1592,
+        1662,
+        1748,
+        1834,
+        1928
+      ],
+      "anim_script_bytes": 5804,
+      "sprite_bytes": 391910,
+      "total_size": 462184
+    },
+    "P4.BIN": {
+      "status": "SPRITE_ARCHIVE_REJECTED",
+      "reason": "invalid_header",
+      "header_size": 1275797643,
+      "anim_script_offset": 12,
+      "sprite_data_offset": 1888,
+      "total_size": 2893
+    }
+  }
+}

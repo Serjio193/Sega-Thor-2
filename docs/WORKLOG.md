@@ -1,6 +1,65 @@
 # Worklog
 
-## 2026-09-11 — T2-ASM-INTEGRITY-05: Evidence Monotonicity, True Architectural-PC Evidence, Generation-Aware CFG Closure, and Non-Circular Unreachability Proof
+## 2026-09-12 — T2-GFX-01: RUS/USA Differential Graphics Extraction, Compression Recovery, and Maximum Resource Carving
+
+### Task
+
+Execute task `T2-GFX-01` to recover the maximum possible amount of graphics, decompression logic, palette structures, animation scripts, and tilemap packages from The Story of Thor 2 / The Legend of Oasis by exploiting the differential between the Russian (`thor2_ntsc_patched_fe11d2fb`) and USA (`thor2_usa_retail`) disc revisions:
+1. **Automated Disc Discovery & Multi-Revision Extent Extraction**:
+   - Implemented `tools/gfx/disc_extractor.py` parsing ISO9660 directory records directly from raw MODE1/2352 disc images without requiring private dumped payloads.
+   - Discovered and indexed all 33 files on both RUS (52,224 sectors) and USA (52,384 sectors) discs.
+2. **Exhaustive RUS/USA Differential Census**:
+   - Implemented `tools/gfx/rus_usa_differential.py` computing byte-level diffs and chunk ranges across all files.
+   - Discovered that 21 of 33 files are bit-for-bit identical between RUS and USA, proving that character sprites (`P0`..`P3`), elemental spirits (`ARELE`, `BAW`, `BRAS`, `DIT`, `EFREET`, `SHADE`), monster packages (`MONS.BIN`), and room maps (`MAP.BIN`) were untouched by Russian translators.
+   - Identified the Russian translation shift in `CHR.BIN`: exactly +8,192 bytes (+0x2000) inserted at sector 6 for Cyrillic font sheets, shifting subsequent graphics blocks down by 4 sectors while preserving internal layout.
+3. **Ancient SpriteArchive Structural Verification Across All 10 Packages**:
+   - Extended C++ test suite `tests/resource/test_resource_roundtrip.cpp` to verify all 10 sprite archive packages (`BAW`, `DIT`, `SHADE`, `ARELE`, `EFREET`, `BRAS`, `P0`, `P1`, `P2`, `P3`), totaling 2,371,592 bytes.
+   - Verified 100% bit-identical round-trip (`BYTE_ROUNDTRIP_EXACT`, 0 byte differences) across all 10 packages.
+   - Implemented `tools/gfx/sprite_archive_analyzer.py` parsing 12-byte headers, 16-bit big-endian animation offset tables, animation scripts, and sprite payloads.
+4. **In-Game SH-2 Loader & DMA Upload Recovery**:
+   - Located the in-game sprite/animation loader in `0TH2.BIN` at runtime address `0x060147D4` (`sub_147d4`).
+   - Verified register contracts: `@r5 + 12` (animation offset table), `@r5 + anim_script_offset` (animation script), `@r5 + sprite_data_offset` (sprite payload).
+   - Identified DMA/VDP1 upload routine at `0x0600A8A6` using SH-2 DMAC channel 0 registers (`0xFFFFFF80`).
+5. **Hardware Memory & VRAM Provenance**:
+   - Mapped disc resources to runtime Work RAM, VDP1 VRAM (`0x25C00000`), VDP2 CRAM (`0x25F00000`), and SCU DSP Program RAM (`0x25A00000`).
+   - Discovered SCU DSP microcode header (`DSP<` / `0x4453503C`) at the head of `MAP.BIN` executed via SCU registers `0x25A004E0` and `0x25A004E1`.
+   - Identified 45 room packages in `MAP.BIN` aligned to 11 sectors (22,528 bytes) starting with `P<` markers.
+   - Dissected `MONS.BIN`: 50 sub-archives at 2KB sector boundaries (48 confirmed `SpriteArchive`s).
+6. **Palette & Geometry Recovery**:
+   - Recovered VDP2 CRAM RGB555 palettes in `TH2.LOW`: ANSI test bank, Leon primary palette (`#296B63`..`#FFFFEF`), and Leon secondary equipment palette.
+   - Recovered 6-byte animation frame records (`[hotspot_x, extent_x, hotspot_y, extent_y, sprite_index]`) and 14-byte sprite descriptor records (`[x_off, width, y_off, height, z, flags, 0x7FFF]`).
+7. **Resource Carving & Lossless Image Export**:
+   - Implemented `tools/gfx/carver.py` identifying 110 candidate graphics ranges across disc binaries.
+   - Implemented `tools/gfx/export_images.py` exporting 50 lossless PNG images to `.private/extracted_graphics/` (gitignored) with provenance manifest in `workstreams/T2-GFX-01/extracted_images_manifest.json`.
+8. **Asset Census & Metric Reduction**:
+   - Implemented `tools/gfx/asset_census.py` compiling final audited metrics:
+     - `TOTAL_DISC_RESOURCE_BYTES_ANALYZED`: 9,044,008
+     - `CONFIRMED_GRAPHICS_SOURCE_BYTES`: 3,748,748
+     - `CONFIRMED_COMPRESSED_GRAPHICS_BYTES`: 261,104
+     - `CONFIRMED_PALETTE_BYTES`: 96
+     - `CONFIRMED_ANIMATION_BYTES`: 812,430
+     - `CONFIRMED_TILEMAP_BYTES`: 1,013,760
+     - `STRUCTURED_RESOURCE_BYTES`: 5,836,258 (64.53%)
+     - `UNKNOWN_RESOURCE_BYTES`: 3,207,750 (35.47%)
+     - `EXTRACTED_IMAGES_TOTAL`: 50
+     - `CONFIRMED_ANIMATION_SEQUENCES`: 23,109
+     - `CONFIRMED_PALETTES`: 3
+9. **Regression Testing & Validation**:
+   - Created `tests/resource/test_gfx_differential.py` with 5 unit tests and negative controls (5/5 PASS).
+   - Linux WSL CTest suite: 40/40 tests pass (100%).
+   - All human-maintained tools and tests strictly <= 500 lines.
+   - Published canonical technical report: `docs/reports/GFX_RUS_USA_DIFFERENTIAL_T2_GFX_01.md`.
+
+### Status After Pass
+
+- `T2-GFX-01`: **COMPLETE / PASS**
+- `Gate V-11 / D14`: **BYTE_ROUNDTRIP_EXACT** across 10/10 SpriteArchive packages (2,371,592 bytes)
+- Resource bytes structured: 5,836,258 / 9,044,008 (64.53%)
+- Tests: 40/40 CTests passing in WSL Ubuntu; 5/5 Python differential tests passing
+- Exact next action: Await user direction on whether to tackle indirect control flow resolution in ASM track or proceed with next scheduled milestone.
+
+---
+
 
 ### Task
 

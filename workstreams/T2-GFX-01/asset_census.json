@@ -1,0 +1,144 @@
+{
+  "TOTAL_DISC_RESOURCE_BYTES_ANALYZED": 9044008,
+  "CONFIRMED_GRAPHICS_SOURCE_BYTES": 3748748,
+  "CONFIRMED_COMPRESSED_GRAPHICS_BYTES": 261104,
+  "CONFIRMED_PALETTE_BYTES": 96,
+  "CONFIRMED_ANIMATION_BYTES": 812430,
+  "CONFIRMED_TILEMAP_BYTES": 1013760,
+  "STRUCTURED_RESOURCE_BYTES": 5836258,
+  "UNKNOWN_RESOURCE_BYTES": 3207750,
+  "EXTRACTED_IMAGES_TOTAL": 50,
+  "EXTRACTED_UNIQUE_IMAGES": 48,
+  "CONFIRMED_ANIMATION_SEQUENCES": 23109,
+  "CONFIRMED_PALETTES": 3,
+  "file_breakdown": {
+    "ARELE.BIN": {
+      "size": 62344,
+      "type": "SPRITE_ARCHIVE",
+      "graphics_payload_bytes": 54732,
+      "animation_bytes": 7600,
+      "structured_bytes": 62344,
+      "unknown_bytes": 0,
+      "unique_animations": 610
+    },
+    "BAW.BIN": {
+      "size": 72540,
+      "type": "SPRITE_ARCHIVE",
+      "graphics_payload_bytes": 67046,
+      "animation_bytes": 5482,
+      "structured_bytes": 72540,
+      "unknown_bytes": 0,
+      "unique_animations": 494
+    },
+    "BRAS.BIN": {
+      "size": 105180,
+      "type": "SPRITE_ARCHIVE",
+      "graphics_payload_bytes": 96582,
+      "animation_bytes": 8586,
+      "structured_bytes": 105180,
+      "unknown_bytes": 0,
+      "unique_animations": 782
+    },
+    "DIT.BIN": {
+      "size": 63244,
+      "type": "SPRITE_ARCHIVE",
+      "graphics_payload_bytes": 48614,
+      "animation_bytes": 14618,
+      "structured_bytes": 63244,
+      "unknown_bytes": 0,
+      "unique_animations": 858
+    },
+    "EFREET.BIN": {
+      "size": 130352,
+      "type": "SPRITE_ARCHIVE",
+      "graphics_payload_bytes": 122316,
+      "animation_bytes": 8024,
+      "structured_bytes": 130352,
+      "unknown_bytes": 0,
+      "unique_animations": 917
+    },
+    "SHADE.BIN": {
+      "size": 69844,
+      "type": "SPRITE_ARCHIVE",
+      "graphics_payload_bytes": 67042,
+      "animation_bytes": 2790,
+      "structured_bytes": 69844,
+      "unknown_bytes": 0,
+      "unique_animations": 506
+    },
+    "P0.BIN": {
+      "size": 475636,
+      "type": "SPRITE_ARCHIVE",
+      "graphics_payload_bytes": 410204,
+      "animation_bytes": 65420,
+      "structured_bytes": 475636,
+      "unknown_bytes": 0,
+      "unique_animations": 4957
+    },
+    "P1.BIN": {
+      "size": 497584,
+      "type": "SPRITE_ARCHIVE",
+      "graphics_payload_bytes": 427364,
+      "animation_bytes": 70208,
+      "structured_bytes": 497584,
+      "unknown_bytes": 0,
+      "unique_animations": 4844
+    },
+    "P2.BIN": {
+      "size": 432684,
+      "type": "SPRITE_ARCHIVE",
+      "graphics_payload_bytes": 361422,
+      "animation_bytes": 71250,
+      "structured_bytes": 432684,
+      "unknown_bytes": 0,
+      "unique_animations": 4237
+    },
+    "P3.BIN": {
+      "size": 462184,
+      "type": "SPRITE_ARCHIVE",
+      "graphics_payload_bytes": 391910,
+      "animation_bytes": 70262,
+      "structured_bytes": 462184,
+      "unknown_bytes": 0,
+      "unique_animations": 4904
+    },
+    "MONS.BIN": {
+      "size": 1490944,
+      "type": "MONS_CONTAINER",
+      "subarchives_count": 50,
+      "graphics_bytes": 1003164,
+      "animation_bytes": 488190,
+      "structured_bytes": 1491354,
+      "unknown_bytes": -410
+    },
+    "CHR.BIN": {
+      "size": 378880,
+      "type": "CHR_CONTAINER",
+      "font_glyph_bytes": 81872,
+      "compressed_graphics_bytes": 261104,
+      "structured_bytes": 342976,
+      "unknown_bytes": 35904
+    },
+    "MAP.BIN": {
+      "size": 4036608,
+      "type": "MAP_CONTAINER",
+      "scu_dsp_tilemap_bytes": 1013760,
+      "structured_bytes": 1013760,
+      "unknown_bytes": 3022848
+    },
+    "ED.BIN": {
+      "size": 616480,
+      "type": "ED_CONTAINER",
+      "raw_image_bytes": 616480,
+      "structured_bytes": 616480,
+      "unknown_bytes": 0
+    },
+    "TH2.LOW": {
+      "size": 149504,
+      "type": "PALETTE_AND_CODE",
+      "palette_bytes": 96,
+      "structured_bytes": 96,
+      "unknown_bytes": 149408
+    }
+  }
+}

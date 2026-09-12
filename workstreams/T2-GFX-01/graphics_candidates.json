@@ -1,0 +1,1282 @@
+{
+  "summary": {
+    "total_candidates": 110,
+    "files_with_candidates": 15
+  },
+  "candidates": {
+    "ARELE.BIN": [
+      {
+        "candidate_type": "SPRITE_ARCHIVE",
+        "confidence": "CONFIRMED",
+        "offset": 0,
+        "length": 62344,
+        "header_size": 12,
+        "anim_script_offset": 6760,
+        "sprite_data_offset": 7612,
+        "animation_offsets_count": 3374,
+        "animation_script_bytes": 852,
+        "sprite_graphics_bytes": 54732,
+        "evidence": "Exact 12-byte Ancient header with verified offsets and 16-bit table alignment"
+      }
+    ],
+    "BAW.BIN": [
+      {
+        "candidate_type": "SPRITE_ARCHIVE",
+        "confidence": "CONFIRMED",
+        "offset": 0,
+        "length": 72540,
+        "header_size": 12,
+        "anim_script_offset": 4248,
+        "sprite_data_offset": 5494,
+        "animation_offsets_count": 2118,
+        "animation_script_bytes": 1246,
+        "sprite_graphics_bytes": 67046,
+        "evidence": "Exact 12-byte Ancient header with verified offsets and 16-bit table alignment"
+      }
+    ],
+    "BRAS.BIN": [
+      {
+        "candidate_type": "SPRITE_ARCHIVE",
+        "confidence": "CONFIRMED",
+        "offset": 0,
+        "length": 105180,
+        "header_size": 12,
+        "anim_script_offset": 7534,
+        "sprite_data_offset": 8598,
+        "animation_offsets_count": 3761,
+        "animation_script_bytes": 1064,
+        "sprite_graphics_bytes": 96582,
+        "evidence": "Exact 12-byte Ancient header with verified offsets and 16-bit table alignment"
+      }
+    ],
+    "CHR.BIN": [
+      {
+        "candidate_type": "1BPP_FONT_BANK",
+        "confidence": "CONFIRMED",
+        "offset": 176176,
+        "length": 81920,
+        "glyph_count": 2560,
+        "dimensions": "16x16",
+        "bit_density": 0.2712,
+        "evidence": "1-bit per pixel font glyph sheet matching verified character set"
+      }
+    ],
+    "DIT.BIN": [
+      {
+        "candidate_type": "SPRITE_ARCHIVE",
+        "confidence": "CONFIRMED",
+        "offset": 0,
+        "length": 63244,
+        "header_size": 12,
+        "anim_script_offset": 12206,
+        "sprite_data_offset": 14630,
+        "animation_offsets_count": 6097,
+        "animation_script_bytes": 2424,
+        "sprite_graphics_bytes": 48614,
+        "evidence": "Exact 12-byte Ancient header with verified offsets and 16-bit table alignment"
+      }
+    ],
+    "EFREET.BIN": [
+      {
+        "candidate_type": "SPRITE_ARCHIVE",
+        "confidence": "CONFIRMED",
+        "offset": 0,
+        "length": 130352,
+        "header_size": 12,
+        "anim_script_offset": 7048,
+        "sprite_data_offset": 8036,
+        "animation_offsets_count": 3518,
+        "animation_script_bytes": 988,
+        "sprite_graphics_bytes": 122316,
+        "evidence": "Exact 12-byte Ancient header with verified offsets and 16-bit table alignment"
+      }
+    ],
+    "MAP.BIN": [
+      {
+        "candidate_type": "MAP_ROOM_PACKAGE",
+        "confidence": "CONFIRMED",
+        "offset": 0,
+        "length": 22528,
+        "evidence": "SCU DSP room header with P< token"
+      },
+      {
+        "candidate_type": "MAP_ROOM_PACKAGE",
+        "confidence": "CONFIRMED",
+        "offset": 22528,
+        "length": 22528,
+        "evidence": "SCU DSP room header with P< token"
+      },
+      {
+        "candidate_type": "MAP_ROOM_PACKAGE",
+        "confidence": "CONFIRMED",
+        "offset": 45056,
+        "length": 22528,
+        "evidence": "SCU DSP room header with P< token"
+      },
+      {
+        "candidate_type": "MAP_ROOM_PACKAGE",
+        "confidence": "CONFIRMED",
+        "offset": 86016,
+        "length": 22528,
+        "evidence": "SCU DSP room header with P< token"
+      },
+      {
+        "candidate_type": "MAP_ROOM_PACKAGE",
+        "confidence": "CONFIRMED",
+        "offset": 104448,
+        "length": 22528,
+        "evidence": "SCU DSP room header with P< token"
+      },
+      {
+        "candidate_type": "MAP_ROOM_PACKAGE",
+        "confidence": "CONFIRMED",
+        "offset": 149504,
+        "length": 22528,
+        "evidence": "SCU DSP room header with P< token"
+      },
+      {
+        "candidate_type": "MAP_ROOM_PACKAGE",
+        "confidence": "CONFIRMED",
+        "offset": 172032,
+        "length": 22528,
+        "evidence": "SCU DSP room header with P< token"
+      },
+      {
+        "candidate_type": "MAP_ROOM_PACKAGE",
+        "confidence": "CONFIRMED",
+        "offset": 192512,
+        "length": 22528,
+        "evidence": "SCU DSP room header with P< token"
+      },
+      {
+        "candidate_type": "MAP_ROOM_PACKAGE",
+        "confidence": "CONFIRMED",
+        "offset": 210944,
+        "length": 22528,
+        "evidence": "SCU DSP room header with P< token"
+      },
+      {
+        "candidate_type": "MAP_ROOM_PACKAGE",
+        "confidence": "CONFIRMED",
+        "offset": 233472,
+        "length": 22528,
+        "evidence": "SCU DSP room header with P< token"
+      },
+      {
+        "candidate_type": "MAP_ROOM_PACKAGE",
+        "confidence": "CONFIRMED",
+        "offset": 253952,
+        "length": 22528,
+        "evidence": "SCU DSP room header with P< token"
+      },
+      {
+        "candidate_type": "MAP_ROOM_PACKAGE",
+        "confidence": "CONFIRMED",
+        "offset": 272384,
+        "length": 22528,
+        "evidence": "SCU DSP room header with P< token"
+      },
+      {
+        "candidate_type": "MAP_ROOM_PACKAGE",
+        "confidence": "CONFIRMED",
+        "offset": 337920,
+        "length": 22528,
+        "evidence": "SCU DSP room header with P< token"
+      },
+      {
+        "candidate_type": "MAP_ROOM_PACKAGE",
+        "confidence": "CONFIRMED",
+        "offset": 366592,
+        "length": 22528,
+        "evidence": "SCU DSP room header with P< token"
+      },
+      {
+        "candidate_type": "MAP_ROOM_PACKAGE",
+        "confidence": "CONFIRMED",
+        "offset": 387072,
+        "length": 22528,
+        "evidence": "SCU DSP room header with P< token"
+      },
+      {
+        "candidate_type": "MAP_ROOM_PACKAGE",
+        "confidence": "CONFIRMED",
+        "offset": 456704,
+        "length": 22528,
+        "evidence": "SCU DSP room header with P< token"
+      },
+      {
+        "candidate_type": "MAP_ROOM_PACKAGE",
+        "confidence": "CONFIRMED",
+        "offset": 524288,
+        "length": 22528,
+        "evidence": "SCU DSP room header with P< token"
+      },
+      {
+        "candidate_type": "MAP_ROOM_PACKAGE",
+        "confidence": "CONFIRMED",
+        "offset": 585728,
+        "length": 22528,
+        "evidence": "SCU DSP room header with P< token"
+      },
+      {
+        "candidate_type": "MAP_ROOM_PACKAGE",
+        "confidence": "CONFIRMED",
+        "offset": 608256,
+        "length": 22528,
+        "evidence": "SCU DSP room header with P< token"
+      },
+      {
+        "candidate_type": "MAP_ROOM_PACKAGE",
+        "confidence": "CONFIRMED",
+        "offset": 655360,
+        "length": 22528,
+        "evidence": "SCU DSP room header with P< token"
+      },
+      {
+        "candidate_type": "MAP_ROOM_PACKAGE",
+        "confidence": "CONFIRMED",
+        "offset": 696320,
+        "length": 22528,
+        "evidence": "SCU DSP room header with P< token"
+      },
+      {
+        "candidate_type": "MAP_ROOM_PACKAGE",
+        "confidence": "CONFIRMED",
+        "offset": 747520,
+        "length": 22528,
+        "evidence": "SCU DSP room header with P< token"
+      },
+      {
+        "candidate_type": "MAP_ROOM_PACKAGE",
+        "confidence": "CONFIRMED",
+        "offset": 768000,
+        "length": 22528,
+        "evidence": "SCU DSP room header with P< token"
+      },
+      {
+        "candidate_type": "MAP_ROOM_PACKAGE",
+        "confidence": "CONFIRMED",
+        "offset": 792576,
+        "length": 22528,
+        "evidence": "SCU DSP room header with P< token"
+      },
+      {
+        "candidate_type": "MAP_ROOM_PACKAGE",
+        "confidence": "CONFIRMED",
+        "offset": 817152,
+        "length": 22528,
+        "evidence": "SCU DSP room header with P< token"
+      },
+      {
+        "candidate_type": "MAP_ROOM_PACKAGE",
+        "confidence": "CONFIRMED",
+        "offset": 880640,
+        "length": 22528,
+        "evidence": "SCU DSP room header with P< token"
+      },
+      {
+        "candidate_type": "MAP_ROOM_PACKAGE",
+        "confidence": "CONFIRMED",
+        "offset": 907264,
+        "length": 22528,
+        "evidence": "SCU DSP room header with P< token"
+      },
+      {
+        "candidate_type": "MAP_ROOM_PACKAGE",
+        "confidence": "CONFIRMED",
+        "offset": 997376,
+        "length": 22528,
+        "evidence": "SCU DSP room header with P< token"
+      },
+      {
+        "candidate_type": "MAP_ROOM_PACKAGE",
+        "confidence": "CONFIRMED",
+        "offset": 1015808,
+        "length": 22528,
+        "evidence": "SCU DSP room header with P< token"
+      },
+      {
+        "candidate_type": "MAP_ROOM_PACKAGE",
+        "confidence": "CONFIRMED",
+        "offset": 1038336,
+        "length": 22528,
+        "evidence": "SCU DSP room header with P< token"
+      },
+      {
+        "candidate_type": "MAP_ROOM_PACKAGE",
+        "confidence": "CONFIRMED",
+        "offset": 1079296,
+        "length": 22528,
+        "evidence": "SCU DSP room header with P< token"
+      },
+      {
+        "candidate_type": "MAP_ROOM_PACKAGE",
+        "confidence": "CONFIRMED",
+        "offset": 1095680,
+        "length": 22528,
+        "evidence": "SCU DSP room header with P< token"
+      },
+      {
+        "candidate_type": "MAP_ROOM_PACKAGE",
+        "confidence": "CONFIRMED",
+        "offset": 1112064,
+        "length": 22528,
+        "evidence": "SCU DSP room header with P< token"
+      },
+      {
+        "candidate_type": "MAP_ROOM_PACKAGE",
+        "confidence": "CONFIRMED",
+        "offset": 1134592,
+        "length": 22528,
+        "evidence": "SCU DSP room header with P< token"
+      },
+      {
+        "candidate_type": "MAP_ROOM_PACKAGE",
+        "confidence": "CONFIRMED",
+        "offset": 1179648,
+        "length": 22528,
+        "evidence": "SCU DSP room header with P< token"
+      },
+      {
+        "candidate_type": "MAP_ROOM_PACKAGE",
+        "confidence": "CONFIRMED",
+        "offset": 1208320,
+        "length": 22528,
+        "evidence": "SCU DSP room header with P< token"
+      },
+      {
+        "candidate_type": "MAP_ROOM_PACKAGE",
+        "confidence": "CONFIRMED",
+        "offset": 1386496,
+        "length": 22528,
+        "evidence": "SCU DSP room header with P< token"
+      },
+      {
+        "candidate_type": "MAP_ROOM_PACKAGE",
+        "confidence": "CONFIRMED",
+        "offset": 1406976,
+        "length": 22528,
+        "evidence": "SCU DSP room header with P< token"
+      },
+      {
+        "candidate_type": "MAP_ROOM_PACKAGE",
+        "confidence": "CONFIRMED",
+        "offset": 1429504,
+        "length": 22528,
+        "evidence": "SCU DSP room header with P< token"
+      },
+      {
+        "candidate_type": "MAP_ROOM_PACKAGE",
+        "confidence": "CONFIRMED",
+        "offset": 1497088,
+        "length": 22528,
+        "evidence": "SCU DSP room header with P< token"
+      },
+      {
+        "candidate_type": "MAP_ROOM_PACKAGE",
+        "confidence": "CONFIRMED",
+        "offset": 1515520,
+        "length": 22528,
+        "evidence": "SCU DSP room header with P< token"
+      },
+      {
+        "candidate_type": "MAP_ROOM_PACKAGE",
+        "confidence": "CONFIRMED",
+        "offset": 1533952,
+        "length": 22528,
+        "evidence": "SCU DSP room header with P< token"
+      },
+      {
+        "candidate_type": "MAP_ROOM_PACKAGE",
+        "confidence": "CONFIRMED",
+        "offset": 1619968,
+        "length": 22528,
+        "evidence": "SCU DSP room header with P< token"
+      },
+      {
+        "candidate_type": "MAP_ROOM_PACKAGE",
+        "confidence": "CONFIRMED",
+        "offset": 1642496,
+        "length": 22528,
+        "evidence": "SCU DSP room header with P< token"
+      },
+      {
+        "candidate_type": "MAP_ROOM_PACKAGE",
+        "confidence": "CONFIRMED",
+        "offset": 1671168,
+        "length": 22528,
+        "evidence": "SCU DSP room header with P< token"
+      }
+    ],
+    "MONS.BIN": [
+      {
+        "candidate_type": "SPRITE_ARCHIVE",
+        "confidence": "CONFIRMED",
+        "offset": 4,
+        "length": 1490940,
+        "header_size": 12,
+        "anim_script_offset": 1326,
+        "sprite_data_offset": 1624,
+        "animation_offsets_count": 657,
+        "animation_script_bytes": 298,
+        "sprite_graphics_bytes": 1489316,
+        "evidence": "Exact 12-byte Ancient header with verified offsets and 16-bit table alignment",
+        "container_offset": 0,
+        "container_type": "MONS_SUBARCHIVE"
+      },
+      {
+        "candidate_type": "SPRITE_ARCHIVE",
+        "confidence": "CONFIRMED",
+        "offset": 8196,
+        "length": 1482748,
+        "header_size": 12,
+        "anim_script_offset": 14334,
+        "sprite_data_offset": 15872,
+        "animation_offsets_count": 7161,
+        "animation_script_bytes": 1538,
+        "sprite_graphics_bytes": 1466876,
+        "evidence": "Exact 12-byte Ancient header with verified offsets and 16-bit table alignment",
+        "container_offset": 8192,
+        "container_type": "MONS_SUBARCHIVE"
+      },
+      {
+        "candidate_type": "SPRITE_ARCHIVE",
+        "confidence": "CONFIRMED",
+        "offset": 59396,
+        "length": 1431548,
+        "header_size": 12,
+        "anim_script_offset": 7192,
+        "sprite_data_offset": 8568,
+        "animation_offsets_count": 3590,
+        "animation_script_bytes": 1376,
+        "sprite_graphics_bytes": 1422980,
+        "evidence": "Exact 12-byte Ancient header with verified offsets and 16-bit table alignment",
+        "container_offset": 59392,
+        "container_type": "MONS_SUBARCHIVE"
+      },
+      {
+        "candidate_type": "SPRITE_ARCHIVE",
+        "confidence": "CONFIRMED",
+        "offset": 81924,
+        "length": 1409020,
+        "header_size": 12,
+        "anim_script_offset": 1398,
+        "sprite_data_offset": 1630,
+        "animation_offsets_count": 693,
+        "animation_script_bytes": 232,
+        "sprite_graphics_bytes": 1407390,
+        "evidence": "Exact 12-byte Ancient header with verified offsets and 16-bit table alignment",
+        "container_offset": 81920,
+        "container_type": "MONS_SUBARCHIVE"
+      },
+      {
+        "candidate_type": "SPRITE_ARCHIVE",
+        "confidence": "CONFIRMED",
+        "offset": 98308,
+        "length": 1392636,
+        "header_size": 12,
+        "anim_script_offset": 21800,
+        "sprite_data_offset": 24172,
+        "animation_offsets_count": 10894,
+        "animation_script_bytes": 2372,
+        "sprite_graphics_bytes": 1368464,
+        "evidence": "Exact 12-byte Ancient header with verified offsets and 16-bit table alignment",
+        "container_offset": 98304,
+        "container_type": "MONS_SUBARCHIVE"
+      },
+      {
+        "candidate_type": "SPRITE_ARCHIVE",
+        "confidence": "CONFIRMED",
+        "offset": 153604,
+        "length": 1337340,
+        "header_size": 12,
+        "anim_script_offset": 6478,
+        "sprite_data_offset": 7272,
+        "animation_offsets_count": 3233,
+        "animation_script_bytes": 794,
+        "sprite_graphics_bytes": 1330068,
+        "evidence": "Exact 12-byte Ancient header with verified offsets and 16-bit table alignment",
+        "container_offset": 153600,
+        "container_type": "MONS_SUBARCHIVE"
+      },
+      {
+        "candidate_type": "SPRITE_ARCHIVE",
+        "confidence": "CONFIRMED",
+        "offset": 184324,
+        "length": 1306620,
+        "header_size": 12,
+        "anim_script_offset": 8814,
+        "sprite_data_offset": 9904,
+        "animation_offsets_count": 4401,
+        "animation_script_bytes": 1090,
+        "sprite_graphics_bytes": 1296716,
+        "evidence": "Exact 12-byte Ancient header with verified offsets and 16-bit table alignment",
+        "container_offset": 184320,
+        "container_type": "MONS_SUBARCHIVE"
+      },
+      {
+        "candidate_type": "SPRITE_ARCHIVE",
+        "confidence": "CONFIRMED",
+        "offset": 264196,
+        "length": 1226748,
+        "header_size": 12,
+        "anim_script_offset": 64976,
+        "sprite_data_offset": 70468,
+        "animation_offsets_count": 32482,
+        "animation_script_bytes": 5492,
+        "sprite_graphics_bytes": 1156280,
+        "evidence": "Exact 12-byte Ancient header with verified offsets and 16-bit table alignment",
+        "container_offset": 264192,
+        "container_type": "MONS_SUBARCHIVE"
+      },
+      {
+        "candidate_type": "SPRITE_ARCHIVE",
+        "confidence": "CONFIRMED",
+        "offset": 331780,
+        "length": 1159164,
+        "header_size": 12,
+        "anim_script_offset": 14064,
+        "sprite_data_offset": 16274,
+        "animation_offsets_count": 7026,
+        "animation_script_bytes": 2210,
+        "sprite_graphics_bytes": 1142890,
+        "evidence": "Exact 12-byte Ancient header with verified offsets and 16-bit table alignment",
+        "container_offset": 331776,
+        "container_type": "MONS_SUBARCHIVE"
+      },
+      {
+        "candidate_type": "SPRITE_ARCHIVE",
+        "confidence": "CONFIRMED",
+        "offset": 368644,
+        "length": 1122300,
+        "header_size": 12,
+        "anim_script_offset": 758,
+        "sprite_data_offset": 1008,
+        "animation_offsets_count": 373,
+        "animation_script_bytes": 250,
+        "sprite_graphics_bytes": 1121292,
+        "evidence": "Exact 12-byte Ancient header with verified offsets and 16-bit table alignment",
+        "container_offset": 368640,
+        "container_type": "MONS_SUBARCHIVE"
+      },
+      {
+        "candidate_type": "SPRITE_ARCHIVE",
+        "confidence": "CONFIRMED",
+        "offset": 376836,
+        "length": 1114108,
+        "header_size": 12,
+        "anim_script_offset": 2880,
+        "sprite_data_offset": 3650,
+        "animation_offsets_count": 1434,
+        "animation_script_bytes": 770,
+        "sprite_graphics_bytes": 1110458,
+        "evidence": "Exact 12-byte Ancient header with verified offsets and 16-bit table alignment",
+        "container_offset": 376832,
+        "container_type": "MONS_SUBARCHIVE"
+      },
+      {
+        "candidate_type": "SPRITE_ARCHIVE",
+        "confidence": "CONFIRMED",
+        "offset": 389124,
+        "length": 1101820,
+        "header_size": 12,
+        "anim_script_offset": 2504,
+        "sprite_data_offset": 3082,
+        "animation_offsets_count": 1246,
+        "animation_script_bytes": 578,
+        "sprite_graphics_bytes": 1098738,
+        "evidence": "Exact 12-byte Ancient header with verified offsets and 16-bit table alignment",
+        "container_offset": 389120,
+        "container_type": "MONS_SUBARCHIVE"
+      },
+      {
+        "candidate_type": "SPRITE_ARCHIVE",
+        "confidence": "CONFIRMED",
+        "offset": 399364,
+        "length": 1091580,
+        "header_size": 12,
+        "anim_script_offset": 3446,
+        "sprite_data_offset": 4304,
+        "animation_offsets_count": 1717,
+        "animation_script_bytes": 858,
+        "sprite_graphics_bytes": 1087276,
+        "evidence": "Exact 12-byte Ancient header with verified offsets and 16-bit table alignment",
+        "container_offset": 399360,
+        "container_type": "MONS_SUBARCHIVE"
+      },
+      {
+        "candidate_type": "SPRITE_ARCHIVE",
+        "confidence": "CONFIRMED",
+        "offset": 413700,
+        "length": 1077244,
+        "header_size": 12,
+        "anim_script_offset": 14502,
+        "sprite_data_offset": 15842,
+        "animation_offsets_count": 7245,
+        "animation_script_bytes": 1340,
+        "sprite_graphics_bytes": 1061402,
+        "evidence": "Exact 12-byte Ancient header with verified offsets and 16-bit table alignment",
+        "container_offset": 413696,
+        "container_type": "MONS_SUBARCHIVE"
+      },
+      {
+        "candidate_type": "SPRITE_ARCHIVE",
+        "confidence": "CONFIRMED",
+        "offset": 452612,
+        "length": 1038332,
+        "header_size": 12,
+        "anim_script_offset": 2432,
+        "sprite_data_offset": 2978,
+        "animation_offsets_count": 1210,
+        "animation_script_bytes": 546,
+        "sprite_graphics_bytes": 1035354,
+        "evidence": "Exact 12-byte Ancient header with verified offsets and 16-bit table alignment",
+        "container_offset": 452608,
+        "container_type": "MONS_SUBARCHIVE"
+      },
+      {
+        "candidate_type": "SPRITE_ARCHIVE",
+        "confidence": "CONFIRMED",
+        "offset": 479236,
+        "length": 1011708,
+        "header_size": 12,
+        "anim_script_offset": 24032,
+        "sprite_data_offset": 26762,
+        "animation_offsets_count": 12010,
+        "animation_script_bytes": 2730,
+        "sprite_graphics_bytes": 984946,
+        "evidence": "Exact 12-byte Ancient header with verified offsets and 16-bit table alignment",
+        "container_offset": 479232,
+        "container_type": "MONS_SUBARCHIVE"
+      },
+      {
+        "candidate_type": "SPRITE_ARCHIVE",
+        "confidence": "CONFIRMED",
+        "offset": 565252,
+        "length": 925692,
+        "header_size": 12,
+        "anim_script_offset": 1822,
+        "sprite_data_offset": 2144,
+        "animation_offsets_count": 905,
+        "animation_script_bytes": 322,
+        "sprite_graphics_bytes": 923548,
+        "evidence": "Exact 12-byte Ancient header with verified offsets and 16-bit table alignment",
+        "container_offset": 565248,
+        "container_type": "MONS_SUBARCHIVE"
+      },
+      {
+        "candidate_type": "SPRITE_ARCHIVE",
+        "confidence": "CONFIRMED",
+        "offset": 575492,
+        "length": 915452,
+        "header_size": 12,
+        "anim_script_offset": 4472,
+        "sprite_data_offset": 4762,
+        "animation_offsets_count": 2230,
+        "animation_script_bytes": 290,
+        "sprite_graphics_bytes": 910690,
+        "evidence": "Exact 12-byte Ancient header with verified offsets and 16-bit table alignment",
+        "container_offset": 575488,
+        "container_type": "MONS_SUBARCHIVE"
+      },
+      {
+        "candidate_type": "SPRITE_ARCHIVE",
+        "confidence": "CONFIRMED",
+        "offset": 585732,
+        "length": 905212,
+        "header_size": 12,
+        "anim_script_offset": 36312,
+        "sprite_data_offset": 40130,
+        "animation_offsets_count": 18150,
+        "animation_script_bytes": 3818,
+        "sprite_graphics_bytes": 865082,
+        "evidence": "Exact 12-byte Ancient header with verified offsets and 16-bit table alignment",
+        "container_offset": 585728,
+        "container_type": "MONS_SUBARCHIVE"
+      },
+      {
+        "candidate_type": "SPRITE_ARCHIVE",
+        "confidence": "CONFIRMED",
+        "offset": 686084,
+        "length": 804860,
+        "header_size": 12,
+        "anim_script_offset": 16414,
+        "sprite_data_offset": 18162,
+        "animation_offsets_count": 8201,
+        "animation_script_bytes": 1748,
+        "sprite_graphics_bytes": 786698,
+        "evidence": "Exact 12-byte Ancient header with verified offsets and 16-bit table alignment",
+        "container_offset": 686080,
+        "container_type": "MONS_SUBARCHIVE"
+      },
+      {
+        "candidate_type": "SPRITE_ARCHIVE",
+        "confidence": "CONFIRMED",
+        "offset": 745476,
+        "length": 745468,
+        "header_size": 12,
+        "anim_script_offset": 20480,
+        "sprite_data_offset": 22510,
+        "animation_offsets_count": 10234,
+        "animation_script_bytes": 2030,
+        "sprite_graphics_bytes": 722958,
+        "evidence": "Exact 12-byte Ancient header with verified offsets and 16-bit table alignment",
+        "container_offset": 745472,
+        "container_type": "MONS_SUBARCHIVE"
+      },
+      {
+        "candidate_type": "SPRITE_ARCHIVE",
+        "confidence": "CONFIRMED",
+        "offset": 774148,
+        "length": 716796,
+        "header_size": 12,
+        "anim_script_offset": 2392,
+        "sprite_data_offset": 3034,
+        "animation_offsets_count": 1190,
+        "animation_script_bytes": 642,
+        "sprite_graphics_bytes": 713762,
+        "evidence": "Exact 12-byte Ancient header with verified offsets and 16-bit table alignment",
+        "container_offset": 774144,
+        "container_type": "MONS_SUBARCHIVE"
+      },
+      {
+        "candidate_type": "SPRITE_ARCHIVE",
+        "confidence": "CONFIRMED",
+        "offset": 784388,
+        "length": 706556,
+        "header_size": 12,
+        "anim_script_offset": 37828,
+        "sprite_data_offset": 40026,
+        "animation_offsets_count": 18908,
+        "animation_script_bytes": 2198,
+        "sprite_graphics_bytes": 666530,
+        "evidence": "Exact 12-byte Ancient header with verified offsets and 16-bit table alignment",
+        "container_offset": 784384,
+        "container_type": "MONS_SUBARCHIVE"
+      },
+      {
+        "candidate_type": "SPRITE_ARCHIVE",
+        "confidence": "CONFIRMED",
+        "offset": 851972,
+        "length": 638972,
+        "header_size": 12,
+        "anim_script_offset": 3152,
+        "sprite_data_offset": 3538,
+        "animation_offsets_count": 1570,
+        "animation_script_bytes": 386,
+        "sprite_graphics_bytes": 635434,
+        "evidence": "Exact 12-byte Ancient header with verified offsets and 16-bit table alignment",
+        "container_offset": 851968,
+        "container_type": "MONS_SUBARCHIVE"
+      },
+      {
+        "candidate_type": "SPRITE_ARCHIVE",
+        "confidence": "CONFIRMED",
+        "offset": 866308,
+        "length": 624636,
+        "header_size": 12,
+        "anim_script_offset": 3088,
+        "sprite_data_offset": 3602,
+        "animation_offsets_count": 1538,
+        "animation_script_bytes": 514,
+        "sprite_graphics_bytes": 621034,
+        "evidence": "Exact 12-byte Ancient header with verified offsets and 16-bit table alignment",
+        "container_offset": 866304,
+        "container_type": "MONS_SUBARCHIVE"
+      },
+      {
+        "candidate_type": "SPRITE_ARCHIVE",
+        "confidence": "CONFIRMED",
+        "offset": 882692,
+        "length": 608252,
+        "header_size": 12,
+        "anim_script_offset": 2886,
+        "sprite_data_offset": 3248,
+        "animation_offsets_count": 1437,
+        "animation_script_bytes": 362,
+        "sprite_graphics_bytes": 605004,
+        "evidence": "Exact 12-byte Ancient header with verified offsets and 16-bit table alignment",
+        "container_offset": 882688,
+        "container_type": "MONS_SUBARCHIVE"
+      },
+      {
+        "candidate_type": "SPRITE_ARCHIVE",
+        "confidence": "CONFIRMED",
+        "offset": 899076,
+        "length": 591868,
+        "header_size": 12,
+        "anim_script_offset": 2134,
+        "sprite_data_offset": 2544,
+        "animation_offsets_count": 1061,
+        "animation_script_bytes": 410,
+        "sprite_graphics_bytes": 589324,
+        "evidence": "Exact 12-byte Ancient header with verified offsets and 16-bit table alignment",
+        "container_offset": 899072,
+        "container_type": "MONS_SUBARCHIVE"
+      },
+      {
+        "candidate_type": "SPRITE_ARCHIVE",
+        "confidence": "CONFIRMED",
+        "offset": 911364,
+        "length": 579580,
+        "header_size": 12,
+        "anim_script_offset": 2998,
+        "sprite_data_offset": 3504,
+        "animation_offsets_count": 1493,
+        "animation_script_bytes": 506,
+        "sprite_graphics_bytes": 576076,
+        "evidence": "Exact 12-byte Ancient header with verified offsets and 16-bit table alignment",
+        "container_offset": 911360,
+        "container_type": "MONS_SUBARCHIVE"
+      },
+      {
+        "candidate_type": "SPRITE_ARCHIVE",
+        "confidence": "CONFIRMED",
+        "offset": 919556,
+        "length": 571388,
+        "header_size": 12,
+        "anim_script_offset": 2992,
+        "sprite_data_offset": 3378,
+        "animation_offsets_count": 1490,
+        "animation_script_bytes": 386,
+        "sprite_graphics_bytes": 568010,
+        "evidence": "Exact 12-byte Ancient header with verified offsets and 16-bit table alignment",
+        "container_offset": 919552,
+        "container_type": "MONS_SUBARCHIVE"
+      },
+      {
+        "candidate_type": "SPRITE_ARCHIVE",
+        "confidence": "CONFIRMED",
+        "offset": 929796,
+        "length": 561148,
+        "header_size": 12,
+        "anim_script_offset": 4312,
+        "sprite_data_offset": 4794,
+        "animation_offsets_count": 2150,
+        "animation_script_bytes": 482,
+        "sprite_graphics_bytes": 556354,
+        "evidence": "Exact 12-byte Ancient header with verified offsets and 16-bit table alignment",
+        "container_offset": 929792,
+        "container_type": "MONS_SUBARCHIVE"
+      },
+      {
+        "candidate_type": "SPRITE_ARCHIVE",
+        "confidence": "CONFIRMED",
+        "offset": 946180,
+        "length": 544764,
+        "header_size": 12,
+        "anim_script_offset": 2912,
+        "sprite_data_offset": 3298,
+        "animation_offsets_count": 1450,
+        "animation_script_bytes": 386,
+        "sprite_graphics_bytes": 541466,
+        "evidence": "Exact 12-byte Ancient header with verified offsets and 16-bit table alignment",
+        "container_offset": 946176,
+        "container_type": "MONS_SUBARCHIVE"
+      },
+      {
+        "candidate_type": "SPRITE_ARCHIVE",
+        "confidence": "CONFIRMED",
+        "offset": 956420,
+        "length": 534524,
+        "header_size": 12,
+        "anim_script_offset": 176,
+        "sprite_data_offset": 210,
+        "animation_offsets_count": 82,
+        "animation_script_bytes": 34,
+        "sprite_graphics_bytes": 534314,
+        "evidence": "Exact 12-byte Ancient header with verified offsets and 16-bit table alignment",
+        "container_offset": 956416,
+        "container_type": "MONS_SUBARCHIVE"
+      },
+      {
+        "candidate_type": "SPRITE_ARCHIVE",
+        "confidence": "CONFIRMED",
+        "offset": 960516,
+        "length": 530428,
+        "header_size": 12,
+        "anim_script_offset": 678,
+        "sprite_data_offset": 728,
+        "animation_offsets_count": 333,
+        "animation_script_bytes": 50,
+        "sprite_graphics_bytes": 529700,
+        "evidence": "Exact 12-byte Ancient header with verified offsets and 16-bit table alignment",
+        "container_offset": 960512,
+        "container_type": "MONS_SUBARCHIVE"
+      },
+      {
+        "candidate_type": "SPRITE_ARCHIVE",
+        "confidence": "CONFIRMED",
+        "offset": 964612,
+        "length": 526332,
+        "header_size": 12,
+        "anim_script_offset": 584,
+        "sprite_data_offset": 650,
+        "animation_offsets_count": 286,
+        "animation_script_bytes": 66,
+        "sprite_graphics_bytes": 525682,
+        "evidence": "Exact 12-byte Ancient header with verified offsets and 16-bit table alignment",
+        "container_offset": 964608,
+        "container_type": "MONS_SUBARCHIVE"
+      },
+      {
+        "candidate_type": "SPRITE_ARCHIVE",
+        "confidence": "CONFIRMED",
+        "offset": 968708,
+        "length": 522236,
+        "header_size": 12,
+        "anim_script_offset": 336,
+        "sprite_data_offset": 402,
+        "animation_offsets_count": 162,
+        "animation_script_bytes": 66,
+        "sprite_graphics_bytes": 521834,
+        "evidence": "Exact 12-byte Ancient header with verified offsets and 16-bit table alignment",
+        "container_offset": 968704,
+        "container_type": "MONS_SUBARCHIVE"
+      },
+      {
+        "candidate_type": "SPRITE_ARCHIVE",
+        "confidence": "CONFIRMED",
+        "offset": 972804,
+        "length": 518140,
+        "header_size": 12,
+        "anim_script_offset": 6584,
+        "sprite_data_offset": 8234,
+        "animation_offsets_count": 3286,
+        "animation_script_bytes": 1650,
+        "sprite_graphics_bytes": 509906,
+        "evidence": "Exact 12-byte Ancient header with verified offsets and 16-bit table alignment",
+        "container_offset": 972800,
+        "container_type": "MONS_SUBARCHIVE"
+      },
+      {
+        "candidate_type": "SPRITE_ARCHIVE",
+        "confidence": "CONFIRMED",
+        "offset": 1050628,
+        "length": 440316,
+        "header_size": 12,
+        "anim_script_offset": 20030,
+        "sprite_data_offset": 21330,
+        "animation_offsets_count": 10009,
+        "animation_script_bytes": 1300,
+        "sprite_graphics_bytes": 418986,
+        "evidence": "Exact 12-byte Ancient header with verified offsets and 16-bit table alignment",
+        "container_offset": 1050624,
+        "container_type": "MONS_SUBARCHIVE"
+      },
+      {
+        "candidate_type": "SPRITE_ARCHIVE",
+        "confidence": "CONFIRMED",
+        "offset": 1099780,
+        "length": 391164,
+        "header_size": 12,
+        "anim_script_offset": 5318,
+        "sprite_data_offset": 5480,
+        "animation_offsets_count": 2653,
+        "animation_script_bytes": 162,
+        "sprite_graphics_bytes": 385684,
+        "evidence": "Exact 12-byte Ancient header with verified offsets and 16-bit table alignment",
+        "container_offset": 1099776,
+        "container_type": "MONS_SUBARCHIVE"
+      },
+      {
+        "candidate_type": "SPRITE_ARCHIVE",
+        "confidence": "CONFIRMED",
+        "offset": 1150980,
+        "length": 339964,
+        "header_size": 12,
+        "anim_script_offset": 1552,
+        "sprite_data_offset": 1730,
+        "animation_offsets_count": 770,
+        "animation_script_bytes": 178,
+        "sprite_graphics_bytes": 338234,
+        "evidence": "Exact 12-byte Ancient header with verified offsets and 16-bit table alignment",
+        "container_offset": 1150976,
+        "container_type": "MONS_SUBARCHIVE"
+      },
+      {
+        "candidate_type": "SPRITE_ARCHIVE",
+        "confidence": "CONFIRMED",
+        "offset": 1177604,
+        "length": 313340,
+        "header_size": 12,
+        "anim_script_offset": 51398,
+        "sprite_data_offset": 55072,
+        "animation_offsets_count": 25693,
+        "animation_script_bytes": 3674,
+        "sprite_graphics_bytes": 258268,
+        "evidence": "Exact 12-byte Ancient header with verified offsets and 16-bit table alignment",
+        "container_offset": 1177600,
+        "container_type": "MONS_SUBARCHIVE"
+      },
+      {
+        "candidate_type": "SPRITE_ARCHIVE",
+        "confidence": "CONFIRMED",
+        "offset": 1236996,
+        "length": 253948,
+        "header_size": 12,
+        "anim_script_offset": 3024,
+        "sprite_data_offset": 3394,
+        "animation_offsets_count": 1506,
+        "animation_script_bytes": 370,
+        "sprite_graphics_bytes": 250554,
+        "evidence": "Exact 12-byte Ancient header with verified offsets and 16-bit table alignment",
+        "container_offset": 1236992,
+        "container_type": "MONS_SUBARCHIVE"
+      },
+      {
+        "candidate_type": "SPRITE_ARCHIVE",
+        "confidence": "CONFIRMED",
+        "offset": 1247236,
+        "length": 243708,
+        "header_size": 12,
+        "anim_script_offset": 12392,
+        "sprite_data_offset": 13200,
+        "animation_offsets_count": 6190,
+        "animation_script_bytes": 808,
+        "sprite_graphics_bytes": 230508,
+        "evidence": "Exact 12-byte Ancient header with verified offsets and 16-bit table alignment",
+        "container_offset": 1247232,
+        "container_type": "MONS_SUBARCHIVE"
+      },
+      {
+        "candidate_type": "SPRITE_ARCHIVE",
+        "confidence": "CONFIRMED",
+        "offset": 1284100,
+        "length": 206844,
+        "header_size": 12,
+        "anim_script_offset": 224,
+        "sprite_data_offset": 290,
+        "animation_offsets_count": 106,
+        "animation_script_bytes": 66,
+        "sprite_graphics_bytes": 206554,
+        "evidence": "Exact 12-byte Ancient header with verified offsets and 16-bit table alignment",
+        "container_offset": 1284096,
+        "container_type": "MONS_SUBARCHIVE"
+      },
+      {
+        "candidate_type": "SPRITE_ARCHIVE",
+        "confidence": "CONFIRMED",
+        "offset": 1288196,
+        "length": 202748,
+        "header_size": 12,
+        "anim_script_offset": 702,
+        "sprite_data_offset": 744,
+        "animation_offsets_count": 345,
+        "animation_script_bytes": 42,
+        "sprite_graphics_bytes": 202004,
+        "evidence": "Exact 12-byte Ancient header with verified offsets and 16-bit table alignment",
+        "container_offset": 1288192,
+        "container_type": "MONS_SUBARCHIVE"
+      },
+      {
+        "candidate_type": "SPRITE_ARCHIVE",
+        "confidence": "CONFIRMED",
+        "offset": 1294340,
+        "length": 196604,
+        "header_size": 12,
+        "anim_script_offset": 960,
+        "sprite_data_offset": 1002,
+        "animation_offsets_count": 474,
+        "animation_script_bytes": 42,
+        "sprite_graphics_bytes": 195602,
+        "evidence": "Exact 12-byte Ancient header with verified offsets and 16-bit table alignment",
+        "container_offset": 1294336,
+        "container_type": "MONS_SUBARCHIVE"
+      },
+      {
+        "candidate_type": "SPRITE_ARCHIVE",
+        "confidence": "CONFIRMED",
+        "offset": 1298436,
+        "length": 192508,
+        "header_size": 12,
+        "anim_script_offset": 7350,
+        "sprite_data_offset": 8240,
+        "animation_offsets_count": 3669,
+        "animation_script_bytes": 890,
+        "sprite_graphics_bytes": 184268,
+        "evidence": "Exact 12-byte Ancient header with verified offsets and 16-bit table alignment",
+        "container_offset": 1298432,
+        "container_type": "MONS_SUBARCHIVE"
+      },
+      {
+        "candidate_type": "SPRITE_ARCHIVE",
+        "confidence": "CONFIRMED",
+        "offset": 1304580,
+        "length": 186364,
+        "header_size": 12,
+        "anim_script_offset": 648,
+        "sprite_data_offset": 778,
+        "animation_offsets_count": 318,
+        "animation_script_bytes": 130,
+        "sprite_graphics_bytes": 185586,
+        "evidence": "Exact 12-byte Ancient header with verified offsets and 16-bit table alignment",
+        "container_offset": 1304576,
+        "container_type": "MONS_SUBARCHIVE"
+      },
+      {
+        "candidate_type": "SPRITE_ARCHIVE",
+        "confidence": "CONFIRMED",
+        "offset": 1308676,
+        "length": 182268,
+        "header_size": 12,
+        "anim_script_offset": 12326,
+        "sprite_data_offset": 13504,
+        "animation_offsets_count": 6157,
+        "animation_script_bytes": 1178,
+        "sprite_graphics_bytes": 168764,
+        "evidence": "Exact 12-byte Ancient header with verified offsets and 16-bit table alignment",
+        "container_offset": 1308672,
+        "container_type": "MONS_SUBARCHIVE"
+      },
+      {
+        "candidate_type": "SPRITE_ARCHIVE",
+        "confidence": "CONFIRMED",
+        "offset": 1347588,
+        "length": 143356,
+        "header_size": 12,
+        "anim_script_offset": 2784,
+        "sprite_data_offset": 3134,
+        "animation_offsets_count": 1386,
+        "animation_script_bytes": 350,
+        "sprite_graphics_bytes": 140222,
+        "evidence": "Exact 12-byte Ancient header with verified offsets and 16-bit table alignment",
+        "container_offset": 1347584,
+        "container_type": "MONS_SUBARCHIVE"
+      },
+      {
+        "candidate_type": "SPRITE_ARCHIVE",
+        "confidence": "CONFIRMED",
+        "offset": 1398788,
+        "length": 92156,
+        "header_size": 12,
+        "anim_script_offset": 26594,
+        "sprite_data_offset": 29344,
+        "animation_offsets_count": 13291,
+        "animation_script_bytes": 2750,
+        "sprite_graphics_bytes": 62812,
+        "evidence": "Exact 12-byte Ancient header with verified offsets and 16-bit table alignment",
+        "container_offset": 1398784,
+        "container_type": "MONS_SUBARCHIVE"
+      }
+    ],
+    "P0.BIN": [
+      {
+        "candidate_type": "SPRITE_ARCHIVE",
+        "confidence": "CONFIRMED",
+        "offset": 0,
+        "length": 475636,
+        "header_size": 12,
+        "anim_script_offset": 59466,
+        "sprite_data_offset": 65432,
+        "animation_offsets_count": 29727,
+        "animation_script_bytes": 5966,
+        "sprite_graphics_bytes": 410204,
+        "evidence": "Exact 12-byte Ancient header with verified offsets and 16-bit table alignment"
+      }
+    ],
+    "P1.BIN": [
+      {
+        "candidate_type": "SPRITE_ARCHIVE",
+        "confidence": "CONFIRMED",
+        "offset": 0,
+        "length": 497584,
+        "header_size": 12,
+        "anim_script_offset": 64104,
+        "sprite_data_offset": 70220,
+        "animation_offsets_count": 32046,
+        "animation_script_bytes": 6116,
+        "sprite_graphics_bytes": 427364,
+        "evidence": "Exact 12-byte Ancient header with verified offsets and 16-bit table alignment"
+      }
+    ],
+    "P2.BIN": [
+      {
+        "candidate_type": "SPRITE_ARCHIVE",
+        "confidence": "CONFIRMED",
+        "offset": 0,
+        "length": 432684,
+        "header_size": 12,
+        "anim_script_offset": 65548,
+        "sprite_data_offset": 71262,
+        "animation_offsets_count": 32768,
+        "animation_script_bytes": 5714,
+        "sprite_graphics_bytes": 361422,
+        "evidence": "Exact 12-byte Ancient header with verified offsets and 16-bit table alignment"
+      }
+    ],
+    "P3.BIN": [
+      {
+        "candidate_type": "SPRITE_ARCHIVE",
+        "confidence": "CONFIRMED",
+        "offset": 0,
+        "length": 462184,
+        "header_size": 12,
+        "anim_script_offset": 64470,
+        "sprite_data_offset": 70274,
+        "animation_offsets_count": 32229,
+        "animation_script_bytes": 5804,
+        "sprite_graphics_bytes": 391910,
+        "evidence": "Exact 12-byte Ancient header with verified offsets and 16-bit table alignment"
+      }
+    ],
+    "P4.BIN": [
+      {
+        "candidate_type": "SPRITE_ARCHIVE",
+        "confidence": "CONFIRMED",
+        "offset": 4,
+        "length": 2889,
+        "header_size": 12,
+        "anim_script_offset": 1888,
+        "sprite_data_offset": 2082,
+        "animation_offsets_count": 938,
+        "animation_script_bytes": 194,
+        "sprite_graphics_bytes": 807,
+        "evidence": "Exact 12-byte Ancient header with verified offsets and 16-bit table alignment",
+        "container_offset": 0,
+        "container_type": "MONS_SUBARCHIVE"
+      }
+    ],
+    "SHADE.BIN": [
+      {
+        "candidate_type": "SPRITE_ARCHIVE",
+        "confidence": "CONFIRMED",
+        "offset": 0,
+        "length": 69844,
+        "header_size": 12,
+        "anim_script_offset": 2624,
+        "sprite_data_offset": 2802,
+        "animation_offsets_count": 1306,
+        "animation_script_bytes": 178,
+        "sprite_graphics_bytes": 67042,
+        "evidence": "Exact 12-byte Ancient header with verified offsets and 16-bit table alignment"
+      }
+    ],
+    "TH2.LOW": [
+      {
+        "candidate_type": "RGB555_PALETTE_16",
+        "confidence": "CONFIRMED",
+        "offset": 142774,
+        "length": 32,
+        "colors_count": 16,
+        "evidence": "Exact match with runtime CRAM DMA write address in 0TH2.BIN"
+      },
+      {
+        "candidate_type": "RGB555_PALETTE_16",
+        "confidence": "CONFIRMED",
+        "offset": 143286,
+        "length": 32,
+        "colors_count": 16,
+        "evidence": "Exact match with runtime CRAM DMA write address in 0TH2.BIN"
+      },
+      {
+        "candidate_type": "RGB555_PALETTE_16",
+        "confidence": "CONFIRMED",
+        "offset": 143798,
+        "length": 32,
+        "colors_count": 16,
+        "evidence": "Exact match with runtime CRAM DMA write address in 0TH2.BIN"
+      }
+    ]
+  }
+}
