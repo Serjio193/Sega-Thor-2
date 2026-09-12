@@ -341,6 +341,27 @@ These public labels/semantics remain revision hints until independently behavior
 - `FULL_ASM_GAME_GATE`: honestly maintained as **`NOT_YET_REPROVEN`**.
 - Repository negative controls: **66 / 66 PASS** (including 8 new P9 controls NC-AY .. NC-BF in `tests/asm/negative_controls_p9.py`).
 
+## RTS V3 Soundness Audit & Reconciliation (`T2-ASM-10.1`)
+
+An audit of the T2-ASM-10 RTS certificates identified two critical implementation defects in `tools/asm/rts_v3_certifier.py`:
+1. **Defect #1 (Stale `fn_pc` Loop Variable Leakage)**: Stale variable retention across Python loops caused loop 2 to query caller certificate `0x002EA15C` for all candidate sites.
+2. **Defect #2 (Promotion Contract Omissions)**: Promoted sites flipped `is_certified_resolved = True` without populating return domains (`return_domain_count: 0`, `return_pcs: []`) or checking `UNVERIFIED_PR`.
+
+### Corrective Audit Findings (`tools/asm/rts_certificate_auditor.py` & `tools/asm/rts_promotion_auditor.py`)
+- **T2-ASM-10 Promotions (96 sites)**: All 96 promotions revoked (0 valid). 37 revoked due to `UNVERIFIED_PR`, 59 revoked due to zero-element return domains.
+- **Pre-Existing Resolved V2 Certificates (456 sites)**: 420 certificates confirmed sound; 36 certificates demoted fail-closed due to return PCs residing in literal pools (`DATA_LITERAL_POOL`, `RETURN_PC_NOT_CODE`).
+- **Edge / Ownership Impact**: 43 return target edges revoked across 28 unique addresses in DATA; 0 CODE bytes dependent on revoked edges; 0 ownership demotions.
+- **Corrected RTS V3.1 Resolution**:
+  - Total RTS Sites: 638
+  - Certified Resolved: **420 / 638 (65.83%)** (229 exact return, 191 finite set)
+  - Honest Unresolved: **218 / 638 (34.17%)** (81 external threats in UNKNOWN, 81 PR path / shared epilogues, 56 caller domain)
+- **Canonical Indirect Control-Flow Reconciliation**:
+  - Calls / Jumps: 1,588 / 1,588 resolved (100.0%)
+  - RTS Return Sites: 420 / 638 resolved (65.83%)
+  - Overall Canonical Indirect: **2,008 / 2,226 resolved (90.21%)**, 218 unresolved (9.79%)
+- **Gates**: `ASM_90_GATE` = PASS (90.21% >= 90.00%); `FULL_ASM_GAME_GATE` = `NOT_YET_REPROVEN`.
+- **Negative Controls Suite P10**: Added NC-BG through NC-BN in `tests/asm/negative_controls_p10.py` (total **74 / 74 PASS**).
+
 ## Record template
 
 For each new finding record:

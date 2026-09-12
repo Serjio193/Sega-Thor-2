@@ -1,5 +1,56 @@
 # Worklog
 
+## 2026-09-12 — T2-ASM-10.1: RTS V3 Certificate Soundness Audit, Per-Function Caller Binding Repair, and Fail-Closed Reconciliation
+
+### Task
+
+Execute corrective audit `T2-ASM-10.1` after discovering implementation defects in the T2-ASM-10 RTS V3 certifier:
+1. **Certificate Soundness Auditor (`tools/asm/rts_certificate_auditor.py`)**:
+   - Independently audited all 638 RTS certificates in `workstreams/T2-ASM-10/rts_completeness_v3.json` against the Mandatory Resolved RTS Contract.
+   - Discovered that of the 552 claimed resolved certificates, 132 violated the contract (95 wrong caller certificate, 37 UNVERIFIED_PR, 96 empty return domain, 36 invalid return PC in DATA).
+   - Confirmed 420 sound resolved certificates.
+   - Emitted `workstreams/T2-ASM-10-1/rts_v3_soundness_audit.json`.
+2. **Re-Audit of T2-ASM-10 Promotions (`tools/asm/rts_promotion_auditor.py`)**:
+   - Individually re-audited each of the 96 sites claimed as promoted in T2-ASM-10.
+   - Proved that 100% of the 96 promotions were invalid under fail-closed governance: 37 revoked due to unverified PR (`PROMOTION_REVOKED_PR_UNPROVEN`), 59 revoked due to zero-element return domains (`PROMOTION_REVOKED_EMPTY_RETURN_DOMAIN`). 0 valid promotions.
+   - Emitted `workstreams/T2-ASM-10-1/t2_asm_10_rts_promotion_audit.json`.
+3. **Per-Function Caller Binding Repair & RTS V3.1 (`tools/asm/rts_v3_certifier.py`)**:
+   - Refactored certifier around pure `certify_site(cert, correlation, function_certificate, pr_refinement, code_intervals)` function.
+   - Eliminated all ambient loop variables and bound caller certificates explicitly by `(module, generation, entry_pc)`.
+   - Re-audited all 456 pre-existing resolved V2 certificates: 420 confirmed sound; 36 demoted fail-closed due to return PCs residing in `DATA_LITERAL_POOL` intervals (`RETURN_PC_NOT_CODE`).
+   - Derived final sound RTS resolution: **420 / 638 resolved (65.83%)**, **218 honest unresolved (34.17%)**.
+   - Blocker breakdown: 81 `UNRESOLVED_EXTERNAL_ENTRY`, 81 `UNRESOLVED_PR_PATH`, 56 `UNRESOLVED_CALLER_DOMAIN` (20 original + 36 demoted).
+   - Emitted `workstreams/T2-ASM-10-1/rts_gap_correlation.json` and `workstreams/T2-ASM-10-1/rts_completeness_v3_1.json`.
+4. **Edge & Ownership Impact Audit**:
+   - Revoked 43 return target edges across 28 unique addresses in DATA literal pools.
+   - Verified that 0 CODE bytes depend on revoked return edges.
+   - Verified 0 ownership demotions: Partition V3 remains 100% stable (156,694 code, 68,980 data, 59,324 padding, 1,172,154 unknown).
+5. **Control-Flow Scorecard Reconciliation (`workstreams/ASM_RECOVERY_SCORECARD.json`)**:
+   - Indirect calls/jumps remain 1,588 / 1,588 resolved (100.0%).
+   - Overall canonical indirect resolution: **2,008 / 2,226 (90.21%)**, 218 unresolved (9.79%).
+   - `ASM_90_GATE` passes at 90.21% (>= 90.00%).
+   - `FULL_ASM_GAME_GATE` honestly maintained at `NOT_YET_REPROVEN`.
+6. **Negative Controls Suite P10 (`tests/asm/negative_controls_p10.py`)**:
+   - Implemented 8 new adversarial negative controls (NC-BG through NC-BN) testing stale bindings, unverified PR, empty return domains, wrong function certificates, unverified stack slots, metric forcing, data return PCs, and cardinality mismatches.
+   - Integrated into `tests/asm/test_recovery_gates.py`, bringing repository negative controls to **74 / 74 (100% PASS)**.
+7. **Comprehensive Verification**:
+   - All 53 pytest tests pass; all 26 WSL Linux CTests pass; whole-module binary diff remains 0; 4/4 canonical module hashes exact; full-disc SHA exact; 6 Mednafen scenarios 0 divergence.
+   - All human-maintained tools and tests strictly <= 500 lines.
+   - Emitted comprehensive report `docs/reports/RTS_V3_SOUNDNESS_AUDIT_T2_ASM_10_1.md`.
+
+### Status After Pass
+
+- `T2-ASM-10.1`: **AUDITED COMPLETE / PASS**
+- Canonical indirect denominator: **2,226** (1,588 call/jump + 638 RTS)
+- Total resolved indirect sites: **2,008 / 2,226 (90.21%)**
+- Total unresolved indirect sites: **218 / 2,226 (9.79%)**
+- Indirect call/jump resolution: **1,588 / 1,588 (100.00%)**
+- RTS return flow resolution: **420 / 638 (65.83%)**, 218 unresolved (34.17%)
+- Negative controls: **74/74 PASS** (8 base + 8 P3 + 8 P4 + 8 P5 + 8 P6 + 10 P7 + 8 P8 + 8 P9 + 8 P10 NC-BG..BN)
+- Recovery gates: `ASM_90_GATE` = PASS (90.21%), `FULL_ASM_GAME_GATE` = NOT_YET_REPROVEN (honest), `STANDALONE_NATIVE_GATE` = FROZEN
+- Historical audit record: preserved in `docs/reports/RTS_V3_SOUNDNESS_AUDIT_T2_ASM_10_1.md`.
+
+
 ## 2026-09-12 — T2-ASM-10: Whole-Module Source Reassembly, SH-2 Gap Decarving, Residual RTS Discharge, and FULL_ASM_GAME_GATE Finalization
 
 ### Task

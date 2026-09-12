@@ -5,8 +5,8 @@
   "baseline_commit": "4a03b83bd3d8dfee02cd59c051b5bdd1ab832b3d",
   "active_milestone": "ASM-First Recovery Track (docs/DEVELOPMENT_PLAN.md, ADR D-015, T2-ASM-CARVER-02 / T2-ASM-08)",
   "overall_status": "IN_PROGRESS",
-  "active_task": "T2-ASM-10",
-  "audit_note": "T2-ASM-10: Whole-Module Source Reassembly, SH-2 Gap Decarving, Residual RTS Discharge, and FULL_ASM_GAME_GATE Finalization. Executed deterministic whole-module reassembly for all 4 modules (0TH2.BIN, TH2.LOW, SET07.BIN, BGM.BIN) with 0 differing bytes and bit-for-bit determinism. Decarved SH-2 UNKNOWN regions, promoting verified literal pool intervals to DATA. Performed symbolic PR path refinement across 81 sites (43 resolved, 38 shared epilogues proven). Audited true UNKNOWN caller threats across 309 target functions, proving 279 clean and eliminating 103 apparent threats in CODE/DATA. Certified 552 / 638 RTS sites resolved (86.52%), reducing unresolved RTS from 182 down to 86 (-96 sites). Canonical indirect resolution reached 2,140 / 2,226 (96.14%). Full rebuilt disc SHA-256 (fe11d2fbda58d63300ef2265c555ce05bddf14d69fb7b73fc409e25c0ef6c0a8) byte-exact; 6/6 Mednafen gameplay scenarios verified with zero divergence. 66 negative controls pass 100%. FULL_ASM_GAME_GATE honestly maintained at NOT_YET_REPROVEN pending resolution of residual 86 RTS sites (22 external threats in UNKNOWN, 44 shared epilogues, 20 open caller domains) and remaining 498,392 SH-2 UNKNOWN bytes.",
+  "active_task": "T2-ASM-10.1",
+  "audit_note": "T2-ASM-10.1: RTS V3 Certificate Soundness Audit, Per-Function Caller Binding Repair, and Fail-Closed Reconciliation. Re-established sound RTS V3.1 certification after discovering stale fn_pc caller binding and invalid resolved RTS certificates in T2-ASM-10. Independently audited all 638 RTS certificates under strict fail-closed contract. Fixed rts_v3_certifier.py to eliminate ambient loop variables and bind callers explicitly by (module, generation, entry_pc). Re-audited all 96 T2-ASM-10 promotions: 0 valid, 96 revoked (59 empty return domains, 37 unverified PR). Re-audited pre-existing V2 certificates: demoted 36 certificates with return PCs in data literal pools fail-closed (43 return edges revoked, 0 code bytes dependent, 0 ownership demotions). Derived final sound RTS resolution: 420 / 638 (65.83%), 218 honest unresolved (81 external threats in UNKNOWN, 81 PR path / shared epilogues, 56 caller domains). Indirect calls/jumps remain 1,588 / 1,588 (100.0%). Overall canonical indirect resolution is 2,008 / 2,226 (90.21%), 218 unresolved (9.79%). ASM_90_GATE passes (90.21% >= 90.00%). FULL_ASM_GAME_GATE honestly maintained at NOT_YET_REPROVEN pending resolution of residual 218 RTS sites and 498,392 SH-2 UNKNOWN bytes. 74 negative controls pass 100%.",
   "tracks": {
     "ASM_DISCOVERY": "COMPLETE",
     "ASM_CODE_RECOVERY": "IN_PROGRESS",
@@ -27,7 +27,7 @@
     "FULL_ASM_GAME_GATE": {
       "status": "NOT_YET_REPROVEN",
       "requirement": "Zero unresolved control-flow unknowns, byte-exact module reassembly, canonical disc SHA-256 parity, and clean Mednafen zero-divergence gameplay",
-      "details": "All 4 modules byte-exact (0 differing bytes), full disc bit-identical, Mednafen 6 scenarios zero divergence. Canonical indirect sites 2,226. Resolved: 2140 / 2,226 (1,588 / 1,588 call/jump [100.0%], 552 / 638 RTS [86.52%]). Honest unresolved: 86 RTS (22 external threats in UNKNOWN, 44 shared epilogues, 20 open caller domains). 498,392 SH-2 UNKNOWN bytes remain. Closed-world theorem over confirmed code is PROVEN; closed-world theorem over all SH-2 bytes is held open fail-closed."
+      "details": "All 4 modules byte-exact (0 differing bytes), full disc bit-identical, Mednafen 6 scenarios zero divergence. Canonical indirect sites 2,226. Resolved: 2,008 / 2,226 (1,588 / 1,588 call/jump [100.0%], 420 / 638 RTS [65.83%]). Honest unresolved: 218 RTS (81 external threats in UNKNOWN, 81 PR path / shared epilogues, 56 open caller domains). 498,392 SH-2 UNKNOWN bytes remain. Closed-world theorem over confirmed code is PROVEN; closed-world theorem over all SH-2 bytes is held open fail-closed."
     },
     "STANDALONE_NATIVE_GATE": {
       "status": "FROZEN_BY_ASM_FIRST_ARCHITECTURE",
@@ -57,8 +57,8 @@
     "indirect_sites_historical_total": 2233,
     "false_positive_sites_removed": 7,
     "indirect_sites_total": 2226,
-    "indirect_sites_resolved": 2140,
-    "indirect_sites_unresolved": 86,
+    "indirect_sites_resolved": 2008,
+    "indirect_sites_unresolved": 218,
     "silent_evidence_demotions": 0,
     "historical_baseline_confirmed_code_bytes": 95422,
     "historical_baseline_data_bytes": 57722,

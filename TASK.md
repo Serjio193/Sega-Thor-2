@@ -1,58 +1,62 @@
 # Current task
 
-TASK: T2-ASM-10 — Whole-Module Source Reassembly, SH-2 Gap Decarving, Residual RTS Discharge, and FULL_ASM_GAME_GATE Finalization
-WHY: Produce reproducible whole-module assembly-source roundtrip for canonical modules without committing commercial binary bytes; decarve and classify SH-2 UNKNOWN regions by affirmative evidence; perform PR-path and shared-exit refinement on the 81 UNRESOLVED_PR_PATH sites; re-evaluate residual RTS caller domains; evaluate closed-world theorems V2; implement negative controls P9 (NC-AY..NC-BF, total 66); and honestly evaluate FULL_ASM_GAME_GATE.
+TASK: T2-ASM-10.1 — RTS V3 Certificate Soundness Audit, Per-Function Caller Binding Repair, and Fail-Closed Reconciliation
+WHY: Re-establish sound RTS V3 certification after discovering stale fn_pc caller-certificate binding and invalid resolved RTS certificates (e.g. UNVERIFIED_PR, empty return domains) in T2-ASM-10; audit all 638 RTS certificates under a strict fail-closed contract; repair rts_v3_certifier.py to eliminate ambient loop variables and bind callers explicitly by (module, generation, entry_pc); re-audit all 96 T2-ASM-10 promotions and pre-existing V2 certificates; implement 8 new negative controls P10 (NC-BG..NC-BN, total 74); and recompute control-flow scorecard without metric forcing.
 CURRENT MILESTONE: ASM-First Recovery Track (docs/DEVELOPMENT_PLAN.md, ADR D-015)
-TASK STATUS: COMPLETE
+TASK STATUS: IN_PROGRESS
 MILESTONE UNDERSTANDING CONFIDENCE: 100%
 CURRENT SLICE UNDERSTANDING CONFIDENCE: 100%
-SLICE CONFIDENCE EVIDENCE: Whole-module assembly source reassembled with 0 differing bytes across all 4 canonical game modules (0TH2.BIN, TH2.LOW, SET07.BIN, BGM.BIN); multi-build determinism 100% bit-for-bit identical; full disc SHA-256 (fe11d2fbda58d63300ef2265c555ce05bddf14d69fb7b73fc409e25c0ef6c0a8) byte-exact; 6 dynamically discovered Mednafen gameplay scenarios passed with 0 divergence and 0 cycle drift; 13,060 bytes literal pools promoted to DATA in Partition V3; 96 residual RTS sites discharged (552/638 resolved, 86 residual); 66/66 negative controls pass (100%); 53/53 pytest pass; 26/26 Linux CTests pass; FULL_ASM_GAME_GATE honestly evaluated as NOT_YET_REPROVEN due to 86 residual RTS sites and 498,392 SH-2 UNKNOWN bytes.
+SLICE CONFIDENCE EVIDENCE: Baseline commit 24f8fe68f3efc48e03930f86f9535901a2b296d6 verified at origin/main; exact root cause of fn_pc loop leakage in tools/asm/rts_v3_certifier.py identified; concrete invalid certificate 0x0600467E (UNVERIFIED_PR, return_domain_count=0) verified; strict mathematical contract defined for resolved RTS certificates.
 ACCEPTANCE CRITERIA:
-- [x] Phase 0: Baseline / Push / Integrity Gate (10/10 verified);
-- [x] Phase 1 & 2: Source Reassembly Architecture & Commercial Byte Hygiene (workstreams/T2-ASM-10/reassembly_model.json);
-- [x] Phase 3: Canonical Byte Ownership Map V3 (workstreams/T2-ASM-10/module_byte_ownership_v3.json);
-- [x] Phase 4, 5, 6, 7, 8: Source Emitter, Toolchain & Integrity Audits (tools/asm/source_reassembly_emitter.py, assembler_environment.json, instruction_roundtrip.json);
-- [x] Phase 9, 10, 11, 12, 13, 14: UNKNOWN Region Census & Gap Decarving (tools/asm/sh2_gap_decarver.py, sh2_unknown_inventory.json, promotion certificates);
-- [x] Phase 15: Shared Exit / PR-Path Refinement (workstreams/T2-ASM-10/pr_path_refinements.json);
-- [x] Phase 16: Residual RTS Threat Correlation (workstreams/T2-ASM-10/rts_gap_correlation.json);
-- [x] Phase 17: RTS Certificates V3 (workstreams/T2-ASM-10/rts_completeness_v3.json);
-- [x] Phase 18, 19, 20, 21, 22: Module Build, Binary Diff, Determinism, Full Disc & Mednafen Suite (0 diff bytes, SHA match, 0 divergence);
-- [x] Phase 23 & 24: Gap Decarving Scorecard & Closed-World Theorem V2 (closed_world_control_flow_v2.json);
-- [x] Phase 25 & 26: Negative Controls P9 (NC-AY..NC-BF, total 66) & Unit Tests (test_whole_module_reassembly.py, test_gap_decarving.py);
-- [x] Phase 27 & 28: Scorecard, Documentation & FULL_ASM_GAME_GATE Finalization;
-- [x] All human-maintained source/tool/test files strictly <= 500 lines; git diff --check clean; no commercial assets committed.
+- [x] Phase 0: Baseline reproduction (commit, 4/4 hashes, disc SHA, Mednafen, 66 negative controls, 26 CTests, partition V3);
+- [x] Phase 1: Certificate Soundness Auditor (tools/asm/rts_certificate_auditor.py, workstreams/T2-ASM-10-1/rts_v3_soundness_audit.json);
+- [x] Phase 2: Per-Function Caller Binding Repair (rts_v3_certifier.py explicit (module, generation, entry_pc) binding);
+- [x] Phase 3: Remove metric-driven certification (delete any logic forcing resolved=552 / unresolved=86);
+- [x] Phase 4: Return Domain Reconstruction (eliminate zero-element RESOLVED_FINITE_SET);
+- [x] Phase 5: PR Provenance Revalidation (re-run path-sensitive PR proof for all unverified PR/slot sites);
+- [x] Phase 6: Re-audit the 96 T2-ASM-10 promotions (workstreams/T2-ASM-10-1/t2_asm_10_rts_promotion_audit.json);
+- [x] Phase 7: Re-audit pre-existing resolved V2 sites across all 638 RTS sites;
+- [x] Phase 8: Test Suite Repair (tests/asm/test_gap_decarving.py updated with sound invariants);
+- [x] Phase 9: New Negative Controls P10 (NC-BG..NC-BN, total 74 negative controls);
+- [x] Phase 10: Rebuild RTS V3.1 (workstreams/T2-ASM-10-1/rts_completeness_v3_1.json);
+- [x] Phase 11: Recompute Control-Flow Scorecard (audit edge/ownership impact);
+- [x] Phase 12: Gate Re-evaluation (CLOSED_WORLD_OVER_CONFIRMED_CODE, FULL_ASM_GAME_GATE);
+- [x] Phase 13: Documentation (docs/reports/RTS_V3_SOUNDNESS_AUDIT_T2_ASM_10_1.md, WORKLOG, REVERSE_ENGINEERING, PROJECT_STATE, FILE_MAP);
+- [x] All human-maintained source/tool/test files strictly <= 500 lines; git diff --check clean; zero commercial assets committed.
 
 EVIDENCE AVAILABLE:
 - Canonical RUS binary bytes in .private/rus/
-- 16 machine-readable T2-ASM-10 artifacts in workstreams/T2-ASM-10/
-- Scorecard synchronized with partition V3 in workstreams/ASM_RECOVERY_SCORECARD.json
-- Comprehensive technical report in docs/reports/WHOLE_MODULE_REASSEMBLY_T2_ASM_10.md
+- Baseline commit 24f8fe68f3efc48e03930f86f9535901a2b296d6
+- Soundness audit in workstreams/T2-ASM-10-1/rts_v3_soundness_audit.json
+- Promotion audit in workstreams/T2-ASM-10-1/t2_asm_10_rts_promotion_audit.json
+- Reconciled RTS V3.1 in workstreams/T2-ASM-10-1/rts_completeness_v3_1.json
+- Reconciled Scorecard in workstreams/ASM_RECOVERY_SCORECARD.json
+- Audit report in docs/reports/RTS_V3_SOUNDNESS_AUDIT_T2_ASM_10_1.md
 
 KNOWN UNKNOWNS:
-- Exact semantic role of the 498,392 remaining SH-2 UNKNOWN bytes (unreferenced subroutines, unused data, or asset streams);
-- Exact entry mechanisms for the 22 residual external-threat RTS sites;
-- CFG structure of the 44 residual shared-epilogue RTS sites.
+- Resolution of the 218 honest residual RTS sites (81 external entry in UNKNOWN, 81 PR path / shared epilogues, 56 caller domain);
+- Resolution of the 498,392 remaining SH-2 UNKNOWN bytes.
 
 ALLOWED SCOPE:
-- Whole-module source reassembly, SH-2 gap decarving, PR path refinement, RTS caller domain re-evaluation, closed-world theorems V2, tests, documentation.
+- Corrective audit only: RTS certificate soundness audit, per-function caller binding repair, PR proof revalidation, negative controls P10, scorecard reconciliation, reports.
 
 OUT OF SCOPE:
-- Broad ASM→C++ gameplay translation, M68K/BGM semantic reverse engineering, modifying canonical manifests.
+- T2-ASM-11, additional broad gap decarving, sound recovery (T2-SND-01), ASM→C++ translation.
 
 ## Last verified result
 
-T2_ASM_10_AUDITED_PASS: Achieved reproducible whole-module assembly source reassembly across all 4 binaries (0TH2.BIN, TH2.LOW, SET07.BIN, BGM.BIN) with 0 differing bytes and bit-for-bit multi-build determinism. Full reconstructed disc matches canonical SHA-256 (fe11d2fb...) bit-exact. Passed all 6 dynamically discovered Mednafen gameplay scenarios with zero cycle drift and zero register divergence. Promoted 13,060 bytes literal pools to DATA_LITERAL_POOL in Partition V3, reducing SH-2 UNKNOWN to 498,392 bytes. Resolved 43 PR path sites via symbolic tracing and discharged 59 external threats via Partition V3 audit, certifying 552 / 638 RTS sites (86.52%) and reducing residual RTS to 86. Overall indirect resolution reached 2,140 / 2,226 (96.14%). Closed-world theorem over confirmed code PROVEN. All 66 negative controls PASS (including 8 new P9 controls NC-AY..NC-BF). All 53 pytest unit tests PASS. All 26 Linux CTests PASS. FULL_ASM_GAME_GATE honestly maintained as NOT_YET_REPROVEN pending resolution of the 86 residual RTS sites and 498,392 SH-2 UNKNOWN bytes.
+T2_ASM_10_1_AUDITED_PASS: Certificate soundness restored. All 638 RTS certificates independently audited (132 violations detected and reconciled fail-closed); 96 T2-ASM-10 promotions revoked (0 valid); 36 pre-existing V2 certificates demoted due to return PCs in DATA (43 edges revoked, 0 code bytes dependent, 0 ownership demotions). Derived sound RTS resolution: 420 / 638 (65.83%), 218 honest unresolved (34.17%). Calls/jumps: 1,588 / 1,588 (100.0%). Overall canonical indirect resolution: 2,008 / 2,226 (90.21%). 74/74 negative controls pass (8 new P10 NC-BG..NC-BN); 53/53 pytest pass; 26/26 Linux CTests pass; 4/4 modules byte-exact (0 diff bytes); full disc SHA exact; 6 Mednafen scenarios 0 divergence.
 
 ## Session checkpoint
 
 CURRENT MILESTONE: ASM-First Recovery Track (docs/DEVELOPMENT_PLAN.md, ADR D-015)
-CURRENT TASK: T2-ASM-10 Whole-Module Source Reassembly, SH-2 Gap Decarving, Residual RTS Discharge, and FULL_ASM_GAME_GATE Finalization
+CURRENT TASK: T2-ASM-10.1 RTS V3 Certificate Soundness Audit, Per-Function Caller Binding Repair, and Fail-Closed Reconciliation
 TASK STATUS: COMPLETE
 MILESTONE UNDERSTANDING CONFIDENCE: 100%
 CURRENT SLICE UNDERSTANDING CONFIDENCE: 100%
-LAST VERIFIED RESULT: T2-ASM-10 complete with all 28 phases verified, 66/66 negative controls pass, 53/53 pytest pass, 26/26 Linux CTests pass, and full documentation recorded.
-FILES CHANGED: tools/asm/source_reassembly_emitter.py, tools/asm/sh2_gap_decarver.py, tools/asm/pr_path_refiner.py, tools/asm/rts_v3_certifier.py, tests/asm/negative_controls_p9.py, tests/asm/test_whole_module_reassembly.py, tests/asm/test_gap_decarving.py, tests/asm/test_recovery_gates.py, workstreams/ASM_RECOVERY_SCORECARD.json, workstreams/T2-ASM-10/*, docs/reports/WHOLE_MODULE_REASSEMBLY_T2_ASM_10.md, docs/WORKLOG.md, docs/REVERSE_ENGINEERING.md, docs/PROJECT_STATE.md, docs/FILE_MAP.md, TASK.md.
-TESTS RUN: pytest tests/asm (53/53 PASS), python tests/asm/test_recovery_gates.py (66/66 PASS), wsl ctest --test-dir build-linux (26/26 PASS), Mednafen gameplay scenarios (6/6 PASS).
-NEW KNOWLEDGE: 103 apparent threats in T2-ASM-09 were in confirmed code/data; under Rule #5 data cannot be caller edge sources; 19 RTS sites were pure leaf routines; 24 sites were severed by boundary heuristics; 38 sites are proven shared epilogues.
-OPEN QUESTIONS: None for T2-ASM-10.
-EXACT NEXT ACTION: Review T2-ASM-10 deliverables, commit, and prepare the next milestone plan according to project roadmap.
+LAST VERIFIED RESULT: T2_ASM_10_1_AUDITED_PASS
+FILES CHANGED: tools/asm/rts_certificate_auditor.py, tools/asm/rts_promotion_auditor.py, tools/asm/rts_v3_certifier.py, tests/asm/negative_controls_p10.py, tests/asm/test_recovery_gates.py, tests/asm/test_gap_decarving.py, workstreams/ASM_RECOVERY_SCORECARD.json, docs/reports/RTS_V3_SOUNDNESS_AUDIT_T2_ASM_10_1.md, docs/WORKLOG.md, docs/PROJECT_STATE.md, docs/REVERSE_ENGINEERING.md, docs/FILE_MAP.md, TASK.md
+TESTS RUN: 74/74 negative controls, 53/53 pytest, 26/26 Linux CTests, git diff --check, line counts <= 500 lines.
+NEW KNOWLEDGE: 132 invalid RTS resolved certificates audited and eliminated fail-closed; exact mathematical derivation of 420 sound resolved RTS and 218 honest unresolved RTS established.
+OPEN QUESTIONS: None.
+EXACT NEXT ACTION: Propose T2-ASM-11 as the next technical milestone. STOP.

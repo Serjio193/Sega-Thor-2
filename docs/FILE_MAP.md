@@ -37,6 +37,7 @@ docs/
     RETURN_PROVENANCE_T2_ASM_08.md        comprehensive technical report for PR return provenance and byte carving
     RTS_CALLER_DOMAIN_T2_ASM_09.md        comprehensive technical report for residual RTS caller-domain closure and control-flow proof
     WHOLE_MODULE_REASSEMBLY_T2_ASM_10.md  comprehensive technical report for whole-module reassembly, gap decarving, and gate finalization
+    RTS_V3_SOUNDNESS_AUDIT_T2_ASM_10_1.md comprehensive technical report for RTS V3 soundness audit and reconciliation
 
 
 config/
@@ -173,7 +174,9 @@ tools/
     source_reassembly_emitter.py  emits full-source reassembly listings with zero commercial bytes
     sh2_gap_decarver.py           SH-2 gap decarver, literal pool certifier, and partition v3 emitter
     pr_path_refiner.py            symbolic PR path refiner, leaf certifier, and shared epilogue analyzer
-    rts_v3_certifier.py           master RTS v3 certifier with UNKNOWN threat elimination under partition v3
+    rts_v3_certifier.py           pure certify_site master RTS v3.1 certifier with explicit key binding
+    rts_certificate_auditor.py    independent auditor of RTS completeness against mandatory contract
+    rts_promotion_auditor.py      re-audit tool for the 96 T2-ASM-10 RTS promotions
   carver/
     interval_db.py                canonical central interval database & execution conflict engine
     provenance_dag.py             provenance DAG & graph expansion engine
@@ -254,12 +257,13 @@ tests/
     test_bgm_asm.py               CTest integration test for full BGM.BIN M68K sound driver round-trip
     test_manifest_schema.py       CTest integration test for module manifest schema & partition invariants
     test_full_game_disc.py        CTest integration test for FULL_ASM_GAME_GATE rebuilt disc verification
-    test_recovery_gates.py        negative controls (66 total) & validation for recovery gates
+    test_recovery_gates.py        negative controls (74 total) & validation for recovery gates
     negative_controls_p5.py       8 adversarial negative controls (NC-Q..NC-X) for indirect flow integrity
     negative_controls_p6.py       8 adversarial negative controls (NC-Y..NC-AF) for struct callback integrity
     negative_controls_p7.py       10 adversarial negative controls (NC-AG..NC-AP) for PR return provenance & tables
     negative_controls_p8.py       8 adversarial negative controls (NC-AQ..NC-AX) for RTS caller-domain closure
     negative_controls_p9.py       8 adversarial negative controls (NC-AY..NC-BF) for whole-module reassembly & gap decarving
+    negative_controls_p10.py      8 adversarial negative controls (NC-BG..NC-BN) for RTS certificate soundness
     test_indirect_resolution.py   unit tests for constant propagation, jump tables, call graph, and accounting
     test_struct_callback_resolution.py unit tests for struct callbacks, object provenance, and accounting
     test_return_provenance.py     unit tests for PR return provenance, canonical denominator, and byte carving
@@ -458,6 +462,11 @@ workstreams/
     rts_completeness_v3.json      master RTS v3 certificates (552 resolved, 86 residual unresolved)
     closed_world_control_flow_v2.json closed-world theorems V2 (code: PROVEN, all SH-2: NOT_PROVEN_FAIL_CLOSED)
     precommit_integrity_audit.json pre-commit hash, size, and binary diff verification audit
+  T2-ASM-10-1/
+    rts_v3_soundness_audit.json   independent audit of all 638 certificates against mandatory contract (132 violations)
+    t2_asm_10_rts_promotion_audit.json individual audit of the 96 T2-ASM-10 promotions (0 valid, 96 revoked)
+    rts_completeness_v3_1.json    reconciled RTS v3.1 certificates (420 resolved, 218 honest unresolved)
+    rts_gap_correlation.json      gap threat correlation with explicit per-function caller binding
 
 
 asm/                              assembly reconstruction layout (ADR D-015)
