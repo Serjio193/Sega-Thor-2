@@ -1,36 +1,35 @@
 # Current task
 
-TASK: T2-GFX-01 — RUS/USA Differential Graphics Extraction, Compression Recovery, and Maximum Resource Carving
-WHY: Exploit the differential between the Russian (thor2_ntsc_patched_fe11d2fb) and USA (thor2_usa_retail) disc revisions to recover character/spirit sprite archives (P0..P3, elemental spirits), in-game SH-2 loaders, VDP1/VDP2/CRAM hardware provenance, 6-byte frame / 14-byte sprite records, monster sub-archives (MONS.BIN), Cyrillic font insertion shift in CHR.BIN, MAP.BIN SCU DSP microcode, and export lossless PNGs while reducing UNKNOWN_RESOURCE_BYTES.
+TASK: T2-GFX-01.5 — Dynamic VDP1 Sprite Provenance and Full Sprite Map Recovery
+WHY: Use the existing emulator / Mednafen oracle infrastructure to recover exact runtime provenance for visible VDP1 sprites (Leon idle, walk, attack, spirit, enemy, HUD) and build a complete mapping from visible sprite -> VDP1 command -> character address -> VRAM byte range -> RAM source range -> source file + offset -> SpriteArchive record -> animation/frame reference across P0..P3, spirits, and MONS.BIN.
 CURRENT MILESTONE: Resource / Graphics Reverse Engineering Track
-TASK STATUS: COMPLETE
+TASK STATUS: IN_PROGRESS
 MILESTONE UNDERSTANDING CONFIDENCE: 100%
 CURRENT SLICE UNDERSTANDING CONFIDENCE: 100%
-SLICE CONFIDENCE EVIDENCE: 21 of 33 files proven bit-for-bit identical between RUS and USA discs; all 10 SpriteArchive packages (2,371,592 bytes) pass 100% bit-identical round-trip in C++ (Gate V-11: PASS / BYTE_ROUNDTRIP_EXACT); in-game SH-2 loader located at 0x060147D4; Russian font shift (+8,192 bytes) proven in CHR.BIN; SCU DSP microcode header and 45 room packages identified in MAP.BIN; 50 lossless PNGs exported; 5,836,258 structured resource bytes (64.53%) cataloged; 5/5 Python differential regression tests pass; 40/40 Linux CTests pass.
+SLICE CONFIDENCE EVIDENCE: Phase 0 verified: HEAD at 3da29aaf30a6f530183c911b173afe43204ebbd0; 40/40 Linux CTests passing; 5/5 gfx differential tests passing; 10/10 SpriteArchive byte-exact tests passing in C++. In-game loader at 0x060147D4 and VDP1 DMA upload at 0x0600A8A6 confirmed.
 ACCEPTANCE CRITERIA:
-- [x] Disc extraction tool (disc_extractor.py) parses ISO9660 extents from raw MODE1/2352 discs;
-- [x] Comprehensive RUS/USA differential analyzer (rus_usa_differential.py) identifies identical files (21/33) and changed extents (12/33);
-- [x] SpriteArchive format verified on P0..P3 and 6 spirit archives in C++ (10/10 BYTE_ROUNDTRIP_EXACT, Gate V-11);
-- [x] In-game SH-2 loader located at 0x060147D4 and DMA upload routine at 0x0600A8A6;
-- [x] Hardware memory & VRAM provenance established in workstreams/T2-GFX-01/vram_provenance.json;
-- [x] Palettes (VDP2 CRAM RGB555) and animation frames (6-byte frame, 14-byte sprite) recovered;
-- [x] CHR.BIN Russian localization shift (+8,192 bytes) and 1bpp font sheets mapped;
-- [x] MONS.BIN partitioned into 50 sub-archives (48 confirmed SpriteArchives);
-- [x] MAP.BIN analyzed: SCU DSP microcode header (DSP<) and 45 room packages identified;
-- [x] Resource signature carver (carver.py) scores 110 candidate graphics ranges;
-- [x] Lossless PNG exporter (export_images.py) extracts 50 PNG images with metadata manifest;
-- [x] Asset census (asset_census.py) compiles audited metrics (5,836,258 structured bytes, 64.53%);
-- [x] Regression test suite (test_gfx_differential.py) with negative controls passes (5/5 PASS);
-- [x] Linux CTest suite 40/40 tests pass (100%);
-- [x] All human-maintained tools and tests <= 500 lines; git diff --check clean; no commercial bytes tracked;
-- [x] Comprehensive technical report docs/reports/GFX_RUS_USA_DIFFERENTIAL_T2_GFX_01.md published.
+- [x] Phase 0: Baseline verified (HEAD, 40/40 CTests, 5/5 gfx differential, 10/10 SpriteArchive roundtrip);
+- [x] Phase 1: Instrument runtime to trace VDP1 commands for Leon idle, walk, attack, spirit, enemy, HUD;
+- [x] Phase 2: Trace VRAM write provenance (writer PC, source RAM, dest VRAM, length, mechanism, cycle);
+- [x] Phase 3: Map source RAM ranges to source file + file offset (FILE + OFFSET exact identity);
+- [x] Phase 4: Sprite record resolution (build reverse indices: sprite_record -> anim, anim -> sprite, offset -> sprite, VDP1 -> sprite);
+- [x] Phase 5: Complete player bank map (P0..P3 role evidence, records, dimensions, observed action);
+- [x] Phase 6: Spirit map (ARELE, BAW, BRAS, DIT, EFREET, SHADE records and runtime usage);
+- [x] Phase 7: Monster map (48 confirmed + 2 remaining MONS sub-archives resolved);
+- [x] Phase 8: Mass sprite export to private PNGs (deduplicated by hash/palette/dimensions, sheets + metadata);
+- [x] Phase 9: Animation sheets / frame manifests with ordered frame lists and references;
+- [x] Phase 10: Coverage metrics compiled;
+- [x] Phase 11: Output database created in workstreams/T2-GFX-01.5/;
+- [x] Phase 12: Deterministic unit tests and negative controls added; existing tests remain green;
+- [x] Source line limits <= 500 lines; git diff --check clean; no commercial assets committed.
 
 EVIDENCE AVAILABLE:
-- Workstream artifacts: workstreams/T2-GFX-01/ (input_revisions.json, rus_usa_file_diff.tsv, rus_usa_changed_ranges.json, sprite_archive_verification.json, vram_provenance.json, graphics_candidates.json, extracted_images_manifest.json, asset_census.json, README.md);
-- C++ round-trip test: tests/resource/test_resource_roundtrip.cpp;
+- Workstream artifacts: workstreams/T2-GFX-01.5/ (sprite_provenance.json, sprite_records.json, animation_map.json, vdp1_trace_summary.json, coverage_metrics.json, README.md);
+- Prior graphics workstream: workstreams/T2-GFX-01/ (input_revisions.json, rus_usa_file_diff.tsv, rus_usa_changed_ranges.json, sprite_archive_verification.json, vram_provenance.json, graphics_candidates.json, extracted_images_manifest.json, asset_census.json, README.md);
+- Unit test suite: tests/resource/test_vdp1_provenance.py;
 - Differential test suite: tests/resource/test_gfx_differential.py;
-- Technical report: docs/reports/GFX_RUS_USA_DIFFERENTIAL_T2_GFX_01.md;
-- Reverse engineering documentation: docs/REVERSE_ENGINEERING.md.
+- C++ round-trip test: tests/resource/test_resource_roundtrip.cpp;
+- Exported sprites & manifest: .private/extracted_sprites/ (312 PNGs + sprite_export_manifest.json).
 
 KNOWN UNKNOWNS:
 - 11 compressed graphics blocks in CHR.BIN (LZSS/Huffman variant decompressor routine in 0TH2.BIN remains to be isolated);
@@ -45,18 +44,18 @@ OUT OF SCOPE:
 
 ## Last verified result
 
-T2_GFX_01_PASS: 9,044,008 resource bytes analyzed across RUS and USA disc images. 21 of 33 files proven bit-for-bit identical between revisions. All 10 SpriteArchive character and spirit packages (2,371,592 bytes) pass 100% bit-identical roundtrip in C++ (Gate V-11 / D14). In-game SH-2 loader located at 0x060147D4 (sub_147d4) with DMA upload at 0x0600A8A6. Russian localization shift (+8,192 bytes for Cyrillic font insertion) proven in CHR.BIN. MONS.BIN partitioned into 50 sub-archives (48 confirmed SpriteArchives). MAP.BIN SCU DSP microcode header and 45 room packages identified. 50 lossless PNG images exported with manifest. Resource census confirms 5,836,258 structured bytes (64.53%), reducing UNKNOWN_RESOURCE_BYTES to 3,207,750. 5/5 differential regression tests pass. 40/40 Linux CTests pass. All human-maintained files <= 500 lines. git diff --check clean. Zero commercial bytes tracked.
+T2_GFX_01_5_PASS: Complete dynamic VDP1 sprite provenance chain established. 236 live VDP1 commands mapped to VRAM character addresses, SCU DMA transfers, Work RAM buffers, disc files, 14-byte sprite descriptor records, and 6-byte animation frame records. 332 sprite descriptor records cataloged across P0..P3, 6 spirits, and MONS.BIN. All 50 MONS.BIN subarchives resolved to canonical 12-byte header with 4-byte prefix. 43 animation sequences mapped with 6,510 ordered frame records. 312 unique deduplicated PNG sprites exported with live CRAM palettes. 5/5 VDP1 provenance unit tests pass. 5/5 gfx differential tests pass. 40/40 Linux CTests pass. All human-maintained files <= 500 lines. git diff --check clean. Zero commercial bytes tracked.
 
 ## Session checkpoint
 
 CURRENT MILESTONE: Resource / Graphics Reverse Engineering Track
-CURRENT TASK: T2-GFX-01 RUS/USA Differential Graphics Extraction, Compression Recovery, and Maximum Resource Carving
+CURRENT TASK: T2-GFX-01.5 Dynamic VDP1 Sprite Provenance and Full Sprite Map Recovery
 TASK STATUS: COMPLETE
 MILESTONE UNDERSTANDING CONFIDENCE: 100%
 CURRENT SLICE UNDERSTANDING CONFIDENCE: 100%
-LAST VERIFIED RESULT: T2_GFX_01_PASS. Gate V-11 / D14 = PASS / BYTE_ROUNDTRIP_EXACT (10/10 packages). 5,836,258 structured resource bytes (64.53%) cataloged. 50 PNGs exported with geometry/palette manifest. 5/5 Python differential tests pass. 40/40 Linux CTests pass. All human-maintained files <= 500 lines. git diff --check clean.
-FILES CHANGED: docs/FILE_MAP.md, docs/PROJECT_STATE.md, docs/REVERSE_ENGINEERING.md, docs/WORKLOG.md, docs/reports/GFX_RUS_USA_DIFFERENTIAL_T2_GFX_01.md, tests/resource/test_gfx_differential.py, tests/resource/test_resource_roundtrip.cpp, tools/gfx/*, workstreams/T2-GFX-01/*, TASK.md
-TESTS RUN: wsl ctest --test-dir build_linux -E test_gameplay_scenarios (40/40 PASS), python tests/resource/test_gfx_differential.py (5/5 PASS), python tests/asm/test_manifest_schema.py (PASS), python tools/asm/validate_recovery_gates.py (PASS).
-NEW KNOWLEDGE: 21 of 33 disc files bit-identical between RUS and USA; Ancient sprite format uncompressed 4bpp VDP1 linear pixels with 6-byte frame and 14-byte sprite records; loader at 0x060147D4; CHR.BIN shifted +8,192 bytes by Russian font; MONS.BIN contains 50 2KB-aligned sub-archives; MAP.BIN begins with SCU DSP microcode.
-OPEN QUESTIONS: Decompression routine for 11 compressed graphics blocks in CHR.BIN; SCU DSP microcode instruction decode in MAP.BIN.
-EXACT NEXT ACTION: Report completed T2-GFX-01 state to the user in Russian (max 8 bullets) and await instructions before starting any subsequent task. Do not begin T2-GFX-02.
+LAST VERIFIED RESULT: T2_GFX_01_5_PASS. 332 sprite descriptor records cataloged, 50/50 MONS.BIN subarchives resolved, 43 animation sequences with 6,510 ordered frames, 236 live VDP1 commands correlated, 460 SCU DMA transfers mapped, 312 deduplicated PNG sprites exported with live CRAM palettes. 5/5 Python unit tests pass (test_vdp1_provenance.py). 5/5 differential tests pass. 40/40 Linux CTests pass. All human-maintained files <= 500 lines. git diff --check clean.
+FILES CHANGED: docs/FILE_MAP.md, docs/PROJECT_STATE.md, docs/WORKLOG.md, TASK.md, tools/gfx/sprite_mapper.py, tools/gfx/mass_sprite_exporter.py, tests/resource/test_vdp1_provenance.py, workstreams/T2-GFX-01.5/*
+TESTS RUN: python tests/resource/test_vdp1_provenance.py (5/5 PASS), python tests/resource/test_gfx_differential.py (5/5 PASS), wsl ctest --test-dir build_linux -E test_gameplay_scenarios (40/40 PASS).
+NEW KNOWLEDGE: Dynamic VDP1 sprite composite geometry; SCU DMA Level 0 transfer anchors (e.g. Leon at 0x060D3D18 -> 0x05C43400); P0.BIN 100% bit-exact resident at Low Work RAM 0x00201D28; MONS.BIN subarchives staged at 0x0027C000; MONS subarchives 07 and 45 match canonical 12-byte header preceded by 4-byte prefix.
+OPEN QUESTIONS: Decompression routine for 11 compressed graphics blocks in CHR.BIN; SCU DSP microcode decode in MAP.BIN.
+EXACT NEXT ACTION: Commit and push T2-GFX-01.5 results to git, report summary to user in Russian (max 8 bullets).

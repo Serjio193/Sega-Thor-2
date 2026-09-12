@@ -161,6 +161,8 @@ tools/
     carver.py                     Saturn graphics resource signature carver
     export_images.py              lossless PNG exporter and metadata manifest builder
     asset_census.py               audited resource breakdown and metrics compiler
+    sprite_mapper.py              VDP1 sprite provenance, descriptor, and animation mapper
+    mass_sprite_exporter.py       deduplicated 4bpp sprite exporter with palette application
 
 tests/
   test_census_saturn_cd.py        synthetic tests for census parser
@@ -195,6 +197,7 @@ tests/
   resource/
     test_resource_roundtrip.cpp   D14 resource byte-accurate round-trip proof (Gate V-11)
     test_gfx_differential.py      regression tests and negative controls for graphics tools
+    test_vdp1_provenance.py       regression tests and negative controls for VDP1 sprite provenance
   hw/
     test_vdp1.cpp                 D15 VDP1 command decoding, jump modes, clipping, and coordinate tests
     test_vdp2.cpp                 D15 VDP2 color decode, CRAM, RBG0 matrix, and pixel arbitration tests
@@ -308,6 +311,13 @@ workstreams/
     graphics_candidates.json      scored candidate graphics ranges
     extracted_images_manifest.json exported PNG dimensions, palettes, and provenance
     asset_census.json             audited resource breakdown and classification metrics
+  T2-GFX-01.5/
+    README.md                     workstream record and dynamic provenance architecture
+    sprite_provenance.json        236 runtime sprite to VDP1/DMA/disc mappings
+    sprite_records.json           catalog of 332 recovered 14-byte sprite descriptor records
+    animation_map.json            43 animation sequences with 6,510 ordered frame records
+    vdp1_trace_summary.json       multi-scene trace summary and 460 SCU DMA transfers
+    coverage_metrics.json         audited metrics for sprite, animation, and scene coverage
 
 
 asm/                              assembly reconstruction layout (ADR D-015)

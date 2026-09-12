@@ -1,0 +1,63 @@
+{
+  "task": "T2-GFX-01.5",
+  "status": "COMPLETE",
+  "total_sprite_records_recovered": 332,
+  "unique_sprites_exported": 312,
+  "total_animation_sequences": 43,
+  "total_animation_frames": 6510,
+  "vdp1_commands_correlated": 236,
+  "dma_events_logged": 460,
+  "player_archives": {
+    "P0.BIN": {
+      "records": 83,
+      "frames": 743
+    },
+    "P1.BIN": {
+      "records": 98,
+      "frames": 762
+    },
+    "P2.BIN": {
+      "records": 38,
+      "frames": 706
+    },
+    "P3.BIN": {
+      "records": 62,
+      "frames": 723
+    }
+  },
+  "spirit_archives": {
+    "ARELE.BIN": {
+      "records": 9,
+      "frames": 105
+    },
+    "BAW.BIN": {
+      "records": 5,
+      "frames": 153
+    },
+    "BRAS.BIN": {
+      "records": 5,
+      "frames": 131
+    },
+    "DIT.BIN": {
+      "records": 0,
+      "frames": 172
+    },
+    "EFREET.BIN": {
+      "records": 19,
+      "frames": 122
+    },
+    "SHADE.BIN": {
+      "records": 3,
+      "frames": 8
+    }
+  },
+  "monster_subarchives_count": 50,
+  "captured_scenes": [
+    "frame_1480_menu",
+    "frame_2200_idle",
+    "frame_2300_walk",
+    "frame_2480_attack",
+    "frame_2580_combat"
+  ],
+  "verification_status": "CONFIRMED"
+}

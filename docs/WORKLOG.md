@@ -1,5 +1,68 @@
 # Worklog
 
+## 2026-09-12 — T2-GFX-01.5: Dynamic VDP1 Sprite Provenance and Full Sprite Map Recovery
+
+### Task
+
+Execute task `T2-GFX-01.5` to establish the complete runtime and static provenance chain connecting visible Sega Saturn VDP1 sprites to hardware commands, VRAM extents, SCU DMA transfers, Work RAM buffers, disc files, 14-byte `SpriteArchive` descriptor records, and 6-byte animation frame scripts:
+`VISIBLE SPRITE → VDP1 command → character address → VRAM range → SCU DMA → RAM source range → source file + offset → SpriteArchive record → animation/frame reference`.
+
+1. **Multi-Scene VDP1 Dynamic Execution Tracing (`tools/gfx/sprite_mapper.py`)**:
+   - Traced 236 live VDP1 sprite commands across 5 captured gameplay and UI scenarios: Menu (`menu_scene`), Idle (`leon_idle`), Walk (`leon_walk`), Attack (`leon_attack`), and Combat (`combat_scene`).
+   - Decoded command geometry: character base address `(cmdsrca << 3) & 0x7FFFF`, width `((cmdsize >> 8) & 0x3F) * 8`, height `cmdsize & 0xFF`, draw modes, and color banks.
+   - Identified multi-part sprite composite layouts (e.g. Leon torso at `0x43520` [56x32 = 0x380 bytes], legs at `0x438A0` [24x32 = 0x180 bytes], arms at `0x43A20` [8x16 = 0x40 bytes], head at `0x43DE0`, cape at `0x43F60`).
+2. **VRAM Write Provenance & SCU DMA Transfer Anchors**:
+   - Logged and correlated 460 SCU DMA Level 0 transfers.
+   - Traced character sprite staging via SCU DMA: e.g. Leon character graphics transfer `L0 src=0x060D3D18 dst=0x05C43400 len=0x7680 pc=0x060809B2 cycle=752823158`.
+   - Mapped dynamic VRAM write addresses to High and Low Work RAM staging buffers.
+3. **RAM Source Range to Disc File & Container Offset Mapping**:
+   - Proved `P0.BIN` 100% bit-for-bit resident at Low Work RAM `0x00201D28` (475,636 bytes) loaded by loader at `0x060147D4`.
+   - Proved `MONS.BIN` subarchives staged at Low Work RAM `0x0027C000`..`0x00284000` (subarchives 40, 23, 24, 25, 26, 27, 28, 29, 30, 45).
+   - Linked runtime RAM buffers to exact disc files and byte offsets within the disc ISO image.
+4. **Sprite Record Resolution & Reverse Indexing**:
+   - Recovered 332 14-byte sprite descriptor records (`x_off, width, y_off, height, z, flags, 0x7FFF`) across player banks, spirits, and monsters.
+   - Built full bi-directional lookup indices: `sprite_record → animation`, `animation → sprite`, `offset → sprite`, and `VDP1 command → sprite`.
+5. **Player Bank Character Catalog (`P0.BIN`..`P3.BIN`)**:
+   - Cataloged 281 sprite descriptor records and 2,934 animation frames across all four player banks.
+   - Established roles: `P0.BIN` = core swordsman actions (idle, walk, run, basic swing, hurt, jump); `P1.BIN`..`P3.BIN` = extended weapon and elemental power actions.
+6. **Spirit Archive Catalog**:
+   - Recovered 41 sprite descriptor records and 691 animation frames across all 6 elemental spirits (`ARELE`, `BAW`, `BRAS`, `DIT`, `EFREET`, `SHADE`).
+   - Mapped spirit sprite sheets and VDP1 blend modes (including shadow blend mode at `CMDCOLR 0x0800`).
+7. **Complete Monster Sub-Archive Resolution (`MONS.BIN`)**:
+   - Audited all 50 sector-aligned subarchives in `MONS.BIN`.
+   - Resolved the 2 remaining anomalous subarchives (07 and 45): proved both match the canonical 12-byte header preceded by a 4-byte container prefix `(w0, w1)`. All 50/50 subarchives in `MONS.BIN` are fully resolved.
+8. **Mass Deduplicated Sprite Export (`tools/gfx/mass_sprite_exporter.py`)**:
+   - Extracted 312 unique deduplicated 4bpp linear VDP1 sprites with live VDP2 CRAM palettes applied.
+   - Palettes applied: Bank 3 (`0x300`) Leon, Bank 2 (`0x200`) Ordan, Bank 1 (`0x100`) UI/weapons, Bank 0x70 (`0x700`) HUD digits/gauges.
+   - Exported PNGs stored in `.private/extracted_sprites/` with full metadata manifest in `.private/extracted_sprites/sprite_export_manifest.json` (gitignored).
+9. **Workstream Database & Coverage Metrics (`workstreams/T2-GFX-01.5/`)**:
+   - Generated `sprite_provenance.json`: 236 runtime VDP1-to-file provenance mappings.
+   - Generated `sprite_records.json`: 332 14-byte sprite descriptor records.
+   - Generated `animation_map.json`: 43 animation sequences with 6,510 ordered frame records.
+   - Generated `vdp1_trace_summary.json`: Multi-scene trace summary and 460 SCU DMA transfers.
+   - Generated `coverage_metrics.json`: Audited coverage breakdown.
+   - Created `workstreams/T2-GFX-01.5/README.md` documenting architecture and relationships.
+10. **Testing & Regression Suite**:
+    - Implemented `tests/resource/test_vdp1_provenance.py` with 5 unit tests and negative controls (5/5 PASS).
+    - Validated differential suite `tests/resource/test_gfx_differential.py` (5/5 PASS).
+    - Linux WSL CTest suite: 40/40 tests pass (100%).
+    - All human-maintained tools and tests strictly <= 500 lines.
+    - `git diff --check` clean. Zero commercial assets tracked.
+
+### Status After Pass
+
+- `T2-GFX-01.5`: **COMPLETE / PASS**
+- Sprite records recovered: 332
+- Animation sequences mapped: 43 (6,510 ordered frame records)
+- Runtime VDP1 commands correlated: 236 across 5 scenes
+- SCU DMA transfers mapped: 460
+- `MONS.BIN` subarchives resolved: 50 / 50 (100%)
+- Deduplicated sprites exported: 312 PNGs with live CRAM palettes (in `.private/extracted_sprites/`)
+- Tests: 5/5 VDP1 provenance tests pass; 5/5 differential tests pass; 40/40 Linux CTests pass
+- Exact next action: Commit and push T2-GFX-01.5 results to git, report summary to user in Russian (max 8 bullets).
+
+---
+
 ## 2026-09-12 — T2-GFX-01: RUS/USA Differential Graphics Extraction, Compression Recovery, and Maximum Resource Carving
 
 ### Task
