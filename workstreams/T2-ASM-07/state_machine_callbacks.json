@@ -1,0 +1,4145 @@
+{
+  "summary": {
+    "total_field_writers": 427,
+    "fields_with_proven_writers": 10
+  },
+  "state_machine_callbacks": {
+    "ACTOR_ENTITY_disp_0": [
+      "0x002E5534",
+      "0x002E73FC",
+      "0x002E890C",
+      "0x002EA0FC",
+      "0x002EA75C",
+      "0x002EA80C",
+      "0x002EC180",
+      "0x002ECA36",
+      "0x002F764A",
+      "0x0600406C",
+      "0x06004076",
+      "0x06004678",
+      "0x06004E34",
+      "0x06009F44",
+      "0x0600A0AC",
+      "0x0600A0F8",
+      "0x0600A2EE",
+      "0x0600A384",
+      "0x0600B1E6",
+      "0x0600C592",
+      "0x0600DEDC",
+      "0x0600E380",
+      "0x06013924",
+      "0x060146A0",
+      "0x06014D08",
+      "0x060171D4",
+      "0x060180B8",
+      "0x060180C8",
+      "0x06018158",
+      "0x06018AE8",
+      "0x06018CC0",
+      "0x06019344",
+      "0x0601980E",
+      "0x0601A4C6",
+      "0x0601A7C0",
+      "0x0601A854",
+      "0x0601A920",
+      "0x0601B1E8",
+      "0x0601B348",
+      "0x0601B394",
+      "0x0601B44C",
+      "0x0601B488",
+      "0x0601B5C6",
+      "0x0601B6EC",
+      "0x0601B792",
+      "0x0601BBE8",
+      "0x0601BCE4",
+      "0x0601BD50",
+      "0x0601BE20",
+      "0x0601BE92",
+      "0x0601BF08",
+      "0x0601BF98",
+      "0x0601C53A",
+      "0x0601CA9E",
+      "0x0602B678",
+      "0x0603560C",
+      "0x06041DA0",
+      "0x0604CD50",
+      "0x06057760",
+      "0x06058094",
+      "0x0605954A",
+      "0x060611D6",
+      "0x0606122A",
+      "0x0606520C",
+      "0x0606BEE8",
+      "0x0606BFBC",
+      "0x0606DC00",
+      "0x0606DD04",
+      "0x0606EC54",
+      "0x0606ECBC",
+      "0x0606EE8C",
+      "0x0606FA08",
+      "0x060719C4",
+      "0x06071D04",
+      "0x06073124",
+      "0x06077948",
+      "0x060787A4",
+      "0x0607B844",
+      "0x0607D816",
+      "0x0607E3D2",
+      "0x0607EBD8",
+      "0x0607FA6E",
+      "0x06080C94",
+      "0x06080D30",
+      "0x06080F38",
+      "0x06080F90",
+      "0x06081360",
+      "0x060816F6",
+      "0x0608184C",
+      "0x06081898",
+      "0x060818AA",
+      "0x06081F38",
+      "0x06082414",
+      "0x06082466",
+      "0x0608246E",
+      "0x06082486",
+      "0x06082490",
+      "0x060824A0",
+      "0x060824B0",
+      "0x060824BE",
+      "0x060824C8",
+      "0x06082506",
+      "0x0608251E",
+      "0x06082536",
+      "0x0608254E",
+      "0x06082556",
+      "0x060828B8",
+      "0x06082B44",
+      "0x06082B5C",
+      "0x06082C7C",
+      "0x06082CAC",
+      "0x06082DB6",
+      "0x060854A4",
+      "0x06085910",
+      "0x06086AD4",
+      "0x06086B02",
+      "0x06086B04"
+    ],
+    "ACTOR_ENTITY_disp_16": [
+      "0x002FD698",
+      "0x0600406C",
+      "0x0600A994",
+      "0x0600B204",
+      "0x0600E1E4",
+      "0x060147D4",
+      "0x06019386",
+      "0x0601980E",
+      "0x0601B18C",
+      "0x0601B1BA",
+      "0x0601B348",
+      "0x0601B6E2",
+      "0x0606F9DE",
+      "0x060719C4",
+      "0x06072548",
+      "0x060725FA",
+      "0x060750F8",
+      "0x06077F3C",
+      "0x0607F5A4",
+      "0x06081998",
+      "0x06086B02"
+    ],
+    "ACTOR_ENTITY_disp_4": [
+      "0x002E85D0",
+      "0x0600406C",
+      "0x06004F00",
+      "0x06007854",
+      "0x06009F44",
+      "0x0600A1EC",
+      "0x0600A962",
+      "0x0600E1E4",
+      "0x06013924",
+      "0x060146A0",
+      "0x060180C8",
+      "0x06018AE0",
+      "0x06019344",
+      "0x0601980E",
+      "0x0601A4C6",
+      "0x0601A7C0",
+      "0x0601B5C6",
+      "0x0601B6E2",
+      "0x0601BB50",
+      "0x0601BF98",
+      "0x060356FC",
+      "0x0605B732",
+      "0x060611D6",
+      "0x0606BEAC",
+      "0x0606DD04",
+      "0x0606EE06",
+      "0x0606EE0C",
+      "0x0606F518",
+      "0x06071B80",
+      "0x06071D04",
+      "0x0607B844",
+      "0x0607E518",
+      "0x0607EAC8",
+      "0x0607F1D6",
+      "0x060814DE",
+      "0x06081898",
+      "0x06081998",
+      "0x06081F3C",
+      "0x06082448",
+      "0x06082458",
+      "0x06082478",
+      "0x060824C8",
+      "0x060824F8",
+      "0x06082510",
+      "0x06082528",
+      "0x06082540",
+      "0x06082B36",
+      "0x06082B4E"
+    ],
+    "ACTOR_ENTITY_disp_32": [
+      "0x0600DCBC",
+      "0x06012370",
+      "0x0606DD04",
+      "0x0606F518",
+      "0x0607D830",
+      "0x06081998",
+      "0x06082CAC",
+      "0x06082DC2",
+      "0x060854A4"
+    ],
+    "ACTOR_ENTITY_disp_24": [
+      "0x0600406C",
+      "0x06007854",
+      "0x0600B1E6",
+      "0x0600B204",
+      "0x0600E1E4",
+      "0x060146A0",
+      "0x060147D4",
+      "0x060171D4",
+      "0x06018250",
+      "0x06019344",
+      "0x0601A7C0",
+      "0x0601B6EC",
+      "0x0601BCE4",
+      "0x0606F81C",
+      "0x060726B2",
+      "0x06072A88",
+      "0x06073648"
+    ],
+    "ACTOR_ENTITY_disp_8": [
+      "0x06007854",
+      "0x0600A1EC",
+      "0x0600E1E4",
+      "0x06013924",
+      "0x0601980E",
+      "0x0601B18C",
+      "0x0601B1BA",
+      "0x0601B274",
+      "0x0601B488",
+      "0x0601B544",
+      "0x0601B792",
+      "0x0601BF98",
+      "0x0606F81C",
+      "0x06071D04",
+      "0x06072A88",
+      "0x0607E5A0",
+      "0x0607E5FE",
+      "0x06082448",
+      "0x06082458",
+      "0x06082478",
+      "0x060824C8",
+      "0x06082510",
+      "0x06082528",
+      "0x06082540",
+      "0x06082B36",
+      "0x06085FBC"
+    ],
+    "ACTOR_ENTITY_disp_20": [
+      "0x002ECE00",
+      "0x06007854",
+      "0x0600B1E6",
+      "0x0600E380",
+      "0x060147D4",
+      "0x06019DDC",
+      "0x0601BCE4",
+      "0x0604D94C",
+      "0x0606EE8C",
+      "0x0606F518",
+      "0x060719C4",
+      "0x06071E74",
+      "0x0607331C",
+      "0x06081998"
+    ],
+    "ACTOR_ENTITY_disp_12": [
+      "0x002ECE20",
+      "0x06004076",
+      "0x0600A1EC",
+      "0x0600A962",
+      "0x0600B1E6",
+      "0x0600E380",
+      "0x060180C8",
+      "0x0601A7C0",
+      "0x0601B488",
+      "0x0606E008",
+      "0x06071B80",
+      "0x06073124",
+      "0x06077F3C",
+      "0x0607B844",
+      "0x0607E5F2"
+    ],
+    "ACTOR_ENTITY_disp_28": [
+      "0x0606F518",
+      "0x06071F46",
+      "0x060721D0"
+    ],
+    "ACTOR_ENTITY_disp_40": [
+      "0x0606F518",
+      "0x06081998"
+    ]
+  },
+  "writers": [
+    {
+      "writer_pc": "0x06004294",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x0600A0F8",
+      "writer_function": "sub_06004254",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x0600429C",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x0600A0F8",
+      "writer_function": "sub_06004254",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x0600433C",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 16,
+      "stored_code_target": "0x0600A994",
+      "writer_function": "sub_06004254",
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x06004BA6",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x0600A0AC",
+      "writer_function": "sub_06004AF0",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x06005694",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x06081F38",
+      "writer_function": null,
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x06005696",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 4,
+      "stored_code_target": "0x06081F3C",
+      "writer_function": null,
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x060057D8",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x06082DB6",
+      "writer_function": "sub_060056DC",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x06005954",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x06081F38",
+      "writer_function": "sub_06005946",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x06005956",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 4,
+      "stored_code_target": "0x06081F3C",
+      "writer_function": "sub_06005946",
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x060059C2",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 32,
+      "stored_code_target": "0x06082DC2",
+      "writer_function": "sub_06005946",
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x06006DDA",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 4,
+      "stored_code_target": "0x06004F00",
+      "writer_function": "sub_06006DBE",
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x06006FC0",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x06014D08",
+      "writer_function": "sub_06006F60",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x06006FC6",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x06014D08",
+      "writer_function": "sub_06006F60",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x0600AE76",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x0600A2EE",
+      "writer_function": "sub_0600AE3A",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x0600BC26",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 16,
+      "stored_code_target": "0x060750F8",
+      "writer_function": "sub_0600B816",
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x0600BEA2",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 24,
+      "stored_code_target": "0x060146A0",
+      "writer_function": "sub_0600BE20",
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x0600CC1C",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 32,
+      "stored_code_target": "0x0600DCBC",
+      "writer_function": "sub_0600C944",
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x0600F53C",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 24,
+      "stored_code_target": "0x06007854",
+      "writer_function": "sub_0600EE24",
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x060105DC",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 4,
+      "stored_code_target": "0x06082448",
+      "writer_function": "sub_06010542",
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x060105EC",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 8,
+      "stored_code_target": "0x06082448",
+      "writer_function": "sub_06010542",
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x06010600",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x06082466",
+      "writer_function": "sub_06010542",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x0601063A",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 4,
+      "stored_code_target": "0x06082458",
+      "writer_function": "sub_06010542",
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x06010644",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 8,
+      "stored_code_target": "0x06082458",
+      "writer_function": "sub_06010542",
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x06010654",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x0608246E",
+      "writer_function": "sub_06010542",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x06010700",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 4,
+      "stored_code_target": "0x06082478",
+      "writer_function": null,
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x06010710",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 8,
+      "stored_code_target": "0x06082478",
+      "writer_function": null,
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x06010724",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x06082486",
+      "writer_function": null,
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x06010848",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x06082490",
+      "writer_function": null,
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x0601085E",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x06082490",
+      "writer_function": null,
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x06010874",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x060824BE",
+      "writer_function": "sub_06010862",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x060108C4",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x060824A0",
+      "writer_function": "sub_06010862",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x060108D2",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x060824A0",
+      "writer_function": "sub_06010862",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x060108E4",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x060824A0",
+      "writer_function": "sub_06010862",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x0601090E",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x060824B0",
+      "writer_function": "sub_06010862",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x0601091E",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x060824B0",
+      "writer_function": "sub_06010862",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x0601092C",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x060824B0",
+      "writer_function": "sub_06010862",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x06010FAC",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 4,
+      "stored_code_target": "0x060824C8",
+      "writer_function": "sub_06010F8E",
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x06010FBC",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x060824C8",
+      "writer_function": "sub_06010F8E",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x06010FC8",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 4,
+      "stored_code_target": "0x060824C8",
+      "writer_function": "sub_06010F8E",
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x06010FD0",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 8,
+      "stored_code_target": "0x060824C8",
+      "writer_function": "sub_06010F8E",
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x06011634",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 4,
+      "stored_code_target": "0x060824F8",
+      "writer_function": "sub_06011524",
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x0601164C",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x06082506",
+      "writer_function": "sub_06011524",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x0601173C",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 4,
+      "stored_code_target": "0x06082510",
+      "writer_function": "sub_06011524",
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x06011744",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 8,
+      "stored_code_target": "0x06082510",
+      "writer_function": "sub_06011524",
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x0601175C",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x0608251E",
+      "writer_function": "sub_06011524",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x06011874",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 4,
+      "stored_code_target": "0x06082528",
+      "writer_function": null,
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x0601187C",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 8,
+      "stored_code_target": "0x06082528",
+      "writer_function": "sub_0601187A",
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x06011894",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x06082536",
+      "writer_function": "sub_0601187A",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x060119F4",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 4,
+      "stored_code_target": "0x06082540",
+      "writer_function": "sub_0601187A",
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x060119FC",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 8,
+      "stored_code_target": "0x06082540",
+      "writer_function": "sub_0601187A",
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x06011A14",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x0608254E",
+      "writer_function": "sub_0601187A",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x06011AE0",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x06082556",
+      "writer_function": "sub_06011AAE",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x06011CFC",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 16,
+      "stored_code_target": "0x0600406C",
+      "writer_function": "sub_06011C98",
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x06012C42",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x06082414",
+      "writer_function": "sub_06012C00",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x06013ACA",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 20,
+      "stored_code_target": "0x060147D4",
+      "writer_function": "sub_06013A86",
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x06013CCC",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 16,
+      "stored_code_target": "0x0600406C",
+      "writer_function": "sub_06013CAA",
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x06013CD8",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 24,
+      "stored_code_target": "0x0600406C",
+      "writer_function": "sub_06013CAA",
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x060147F6",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x060828B8",
+      "writer_function": "sub_060147D4",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x06015A70",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 12,
+      "stored_code_target": "0x0600A1EC",
+      "writer_function": "sub_060156C2",
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x06015A74",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 8,
+      "stored_code_target": "0x0600A1EC",
+      "writer_function": "sub_060156C2",
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x06015DC0",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 12,
+      "stored_code_target": "0x0600A962",
+      "writer_function": "sub_060156C2",
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x06015DD0",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 4,
+      "stored_code_target": "0x0600A962",
+      "writer_function": "sub_060156C2",
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x06015DF6",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 8,
+      "stored_code_target": "0x0600A1EC",
+      "writer_function": "sub_060156C2",
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x06015DFC",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 4,
+      "stored_code_target": "0x0600A1EC",
+      "writer_function": "sub_060156C2",
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x06015E74",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 4,
+      "stored_code_target": "0x0600A1EC",
+      "writer_function": "sub_060156C2",
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x0601758C",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 24,
+      "stored_code_target": "0x0600E1E4",
+      "writer_function": "sub_06017568",
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x06018010",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 24,
+      "stored_code_target": "0x0600E1E4",
+      "writer_function": "sub_06017FC4",
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x0601A684",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 4,
+      "stored_code_target": "0x060146A0",
+      "writer_function": "sub_0601A62A",
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x0601A686",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x060146A0",
+      "writer_function": "sub_0601A62A",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x0601AA46",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x0606BEE8",
+      "writer_function": "sub_0601A8E2",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x0601CC92",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 20,
+      "stored_code_target": "0x060147D4",
+      "writer_function": "sub_0601CA9E",
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x0601E53A",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x0600C592",
+      "writer_function": "sub_0601DC5A",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x06021DC4",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x06013924",
+      "writer_function": "sub_06021BBE",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x06022188",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 16,
+      "stored_code_target": "0x06019386",
+      "writer_function": null,
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x0602377C",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 24,
+      "stored_code_target": "0x0600B204",
+      "writer_function": "sub_06023310",
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x06025694",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 4,
+      "stored_code_target": "0x0601A7C0",
+      "writer_function": "sub_060254A6",
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x06025C56",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x0600B1E6",
+      "writer_function": "sub_06025BB8",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x06028B1E",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 16,
+      "stored_code_target": "0x0600B204",
+      "writer_function": "sub_060287E0",
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x06028B24",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 20,
+      "stored_code_target": "0x06019DDC",
+      "writer_function": "sub_060287E0",
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x06029798",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x0601980E",
+      "writer_function": "sub_0602975A",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x060297E0",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x0601980E",
+      "writer_function": "sub_0602975A",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x0602C842",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x0602B678",
+      "writer_function": "sub_0602C29E",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x0602CA48",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x0602B678",
+      "writer_function": null,
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x0602CA7A",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 32,
+      "stored_code_target": "0x060854A4",
+      "writer_function": "sub_0602CA62",
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x0602CA8C",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x060854A4",
+      "writer_function": "sub_0602CA62",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x0602CD46",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x0602B678",
+      "writer_function": "sub_0602CC82",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x06030B82",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 8,
+      "stored_code_target": "0x0601B18C",
+      "writer_function": "sub_06030B58",
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x06030BEA",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x0601B488",
+      "writer_function": "sub_06030BD8",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x06031AB0",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 8,
+      "stored_code_target": "0x0601BF98",
+      "writer_function": "sub_06031A9A",
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x060326FA",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 8,
+      "stored_code_target": "0x0601980E",
+      "writer_function": "sub_0603268E",
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x060326FE",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 8,
+      "stored_code_target": "0x0601980E",
+      "writer_function": "sub_0603268E",
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x0603282A",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x0600E380",
+      "writer_function": "sub_0603281E",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x06032D08",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 16,
+      "stored_code_target": "0x0601980E",
+      "writer_function": "sub_06032CB6",
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x06033074",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 16,
+      "stored_code_target": "0x0601980E",
+      "writer_function": "sub_0603304E",
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x0603311C",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 8,
+      "stored_code_target": "0x0601B1BA",
+      "writer_function": "sub_0603304E",
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x06033786",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x0601B6EC",
+      "writer_function": "sub_06033778",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x060338D2",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x0601BE20",
+      "writer_function": "sub_06033880",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x06033978",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x0601BF98",
+      "writer_function": null,
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x06033AFC",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 12,
+      "stored_code_target": "0x06004076",
+      "writer_function": "sub_06033ADE",
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x06034048",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x0601BF98",
+      "writer_function": null,
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x06034168",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 16,
+      "stored_code_target": "0x0600E1E4",
+      "writer_function": "sub_0603414E",
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x0603416A",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 8,
+      "stored_code_target": "0x0600E1E4",
+      "writer_function": "sub_0603414E",
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x0603416C",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 4,
+      "stored_code_target": "0x0600E1E4",
+      "writer_function": "sub_0603414E",
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x060345D6",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 16,
+      "stored_code_target": "0x0601B18C",
+      "writer_function": "sub_0603457E",
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x06034684",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 16,
+      "stored_code_target": "0x0601B18C",
+      "writer_function": "sub_06034602",
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x0603550E",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 24,
+      "stored_code_target": "0x0600B1E6",
+      "writer_function": "sub_060354E2",
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x0603564E",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x0601B488",
+      "writer_function": "sub_0603560C",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x06035714",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 4,
+      "stored_code_target": "0x0601B5C6",
+      "writer_function": "sub_060356FC",
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x06035C5A",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x0601BF98",
+      "writer_function": "sub_06035C4C",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x06035F1E",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x0600DEDC",
+      "writer_function": "sub_06035F0A",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x060361DE",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x0601BF98",
+      "writer_function": null,
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x0603680E",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x0600B1E6",
+      "writer_function": null,
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x0603706E",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x0601BF98",
+      "writer_function": null,
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x0603716C",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x0603560C",
+      "writer_function": "sub_0603716A",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x06037196",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 4,
+      "stored_code_target": "0x060356FC",
+      "writer_function": "sub_0603716A",
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x060375AC",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x0600B1E6",
+      "writer_function": null,
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x060377CC",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 16,
+      "stored_code_target": "0x0601B1BA",
+      "writer_function": "sub_060377B6",
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x06038392",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 8,
+      "stored_code_target": "0x0601B274",
+      "writer_function": "sub_0603838A",
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x060383AE",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x0601BF98",
+      "writer_function": "sub_0603838A",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x0603887C",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x0601BF98",
+      "writer_function": "sub_0603883E",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x06039164",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x0601BF98",
+      "writer_function": "sub_06039152",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x060399CC",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 8,
+      "stored_code_target": "0x0601B18C",
+      "writer_function": "sub_060398F6",
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x06039D4C",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x0601BF98",
+      "writer_function": "sub_06039D1A",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x0603A0E4",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x0601BF98",
+      "writer_function": "sub_0603A092",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x0603A554",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x0601BF98",
+      "writer_function": "sub_0603A516",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x0603A86E",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x0600406C",
+      "writer_function": "sub_0603A852",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x0603AA68",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x06085910",
+      "writer_function": "sub_0603AA0A",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x0603B008",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x0601BF08",
+      "writer_function": "sub_0603AF7A",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x0603B188",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x0600B1E6",
+      "writer_function": null,
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x0603B19A",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 24,
+      "stored_code_target": "0x0600B1E6",
+      "writer_function": null,
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x0603B3A2",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x0601B348",
+      "writer_function": "sub_0603B332",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x0603C070",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 24,
+      "stored_code_target": "0x0601BCE4",
+      "writer_function": "sub_0603C03E",
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x0603C080",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x0601BCE4",
+      "writer_function": "sub_0603C03E",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x0603C1D6",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x06018AE8",
+      "writer_function": "sub_0603C16A",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x0603C45A",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x0600B1E6",
+      "writer_function": "sub_0603C44A",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x0603C4FE",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x0600B1E6",
+      "writer_function": "sub_0603C472",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x0603C558",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x0600B1E6",
+      "writer_function": null,
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x0603C660",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x0600B1E6",
+      "writer_function": null,
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x0603C78A",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x0601BF98",
+      "writer_function": "sub_0603C76E",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x0603C886",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x0600B1E6",
+      "writer_function": null,
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x0603C8FA",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x0600B1E6",
+      "writer_function": "sub_0603C892",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x0603C950",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x0600B1E6",
+      "writer_function": "sub_0603C942",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x0603CA00",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x0601980E",
+      "writer_function": "sub_0603C9F2",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x0603CA0C",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x0601980E",
+      "writer_function": "sub_0603C9F2",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x0603CA5C",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 4,
+      "stored_code_target": "0x0601980E",
+      "writer_function": "sub_0603C9F2",
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x0603CA72",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 4,
+      "stored_code_target": "0x0601980E",
+      "writer_function": "sub_0603CA5E",
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x0603CADE",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 16,
+      "stored_code_target": "0x002FD698",
+      "writer_function": "sub_0603CA5E",
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x0603CB90",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x0600B1E6",
+      "writer_function": "sub_0603CB76",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x0603CC96",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x0600B1E6",
+      "writer_function": null,
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x0603CD5A",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x0600B1E6",
+      "writer_function": "sub_0603CD5A",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x0603CE3C",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x0600B1E6",
+      "writer_function": "sub_0603CD9A",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x0603CED2",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x0600B1E6",
+      "writer_function": null,
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x0603D3FE",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x0601B1E8",
+      "writer_function": "sub_0603D3B6",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x0603D45A",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x0601BF98",
+      "writer_function": "sub_0603D446",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x0603D52C",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x0601B44C",
+      "writer_function": "sub_0603D4E2",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x0603DB84",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x0600406C",
+      "writer_function": "sub_0603DB4E",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x0603DD1C",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x0601B5C6",
+      "writer_function": "sub_0603DD0A",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x0603DDD8",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x0601BBE8",
+      "writer_function": "sub_0603DD62",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x0603E6A0",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x06009F44",
+      "writer_function": "sub_0603E65E",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x0603E744",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x0601B1E8",
+      "writer_function": "sub_0603E6C6",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x0603EE5A",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x0601BE92",
+      "writer_function": "sub_0603EE0A",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x0603EF2C",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 4,
+      "stored_code_target": "0x0601BB50",
+      "writer_function": "sub_0603EF1A",
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x0603F652",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x0601B792",
+      "writer_function": "sub_0603F64A",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x0603F942",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x0600E380",
+      "writer_function": null,
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x0603FB5A",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x0600E380",
+      "writer_function": null,
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x06040346",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x0601A7C0",
+      "writer_function": null,
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x06040626",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x0601BE92",
+      "writer_function": "sub_060405D8",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x06040988",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x0601BF98",
+      "writer_function": "sub_06040962",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x060409A6",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 20,
+      "stored_code_target": "0x0600B1E6",
+      "writer_function": "sub_06040962",
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x06040A82",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x0601B792",
+      "writer_function": "sub_060409F8",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x06040FD4",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x0601BE92",
+      "writer_function": "sub_06040F74",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x060412EC",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x0600B1E6",
+      "writer_function": "sub_060412C6",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x06041450",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x0601B792",
+      "writer_function": "sub_060413CA",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x0604191C",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x0601BF98",
+      "writer_function": null,
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x06041D50",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 8,
+      "stored_code_target": "0x0601B1BA",
+      "writer_function": "sub_06041CF0",
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x06041DAE",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x0601BF98",
+      "writer_function": "sub_06041D5E",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x06042320",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x0601BF98",
+      "writer_function": "sub_060422D2",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x060426A4",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x0601BF98",
+      "writer_function": "sub_06042698",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x06042930",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x0601BF98",
+      "writer_function": null,
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x06042DDA",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 8,
+      "stored_code_target": "0x0601BF98",
+      "writer_function": "sub_06042DBA",
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x06042EE8",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 12,
+      "stored_code_target": "0x0600B1E6",
+      "writer_function": "sub_06042EAE",
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x060430B6",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x06041DA0",
+      "writer_function": "sub_0604307E",
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x060430E8",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 8,
+      "stored_code_target": "0x0601BF98",
+      "writer_function": "sub_0604307E",
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x060431DA",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x0601BF98",
+      "writer_function": "sub_06043142",
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x0604337E",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x0601BF98",
+      "writer_function": "sub_0604336E",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x0604383E",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 8,
+      "stored_code_target": "0x0601B488",
+      "writer_function": "sub_0604380A",
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x060438EE",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 8,
+      "stored_code_target": "0x0601B544",
+      "writer_function": "sub_060438C6",
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x060449C6",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x0601A4C6",
+      "writer_function": "sub_060447E6",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x06046070",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x06009F44",
+      "writer_function": "sub_06046064",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x060469C4",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 4,
+      "stored_code_target": "0x06009F44",
+      "writer_function": "sub_06046860",
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x060480EA",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x06009F44",
+      "writer_function": "sub_06047E52",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x06048DF0",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x0601A7C0",
+      "writer_function": "sub_06048B3E",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x0604B144",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x0601CA9E",
+      "writer_function": "sub_0604B0F6",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x0604BBFC",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x0606BFBC",
+      "writer_function": "sub_0604BBF6",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x0604BBFE",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x0606BFBC",
+      "writer_function": "sub_0604BBF6",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x0604C1C0",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 20,
+      "stored_code_target": "0x0600E380",
+      "writer_function": "sub_0604BD8A",
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x0604CA10",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x0604CD50",
+      "writer_function": "sub_0604C914",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x0604DDCC",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x060171D4",
+      "writer_function": "sub_0604DDAE",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x0604E136",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 16,
+      "stored_code_target": "0x0601B348",
+      "writer_function": "sub_0604E10A",
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x0604E144",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 24,
+      "stored_code_target": "0x0601B6EC",
+      "writer_function": "sub_0604E10A",
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x0604E3CC",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 24,
+      "stored_code_target": "0x0601B6EC",
+      "writer_function": "sub_0604E3AE",
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x0604EF02",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 20,
+      "stored_code_target": "0x0604D94C",
+      "writer_function": null,
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x0604F86C",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x0600E380",
+      "writer_function": null,
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x06050134",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x06004076",
+      "writer_function": "sub_0605011C",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x060501A0",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 16,
+      "stored_code_target": "0x0601B6E2",
+      "writer_function": "sub_06050166",
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x0605063E",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x0601BF98",
+      "writer_function": null,
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x0605148E",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x0601BF98",
+      "writer_function": null,
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x06052706",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 4,
+      "stored_code_target": "0x06009F44",
+      "writer_function": "sub_0605261E",
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x06053190",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 8,
+      "stored_code_target": "0x0601B792",
+      "writer_function": "sub_06053148",
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x06053846",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x0601B44C",
+      "writer_function": "sub_060537DE",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x06053D60",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x0601B792",
+      "writer_function": "sub_06053C56",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x06054736",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x06019344",
+      "writer_function": "sub_060546DE",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x06055462",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x0601B394",
+      "writer_function": "sub_060553F6",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x060554C2",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 24,
+      "stored_code_target": "0x06019344",
+      "writer_function": null,
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x0605616A",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x06057760",
+      "writer_function": null,
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x0605617C",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x06009F44",
+      "writer_function": null,
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x06056190",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x06009F44",
+      "writer_function": null,
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x06056658",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x06058094",
+      "writer_function": "sub_060561BE",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x06056688",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x0601C53A",
+      "writer_function": "sub_060561BE",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x060566B6",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x0601C53A",
+      "writer_function": "sub_060561BE",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x060566E4",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x0601C53A",
+      "writer_function": "sub_060561BE",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x06056710",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x0601C53A",
+      "writer_function": "sub_060561BE",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x06057C2C",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x0601A854",
+      "writer_function": "sub_06057C1C",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x06058FFA",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x06013924",
+      "writer_function": "sub_06058FB6",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x06059128",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x06013924",
+      "writer_function": "sub_0605911C",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x0605988A",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x06013924",
+      "writer_function": "sub_0605987E",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x06059CCC",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 4,
+      "stored_code_target": "0x0601BF98",
+      "writer_function": "sub_06059CBA",
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x06059F4C",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 4,
+      "stored_code_target": "0x0600406C",
+      "writer_function": "sub_06059F1C",
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x0605A008",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 4,
+      "stored_code_target": "0x0601B6E2",
+      "writer_function": "sub_06059FF2",
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x0605A100",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 4,
+      "stored_code_target": "0x0601B6E2",
+      "writer_function": "sub_0605A0DE",
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x0605A1C0",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 4,
+      "stored_code_target": "0x0601B6E2",
+      "writer_function": "sub_0605A0DE",
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x0605A2A4",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 4,
+      "stored_code_target": "0x0601B6E2",
+      "writer_function": "sub_0605A1D6",
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x0605A444",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 8,
+      "stored_code_target": "0x06085FBC",
+      "writer_function": null,
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x0605A77C",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x0600DEDC",
+      "writer_function": "sub_0605A77A",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x0605A8B6",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x0601BD50",
+      "writer_function": "sub_0605A86A",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x0605A8CC",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x0605954A",
+      "writer_function": "sub_0605A86A",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x0605A8F8",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x0601BD50",
+      "writer_function": "sub_0605A86A",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x0605A91C",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x0605954A",
+      "writer_function": "sub_0605A86A",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x0605A9C6",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 12,
+      "stored_code_target": "0x0601A7C0",
+      "writer_function": "sub_0605A992",
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x0605BCFA",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 4,
+      "stored_code_target": "0x0605B732",
+      "writer_function": null,
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x0605BD90",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 4,
+      "stored_code_target": "0x0605B732",
+      "writer_function": null,
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x0605BE3A",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 4,
+      "stored_code_target": "0x0605B732",
+      "writer_function": null,
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x0605BECC",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 4,
+      "stored_code_target": "0x0605B732",
+      "writer_function": "sub_0605BE56",
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x0605BF74",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 4,
+      "stored_code_target": "0x0605B732",
+      "writer_function": "sub_0605BE56",
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x0605EA72",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 24,
+      "stored_code_target": "0x060171D4",
+      "writer_function": "sub_0605E7CA",
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x0605F2F4",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x060611D6",
+      "writer_function": "sub_0605F262",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x0605F404",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x06009F44",
+      "writer_function": "sub_0605F3C8",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x0605F7EA",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 4,
+      "stored_code_target": "0x06018AE0",
+      "writer_function": "sub_0605F3C8",
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x0605F7F8",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 4,
+      "stored_code_target": "0x060611D6",
+      "writer_function": "sub_0605F3C8",
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x0605F808",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 4,
+      "stored_code_target": "0x060611D6",
+      "writer_function": "sub_0605F3C8",
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x0605F8E4",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 4,
+      "stored_code_target": "0x06009F44",
+      "writer_function": "sub_0605F3C8",
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x06060B82",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x0606122A",
+      "writer_function": "sub_0605F3C8",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x06060BA6",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x0601C53A",
+      "writer_function": "sub_0605F3C8",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x06060BC6",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x0601C53A",
+      "writer_function": "sub_0605F3C8",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x06060BE6",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x0601C53A",
+      "writer_function": "sub_0605F3C8",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x06060C04",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x0601C53A",
+      "writer_function": "sub_0605F3C8",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x06060FF4",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 4,
+      "stored_code_target": "0x0601A4C6",
+      "writer_function": "sub_0605F3C8",
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x06061088",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 4,
+      "stored_code_target": "0x06009F44",
+      "writer_function": "sub_0605F3C8",
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x060610A0",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 4,
+      "stored_code_target": "0x06009F44",
+      "writer_function": "sub_0605F3C8",
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x0606249C",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x0600B1E6",
+      "writer_function": "sub_0606235A",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x06062C22",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 4,
+      "stored_code_target": "0x06019344",
+      "writer_function": "sub_06062C1A",
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x06062DD6",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 20,
+      "stored_code_target": "0x0601BCE4",
+      "writer_function": "sub_06062DC2",
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x060631F4",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 4,
+      "stored_code_target": "0x06019344",
+      "writer_function": "sub_060631C6",
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x06063328",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x0601BF98",
+      "writer_function": "sub_06063312",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x06063506",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 12,
+      "stored_code_target": "0x0601B488",
+      "writer_function": "sub_060634F6",
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x06063EF0",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 4,
+      "stored_code_target": "0x06019344",
+      "writer_function": "sub_06063EEE",
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x06064194",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 8,
+      "stored_code_target": "0x06013924",
+      "writer_function": "sub_06064150",
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x060642B4",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 4,
+      "stored_code_target": "0x06019344",
+      "writer_function": "sub_060642A2",
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x060649E4",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 4,
+      "stored_code_target": "0x06007854",
+      "writer_function": "sub_0606499A",
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x06064B54",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 8,
+      "stored_code_target": "0x06007854",
+      "writer_function": "sub_06064B32",
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x06064BBC",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 12,
+      "stored_code_target": "0x0600E380",
+      "writer_function": "sub_06064BBA",
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x06064CA0",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 20,
+      "stored_code_target": "0x06007854",
+      "writer_function": "sub_06064C72",
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x06064CBC",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 8,
+      "stored_code_target": "0x06007854",
+      "writer_function": "sub_06064C72",
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x06065336",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 16,
+      "stored_code_target": "0x060147D4",
+      "writer_function": "sub_060652FE",
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x0606533E",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 24,
+      "stored_code_target": "0x060147D4",
+      "writer_function": "sub_060652FE",
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x060656A2",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x0601B6EC",
+      "writer_function": "sub_0606567A",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x060659F4",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x06018CC0",
+      "writer_function": "sub_060659E6",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x06065E02",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x060180C8",
+      "writer_function": null,
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x06066344",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 24,
+      "stored_code_target": "0x0601A7C0",
+      "writer_function": "sub_0606630E",
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x06066672",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 24,
+      "stored_code_target": "0x06018250",
+      "writer_function": "sub_06066556",
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x06066D68",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x0601A920",
+      "writer_function": "sub_06066CEE",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x06066E8C",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x0600E380",
+      "writer_function": "sub_06066E62",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x06066F3A",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 4,
+      "stored_code_target": "0x060180C8",
+      "writer_function": null,
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x06066F66",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x0600B1E6",
+      "writer_function": "sub_06066F46",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x060673CC",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x060180B8",
+      "writer_function": null,
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x060674BC",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 4,
+      "stored_code_target": "0x060180C8",
+      "writer_function": null,
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x060674E8",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x0600B1E6",
+      "writer_function": "sub_060674DE",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x06067976",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x0601BF98",
+      "writer_function": "sub_060678EA",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x06067B24",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x06013924",
+      "writer_function": "sub_06067AD6",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x06067D98",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x0600E380",
+      "writer_function": "sub_06067D72",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x060691D8",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 12,
+      "stored_code_target": "0x060180C8",
+      "writer_function": "sub_060691A6",
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x06069DD2",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x06013924",
+      "writer_function": "sub_06069D7A",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x06069FDC",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x060180B8",
+      "writer_function": "sub_06069FB6",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x0606A780",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x060180B8",
+      "writer_function": "sub_0606A77E",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x0606AC14",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x0600B1E6",
+      "writer_function": null,
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x0606B31E",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 8,
+      "stored_code_target": "0x0601980E",
+      "writer_function": "sub_0606B30A",
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x0606B56E",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x0600B1E6",
+      "writer_function": "sub_0606B542",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x0606B698",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x0600B1E6",
+      "writer_function": "sub_0606B67E",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x0606B824",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x0600B1E6",
+      "writer_function": "sub_0606B792",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x0606B9E6",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 4,
+      "stored_code_target": "0x06082B36",
+      "writer_function": "sub_0606B9D2",
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x0606B9F0",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 8,
+      "stored_code_target": "0x06082B36",
+      "writer_function": "sub_0606B9D2",
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x0606BA04",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x06082B44",
+      "writer_function": "sub_0606B9D2",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x0606BBB2",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x0600B1E6",
+      "writer_function": "sub_0606BB4A",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x0606BD7C",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 4,
+      "stored_code_target": "0x06082B4E",
+      "writer_function": "sub_0606BD30",
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x0606BD94",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x06082B5C",
+      "writer_function": "sub_0606BD8E",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x0606CC40",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x06018158",
+      "writer_function": "sub_0606CB18",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x0606D18E",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x0606DC00",
+      "writer_function": "sub_0606CB18",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x0606D1C0",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x0601C53A",
+      "writer_function": "sub_0606CB18",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x0606D1EE",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x0601C53A",
+      "writer_function": "sub_0606CB18",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x0606D21C",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x0601C53A",
+      "writer_function": "sub_0606CB18",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x0606D248",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x0601C53A",
+      "writer_function": "sub_0606CB18",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x0606DB00",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 4,
+      "stored_code_target": "0x0606BEAC",
+      "writer_function": "sub_0606DA44",
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x0606DB48",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x06077948",
+      "writer_function": "sub_0606DA44",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x0606DCA6",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 32,
+      "stored_code_target": "0x0606DD04",
+      "writer_function": "sub_0606DC7E",
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x0606E0C2",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x0606ECBC",
+      "writer_function": "sub_0606E008",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x0606E146",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 4,
+      "stored_code_target": "0x0606F518",
+      "writer_function": "sub_0606E008",
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x0606E150",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 20,
+      "stored_code_target": "0x0606F518",
+      "writer_function": "sub_0606E008",
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x0606E158",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 32,
+      "stored_code_target": "0x0606F518",
+      "writer_function": "sub_0606E008",
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x0606E2FE",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x0606FA08",
+      "writer_function": "sub_0606E008",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x0606E9A4",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 8,
+      "stored_code_target": "0x0606F81C",
+      "writer_function": "sub_0606E98C",
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x0606E9AE",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 24,
+      "stored_code_target": "0x0606F81C",
+      "writer_function": "sub_0606E98C",
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x0606FF32",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 20,
+      "stored_code_target": "0x06071E74",
+      "writer_function": "sub_0606FEE4",
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x06070540",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x060719C4",
+      "writer_function": "sub_06070454",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x060705BC",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 24,
+      "stored_code_target": "0x06072A88",
+      "writer_function": "sub_06070454",
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x060705C0",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 8,
+      "stored_code_target": "0x06072A88",
+      "writer_function": "sub_06070454",
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x060706E4",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 16,
+      "stored_code_target": "0x060719C4",
+      "writer_function": "sub_06070454",
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x060706FE",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 20,
+      "stored_code_target": "0x060719C4",
+      "writer_function": "sub_06070454",
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x06070774",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 8,
+      "stored_code_target": "0x06072A88",
+      "writer_function": "sub_06070454",
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x06070B32",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 20,
+      "stored_code_target": "0x0607331C",
+      "writer_function": "sub_0607078A",
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x06070EB2",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 16,
+      "stored_code_target": "0x0606F9DE",
+      "writer_function": "sub_06070D62",
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x06070F92",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 28,
+      "stored_code_target": "0x0606F518",
+      "writer_function": "sub_06070D62",
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x06070F98",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 40,
+      "stored_code_target": "0x0606F518",
+      "writer_function": "sub_06070D62",
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x06071116",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x06073124",
+      "writer_function": "sub_06070D62",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x06071136",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 12,
+      "stored_code_target": "0x06073124",
+      "writer_function": "sub_06070D62",
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x060725B4",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 4,
+      "stored_code_target": "0x0606EE06",
+      "writer_function": "sub_06071E74",
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x06072670",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 4,
+      "stored_code_target": "0x0606EE0C",
+      "writer_function": "sub_06071E74",
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x06072AF0",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 28,
+      "stored_code_target": "0x06071F46",
+      "writer_function": "sub_06071E74",
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x06072AF4",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 16,
+      "stored_code_target": "0x06072548",
+      "writer_function": "sub_06071E74",
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x06072AF8",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 24,
+      "stored_code_target": "0x060726B2",
+      "writer_function": "sub_06071E74",
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x06072B0E",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 28,
+      "stored_code_target": "0x060721D0",
+      "writer_function": "sub_06071E74",
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x06072B12",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 16,
+      "stored_code_target": "0x060725FA",
+      "writer_function": "sub_06071E74",
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x06072B16",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 24,
+      "stored_code_target": "0x06073648",
+      "writer_function": "sub_06071E74",
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x06072C3A",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 20,
+      "stored_code_target": "0x0606EE8C",
+      "writer_function": "sub_06071E74",
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x06073A90",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x06086AD4",
+      "writer_function": "sub_06073A64",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x060742E6",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x0606DD04",
+      "writer_function": "sub_06073E14",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x06074320",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 4,
+      "stored_code_target": "0x0606DD04",
+      "writer_function": "sub_06073E14",
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x06074DB6",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 12,
+      "stored_code_target": "0x0606E008",
+      "writer_function": "sub_06074C06",
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x060766A6",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x0606EC54",
+      "writer_function": "sub_06076114",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x06078B04",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x0607D816",
+      "writer_function": "sub_06078AB0",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x06078B38",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 8,
+      "stored_code_target": "0x0607E5A0",
+      "writer_function": "sub_06078B18",
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x06078E9C",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x0607E3D2",
+      "writer_function": "sub_06078E94",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x06078EA0",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 4,
+      "stored_code_target": "0x0607E518",
+      "writer_function": "sub_06078E94",
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x06078EA4",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 8,
+      "stored_code_target": "0x0607E5FE",
+      "writer_function": "sub_06078E94",
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x06078EAA",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 12,
+      "stored_code_target": "0x0607E5F2",
+      "writer_function": null,
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x06079300",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x0606EE8C",
+      "writer_function": "sub_060792B4",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x06079674",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 4,
+      "stored_code_target": "0x0607EAC8",
+      "writer_function": "sub_06079660",
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x0607B9B0",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x06086B02",
+      "writer_function": null,
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x0607B9E2",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 4,
+      "stored_code_target": "0x06071D04",
+      "writer_function": null,
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x0607B9E6",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 4,
+      "stored_code_target": "0x06071B80",
+      "writer_function": null,
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x0607B9EC",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x06071D04",
+      "writer_function": null,
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x0607B9FC",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 8,
+      "stored_code_target": "0x06071D04",
+      "writer_function": null,
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x0607C02C",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 12,
+      "stored_code_target": "0x06071B80",
+      "writer_function": "sub_0607BBFA",
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x0607C26E",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x06086B04",
+      "writer_function": "sub_0607BBFA",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x0607C766",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x06086B02",
+      "writer_function": "sub_0607BBFA",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x0607C786",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 16,
+      "stored_code_target": "0x06086B02",
+      "writer_function": "sub_0607BBFA",
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x0607C8E8",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 12,
+      "stored_code_target": "0x0607B844",
+      "writer_function": "sub_0607C880",
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x0607C8EE",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x0607B844",
+      "writer_function": "sub_0607C880",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x0607CB22",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 4,
+      "stored_code_target": "0x0607B844",
+      "writer_function": "sub_0607C9F4",
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x0607D2EE",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x060787A4",
+      "writer_function": "sub_0607D288",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x0607D488",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x060787A4",
+      "writer_function": "sub_0607D43C",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x0607D81C",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x06082C7C",
+      "writer_function": "sub_0607D816",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x0607D83A",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x06082C7C",
+      "writer_function": "sub_0607D830",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x0607D882",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x06082C7C",
+      "writer_function": "sub_0607D878",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x0607DC40",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 32,
+      "stored_code_target": "0x0607D830",
+      "writer_function": "sub_0607DBD4",
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x0607DD9C",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 4,
+      "stored_code_target": "0x06081998",
+      "writer_function": "sub_0607DD54",
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x0607DDA2",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 16,
+      "stored_code_target": "0x06081998",
+      "writer_function": "sub_0607DD54",
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x0607DDAE",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 20,
+      "stored_code_target": "0x06081998",
+      "writer_function": "sub_0607DD54",
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x0607E04A",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 32,
+      "stored_code_target": "0x06082CAC",
+      "writer_function": "sub_0607DF7A",
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x0607E0E0",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x06082CAC",
+      "writer_function": "sub_0607E0D4",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x0607E54A",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x0607EBD8",
+      "writer_function": "sub_0607E35C",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x0607E830",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x0607FA6E",
+      "writer_function": "sub_0607E80E",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x0607E848",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x0607FA6E",
+      "writer_function": "sub_0607E80E",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x0607EA54",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 4,
+      "stored_code_target": "0x0607F1D6",
+      "writer_function": "sub_0607E9DC",
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x0607EDCE",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 12,
+      "stored_code_target": "0x06077F3C",
+      "writer_function": "sub_0607EC0C",
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x0607EDD2",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 16,
+      "stored_code_target": "0x06077F3C",
+      "writer_function": "sub_0607EC0C",
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x0607EE5E",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 16,
+      "stored_code_target": "0x0607F5A4",
+      "writer_function": "sub_0607EC0C",
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x0607F758",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 4,
+      "stored_code_target": "0x060814DE",
+      "writer_function": "sub_0607F664",
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x0607FE62",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x06081360",
+      "writer_function": "sub_0607FE38",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x0607FEDE",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x06080C94",
+      "writer_function": "sub_0607FEA4",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x0607FFCC",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x06080D30",
+      "writer_function": "sub_0607FEA4",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x06080038",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x06080F38",
+      "writer_function": "sub_0607FFF4",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x060800D8",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x0608184C",
+      "writer_function": "sub_06080084",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x0608013C",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x06080F90",
+      "writer_function": "sub_06080084",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x0608029E",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x060816F6",
+      "writer_function": "sub_060801AC",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x06080E00",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x060818AA",
+      "writer_function": "sub_06080D7C",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x0608119C",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 4,
+      "stored_code_target": "0x06081898",
+      "writer_function": "sub_0608117C",
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x060811D8",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 4,
+      "stored_code_target": "0x06081898",
+      "writer_function": "sub_060811B8",
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x0608128A",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 4,
+      "stored_code_target": "0x06081898",
+      "writer_function": "sub_06081200",
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x060812EA",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x06081898",
+      "writer_function": "sub_06081200",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x06081570",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x06081898",
+      "writer_function": "sub_06081554",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x06081B54",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 16,
+      "stored_code_target": "0x06081998",
+      "writer_function": "sub_06081974",
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x06081B58",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 20,
+      "stored_code_target": "0x06081998",
+      "writer_function": "sub_06081974",
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x06081B60",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 32,
+      "stored_code_target": "0x06081998",
+      "writer_function": "sub_06081974",
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x06081B68",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 40,
+      "stored_code_target": "0x06081998",
+      "writer_function": "sub_06081974",
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x06082D38",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 32,
+      "stored_code_target": "0x06012370",
+      "writer_function": "sub_06082C70",
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x06082D4A",
+      "module": "0TH2.BIN",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 32,
+      "stored_code_target": "0x06012370",
+      "writer_function": "sub_06082C70",
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x002E2786",
+      "module": "TH2.LOW",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x0606520C",
+      "writer_function": "sub_002E268E",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x002E2A46",
+      "module": "TH2.LOW",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x0606DD04",
+      "writer_function": "sub_002E268E",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x002E2CC4",
+      "module": "TH2.LOW",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x002EC180",
+      "writer_function": "sub_002E2C68",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x002E4546",
+      "module": "TH2.LOW",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x002EA75C",
+      "writer_function": "sub_002E44E8",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x002E4A18",
+      "module": "TH2.LOW",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x0600A384",
+      "writer_function": "sub_002E48F8",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x002E4A20",
+      "module": "TH2.LOW",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x0600A384",
+      "writer_function": "sub_002E48F8",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x002E4A26",
+      "module": "TH2.LOW",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x0600A384",
+      "writer_function": "sub_002E48F8",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x002E4B6A",
+      "module": "TH2.LOW",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x002EA80C",
+      "writer_function": "sub_002E48F8",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x002E4ECE",
+      "module": "TH2.LOW",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x002E5534",
+      "writer_function": "sub_002E4C9C",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x002E5A66",
+      "module": "TH2.LOW",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 4,
+      "stored_code_target": "0x002E85D0",
+      "writer_function": "sub_002E559C",
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x002E5FB8",
+      "module": "TH2.LOW",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 20,
+      "stored_code_target": "0x002ECE00",
+      "writer_function": "sub_002E5F14",
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x002E7FF0",
+      "module": "TH2.LOW",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x06004E34",
+      "writer_function": "sub_002E7E60",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x002E81CC",
+      "module": "TH2.LOW",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x002E890C",
+      "writer_function": "sub_002E7E60",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x002E8FE6",
+      "module": "TH2.LOW",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x002ECA36",
+      "writer_function": "sub_002E8C02",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x002E90F8",
+      "module": "TH2.LOW",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x002ECA36",
+      "writer_function": "sub_002E8C02",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x002E9824",
+      "module": "TH2.LOW",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x002E73FC",
+      "writer_function": "sub_002E9752",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x002E9FA8",
+      "module": "TH2.LOW",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 12,
+      "stored_code_target": "0x002ECE20",
+      "writer_function": "sub_002E9DA6",
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x002E9FAC",
+      "module": "TH2.LOW",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x002EA0FC",
+      "writer_function": "sub_002E9DA6",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x002EA288",
+      "module": "TH2.LOW",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x06004678",
+      "writer_function": "sub_002EA1B4",
+      "provenance": "PC_LITERAL_STORE_BASE"
+    },
+    {
+      "writer_pc": "0x002EBE9C",
+      "module": "TH2.LOW",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 4,
+      "stored_code_target": "0x06013924",
+      "writer_function": "sub_002EBE62",
+      "provenance": "PC_LITERAL_STORE"
+    },
+    {
+      "writer_pc": "0x002FD500",
+      "module": "TH2.LOW",
+      "target_object_type": "ACTOR_ENTITY",
+      "field_displacement": 0,
+      "stored_code_target": "0x002F764A",
+      "writer_function": "sub_002FD426",
+      "provenance": "PC_LITERAL_STORE"
+    }
+  ]
+}

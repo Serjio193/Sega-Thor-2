@@ -1,0 +1,265 @@
+{
+  "SYSTEM_VECTOR_disp_0": {
+    "object_type": "SYSTEM_VECTOR",
+    "field_displacement": 0,
+    "field_name": "bios_smpc_entry",
+    "semantic_role": "CALLBACK_FUNCTION_POINTER",
+    "access_width": "LONG",
+    "sites": [
+      "0TH2.BIN_0x060044A6",
+      "0TH2.BIN_0x060044E6",
+      "0TH2.BIN_0x0600A0BE",
+      "0TH2.BIN_0x0600A43A",
+      "0TH2.BIN_0x0607398C",
+      "0TH2.BIN_0x06073CCA",
+      "0TH2.BIN_0x06073CDC",
+      "0TH2.BIN_0x060781CC",
+      "0TH2.BIN_0x06079756",
+      "0TH2.BIN_0x0607A926",
+      "0TH2.BIN_0x0607AA44",
+      "0TH2.BIN_0x06080970",
+      "0TH2.BIN_0x06080982",
+      "0TH2.BIN_0x06080996",
+      "0TH2.BIN_0x060809A0",
+      "0TH2.BIN_0x06080A52",
+      "0TH2.BIN_0x06080A5E",
+      "TH2.LOW_0x002E8EA2",
+      "TH2.LOW_0x002E93B6",
+      "TH2.LOW_0x002EA18C",
+      "TH2.LOW_0x002EA1F0"
+    ],
+    "dynamic_count": 16,
+    "cold_count": 5
+  },
+  "ACTOR_ENTITY_disp_0": {
+    "object_type": "ACTOR_ENTITY",
+    "field_displacement": 0,
+    "field_name": "state_action_callback",
+    "semantic_role": "CALLBACK_FUNCTION_POINTER",
+    "access_width": "LONG",
+    "sites": [
+      "0TH2.BIN_0x06004B66",
+      "0TH2.BIN_0x0600AD62",
+      "0TH2.BIN_0x0600B564",
+      "0TH2.BIN_0x06073D1E",
+      "0TH2.BIN_0x06073D34",
+      "0TH2.BIN_0x06073D48",
+      "0TH2.BIN_0x06073D62",
+      "0TH2.BIN_0x06073D7A",
+      "0TH2.BIN_0x06073D94",
+      "0TH2.BIN_0x0607DF5C",
+      "TH2.LOW_0x002E8082",
+      "TH2.LOW_0x002E80AE",
+      "TH2.LOW_0x002E827E",
+      "TH2.LOW_0x002E8410",
+      "TH2.LOW_0x002E84DE",
+      "TH2.LOW_0x002E9B68",
+      "TH2.LOW_0x002E9C2C"
+    ],
+    "dynamic_count": 7,
+    "cold_count": 10
+  },
+  "JUMP_TABLE_DISPATCH_disp_-1": {
+    "object_type": "JUMP_TABLE_DISPATCH",
+    "field_displacement": null,
+    "field_name": "indexed_table_entry",
+    "semantic_role": "INDEXED_BRANCH_TARGET",
+    "access_width": "LONG",
+    "sites": [
+      "0TH2.BIN_0x06007B5A",
+      "0TH2.BIN_0x06007BC4",
+      "0TH2.BIN_0x0600BD7E",
+      "0TH2.BIN_0x060138BC",
+      "0TH2.BIN_0x0602F5C8",
+      "0TH2.BIN_0x0603A7B0",
+      "0TH2.BIN_0x0603A834",
+      "0TH2.BIN_0x0603AA42",
+      "0TH2.BIN_0x0603AAB6",
+      "0TH2.BIN_0x0606DF34",
+      "0TH2.BIN_0x0606F4F6",
+      "0TH2.BIN_0x0607D82C",
+      "0TH2.BIN_0x0607DF72",
+      "0TH2.BIN_0x0607FB04"
+    ],
+    "dynamic_count": 8,
+    "cold_count": 6
+  },
+  "SCRIPT_VM_disp_0": {
+    "object_type": "SCRIPT_VM",
+    "field_displacement": 0,
+    "field_name": "opcode_handler_callback",
+    "semantic_role": "CALLBACK_FUNCTION_POINTER",
+    "access_width": "LONG",
+    "sites": [
+      "0TH2.BIN_0x0600ADD6",
+      "0TH2.BIN_0x0600B9CC",
+      "0TH2.BIN_0x0600BC80",
+      "0TH2.BIN_0x06079428"
+    ],
+    "dynamic_count": 3,
+    "cold_count": 1
+  },
+  "ACTOR_ENTITY_disp_24": {
+    "object_type": "ACTOR_ENTITY",
+    "field_displacement": 24,
+    "field_name": "secondary_action_callback",
+    "semantic_role": "CALLBACK_FUNCTION_POINTER",
+    "access_width": "LONG",
+    "sites": [
+      "0TH2.BIN_0x06013320",
+      "0TH2.BIN_0x06013356",
+      "0TH2.BIN_0x06013374",
+      "0TH2.BIN_0x060133BC",
+      "0TH2.BIN_0x060133EA",
+      "0TH2.BIN_0x06013410",
+      "0TH2.BIN_0x06013442"
+    ],
+    "dynamic_count": 6,
+    "cold_count": 1
+  },
+  "ACTOR_ENTITY_disp_12": {
+    "object_type": "ACTOR_ENTITY",
+    "field_displacement": 12,
+    "field_name": "interaction_callback",
+    "semantic_role": "CALLBACK_FUNCTION_POINTER",
+    "access_width": "LONG",
+    "sites": [
+      "0TH2.BIN_0x06078500",
+      "0TH2.BIN_0x06078586",
+      "0TH2.BIN_0x0607D892",
+      "TH2.LOW_0x002EA22E",
+      "TH2.LOW_0x002EA24A",
+      "TH2.LOW_0x002EA2EE",
+      "TH2.LOW_0x002EA320",
+      "TH2.LOW_0x002EA578",
+      "TH2.LOW_0x002EA68E"
+    ],
+    "dynamic_count": 8,
+    "cold_count": 1
+  },
+  "ACTOR_ENTITY_disp_8": {
+    "object_type": "ACTOR_ENTITY",
+    "field_displacement": 8,
+    "field_name": "render_callback",
+    "semantic_role": "CALLBACK_FUNCTION_POINTER",
+    "access_width": "LONG",
+    "sites": [
+      "0TH2.BIN_0x0607853E",
+      "0TH2.BIN_0x0607D86A",
+      "0TH2.BIN_0x0607E0B4",
+      "0TH2.BIN_0x0607E0CC"
+    ],
+    "dynamic_count": 4,
+    "cold_count": 0
+  },
+  "ACTOR_ENTITY_disp_4": {
+    "object_type": "ACTOR_ENTITY",
+    "field_displacement": 4,
+    "field_name": "animation_update_callback",
+    "semantic_role": "CALLBACK_FUNCTION_POINTER",
+    "access_width": "LONG",
+    "sites": [
+      "0TH2.BIN_0x06079040",
+      "0TH2.BIN_0x0607D84C",
+      "0TH2.BIN_0x0607E040"
+    ],
+    "dynamic_count": 3,
+    "cold_count": 0
+  },
+  "LOCAL_STACK_FRAME_disp_0": {
+    "object_type": "LOCAL_STACK_FRAME",
+    "field_displacement": 0,
+    "field_name": "stack_restored_callback",
+    "semantic_role": "CALLBACK_FUNCTION_POINTER",
+    "access_width": "LONG",
+    "sites": [
+      "0TH2.BIN_0x0607909E"
+    ],
+    "dynamic_count": 0,
+    "cold_count": 1
+  },
+  "LOCAL_STACK_FRAME_disp_40": {
+    "object_type": "LOCAL_STACK_FRAME",
+    "field_displacement": 40,
+    "field_name": "field_offset_0x28",
+    "semantic_role": "CALLBACK_FUNCTION_POINTER",
+    "access_width": "LONG",
+    "sites": [
+      "0TH2.BIN_0x0607DF9C"
+    ],
+    "dynamic_count": 0,
+    "cold_count": 1
+  },
+  "ACTOR_ENTITY_disp_20": {
+    "object_type": "ACTOR_ENTITY",
+    "field_displacement": 20,
+    "field_name": "despawn_callback",
+    "semantic_role": "CALLBACK_FUNCTION_POINTER",
+    "access_width": "LONG",
+    "sites": [
+      "TH2.LOW_0x002EA296",
+      "TH2.LOW_0x002EA2CA",
+      "TH2.LOW_0x002EA3A8",
+      "TH2.LOW_0x002EA3C4"
+    ],
+    "dynamic_count": 4,
+    "cold_count": 0
+  },
+  "ACTOR_ENTITY_disp_40": {
+    "object_type": "ACTOR_ENTITY",
+    "field_displacement": 40,
+    "field_name": "aux_callback",
+    "semantic_role": "CALLBACK_FUNCTION_POINTER",
+    "access_width": "LONG",
+    "sites": [
+      "TH2.LOW_0x002EA512"
+    ],
+    "dynamic_count": 1,
+    "cold_count": 0
+  },
+  "ACTOR_ENTITY_disp_28": {
+    "object_type": "ACTOR_ENTITY",
+    "field_displacement": 28,
+    "field_name": "collision_callback",
+    "semantic_role": "CALLBACK_FUNCTION_POINTER",
+    "access_width": "LONG",
+    "sites": [
+      "TH2.LOW_0x002EA566",
+      "TH2.LOW_0x002EA67C",
+      "TH2.LOW_0x002EAB80",
+      "TH2.LOW_0x002EABA4"
+    ],
+    "dynamic_count": 3,
+    "cold_count": 1
+  },
+  "ACTOR_ENTITY_disp_16": {
+    "object_type": "ACTOR_ENTITY",
+    "field_displacement": 16,
+    "field_name": "damage_callback",
+    "semantic_role": "CALLBACK_FUNCTION_POINTER",
+    "access_width": "LONG",
+    "sites": [
+      "TH2.LOW_0x002EA5DE",
+      "TH2.LOW_0x002EA636",
+      "TH2.LOW_0x002EA6BE",
+      "TH2.LOW_0x002EA716"
+    ],
+    "dynamic_count": 1,
+    "cold_count": 3
+  },
+  "ACTOR_ENTITY_disp_32": {
+    "object_type": "ACTOR_ENTITY",
+    "field_displacement": 32,
+    "field_name": "timer_callback",
+    "semantic_role": "CALLBACK_FUNCTION_POINTER",
+    "access_width": "LONG",
+    "sites": [
+      "TH2.LOW_0x002EA5F0",
+      "TH2.LOW_0x002EA648",
+      "TH2.LOW_0x002EA6D0",
+      "TH2.LOW_0x002EA728"
+    ],
+    "dynamic_count": 1,
+    "cold_count": 3
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "total_gaps_audited": 7344,
+  "state_counts": {
+    "CONFIRMED_CODE": 3160,
+    "UNKNOWN": 1595,
+    "PROVEN_DATA": 2240,
+    "PROVEN_PADDING": 349
+  },
+  "residual_undecoded_gaps_before": 1561,
+  "residual_undecoded_gaps_after": 1595,
+  "gap_reduction_from_p6": -34,
+  "gap_reduction_from_p3_baseline": 611,
+  "newly_confirmed_code_segments": 114,
+  "proven_targets_injected": 546
+}

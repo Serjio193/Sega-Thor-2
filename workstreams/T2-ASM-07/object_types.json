@@ -1,0 +1,99 @@
+{
+  "ENGINE_STATE": {
+    "type_id": "ENGINE_STATE",
+    "name": "Main Game Engine State",
+    "category": "GLOBAL_SINGLETON",
+    "base_ram_ranges": [
+      "0x06088D00..0x06088E00"
+    ],
+    "description": "Global engine coordinator handling stage state, timers, and subsystem dispatchers.",
+    "callback_fields": {
+      "24": "subsystem_dispatch_callback",
+      "12": "stage_event_callback"
+    },
+    "site_count": 0
+  },
+  "ACTOR_ENTITY": {
+    "type_id": "ACTOR_ENTITY",
+    "name": "Actor / Entity Instance",
+    "category": "DYNAMIC_HEAP_OBJECT",
+    "base_ram_ranges": [
+      "0x060828CC..0x060A0000"
+    ],
+    "description": "Player, enemy, NPC, projectile, or room entity struct holding update and draw callbacks.",
+    "callback_fields": {
+      "0": "state_action_callback",
+      "4": "animation_update_callback",
+      "8": "render_callback",
+      "12": "interaction_callback",
+      "16": "damage_callback",
+      "20": "despawn_callback",
+      "24": "secondary_action_callback",
+      "28": "collision_callback",
+      "32": "timer_callback",
+      "40": "aux_callback"
+    },
+    "site_count": 57
+  },
+  "SCRIPT_VM": {
+    "type_id": "SCRIPT_VM",
+    "name": "Script Virtual Machine Context",
+    "category": "INTERPRETER_STATE",
+    "base_ram_ranges": [
+      "0x06090000..0x060A0000"
+    ],
+    "description": "Bytecode and event trigger interpreter execution context with dynamic opcode handlers.",
+    "callback_fields": {
+      "0": "opcode_handler_callback"
+    },
+    "site_count": 4
+  },
+  "SYSTEM_VECTOR": {
+    "type_id": "SYSTEM_VECTOR",
+    "name": "Saturn System Vector",
+    "category": "LOW_RAM_SYSTEM",
+    "base_ram_ranges": [
+      "0x06000000..0x06004000"
+    ],
+    "description": "Sega Saturn 1st stage boot / BIOS / SMPC / sound system call jump vector.",
+    "callback_fields": {
+      "0": "bios_smpc_entry"
+    },
+    "site_count": 21
+  },
+  "JUMP_TABLE_DISPATCH": {
+    "type_id": "JUMP_TABLE_DISPATCH",
+    "name": "Indexed Jump Table Dispatcher",
+    "category": "INDEXED_TABLE",
+    "base_ram_ranges": [
+      "0x06004000..0x06086C00"
+    ],
+    "description": "Indexed callback array dispatched via MOV.L @(R0, Rm), Rn.",
+    "callback_fields": {
+      "-1": "indexed_table_entry"
+    },
+    "site_count": 14
+  },
+  "LOCAL_STACK_FRAME": {
+    "type_id": "LOCAL_STACK_FRAME",
+    "name": "Stack Frame Context",
+    "category": "STACK_FRAME",
+    "base_ram_ranges": [
+      "0x060FFFF0..0x06100000"
+    ],
+    "description": "Function pointer preserved in stack frame across subroutine calls.",
+    "callback_fields": {
+      "0": "stack_restored_callback"
+    },
+    "site_count": 2
+  },
+  "UNKNOWN_OBJECT": {
+    "type_id": "UNKNOWN_OBJECT",
+    "name": "Unclassified Struct",
+    "category": "UNRESOLVED",
+    "base_ram_ranges": [],
+    "description": "Struct reference whose base instance has not yet been bounded to a known heap range.",
+    "callback_fields": {},
+    "site_count": 0
+  }
+}

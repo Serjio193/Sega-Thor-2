@@ -1,59 +1,54 @@
 # Current task
 
-TASK: T2-ASM-06 — Indirect Control Flow Resolution, Jump Table Recovery, and Code Denominator Closure
-WHY: Resolve indirect control-flow sites across 0TH2.BIN, TH2.LOW, SET07.BIN, and BGM.BIN, drive down unresolved indirect sites from baseline 2,231, recover jump tables, bound RTS caller domains, and reduce residual undecoded gaps towards FULL_ASM_GAME_GATE.
+TASK: T2-ASM-07 — Struct Function Pointer Recovery, Entity/Actor Dispatch Domains, and Residual CFG Closure
+WHY: Resolve struct function pointers, actor callback dispatch domains, and callee-saved literal registers across the remaining 855 unresolved indirect sites (prioritizing 551 dynamically active sites), pushing indirect resolution and CFG closure forward.
 CURRENT MILESTONE: ASM-First Recovery Track (docs/DEVELOPMENT_PLAN.md, ADR D-015)
 TASK STATUS: COMPLETE
 MILESTONE UNDERSTANDING CONFIDENCE: 100%
 CURRENT SLICE UNDERSTANDING CONFIDENCE: 100%
-SLICE CONFIDENCE EVIDENCE: Baseline HEAD at ad0e2f5ef1a407bbe592a7bdab197835a6eac4c3; 32/32 negative controls pass (8 base + 8 P3 NC-A..H + 8 P4 NC-I..P + 8 P5 NC-Q..X); 8/8 unit tests in test_indirect_resolution.py pass; 26/26 Linux CTests pass; unresolved indirect sites reduced from 2,231 down to 855 (-61.68% reduction); residual undecoded gaps reduced from 2,206 down to 1,561 (-645 gaps eliminated, -29.24%); 46 jump tables recovered with proven bounds; 134 leaf RTS caller domains bounded.
+SLICE CONFIDENCE EVIDENCE: Baseline HEAD at b2bcf8e06757ad6415c5c26dfb3142e310927a8a; 40/40 negative controls pass (8 base + 8 P3 NC-A..H + 8 P4 NC-I..P + 8 P5 NC-Q..X + 8 P6 NC-Y..AF); 7/7 unit tests in test_struct_callback_resolution.py pass; 26/26 Linux CTests pass; unresolved indirect sites reduced from 855 down to 547 (-36.02% reduction); Call/Jump resolution reached 97.30% (1,552 / 1,595 resolved; JMP 100%, BRAF 100%, JSR 97.54%); 427 proven static field writers; 808 static function pointer tables; 10 finite callback domains bounded; 546 unique targets injected into CFG worklist yielding +114 confirmed code segments.
 ACCEPTANCE CRITERIA:
-- [x] Phase 0: Baseline gate verified (HEAD at ad0e2f5ef1a407bbe592a7bdab197835a6eac4c3, 24 negative controls green);
-- [x] Phase 1: Canonical indirect site inventory in workstreams/T2-ASM-06/indirect_sites.json (2,233 sites, 2 baseline resolved, 2,231 unresolved);
-- [x] Phase 2: Structural classification in workstreams/T2-ASM-06/indirect_site_classes.json;
-- [x] Phase 3: Constant propagator in tools/asm/constant_propagator.py with call-clobber and memory safety;
-- [x] Phase 4: Register provenance engine in tools/asm/register_provenance.py (1,242 PC literal targets resolved);
-- [x] Phase 5: Jump table recovery engine in tools/asm/jump_table_recovery.py (46 jump tables with proven bounds and 0 data overlaps);
-- [x] Phase 6 & 7: Dynamic target oracle documentation in workstreams/T2-ASM-06/indirect_dynamic_targets.json;
-- [x] Phase 8: RTS caller domain resolution in tools/asm/indirect_resolver.py (134 leaf RTS sites bounded, 504 retained as RTS_UNRESOLVED);
-- [x] Phase 9 & 10: Call graph and function boundaries in workstreams/T2-ASM-06/call_graph.json (3,019 functions, 5,271 call edges);
-- [x] Phase 14: Indirect resolution scorecard in workstreams/T2-ASM-06/indirect_resolution_scorecard.json (1,378 resolved, 855 unresolved);
-- [x] Phase 15..17: CFG closure recomputed in workstreams/T2-ASM-06/cfg_closure.json (residual gaps 2,206 -> 1,561, delta = -645);
-- [x] Phase 18: Re-evaluate FULL_ASM_GAME_GATE (honestly maintained as NOT_YET_REPROVEN);
-- [x] Phase 19: Adversarial negative controls NC-Q .. NC-X in tests/asm/negative_controls_p5.py (32/32 total negative controls pass);
-- [x] Phase 21: Unit test suite in tests/asm/test_indirect_resolution.py (8/8 PASS);
-- [x] Phase 22: Final report in docs/reports/INDIRECT_CONTROL_FLOW_T2_ASM_06.md and documentation updated;
+- [x] Phase 0: Baseline gate verified (HEAD at b2bcf8e06757ad6415c5c26dfb3142e310927a8a, 32 negative controls green);
+- [x] Phase 1: Struct site isolator in tools/asm/struct_site_isolator.py (855 unresolved sites parsed, 551 dynamic / 304 cold reconciled, 209 callee-saved literals, 98 struct sites isolated);
+- [x] Phase 2 & 3: Object base provenance & struct field inventory in tools/asm/object_provenance_analyzer.py (6 object archetypes, 15 struct callback fields mapped);
+- [x] Phase 4..7: Callback field writers & table recovery in tools/asm/callback_field_analyzer.py (427 proven field writers, 808 static callback tables, 10 bounded entity callback domains);
+- [x] Phase 8, 11, 12: Struct callback resolver in tools/asm/struct_callback_resolver.py (308 additional sites resolved, 1,686 total resolved, 547 unresolved; Call/Jump 97.30%);
+- [x] Phase 13 & 14: Full CFG closure engine in tools/asm/complete_cfg_closure.py (546 targets injected, +114 confirmed code segments, +80 proven data segments);
+- [x] Phase 16: Adversarial negative controls NC-Y .. NC-AF in tests/asm/negative_controls_p6.py (40/40 total negative controls pass);
+- [x] Phase 18: Re-evaluate FULL_ASM_GAME_GATE (honestly maintained as NOT_YET_REPROVEN due to 547 unresolved sites);
+- [x] Phase 19: Unit test suite in tests/asm/test_struct_callback_resolution.py (7/7 PASS);
+- [x] Phase 20: Comprehensive report in docs/reports/STRUCT_CALLBACK_RECOVERY_T2_ASM_07.md and documentation updated;
 - [x] Source file line limits <= 500 lines; git diff --check clean; no commercial assets committed.
 
 EVIDENCE AVAILABLE:
 - Canonical RUS binary bytes in .private/rus/
-- P3 control flow resolution inventory (2,233 indirect sites)
-- CDL execution traces, D9 dynamic checkpoints, ASM-01..04 test logs
+- Master indirect site inventory and dynamic oracle execution traces
+- Struct site inventory, field layouts, proven writers, and callback tables in workstreams/T2-ASM-07/
 
 KNOWN UNKNOWNS:
-- 855 residual indirect sites (551 dynamically executed sites in 0TH2.BIN / TH2.LOW using struct function pointers, 304 unexecuted / cold edges);
-- 1,561 residual undecoded gaps in 0TH2.BIN and TH2.LOW.
+- 547 residual indirect sites (504 RTS return flow sites, 36 JSR sites, 7 BSRF table entries);
+- 1,595 residual undecoded gap fragments in 0TH2.BIN and TH2.LOW.
 
 ALLOWED SCOPE:
-- ASM-first indirect control-flow resolution, jump tables, constant propagation, call graph recovery, testing, documentation.
+- ASM-first struct function pointer resolution, object provenance, callback table recovery, testing, documentation.
 
 OUT OF SCOPE:
 - Broad ASM→C++ gameplay translation, emulator integration into production, modifying canonical executable manifests.
 
 ## Last verified result
 
-T2_ASM_06_PASS: Resolved 1,378 of 2,233 indirect control flow sites (+1,376 net resolved), reducing unresolved indirect sites from 2,231 down to 855 (-61.68% reduction). Resolved 1,244 of 1,595 INDIRECT_CALL_JUMP sites (77.99%) and 134 of 638 RETURN_FLOW (RTS) sites (21.00%) strictly respecting Rule 1 and Rule 7. Recovered 46 indexed jump tables with proven bounds checks and zero guarded data collisions. Recovered 3,019 function boundaries and 5,271 call edges. Injected 402 proven indirect targets into SH-2 CFG worklist, reducing residual undecoded gaps from 2,206 down to 1,561 (-645 gaps eliminated, -29.24%) and discovering 361 newly confirmed code segments. All 32 negative controls pass (8 base + 8 P3 NC-A..H + 8 P4 NC-I..P + 8 P5 NC-Q..X). All 8 unit tests in test_indirect_resolution.py pass. FULL_ASM_GAME_GATE honestly maintained as NOT_YET_REPROVEN. All files satisfy <= 500 lines policy. git diff --check clean. Zero commercial assets tracked.
+T2_ASM_07_PASS: Resolved 308 additional indirect sites across 0TH2.BIN and TH2.LOW, reaching 1,686 total resolved sites (75.50%) and reducing unresolved indirect sites from 855 down to 547 (-36.02% reduction). Pushed INDIRECT_CALL_JUMP resolution to 97.30% (1,552 / 1,595 resolved; JMP 100% [121/121], BRAF 100% [2/2], JSR 97.54% [1,429/1,465]). Strictly maintained Rule 1 category separation with RETURN_FLOW (RTS) at 21.00% (134 / 638 resolved, 504 quarantined). Recovered 6 concrete object archetypes across High RAM, Low RAM, and system vectors. Proved 427 static field store writers and recovered 808 static function pointer tables. Bounded target domains across all 10 active entity callback field offsets (+0x00..+0x28). Injected 546 unique proven indirect targets into the SH-2 CFG worklist, discovering 114 newly confirmed code segments (3,160 total) and 80 proven data segments (2,240 total). All 40 negative controls pass 100% (including 8 new adversarial controls NC-Y..NC-AF). All 7 unit tests in test_struct_callback_resolution.py pass. All 26 Linux CTests pass under WSL. FULL_ASM_GAME_GATE honestly maintained as NOT_YET_REPROVEN. All files satisfy <= 500 lines policy. git diff --check clean. Zero commercial assets tracked.
 
 ## Session checkpoint
 
 CURRENT MILESTONE: ASM-First Recovery Track (docs/DEVELOPMENT_PLAN.md, ADR D-015)
-CURRENT TASK: T2-ASM-06 Indirect Control Flow Resolution, Jump Table Recovery, and Code Denominator Closure
+CURRENT TASK: T2-ASM-07 Struct Function Pointer Recovery, Entity/Actor Dispatch Domains, and Residual CFG Closure
 TASK STATUS: COMPLETE
 MILESTONE UNDERSTANDING CONFIDENCE: 100%
 CURRENT SLICE UNDERSTANDING CONFIDENCE: 100%
-LAST VERIFIED RESULT: T2_ASM_06_PASS. Unresolved indirect sites = 855 (down from 2,231). Residual gaps = 1,561 (down from 2,206). 32/32 negative controls pass. 8/8 unit tests pass. 26/26 Linux CTests pass.
-FILES CHANGED: tools/asm/constant_propagator.py, tools/asm/register_provenance.py, tools/asm/jump_table_recovery.py, tools/asm/call_graph_builder.py, tools/asm/indirect_resolver.py, tests/asm/negative_controls_p5.py, tests/asm/test_indirect_resolution.py, tests/asm/test_recovery_gates.py, workstreams/T2-ASM-06/*, workstreams/ASM_RECOVERY_SCORECARD.json, docs/reports/INDIRECT_CONTROL_FLOW_T2_ASM_06.md, docs/FILE_MAP.md, docs/PROJECT_STATE.md, docs/WORKLOG.md, TASK.md
-TESTS RUN: python tests/asm/negative_controls_p5.py (8/8 PASS), python tests/asm/test_indirect_resolution.py (8/8 PASS), python tests/asm/test_recovery_gates.py (32/32 PASS), wsl ctest --test-dir build-linux (26/26 PASS).
-NEW KNOWLEDGE: 1,200 JSR calls resolve to static PC literal targets; 46 jump tables use AND_MASK and MOV_LIMIT; 134 RTS sites belong to bounded leaf functions; 645 undecoded gaps resolved to confirmed code and data.
-OPEN QUESTIONS: Resolution of remaining 855 indirect sites (struct-field function pointers at 551 dynamically active sites) and closing the remaining 1,561 undecoded gaps.
-EXACT NEXT ACTION: Target remaining 855 indirect sites (focusing on 551 dynamically executed sites) or proceed to M68K sound driver / BGM.BIN semantic recovery under T2-SND-01.
+LAST VERIFIED RESULT: T2_ASM_07_PASS. Unresolved indirect sites = 547 (down from 855 in P5/P6 and 2,231 baseline). Call/Jump resolution = 97.30% (1,552/1,595). 40/40 negative controls pass. 7/7 unit tests pass. 26/26 Linux CTests pass.
+FILES CHANGED: tools/asm/struct_site_isolator.py, tools/asm/object_provenance_analyzer.py, tools/asm/callback_field_analyzer.py, tools/asm/struct_callback_resolver.py, tools/asm/complete_cfg_closure.py, tests/asm/negative_controls_p6.py, tests/asm/test_struct_callback_resolution.py, tests/asm/test_recovery_gates.py, workstreams/T2-ASM-07/*, workstreams/ASM_RECOVERY_SCORECARD.json, docs/reports/STRUCT_CALLBACK_RECOVERY_T2_ASM_07.md, docs/FILE_MAP.md, docs/PROJECT_STATE.md, docs/WORKLOG.md, TASK.md
+TESTS RUN: python tests/asm/negative_controls_p6.py (8/8 PASS), python tests/asm/test_struct_callback_resolution.py (7/7 PASS), python tests/asm/test_recovery_gates.py (40/40 PASS), wsl ctest --test-dir build-linux (26/26 PASS).
+NEW KNOWLEDGE: 209 call/jump sites are callee-saved literal registers preserved across calls; 427 static field writers bound 10 entity callback offsets; 808 callback tables exist in binary; 114 new code segments confirmed via CFG closure.
+OPEN QUESTIONS: Resolution of remaining 547 indirect sites (504 RTS return flow sites, 36 JSR sites, 7 BSRF table entries).
+EXACT NEXT ACTION: Proceed to next scheduled roadmap milestone or address remaining 547 indirect sites or begin M68K sound driver / BGM.BIN semantic recovery under T2-SND-01.

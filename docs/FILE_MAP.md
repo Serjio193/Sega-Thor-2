@@ -149,9 +149,12 @@ tools/
     validate_recovery_gates.py    machine-enforced recovery gate integrity validator
     constant_propagator.py        SH-2 basic-block constant propagator with call-clobber and memory safety
     register_provenance.py        architectural register provenance engine over canonical revision bytes
-    jump_table_recovery.py        indexed jump table recovery with bounds check and data overlap rejection
-    call_graph_builder.py         call graph construction and leaf function boundary recovery
     indirect_resolver.py          master indirect control-flow resolver and category-separated scorecard generator
+    struct_site_isolator.py       isolates struct-derived indirect sites and reconciles dynamic active sites
+    object_provenance_analyzer.py classifies object instances and tracks struct field layouts
+    callback_field_analyzer.py    discovers field writers and callback dispatch tables
+    struct_callback_resolver.py   master multi-pass resolver for struct callbacks and callee-saved literals
+    complete_cfg_closure.py       full CFG closure and gap reduction engine
   carver/
     interval_db.py                canonical central interval database & execution conflict engine
     provenance_dag.py             provenance DAG & graph expansion engine
@@ -232,10 +235,11 @@ tests/
     test_bgm_asm.py               CTest integration test for full BGM.BIN M68K sound driver round-trip
     test_manifest_schema.py       CTest integration test for module manifest schema & partition invariants
     test_full_game_disc.py        CTest integration test for FULL_ASM_GAME_GATE rebuilt disc verification
-    test_gameplay_scenarios.py    CTest integration test for multi-scenario gameplay verification
-    test_recovery_gates.py        negative controls (32 total) & validation for recovery gates
+    test_recovery_gates.py        negative controls (40 total) & validation for recovery gates
     negative_controls_p5.py       8 adversarial negative controls (NC-Q..NC-X) for indirect flow integrity
+    negative_controls_p6.py       8 adversarial negative controls (NC-Y..NC-AF) for struct callback integrity
     test_indirect_resolution.py   unit tests for constant propagation, jump tables, call graph, and accounting
+    test_struct_callback_resolution.py unit tests for struct callbacks, object provenance, and accounting
   carver/
     test_carver_pipeline.py       carver pipeline, interval algebra, conflict, and determinism test suite
 
@@ -374,6 +378,14 @@ workstreams/
     indirect_resolution_scorecard.json master scorecard (1,378 resolved, 855 unresolved)
     indirect_dynamic_targets.json dynamic trace execution correlation across all 2,233 sites
     cfg_closure.json              CFG closure telemetry (-645 residual unknown gaps, +361 confirmed code segments)
+  T2-ASM-07/
+    struct_indirect_sites.json    complete inventory of 855 unresolved sites with base registers and displacements
+    object_types.json             taxonomy of 6 object archetypes across High RAM, Low RAM, and system vectors
+    struct_field_inventory.json   matrix of 15 struct callback fields (+0x00..+0x28) with semantic roles
+    callback_tables.json          808 static function pointer tables (constant literal arrays >= 4 entries)
+    state_machine_callbacks.json  10 finite proven callback domains across 427 static field writers
+    struct_callback_scorecard.json master scorecard (1,686 resolved, 547 unresolved; 97.30% call/jump resolution)
+    cfg_closure.json              CFG closure telemetry (+114 confirmed code segments, 546 injected targets)
 
 
 asm/                              assembly reconstruction layout (ADR D-015)
