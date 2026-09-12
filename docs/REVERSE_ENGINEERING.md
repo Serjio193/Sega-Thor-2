@@ -362,6 +362,37 @@ An audit of the T2-ASM-10 RTS certificates identified two critical implementatio
 - **Gates**: `ASM_90_GATE` = PASS (90.21% >= 90.00%); `FULL_ASM_GAME_GATE` = `NOT_YET_REPROVEN`.
 - **Negative Controls Suite P10**: Added NC-BG through NC-BN in `tests/asm/negative_controls_p10.py` (total **74 / 74 PASS**).
 
+## RTS V4 Completeness & Shared-Epilogue Closure (`T2-ASM-11`)
+
+Milestone T2-ASM-11 advanced the ASM-first proof track from the sound T2-ASM-10.1 baseline:
+
+### 1. Root Cause of Data Return Continuations (Literal Pool False Call Edges)
+- Detailed binary analysis discovered that the 43 return edges revoked in T2-ASM-10.1 originated from lower 16-bit halfwords of 32-bit pointers in literal pools (e.g. `0xBA88` in `0x0609BA88`) matching the bit pattern for `BSR label` (`1011 dddd dddd dddd`).
+- Exhaustive audit of all 14,656 edges in `canonical_entry_graph.json` identified **2,288 FALSE_CALL_EDGE instances** whose source PC is inside DATA (`DATA_LITERAL_POOL`, `DATA_TABLE`).
+- Excising these 2,288 false edges eliminated all data return continuations from caller domains without modifying binary bytes.
+
+### 2. Context-Sensitive PR Dataflow Decomposition
+- Developed `tools/asm/context_sensitive_pr_engine.py` constructing a strict CODE-only CFG respecting SH-2 delay slots (delayed branches, calls, returns).
+- Traced backward from all 638 RTS sites: proved 630/638 PR paths.
+  - 62 sites proven `PROVEN_PR_STACK_SLOT` (single unique `sts.l pr, @-r15` prologue, balanced stack frame depth, `lds.l @r15+, pr` epilogue).
+  - 17 sites proven `LEAF_UNTOUCHED_PR` (never modify PR along any reaching execution path).
+  - 2 sites proven `AMBIGUOUS_PR` (prologues reside inside UNKNOWN regions).
+- Discharged 22 residual PR-path sites with proven mechanics and complete caller domains.
+
+### 3. Function Boundary Normalization
+- Identified and normalized pseudo-function splits created by internal labels/jump tables (e.g., `0TH2.BIN_0x06008224`, previously split into `sub_0600812E`, normalized to prologue `0x06007C04`).
+- Emitted `workstreams/T2-ASM-11/function_boundary_v4.json`.
+
+### 4. Certified RTS V4 & Overall Indirect Resolution
+- Total RTS Sites: 638
+- Certified Resolved: **453 / 638 (71.00%)** (240 exact return, 213 finite set)
+- Honest Unresolved: **185 / 638 (29.00%)** (81 external threats in UNKNOWN, 59 PR path / shared epilogues, 45 open caller domain)
+- Calls / Jumps: **1,588 / 1,588 resolved (100.0%)**
+- Overall Canonical Indirect: **2,041 / 2,226 resolved (91.69%)**, 185 unresolved (8.31%)
+- Independent Soundness Audit: `INVALID_RESOLVED_CERTIFICATES == 0` (100% sound).
+- Gates: `ASM_90_GATE` = PASS (91.69% >= 90.00%); `FULL_ASM_GAME_GATE` = `NOT_YET_REPROVEN`.
+- Negative Controls Suite P11: Added NC-BO through NC-BV in `tests/asm/negative_controls_p11.py` (total **82 / 82 PASS**).
+
 ## Record template
 
 For each new finding record:

@@ -1,5 +1,53 @@
 # Worklog
 
+## 2026-09-12 — T2-ASM-11: Context-Sensitive Shared-Epilogue Decomposition, Multi-Entry CFG Normalization, and Residual RTS Return-Domain Closure
+
+### Task
+
+Execute milestone `T2-ASM-11` to advance the ASM-first proof track from the sound `T2-ASM-10.1` baseline (420 resolved, 218 unresolved) without metric-forcing:
+1. **Residual 218 Site Inventory V4 (`workstreams/T2-ASM-11/residual_rts_v4_inventory.json`)**:
+   - Cataloged all 218 residual RTS sites with exact blocker classification: 81 UNRESOLVED_EXTERNAL_ENTRY, 81 UNRESOLVED_PR_PATH, 56 UNRESOLVED_CALLER_DOMAIN.
+2. **Context-Sensitive PR Dataflow Engine (`tools/asm/context_sensitive_pr_engine.py`)**:
+   - Built strict CODE-only CFG from `module_byte_ownership_v3.json` respecting SH-2 delay slots (delayed branches, calls, and returns).
+   - Separated physical basic blocks from logical entry contexts `(module, generation, pc, logical_entry, PR_generation, stack_frame_generation)`.
+   - Traced backward from all 638 RTS sites: proved 630/638 PR paths (62 PROVEN_PR_STACK_SLOT, 17 LEAF_UNTOUCHED_PR, 2 AMBIGUOUS due to prologues in UNKNOWN).
+   - Formed shared epilogue clusters in `workstreams/T2-ASM-11/shared_epilogue_clusters.json` and context-sensitive return domains in `workstreams/T2-ASM-11/shared_epilogue_return_domains.json`.
+   - Discharged 22 PR-path sites with proven stack/leaf mechanics and 100% complete caller domains.
+3. **Caller Return Domain Audit & False Call Edge Excision (`tools/asm/caller_return_domain_auditor.py`)**:
+   - Audited all 14,656 edges in `canonical_entry_graph.json` against `module_byte_ownership_v3.json`: 9,558 true edges in CODE, 2,810 threat edges in UNKNOWN, 2,288 false edges in DATA.
+   - Proved that the 43 revoked return edges from T2-ASM-10.1 were `FALSE_CALL_EDGE` instances from literal pool 16-bit halfwords (e.g. `0xBA88` in `0x0609BA88`) falsely decoded as BSR opcodes.
+   - Excised all 2,288 false call edges from DATA literal pools/tables.
+   - Recovered 11 sound caller domains with 100% CODE callers, 100% CODE return PCs, and 0 unknown threats.
+   - Retained remaining caller-blocked sites fail-closed (24 with data returns, 15 with zero valid code callers, 6 with open domains).
+   - Emitted `workstreams/T2-ASM-11/caller_return_domain_audit.json`.
+4. **Function Boundary Normalization (`workstreams/T2-ASM-11/function_boundary_v4.json`)**:
+   - Normalized pseudo-functions created by artificial internal labels (e.g., `0TH2.BIN_0x06008224` previously assigned to `sub_0600812E`, normalized to prologue `0x06007C04`).
+5. **Targeted External Threats Analysis (`workstreams/T2-ASM-11/targeted_external_threats.json`)**:
+   - Audited all 81 UNRESOLVED_EXTERNAL_ENTRY sites; retained 100% fail-closed pending proof of enclosing UNKNOWN region non-executability.
+6. **RTS V4 Certification & Soundness Auditor (`tools/asm/rts_v4_certifier.py`, `tools/asm/rts_v4_soundness_auditor.py`)**:
+   - Derived certified RTS V4: **453 / 638 resolved (71.00%)**, **185 honest unresolved (29.00%)**.
+   - Net resolution: +33 sites (22 PR-path + 11 caller-domain).
+   - Independent soundness audit verified 100% of certificates sound: `INVALID_RESOLVED_CERTIFICATES == 0`.
+   - Emitted `workstreams/T2-ASM-11/rts_completeness_v4.json` and `workstreams/T2-ASM-11/rts_v4_soundness_audit.json`.
+7. **Negative Controls Suite P11 (`tests/asm/negative_controls_p11.py`)**:
+   - Implemented 8 new adversarial negative controls (NC-BO through NC-BV): context collapse, single unresolved context fail-closed, return PC shift rejection, delay slot return semantics, tailcall PR preservation, frame generation alias isolation, function split normalization, and aggregate pass with failing context rejection.
+   - Repository negative controls increased from 74 to **82 / 82 PASS (100%)**.
+8. **Invariants Preserved**:
+   - All 58 pytest tests pass; all 26 WSL Linux CTests pass; whole-module binary diff remains 0; 4/4 canonical module hashes exact; full-disc SHA-256 exact; Mednafen 6 scenarios zero divergence.
+   - Emitted comprehensive report `docs/reports/SHARED_EPILOGUE_CLOSURE_T2_ASM_11.md`.
+
+### Status After Pass
+
+- `T2-ASM-11`: **COMPLETE / PASS**
+- Canonical indirect denominator: **2,226** (1,588 call/jump + 638 RTS)
+- Total resolved indirect sites: **2,041 / 2,226 (91.69%)**
+- Total unresolved indirect sites: **185 / 2,226 (8.31%)**
+- Indirect call/jump resolution: **1,588 / 1,588 (100.00%)**
+- RTS return flow resolution: **453 / 638 (71.00%)**, 185 unresolved (29.00%)
+- Negative controls: **82/82 PASS** (8 base + 8 P3 + 8 P4 + 8 P5 + 8 P6 + 10 P7 + 8 P8 + 8 P9 + 8 P10 + 8 P11 NC-BO..BV)
+- Recovery gates: `ASM_90_GATE` = PASS (91.69%), `FULL_ASM_GAME_GATE` = NOT_YET_REPROVEN (honest), `STANDALONE_NATIVE_GATE` = FROZEN
+- Technical report: `docs/reports/SHARED_EPILOGUE_CLOSURE_T2_ASM_11.md`.
+
 ## 2026-09-12 — T2-ASM-10.1: RTS V3 Certificate Soundness Audit, Per-Function Caller Binding Repair, and Fail-Closed Reconciliation
 
 ### Task

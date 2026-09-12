@@ -38,6 +38,7 @@ docs/
     RTS_CALLER_DOMAIN_T2_ASM_09.md        comprehensive technical report for residual RTS caller-domain closure and control-flow proof
     WHOLE_MODULE_REASSEMBLY_T2_ASM_10.md  comprehensive technical report for whole-module reassembly, gap decarving, and gate finalization
     RTS_V3_SOUNDNESS_AUDIT_T2_ASM_10_1.md comprehensive technical report for RTS V3 soundness audit and reconciliation
+    SHARED_EPILOGUE_CLOSURE_T2_ASM_11.md  comprehensive technical report for context-sensitive shared epilogues & RTS V4
 
 
 config/
@@ -177,6 +178,10 @@ tools/
     rts_v3_certifier.py           pure certify_site master RTS v3.1 certifier with explicit key binding
     rts_certificate_auditor.py    independent auditor of RTS completeness against mandatory contract
     rts_promotion_auditor.py      re-audit tool for the 96 T2-ASM-10 RTS promotions
+    context_sensitive_pr_engine.py context-sensitive PR dataflow engine across physical exits and logical callers
+    caller_return_domain_auditor.py audits caller/return domains and formalizes false call edges from literal pools
+    rts_v4_certifier.py           pure certify_site master RTS v4 certifier with context-sensitive closure
+    rts_v4_soundness_auditor.py   independent soundness auditor for RTS v4 certificates against fail-closed contract
   carver/
     interval_db.py                canonical central interval database & execution conflict engine
     provenance_dag.py             provenance DAG & graph expansion engine
@@ -264,12 +269,14 @@ tests/
     negative_controls_p8.py       8 adversarial negative controls (NC-AQ..NC-AX) for RTS caller-domain closure
     negative_controls_p9.py       8 adversarial negative controls (NC-AY..NC-BF) for whole-module reassembly & gap decarving
     negative_controls_p10.py      8 adversarial negative controls (NC-BG..NC-BN) for RTS certificate soundness
+    negative_controls_p11.py      8 adversarial negative controls (NC-BO..NC-BV) for shared epilogues & return targets
     test_indirect_resolution.py   unit tests for constant propagation, jump tables, call graph, and accounting
     test_struct_callback_resolution.py unit tests for struct callbacks, object provenance, and accounting
     test_return_provenance.py     unit tests for PR return provenance, canonical denominator, and byte carving
     test_rts_domain_closure.py    unit tests for residual RTS caller-domain closure and certificates
     test_whole_module_reassembly.py unit tests for full source reassembly, determinism, and diff parity
     test_gap_decarving.py         unit tests for SH-2 gap decarving, partition v3, and RTS completeness v3
+    test_shared_epilogue_closure.py unit tests for context-sensitive shared epilogue decomposition and RTS V4
   carver/
     test_carver_pipeline.py       carver pipeline, interval algebra, conflict, and determinism test suite
 
@@ -467,6 +474,17 @@ workstreams/
     t2_asm_10_rts_promotion_audit.json individual audit of the 96 T2-ASM-10 promotions (0 valid, 96 revoked)
     rts_completeness_v3_1.json    reconciled RTS v3.1 certificates (420 resolved, 218 honest unresolved)
     rts_gap_correlation.json      gap threat correlation with explicit per-function caller binding
+  T2-ASM-11/
+    residual_rts_v4_inventory.json complete inventory of residual 218 RTS sites across 3 categories
+    context_sensitive_cfg.json    context-sensitive CFG mapping basic blocks and function entries
+    shared_epilogue_clusters.json clusters of shared epilogues and physical return sites
+    shared_epilogue_return_domains.json context-sensitive return domains and PR stack slots
+    tailcall_pr_contexts_v2.json  tailcall PR inheritance contexts
+    function_boundary_v4.json     normalized function boundaries resolving artificial splits
+    caller_return_domain_audit.json audit of caller/return domains and excised 2,288 false call edges
+    targeted_external_threats.json accounting of external entry threats retained fail-closed
+    rts_completeness_v4.json      master RTS v4 certificates (453 resolved, 185 honest unresolved)
+    rts_v4_soundness_audit.json   independent soundness audit verifying 0 violations across all 638 sites
 
 
 asm/                              assembly reconstruction layout (ADR D-015)

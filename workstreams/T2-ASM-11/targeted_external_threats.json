@@ -1,0 +1,1173 @@
+{
+  "version": "1.0",
+  "total_external_entry_sites": 81,
+  "sites": [
+    {
+      "site_id": "0TH2.BIN_0x06004072",
+      "function": "sub_0600406C",
+      "entry_pc": "0x0600406C",
+      "unknown_code_caller_threats": 14,
+      "unresolved_reference_sources": [
+        "0x0600E5E0",
+        "0x06019658",
+        "0x060197E0",
+        "0x0601CAC0",
+        "0x0602D44C",
+        "0x0602D504",
+        "0x06030FFC",
+        "0x06032D98",
+        "0x0603D9FC",
+        "0x0603DE9C",
+        "0x06041758",
+        "0x0604E460",
+        "0x0604EBB4",
+        "0x0605A05C"
+      ],
+      "unresolved_entry_sources": [
+        "TAILCALL_DOMAIN_INCOMPLETE",
+        "UNKNOWN_REGION_CALLER_THREATS_14"
+      ],
+      "status": "UNRESOLVED_EXTERNAL_ENTRY_RETAINED",
+      "disposition": "Retained fail-closed: requires proof of enclosing UNKNOWN region non-executability."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0600444A",
+      "function": "sub_0600442E",
+      "entry_pc": "0x0600442E",
+      "unknown_code_caller_threats": 1,
+      "unresolved_reference_sources": [
+        "0x002E7B50"
+      ],
+      "unresolved_entry_sources": [
+        "UNKNOWN_REGION_CALLER_THREATS_1"
+      ],
+      "status": "UNRESOLVED_EXTERNAL_ENTRY_RETAINED",
+      "disposition": "Retained fail-closed: requires proof of enclosing UNKNOWN region non-executability."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0600445A",
+      "function": "sub_0600444E",
+      "entry_pc": "0x0600444E",
+      "unknown_code_caller_threats": 1,
+      "unresolved_reference_sources": [
+        "0x002E5528"
+      ],
+      "unresolved_entry_sources": [
+        "UNKNOWN_REGION_CALLER_THREATS_1"
+      ],
+      "status": "UNRESOLVED_EXTERNAL_ENTRY_RETAINED",
+      "disposition": "Retained fail-closed: requires proof of enclosing UNKNOWN region non-executability."
+    },
+    {
+      "site_id": "0TH2.BIN_0x06004AAA",
+      "function": "sub_060049B8",
+      "entry_pc": "0x060049B8",
+      "unknown_code_caller_threats": 1,
+      "unresolved_reference_sources": [],
+      "unresolved_entry_sources": [
+        "UNKNOWN_REGION_CALLER_THREATS_1"
+      ],
+      "status": "UNRESOLVED_EXTERNAL_ENTRY_RETAINED",
+      "disposition": "Retained fail-closed: requires proof of enclosing UNKNOWN region non-executability."
+    },
+    {
+      "site_id": "0TH2.BIN_0x06004F32",
+      "function": "sub_06004F00",
+      "entry_pc": "0x06004F00",
+      "unknown_code_caller_threats": 1,
+      "unresolved_reference_sources": [
+        "0x002E48C0"
+      ],
+      "unresolved_entry_sources": [
+        "UNKNOWN_REGION_CALLER_THREATS_1"
+      ],
+      "status": "UNRESOLVED_EXTERNAL_ENTRY_RETAINED",
+      "disposition": "Retained fail-closed: requires proof of enclosing UNKNOWN region non-executability."
+    },
+    {
+      "site_id": "0TH2.BIN_0x06006372",
+      "function": "sub_06005CB6",
+      "entry_pc": "0x06005CB6",
+      "unknown_code_caller_threats": 1,
+      "unresolved_reference_sources": [
+        "0x060300E8"
+      ],
+      "unresolved_entry_sources": [
+        "UNKNOWN_REGION_CALLER_THREATS_1"
+      ],
+      "status": "UNRESOLVED_EXTERNAL_ENTRY_RETAINED",
+      "disposition": "Retained fail-closed: requires proof of enclosing UNKNOWN region non-executability."
+    },
+    {
+      "site_id": "0TH2.BIN_0x06007006",
+      "function": "sub_06006F60",
+      "entry_pc": "0x06006F60",
+      "unknown_code_caller_threats": 3,
+      "unresolved_reference_sources": [],
+      "unresolved_entry_sources": [
+        "UNKNOWN_REGION_CALLER_THREATS_3"
+      ],
+      "status": "UNRESOLVED_EXTERNAL_ENTRY_RETAINED",
+      "disposition": "Retained fail-closed: requires proof of enclosing UNKNOWN region non-executability."
+    },
+    {
+      "site_id": "0TH2.BIN_0x060070E6",
+      "function": "sub_06007030",
+      "entry_pc": "0x06007030",
+      "unknown_code_caller_threats": 1,
+      "unresolved_reference_sources": [],
+      "unresolved_entry_sources": [
+        "UNKNOWN_REGION_CALLER_THREATS_1"
+      ],
+      "status": "UNRESOLVED_EXTERNAL_ENTRY_RETAINED",
+      "disposition": "Retained fail-closed: requires proof of enclosing UNKNOWN region non-executability."
+    },
+    {
+      "site_id": "0TH2.BIN_0x06007AB0",
+      "function": "sub_060078F4",
+      "entry_pc": "0x060078F4",
+      "unknown_code_caller_threats": 1,
+      "unresolved_reference_sources": [
+        "0x0606541C"
+      ],
+      "unresolved_entry_sources": [
+        "UNKNOWN_REGION_CALLER_THREATS_1"
+      ],
+      "status": "UNRESOLVED_EXTERNAL_ENTRY_RETAINED",
+      "disposition": "Retained fail-closed: requires proof of enclosing UNKNOWN region non-executability."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0600A1A8",
+      "function": "sub_0600A17C",
+      "entry_pc": "0x0600A17C",
+      "unknown_code_caller_threats": 1,
+      "unresolved_reference_sources": [],
+      "unresolved_entry_sources": [
+        "UNKNOWN_REGION_CALLER_THREATS_1"
+      ],
+      "status": "UNRESOLVED_EXTERNAL_ENTRY_RETAINED",
+      "disposition": "Retained fail-closed: requires proof of enclosing UNKNOWN region non-executability."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0600B222",
+      "function": "sub_0600B204",
+      "entry_pc": "0x0600B204",
+      "unknown_code_caller_threats": 4,
+      "unresolved_reference_sources": [
+        "0x0600F498",
+        "0x060211B8",
+        "0x06026CD8",
+        "0x06027240"
+      ],
+      "unresolved_entry_sources": [
+        "UNKNOWN_REGION_CALLER_THREATS_4"
+      ],
+      "status": "UNRESOLVED_EXTERNAL_ENTRY_RETAINED",
+      "disposition": "Retained fail-closed: requires proof of enclosing UNKNOWN region non-executability."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0600DEFA",
+      "function": "sub_0600DEDC",
+      "entry_pc": "0x0600DEDC",
+      "unknown_code_caller_threats": 8,
+      "unresolved_reference_sources": [
+        "0x0601BF94",
+        "0x06022D2C",
+        "0x060237D0",
+        "0x060290B8",
+        "0x0602E7A8",
+        "0x0602F1A4",
+        "0x06032D9C",
+        "0x06063728"
+      ],
+      "unresolved_entry_sources": [
+        "TAILCALL_DOMAIN_INCOMPLETE",
+        "UNKNOWN_REGION_CALLER_THREATS_8"
+      ],
+      "status": "UNRESOLVED_EXTERNAL_ENTRY_RETAINED",
+      "disposition": "Retained fail-closed: requires proof of enclosing UNKNOWN region non-executability."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0600E198",
+      "function": "sub_0600E158",
+      "entry_pc": "0x0600E158",
+      "unknown_code_caller_threats": 4,
+      "unresolved_reference_sources": [],
+      "unresolved_entry_sources": [
+        "UNKNOWN_REGION_CALLER_THREATS_4"
+      ],
+      "status": "UNRESOLVED_EXTERNAL_ENTRY_RETAINED",
+      "disposition": "Retained fail-closed: requires proof of enclosing UNKNOWN region non-executability."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0600E1E0",
+      "function": "sub_0600E158",
+      "entry_pc": "0x0600E158",
+      "unknown_code_caller_threats": 4,
+      "unresolved_reference_sources": [],
+      "unresolved_entry_sources": [
+        "UNKNOWN_REGION_CALLER_THREATS_4"
+      ],
+      "status": "UNRESOLVED_EXTERNAL_ENTRY_RETAINED",
+      "disposition": "Retained fail-closed: requires proof of enclosing UNKNOWN region non-executability."
+    },
+    {
+      "site_id": "0TH2.BIN_0x060100E2",
+      "function": "sub_06010094",
+      "entry_pc": "0x06010094",
+      "unknown_code_caller_threats": 4,
+      "unresolved_reference_sources": [],
+      "unresolved_entry_sources": [
+        "UNKNOWN_REGION_CALLER_THREATS_4"
+      ],
+      "status": "UNRESOLVED_EXTERNAL_ENTRY_RETAINED",
+      "disposition": "Retained fail-closed: requires proof of enclosing UNKNOWN region non-executability."
+    },
+    {
+      "site_id": "0TH2.BIN_0x060100EA",
+      "function": "sub_06010094",
+      "entry_pc": "0x06010094",
+      "unknown_code_caller_threats": 4,
+      "unresolved_reference_sources": [],
+      "unresolved_entry_sources": [
+        "UNKNOWN_REGION_CALLER_THREATS_4"
+      ],
+      "status": "UNRESOLVED_EXTERNAL_ENTRY_RETAINED",
+      "disposition": "Retained fail-closed: requires proof of enclosing UNKNOWN region non-executability."
+    },
+    {
+      "site_id": "0TH2.BIN_0x06010BEC",
+      "function": "sub_06010BC2",
+      "entry_pc": "0x06010BC2",
+      "unknown_code_caller_threats": 1,
+      "unresolved_reference_sources": [],
+      "unresolved_entry_sources": [
+        "UNKNOWN_REGION_CALLER_THREATS_1"
+      ],
+      "status": "UNRESOLVED_EXTERNAL_ENTRY_RETAINED",
+      "disposition": "Retained fail-closed: requires proof of enclosing UNKNOWN region non-executability."
+    },
+    {
+      "site_id": "0TH2.BIN_0x06010C04",
+      "function": "sub_06010BC2",
+      "entry_pc": "0x06010BC2",
+      "unknown_code_caller_threats": 1,
+      "unresolved_reference_sources": [],
+      "unresolved_entry_sources": [
+        "UNKNOWN_REGION_CALLER_THREATS_1"
+      ],
+      "status": "UNRESOLVED_EXTERNAL_ENTRY_RETAINED",
+      "disposition": "Retained fail-closed: requires proof of enclosing UNKNOWN region non-executability."
+    },
+    {
+      "site_id": "0TH2.BIN_0x06010DC6",
+      "function": "sub_06010BC2",
+      "entry_pc": "0x06010BC2",
+      "unknown_code_caller_threats": 1,
+      "unresolved_reference_sources": [],
+      "unresolved_entry_sources": [
+        "UNKNOWN_REGION_CALLER_THREATS_1"
+      ],
+      "status": "UNRESOLVED_EXTERNAL_ENTRY_RETAINED",
+      "disposition": "Retained fail-closed: requires proof of enclosing UNKNOWN region non-executability."
+    },
+    {
+      "site_id": "0TH2.BIN_0x06010E96",
+      "function": "sub_06010BC2",
+      "entry_pc": "0x06010BC2",
+      "unknown_code_caller_threats": 1,
+      "unresolved_reference_sources": [],
+      "unresolved_entry_sources": [
+        "UNKNOWN_REGION_CALLER_THREATS_1"
+      ],
+      "status": "UNRESOLVED_EXTERNAL_ENTRY_RETAINED",
+      "disposition": "Retained fail-closed: requires proof of enclosing UNKNOWN region non-executability."
+    },
+    {
+      "site_id": "0TH2.BIN_0x06010EBE",
+      "function": "sub_06010BC2",
+      "entry_pc": "0x06010BC2",
+      "unknown_code_caller_threats": 1,
+      "unresolved_reference_sources": [],
+      "unresolved_entry_sources": [
+        "UNKNOWN_REGION_CALLER_THREATS_1"
+      ],
+      "status": "UNRESOLVED_EXTERNAL_ENTRY_RETAINED",
+      "disposition": "Retained fail-closed: requires proof of enclosing UNKNOWN region non-executability."
+    },
+    {
+      "site_id": "0TH2.BIN_0x06014C2C",
+      "function": "sub_06014BDC",
+      "entry_pc": "0x06014BDC",
+      "unknown_code_caller_threats": 1,
+      "unresolved_reference_sources": [
+        "0x06056BA8"
+      ],
+      "unresolved_entry_sources": [
+        "UNKNOWN_REGION_CALLER_THREATS_1"
+      ],
+      "status": "UNRESOLVED_EXTERNAL_ENTRY_RETAINED",
+      "disposition": "Retained fail-closed: requires proof of enclosing UNKNOWN region non-executability."
+    },
+    {
+      "site_id": "0TH2.BIN_0x06014C9A",
+      "function": "sub_06014BDC",
+      "entry_pc": "0x06014BDC",
+      "unknown_code_caller_threats": 1,
+      "unresolved_reference_sources": [
+        "0x06056BA8"
+      ],
+      "unresolved_entry_sources": [
+        "UNKNOWN_REGION_CALLER_THREATS_1"
+      ],
+      "status": "UNRESOLVED_EXTERNAL_ENTRY_RETAINED",
+      "disposition": "Retained fail-closed: requires proof of enclosing UNKNOWN region non-executability."
+    },
+    {
+      "site_id": "0TH2.BIN_0x06014D04",
+      "function": "sub_06014CA2",
+      "entry_pc": "0x06014CA2",
+      "unknown_code_caller_threats": 1,
+      "unresolved_reference_sources": [
+        "0x002E9D60"
+      ],
+      "unresolved_entry_sources": [
+        "UNKNOWN_REGION_CALLER_THREATS_1"
+      ],
+      "status": "UNRESOLVED_EXTERNAL_ENTRY_RETAINED",
+      "disposition": "Retained fail-closed: requires proof of enclosing UNKNOWN region non-executability."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0601717C",
+      "function": "sub_0601715E",
+      "entry_pc": "0x0601715E",
+      "unknown_code_caller_threats": 5,
+      "unresolved_reference_sources": [
+        "0x06017DDC",
+        "0x0604E1B8",
+        "0x0604E458"
+      ],
+      "unresolved_entry_sources": [
+        "UNKNOWN_REGION_CALLER_THREATS_5"
+      ],
+      "status": "UNRESOLVED_EXTERNAL_ENTRY_RETAINED",
+      "disposition": "Retained fail-closed: requires proof of enclosing UNKNOWN region non-executability."
+    },
+    {
+      "site_id": "0TH2.BIN_0x060171B0",
+      "function": "sub_0601715E",
+      "entry_pc": "0x0601715E",
+      "unknown_code_caller_threats": 5,
+      "unresolved_reference_sources": [
+        "0x06017DDC",
+        "0x0604E1B8",
+        "0x0604E458"
+      ],
+      "unresolved_entry_sources": [
+        "UNKNOWN_REGION_CALLER_THREATS_5"
+      ],
+      "status": "UNRESOLVED_EXTERNAL_ENTRY_RETAINED",
+      "disposition": "Retained fail-closed: requires proof of enclosing UNKNOWN region non-executability."
+    },
+    {
+      "site_id": "0TH2.BIN_0x06017434",
+      "function": "sub_060171B4",
+      "entry_pc": "0x060171B4",
+      "unknown_code_caller_threats": 2,
+      "unresolved_reference_sources": [
+        "0x06017DD8"
+      ],
+      "unresolved_entry_sources": [
+        "UNKNOWN_REGION_CALLER_THREATS_2"
+      ],
+      "status": "UNRESOLVED_EXTERNAL_ENTRY_RETAINED",
+      "disposition": "Retained fail-closed: requires proof of enclosing UNKNOWN region non-executability."
+    },
+    {
+      "site_id": "0TH2.BIN_0x06018154",
+      "function": "sub_0601813A",
+      "entry_pc": "0x0601813A",
+      "unknown_code_caller_threats": 1,
+      "unresolved_reference_sources": [],
+      "unresolved_entry_sources": [
+        "UNKNOWN_REGION_CALLER_THREATS_1"
+      ],
+      "status": "UNRESOLVED_EXTERNAL_ENTRY_RETAINED",
+      "disposition": "Retained fail-closed: requires proof of enclosing UNKNOWN region non-executability."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0606DD9E",
+      "function": "sub_0606DD04",
+      "entry_pc": "0x0606DD04",
+      "unknown_code_caller_threats": 22,
+      "unresolved_reference_sources": [
+        "0x060059B0",
+        "0x0600E9C8",
+        "0x0601C834",
+        "0x060477E8",
+        "0x06049798",
+        "0x0604A7F4",
+        "0x0604AB18",
+        "0x0604B764",
+        "0x0604BC6C",
+        "0x0604BD9C",
+        "0x060574A8",
+        "0x0605EA54",
+        "0x0605F288",
+        "0x0605FE34",
+        "0x06060464",
+        "0x0606CA84",
+        "0x0606D6DC",
+        "0x06071478",
+        "0x06071720",
+        "0x06071FB0",
+        "0x0607222C",
+        "0x060795A4",
+        "0x002E7634"
+      ],
+      "unresolved_entry_sources": [
+        "TAILCALL_DOMAIN_INCOMPLETE",
+        "UNKNOWN_REGION_CALLER_THREATS_22"
+      ],
+      "status": "UNRESOLVED_EXTERNAL_ENTRY_RETAINED",
+      "disposition": "Retained fail-closed: requires proof of enclosing UNKNOWN region non-executability."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0606DDAA",
+      "function": "sub_0606DD04",
+      "entry_pc": "0x0606DD04",
+      "unknown_code_caller_threats": 22,
+      "unresolved_reference_sources": [
+        "0x060059B0",
+        "0x0600E9C8",
+        "0x0601C834",
+        "0x060477E8",
+        "0x06049798",
+        "0x0604A7F4",
+        "0x0604AB18",
+        "0x0604B764",
+        "0x0604BC6C",
+        "0x0604BD9C",
+        "0x060574A8",
+        "0x0605EA54",
+        "0x0605F288",
+        "0x0605FE34",
+        "0x06060464",
+        "0x0606CA84",
+        "0x0606D6DC",
+        "0x06071478",
+        "0x06071720",
+        "0x06071FB0",
+        "0x0607222C",
+        "0x060795A4",
+        "0x002E7634"
+      ],
+      "unresolved_entry_sources": [
+        "TAILCALL_DOMAIN_INCOMPLETE",
+        "UNKNOWN_REGION_CALLER_THREATS_22"
+      ],
+      "status": "UNRESOLVED_EXTERNAL_ENTRY_RETAINED",
+      "disposition": "Retained fail-closed: requires proof of enclosing UNKNOWN region non-executability."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0606DE46",
+      "function": "sub_0606DDB8",
+      "entry_pc": "0x0606DDB8",
+      "unknown_code_caller_threats": 5,
+      "unresolved_reference_sources": [
+        "0x06071538",
+        "0x0607172C",
+        "0x060717F4",
+        "0x060718D8",
+        "0x060719BC",
+        "0x06078628"
+      ],
+      "unresolved_entry_sources": [
+        "UNKNOWN_REGION_CALLER_THREATS_5"
+      ],
+      "status": "UNRESOLVED_EXTERNAL_ENTRY_RETAINED",
+      "disposition": "Retained fail-closed: requires proof of enclosing UNKNOWN region non-executability."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0606DE52",
+      "function": "sub_0606DDB8",
+      "entry_pc": "0x0606DDB8",
+      "unknown_code_caller_threats": 5,
+      "unresolved_reference_sources": [
+        "0x06071538",
+        "0x0607172C",
+        "0x060717F4",
+        "0x060718D8",
+        "0x060719BC",
+        "0x06078628"
+      ],
+      "unresolved_entry_sources": [
+        "UNKNOWN_REGION_CALLER_THREATS_5"
+      ],
+      "status": "UNRESOLVED_EXTERNAL_ENTRY_RETAINED",
+      "disposition": "Retained fail-closed: requires proof of enclosing UNKNOWN region non-executability."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0606DF0E",
+      "function": "sub_0606DE60",
+      "entry_pc": "0x0606DE60",
+      "unknown_code_caller_threats": 6,
+      "unresolved_reference_sources": [
+        "0x06071548",
+        "0x06071638",
+        "0x06071730",
+        "0x060717F0",
+        "0x0607B824",
+        "0x0607B8C4"
+      ],
+      "unresolved_entry_sources": [
+        "UNKNOWN_REGION_CALLER_THREATS_6"
+      ],
+      "status": "UNRESOLVED_EXTERNAL_ENTRY_RETAINED",
+      "disposition": "Retained fail-closed: requires proof of enclosing UNKNOWN region non-executability."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0606DF1A",
+      "function": "sub_0606DE60",
+      "entry_pc": "0x0606DE60",
+      "unknown_code_caller_threats": 6,
+      "unresolved_reference_sources": [
+        "0x06071548",
+        "0x06071638",
+        "0x06071730",
+        "0x060717F0",
+        "0x0607B824",
+        "0x0607B8C4"
+      ],
+      "unresolved_entry_sources": [
+        "UNKNOWN_REGION_CALLER_THREATS_6"
+      ],
+      "status": "UNRESOLVED_EXTERNAL_ENTRY_RETAINED",
+      "disposition": "Retained fail-closed: requires proof of enclosing UNKNOWN region non-executability."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0606DF7E",
+      "function": "sub_0606DF28",
+      "entry_pc": "0x0606DF28",
+      "unknown_code_caller_threats": 4,
+      "unresolved_reference_sources": [
+        "0x06033164",
+        "0x0603B014",
+        "0x06055144",
+        "0x06063724"
+      ],
+      "unresolved_entry_sources": [
+        "UNKNOWN_REGION_CALLER_THREATS_4"
+      ],
+      "status": "UNRESOLVED_EXTERNAL_ENTRY_RETAINED",
+      "disposition": "Retained fail-closed: requires proof of enclosing UNKNOWN region non-executability."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0606DFE4",
+      "function": "sub_0606DF28",
+      "entry_pc": "0x0606DF28",
+      "unknown_code_caller_threats": 4,
+      "unresolved_reference_sources": [
+        "0x06033164",
+        "0x0603B014",
+        "0x06055144",
+        "0x06063724"
+      ],
+      "unresolved_entry_sources": [
+        "UNKNOWN_REGION_CALLER_THREATS_4"
+      ],
+      "status": "UNRESOLVED_EXTERNAL_ENTRY_RETAINED",
+      "disposition": "Retained fail-closed: requires proof of enclosing UNKNOWN region non-executability."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0606E02E",
+      "function": "sub_0606E008",
+      "entry_pc": "0x0606E008",
+      "unknown_code_caller_threats": 1,
+      "unresolved_reference_sources": [
+        "0x0606FEE0"
+      ],
+      "unresolved_entry_sources": [
+        "UNKNOWN_REGION_CALLER_THREATS_1"
+      ],
+      "status": "UNRESOLVED_EXTERNAL_ENTRY_RETAINED",
+      "disposition": "Retained fail-closed: requires proof of enclosing UNKNOWN region non-executability."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0606E040",
+      "function": "sub_0606E008",
+      "entry_pc": "0x0606E008",
+      "unknown_code_caller_threats": 1,
+      "unresolved_reference_sources": [
+        "0x0606FEE0"
+      ],
+      "unresolved_entry_sources": [
+        "UNKNOWN_REGION_CALLER_THREATS_1"
+      ],
+      "status": "UNRESOLVED_EXTERNAL_ENTRY_RETAINED",
+      "disposition": "Retained fail-closed: requires proof of enclosing UNKNOWN region non-executability."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0606E054",
+      "function": "sub_0606E008",
+      "entry_pc": "0x0606E008",
+      "unknown_code_caller_threats": 1,
+      "unresolved_reference_sources": [
+        "0x0606FEE0"
+      ],
+      "unresolved_entry_sources": [
+        "UNKNOWN_REGION_CALLER_THREATS_1"
+      ],
+      "status": "UNRESOLVED_EXTERNAL_ENTRY_RETAINED",
+      "disposition": "Retained fail-closed: requires proof of enclosing UNKNOWN region non-executability."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0606E0B4",
+      "function": "sub_0606E008",
+      "entry_pc": "0x0606E008",
+      "unknown_code_caller_threats": 1,
+      "unresolved_reference_sources": [
+        "0x0606FEE0"
+      ],
+      "unresolved_entry_sources": [
+        "UNKNOWN_REGION_CALLER_THREATS_1"
+      ],
+      "status": "UNRESOLVED_EXTERNAL_ENTRY_RETAINED",
+      "disposition": "Retained fail-closed: requires proof of enclosing UNKNOWN region non-executability."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0606ECB8",
+      "function": "sub_0606EC54",
+      "entry_pc": "0x0606EC54",
+      "unknown_code_caller_threats": 1,
+      "unresolved_reference_sources": [
+        "0x06077434"
+      ],
+      "unresolved_entry_sources": [
+        "TAILCALL_DOMAIN_INCOMPLETE",
+        "UNKNOWN_REGION_CALLER_THREATS_1"
+      ],
+      "status": "UNRESOLVED_EXTERNAL_ENTRY_RETAINED",
+      "disposition": "Retained fail-closed: requires proof of enclosing UNKNOWN region non-executability."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0606EECA",
+      "function": "sub_0606EE8C",
+      "entry_pc": "0x0606EE8C",
+      "unknown_code_caller_threats": 1,
+      "unresolved_reference_sources": [
+        "0x06072CAC"
+      ],
+      "unresolved_entry_sources": [
+        "TAILCALL_DOMAIN_INCOMPLETE",
+        "UNKNOWN_REGION_CALLER_THREATS_1"
+      ],
+      "status": "UNRESOLVED_EXTERNAL_ENTRY_RETAINED",
+      "disposition": "Retained fail-closed: requires proof of enclosing UNKNOWN region non-executability."
+    },
+    {
+      "site_id": "0TH2.BIN_0x06075630",
+      "function": "sub_06075618",
+      "entry_pc": "0x06075618",
+      "unknown_code_caller_threats": 1,
+      "unresolved_reference_sources": [
+        "0x0607B7A4"
+      ],
+      "unresolved_entry_sources": [
+        "UNKNOWN_REGION_CALLER_THREATS_1"
+      ],
+      "status": "UNRESOLVED_EXTERNAL_ENTRY_RETAINED",
+      "disposition": "Retained fail-closed: requires proof of enclosing UNKNOWN region non-executability."
+    },
+    {
+      "site_id": "0TH2.BIN_0x06077F5E",
+      "function": "sub_06077F5C",
+      "entry_pc": "0x06077F5C",
+      "unknown_code_caller_threats": 1,
+      "unresolved_reference_sources": [],
+      "unresolved_entry_sources": [
+        "UNKNOWN_REGION_CALLER_THREATS_1"
+      ],
+      "status": "UNRESOLVED_EXTERNAL_ENTRY_RETAINED",
+      "disposition": "Retained fail-closed: requires proof of enclosing UNKNOWN region non-executability."
+    },
+    {
+      "site_id": "0TH2.BIN_0x06078688",
+      "function": "sub_0607862C",
+      "entry_pc": "0x0607862C",
+      "unknown_code_caller_threats": 3,
+      "unresolved_reference_sources": [],
+      "unresolved_entry_sources": [
+        "UNKNOWN_REGION_CALLER_THREATS_3"
+      ],
+      "status": "UNRESOLVED_EXTERNAL_ENTRY_RETAINED",
+      "disposition": "Retained fail-closed: requires proof of enclosing UNKNOWN region non-executability."
+    },
+    {
+      "site_id": "0TH2.BIN_0x060786F6",
+      "function": "sub_06078690",
+      "entry_pc": "0x06078690",
+      "unknown_code_caller_threats": 3,
+      "unresolved_reference_sources": [],
+      "unresolved_entry_sources": [
+        "UNKNOWN_REGION_CALLER_THREATS_3"
+      ],
+      "status": "UNRESOLVED_EXTERNAL_ENTRY_RETAINED",
+      "disposition": "Retained fail-closed: requires proof of enclosing UNKNOWN region non-executability."
+    },
+    {
+      "site_id": "0TH2.BIN_0x060788C6",
+      "function": "sub_060787A4",
+      "entry_pc": "0x060787A4",
+      "unknown_code_caller_threats": 1,
+      "unresolved_reference_sources": [],
+      "unresolved_entry_sources": [
+        "TAILCALL_DOMAIN_INCOMPLETE",
+        "UNKNOWN_REGION_CALLER_THREATS_1"
+      ],
+      "status": "UNRESOLVED_EXTERNAL_ENTRY_RETAINED",
+      "disposition": "Retained fail-closed: requires proof of enclosing UNKNOWN region non-executability."
+    },
+    {
+      "site_id": "0TH2.BIN_0x06078B66",
+      "function": "sub_06078B42",
+      "entry_pc": "0x06078B42",
+      "unknown_code_caller_threats": 1,
+      "unresolved_reference_sources": [
+        "0x0600A458"
+      ],
+      "unresolved_entry_sources": [
+        "UNKNOWN_REGION_CALLER_THREATS_1"
+      ],
+      "status": "UNRESOLVED_EXTERNAL_ENTRY_RETAINED",
+      "disposition": "Retained fail-closed: requires proof of enclosing UNKNOWN region non-executability."
+    },
+    {
+      "site_id": "0TH2.BIN_0x06078B78",
+      "function": "sub_06078B42",
+      "entry_pc": "0x06078B42",
+      "unknown_code_caller_threats": 1,
+      "unresolved_reference_sources": [
+        "0x0600A458"
+      ],
+      "unresolved_entry_sources": [
+        "UNKNOWN_REGION_CALLER_THREATS_1"
+      ],
+      "status": "UNRESOLVED_EXTERNAL_ENTRY_RETAINED",
+      "disposition": "Retained fail-closed: requires proof of enclosing UNKNOWN region non-executability."
+    },
+    {
+      "site_id": "0TH2.BIN_0x06078B98",
+      "function": "sub_06078B42",
+      "entry_pc": "0x06078B42",
+      "unknown_code_caller_threats": 1,
+      "unresolved_reference_sources": [
+        "0x0600A458"
+      ],
+      "unresolved_entry_sources": [
+        "UNKNOWN_REGION_CALLER_THREATS_1"
+      ],
+      "status": "UNRESOLVED_EXTERNAL_ENTRY_RETAINED",
+      "disposition": "Retained fail-closed: requires proof of enclosing UNKNOWN region non-executability."
+    },
+    {
+      "site_id": "0TH2.BIN_0x06078BB6",
+      "function": "sub_06078B42",
+      "entry_pc": "0x06078B42",
+      "unknown_code_caller_threats": 1,
+      "unresolved_reference_sources": [
+        "0x0600A458"
+      ],
+      "unresolved_entry_sources": [
+        "UNKNOWN_REGION_CALLER_THREATS_1"
+      ],
+      "status": "UNRESOLVED_EXTERNAL_ENTRY_RETAINED",
+      "disposition": "Retained fail-closed: requires proof of enclosing UNKNOWN region non-executability."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0607E734",
+      "function": "sub_0607E6FE",
+      "entry_pc": "0x0607E6FE",
+      "unknown_code_caller_threats": 1,
+      "unresolved_reference_sources": [],
+      "unresolved_entry_sources": [
+        "UNKNOWN_REGION_CALLER_THREATS_1"
+      ],
+      "status": "UNRESOLVED_EXTERNAL_ENTRY_RETAINED",
+      "disposition": "Retained fail-closed: requires proof of enclosing UNKNOWN region non-executability."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0607E754",
+      "function": "sub_0607E6FE",
+      "entry_pc": "0x0607E6FE",
+      "unknown_code_caller_threats": 1,
+      "unresolved_reference_sources": [],
+      "unresolved_entry_sources": [
+        "UNKNOWN_REGION_CALLER_THREATS_1"
+      ],
+      "status": "UNRESOLVED_EXTERNAL_ENTRY_RETAINED",
+      "disposition": "Retained fail-closed: requires proof of enclosing UNKNOWN region non-executability."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0607E75C",
+      "function": "sub_0607E6FE",
+      "entry_pc": "0x0607E6FE",
+      "unknown_code_caller_threats": 1,
+      "unresolved_reference_sources": [],
+      "unresolved_entry_sources": [
+        "UNKNOWN_REGION_CALLER_THREATS_1"
+      ],
+      "status": "UNRESOLVED_EXTERNAL_ENTRY_RETAINED",
+      "disposition": "Retained fail-closed: requires proof of enclosing UNKNOWN region non-executability."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0607E764",
+      "function": "sub_0607E6FE",
+      "entry_pc": "0x0607E6FE",
+      "unknown_code_caller_threats": 1,
+      "unresolved_reference_sources": [],
+      "unresolved_entry_sources": [
+        "UNKNOWN_REGION_CALLER_THREATS_1"
+      ],
+      "status": "UNRESOLVED_EXTERNAL_ENTRY_RETAINED",
+      "disposition": "Retained fail-closed: requires proof of enclosing UNKNOWN region non-executability."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0607E76C",
+      "function": "sub_0607E6FE",
+      "entry_pc": "0x0607E6FE",
+      "unknown_code_caller_threats": 1,
+      "unresolved_reference_sources": [],
+      "unresolved_entry_sources": [
+        "UNKNOWN_REGION_CALLER_THREATS_1"
+      ],
+      "status": "UNRESOLVED_EXTERNAL_ENTRY_RETAINED",
+      "disposition": "Retained fail-closed: requires proof of enclosing UNKNOWN region non-executability."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0607E774",
+      "function": "sub_0607E6FE",
+      "entry_pc": "0x0607E6FE",
+      "unknown_code_caller_threats": 1,
+      "unresolved_reference_sources": [],
+      "unresolved_entry_sources": [
+        "UNKNOWN_REGION_CALLER_THREATS_1"
+      ],
+      "status": "UNRESOLVED_EXTERNAL_ENTRY_RETAINED",
+      "disposition": "Retained fail-closed: requires proof of enclosing UNKNOWN region non-executability."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0607E77C",
+      "function": "sub_0607E6FE",
+      "entry_pc": "0x0607E6FE",
+      "unknown_code_caller_threats": 1,
+      "unresolved_reference_sources": [],
+      "unresolved_entry_sources": [
+        "UNKNOWN_REGION_CALLER_THREATS_1"
+      ],
+      "status": "UNRESOLVED_EXTERNAL_ENTRY_RETAINED",
+      "disposition": "Retained fail-closed: requires proof of enclosing UNKNOWN region non-executability."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0607E784",
+      "function": "sub_0607E6FE",
+      "entry_pc": "0x0607E6FE",
+      "unknown_code_caller_threats": 1,
+      "unresolved_reference_sources": [],
+      "unresolved_entry_sources": [
+        "UNKNOWN_REGION_CALLER_THREATS_1"
+      ],
+      "status": "UNRESOLVED_EXTERNAL_ENTRY_RETAINED",
+      "disposition": "Retained fail-closed: requires proof of enclosing UNKNOWN region non-executability."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0607E78C",
+      "function": "sub_0607E6FE",
+      "entry_pc": "0x0607E6FE",
+      "unknown_code_caller_threats": 1,
+      "unresolved_reference_sources": [],
+      "unresolved_entry_sources": [
+        "UNKNOWN_REGION_CALLER_THREATS_1"
+      ],
+      "status": "UNRESOLVED_EXTERNAL_ENTRY_RETAINED",
+      "disposition": "Retained fail-closed: requires proof of enclosing UNKNOWN region non-executability."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0607E794",
+      "function": "sub_0607E6FE",
+      "entry_pc": "0x0607E6FE",
+      "unknown_code_caller_threats": 1,
+      "unresolved_reference_sources": [],
+      "unresolved_entry_sources": [
+        "UNKNOWN_REGION_CALLER_THREATS_1"
+      ],
+      "status": "UNRESOLVED_EXTERNAL_ENTRY_RETAINED",
+      "disposition": "Retained fail-closed: requires proof of enclosing UNKNOWN region non-executability."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0607ED00",
+      "function": "sub_0607EC0C",
+      "entry_pc": "0x0607EC0C",
+      "unknown_code_caller_threats": 1,
+      "unresolved_reference_sources": [],
+      "unresolved_entry_sources": [
+        "UNKNOWN_REGION_CALLER_THREATS_1"
+      ],
+      "status": "UNRESOLVED_EXTERNAL_ENTRY_RETAINED",
+      "disposition": "Retained fail-closed: requires proof of enclosing UNKNOWN region non-executability."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0607EDDE",
+      "function": "sub_0607EC0C",
+      "entry_pc": "0x0607EC0C",
+      "unknown_code_caller_threats": 1,
+      "unresolved_reference_sources": [],
+      "unresolved_entry_sources": [
+        "UNKNOWN_REGION_CALLER_THREATS_1"
+      ],
+      "status": "UNRESOLVED_EXTERNAL_ENTRY_RETAINED",
+      "disposition": "Retained fail-closed: requires proof of enclosing UNKNOWN region non-executability."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0607EE02",
+      "function": "sub_0607EC0C",
+      "entry_pc": "0x0607EC0C",
+      "unknown_code_caller_threats": 1,
+      "unresolved_reference_sources": [],
+      "unresolved_entry_sources": [
+        "UNKNOWN_REGION_CALLER_THREATS_1"
+      ],
+      "status": "UNRESOLVED_EXTERNAL_ENTRY_RETAINED",
+      "disposition": "Retained fail-closed: requires proof of enclosing UNKNOWN region non-executability."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0607EE22",
+      "function": "sub_0607EC0C",
+      "entry_pc": "0x0607EC0C",
+      "unknown_code_caller_threats": 1,
+      "unresolved_reference_sources": [],
+      "unresolved_entry_sources": [
+        "UNKNOWN_REGION_CALLER_THREATS_1"
+      ],
+      "status": "UNRESOLVED_EXTERNAL_ENTRY_RETAINED",
+      "disposition": "Retained fail-closed: requires proof of enclosing UNKNOWN region non-executability."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0607EE2C",
+      "function": "sub_0607EC0C",
+      "entry_pc": "0x0607EC0C",
+      "unknown_code_caller_threats": 1,
+      "unresolved_reference_sources": [],
+      "unresolved_entry_sources": [
+        "UNKNOWN_REGION_CALLER_THREATS_1"
+      ],
+      "status": "UNRESOLVED_EXTERNAL_ENTRY_RETAINED",
+      "disposition": "Retained fail-closed: requires proof of enclosing UNKNOWN region non-executability."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0607EE64",
+      "function": "sub_0607EC0C",
+      "entry_pc": "0x0607EC0C",
+      "unknown_code_caller_threats": 1,
+      "unresolved_reference_sources": [],
+      "unresolved_entry_sources": [
+        "UNKNOWN_REGION_CALLER_THREATS_1"
+      ],
+      "status": "UNRESOLVED_EXTERNAL_ENTRY_RETAINED",
+      "disposition": "Retained fail-closed: requires proof of enclosing UNKNOWN region non-executability."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0607FB8E",
+      "function": "sub_0607FAA0",
+      "entry_pc": "0x0607FAA0",
+      "unknown_code_caller_threats": 1,
+      "unresolved_reference_sources": [
+        "0x0607D13C"
+      ],
+      "unresolved_entry_sources": [
+        "UNKNOWN_REGION_CALLER_THREATS_1"
+      ],
+      "status": "UNRESOLVED_EXTERNAL_ENTRY_RETAINED",
+      "disposition": "Retained fail-closed: requires proof of enclosing UNKNOWN region non-executability."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0607FC6A",
+      "function": "sub_0607FC66",
+      "entry_pc": "0x0607FC66",
+      "unknown_code_caller_threats": 1,
+      "unresolved_reference_sources": [
+        "0x0607D144"
+      ],
+      "unresolved_entry_sources": [
+        "UNKNOWN_REGION_CALLER_THREATS_1"
+      ],
+      "status": "UNRESOLVED_EXTERNAL_ENTRY_RETAINED",
+      "disposition": "Retained fail-closed: requires proof of enclosing UNKNOWN region non-executability."
+    },
+    {
+      "site_id": "0TH2.BIN_0x06080676",
+      "function": "sub_06080654",
+      "entry_pc": "0x06080654",
+      "unknown_code_caller_threats": 1,
+      "unresolved_reference_sources": [],
+      "unresolved_entry_sources": [
+        "UNKNOWN_REGION_CALLER_THREATS_1"
+      ],
+      "status": "UNRESOLVED_EXTERNAL_ENTRY_RETAINED",
+      "disposition": "Retained fail-closed: requires proof of enclosing UNKNOWN region non-executability."
+    },
+    {
+      "site_id": "0TH2.BIN_0x06080716",
+      "function": "sub_060806FE",
+      "entry_pc": "0x060806FE",
+      "unknown_code_caller_threats": 2,
+      "unresolved_reference_sources": [],
+      "unresolved_entry_sources": [
+        "UNKNOWN_REGION_CALLER_THREATS_2"
+      ],
+      "status": "UNRESOLVED_EXTERNAL_ENTRY_RETAINED",
+      "disposition": "Retained fail-closed: requires proof of enclosing UNKNOWN region non-executability."
+    },
+    {
+      "site_id": "0TH2.BIN_0x060818A6",
+      "function": "sub_06081898",
+      "entry_pc": "0x06081898",
+      "unknown_code_caller_threats": 11,
+      "unresolved_reference_sources": [
+        "0x06080E30",
+        "0x06080E88",
+        "0x06080EF0",
+        "0x060810D0",
+        "0x060811F8",
+        "0x060812A8",
+        "0x06081418",
+        "0x0608154C",
+        "0x0608159C",
+        "0x06081608",
+        "0x0608178C"
+      ],
+      "unresolved_entry_sources": [
+        "TAILCALL_DOMAIN_INCOMPLETE",
+        "UNKNOWN_REGION_CALLER_THREATS_11"
+      ],
+      "status": "UNRESOLVED_EXTERNAL_ENTRY_RETAINED",
+      "disposition": "Retained fail-closed: requires proof of enclosing UNKNOWN region non-executability."
+    },
+    {
+      "site_id": "0TH2.BIN_0x060818BC",
+      "function": "sub_060818AE",
+      "entry_pc": "0x060818AE",
+      "unknown_code_caller_threats": 5,
+      "unresolved_reference_sources": [
+        "0x06080E8C",
+        "0x060810D4",
+        "0x060811FC",
+        "0x06081550",
+        "0x060815A0"
+      ],
+      "unresolved_entry_sources": [
+        "UNKNOWN_REGION_CALLER_THREATS_5"
+      ],
+      "status": "UNRESOLVED_EXTERNAL_ENTRY_RETAINED",
+      "disposition": "Retained fail-closed: requires proof of enclosing UNKNOWN region non-executability."
+    },
+    {
+      "site_id": "TH2.LOW_0x002E5052",
+      "function": "sub_002E502C",
+      "entry_pc": "0x002E502C",
+      "unknown_code_caller_threats": 2,
+      "unresolved_reference_sources": [],
+      "unresolved_entry_sources": [
+        "UNKNOWN_REGION_CALLER_THREATS_2"
+      ],
+      "status": "UNRESOLVED_EXTERNAL_ENTRY_RETAINED",
+      "disposition": "Retained fail-closed: requires proof of enclosing UNKNOWN region non-executability."
+    },
+    {
+      "site_id": "TH2.LOW_0x002E5598",
+      "function": "sub_002E5554",
+      "entry_pc": "0x002E5554",
+      "unknown_code_caller_threats": 2,
+      "unresolved_reference_sources": [],
+      "unresolved_entry_sources": [
+        "UNKNOWN_REGION_CALLER_THREATS_2"
+      ],
+      "status": "UNRESOLVED_EXTERNAL_ENTRY_RETAINED",
+      "disposition": "Retained fail-closed: requires proof of enclosing UNKNOWN region non-executability."
+    },
+    {
+      "site_id": "TH2.LOW_0x002E7460",
+      "function": "sub_002E73FC",
+      "entry_pc": "0x002E73FC",
+      "unknown_code_caller_threats": 38,
+      "unresolved_reference_sources": [],
+      "unresolved_entry_sources": [
+        "TAILCALL_DOMAIN_INCOMPLETE",
+        "UNKNOWN_REGION_CALLER_THREATS_38"
+      ],
+      "status": "UNRESOLVED_EXTERNAL_ENTRY_RETAINED",
+      "disposition": "Retained fail-closed: requires proof of enclosing UNKNOWN region non-executability."
+    },
+    {
+      "site_id": "TH2.LOW_0x002E774A",
+      "function": "sub_002E7740",
+      "entry_pc": "0x002E7740",
+      "unknown_code_caller_threats": 5,
+      "unresolved_reference_sources": [],
+      "unresolved_entry_sources": [
+        "UNKNOWN_REGION_CALLER_THREATS_5"
+      ],
+      "status": "UNRESOLVED_EXTERNAL_ENTRY_RETAINED",
+      "disposition": "Retained fail-closed: requires proof of enclosing UNKNOWN region non-executability."
+    },
+    {
+      "site_id": "TH2.LOW_0x002E7758",
+      "function": "sub_002E7740",
+      "entry_pc": "0x002E7740",
+      "unknown_code_caller_threats": 5,
+      "unresolved_reference_sources": [],
+      "unresolved_entry_sources": [
+        "UNKNOWN_REGION_CALLER_THREATS_5"
+      ],
+      "status": "UNRESOLVED_EXTERNAL_ENTRY_RETAINED",
+      "disposition": "Retained fail-closed: requires proof of enclosing UNKNOWN region non-executability."
+    },
+    {
+      "site_id": "TH2.LOW_0x002E7822",
+      "function": "sub_002E776C",
+      "entry_pc": "0x002E776C",
+      "unknown_code_caller_threats": 4,
+      "unresolved_reference_sources": [],
+      "unresolved_entry_sources": [
+        "UNKNOWN_REGION_CALLER_THREATS_4"
+      ],
+      "status": "UNRESOLVED_EXTERNAL_ENTRY_RETAINED",
+      "disposition": "Retained fail-closed: requires proof of enclosing UNKNOWN region non-executability."
+    },
+    {
+      "site_id": "TH2.LOW_0x002E8502",
+      "function": "sub_002E7E60",
+      "entry_pc": "0x002E7E60",
+      "unknown_code_caller_threats": 1,
+      "unresolved_reference_sources": [],
+      "unresolved_entry_sources": [
+        "RECURSIVE_SCC_EXTERNAL_ENTRY_INCOMPLETE",
+        "UNKNOWN_REGION_CALLER_THREATS_1"
+      ],
+      "status": "UNRESOLVED_EXTERNAL_ENTRY_RETAINED",
+      "disposition": "Retained fail-closed: requires proof of enclosing UNKNOWN region non-executability."
+    },
+    {
+      "site_id": "TH2.LOW_0x002EA1B0",
+      "function": "sub_002EA15C",
+      "entry_pc": "0x002EA15C",
+      "unknown_code_caller_threats": 1,
+      "unresolved_reference_sources": [],
+      "unresolved_entry_sources": [
+        "UNKNOWN_REGION_CALLER_THREATS_1"
+      ],
+      "status": "UNRESOLVED_EXTERNAL_ENTRY_RETAINED",
+      "disposition": "Retained fail-closed: requires proof of enclosing UNKNOWN region non-executability."
+    }
+  ]
+}

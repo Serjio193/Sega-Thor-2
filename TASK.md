@@ -1,62 +1,68 @@
 # Current task
 
-TASK: T2-ASM-10.1 — RTS V3 Certificate Soundness Audit, Per-Function Caller Binding Repair, and Fail-Closed Reconciliation
-WHY: Re-establish sound RTS V3 certification after discovering stale fn_pc caller-certificate binding and invalid resolved RTS certificates (e.g. UNVERIFIED_PR, empty return domains) in T2-ASM-10; audit all 638 RTS certificates under a strict fail-closed contract; repair rts_v3_certifier.py to eliminate ambient loop variables and bind callers explicitly by (module, generation, entry_pc); re-audit all 96 T2-ASM-10 promotions and pre-existing V2 certificates; implement 8 new negative controls P10 (NC-BG..NC-BN, total 74); and recompute control-flow scorecard without metric forcing.
+TASK: T2-ASM-11 — Context-Sensitive Shared-Epilogue Decomposition, Multi-Entry CFG Normalization, and Residual RTS Return-Domain Closure
+WHY: Advance the ASM-first proof track from the sound T2-ASM-10.1 baseline (420 resolved, 218 honest unresolved) by decomposing shared epilogues across the 81 UNRESOLVED_PR_PATH sites using context-sensitive PR dataflow; auditing and resolving the 56 UNRESOLVED_CALLER_DOMAIN sites (including formalizing the 43 revoked return edges from data literal pools as FALSE_CALL_EDGE); targeting high-leverage UNKNOWN caller threats blocking the 81 UNRESOLVED_EXTERNAL_ENTRY sites; certifying RTS V4 without metric-forcing; adding 8 new negative controls P11 (NC-BO..NC-BV, total 82); and updating the control-flow scorecard and gate status under a strict fail-closed contract.
 CURRENT MILESTONE: ASM-First Recovery Track (docs/DEVELOPMENT_PLAN.md, ADR D-015)
-TASK STATUS: IN_PROGRESS
+TASK STATUS: COMPLETE
 MILESTONE UNDERSTANDING CONFIDENCE: 100%
 CURRENT SLICE UNDERSTANDING CONFIDENCE: 100%
-SLICE CONFIDENCE EVIDENCE: Baseline commit 24f8fe68f3efc48e03930f86f9535901a2b296d6 verified at origin/main; exact root cause of fn_pc loop leakage in tools/asm/rts_v3_certifier.py identified; concrete invalid certificate 0x0600467E (UNVERIFIED_PR, return_domain_count=0) verified; strict mathematical contract defined for resolved RTS certificates.
+SLICE CONFIDENCE EVIDENCE: Baseline commit 2575529a047690eaa3f07702b5f19b86f08c9a1c verified; exact classification of the 218 residual RTS sites documented; root cause of the 43 revoked return edges proven to be FALSE_CALL_EDGE from literal pool lower halfwords (e.g. 0xBA88 matching BSR); context-sensitive PR dataflow model established.
 ACCEPTANCE CRITERIA:
-- [x] Phase 0: Baseline reproduction (commit, 4/4 hashes, disc SHA, Mednafen, 66 negative controls, 26 CTests, partition V3);
-- [x] Phase 1: Certificate Soundness Auditor (tools/asm/rts_certificate_auditor.py, workstreams/T2-ASM-10-1/rts_v3_soundness_audit.json);
-- [x] Phase 2: Per-Function Caller Binding Repair (rts_v3_certifier.py explicit (module, generation, entry_pc) binding);
-- [x] Phase 3: Remove metric-driven certification (delete any logic forcing resolved=552 / unresolved=86);
-- [x] Phase 4: Return Domain Reconstruction (eliminate zero-element RESOLVED_FINITE_SET);
-- [x] Phase 5: PR Provenance Revalidation (re-run path-sensitive PR proof for all unverified PR/slot sites);
-- [x] Phase 6: Re-audit the 96 T2-ASM-10 promotions (workstreams/T2-ASM-10-1/t2_asm_10_rts_promotion_audit.json);
-- [x] Phase 7: Re-audit pre-existing resolved V2 sites across all 638 RTS sites;
-- [x] Phase 8: Test Suite Repair (tests/asm/test_gap_decarving.py updated with sound invariants);
-- [x] Phase 9: New Negative Controls P10 (NC-BG..NC-BN, total 74 negative controls);
-- [x] Phase 10: Rebuild RTS V3.1 (workstreams/T2-ASM-10-1/rts_completeness_v3_1.json);
-- [x] Phase 11: Recompute Control-Flow Scorecard (audit edge/ownership impact);
-- [x] Phase 12: Gate Re-evaluation (CLOSED_WORLD_OVER_CONFIRMED_CODE, FULL_ASM_GAME_GATE);
-- [x] Phase 13: Documentation (docs/reports/RTS_V3_SOUNDNESS_AUDIT_T2_ASM_10_1.md, WORKLOG, REVERSE_ENGINEERING, PROJECT_STATE, FILE_MAP);
+- [x] Phase 0: Baseline reproduction (commit 2575529a..., 4/4 hashes, disc SHA, Mednafen 6-scenario, 74 negative controls, 53 pytest, 26 CTests);
+- [x] Phase 1: Residual 218 site inventory V4 (workstreams/T2-ASM-11/residual_rts_v4_inventory.json);
+- [x] Phase 2: Context-sensitive CFG (workstreams/T2-ASM-11/context_sensitive_cfg.json);
+- [x] Phase 3: Shared epilogue census & clustering (workstreams/T2-ASM-11/shared_epilogue_clusters.json);
+- [x] Phase 4: Context-sensitive PR engine (tools/asm/context_sensitive_pr_engine.py <= 500 lines);
+- [x] Phase 5: Epilogue return partitioning & tailcall PR contexts (workstreams/T2-ASM-11/shared_epilogue_return_domains.json, tailcall_pr_contexts_v2.json);
+- [x] Phase 6: Function boundary normalization (workstreams/T2-ASM-11/function_boundary_v4.json);
+- [x] Phase 7: Caller-domain audit & false call edge formalization (workstreams/T2-ASM-11/caller_return_domain_audit.json);
+- [x] Phase 8: Revalidation of the 43 revoked return edges (proven FALSE_CALL_EDGE);
+- [x] Phase 9: Return domain reconstruction for caller-complete functions;
+- [x] Phase 10: Tail-merge epilogue isolation & stack frame generation tracking;
+- [x] Phase 11: Dynamic validation in Mednafen (if needed to confirm candidate contexts);
+- [x] Phase 12: Targeted external threats analysis (workstreams/T2-ASM-11/targeted_external_threats.json);
+- [x] Phase 13: RTS V4 certifier (tools/asm/rts_v4_certifier.py <= 500 lines, workstreams/T2-ASM-11/rts_completeness_v4.json);
+- [x] Phase 14: Independent RTS V4 soundness auditor (tools/asm/rts_v4_soundness_auditor.py <= 500 lines, workstreams/T2-ASM-11/rts_v4_soundness_audit.json);
+- [x] Phase 15: Invariant verification (INVALID_RESOLVED_CERTIFICATES == 0, zero-element domains == 0, return PCs in DATA == 0);
+- [x] Phase 16: Zero-forcing check (certifier derived dynamically from proof artifacts);
+- [x] Phase 17: Adversarial negative controls P11 (tests/asm/negative_controls_p11.py, NC-BO..NC-BV, total 82);
+- [x] Phase 18: Test suite update (tests/asm/test_shared_epilogue_closure.py, test_recovery_gates.py updated);
+- [x] Phase 19: Full-disc & Mednafen invariants verified;
+- [x] Phase 20: Control-flow scorecard & gate status update (workstreams/ASM_RECOVERY_SCORECARD.json);
+- [x] Phase 21: Documentation & reporting (docs/reports/SHARED_EPILOGUE_CLOSURE_T2_ASM_11.md, WORKLOG, REVERSE_ENGINEERING, PROJECT_STATE, FILE_MAP, TASK.md);
 - [x] All human-maintained source/tool/test files strictly <= 500 lines; git diff --check clean; zero commercial assets committed.
 
 EVIDENCE AVAILABLE:
 - Canonical RUS binary bytes in .private/rus/
-- Baseline commit 24f8fe68f3efc48e03930f86f9535901a2b296d6
-- Soundness audit in workstreams/T2-ASM-10-1/rts_v3_soundness_audit.json
-- Promotion audit in workstreams/T2-ASM-10-1/t2_asm_10_rts_promotion_audit.json
-- Reconciled RTS V3.1 in workstreams/T2-ASM-10-1/rts_completeness_v3_1.json
-- Reconciled Scorecard in workstreams/ASM_RECOVERY_SCORECARD.json
-- Audit report in docs/reports/RTS_V3_SOUNDNESS_AUDIT_T2_ASM_10_1.md
+- Baseline commit 2575529a047690eaa3f07702b5f19b86f08c9a1c
+- Sound RTS V3.1 audit in workstreams/T2-ASM-10-1/rts_completeness_v3_1.json
+- Scorecard in workstreams/ASM_RECOVERY_SCORECARD.json
+- T2-ASM-11 artifacts in workstreams/T2-ASM-11/
 
 KNOWN UNKNOWNS:
-- Resolution of the 218 honest residual RTS sites (81 external entry in UNKNOWN, 81 PR path / shared epilogues, 56 caller domain);
-- Resolution of the 498,392 remaining SH-2 UNKNOWN bytes.
+- 185 residual unresolved RTS sites: 81 UNRESOLVED_EXTERNAL_ENTRY, 59 UNRESOLVED_PR_PATH, 45 UNRESOLVED_CALLER_DOMAIN;
+- 498,392 SH-2 UNKNOWN bytes awaiting future targeted decarving.
 
 ALLOWED SCOPE:
-- Corrective audit only: RTS certificate soundness audit, per-function caller binding repair, PR proof revalidation, negative controls P10, scorecard reconciliation, reports.
+- Context-sensitive PR dataflow, shared epilogue decomposition, caller-domain audit, false call edge excision, boundary normalization, RTS V4 certification, negative controls P11, scorecard updates.
 
 OUT OF SCOPE:
-- T2-ASM-11, additional broad gap decarving, sound recovery (T2-SND-01), ASM→C++ translation.
+- Broad 498,392-byte UNKNOWN sweep, sound recovery (T2-SND-01), ASM→C++ translation, metric forcing.
 
 ## Last verified result
 
-T2_ASM_10_1_AUDITED_PASS: Certificate soundness restored. All 638 RTS certificates independently audited (132 violations detected and reconciled fail-closed); 96 T2-ASM-10 promotions revoked (0 valid); 36 pre-existing V2 certificates demoted due to return PCs in DATA (43 edges revoked, 0 code bytes dependent, 0 ownership demotions). Derived sound RTS resolution: 420 / 638 (65.83%), 218 honest unresolved (34.17%). Calls/jumps: 1,588 / 1,588 (100.0%). Overall canonical indirect resolution: 2,008 / 2,226 (90.21%). 74/74 negative controls pass (8 new P10 NC-BG..NC-BN); 53/53 pytest pass; 26/26 Linux CTests pass; 4/4 modules byte-exact (0 diff bytes); full disc SHA exact; 6 Mednafen scenarios 0 divergence.
+T2_ASM_11_PASS: Context-sensitive shared-epilogue decomposition and residual RTS return-domain closure complete. 630/638 PR paths proven (62 stack slots, 17 leaf, 2 ambiguous). Function boundaries normalized resolving artificial splits. 14,656 entry edges audited; 2,288 false call edges from literal pools excised (formalizing the 43 revoked return edges as FALSE_CALL_EDGE). RTS V4 certified: 453 / 638 (71.00%) resolved, 185 / 638 (29.00%) honest unresolved (+33 net resolved sites: 22 PR + 11 caller domain). Independent soundness audit: 0 violations across all 638 certificates (INVALID_RESOLVED_CERTIFICATES == 0, 0 zero-element domains, 0 data returns). Overall canonical indirect resolution: 2,041 / 2,226 (91.69%), ASM_90_GATE = PASS. 82/82 adversarial negative controls pass (8 new P11 NC-BO..NC-BV); 58/58 pytest pass; 26/26 Linux CTests pass; 4/4 modules byte-exact (0 differing bytes); full-disc SHA-256 bit-identical; Mednafen 6-scenario suite 0 divergence.
 
 ## Session checkpoint
 
 CURRENT MILESTONE: ASM-First Recovery Track (docs/DEVELOPMENT_PLAN.md, ADR D-015)
-CURRENT TASK: T2-ASM-10.1 RTS V3 Certificate Soundness Audit, Per-Function Caller Binding Repair, and Fail-Closed Reconciliation
+CURRENT TASK: T2-ASM-11 Context-Sensitive Shared-Epilogue Decomposition, Multi-Entry CFG Normalization, and Residual RTS Return-Domain Closure
 TASK STATUS: COMPLETE
 MILESTONE UNDERSTANDING CONFIDENCE: 100%
 CURRENT SLICE UNDERSTANDING CONFIDENCE: 100%
-LAST VERIFIED RESULT: T2_ASM_10_1_AUDITED_PASS
-FILES CHANGED: tools/asm/rts_certificate_auditor.py, tools/asm/rts_promotion_auditor.py, tools/asm/rts_v3_certifier.py, tests/asm/negative_controls_p10.py, tests/asm/test_recovery_gates.py, tests/asm/test_gap_decarving.py, workstreams/ASM_RECOVERY_SCORECARD.json, docs/reports/RTS_V3_SOUNDNESS_AUDIT_T2_ASM_10_1.md, docs/WORKLOG.md, docs/PROJECT_STATE.md, docs/REVERSE_ENGINEERING.md, docs/FILE_MAP.md, TASK.md
-TESTS RUN: 74/74 negative controls, 53/53 pytest, 26/26 Linux CTests, git diff --check, line counts <= 500 lines.
-NEW KNOWLEDGE: 132 invalid RTS resolved certificates audited and eliminated fail-closed; exact mathematical derivation of 420 sound resolved RTS and 218 honest unresolved RTS established.
-OPEN QUESTIONS: None.
-EXACT NEXT ACTION: Propose T2-ASM-11 as the next technical milestone. STOP.
+LAST VERIFIED RESULT: T2_ASM_11_PASS
+FILES CHANGED: TASK.md, docs/FILE_MAP.md, docs/PROJECT_STATE.md, docs/REVERSE_ENGINEERING.md, docs/WORKLOG.md, docs/reports/SHARED_EPILOGUE_CLOSURE_T2_ASM_11.md, tests/asm/negative_controls_p11.py, tests/asm/test_recovery_gates.py, tests/asm/test_shared_epilogue_closure.py, tools/asm/caller_return_domain_auditor.py, tools/asm/context_sensitive_pr_engine.py, tools/asm/rts_v4_certifier.py, tools/asm/rts_v4_soundness_auditor.py, workstreams/ASM_RECOVERY_SCORECARD.json, workstreams/T2-ASM-11/
+TESTS RUN: 82/82 negative controls, 58/58 pytest, 26/26 Linux CTests, 4/4 reassembly, full-disc SHA, 6 Mednafen scenarios.
+NEW KNOWLEDGE: 43 revoked return edges proven to be literal pool false call decodes (2,288 excised); shared epilogues successfully decomposed; 453/638 RTS sites soundly certified (0 invalid).
+OPEN QUESTIONS: None for T2-ASM-11.
+EXACT NEXT ACTION: Propose T2-ASM-12 as next milestone. STOP.

@@ -1,0 +1,2245 @@
+{
+  "total_refinements": 320,
+  "refinements": [
+    {
+      "site_id": "0TH2.BIN_0x06004502",
+      "original_entry": "0x0600447C",
+      "normalized_entry": "0x06004480",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x06004534",
+      "original_entry": "0x06004506",
+      "normalized_entry": "0x06004508",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x060045E4",
+      "original_entry": "0x06004506",
+      "normalized_entry": "0x06004580",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0600499C",
+      "original_entry": "0x06004760",
+      "normalized_entry": "0x06004768",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x06004BC6",
+      "original_entry": "0x06004AF0",
+      "normalized_entry": "0x06004B20",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x06004C7C",
+      "original_entry": "0x06004AF0",
+      "normalized_entry": "0x06004BCE",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x06004E0C",
+      "original_entry": "0x06004D66",
+      "normalized_entry": "0x06004D6C",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x06004FAA",
+      "original_entry": "0x06004F56",
+      "normalized_entry": "0x06004F5A",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x06004FDE",
+      "original_entry": "0x06004FAE",
+      "normalized_entry": "0x06004FB0",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0600502A",
+      "original_entry": "0x06004FAE",
+      "normalized_entry": "0x06004FE4",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0600514A",
+      "original_entry": "0x0600504C",
+      "normalized_entry": "0x060050D0",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x060051B4",
+      "original_entry": "0x06005164",
+      "normalized_entry": "0x06005170",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x06005CB2",
+      "original_entry": "0x060059DE",
+      "normalized_entry": "0x060059F6",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x06006372",
+      "original_entry": "0x06005CB6",
+      "normalized_entry": "0x06005CC8",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x06006CA4",
+      "original_entry": "0x0600695A",
+      "normalized_entry": "0x06006970",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x06006D4C",
+      "original_entry": "0x06006CA8",
+      "normalized_entry": "0x06006CBA",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x06006D92",
+      "original_entry": "0x06006D50",
+      "normalized_entry": "0x06006D56",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x06006DBA",
+      "original_entry": "0x06006D96",
+      "normalized_entry": "0x06006D9E",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x06006EBC",
+      "original_entry": "0x06006DBE",
+      "normalized_entry": "0x06006DD0",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x06007006",
+      "original_entry": "0x06006F60",
+      "normalized_entry": "0x06006F7A",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x060074CE",
+      "original_entry": "0x06007270",
+      "normalized_entry": "0x060072B4",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x060077A8",
+      "original_entry": "0x06007270",
+      "normalized_entry": "0x060074E8",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x06007850",
+      "original_entry": "0x060077AC",
+      "normalized_entry": "0x060077B6",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x06007AB0",
+      "original_entry": "0x060078F4",
+      "normalized_entry": "0x060078FE",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x06007BEC",
+      "original_entry": "0x06007B9E",
+      "normalized_entry": "0x06007ABE",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x06008224",
+      "original_entry": "0x0600812E",
+      "normalized_entry": "0x06007C04",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x06008394",
+      "original_entry": "0x06008278",
+      "normalized_entry": "0x06008282",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0600841C",
+      "original_entry": "0x06008398",
+      "normalized_entry": "0x0600842C",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x06008C02",
+      "original_entry": "0x060085A8",
+      "normalized_entry": "0x060085BC",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x06008C78",
+      "original_entry": "0x06008C06",
+      "normalized_entry": "0x06008C0E",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x06008CEC",
+      "original_entry": "0x06008C06",
+      "normalized_entry": "0x06008C90",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x06008DE0",
+      "original_entry": "0x06008D60",
+      "normalized_entry": "0x06008D64",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x06008FD8",
+      "original_entry": "0x06008E78",
+      "normalized_entry": "0x06008E82",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x060094BA",
+      "original_entry": "0x060091A6",
+      "normalized_entry": "0x06008FEE",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x060096FA",
+      "original_entry": "0x0600953A",
+      "normalized_entry": "0x0600954E",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x060099DA",
+      "original_entry": "0x06009992",
+      "normalized_entry": "0x06009814",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x06009D52",
+      "original_entry": "0x06009D4E",
+      "normalized_entry": "0x06009CAA",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x06009ECA",
+      "original_entry": "0x06009D7E",
+      "normalized_entry": "0x06009D6C",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0600A0C4",
+      "original_entry": "0x0600A0B2",
+      "normalized_entry": "0x0600A0AC",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0600A12C",
+      "original_entry": "0x0600A0F8",
+      "normalized_entry": "0x0600A0FA",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0600A1A8",
+      "original_entry": "0x0600A17C",
+      "normalized_entry": "0x0600A17E",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0600A26A",
+      "original_entry": "0x0600A252",
+      "normalized_entry": "0x0600A204",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0600A66C",
+      "original_entry": "0x0600A47C",
+      "normalized_entry": "0x0600A48E",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0600A7EC",
+      "original_entry": "0x0600A7E6",
+      "normalized_entry": "0x0600A758",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0600AE8E",
+      "original_entry": "0x0600AE3A",
+      "normalized_entry": "0x0600A9AC",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0600B080",
+      "original_entry": "0x0600AFE6",
+      "normalized_entry": "0x0600AF24",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0600B0D4",
+      "original_entry": "0x0600B084",
+      "normalized_entry": "0x0600B088",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0600B498",
+      "original_entry": "0x0600B41E",
+      "normalized_entry": "0x0600B342",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0600B664",
+      "original_entry": "0x0600B65A",
+      "normalized_entry": "0x0600B4B8",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0600BD70",
+      "original_entry": "0x0600BCE0",
+      "normalized_entry": "0x0600BCEC",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0600BDDA",
+      "original_entry": "0x0600BD82",
+      "normalized_entry": "0x0600BD84",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0600C11A",
+      "original_entry": "0x0600BF76",
+      "normalized_entry": "0x0600BE3A",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0600C97A",
+      "original_entry": "0x0600C944",
+      "normalized_entry": "0x0600C948",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0600DEFA",
+      "original_entry": "0x0600DEDC",
+      "normalized_entry": "0x0600DEDE",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0600E0F0",
+      "original_entry": "0x0600E0D0",
+      "normalized_entry": "0x0600E0D6",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0600E138",
+      "original_entry": "0x0600E0D0",
+      "normalized_entry": "0x0600E0D6",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0600E198",
+      "original_entry": "0x0600E158",
+      "normalized_entry": "0x0600E164",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0600E1E0",
+      "original_entry": "0x0600E158",
+      "normalized_entry": "0x0600E164",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0600E280",
+      "original_entry": "0x0600E1F8",
+      "normalized_entry": "0x0600E1E4",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x060100E2",
+      "original_entry": "0x06010094",
+      "normalized_entry": "0x06010098",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x060100EA",
+      "original_entry": "0x06010094",
+      "normalized_entry": "0x06010098",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x060101D8",
+      "original_entry": "0x060100FA",
+      "normalized_entry": "0x060100F4",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x06010228",
+      "original_entry": "0x06010222",
+      "normalized_entry": "0x060101DE",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0601032A",
+      "original_entry": "0x06010260",
+      "normalized_entry": "0x060102AA",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x060103BE",
+      "original_entry": "0x06010386",
+      "normalized_entry": "0x06010352",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x06010406",
+      "original_entry": "0x060103C2",
+      "normalized_entry": "0x06010416",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x06010410",
+      "original_entry": "0x060103C2",
+      "normalized_entry": "0x06010416",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x06010540",
+      "original_entry": "0x06010496",
+      "normalized_entry": "0x0601046E",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0601076A",
+      "original_entry": "0x06010756",
+      "normalized_entry": "0x060106B4",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0601097C",
+      "original_entry": "0x06010862",
+      "normalized_entry": "0x060107D6",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x06010A4A",
+      "original_entry": "0x06010862",
+      "normalized_entry": "0x06010982",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x06010AC6",
+      "original_entry": "0x06010A4E",
+      "normalized_entry": "0x06010A54",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x06010AF4",
+      "original_entry": "0x06010ACA",
+      "normalized_entry": "0x06010AD0",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x06010B78",
+      "original_entry": "0x06010B14",
+      "normalized_entry": "0x06010B1C",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x06010E96",
+      "original_entry": "0x06010BC2",
+      "normalized_entry": "0x06010DCC",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x06010EBE",
+      "original_entry": "0x06010BC2",
+      "normalized_entry": "0x06010EA2",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0601132C",
+      "original_entry": "0x06010F8E",
+      "normalized_entry": "0x06010ED6",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0601143E",
+      "original_entry": "0x06010F8E",
+      "normalized_entry": "0x060113F4",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x060114BC",
+      "original_entry": "0x06010F8E",
+      "normalized_entry": "0x06011472",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x060114FA",
+      "original_entry": "0x06010F8E",
+      "normalized_entry": "0x060114C2",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x06011520",
+      "original_entry": "0x06010F8E",
+      "normalized_entry": "0x06011500",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x060115A8",
+      "original_entry": "0x06011524",
+      "normalized_entry": "0x06011564",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x06011692",
+      "original_entry": "0x06011524",
+      "normalized_entry": "0x060115BE",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x060117DC",
+      "original_entry": "0x06011524",
+      "normalized_entry": "0x060116F2",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x06011998",
+      "original_entry": "0x0601187A",
+      "normalized_entry": "0x0601182A",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x06011A8C",
+      "original_entry": "0x0601187A",
+      "normalized_entry": "0x060119AA",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x06011B62",
+      "original_entry": "0x06011AAE",
+      "normalized_entry": "0x06011A9C",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x06011C14",
+      "original_entry": "0x06011AAE",
+      "normalized_entry": "0x06011BC4",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x06011C74",
+      "original_entry": "0x06011AAE",
+      "normalized_entry": "0x06011C20",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x06011D7C",
+      "original_entry": "0x06011D7A",
+      "normalized_entry": "0x06011CA6",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x060120B4",
+      "original_entry": "0x060120A2",
+      "normalized_entry": "0x06011D88",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x06012112",
+      "original_entry": "0x060120B8",
+      "normalized_entry": "0x060120C0",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0601221A",
+      "original_entry": "0x0601221A",
+      "normalized_entry": "0x0601213C",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x060122A6",
+      "original_entry": "0x0601221A",
+      "normalized_entry": "0x06012220",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x06012348",
+      "original_entry": "0x0601221A",
+      "normalized_entry": "0x060122AC",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x060123CC",
+      "original_entry": "0x0601221A",
+      "normalized_entry": "0x06012372",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x060123EA",
+      "original_entry": "0x0601221A",
+      "normalized_entry": "0x060123D2",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0601248C",
+      "original_entry": "0x0601221A",
+      "normalized_entry": "0x060123F4",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0601250A",
+      "original_entry": "0x0601221A",
+      "normalized_entry": "0x06012494",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x060125C4",
+      "original_entry": "0x0601221A",
+      "normalized_entry": "0x06012544",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0601262C",
+      "original_entry": "0x0601221A",
+      "normalized_entry": "0x060125D0",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x06012684",
+      "original_entry": "0x06012682",
+      "normalized_entry": "0x06012668",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x060126C8",
+      "original_entry": "0x06012682",
+      "normalized_entry": "0x0601268A",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x060126EA",
+      "original_entry": "0x06012682",
+      "normalized_entry": "0x060126CE",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0601272C",
+      "original_entry": "0x06012682",
+      "normalized_entry": "0x06012700",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0601278E",
+      "original_entry": "0x0601276E",
+      "normalized_entry": "0x06012732",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0601283E",
+      "original_entry": "0x0601276E",
+      "normalized_entry": "0x060127CC",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0601290A",
+      "original_entry": "0x0601285E",
+      "normalized_entry": "0x06012888",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x06012E1C",
+      "original_entry": "0x06012D90",
+      "normalized_entry": "0x06012D98",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x06012E7C",
+      "original_entry": "0x06012E48",
+      "normalized_entry": "0x06012E4E",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x06012ED2",
+      "original_entry": "0x06012E92",
+      "normalized_entry": "0x06012E94",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x06012F36",
+      "original_entry": "0x06012ED6",
+      "normalized_entry": "0x06012EDC",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x06013242",
+      "original_entry": "0x0601320E",
+      "normalized_entry": "0x06013048",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x060137C2",
+      "original_entry": "0x060136A6",
+      "normalized_entry": "0x06013258",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0601499C",
+      "original_entry": "0x06014810",
+      "normalized_entry": "0x0601481E",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x06014BD8",
+      "original_entry": "0x06014ABC",
+      "normalized_entry": "0x06014AC8",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x06014C2C",
+      "original_entry": "0x06014BDC",
+      "normalized_entry": "0x06014BEC",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x06014C9A",
+      "original_entry": "0x06014BDC",
+      "normalized_entry": "0x06014C6E",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x06015222",
+      "original_entry": "0x06015142",
+      "normalized_entry": "0x06014D18",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0601524C",
+      "original_entry": "0x0601522C",
+      "normalized_entry": "0x06014A78",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0601539C",
+      "original_entry": "0x06015304",
+      "normalized_entry": "0x06015334",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0601602A",
+      "original_entry": "0x060156C2",
+      "normalized_entry": "0x06015452",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x06016182",
+      "original_entry": "0x0601604E",
+      "normalized_entry": "0x0601603C",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x060164EE",
+      "original_entry": "0x06016258",
+      "normalized_entry": "0x06016268",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x060168DC",
+      "original_entry": "0x060166A2",
+      "normalized_entry": "0x060166B6",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x06016A4E",
+      "original_entry": "0x060169AE",
+      "normalized_entry": "0x060168F8",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0601700C",
+      "original_entry": "0x06016F2C",
+      "normalized_entry": "0x06016F40",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0601715A",
+      "original_entry": "0x06017010",
+      "normalized_entry": "0x06017038",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x06017434",
+      "original_entry": "0x060171B4",
+      "normalized_entry": "0x060173D2",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x060175A4",
+      "original_entry": "0x06017568",
+      "normalized_entry": "0x0601756C",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x060176DA",
+      "original_entry": "0x0601765A",
+      "normalized_entry": "0x060175B6",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x06017700",
+      "original_entry": "0x060176DE",
+      "normalized_entry": "0x060176E0",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x06017712",
+      "original_entry": "0x060176DE",
+      "normalized_entry": "0x060176E0",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0601771C",
+      "original_entry": "0x060176DE",
+      "normalized_entry": "0x060176E0",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x06017A80",
+      "original_entry": "0x060179A6",
+      "normalized_entry": "0x06017740",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x06017AD4",
+      "original_entry": "0x06017A84",
+      "normalized_entry": "0x06017A86",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x06017B4E",
+      "original_entry": "0x06017AD8",
+      "normalized_entry": "0x06017ADA",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x06017B7A",
+      "original_entry": "0x06017B52",
+      "normalized_entry": "0x06017B54",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x06017B9C",
+      "original_entry": "0x06017B52",
+      "normalized_entry": "0x06017B54",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x06017BD0",
+      "original_entry": "0x06017B52",
+      "normalized_entry": "0x06017B54",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x06039B80",
+      "original_entry": "0x06039B22",
+      "normalized_entry": "0x06039A88",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x06039C66",
+      "original_entry": "0x06039C2A",
+      "normalized_entry": "0x06039B8C",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x06039D36",
+      "original_entry": "0x06039D1A",
+      "normalized_entry": "0x06039C72",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x06039DA6",
+      "original_entry": "0x06039D1A",
+      "normalized_entry": "0x06039D44",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x06039EBA",
+      "original_entry": "0x06039E7A",
+      "normalized_entry": "0x06039DB8",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x06039F5A",
+      "original_entry": "0x06039F2E",
+      "normalized_entry": "0x06039EC8",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x06039FEA",
+      "original_entry": "0x06039F82",
+      "normalized_entry": "0x06039F64",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0603A062",
+      "original_entry": "0x0603A03E",
+      "normalized_entry": "0x06039FF8",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0603A0D2",
+      "original_entry": "0x0603A092",
+      "normalized_entry": "0x0603A070",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0603A13A",
+      "original_entry": "0x0603A092",
+      "normalized_entry": "0x0603A0D8",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0603A1E4",
+      "original_entry": "0x0603A1BA",
+      "normalized_entry": "0x0603A162",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0603A474",
+      "original_entry": "0x0603A41A",
+      "normalized_entry": "0x0603A394",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0603A4FE",
+      "original_entry": "0x0603A4F2",
+      "normalized_entry": "0x0603A4C0",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0603A542",
+      "original_entry": "0x0603A516",
+      "normalized_entry": "0x0603A504",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0603A5A2",
+      "original_entry": "0x0603A516",
+      "normalized_entry": "0x0603A548",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0603A7BE",
+      "original_entry": "0x0603A756",
+      "normalized_entry": "0x0603A5DC",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0603A7D4",
+      "original_entry": "0x0603A7C2",
+      "normalized_entry": "0x0603A9DE",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0603A83C",
+      "original_entry": "0x0603A7E2",
+      "normalized_entry": "0x0603A7DE",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0603A9B4",
+      "original_entry": "0x0603A996",
+      "normalized_entry": "0x0603A84C",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0603AA6E",
+      "original_entry": "0x0603AA0A",
+      "normalized_entry": "0x0603A9DE",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0603AABE",
+      "original_entry": "0x0603AA8E",
+      "normalized_entry": "0x0603AA7A",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x06065268",
+      "original_entry": "0x0606520C",
+      "normalized_entry": "0x0606520E",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0606E0B4",
+      "original_entry": "0x0606E008",
+      "normalized_entry": "0x0606E0A8",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0606F500",
+      "original_entry": "0x0606EED0",
+      "normalized_entry": "0x0606F4F4",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x06073A3C",
+      "original_entry": "0x060739A8",
+      "normalized_entry": "0x060739AC",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x06073DE8",
+      "original_entry": "0x06073C3C",
+      "normalized_entry": "0x06073C46",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x06074330",
+      "original_entry": "0x06073E14",
+      "normalized_entry": "0x06073E28",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x06074EAA",
+      "original_entry": "0x06074C06",
+      "normalized_entry": "0x0607439E",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0607557A",
+      "original_entry": "0x06075498",
+      "normalized_entry": "0x0607549C",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0607579A",
+      "original_entry": "0x06075634",
+      "normalized_entry": "0x0607569C",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x06075806",
+      "original_entry": "0x060757A4",
+      "normalized_entry": "0x060757AC",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x06075A98",
+      "original_entry": "0x06075824",
+      "normalized_entry": "0x06075832",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x06075B3E",
+      "original_entry": "0x06075AF0",
+      "normalized_entry": "0x06075AF8",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x060760FE",
+      "original_entry": "0x06075B94",
+      "normalized_entry": "0x06075BAA",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x060766D4",
+      "original_entry": "0x06076114",
+      "normalized_entry": "0x06076122",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x060767B0",
+      "original_entry": "0x060766D8",
+      "normalized_entry": "0x060766E0",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x06076D18",
+      "original_entry": "0x06076B02",
+      "normalized_entry": "0x060767CA",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x06076DEE",
+      "original_entry": "0x06076D2C",
+      "normalized_entry": "0x06076D30",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x06076F5A",
+      "original_entry": "0x06076E98",
+      "normalized_entry": "0x06076E9C",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x06077018",
+      "original_entry": "0x06076F74",
+      "normalized_entry": "0x06076F78",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x060771FC",
+      "original_entry": "0x060771BE",
+      "normalized_entry": "0x06077030",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x06077934",
+      "original_entry": "0x0607773A",
+      "normalized_entry": "0x06077732",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0607800E",
+      "original_entry": "0x06077FAC",
+      "normalized_entry": "0x06077FB0",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x060780F4",
+      "original_entry": "0x060780D2",
+      "normalized_entry": "0x06078058",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x06078264",
+      "original_entry": "0x0607817C",
+      "normalized_entry": "0x06078184",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x060783A2",
+      "original_entry": "0x06078358",
+      "normalized_entry": "0x0607835A",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x06078494",
+      "original_entry": "0x0607844C",
+      "normalized_entry": "0x0607840E",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x06078554",
+      "original_entry": "0x060784BA",
+      "normalized_entry": "0x060784BE",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x06078688",
+      "original_entry": "0x0607862C",
+      "normalized_entry": "0x0607862E",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x060786F6",
+      "original_entry": "0x06078690",
+      "normalized_entry": "0x06078692",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x06078792",
+      "original_entry": "0x0607877E",
+      "normalized_entry": "0x060786FE",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x060788C6",
+      "original_entry": "0x060787A4",
+      "normalized_entry": "0x060787B4",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x060789C2",
+      "original_entry": "0x060788D4",
+      "normalized_entry": "0x060788E6",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x06078B10",
+      "original_entry": "0x06078AB0",
+      "normalized_entry": "0x06078AB6",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x06078B3E",
+      "original_entry": "0x06078B18",
+      "normalized_entry": "0x06078B1C",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x06078B66",
+      "original_entry": "0x06078B42",
+      "normalized_entry": "0x06078B44",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x06078B78",
+      "original_entry": "0x06078B42",
+      "normalized_entry": "0x06078B44",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x06078B98",
+      "original_entry": "0x06078B42",
+      "normalized_entry": "0x06078B44",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x06078BB6",
+      "original_entry": "0x06078B42",
+      "normalized_entry": "0x06078B44",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x06078CF8",
+      "original_entry": "0x06078CE2",
+      "normalized_entry": "0x06078CE4",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x06078D1C",
+      "original_entry": "0x06078CE2",
+      "normalized_entry": "0x06078CE4",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x06078D3A",
+      "original_entry": "0x06078CE2",
+      "normalized_entry": "0x06078CE4",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x06078F2E",
+      "original_entry": "0x06078EAC",
+      "normalized_entry": "0x06078EB4",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x06078FAE",
+      "original_entry": "0x06078F50",
+      "normalized_entry": "0x06078F5A",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0607907A",
+      "original_entry": "0x06079002",
+      "normalized_entry": "0x06079010",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x060790A8",
+      "original_entry": "0x0607907E",
+      "normalized_entry": "0x06079084",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x06079192",
+      "original_entry": "0x0607917C",
+      "normalized_entry": "0x06079180",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x060791BC",
+      "original_entry": "0x0607917C",
+      "normalized_entry": "0x06079180",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x060791CC",
+      "original_entry": "0x0607917C",
+      "normalized_entry": "0x06079180",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x060792A0",
+      "original_entry": "0x060791D0",
+      "normalized_entry": "0x060791D8",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0607936A",
+      "original_entry": "0x060792B4",
+      "normalized_entry": "0x060792B8",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x060793CC",
+      "original_entry": "0x0607936E",
+      "normalized_entry": "0x06079372",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0607947A",
+      "original_entry": "0x060793E4",
+      "normalized_entry": "0x060793F0",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x06079512",
+      "original_entry": "0x06079484",
+      "normalized_entry": "0x0607948A",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x060795BE",
+      "original_entry": "0x0607958A",
+      "normalized_entry": "0x0607958C",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0607962A",
+      "original_entry": "0x0607961A",
+      "normalized_entry": "0x0607961C",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0607969E",
+      "original_entry": "0x06079660",
+      "normalized_entry": "0x06079668",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x060796A8",
+      "original_entry": "0x06079660",
+      "normalized_entry": "0x06079668",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x06079732",
+      "original_entry": "0x06079660",
+      "normalized_entry": "0x060796AE",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x06079888",
+      "original_entry": "0x06079788",
+      "normalized_entry": "0x0607978C",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x060798FE",
+      "original_entry": "0x06079788",
+      "normalized_entry": "0x060798BA",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x06079928",
+      "original_entry": "0x06079788",
+      "normalized_entry": "0x060798BA",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x06079950",
+      "original_entry": "0x06079788",
+      "normalized_entry": "0x060798BA",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0607996C",
+      "original_entry": "0x06079788",
+      "normalized_entry": "0x060798BA",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x06079AF6",
+      "original_entry": "0x06079A86",
+      "normalized_entry": "0x06079994",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0607A6D0",
+      "original_entry": "0x0607A65C",
+      "normalized_entry": "0x0607A668",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0607AC82",
+      "original_entry": "0x0607AA6C",
+      "normalized_entry": "0x0607AA78",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0607B234",
+      "original_entry": "0x0607AA6C",
+      "normalized_entry": "0x0607AC94",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0607B456",
+      "original_entry": "0x0607B416",
+      "normalized_entry": "0x0607B41C",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0607CC54",
+      "original_entry": "0x0607CC3A",
+      "normalized_entry": "0x0607CC3C",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0607CC8E",
+      "original_entry": "0x0607CC3A",
+      "normalized_entry": "0x0607CC3C",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0607CD10",
+      "original_entry": "0x0607CC92",
+      "normalized_entry": "0x0607CCA0",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0607CEB2",
+      "original_entry": "0x0607CE1C",
+      "normalized_entry": "0x0607CE1E",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0607CF2E",
+      "original_entry": "0x0607CEE8",
+      "normalized_entry": "0x0607CEEA",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0607D00A",
+      "original_entry": "0x0607CFA8",
+      "normalized_entry": "0x0607CFAE",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0607D070",
+      "original_entry": "0x0607D018",
+      "normalized_entry": "0x0607D02A",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0607D1B6",
+      "original_entry": "0x0607D14C",
+      "normalized_entry": "0x0607D158",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0607D25C",
+      "original_entry": "0x0607D1BA",
+      "normalized_entry": "0x0607D1CC",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0607D358",
+      "original_entry": "0x0607D288",
+      "normalized_entry": "0x0607D294",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0607D374",
+      "original_entry": "0x0607D35C",
+      "normalized_entry": "0x0607D360",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0607D390",
+      "original_entry": "0x0607D378",
+      "normalized_entry": "0x0607D37C",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0607D3B6",
+      "original_entry": "0x0607D398",
+      "normalized_entry": "0x0607D39C",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0607D3CE",
+      "original_entry": "0x0607D398",
+      "normalized_entry": "0x0607D39C",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0607D3D8",
+      "original_entry": "0x0607D398",
+      "normalized_entry": "0x0607D39C",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0607D3FA",
+      "original_entry": "0x0607D3DC",
+      "normalized_entry": "0x0607D3E0",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0607D412",
+      "original_entry": "0x0607D3DC",
+      "normalized_entry": "0x0607D3E0",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0607D41C",
+      "original_entry": "0x0607D3DC",
+      "normalized_entry": "0x0607D3E0",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0607D438",
+      "original_entry": "0x0607D420",
+      "normalized_entry": "0x0607D424",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0607D4B0",
+      "original_entry": "0x0607D43C",
+      "normalized_entry": "0x0607D442",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0607D7D6",
+      "original_entry": "0x0607D4B4",
+      "normalized_entry": "0x0607D4C8",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0607D8D2",
+      "original_entry": "0x0607D8A0",
+      "normalized_entry": "0x0607D8AC",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0607DA5E",
+      "original_entry": "0x0607D9E0",
+      "normalized_entry": "0x0607D9E6",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0607DAD2",
+      "original_entry": "0x0607DACA",
+      "normalized_entry": "0x0607DA68",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0607DBCA",
+      "original_entry": "0x0607DAD6",
+      "normalized_entry": "0x0607DAE8",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0607DC48",
+      "original_entry": "0x0607DBD4",
+      "normalized_entry": "0x0607DBDC",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0607DC90",
+      "original_entry": "0x0607DC4C",
+      "normalized_entry": "0x0607DC54",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0607E058",
+      "original_entry": "0x0607DF7A",
+      "normalized_entry": "0x0607DF84",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0607E1D0",
+      "original_entry": "0x0607E190",
+      "normalized_entry": "0x0607E194",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0607E1DA",
+      "original_entry": "0x0607E190",
+      "normalized_entry": "0x0607E194",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0607E1E4",
+      "original_entry": "0x0607E190",
+      "normalized_entry": "0x0607E194",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0607E1EE",
+      "original_entry": "0x0607E190",
+      "normalized_entry": "0x0607E194",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0607E1F8",
+      "original_entry": "0x0607E190",
+      "normalized_entry": "0x0607E194",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0607E202",
+      "original_entry": "0x0607E190",
+      "normalized_entry": "0x0607E194",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0607E322",
+      "original_entry": "0x0607E234",
+      "normalized_entry": "0x0607E248",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0607E34E",
+      "original_entry": "0x0607E326",
+      "normalized_entry": "0x0607E32C",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0607E514",
+      "original_entry": "0x0607E35C",
+      "normalized_entry": "0x0607E3E0",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0607E586",
+      "original_entry": "0x0607E35C",
+      "normalized_entry": "0x0607E51C",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0607E834",
+      "original_entry": "0x0607E80E",
+      "normalized_entry": "0x0607E810",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0607E840",
+      "original_entry": "0x0607E80E",
+      "normalized_entry": "0x0607E810",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0607E84C",
+      "original_entry": "0x0607E80E",
+      "normalized_entry": "0x0607E810",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0607E858",
+      "original_entry": "0x0607E80E",
+      "normalized_entry": "0x0607E810",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0607E864",
+      "original_entry": "0x0607E80E",
+      "normalized_entry": "0x0607E810",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0607E88C",
+      "original_entry": "0x0607E80E",
+      "normalized_entry": "0x0607E810",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0607E9D0",
+      "original_entry": "0x0607E894",
+      "normalized_entry": "0x0607E8AE",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0607EAC4",
+      "original_entry": "0x0607E9DC",
+      "normalized_entry": "0x0607E9E0",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0607EB8C",
+      "original_entry": "0x0607EAE0",
+      "normalized_entry": "0x0607EAE8",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0607ED00",
+      "original_entry": "0x0607EC0C",
+      "normalized_entry": "0x0607EC1C",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0607EDDE",
+      "original_entry": "0x0607EC0C",
+      "normalized_entry": "0x0607ED14",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0607EE02",
+      "original_entry": "0x0607EC0C",
+      "normalized_entry": "0x0607EDE2",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0607EE22",
+      "original_entry": "0x0607EC0C",
+      "normalized_entry": "0x0607EDE2",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0607EE2C",
+      "original_entry": "0x0607EC0C",
+      "normalized_entry": "0x0607EDE2",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0607EE64",
+      "original_entry": "0x0607EC0C",
+      "normalized_entry": "0x0607EE38",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0607EE9C",
+      "original_entry": "0x0607EE82",
+      "normalized_entry": "0x0607EE84",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0607EEB0",
+      "original_entry": "0x0607EE82",
+      "normalized_entry": "0x0607EE84",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0607EEBA",
+      "original_entry": "0x0607EE82",
+      "normalized_entry": "0x0607EE84",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0607F16A",
+      "original_entry": "0x0607EF18",
+      "normalized_entry": "0x0607EF2A",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0607F218",
+      "original_entry": "0x0607F204",
+      "normalized_entry": "0x0607F208",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0607F22A",
+      "original_entry": "0x0607F204",
+      "normalized_entry": "0x0607F208",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0607F24A",
+      "original_entry": "0x0607F204",
+      "normalized_entry": "0x0607F208",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0607F258",
+      "original_entry": "0x0607F204",
+      "normalized_entry": "0x0607F208",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0607F27C",
+      "original_entry": "0x0607F204",
+      "normalized_entry": "0x0607F208",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0607F3CA",
+      "original_entry": "0x0607F33C",
+      "normalized_entry": "0x0607F342",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0607F6DA",
+      "original_entry": "0x0607F664",
+      "normalized_entry": "0x0607F66A",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0607F6F2",
+      "original_entry": "0x0607F664",
+      "normalized_entry": "0x0607F6DE",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0607F708",
+      "original_entry": "0x0607F664",
+      "normalized_entry": "0x0607F6DE",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0607F71E",
+      "original_entry": "0x0607F664",
+      "normalized_entry": "0x0607F6DE",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0607F748",
+      "original_entry": "0x0607F664",
+      "normalized_entry": "0x0607F6DE",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0607F8F0",
+      "original_entry": "0x0607F8A8",
+      "normalized_entry": "0x0607F8AA",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0607F930",
+      "original_entry": "0x0607F8A8",
+      "normalized_entry": "0x0607F8AA",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0607F948",
+      "original_entry": "0x0607F8A8",
+      "normalized_entry": "0x0607F8AA",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0607F99C",
+      "original_entry": "0x0607F8A8",
+      "normalized_entry": "0x0607F8AA",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0607FB8E",
+      "original_entry": "0x0607FAA0",
+      "normalized_entry": "0x0607FAB0",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0607FC9C",
+      "original_entry": "0x0607FC6E",
+      "normalized_entry": "0x0607FC70",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0607FE2A",
+      "original_entry": "0x0607FCA0",
+      "normalized_entry": "0x0607FCAE",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0607FE94",
+      "original_entry": "0x0607FE38",
+      "normalized_entry": "0x0607FE3A",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0607FFE2",
+      "original_entry": "0x0607FEA4",
+      "normalized_entry": "0x0607FEAC",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0608002A",
+      "original_entry": "0x0607FFF4",
+      "normalized_entry": "0x0607FFF6",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x06080066",
+      "original_entry": "0x0607FFF4",
+      "normalized_entry": "0x0607FFF6",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x06080070",
+      "original_entry": "0x0607FFF4",
+      "normalized_entry": "0x0607FFF6",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x06080196",
+      "original_entry": "0x06080084",
+      "normalized_entry": "0x0608008C",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x060802CC",
+      "original_entry": "0x060801AC",
+      "normalized_entry": "0x060801B0",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x060804B6",
+      "original_entry": "0x060802DC",
+      "normalized_entry": "0x060802EA",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x06080650",
+      "original_entry": "0x060804BA",
+      "normalized_entry": "0x060804C8",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0608077A",
+      "original_entry": "0x06080738",
+      "normalized_entry": "0x06080744",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x060809CC",
+      "original_entry": "0x06080900",
+      "normalized_entry": "0x06080908",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0608145A",
+      "original_entry": "0x06081420",
+      "normalized_entry": "0x06081424",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x06081678",
+      "original_entry": "0x06081614",
+      "normalized_entry": "0x06081618",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x060817E8",
+      "original_entry": "0x06081744",
+      "normalized_entry": "0x06081794",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x060818BC",
+      "original_entry": "0x060818AE",
+      "normalized_entry": "0x060818B0",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    },
+    {
+      "site_id": "0TH2.BIN_0x0608192C",
+      "original_entry": "0x060818FC",
+      "normalized_entry": "0x060818C6",
+      "module": "0TH2.BIN",
+      "reason": "Normalized artificial internal boundary to proven function prologue."
+    }
+  ]
+}
